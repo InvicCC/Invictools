@@ -88,7 +88,14 @@ added final kill tracking, reorganized classes, added more cosmetics.
 6/19/2022
 Fixed new lobby inventory bug, fixed spectator mode using whether lobby exists, adjusted boss lucky blocks, added DareDevil + dd items
 made inventory save when moved around automatically. added leaderboard for every stat. prevented lobby mob despawning. previously added command panels in plugin
-TODO: UTIL: Make fireballs give kill credit. bedwarsteamjoinevent to make better team joiner fix everything that uses grabTeammates to use full team list from api (nearby damage) , via version checks to notify players / fix slow falling.
+TODO: bedfight leaderboard / full statistics tracking,
+  scenario selector that works for normal players when no mod / opped players are in game but special players always,
+   via version checks to notify players / fix slow falling,
+   game size changer avliable to all players when no games are running (because it runs /bw reload to work) but toggeable with command,
+   second option in game join npc for normal players to select any map ,
+   rewrite every command to be grouped by what they are or just individual if used by normal players a lot. ex /lbpos instead of /it leaderboard position
+   do not replace commands just write new ones that utilize the same code so manhunt configuration files and related still work but typing is cleaner
+
  */
 public final class Invictools extends JavaPlugin
 {
