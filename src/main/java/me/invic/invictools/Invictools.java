@@ -18,10 +18,10 @@ import me.invic.invictools.gamemodifiers.PotionEffects.TeamworkEffect;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailListener;
 import me.invic.invictools.util.*;
 import me.invic.invictools.util.fixes.*;
-// import me.invic.invictools.util.npc.DetectClickOnNPC;
-// import me.invic.invictools.util.npc.DetectClickOnPlugNPC;
-// import me.invic.invictools.util.npc.SpawnNPC;
-// import me.invic.invictools.util.npc.SpawnPlugNPC;
+//import me.invic.invictools.util.npc.DetectClickOnNPC;
+//import me.invic.invictools.util.npc.DetectClickOnPlugNPC;
+//import me.invic.invictools.util.npc.SpawnNPC;
+//import me.invic.invictools.util.npc.SpawnPlugNPC;
 import me.invic.invictools.util.npc.BlazeNpc;
 import me.invic.invictools.util.physics.CancelConcreteChange;
 import me.invic.invictools.util.physics.CancelLampUpdates;
@@ -43,6 +43,7 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 
 /*
         new BukkitRunnable()
@@ -96,149 +97,128 @@ TODO: bedfight leaderboard / full statistics tracking,
    do not replace commands just write new ones that utilize the same code so manhunt configuration files and related still work but typing is cleaner
 
  */
-public final class Invictools extends JavaPlugin {
-  List<String> worlds = new ArrayList<>();
-  List<String> games = new ArrayList<>();
-  List<String> Configs = new ArrayList<>();
+public final class Invictools extends JavaPlugin
+{
+    List<String> worlds = new ArrayList<>();
+    List<String> games = new ArrayList<>();
+    List<String> Configs = new ArrayList<>();
 
-  @Override
-  public void onEnable() {
-    this.saveDefaultConfig();
-    FileConfiguration fileConfiguration = this.getConfig();
-    Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
-    File Folder = new File(plugin.getDataFolder(), "Maps");
-    File[] yamlFiles = Folder.listFiles();
-    for (File file : yamlFiles) {
-      FileConfiguration map = YamlConfiguration.loadConfiguration(file);
-      worlds.add(map.getString("World"));
-      String[] mapName = file.getName().split("\\.");
-      Configs.add(mapName[0] + "_" + map.getString("Conversion"));
-      games.add(mapName[0]);
-    }
-    List<String> blackListedWorlds = fileConfiguration.getStringList("blacklistedWorlds");
-    double y = fileConfiguration.getDouble("ylevel");
-    boolean UsePlugNPC = fileConfiguration.getBoolean("UsePlugNPC");
+    @Override
+    public void onEnable()
+    {
+        this.saveDefaultConfig();
+        FileConfiguration fileConfiguration = this.getConfig();
+        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
+        File Folder = new File(plugin.getDataFolder(), "Maps");
+        File[] yamlFiles = Folder.listFiles();
+        for (File file:yamlFiles)
+        {
+            FileConfiguration map = YamlConfiguration.loadConfiguration(file);
+            worlds.add(map.getString("World"));
+            String[] mapName = file.getName().split("\\.");
+            Configs.add(mapName[0]+"_"+map.getString("Conversion"));
+            games.add(mapName[0]);
+        }
+        List<String> blackListedWorlds = fileConfiguration.getStringList("blacklistedWorlds");
+        double y = fileConfiguration.getDouble("ylevel");
+        boolean UsePlugNPC = fileConfiguration.getBoolean("UsePlugNPC");
 
-    // perms
-    Bukkit.getPluginManager().addPermission(new Permission("nospectp.allowteleport"));
-    Bukkit.getPluginManager().addPermission(new Permission("invic.invictools"));
-    Bukkit.getPluginManager().addPermission(new Permission("invic.firestick"));
+        // perms
+        Bukkit.getPluginManager().addPermission(new Permission("nospectp.allowteleport"));
+        Bukkit.getPluginManager().addPermission(new Permission("invic.invictools"));
+        Bukkit.getPluginManager().addPermission(new Permission("invic.firestick"));
 
-    // proper
-    Bukkit.getPluginManager()
-        .registerEvents(new disableSpectatorTeleport(), this); // teleport event
-    Bukkit.getPluginManager()
-        .registerEvents(
-            new BedBreaks(),
-            this); // bed break cosmetics and lucky block on bedbreaks; block destroy
-    Bukkit.getPluginManager().registerEvents(new ExplosionsListener(), this); // explosion event
-    Bukkit.getPluginManager().registerEvents(new ItemListener(), this); // right click event
-    Bukkit.getPluginManager().registerEvents(new Totem(), this); // on player damage
-    Bukkit.getPluginManager()
-        .registerEvents(new CancelLampUpdates(), this); // cancels redstone lamps updating properly
-    Bukkit.getPluginManager()
-        .registerEvents(
-            new PreventElytraClick(),
-            this); // Disables clicking Chestplate slot when ProximityElytra is active
-    Bukkit.getPluginManager()
-        .registerEvents(new LobbyLogic(), this); // first player joins lobby and when game starts
-    Bukkit.getPluginManager().registerEvents(new CancelConcreteChange(), this); // BlockFormEvent
-    Bukkit.getPluginManager().registerEvents(new RiptideDamage(), this); // RiptideEvent
-    Bukkit.getPluginManager()
-        .registerEvents(
-            new TeamworkEffect(),
-            this); // Teamwork specific game end clearing and bedwars death event
-    Bukkit.getPluginManager().registerEvents(new ModBow(), this); // Entity Shoot Bow
-    Bukkit.getPluginManager()
-        .registerEvents(new disableDrops(), this); // Player drop, bedwars game end
-    Bukkit.getPluginManager()
-        .registerEvents(new OlympusFires(), this); // Bedwars bed break, bedwars start
-    Bukkit.getPluginManager()
-        .registerEvents(new SculkFires(), this); // Bedwars bed break, bedwars start
-    Bukkit.getPluginManager()
-        .registerEvents(new FinalKillListener(), this); // Bedwars bed break, bedwars start
-    Bukkit.getPluginManager()
-        .registerEvents(new InvisFix(), this); // Entioty damage event maybe fix invis?
-    Bukkit.getPluginManager()
-        .registerEvents(new ProjTrailListener(), this); // Toggle glide, arrow shot
-    Bukkit.getPluginManager().registerEvents(new lobbyDestroyFix(), this); // block break
-    Bukkit.getPluginManager().registerEvents(new WorldChangeFix(), this); // portal usage
-    Bukkit.getPluginManager()
-        .registerEvents(new FireworkDamageFix(), this); // entity damage by dentity
-    Bukkit.getPluginManager().registerEvents(new ArmorStandFix(), this); // armor stand manipulate
-    Bukkit.getPluginManager().registerEvents(new SculkGameStart(), this); // sculk warden spawner
-    Bukkit.getPluginManager().registerEvents(new panels(), this); // inventory click
-    Bukkit.getPluginManager().registerEvents(new BlazeNpc(), this); // enity interact HAS NO SHOP
-    Bukkit.getPluginManager().registerEvents(new dareListener(), this); // horse jump
-    Bukkit.getPluginManager().registerEvents(new LobbyInventoryFix(), this); // world change
-    Bukkit.getPluginManager().registerEvents(new leaderboardCycle(), this); // entity click
-    Bukkit.getPluginManager().registerEvents(new VictoryDanceListener(), this); // bw player killed
-    Bukkit.getPluginManager().registerEvents(new LobbyListener(), this); // join and world change
-    Bukkit.getPluginManager().registerEvents(new TeamSelection(), this); // bwjoin invnetory click
-    Bukkit.getPluginManager().registerEvents(new disableStats(), this); // bw stats bw start
-    Bukkit.getPluginManager().registerEvents(new bedfight(), this); // bedfight gamemode
+        // proper
+        Bukkit.getPluginManager().registerEvents(new disableSpectatorTeleport(), this); // teleport event
+        Bukkit.getPluginManager().registerEvents(new BedBreaks(), this); // bed break cosmetics and lucky block on bedbreaks; block destroy
+        Bukkit.getPluginManager().registerEvents(new ExplosionsListener(), this); // explosion event
+        Bukkit.getPluginManager().registerEvents(new ItemListener(), this); // right click event
+        Bukkit.getPluginManager().registerEvents(new Totem(), this); //on player damage
+        Bukkit.getPluginManager().registerEvents(new CancelLampUpdates(), this); // cancels redstone lamps updating properly
+        Bukkit.getPluginManager().registerEvents(new PreventElytraClick(), this); // Disables clicking Chestplate slot when ProximityElytra is active
+        Bukkit.getPluginManager().registerEvents(new LobbyLogic(), this); // first player joins lobby and when game starts
+        Bukkit.getPluginManager().registerEvents(new CancelConcreteChange(), this); // BlockFormEvent
+        Bukkit.getPluginManager().registerEvents(new RiptideDamage(), this); // RiptideEvent
+        Bukkit.getPluginManager().registerEvents(new TeamworkEffect(), this); // Teamwork specific game end clearing and bedwars death event
+        Bukkit.getPluginManager().registerEvents(new ModBow(), this); // Entity Shoot Bow
+        Bukkit.getPluginManager().registerEvents(new disableDrops(), this); // Player drop, bedwars game end
+        Bukkit.getPluginManager().registerEvents(new OlympusFires(), this); // Bedwars bed break, bedwars start
+        Bukkit.getPluginManager().registerEvents(new SculkFires(), this); // Bedwars bed break, bedwars start
+        Bukkit.getPluginManager().registerEvents(new FinalKillListener(), this); // Bedwars bed break, bedwars start
+        Bukkit.getPluginManager().registerEvents(new InvisFix(), this); //Entioty damage event maybe fix invis?
+        Bukkit.getPluginManager().registerEvents(new ProjTrailListener(), this); //Toggle glide, arrow shot
+        Bukkit.getPluginManager().registerEvents(new lobbyDestroyFix(), this); //block break
+        Bukkit.getPluginManager().registerEvents(new WorldChangeFix(), this); //portal usage
+        Bukkit.getPluginManager().registerEvents(new FireworkDamageFix(), this); //entity damage by dentity
+        Bukkit.getPluginManager().registerEvents(new ArmorStandFix(), this); //armor stand manipulate
+        Bukkit.getPluginManager().registerEvents(new SculkGameStart(), this); //sculk warden spawner
+        Bukkit.getPluginManager().registerEvents(new panels(), this); //inventory click
+        Bukkit.getPluginManager().registerEvents(new BlazeNpc(), this); //enity interact HAS NO SHOP
+        Bukkit.getPluginManager().registerEvents(new dareListener(), this); //horse jump
+        Bukkit.getPluginManager().registerEvents(new LobbyInventoryFix(), this); //world change
+        Bukkit.getPluginManager().registerEvents(new leaderboardCycle(), this); //entity click
+        Bukkit.getPluginManager().registerEvents(new VictoryDanceListener(), this); //bw player killed
+        Bukkit.getPluginManager().registerEvents(new LobbyListener(), this); //join and world change
+        Bukkit.getPluginManager().registerEvents(new TeamSelection(), this); //bwjoin invnetory click
+        Bukkit.getPluginManager().registerEvents(new disableStats(), this); //bw stats bw start
+        Bukkit.getPluginManager().registerEvents(new bedfight(), this); //bedfight gamemode
 
-    // nearly proper
-    Bukkit.getPluginManager()
-        .registerEvents(
-            new luckyBlockBreakDetection(), this); // lucky block place and break detection
-    // Bukkit.getPluginManager().registerEvents(new keepitems(), this); // move event is disabled,
-    // cancels firework bedbreak damage used to be here.
+        // nearly proper
+        Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection
+        //Bukkit.getPluginManager().registerEvents(new keepitems(), this); // move event is disabled, cancels firework bedbreak damage used to be here.
 
-    // death
-    Bukkit.getPluginManager().registerEvents(new FixSpectatoring(), this); // death event
-    Bukkit.getPluginManager().registerEvents(new KillEffectListener(), this); // death event
-    Bukkit.getPluginManager()
-        .registerEvents(new DeathCounter(), this); // bw death and end game event
+        // death
+        Bukkit.getPluginManager().registerEvents(new FixSpectatoring(), this); // death event
+        Bukkit.getPluginManager().registerEvents(new KillEffectListener(), this); // death event
+        Bukkit.getPluginManager().registerEvents(new DeathCounter(), this); // bw death and end game event
 
-    // changed world & join server
-    //  Bukkit.getPluginManager().registerEvents(new SpawnNPC(), this); // changed world and join
-    //  if(UsePlugNPC)
-    //      Bukkit.getPluginManager().registerEvents(new SpawnPlugNPC(), this); // changed world and
-    // join
-    Bukkit.getPluginManager().registerEvents(new ConfigHandler(this), this); // join event
-    Bukkit.getPluginManager().registerEvents(new AbtributesOnDeath(), this); // join event
-    Bukkit.getPluginManager().registerEvents(new MasterPlayerJoin(), this); // changed world event
+        // changed world & join server
+      //  Bukkit.getPluginManager().registerEvents(new SpawnNPC(), this); // changed world and join
+      //  if(UsePlugNPC)
+      //      Bukkit.getPluginManager().registerEvents(new SpawnPlugNPC(), this); // changed world and join
+        Bukkit.getPluginManager().registerEvents(new ConfigHandler(this), this); // join event
+        Bukkit.getPluginManager().registerEvents(new AbtributesOnDeath(), this); // join event
+        Bukkit.getPluginManager().registerEvents(new MasterPlayerJoin(), this); // changed world event
 
-    // HAS LOTS OF GAME ENDING RESETS
-    Bukkit.getPluginManager()
-        .registerEvents(
-            new deathListener(),
-            this); // bw death, lucky blocks on death, clear data on bedwars games end, falling
-                   // blocks lb grabber, bounce fall damage cancel
+        // HAS LOTS OF GAME ENDING RESETS
+        Bukkit.getPluginManager().registerEvents(new deathListener(), this); // bw death, lucky blocks on death, clear data on bedwars games end, falling blocks lb grabber, bounce fall damage cancel
 
-    // commands
-    this.getCommand("invictools").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
-    this.getCommand("it").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
+        // commands
+        this.getCommand("invictools").setExecutor(new Commands(worlds, y, blackListedWorlds,games));
+        this.getCommand("it").setExecutor(new Commands(worlds, y, blackListedWorlds,games));
 
-    // to run after server loads
-    BukkitRunnable runnable =
-        new BukkitRunnable() {
-          @Override
-          public void run() {
-            deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
-            new voider(worlds, y);
-            new panels().loadPanels();
-            // new SpawnNPC();
-            // new DetectClickOnNPC();
-            new BlazeNpc().spawnNPC("npc", true);
-            new leaderboard().loadLeaderboard("Star");
-            new leaderboardHologram().createLeaderboard();
-            if (UsePlugNPC) {
-              // new SpawnPlugNPC();
-              // new DetectClickOnPlugNPC();
-              new BlazeNpc().spawnNPC("npc2", false);
+        // to run after server loads
+        BukkitRunnable runnable = new BukkitRunnable()
+        {
+            @Override
+            public void run()
+            {
+                deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
+                new voider(worlds, y);
+                new panels().loadPanels();
+               // new SpawnNPC();
+               // new DetectClickOnNPC();
+                new BlazeNpc().spawnNPC("npc",true);
+                new leaderboard().loadLeaderboard("Star");
+                new leaderboardHologram().createLeaderboard();
+                if(UsePlugNPC)
+                {
+                    //new SpawnPlugNPC();
+                    //new DetectClickOnPlugNPC();
+                    new BlazeNpc().spawnNPC("npc2",false);
+                }
+                for (String config:Configs)
+                {
+                    ChangeTeamSize.createLists(config);
+                }
             }
-            for (String config : Configs) {
-              ChangeTeamSize.createLists(config);
-            }
-          }
         };
-    runnable.runTaskLater(this, 1L);
-  }
+        runnable.runTaskLater(this, 1L);
+    }
 
-  @Override
-  public void onDisable() {
-    deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
-  }
+    @Override
+    public void onDisable()
+    {
+        deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
+    }
 }
