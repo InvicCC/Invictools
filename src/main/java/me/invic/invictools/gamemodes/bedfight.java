@@ -142,9 +142,9 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                     Location cardinal = block.getRelative(face).getLocation().add(directionAddition(face).multiply(spacing));
                     if(cardinal.getBlock().getType().equals(Material.AIR))
                     {
-                        cardinal.getBlock().setType(Material.valueOf(finalLayer));
                         if(api.getGameByName(game).getStatus().equals(GameStatus.RUNNING))
                         {
+                            cardinal.getBlock().setType(Material.valueOf(finalLayer));
                             if(face.getOppositeFace().equals(findBedFace(loc)) && spacing > 0) // true if opposite other half of bed
                             {
                                 for (int i = 0;i<spacing;i++) // for every gap
@@ -153,6 +153,8 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                                     directions.remove(face);
                                     directions.remove(BlockFace.UP);
                                     Location temp = cardinal.clone().subtract(face.getOppositeFace().getDirection()); // subtracts 1 towards other bed half
+                                    cardinal.clone().subtract(temp.clone().subtract(directions.get(0).getDirection().multiply(spacing))).getBlock().setType(Material.valueOf(finalLayer));
+                                    cardinal.clone().subtract(temp.clone().subtract(directions.get(1).getDirection().multiply(spacing))).getBlock().setType(Material.valueOf(finalLayer));
                                     new ModBow().addLater(cardinal.clone().subtract(temp.clone().subtract(directions.get(0).getDirection().multiply(spacing))).getBlock(),api.getGameByName(game));
                                     new ModBow().addLater(cardinal.clone().subtract(temp.clone().subtract(directions.get(1).getDirection().multiply(spacing))).getBlock(),api.getGameByName(game));
                                     // clones temp and grabs location one to the right and one to the left of temp
