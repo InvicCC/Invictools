@@ -35,7 +35,7 @@ public class ExplosionsListener implements Listener
     @EventHandler
     public void boom(EntityDamageByEntityEvent e)
     {
-        if(e.getCause().equals(EntityDamageEvent.DamageCause.ENTITY_EXPLOSION) && e.getDamager().getName().equalsIgnoreCase("fireball"))
+        if (e.getCause().equals(EntityDamageEvent.DamageCause.ENTITY_EXPLOSION) && e.getDamager().getName().equalsIgnoreCase("fireball"))
         {
             e.setDamage(2);
             Location Affected = e.getEntity().getLocation();
@@ -45,29 +45,29 @@ public class ExplosionsListener implements Listener
             double distance = Affected.distance(ExplosionSource);
             if (distance <= range)
             {
-                double multiplier = ((range/distance)+1)*xzmultiplier;
-                if(multiplier<1)
+                double multiplier = ((range / distance) + 1) * xzmultiplier;
+                if (multiplier < 1)
                     multiplier = 1;
-                double Ysubtracter = 1+((range/distance)*ymultiplier);
-                if(Ysubtracter<1)
+                double Ysubtracter = 1 + ((range / distance) * ymultiplier);
+                if (Ysubtracter < 1)
                     Ysubtracter = 1;
 
-                if(!op) // allows fireballs to become really op but otherwise fixes close range height issues
-                    if(Ysubtracter > 2.5)
+                if (!op) // allows fireballs to become really op but otherwise fixes close range height issues
+                    if (Ysubtracter > 2.5)
                         Ysubtracter = 2.5;
 
                 double finalMultiplier = multiplier;
                 double finalYsubtracter1 = Ysubtracter;
 
-                if(e.getDamager().hasMetadata("sender") && e.getEntity().getType().equals(EntityType.PLAYER))
+                if (e.getDamager().hasMetadata("sender") && e.getEntity().getType().equals(EntityType.PLAYER))
                 {
                     Player p = (Player) e.getEntity();
 
                     double damage = (4.0 - distance);
-                    if(damage<0)
+                    if (damage < 0)
                         damage = .5;
 
-                    p.setHealth(p.getHealth()-damage);
+                    p.setHealth(p.getHealth() - damage);
                     Bukkit.getPluginManager().callEvent(new EntityDamageEvent(p, EntityDamageEvent.DamageCause.ENTITY_EXPLOSION, damage));
                 }
 
@@ -76,8 +76,8 @@ public class ExplosionsListener implements Listener
                     @Override
                     public void run()
                     {
-                       // System.out.println("orioginal x " + (x[0]));
-                       // System.out.println("roginal z " + (z[0]));
+                        // System.out.println("orioginal x " + (x[0]));
+                        // System.out.println("roginal z " + (z[0]));
 
                         if (x[0] < -.4)
                             x[0] = finalMultiplier - x[0];
@@ -92,16 +92,16 @@ public class ExplosionsListener implements Listener
                         x[0] = x[0] * -1;
                         z[0] = z[0] * -1;
 
-                        if(e.getEntity().getWorld().getName().equals("bwlobby"))
-                            e.getEntity().setVelocity(new Vector(x[0]/3, finalYsubtracter1/1.5, z[0]/3));
+                        if (e.getEntity().getWorld().getName().equals("bwlobby"))
+                            e.getEntity().setVelocity(new Vector(x[0] / 3, finalYsubtracter1 / 1.5, z[0] / 3));
                         else
-                            e.getEntity().setVelocity(new Vector(x[0]/5, finalYsubtracter1/2, z[0]/5));
+                            e.getEntity().setVelocity(new Vector(x[0] / 5, finalYsubtracter1 / 2, z[0] / 5));
                     }
                 };
                 runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1);
             }
         }
-        else if(e.getCause().equals(EntityDamageEvent.DamageCause.ENTITY_EXPLOSION) && e.getDamager().getName().equalsIgnoreCase("primed tnt"))
+        else if (e.getCause().equals(EntityDamageEvent.DamageCause.ENTITY_EXPLOSION) && e.getDamager().getName().equalsIgnoreCase("primed tnt"))
         {
             Location Affected = e.getEntity().getLocation();
             Location ExplosionSource = e.getDamager().getLocation();
@@ -110,15 +110,15 @@ public class ExplosionsListener implements Listener
             double distance = Affected.distance(ExplosionSource);
             if (distance <= range)
             {
-                double multiplier = ((range/distance)+1)*xzmultiplier;
-                if(multiplier<1)
+                double multiplier = ((range / distance) + 1) * xzmultiplier;
+                if (multiplier < 1)
                     multiplier = 1;
-                double Ysubtracter = 1+((range/distance)*ymultiplier);
-                if(Ysubtracter<1)
+                double Ysubtracter = 1 + ((range / distance) * ymultiplier);
+                if (Ysubtracter < 1)
                     Ysubtracter = 1;
 
-                if(!op) // allows fireballs to become really op but otherwise fixes close range height issues
-                    if(Ysubtracter > 3.5)
+                if (!op) // allows fireballs to become really op but otherwise fixes close range height issues
+                    if (Ysubtracter > 3.5)
                         Ysubtracter = 3.5;
 
                 double finalMultiplier = multiplier;
@@ -128,8 +128,8 @@ public class ExplosionsListener implements Listener
                     @Override
                     public void run()
                     {
-                  //      System.out.println("orioginal x " + (x[0]));
-                   //     System.out.println("roginal z " + (z[0]));
+                        //      System.out.println("orioginal x " + (x[0]));
+                        //     System.out.println("roginal z " + (z[0]));
 
                         if (x[0] < -.4)
                             x[0] = finalMultiplier - x[0];
@@ -144,10 +144,10 @@ public class ExplosionsListener implements Listener
                         x[0] = x[0] * -1;
                         z[0] = z[0] * -1;
 
-                        if(e.getEntity().getWorld().getName().equals("bwlobby"))
-                            e.getEntity().setVelocity(new Vector(x[0]/3, finalYsubtracter1/2, z[0]/3));
+                        if (e.getEntity().getWorld().getName().equals("bwlobby"))
+                            e.getEntity().setVelocity(new Vector(x[0] / 3, finalYsubtracter1 / 2, z[0] / 3));
                         else
-                            e.getEntity().setVelocity(new Vector(x[0]/5, finalYsubtracter1/2, z[0]/5));
+                            e.getEntity().setVelocity(new Vector(x[0] / 5, finalYsubtracter1 / 2, z[0] / 5));
                     }
                 };
                 runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1);

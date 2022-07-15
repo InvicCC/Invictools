@@ -60,7 +60,7 @@ public class createLuckyBlocks
     public ItemStack getRandomBlock()
     {
         Random rand = new Random();
-        switch(rand.nextInt(3))
+        switch (rand.nextInt(3))
         {
             case 0:
                 return BAD();
@@ -77,12 +77,12 @@ public class createLuckyBlocks
     {
         Random rand = new Random();
         int choice = rand.nextInt(100);
-        if(choice > 0 && choice < 80)
-                return GOOD();
-        else if(choice >= 80 && choice < 95)
-                return BAD();
+        if (choice > 0 && choice < 80)
+            return GOOD();
+        else if (choice >= 80 && choice < 95)
+            return BAD();
         else
-                return OP();
+            return OP();
     }
 
     public ItemStack getByName(String item)

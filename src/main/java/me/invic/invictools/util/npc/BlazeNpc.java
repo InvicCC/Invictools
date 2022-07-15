@@ -26,23 +26,23 @@ public class BlazeNpc implements Listener
     @EventHandler
     public void watch(PlayerInteractEntityEvent e)
     {
-        if(e.getHand().toString().equalsIgnoreCase("OFF_HAND"))
+        if (e.getHand().toString().equalsIgnoreCase("OFF_HAND"))
             return;
 
-        if(e.getRightClicked() instanceof Illusioner && e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
+        if (e.getRightClicked() instanceof Illusioner && e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
         {
-            Bukkit.dispatchCommand(e.getPlayer(),"it panel npcpanel");
+            Bukkit.dispatchCommand(e.getPlayer(), "it panel npcpanel");
         }
-        else if(e.getRightClicked() instanceof Allay && e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
+        else if (e.getRightClicked() instanceof Allay && e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
         {
-            for (String message:messages)
+            for (String message : messages)
             {
-                e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&',message));
+                e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', message));
             }
         }
-        else if(!e.getPlayer().getWorld().getName().equals("bwlobby") && Commands.noShop.get(e.getPlayer()) != null)
+        else if (!e.getPlayer().getWorld().getName().equals("bwlobby") && Commands.noShop.get(e.getPlayer()) != null)
         {
-            if(Commands.noShop.get(e.getPlayer()))
+            if (Commands.noShop.get(e.getPlayer()))
                 e.setCancelled(true);
         }
     }
@@ -66,16 +66,16 @@ public class BlazeNpc implements Listener
         }
         else
         {
-            Allay blaze = (Allay) loc.getWorld().spawnEntity(loc.clone().add(0,1,0), EntityType.ALLAY);
+            Allay blaze = (Allay) loc.getWorld().spawnEntity(loc.clone().add(0, 1, 0), EntityType.ALLAY);
             blaze.setCustomName(ChatColor.translateAlternateColorCodes('&', npctitle));
             blaze.setAI(false);
             blaze.setInvulnerable(true);
             blaze.setSilent(true);
         }
 
-        if(entity)
+        if (entity)
         {
-            ArmorStand as1 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0,.3,0), EntityType.ARMOR_STAND);
+            ArmorStand as1 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, .3, 0), EntityType.ARMOR_STAND);
 
             as1.setGravity(false);
             as1.setCustomName(ChatColor.translateAlternateColorCodes('&', " "));
@@ -89,20 +89,20 @@ public class BlazeNpc implements Listener
                 {
                     int ingame = 0;
 
-                    for (Player player: Bukkit.getOnlinePlayers())
+                    for (Player player : Bukkit.getOnlinePlayers())
                     {
-                        if(!player.getWorld().getName().equals("bwlobby"))
+                        if (!player.getWorld().getName().equals("bwlobby"))
                         {
                             ingame++;
                         }
                     }
-                    as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&bPlayers in game: &f" +ingame+ " / "+ maxp));
+                    as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&bPlayers in game: &f" + ingame + " / " + maxp));
                 }
             }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1L, 1L);
         }
         else
         {
-            ArmorStand as1 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(.7,.15,-.7), EntityType.ARMOR_STAND);
+            ArmorStand as1 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(.7, .15, -.7), EntityType.ARMOR_STAND);
 
             as1.setGravity(false);
             as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&bPlayers in game:"));
@@ -111,39 +111,40 @@ public class BlazeNpc implements Listener
             new BukkitRunnable()
             {
                 int ticker = 0;
+
                 @Override
                 public void run()
                 {
 
-                    if(ticker == 0)
+                    if (ticker == 0)
                     {
                         as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&b&l>>  &fWant to play in more games like these?  &b&l<<"));
                         ticker++;
                     }
-                    else if(ticker == 1)
+                    else if (ticker == 1)
                     {
                         as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&b&l>>    &fWant to play in more games like these?    &b&l<<"));
                         ticker++;
                     }
-                    else if(ticker == 2)
+                    else if (ticker == 2)
                     {
                         as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&b&l>>  &fWant to play in more games like these?  &b&l<<"));
                         ticker++;
                     }
-                    else if(ticker == 3)
+                    else if (ticker == 3)
                     {
                         as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&b&l>>  &fSee these games played on YouTube!  &b&l<<"));
                         ticker++;
                     }
-                    else if(ticker == 4)
+                    else if (ticker == 4)
                     {
                         as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&b&l>>    &fSee these games played on YouTube!    &b&l<<"));
                         ticker++;
                     }
-                    else if(ticker == 5)
+                    else if (ticker == 5)
                     {
                         as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&b&l>>  &fSee these games played on YouTube!  &b&l<<"));
-                        ticker=0;
+                        ticker = 0;
                     }
                 }
             }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1L, 20L);

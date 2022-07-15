@@ -25,14 +25,14 @@ public class tnt
             @Override
             public void run()
             {
-                if(!player.getWorld().getName().equalsIgnoreCase(worldName))
+                if (!player.getWorld().getName().equalsIgnoreCase(worldName))
                     this.cancel();
 
-                    Location loc = player.getLocation();
-                    command = "execute at " + player.getName() + " run summon minecraft:tnt " + loc.getX() + " " + loc.getY() + " " + loc.getZ() + " {Fuse:" + fuseSeconds + "}";
+                Location loc = player.getLocation();
+                command = "execute at " + player.getName() + " run summon minecraft:tnt " + loc.getX() + " " + loc.getY() + " " + loc.getZ() + " {Fuse:" + fuseSeconds + "}";
 
-                    if (player.getWorld().getName().equalsIgnoreCase(worldName) && player.getGameMode() != GameMode.SPECTATOR)
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
+                if (player.getWorld().getName().equalsIgnoreCase(worldName) && player.getGameMode() != GameMode.SPECTATOR)
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
             }
         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), intervalSeconds, intervalSeconds);
     }

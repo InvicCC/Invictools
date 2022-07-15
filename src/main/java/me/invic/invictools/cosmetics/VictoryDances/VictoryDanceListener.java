@@ -18,17 +18,17 @@ public class VictoryDanceListener implements Listener
     {
         RunningTeam livingTeam = null;
         int AliveTeams = e.getGame().getRunningTeams().size();
-        for (RunningTeam team:e.getGame().getRunningTeams())
+        for (RunningTeam team : e.getGame().getRunningTeams())
         {
-            if(team.isDead())
+            if (team.isDead())
                 AliveTeams--;
             else
                 livingTeam = team;
         }
 
-        if(AliveTeams == 1)
+        if (AliveTeams == 1)
         {
-            for (Player p: livingTeam.getConnectedPlayers())
+            for (Player p : livingTeam.getConnectedPlayers())
             {
                 new VictoryDanceHandler().grabEffect(p);
                 new BukkitRunnable()
@@ -38,7 +38,7 @@ public class VictoryDanceListener implements Listener
                     {
                         new Lobby1Handler().FireFeet(p);
                     }
-                }.runTaskLater(Commands.Invictools, (VictoryDanceHandler.effectDuration*20)+60);
+                }.runTaskLater(Commands.Invictools, (VictoryDanceHandler.effectDuration * 20) + 60);
             }
         }
     }
@@ -46,14 +46,14 @@ public class VictoryDanceListener implements Listener
     @EventHandler
     public void dismount(EntityDismountEvent e)
     {
-        if(VictoryDanceHandler.isVictoryDancing.get(e.getEntity().getName()) != null)
+        if (VictoryDanceHandler.isVictoryDancing.get(e.getEntity().getName()) != null)
             e.setCancelled(true);
     }
 
     @EventHandler
     public void bankItemFix(PlayerDropItemEvent e)
     {
-        if(VictoryDanceHandler.isVictoryDancing.get(e.getPlayer().getName()) != null)
+        if (VictoryDanceHandler.isVictoryDancing.get(e.getPlayer().getName()) != null)
             e.setCancelled(true);
     }
 }

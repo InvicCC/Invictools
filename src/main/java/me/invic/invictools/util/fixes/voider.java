@@ -17,7 +17,7 @@ public class voider
 
     HashSet<String> worlds = new HashSet<>();
 
-    public voider(List<String> worlds ,double sety )
+    public voider(List<String> worlds, double sety)
     {
         this.worlds.addAll(worlds);
         this.worlds.add("bwlobby");
@@ -30,14 +30,14 @@ public class voider
                 dynamicy = loc.getY();
                 if (worlds.contains(player.getLocation().getWorld().getName()) && dynamicy <= sety && player.getHealth() > 1)
                 {
-                    for (PotionEffect effect:player.getActivePotionEffects())
+                    for (PotionEffect effect : player.getActivePotionEffects())
                     {
                         player.removePotionEffect(effect.getType());
                     }
                 }
-                else if(player.getLocation().getWorld().getName().equals("bwlobby") && dynamicy <= 5)
+                else if (player.getLocation().getWorld().getName().equals("bwlobby") && dynamicy <= 5)
                 {
-                    Bukkit.dispatchCommand(player,"spawn");
+                    Bukkit.dispatchCommand(player, "spawn");
                 }
             }
         }, 1, 20);

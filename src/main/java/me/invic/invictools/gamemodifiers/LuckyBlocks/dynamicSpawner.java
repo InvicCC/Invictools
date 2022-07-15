@@ -40,7 +40,8 @@ public class dynamicSpawner
             if (temp != null)
             {
                 itemSize[0]++;
-            } else
+            }
+            else
                 break;
         }
 
@@ -71,9 +72,9 @@ public class dynamicSpawner
                 ItemStack drop = new ItemStack(Material.valueOf(nextItem), nextItemAmount);
                 ItemMeta meta = drop.getItemMeta();
 
-                if(Lore.size() != 0)
+                if (Lore.size() != 0)
                     meta.setLore(Lore);
-                if(name != null)
+                if (name != null)
                     meta.setDisplayName(name);
 
                 drop.setItemMeta(meta);
@@ -106,7 +107,7 @@ public class dynamicSpawner
         as1.setVisible(false);
 
         as2.setGravity(false);
-        as2.setCustomName(ChatColor.YELLOW + "Spawns in "+ ChatColor.RED + delay + ChatColor.YELLOW + " seconds");
+        as2.setCustomName(ChatColor.YELLOW + "Spawns in " + ChatColor.RED + delay + ChatColor.YELLOW + " seconds");
         as2.setCustomNameVisible(true);
         as2.setVisible(false);
 
@@ -127,7 +128,7 @@ public class dynamicSpawner
                 if (resettableDelay[0] == -1)
                     resettableDelay[0] = delay - 1;
 
-                as2.setCustomName(ChatColor.YELLOW + "Spawns in "+ ChatColor.RED + resettableDelay[0] + ChatColor.YELLOW + " seconds");
+                as2.setCustomName(ChatColor.YELLOW + "Spawns in " + ChatColor.RED + resettableDelay[0] + ChatColor.YELLOW + " seconds");
                 resettableDelay[0]--;
             }
         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20L, 20L); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn

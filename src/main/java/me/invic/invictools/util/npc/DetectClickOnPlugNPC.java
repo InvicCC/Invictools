@@ -28,25 +28,26 @@ public class DetectClickOnPlugNPC
     public DetectClickOnPlugNPC()
     {
         ProtocolManager manager = ProtocolLibrary.getProtocolManager();
-        manager.addPacketListener(new PacketAdapter(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), ListenerPriority.NORMAL, PacketType.Play.Client.USE_ENTITY) {
+        manager.addPacketListener(new PacketAdapter(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), ListenerPriority.NORMAL, PacketType.Play.Client.USE_ENTITY)
+        {
 
             public void onPacketReceiving(PacketEvent e)
             {
                 Player player = e.getPlayer();
                 PacketContainer packet = e.getPacket();
                 int entityId = packet.getIntegers().read(0);
-                if(ID == entityId)
+                if (ID == entityId)
                 {
-                    if(packet.getEntityUseActions().read(0) == EnumWrappers.EntityUseAction.ATTACK)
+                    if (packet.getEntityUseActions().read(0) == EnumWrappers.EntityUseAction.ATTACK)
                         return;
 
-                    if(packet.getHands().read(0) == null)
+                    if (packet.getHands().read(0) == null)
                         return;
 
-                    if(packet.getHands().read(0) != EnumWrappers.Hand.MAIN_HAND)
+                    if (packet.getHands().read(0) != EnumWrappers.Hand.MAIN_HAND)
                         return;
 
-                    if(packet.getEntityUseActions().read(0) != EnumWrappers.EntityUseAction.INTERACT)
+                    if (packet.getEntityUseActions().read(0) != EnumWrappers.EntityUseAction.INTERACT)
                         return;
 
                     new BukkitRunnable()
@@ -54,14 +55,14 @@ public class DetectClickOnPlugNPC
                         @Override
                         public void run()
                         {
-                            for (String message:messages)
+                            for (String message : messages)
                             {
-                                player.sendMessage(ChatColor.translateAlternateColorCodes('&',message));
+                                player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
                             }
 
                             int npcClickCounter = Config.getInt("npccounter");
-                            npcClickCounter ++;
-                            Config.set("npccounter",npcClickCounter);
+                            npcClickCounter++;
+                            Config.set("npccounter", npcClickCounter);
                             plugin.saveConfig();
                         }
                     }.runTask(plugin);

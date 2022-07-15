@@ -22,13 +22,13 @@ public class DeathCounter implements Listener
 
     public static void InitializeDeathCounter(List<Player> players)
     {
-        if(deaths.containsKey(players.get(0)))
+        if (deaths.containsKey(players.get(0)))
             Commands.MasterPlayer.sendMessage(ChatColor.RED + "Death counter is being reinitialized");
 
-        for (Player player:players)
+        for (Player player : players)
         {
-            if(!deaths.containsKey(player))
-                deaths.put(player,0);
+            if (!deaths.containsKey(player))
+                deaths.put(player, 0);
         }
     }
 
@@ -41,7 +41,7 @@ public class DeathCounter implements Listener
     private void DeathWatcher(BedwarsPlayerKilledEvent e)
     {
         if (deaths.containsKey(e.getPlayer()))
-            deaths.put(e.getPlayer(),deaths.get(e.getPlayer()) + 1);
+            deaths.put(e.getPlayer(), deaths.get(e.getPlayer()) + 1);
     }
 
     @EventHandler

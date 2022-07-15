@@ -24,7 +24,7 @@ public class creative
 
                 if (p.getWorld().getName().equals(worldName))
                 {
-                    if (p.getGameMode()!= GameMode.SPECTATOR)
+                    if (p.getGameMode() != GameMode.SPECTATOR)
                     {
                         p.setGameMode(GameMode.CREATIVE);
                         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tell " + player + " You now temporarily have creative mode!");

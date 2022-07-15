@@ -27,7 +27,8 @@ public class DetectClickOnNPC
     public DetectClickOnNPC()
     {
         ProtocolManager manager = ProtocolLibrary.getProtocolManager();
-        manager.addPacketListener(new PacketAdapter(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), ListenerPriority.NORMAL, PacketType.Play.Client.USE_ENTITY) {
+        manager.addPacketListener(new PacketAdapter(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), ListenerPriority.NORMAL, PacketType.Play.Client.USE_ENTITY)
+        {
 
             public void onPacketReceiving(PacketEvent e)
             {
@@ -35,18 +36,18 @@ public class DetectClickOnNPC
                 String playername = player.getName();
                 PacketContainer packet = e.getPacket();
                 int entityId = packet.getIntegers().read(0);
-                if(ID == entityId)
+                if (ID == entityId)
                 {
-                    if(packet.getEntityUseActions().read(0) == EnumWrappers.EntityUseAction.ATTACK)
+                    if (packet.getEntityUseActions().read(0) == EnumWrappers.EntityUseAction.ATTACK)
                         return;
 
-                    if(packet.getHands().read(0) == null)
+                    if (packet.getHands().read(0) == null)
                         return;
 
-                    if(packet.getHands().read(0) != EnumWrappers.Hand.MAIN_HAND)
+                    if (packet.getHands().read(0) != EnumWrappers.Hand.MAIN_HAND)
                         return;
 
-                    if(packet.getEntityUseActions().read(0) != EnumWrappers.EntityUseAction.INTERACT)
+                    if (packet.getEntityUseActions().read(0) != EnumWrappers.EntityUseAction.INTERACT)
                         return;
 
                     new BukkitRunnable()
@@ -54,15 +55,15 @@ public class DetectClickOnNPC
                         @Override
                         public void run()
                         {
-                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "commandpanel npcpanel "+playername);
+                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "commandpanel npcpanel " + playername);
                         }
                     }.runTask(plugin);
                 }
-                else if(Commands.noShop.get(e.getPlayer()) != null)
+                else if (Commands.noShop.get(e.getPlayer()) != null)
                 {
-                    if(Commands.noShop.get(e.getPlayer()))
+                    if (Commands.noShop.get(e.getPlayer()))
                     {
-                        if(packet.getEntityUseActions().read(0) == EnumWrappers.EntityUseAction.ATTACK)
+                        if (packet.getEntityUseActions().read(0) == EnumWrappers.EntityUseAction.ATTACK)
                             return;
 /*
                         if(packet.getHands().read(0) == null)
@@ -74,7 +75,7 @@ public class DetectClickOnNPC
                         if(packet.getEntityUseActions().read(0) != EnumWrappers.EntityUseAction.INTERACT)
                             return;
                         */
-                       // System.out.println("popped");
+                        // System.out.println("popped");
                         e.setCancelled(true);
                     }
                 }

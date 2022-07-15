@@ -16,13 +16,13 @@ public class HoloBedBreak
 {
     public HoloBedBreak(Location loc, Player player, String bed, boolean natural) // natural as in in game with bed and player breaking it opposed to a test scenario
     {
-        loc.setX(loc.getX()+.5);
-        loc.setZ(loc.getZ()+.5);
+        loc.setX(loc.getX() + .5);
+        loc.setZ(loc.getZ() + .5);
 
         ArmorStand as1 = (ArmorStand) loc.getWorld().spawnEntity(loc, EntityType.ARMOR_STAND);
         String[] teamColor = bed.split("_");
         teamColor[0] = teamColor[0].toLowerCase();
-        if(teamColor[0].equals("light"))
+        if (teamColor[0].equals("light"))
             teamColor[0] = teamColor[1];
 
         String playerName = player.getName();
@@ -36,7 +36,7 @@ public class HoloBedBreak
         else
             as1.setCustomName(ChatColor.RED + playerName + ChatColor.AQUA + " has " + ChatColor.YELLOW + "#rekt" + ChatColor.AQUA + " the bed of " + ChatColor.RED + "red" + ChatColor.AQUA + " team here!");
         as1.setCustomNameVisible(true);
-        loc.getWorld().playSound(loc, Sound.ENTITY_DRAGON_FIREBALL_EXPLODE,10.0F,1.0F);
+        loc.getWorld().playSound(loc, Sound.ENTITY_DRAGON_FIREBALL_EXPLODE, 10.0F, 1.0F);
 
         new BukkitRunnable() // kills at max 1 minute after match ends or player dies and leaves
         {

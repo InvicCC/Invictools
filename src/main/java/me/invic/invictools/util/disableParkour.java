@@ -17,21 +17,21 @@ public class disableParkour
 
     public disableParkour()
     {
-        if(parkour)
+        if (parkour)
         {
-            for (String fence:fences)
+            for (String fence : fences)
             {
                 String[] coords = fence.split("-");
-                world.getBlockAt(new Location(world,Integer.parseInt(coords[0]),Integer.parseInt(coords[1]),Integer.parseInt(coords[2]))).setType(Material.BEDROCK);
+                world.getBlockAt(new Location(world, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]))).setType(Material.BEDROCK);
             }
             parkour = false;
         }
         else
         {
-            for (String fence:fences)
+            for (String fence : fences)
             {
                 String[] coords = fence.split("-");
-                world.getBlockAt(new Location(world,Integer.parseInt(coords[0]),Integer.parseInt(coords[1]),Integer.parseInt(coords[2]))).setType(Material.AIR);
+                world.getBlockAt(new Location(world, Integer.parseInt(coords[0]), Integer.parseInt(coords[1]), Integer.parseInt(coords[2]))).setType(Material.AIR);
             }
             parkour = true;
         }

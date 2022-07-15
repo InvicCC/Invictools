@@ -12,20 +12,20 @@ public class lobbyDestroyFix implements Listener
     @EventHandler
     public void fixDestroy(BlockBreakEvent e)
     {
-        if(!e.getPlayer().equals(Commands.MasterPlayer) && e.getPlayer().getWorld().getName().equals("bwlobby"))
+        if (!e.getPlayer().equals(Commands.MasterPlayer) && e.getPlayer().getWorld().getName().equals("bwlobby"))
             e.setCancelled(true);
 
-        if(e.getPlayer().equals(Commands.MasterPlayer) && !e.getPlayer().getGameMode().equals(GameMode.CREATIVE) && e.getPlayer().getWorld().getName().equals("bwlobby"))
+        if (e.getPlayer().equals(Commands.MasterPlayer) && !e.getPlayer().getGameMode().equals(GameMode.CREATIVE) && e.getPlayer().getWorld().getName().equals("bwlobby"))
             e.setCancelled(true);
     }
 
     @EventHandler
     public void fixPlace(BlockPlaceEvent e)
     {
-        if(!e.getPlayer().equals(Commands.MasterPlayer) && e.getPlayer().getWorld().getName().equals("bwlobby"))
+        if (!e.getPlayer().equals(Commands.MasterPlayer) && e.getPlayer().getWorld().getName().equals("bwlobby"))
             e.setCancelled(true);
 
-        if(e.getPlayer().equals(Commands.MasterPlayer) && !e.getPlayer().getGameMode().equals(GameMode.CREATIVE) && e.getPlayer().getWorld().getName().equals("bwlobby"))
+        if (e.getPlayer().equals(Commands.MasterPlayer) && !e.getPlayer().getGameMode().equals(GameMode.CREATIVE) && e.getPlayer().getWorld().getName().equals("bwlobby"))
             e.setCancelled(true);
     }
 }

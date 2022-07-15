@@ -21,10 +21,10 @@ public class CloseElytra
         List<Player> teammates = GrabTeammates.getTeammates(player);
         List<Player> unnullableteammates = teammates;
 
-        if(teammates == null)
+        if (teammates == null)
             return;
 
-        if(teammates.size() == 0)
+        if (teammates.size() == 0)
             return;
 
         World GameWorld = player.getWorld();
@@ -34,14 +34,15 @@ public class CloseElytra
             boolean elytra = false;
             int counter = 0;
             int pl = 0;
+
             @Override
             public void run()
             {
-                if(player.getWorld() == GameWorld)
+                if (player.getWorld() == GameWorld)
                 {
-                    for(Player p : teammates)
+                    for (Player p : teammates)
                     {
-                        if(p == null)
+                        if (p == null)
                         {
                             teammates.remove(unnullableteammates.get(pl));
                         }
@@ -51,9 +52,13 @@ public class CloseElytra
                             {
                                 player.getInventory().setItem(38, item);
                                 elytra = true;
-                            } else { counter++; }
+                            }
+                            else
+                            {
+                                counter++;
+                            }
 
-                            if(counter == teammates.size())
+                            if (counter == teammates.size())
                                 elytra = false;
                         }
                     }
@@ -61,8 +66,8 @@ public class CloseElytra
                     pl++;
                     counter = 0;
 
-                    if(!elytra)
-                        player.getInventory().setItem(38,Changeable);
+                    if (!elytra)
+                        player.getInventory().setItem(38, Changeable);
                 }
                 else
                 {

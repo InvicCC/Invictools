@@ -13,13 +13,13 @@ public class ProjTrailListener implements Listener
     @EventHandler
     public void Arrow(ProjectileLaunchEvent e)
     {
-        if(!(e.getEntity().getShooter() instanceof Player))
+        if (!(e.getEntity().getShooter() instanceof Player))
             return;
 
-        if(e.isCancelled())
+        if (e.isCancelled())
             return;
 
-        new ProjTrailHandler().grabEffect((Player)e.getEntity().getShooter(),e.getEntity());
+        new ProjTrailHandler().grabEffect((Player) e.getEntity().getShooter(), e.getEntity());
 
 
     }
@@ -27,13 +27,13 @@ public class ProjTrailListener implements Listener
     @EventHandler
     public void Elytra(EntityToggleGlideEvent e)
     {
-        if(e.getEntity().getType() != EntityType.PLAYER)
+        if (e.getEntity().getType() != EntityType.PLAYER)
             return;
 
-        if(e.isCancelled())
+        if (e.isCancelled())
             return;
 
-        if(e.isGliding())
-            new ProjTrailHandler().grabEffect((Player)e.getEntity(),e.getEntity());
+        if (e.isGliding())
+            new ProjTrailHandler().grabEffect((Player) e.getEntity(), e.getEntity());
     }
 }

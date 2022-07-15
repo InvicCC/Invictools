@@ -21,19 +21,19 @@ public class KillEffectListener implements Listener
     public void deathEvent(BedwarsPlayerKilledEvent e)
     {
         Player killer = e.getKiller();
-        for (int i = 0 ; i<Commands.killEffects.size() ; i ++)
+        for (int i = 0; i < Commands.killEffects.size(); i++)
         {
-            if(Commands.killEffects.get(killer) != null)
+            if (Commands.killEffects.get(killer) != null)
             {
                 String potionName = Commands.killEffects.get(killer);
                 String[] split = potionName.split("-");
-                killer.addPotionEffect(new PotionEffect(PotionEffectType.getByName(split[0]), Integer.parseInt(split[2]), Integer.parseInt(split[1])-1, false, true));
+                killer.addPotionEffect(new PotionEffect(PotionEffectType.getByName(split[0]), Integer.parseInt(split[2]), Integer.parseInt(split[1]) - 1, false, true));
             }
         }
 
-        if(Commands.killItems.containsKey(killer))
+        if (Commands.killItems.containsKey(killer))
         {
-            killer.playSound(killer.getLocation(), Sound.ENTITY_CHICKEN_EGG,1,1);
+            killer.playSound(killer.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
             final Map<Integer, ItemStack> map = killer.getInventory().addItem(Commands.killItems.get(killer));
             for (final ItemStack item : map.values())
             {
@@ -41,7 +41,7 @@ public class KillEffectListener implements Listener
             }
         }
 
-        if(Commands.deathItems.containsKey(e.getPlayer()))
+        if (Commands.deathItems.containsKey(e.getPlayer()))
         {
             BukkitRunnable runnable = new BukkitRunnable()
             {

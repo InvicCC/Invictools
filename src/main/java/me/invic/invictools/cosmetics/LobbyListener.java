@@ -12,7 +12,7 @@ public class LobbyListener implements Listener
     @EventHandler
     public void world(PlayerChangedWorldEvent e)
     {
-        if(e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby") && !e.getPlayer().getWorld().equals(e.getFrom()))
+        if (e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby") && !e.getPlayer().getWorld().equals(e.getFrom()))
             Lobby1Handler.FullHandle(e.getPlayer());
     }
 
@@ -24,7 +24,7 @@ public class LobbyListener implements Listener
             @Override
             public void run()
             {
-                if(e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
+                if (e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
                     Lobby1Handler.FullHandle(e.getPlayer());
             }
         }.runTaskLater(Commands.Invictools, 20L);

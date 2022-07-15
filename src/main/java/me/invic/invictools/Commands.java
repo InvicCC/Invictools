@@ -231,19 +231,19 @@ public class Commands implements CommandExecutor, TabExecutor
         }
         else if (args.length == 3 && args[0].equalsIgnoreCase("jumping"))
         {
-            if(args[1].equalsIgnoreCase("range"))
+            if (args[1].equalsIgnoreCase("range"))
                 tabComplete.add(String.valueOf(ExplosionsListener.range));
-            else if(args[1].equalsIgnoreCase("x"))
+            else if (args[1].equalsIgnoreCase("x"))
                 tabComplete.add(String.valueOf(ExplosionsListener.xzmultiplier));
-            else if(args[1].equalsIgnoreCase("y"))
+            else if (args[1].equalsIgnoreCase("y"))
                 tabComplete.add(String.valueOf(ExplosionsListener.ymultiplier));
-            else if(args[1].equalsIgnoreCase("op"))
+            else if (args[1].equalsIgnoreCase("op"))
                 tabComplete.add(String.valueOf(ExplosionsListener.op));
         }
         else if (args.length == 3 && args[0].equalsIgnoreCase("ProximityElytraSingle"))
         {
             tabComplete.add("<Player>");
-            for (Player player: Bukkit.getOnlinePlayers())
+            for (Player player : Bukkit.getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
             }
@@ -272,7 +272,7 @@ public class Commands implements CommandExecutor, TabExecutor
         {
             FileConfiguration cfg = Commands.Invictools.getConfig();
             List<String> configs = cfg.getStringList("ArenaConversion");
-            for (String s:configs)
+            for (String s : configs)
             {
                 String[] cutconfig = s.split("_");
                 tabComplete.add(cutconfig[0]);
@@ -302,7 +302,7 @@ public class Commands implements CommandExecutor, TabExecutor
         else if (args.length == 3 && args[0].equalsIgnoreCase("Manhunt"))
         {
             tabComplete.add("random");
-            for (Player player: Bukkit.getOnlinePlayers())
+            for (Player player : Bukkit.getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
             }
@@ -310,7 +310,7 @@ public class Commands implements CommandExecutor, TabExecutor
         else if (args.length >= 1 && args[0].equalsIgnoreCase("Totems"))
         {
             tabComplete.add("<all/player name>");
-            for (Player player: Bukkit.getOnlinePlayers())
+            for (Player player : Bukkit.getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
             }
@@ -329,7 +329,7 @@ public class Commands implements CommandExecutor, TabExecutor
         else if (args.length == 3 && args[0].equalsIgnoreCase("CloseTeammateEffectSingle") || (args.length == 3 && args[0].equalsIgnoreCase("CloseTeammateEffect")))
         {
             tabComplete.add("<player>");
-            for (Player player: Bukkit.getOnlinePlayers())
+            for (Player player : Bukkit.getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
             }
@@ -337,7 +337,7 @@ public class Commands implements CommandExecutor, TabExecutor
         else if (args.length == 2 && args[0].equalsIgnoreCase("master"))
         {
             tabComplete.add("<master player>");
-            for (Player player: Bukkit.getOnlinePlayers())
+            for (Player player : Bukkit.getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
             }
@@ -372,7 +372,7 @@ public class Commands implements CommandExecutor, TabExecutor
         else if (args.length == 5 && args[0].equalsIgnoreCase("giveitem"))
         {
             tabComplete.add("<player>");
-            for (Player player: Bukkit.getOnlinePlayers())
+            for (Player player : Bukkit.getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
             }
@@ -421,7 +421,7 @@ public class Commands implements CommandExecutor, TabExecutor
             tabComplete.add("decrease");
             tabComplete.add("<every player, specified player, reset for all players, decrease over time, randomize>");
         }
-        else if (args.length == 3 && args[0].equalsIgnoreCase("sethealth") && args[1].equalsIgnoreCase("all") || args.length == 3 && args[0].equalsIgnoreCase("sethealth") &&args[1].equalsIgnoreCase("one"))
+        else if (args.length == 3 && args[0].equalsIgnoreCase("sethealth") && args[1].equalsIgnoreCase("all") || args.length == 3 && args[0].equalsIgnoreCase("sethealth") && args[1].equalsIgnoreCase("one"))
         {
             tabComplete.add("1");
             tabComplete.add("<health value>");
@@ -453,7 +453,7 @@ public class Commands implements CommandExecutor, TabExecutor
         }
         else if (args.length >= 2 && args[0].equalsIgnoreCase("forceManhuntTeam"))
         {
-            for (Player player: Bukkit.getOnlinePlayers())
+            for (Player player : Bukkit.getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
             }
@@ -462,7 +462,7 @@ public class Commands implements CommandExecutor, TabExecutor
         else if (args.length == 2 && args[0].equalsIgnoreCase("DeathAttribute"))
         {
             tabComplete.add("all");
-            for (Player player: Bukkit.getOnlinePlayers())
+            for (Player player : Bukkit.getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
             }
@@ -497,7 +497,7 @@ public class Commands implements CommandExecutor, TabExecutor
         }
         else if (args.length == 2 && args[0].equalsIgnoreCase("panel"))
         {
-            for (File file:yamlFiles)
+            for (File file : yamlFiles)
             {
                 String[] mapName = file.getName().split("\\.");
                 tabComplete.add(mapName[0]);
@@ -511,7 +511,7 @@ public class Commands implements CommandExecutor, TabExecutor
         }
         else if (args.length == 4 && args[0].equalsIgnoreCase("creative"))
         {
-            for (Player player: Bukkit.getOnlinePlayers())
+            for (Player player : Bukkit.getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
             }
@@ -519,7 +519,7 @@ public class Commands implements CommandExecutor, TabExecutor
         else if (args.length == 2 && args[0].equalsIgnoreCase("haunt"))
         {
             tabComplete.add("<all / player> <config>");
-            for (Player player: Bukkit.getOnlinePlayers())
+            for (Player player : Bukkit.getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
             }
@@ -528,7 +528,7 @@ public class Commands implements CommandExecutor, TabExecutor
         {
             tabComplete.add("<Player> <config>");
             tabComplete.add("DO NOT USE ON LIVING PLAYERS. SKIPS VALIDITY CHECKS.");
-            for (Player player: Bukkit.getOnlinePlayers())
+            for (Player player : Bukkit.getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
             }
@@ -565,7 +565,7 @@ public class Commands implements CommandExecutor, TabExecutor
         else if (args.length == 3 && args[0].equalsIgnoreCase("itemrain") && args[1].equalsIgnoreCase("LootTable"))
         {
             tabComplete.add("<Loot Table>");
-            for (LootTables table:LootTables.values())
+            for (LootTables table : LootTables.values())
             {
                 tabComplete.add(table.toString());
             }
@@ -651,13 +651,13 @@ public class Commands implements CommandExecutor, TabExecutor
         }
         else
         {
-            for (Player player: Bukkit.getOnlinePlayers())
+            for (Player player : Bukkit.getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
             }
         }
 
-        if(sender.hasPermission("invic.invictools"))
+        if (sender.hasPermission("invic.invictools"))
             return tabComplete;
         else
             return null;
@@ -666,154 +666,154 @@ public class Commands implements CommandExecutor, TabExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
     {
-        if(args.length >= 2 && args[0].equalsIgnoreCase("BedBreak"))
+        if (args.length >= 2 && args[0].equalsIgnoreCase("BedBreak"))
         {
-            if(args.length > 2 && sender.hasPermission("invic.invictools"))
+            if (args.length > 2 && sender.hasPermission("invic.invictools"))
             {
                 Player player = Bukkit.getPlayer(args[2]);
                 assert player != null;
                 new BedBreakConfig(player, args[1], true);
             }
-            else if(args.length == 2)
+            else if (args.length == 2)
             {
                 Player player = (Player) sender;
                 new BedBreakConfig(player, args[1], false);
             }
         }
-        else if(args.length >= 2 && args[0].equalsIgnoreCase("VictoryDance"))
+        else if (args.length >= 2 && args[0].equalsIgnoreCase("VictoryDance"))
         {
-            if(args.length > 2 && sender.hasPermission("invic.invictools"))
+            if (args.length > 2 && sender.hasPermission("invic.invictools"))
             {
                 Player player = Bukkit.getPlayer(args[2]);
                 assert player != null;
                 new VictoryDanceConfig(player, args[1], true);
             }
-            else if(args.length == 2)
+            else if (args.length == 2)
             {
                 Player player = (Player) sender;
                 new VictoryDanceConfig(player, args[1], false);
             }
         }
-        else if(args.length >= 2 && args[0].equalsIgnoreCase("FinalKill"))
+        else if (args.length >= 2 && args[0].equalsIgnoreCase("FinalKill"))
         {
-            if(args.length > 2 && sender.hasPermission("invic.invictools"))
+            if (args.length > 2 && sender.hasPermission("invic.invictools"))
             {
                 Player player = Bukkit.getPlayer(args[2]);
                 assert player != null;
                 new FinalKillConfig(player, args[1], true);
             }
-            else if(args.length == 2)
+            else if (args.length == 2)
             {
                 Player player = (Player) sender;
                 new FinalKillConfig(player, args[1], false);
             }
         }
-        else if(args.length >= 2 && args[0].equalsIgnoreCase("NormalKill"))
+        else if (args.length >= 2 && args[0].equalsIgnoreCase("NormalKill"))
         {
-            if(args.length > 2 && sender.hasPermission("invic.invictools"))
+            if (args.length > 2 && sender.hasPermission("invic.invictools"))
             {
                 Player player = Bukkit.getPlayer(args[2]);
                 assert player != null;
                 new NormalKillHandler().configHandler(player, args[1], true);
             }
-            else if(args.length == 2)
+            else if (args.length == 2)
             {
                 Player player = (Player) sender;
                 new NormalKillHandler().configHandler(player, args[1], false);
             }
         }
-        else if(args.length >= 2 && args[0].equalsIgnoreCase("lobby1"))
+        else if (args.length >= 2 && args[0].equalsIgnoreCase("lobby1"))
         {
-            if(args.length > 2 && sender.hasPermission("invic.invictools"))
+            if (args.length > 2 && sender.hasPermission("invic.invictools"))
             {
                 Player player = Bukkit.getPlayer(args[2]);
                 assert player != null;
-                new Lobby1Handler().configHandler(player,args[1],true);
+                new Lobby1Handler().configHandler(player, args[1], true);
             }
-            else if(args.length == 2)
+            else if (args.length == 2)
             {
                 Player player = (Player) sender;
-                new Lobby1Handler().configHandler(player,args[1],false);
+                new Lobby1Handler().configHandler(player, args[1], false);
             }
         }
-        else if(args.length >= 2 && args[0].equalsIgnoreCase("ProjTrail"))
+        else if (args.length >= 2 && args[0].equalsIgnoreCase("ProjTrail"))
         {
-            if(args.length > 2 && sender.hasPermission("invic.invictools"))
+            if (args.length > 2 && sender.hasPermission("invic.invictools"))
             {
                 Player player = Bukkit.getPlayer(args[2]);
                 assert player != null;
                 new ProjTrailConfig(player, args[1], true);
             }
-            else if(args.length == 2)
+            else if (args.length == 2)
             {
                 Player player = (Player) sender;
                 new ProjTrailConfig(player, args[1], false);
             }
         }
-        else if(args.length == 1 && args[0].equalsIgnoreCase("ts"))
+        else if (args.length == 1 && args[0].equalsIgnoreCase("ts"))
         {
-            new TeamSelection().openInventory((Player)sender,BedwarsAPI.getInstance().getGameOfPlayer((Player)sender),true);
+            new TeamSelection().openInventory((Player) sender, BedwarsAPI.getInstance().getGameOfPlayer((Player) sender), true);
             sender.sendMessage("Opened team selection");
         }
-        else if(args.length == 2 && args[0].equalsIgnoreCase("panel"))
+        else if (args.length == 2 && args[0].equalsIgnoreCase("panel"))
         {
-            if(!args[1].equals("reload"))
-                new panels().openInventory(args[1],(Player)sender);
+            if (!args[1].equals("reload"))
+                new panels().openInventory(args[1], (Player) sender);
             else
             {
                 new panels().loadPanels();
                 sender.sendMessage(ChatColor.AQUA + "Panels reloaded");
             }
         }
-        else if(args.length == 3 && args[0].equalsIgnoreCase("panel"))
+        else if (args.length == 3 && args[0].equalsIgnoreCase("panel"))
         {
-            new panels().openInventory(args[1],Bukkit.getPlayer(args[2]));
+            new panels().openInventory(args[1], Bukkit.getPlayer(args[2]));
         }
-        else if(args.length == 1 && args[0].equalsIgnoreCase("leaderboard"))
+        else if (args.length == 1 && args[0].equalsIgnoreCase("leaderboard"))
         {
-            new leaderboard().printFormattedLeaderboard((Player)sender);
+            new leaderboard().printFormattedLeaderboard((Player) sender);
         }
-        else if(args.length == 2 && args[0].equalsIgnoreCase("leaderboard") && args[1].equalsIgnoreCase("reload"))
+        else if (args.length == 2 && args[0].equalsIgnoreCase("leaderboard") && args[1].equalsIgnoreCase("reload"))
         {
             new leaderboard().loadLeaderboard("Star");
             new leaderboardHologram().createLeaderboard();
         }
-        else if(args.length == 3 && args[0].equalsIgnoreCase("leaderboard") && args[1].equalsIgnoreCase("reload"))
+        else if (args.length == 3 && args[0].equalsIgnoreCase("leaderboard") && args[1].equalsIgnoreCase("reload"))
         {
             new leaderboard().loadLeaderboard(args[2]);
             new leaderboardHologram().createLeaderboard();
         }
-        else if(args.length == 3 && args[0].equalsIgnoreCase("leaderboard") && args[1].equalsIgnoreCase("position"))
+        else if (args.length == 3 && args[0].equalsIgnoreCase("leaderboard") && args[1].equalsIgnoreCase("position"))
         {
-            new leaderboard().givePosition(Bukkit.getOfflinePlayer(args[2]),(Player)sender);
+            new leaderboard().givePosition(Bukkit.getOfflinePlayer(args[2]), (Player) sender);
         }
-        else if(args.length == 2 && args[0].equalsIgnoreCase("leaderboard") && args[1].equalsIgnoreCase("position"))
+        else if (args.length == 2 && args[0].equalsIgnoreCase("leaderboard") && args[1].equalsIgnoreCase("position"))
         {
-            new leaderboard().givePosition(Bukkit.getOfflinePlayer(UUID.fromString(sender.getName())),(Player)sender);
+            new leaderboard().givePosition(Bukkit.getOfflinePlayer(UUID.fromString(sender.getName())), (Player) sender);
         }
-        else if(args.length >= 1 && args[0].equalsIgnoreCase("createbfconfig"))
+        else if (args.length >= 1 && args[0].equalsIgnoreCase("createbfconfig"))
         {
-            new bedfight().saveBedfightInventory(args[1],(Player)sender,true);
-            sender.sendMessage(ChatColor.AQUA+"Saved your inventory as bedfight loadout"+args[1]);
+            new bedfight().saveBedfightInventory(args[1], (Player) sender, true);
+            sender.sendMessage(ChatColor.AQUA + "Saved your inventory as bedfight loadout" + args[1]);
         }
-        else if(args.length >= 2 && args[0].equalsIgnoreCase("alljoin"))
+        else if (args.length >= 2 && args[0].equalsIgnoreCase("alljoin"))
         {
-            if(BedwarsAPI.getInstance().isGameWithNameExists(args[1]))
+            if (BedwarsAPI.getInstance().isGameWithNameExists(args[1]))
             {
-                for (Player player:Bukkit.getOnlinePlayers())
+                for (Player player : Bukkit.getOnlinePlayers())
                 {
                     new LobbyInventoryFix().saveInventory(player);
                     BedwarsAPI.getInstance().getGameByName(args[1]).joinToGame(player);
                     //new SafeOpCommand(player, "bw join " +args[1]);
                 }
-                sender.sendMessage(ChatColor.AQUA+"sending to game " + ChatColor.YELLOW + args[1]);
+                sender.sendMessage(ChatColor.AQUA + "sending to game " + ChatColor.YELLOW + args[1]);
             }
             else
             {
-                sender.sendMessage(ChatColor.RED + "Invalid Game: "+args[1]);
+                sender.sendMessage(ChatColor.RED + "Invalid Game: " + args[1]);
             }
         }
-        else if(args.length == 1 && args[0].equalsIgnoreCase("gamejoiner"))
+        else if (args.length == 1 && args[0].equalsIgnoreCase("gamejoiner"))
         {
             Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
             final FileConfiguration Config = plugin.getConfig();
@@ -821,13 +821,13 @@ public class Commands implements CommandExecutor, TabExecutor
             String currentgame = Config.getString("loadedgame");
             Player player = (Player) sender;
 
-            for (Player p:Bukkit.getOnlinePlayers()) //party catch
+            for (Player p : Bukkit.getOnlinePlayers()) //party catch
             {
-                if(p.getWorld().getName().equalsIgnoreCase("bwlobby"))
+                if (p.getWorld().getName().equalsIgnoreCase("bwlobby"))
                     new LobbyInventoryFix().saveInventory(p);
             }
 
-            if(currentgame.equalsIgnoreCase("none"))
+            if (currentgame.equalsIgnoreCase("none"))
             {
                 player.sendMessage(ChatColor.RED + "No games are currently running! sorry :(");
                 player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_HURT, 2, 1);
@@ -835,137 +835,142 @@ public class Commands implements CommandExecutor, TabExecutor
             else
             {
                 BedwarsAPI.getInstance().getGameByName(currentgame).joinToGame(player);
-              //  new SafeOpCommand(player, "bw join " + currentgame);
-                    new BukkitRunnable()
+                //  new SafeOpCommand(player, "bw join " + currentgame);
+                new BukkitRunnable()
+                {
+                    @Override
+                    public void run()
                     {
-                        @Override
-                        public void run()
-                        {
-                            if(!BedwarsAPI.getInstance().getGameByName(currentgame).getStatus().equals(GameStatus.WAITING))
-                                if(player.getWorld().equals(BedwarsAPI.getInstance().getGameByName(currentgame).getGameWorld()))
-                                    player.setGameMode(GameMode.SPECTATOR);
-                            player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 2, 1);
-                        }
-                    }.runTaskLater(Commands.Invictools, 5L);
+                        if (!BedwarsAPI.getInstance().getGameByName(currentgame).getStatus().equals(GameStatus.WAITING))
+                            if (player.getWorld().equals(BedwarsAPI.getInstance().getGameByName(currentgame).getGameWorld()))
+                                player.setGameMode(GameMode.SPECTATOR);
+                        player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 2, 1);
+                    }
+                }.runTaskLater(Commands.Invictools, 5L);
             }
         }
-        else if(args.length == 1 && args[0].equalsIgnoreCase("tracker"))
+        else if (args.length == 1 && args[0].equalsIgnoreCase("tracker"))
         {
             Player player = (Player) sender;
             Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
-         //   File pFile = new File(plugin.getDataFolder().getPath() + "\\PlayerData" + File.separator + player.getUniqueId() + ".yml");
+            //   File pFile = new File(plugin.getDataFolder().getPath() + "\\PlayerData" + File.separator + player.getUniqueId() + ".yml");
             File Folder = new File(plugin.getDataFolder(), "PlayerData");
             File pFile = new File(Folder, player.getUniqueId() + ".yml");
             final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
 
             int tracker = playerData.getInt("tracker");
-            tracker ++;
+            tracker++;
             playerData.set("tracker", tracker);
             try
             {
                 playerData.save(pFile);
-            } catch (IOException e)
+            }
+            catch (IOException e)
             {
                 e.printStackTrace();
             }
         }
-        else if(args.length >= 2 && args[0].equalsIgnoreCase("FinalKillTest") && args[2].equalsIgnoreCase("cp"))
+        else if (args.length >= 2 && args[0].equalsIgnoreCase("FinalKillTest") && args[2].equalsIgnoreCase("cp"))
         {
             Player player = (Player) sender;
             Location oldloc = player.getLocation();
-            Location tp = new Location(player.getLocation().getWorld(),6.5,126,6.5,134,-30);
+            Location tp = new Location(player.getLocation().getWorld(), 6.5, 126, 6.5, 134, -30);
             String effect = args[1];
 
             player.teleport(tp);
-            Location loc = new Location(player.getLocation().getWorld(),0.5,129,0.5);
+            Location loc = new Location(player.getLocation().getWorld(), 0.5, 129, 0.5);
 
             new BukkitRunnable()
             {
                 @Override
                 public void run()
                 {
-                    new FinalKillHandler().effectSwitch(effect,player,player,loc);
+                    new FinalKillHandler().effectSwitch(effect, player, player, loc);
                 }
             }.runTaskLater(Commands.Invictools, 20L);
 
             player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.BOLD + "Hold crouch to cancel"));
             BukkitRunnable runnable2 = new BukkitRunnable()
             {
-                final int cancelAt = 20*5;
+                final int cancelAt = 20 * 5;
                 int i = 0;
+
                 @Override
                 public void run()
                 {
                     i++;
-                    if((player.getLocation().getWorld()==oldloc.getWorld() && i == cancelAt) || player.isSneaking())
+                    if ((player.getLocation().getWorld() == oldloc.getWorld() && i == cancelAt) || player.isSneaking())
                     {
                         player.teleport(oldloc);
                         this.cancel();
                     }
 
-                    if(i == cancelAt)
+                    if (i == cancelAt)
                         this.cancel();
                 }
-            };runnable2.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10,1);
+            };
+            runnable2.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10, 1);
         }
-        else if(args.length >= 2 && args[0].equalsIgnoreCase("NormalKillPreview") && args[2].equalsIgnoreCase("cp"))
+        else if (args.length >= 2 && args[0].equalsIgnoreCase("NormalKillPreview") && args[2].equalsIgnoreCase("cp"))
         {
             Player player = (Player) sender;
             Location oldloc = player.getLocation();
-            Location tp = new Location(player.getLocation().getWorld(),6.5,126,6.5,134,-10);
+            Location tp = new Location(player.getLocation().getWorld(), 6.5, 126, 6.5, 134, -10);
             String effect = args[1];
 
             player.teleport(tp);
-            Location loc = new Location(player.getLocation().getWorld(),0.5,129,0.5);
+            Location loc = new Location(player.getLocation().getWorld(), 0.5, 129, 0.5);
 
             new BukkitRunnable()
             {
                 @Override
                 public void run()
                 {
-                    new NormalKillHandler().effectSwitch(player,player,loc,effect);
+                    new NormalKillHandler().effectSwitch(player, player, loc, effect);
                 }
             }.runTaskLater(Commands.Invictools, 20L);
 
             player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.BOLD + "Hold crouch to cancel"));
             BukkitRunnable runnable2 = new BukkitRunnable()
             {
-                final int cancelAt = 20*5;
+                final int cancelAt = 20 * 5;
                 int i = 0;
+
                 @Override
                 public void run()
                 {
                     i++;
-                    if((player.getLocation().getWorld()==oldloc.getWorld() && i == cancelAt) || player.isSneaking())
+                    if ((player.getLocation().getWorld() == oldloc.getWorld() && i == cancelAt) || player.isSneaking())
                     {
                         player.teleport(oldloc);
                         this.cancel();
                     }
 
-                    if(i == cancelAt)
+                    if (i == cancelAt)
                         this.cancel();
                 }
-            };runnable2.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10,1);
+            };
+            runnable2.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10, 1);
         }
-        else if(args.length >= 2 && args[0].equalsIgnoreCase("BedBreakTest") && args[2].equalsIgnoreCase("cp"))
+        else if (args.length >= 2 && args[0].equalsIgnoreCase("BedBreakTest") && args[2].equalsIgnoreCase("cp"))
         {
             Player player = (Player) sender;
             Location oldloc = player.getLocation();
-            Location tp = new Location(player.getLocation().getWorld(),250.5,128,283.5,180,0);
+            Location tp = new Location(player.getLocation().getWorld(), 250.5, 128, 283.5, 180, 0);
             String effect = args[1];
 
             final int[] wait = new int[1];
 
             player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.BOLD + "Hold crouch to cancel"));
             player.teleport(tp);
-            Location loc = new Location(player.getLocation().getWorld(),250.5,128.5,278.5);
+            Location loc = new Location(player.getLocation().getWorld(), 250.5, 128.5, 278.5);
 
             new BukkitRunnable()
             {
                 @Override
                 public void run()
                 {
-                    new BedBreaks().handle(loc,player,loc.getBlock().getType().toString(),false,effect);
+                    new BedBreaks().handle(loc, player, loc.getBlock().getType().toString(), false, effect);
                 }
             }.runTaskLater(Commands.Invictools, 20L);
 
@@ -999,40 +1004,42 @@ public class Commands implements CommandExecutor, TabExecutor
                     {
                         final int cancelAt = wait[0];
                         int i = 0;
+
                         @Override
                         public void run()
                         {
                             i++;
-                            if((player.getLocation().getWorld()==oldloc.getWorld() && i == cancelAt) || player.isSneaking())
+                            if ((player.getLocation().getWorld() == oldloc.getWorld() && i == cancelAt) || player.isSneaking())
                             {
                                 player.teleport(oldloc);
                                 this.cancel();
                             }
 
-                            if(i == cancelAt)
+                            if (i == cancelAt)
                                 this.cancel();
                         }
-                    };runnable2.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 30,1);
+                    };
+                    runnable2.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 30, 1);
                 }
             };
             runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10L);
         }
-        else if(args.length >= 1 && args[0].equalsIgnoreCase("ranks"))
+        else if (args.length >= 1 && args[0].equalsIgnoreCase("ranks"))
         {
             Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
             final FileConfiguration Config = plugin.getConfig();
             List<String> messages = Config.getStringList("RankMessages");
-            for (String message:messages)
+            for (String message : messages)
             {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&',message));
+                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
             }
         }
-        else if(args.length >= 1 && args[0].equalsIgnoreCase("stats"))
+        else if (args.length >= 1 && args[0].equalsIgnoreCase("stats"))
         {
-            if(StatsTrack)
+            if (StatsTrack)
             {
                 StatsTrack = false;
-                sender.sendMessage(ChatColor.AQUA+"Stats should no longer track");
+                sender.sendMessage(ChatColor.AQUA + "Stats should no longer track");
             }
             else
             {
@@ -1040,9 +1047,9 @@ public class Commands implements CommandExecutor, TabExecutor
                 sender.sendMessage(ChatColor.AQUA + "Stats should now track");
             }
         }
-        else if(args.length >= 1 && args[0].equalsIgnoreCase("portals"))
+        else if (args.length >= 1 && args[0].equalsIgnoreCase("portals"))
         {
-            if(worldswap)
+            if (worldswap)
             {
                 worldswap = false;
                 sender.sendMessage(ChatColor.AQUA + "Portals Disabled");
@@ -1053,75 +1060,75 @@ public class Commands implements CommandExecutor, TabExecutor
                 sender.sendMessage(ChatColor.AQUA + "Portals Enabled");
             }
         }
-        else if(args.length >= 1 && args[0].equalsIgnoreCase("reloadnpc"))
+        else if (args.length >= 1 && args[0].equalsIgnoreCase("reloadnpc"))
         {
-            for (Entity e:Bukkit.getWorld("bwlobby").getEntitiesByClass(ArmorStand.class))
+            for (Entity e : Bukkit.getWorld("bwlobby").getEntitiesByClass(ArmorStand.class))
             {
-                if(!e.hasMetadata("holo"))
+                if (!e.hasMetadata("holo"))
                     e.remove();
             }
-            for (Entity e:Bukkit.getWorld("bwlobby").getEntitiesByClass(Illusioner.class))
+            for (Entity e : Bukkit.getWorld("bwlobby").getEntitiesByClass(Illusioner.class))
             {
                 e.remove();
             }
-            for (Entity e:Bukkit.getWorld("bwlobby").getEntitiesByClass(Allay.class))
+            for (Entity e : Bukkit.getWorld("bwlobby").getEntitiesByClass(Allay.class))
             {
                 e.remove();
             }
-            new BlazeNpc().spawnNPC("npc",true);
-            new BlazeNpc().spawnNPC("npc2",false);
+            new BlazeNpc().spawnNPC("npc", true);
+            new BlazeNpc().spawnNPC("npc2", false);
         }
-        else if(sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("firestick") && FireStickEnabled)
+        else if (sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("firestick") && FireStickEnabled)
         {
-            if(Bukkit.getPlayer(sender.getName()).getWorld().getName().equals("bwlobby"))
-                new FireStick((Player)sender);
+            if (Bukkit.getPlayer(sender.getName()).getWorld().getName().equals("bwlobby"))
+                new FireStick((Player) sender);
         }
-        else if(sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("lobbydare") && FireStickEnabled)
-        {
-            Player p = (Player)sender;
-            if(Bukkit.getPlayer(sender.getName()).getWorld().getName().equals("bwlobby"))
-                new dareListener().handleItem(p.getLocation(),p,true,true);
-        }
-        else if(sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("lobbydare") && !FireStickEnabled)
-        {
-            sender.sendMessage(ChatColor.GOLD + "Lobby Dare "+ChatColor.RED + "is currently disabled.");
-        }
-        else if(sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("firestick") && !FireStickEnabled)
-        {
-            sender.sendMessage(ChatColor.GOLD + "FireSticks "+ChatColor.RED + "are currently disabled.");
-        }
-        else if(args.length > 0 && args[0].equalsIgnoreCase("projpreview"))
+        else if (sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("lobbydare") && FireStickEnabled)
         {
             Player p = (Player) sender;
-            if(p.getWorld().getName().equalsIgnoreCase("bwlobby"))
+            if (Bukkit.getPlayer(sender.getName()).getWorld().getName().equals("bwlobby"))
+                new dareListener().handleItem(p.getLocation(), p, true, true);
+        }
+        else if (sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("lobbydare") && !FireStickEnabled)
+        {
+            sender.sendMessage(ChatColor.GOLD + "Lobby Dare " + ChatColor.RED + "is currently disabled.");
+        }
+        else if (sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("firestick") && !FireStickEnabled)
+        {
+            sender.sendMessage(ChatColor.GOLD + "FireSticks " + ChatColor.RED + "are currently disabled.");
+        }
+        else if (args.length > 0 && args[0].equalsIgnoreCase("projpreview"))
+        {
+            Player p = (Player) sender;
+            if (p.getWorld().getName().equalsIgnoreCase("bwlobby"))
                 new ProjTrailPreview().handle(args[1], p);
         }
-        else if(args.length > 0 && args[0].equalsIgnoreCase("VictoryDancePreview"))
+        else if (args.length > 0 && args[0].equalsIgnoreCase("VictoryDancePreview"))
         {
             Player p = (Player) sender;
-            if(p.getWorld().getName().equalsIgnoreCase("bwlobby"))
+            if (p.getWorld().getName().equalsIgnoreCase("bwlobby"))
                 new VictoryDancePreview().handle(args[1], p);
         }
-        else if(sender.hasPermission("invic.invictools"))
+        else if (sender.hasPermission("invic.invictools"))
         {
-            if(args.length > 0 && args[0].equalsIgnoreCase("destroyholos"))
+            if (args.length > 0 && args[0].equalsIgnoreCase("destroyholos"))
             {
-                Player p = (Player)sender;
-                for (Entity e: p.getWorld().getEntitiesByClass(ArmorStand.class))
+                Player p = (Player) sender;
+                for (Entity e : p.getWorld().getEntitiesByClass(ArmorStand.class))
                 {
-                     if(!e.hasMetadata("holo"))
+                    if (!e.hasMetadata("holo"))
                         e.remove();
                 }
-              //  Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "minecraft:kill @e[type=minecraft:armor_stand]");
+                //  Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "minecraft:kill @e[type=minecraft:armor_stand]");
                 sender.sendMessage(ChatColor.AQUA + "All non scoreboard holographic displays have been deleted!");
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("debug"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("debug"))
             {
                 sender.sendMessage(" ");
-                sender.sendMessage(ChatColor.WHITE+ "Status:");
-                sender.sendMessage(ChatColor.YELLOW + "- Master Player: " + ChatColor.WHITE+MasterPlayer.getName());
-                sender.sendMessage(ChatColor.YELLOW + "- Lucky Blocks Enabled: " + ChatColor.WHITE+LuckyBlocksEnabled);
-                sender.sendMessage(ChatColor.YELLOW + "- FireStick Enabled: " + ChatColor.WHITE+FireStickEnabled);
+                sender.sendMessage(ChatColor.WHITE + "Status:");
+                sender.sendMessage(ChatColor.YELLOW + "- Master Player: " + ChatColor.WHITE + MasterPlayer.getName());
+                sender.sendMessage(ChatColor.YELLOW + "- Lucky Blocks Enabled: " + ChatColor.WHITE + LuckyBlocksEnabled);
+                sender.sendMessage(ChatColor.YELLOW + "- FireStick Enabled: " + ChatColor.WHITE + FireStickEnabled);
                 sender.sendMessage(ChatColor.YELLOW + "- Teammates Assignment: ");
                 sender.sendMessage(ChatColor.YELLOW + "- Lobby: ");
                 LobbyLogic.lobbyRegion.forEach((attribute, value) ->
@@ -1131,66 +1138,66 @@ public class Commands implements CommandExecutor, TabExecutor
                         sender.sendMessage(ChatColor.WHITE + attribute + " at value " + value));
                 sender.sendMessage(ChatColor.YELLOW + "- ProximityElytra: ");
                 ProximityElytra.forEach((p, bool) ->
-                        sender.sendMessage(ChatColor.WHITE+ p.getName() + " has active elytra: " +bool));
+                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has active elytra: " + bool));
                 teammates.forEach((p, team) ->
-                        sender.sendMessage(ChatColor.WHITE+ p.getName() + " and " + team.getName()));
+                        sender.sendMessage(ChatColor.WHITE + p.getName() + " and " + team.getName()));
                 sender.sendMessage(ChatColor.YELLOW + "- killEffects: ");
                 killEffects.forEach((p, effect) ->
-                        sender.sendMessage(ChatColor.WHITE+ p.getName() + " has effect " + effect));
+                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has effect " + effect));
                 sender.sendMessage(ChatColor.YELLOW + "- NoShop: ");
                 noShop.forEach((p, effect) ->
-                        sender.sendMessage(ChatColor.WHITE+ p.getName() + " has noshop " + effect));
+                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has noshop " + effect));
                 sender.sendMessage(ChatColor.YELLOW + "- killItems: ");
                 killItems.forEach((p, effect) ->
-                        sender.sendMessage(ChatColor.WHITE+ p.getName() + " has item " + effect));
+                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has item " + effect));
                 sender.sendMessage(ChatColor.YELLOW + "- deathitems: ");
                 deathItems.forEach((p, effect) ->
-                        sender.sendMessage(ChatColor.WHITE+ p.getName() + " has item " + effect));
+                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has item " + effect));
                 sender.sendMessage(ChatColor.YELLOW + "- Totems: ");
                 InfiniteTotems.forEach((p, value) ->
-                        sender.sendMessage(ChatColor.WHITE+ p.getName() + " has totems: " + value));
+                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has totems: " + value));
                 sender.sendMessage(ChatColor.YELLOW + "- PreventDrops: ");
                 disableDrops.forbidDrop.forEach((p, value) ->
-                        sender.sendMessage(ChatColor.WHITE+ p.getName() + " cannot drop: " + value));
+                        sender.sendMessage(ChatColor.WHITE + p.getName() + " cannot drop: " + value));
                 sender.sendMessage(ChatColor.YELLOW + "- Hauntable: ");
                 Hauntable.forEach((p, value) ->
-                        sender.sendMessage(ChatColor.WHITE+ p.getName() + " will haunt: " + value));
+                        sender.sendMessage(ChatColor.WHITE + p.getName() + " will haunt: " + value));
                 sender.sendMessage(ChatColor.YELLOW + "- Deaths: ");
                 DeathCounter.deaths.forEach((p, value) ->
-                        sender.sendMessage(ChatColor.WHITE+ p.getName() + " has this many deaths: " + value));
+                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has this many deaths: " + value));
                 sender.sendMessage(ChatColor.YELLOW + "- Manhunt: ");
                 sender.sendMessage(ChatColor.YELLOW + "Teams: ");
                 ManhuntMain.ManhuntTeam.forEach((p, team) ->
-                        sender.sendMessage(ChatColor.WHITE+ p.getName() + " is on team " + team));
+                        sender.sendMessage(ChatColor.WHITE + p.getName() + " is on team " + team));
                 sender.sendMessage(ChatColor.YELLOW + "Hunter items: ");
                 ManhuntMain.HunterItems.forEach((item) ->
-                        sender.sendMessage(ChatColor.WHITE +" hunter items: " + item));
+                        sender.sendMessage(ChatColor.WHITE + " hunter items: " + item));
                 sender.sendMessage(ChatColor.YELLOW + "Hunter effects: ");
                 ManhuntMain.HunterEffects.forEach((item) ->
-                        sender.sendMessage(ChatColor.WHITE+" hunter effects: " + item));
+                        sender.sendMessage(ChatColor.WHITE + " hunter effects: " + item));
                 sender.sendMessage(ChatColor.YELLOW + "Hunted items: ");
                 ManhuntMain.HuntedItems.forEach((item) ->
-                        sender.sendMessage(ChatColor.WHITE+" hunted items: " + item));
+                        sender.sendMessage(ChatColor.WHITE + " hunted items: " + item));
                 sender.sendMessage(ChatColor.YELLOW + "Hunted effects: ");
                 ManhuntMain.HuntedEffects.forEach((item) ->
-                        sender.sendMessage(ChatColor.WHITE+" hunted effects: " + item));
+                        sender.sendMessage(ChatColor.WHITE + " hunted effects: " + item));
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("forceManhuntTeam"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("forceManhuntTeam"))
             {
-                ManhuntMain.ManhuntTeam.put(Bukkit.getPlayer(args[1]),"Hunted");
+                ManhuntMain.ManhuntTeam.put(Bukkit.getPlayer(args[1]), "Hunted");
                 sender.sendMessage(ChatColor.YELLOW + " " + Bukkit.getPlayer(args[1]).getName() + ChatColor.AQUA + " will be hunted.");
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("loadInventory"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("loadInventory"))
             {
-                new LobbyInventoryFix().loadInventory(Bukkit.getPlayer(args[1]),Bukkit.getPlayer(args[2]));
+                new LobbyInventoryFix().loadInventory(Bukkit.getPlayer(args[1]), Bukkit.getPlayer(args[2]));
                 sender.sendMessage(ChatColor.YELLOW + " " + Bukkit.getPlayer(args[1]).getName() + ChatColor.AQUA + "'s Inventory has been loaded");
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("Parkour"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("Parkour"))
             {
                 new disableParkour();
                 sender.sendMessage(ChatColor.AQUA + "Toggling Parkour");
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("clearManhuntTeam"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("clearManhuntTeam"))
             {
                 ManhuntMain.ManhuntTeam.clear();
                 ManhuntMain.HuntedItems.clear();
@@ -1200,86 +1207,86 @@ public class Commands implements CommandExecutor, TabExecutor
                 ManhuntMain.HunterEffects.clear();
                 sender.sendMessage(ChatColor.AQUA + "Manhunt team pre-assignments and data has been cleared");
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("ResetAttributes"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("ResetAttributes"))
             {
                 AbtributesOnDeath.resetAttributes();
                 sender.sendMessage(ChatColor.AQUA + "All players active attributes modifiers have been reset");
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("ResetDeathCounter"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("ResetDeathCounter"))
             {
                 DeathCounter.resetCounter();
                 sender.sendMessage(ChatColor.AQUA + "Death counter reset");
             }
-            else if(args.length >= 3 && args[0].equalsIgnoreCase("shrieker"))
+            else if (args.length >= 3 && args[0].equalsIgnoreCase("shrieker"))
             {
-                if(args[2].equalsIgnoreCase("player") || args[2].equalsIgnoreCase("p"))
+                if (args[2].equalsIgnoreCase("player") || args[2].equalsIgnoreCase("p"))
                 {
-                    new WardenSpawner().ShriekerFromWorld(Bukkit.getPlayer(args[3]).getWorld(),Boolean.parseBoolean(args[1]));
+                    new WardenSpawner().ShriekerFromWorld(Bukkit.getPlayer(args[3]).getWorld(), Boolean.parseBoolean(args[1]));
                 }
                 else
-                    new WardenSpawner().ShriekerFromWorld(Bukkit.getWorld(args[3]),Boolean.parseBoolean(args[1]));
+                    new WardenSpawner().ShriekerFromWorld(Bukkit.getWorld(args[3]), Boolean.parseBoolean(args[1]));
 
-               // sender.sendMessage(ChatColor.AQUA + "Default world border closing on 0,0...");
+                // sender.sendMessage(ChatColor.AQUA + "Default world border closing on 0,0...");
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("worldborder"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("worldborder"))
             {
                 new WorldBorder(250, 50, 240, 0, ((Player) sender).getWorld(), true);
                 sender.sendMessage(ChatColor.AQUA + "world border closing");
             }
-            else if(args.length > 1 && args[0].equalsIgnoreCase("worldborder"))
+            else if (args.length > 1 && args[0].equalsIgnoreCase("worldborder"))
             {
                 new WorldBorder(Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4]), ((Player) sender).getWorld(), false);
                 sender.sendMessage(ChatColor.AQUA + "World border closing on x/z" + Integer.parseInt(args[4]));
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("grabteammates"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("grabteammates"))
             {
                 new GrabTeammates((Player) sender);
-             //   sender.sendMessage(ChatColor.AQUA + "Grabbing teammates...");
+                //   sender.sendMessage(ChatColor.AQUA + "Grabbing teammates...");
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("clearteammates"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("clearteammates"))
             {
                 teammates.clear();
                 sender.sendMessage(ChatColor.AQUA + "Teammates cleared...");
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("disableshop"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("disableshop"))
             {
                 Player p = (Player) sender;
                 if (args[1].equalsIgnoreCase("single"))
-                    noShop.put(Bukkit.getPlayer(args[2]),true);
-                else if(args[1].equalsIgnoreCase("all"))
+                    noShop.put(Bukkit.getPlayer(args[2]), true);
+                else if (args[1].equalsIgnoreCase("all"))
                 {
-                    for (Player o:Bukkit.getOnlinePlayers())
+                    for (Player o : Bukkit.getOnlinePlayers())
                     {
-                        if(o.getWorld().equals(p.getWorld()) && o.getGameMode().equals(GameMode.SURVIVAL))
-                            noShop.put(o,true);
+                        if (o.getWorld().equals(p.getWorld()) && o.getGameMode().equals(GameMode.SURVIVAL))
+                            noShop.put(o, true);
                     }
                 }
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("reset"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("reset"))
             {
                 deathListener.clearEverything(MasterPlayer.getWorld());
                 sender.sendMessage(ChatColor.AQUA + "Scenarios mostly reset.");
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("ProximityElytra"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("ProximityElytra"))
             {
                 ItemStack item = new ItemStack(Material.ELYTRA);
                 ItemMeta meta = item.getItemMeta();
                 meta.setDisplayName(ChatColor.YELLOW + "Proximity Elytra");
                 List<String> lore = new ArrayList<>();
-                lore.add(ChatColor.translateAlternateColorCodes('&',"&cStay near your teammates or you'll lose it!"));
+                lore.add(ChatColor.translateAlternateColorCodes('&', "&cStay near your teammates or you'll lose it!"));
                 meta.setLore(lore);
                 item.setItemMeta(meta);
 
                 BedwarsAPI api = BedwarsAPI.getInstance();
-                for (Player p : api.getGameOfPlayer((Player)sender).getConnectedPlayers())
+                for (Player p : api.getGameOfPlayer((Player) sender).getConnectedPlayers())
                 {
-                    System.out.println("stating elytra for "+p.getName());
-                    new CloseElytra(Double.parseDouble(args[1]),p,item);
+                    System.out.println("stating elytra for " + p.getName());
+                    new CloseElytra(Double.parseDouble(args[1]), p, item);
                     p.sendMessage(ChatColor.AQUA + "You will now receive an Elytra when near your teammates");
-                    ProximityElytra.put(p,true);
+                    ProximityElytra.put(p, true);
                 }
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("ProximityElytraSingle"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("ProximityElytraSingle"))
             {
                 Player p = Bukkit.getPlayer(args[2]);
 
@@ -1287,59 +1294,59 @@ public class Commands implements CommandExecutor, TabExecutor
                 ItemMeta meta = item.getItemMeta();
                 meta.setDisplayName(ChatColor.YELLOW + "Proximity Elytra");
                 List<String> lore = new ArrayList<>();
-                lore.add(ChatColor.translateAlternateColorCodes('&',"&cStay near your teammates or you'll lose it!"));
+                lore.add(ChatColor.translateAlternateColorCodes('&', "&cStay near your teammates or you'll lose it!"));
                 meta.setLore(lore);
                 item.setItemMeta(meta);
 
-                    new CloseElytra(Double.parseDouble(args[1]),p,item);
-                    p.sendMessage(ChatColor.AQUA + "You will now receive an Elytra when near your teammates");
-                    ProximityElytra.put(p,true);
+                new CloseElytra(Double.parseDouble(args[1]), p, item);
+                p.sendMessage(ChatColor.AQUA + "You will now receive an Elytra when near your teammates");
+                ProximityElytra.put(p, true);
             }
             else if (args.length > 1 && args[0].equalsIgnoreCase("SetTeamSize"))
             {
-                if(args[1].equalsIgnoreCase("EveryArena"))
+                if (args[1].equalsIgnoreCase("EveryArena"))
                 {
                     ChangeTeamSize.ChangeEveryArenaTeamSize(Integer.parseInt(args[2]));
                 }
-                else if(args[1].equalsIgnoreCase("SingleArena"))
+                else if (args[1].equalsIgnoreCase("SingleArena"))
                 {
-                    if(args[2].equalsIgnoreCase("EveryTeam"))
+                    if (args[2].equalsIgnoreCase("EveryTeam"))
                     {
-                        ChangeTeamSize.ChangeSingleArenaTeamSize(args[3],Integer.parseInt(args[4]));
+                        ChangeTeamSize.ChangeSingleArenaTeamSize(args[3], Integer.parseInt(args[4]));
                     }
-                    else if(args[2].equalsIgnoreCase("SingleTeam"))
+                    else if (args[2].equalsIgnoreCase("SingleTeam"))
                     {
-                        ChangeTeamSize.ChangeSingleTeamSize(args[3],Integer.parseInt(args[4]), args[5]);
+                        ChangeTeamSize.ChangeSingleTeamSize(args[3], Integer.parseInt(args[4]), args[5]);
                     }
                 }
             }
             else if (args.length == 1 && args[0].equalsIgnoreCase("SetTeamSize"))
             {
-                ChangeTeamSize.printTeamSizes((Player)sender);
+                ChangeTeamSize.printTeamSizes((Player) sender);
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("EffectSometimes"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("EffectSometimes"))
             {
                 if (args[1].equalsIgnoreCase("all"))
                 {
-                    new EffectSometimes(true,Bukkit.getPlayer(args[7]),args[6],Integer.parseInt(args[2]),Integer.parseInt(args[3]),Integer.parseInt(args[4]),Integer.parseInt(args[5]));
+                    new EffectSometimes(true, Bukkit.getPlayer(args[7]), args[6], Integer.parseInt(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4]), Integer.parseInt(args[5]));
                 }
                 else
                 {
-                    new EffectSometimes(false,Bukkit.getPlayer(args[7]),args[6],Integer.parseInt(args[2]),Integer.parseInt(args[3]),Integer.parseInt(args[4]),Integer.parseInt(args[5]));
+                    new EffectSometimes(false, Bukkit.getPlayer(args[7]), args[6], Integer.parseInt(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4]), Integer.parseInt(args[5]));
                 }
                 sender.sendMessage(ChatColor.AQUA + "Command went through but i didnt code this part yet so dont look");
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("printitemdata") || (args.length == 1 && args[0].equalsIgnoreCase("pid")))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("printitemdata") || (args.length == 1 && args[0].equalsIgnoreCase("pid")))
             {
                 Player player = (Player) sender;
                 System.out.println(player.getInventory().getItem(40));
                 FileConfiguration config = Invictools.getConfig();
-                config.set("pid",player.getInventory().getItem(40));
+                config.set("pid", player.getInventory().getItem(40));
                 Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
                 plugin.saveConfig();
                 sender.sendMessage(ChatColor.AQUA + "Logged the ItemStack in your offhand in the console and config : " + player.getInventory().getItem(40).getType());
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("givePID"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("givePID"))
             {
                 Player player = (Player) sender;
                 FileConfiguration config = Invictools.getConfig();
@@ -1351,59 +1358,59 @@ public class Commands implements CommandExecutor, TabExecutor
                     player.getWorld().dropItemNaturally(player.getLocation(), i);
                 }
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("sreload"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("sreload"))
             {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "minecraft:kill @e[type=minecraft:armor_stand]");
                 sender.sendMessage(ChatColor.AQUA + "Safe reloading... This command is pointless now you moron.");
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "reload");
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("srestart"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("srestart"))
             {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "minecraft:kill @e[type=minecraft:armor_stand]");
                 sender.sendMessage(ChatColor.AQUA + "Safe restarting... This command is pointless now you moron.");
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "restart");
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("ToggleFireStick"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("ToggleFireStick"))
             {
-                if(FireStickEnabled)
+                if (FireStickEnabled)
                     FireStickEnabled = false;
                 else
                     FireStickEnabled = true;
 
-                sender.sendMessage(ChatColor.AQUA + "Firestick Enabled is now "+ChatColor.YELLOW + FireStickEnabled);
+                sender.sendMessage(ChatColor.AQUA + "Firestick Enabled is now " + ChatColor.YELLOW + FireStickEnabled);
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("ToggleVictory"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("ToggleVictory"))
             {
-                if(VictoryDancePreview.VictoryPreviewEnabled)
+                if (VictoryDancePreview.VictoryPreviewEnabled)
                     VictoryDancePreview.VictoryPreviewEnabled = false;
                 else
                     VictoryDancePreview.VictoryPreviewEnabled = true;
 
-                sender.sendMessage(ChatColor.AQUA + "Victory Dance Preview Enabled is now "+ChatColor.YELLOW + VictoryDancePreview.VictoryPreviewEnabled);
+                sender.sendMessage(ChatColor.AQUA + "Victory Dance Preview Enabled is now " + ChatColor.YELLOW + VictoryDancePreview.VictoryPreviewEnabled);
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("itemrain"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("itemrain"))
             {
-                if(args[1].equalsIgnoreCase("loottable"))
-                    ItemRain.ItemRainLootTable(args[2],Integer.parseInt(args[3]),(Player) sender);
-                else if(args[1].equalsIgnoreCase("config"))
-                    ItemRain.ItemRainConfig(args[2],Integer.parseInt(args[3]),(Player) sender);
+                if (args[1].equalsIgnoreCase("loottable"))
+                    ItemRain.ItemRainLootTable(args[2], Integer.parseInt(args[3]), (Player) sender);
+                else if (args[1].equalsIgnoreCase("config"))
+                    ItemRain.ItemRainConfig(args[2], Integer.parseInt(args[3]), (Player) sender);
                 ItemRain.IsEnabled = true;
                 sender.sendMessage(ChatColor.AQUA + "Raining items in the sky using LootTable " + ChatColor.YELLOW + args[2]);
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("DeathAttribute"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("DeathAttribute"))
             {
-                if(args[1].equalsIgnoreCase("all")) // it DeathAttribute all Attribute interval basevalue
+                if (args[1].equalsIgnoreCase("all")) // it DeathAttribute all Attribute interval basevalue
                     new AbtributesOnDeath().AbtributesOnDeathAll((Player) sender, args[2], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
-                else if(args[1].equalsIgnoreCase("single")) // it DeathAttribute single Attribute interval basevalue player
+                else if (args[1].equalsIgnoreCase("single")) // it DeathAttribute single Attribute interval basevalue player
                     new AbtributesOnDeath().AttributesOnDeathSingular(getPlayer(args[5]), args[2], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("totems"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("totems"))
             {
-                if(args[1].equalsIgnoreCase("all"))
+                if (args[1].equalsIgnoreCase("all"))
                 {
-                    for (Player player:Bukkit.getOnlinePlayers())
+                    for (Player player : Bukkit.getOnlinePlayers())
                     {
-                        InfiniteTotems.put(player,true);
+                        InfiniteTotems.put(player, true);
                         player.sendMessage(ChatColor.AQUA + "You are now nearly immortal");
                         World world = player.getWorld();
                         new BukkitRunnable() // kills at max 1 minute after match ends or player dies and leaves
@@ -1427,7 +1434,7 @@ public class Commands implements CommandExecutor, TabExecutor
                 else
                 {
                     Player player = Bukkit.getPlayer(args[1]);
-                    InfiniteTotems.put(Bukkit.getPlayer(args[1]),true);
+                    InfiniteTotems.put(Bukkit.getPlayer(args[1]), true);
                     player.sendMessage(ChatColor.AQUA + "You are now nearly immortal");
                     World world = player.getWorld();
                     new BukkitRunnable() // kills at max 1 minute after match ends or player dies and leaves
@@ -1448,17 +1455,17 @@ public class Commands implements CommandExecutor, TabExecutor
                     }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
                 }
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("haunt"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("haunt"))
             {
                 HauntConfig = args[2];
-                if(args[1].equalsIgnoreCase("all"))
+                if (args[1].equalsIgnoreCase("all"))
                 {
-                    for (Player player:Bukkit.getOnlinePlayers())
+                    for (Player player : Bukkit.getOnlinePlayers())
                     {
                         player.sendMessage(ChatColor.AQUA + "You can now haunt players after you are final killed");
-                        if(MasterPlayer.getWorld().equals(player.getWorld()))
+                        if (MasterPlayer.getWorld().equals(player.getWorld()))
                         {
-                            Hauntable.put(player,true);
+                            Hauntable.put(player, true);
                             World world = player.getWorld();
 
                             new BukkitRunnable() // kills at max 1 minute after match ends or player dies and leaves
@@ -1483,9 +1490,9 @@ public class Commands implements CommandExecutor, TabExecutor
                 {
                     Player player = Bukkit.getPlayer(args[1]);
                     player.sendMessage(ChatColor.AQUA + "You can now haunt players after you are final killed");
-                    if(MasterPlayer.getWorld().equals(player.getWorld()))
+                    if (MasterPlayer.getWorld().equals(player.getWorld()))
                     {
-                        Hauntable.put(player,true);
+                        Hauntable.put(player, true);
                         World world = player.getWorld();
 
                         new BukkitRunnable() // kills at max 1 minute after match ends or player dies and leaves
@@ -1506,17 +1513,17 @@ public class Commands implements CommandExecutor, TabExecutor
                     }
                 }
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("InstantHaunt"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("InstantHaunt"))
             {
                 Player player = Bukkit.getPlayer(args[1]);
                 player.sendMessage(ChatColor.AQUA + "You can now haunt living players.");
                 new Haunt(player, args[2]);
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("luckyblocks"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("luckyblocks"))
             {
                 Player p = (Player) sender;
 
-                if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+                if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
                 {
                     String worldname = p.getWorld().getName();
                     int spawnerSize = 0;
@@ -1527,22 +1534,23 @@ public class Commands implements CommandExecutor, TabExecutor
                     while (true)
                     {
 
-                        String temp = config.getString("LuckySpawners."+spawnerSize+".x");
+                        String temp = config.getString("LuckySpawners." + spawnerSize + ".x");
                         if (temp != null)
                         {
                             spawnerSize++;
-                        } else
+                        }
+                        else
                             break;
                     }
 
-                    if(spawnerSize!=0)
+                    if (spawnerSize != 0)
                     {
                         Random rand = new Random();
                         for (int a = 0; a < spawnerSize; a++)
                         {
                             int delay = rand.nextInt(30) + 40;
                             Location spawnerloc = new Location(p.getWorld(), config.getDouble("LuckySpawners." + a + ".x"), config.getDouble("LuckySpawners." + a + ".y"), config.getDouble("LuckySpawners." + a + ".z"));
-                            new LuckyBlockSpawner(spawnerloc,"§b§lLucky Block Spawner","random",delay);
+                            new LuckyBlockSpawner(spawnerloc, "§b§lLucky Block Spawner", "random", delay);
                         }
                     }
 
@@ -1551,7 +1559,7 @@ public class Commands implements CommandExecutor, TabExecutor
                         @Override
                         public void run()
                         {
-                            if(!p.getWorld().getName().equals(worldname))
+                            if (!p.getWorld().getName().equals(worldname))
                             {
                                 sender.sendMessage(ChatColor.AQUA + "Lucky Blocks disabled in world " + ChatColor.YELLOW + worldname);
                                 LuckyBlocksEnabled = false;
@@ -1561,40 +1569,40 @@ public class Commands implements CommandExecutor, TabExecutor
                     }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 100, 100);
                 }
             }
-            else if(args.length > 1 && args[0].equalsIgnoreCase("repeatedItem"))
+            else if (args.length > 1 && args[0].equalsIgnoreCase("repeatedItem"))
             {
-                if(args[5].equalsIgnoreCase("all"))
+                if (args[5].equalsIgnoreCase("all"))
                 {
-                    for (Player player:Bukkit.getOnlinePlayers())
+                    for (Player player : Bukkit.getOnlinePlayers())
                     {
                         int delay = Integer.parseInt(args[3]);
                         String type = args[4];
-                        if(args[4].equalsIgnoreCase("specificlb"))
+                        if (args[4].equalsIgnoreCase("specificlb"))
                         {
                             ItemStack item = new createLuckyBlocks().getByName(args[1]);
                             item.setAmount(Integer.parseInt(args[2]));
                             type = "normal";
 
-                            new giveItemRepeated(delay,item,player,type);
-                            player.sendMessage((ChatColor.AQUA + "You will receive luckyblocks,  " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA+" seconds."));
+                            new giveItemRepeated(delay, item, player, type);
+                            player.sendMessage((ChatColor.AQUA + "You will receive luckyblocks,  " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
 
                         }
-                        else if(args[4].equalsIgnoreCase("specificItem"))
+                        else if (args[4].equalsIgnoreCase("specificItem"))
                         {
                             ItemStack item = new createItems().getByName(args[1]);
                             item.setAmount(Integer.parseInt(args[2]));
                             type = "normal";
 
-                            new giveItemRepeated(delay,item,player,type);
-                            player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA+" seconds."));
+                            new giveItemRepeated(delay, item, player, type);
+                            player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
                         }
                         else
                         {
                             ItemStack item = new ItemStack(Objects.requireNonNull(Material.getMaterial(args[1])));
                             item.setAmount(Integer.parseInt(args[2]));
 
-                            new giveItemRepeated(delay,item,player,type);
-                            player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + item.getType().toString().toLowerCase(Locale.ROOT) + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA+" seconds."));
+                            new giveItemRepeated(delay, item, player, type);
+                            player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + item.getType().toString().toLowerCase(Locale.ROOT) + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
                         }
                     }
                 }
@@ -1603,42 +1611,42 @@ public class Commands implements CommandExecutor, TabExecutor
                     int delay = Integer.parseInt(args[3]);
                     Player player = Bukkit.getPlayer(args[5]);
                     String type = args[4];
-                    if(args[4].equalsIgnoreCase("specificlb"))
+                    if (args[4].equalsIgnoreCase("specificlb"))
                     {
                         ItemStack item = new createLuckyBlocks().getByName(args[1]);
                         item.setAmount(Integer.parseInt(args[2]));
                         type = "normal";
 
-                        new giveItemRepeated(delay,item,player,type);
-                        player.sendMessage((ChatColor.AQUA + "You will receive luckyblocks,  " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA+" seconds."));
+                        new giveItemRepeated(delay, item, player, type);
+                        player.sendMessage((ChatColor.AQUA + "You will receive luckyblocks,  " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
 
                     }
-                    else if(args[4].equalsIgnoreCase("specificItem"))
+                    else if (args[4].equalsIgnoreCase("specificItem"))
                     {
                         ItemStack item = new createItems().getByName(args[1]);
                         item.setAmount(Integer.parseInt(args[2]));
                         type = "normal";
 
-                        new giveItemRepeated(delay,item,player,type);
-                        player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA+" seconds."));
+                        new giveItemRepeated(delay, item, player, type);
+                        player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
                     }
                     else
                     {
                         ItemStack item = new ItemStack(Objects.requireNonNull(Material.getMaterial(args[1])));
                         item.setAmount(Integer.parseInt(args[2]));
 
-                        new giveItemRepeated(delay,item,player,type);
-                        player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + item.getType().toString().toLowerCase(Locale.ROOT) + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA+" seconds."));
+                        new giveItemRepeated(delay, item, player, type);
+                        player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + item.getType().toString().toLowerCase(Locale.ROOT) + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
                     }
                 }
             }
-            else if(args.length > 1 && args[0].equalsIgnoreCase("KillEffects")) // it killeffects POTTYPE POTLEVEL DURATION PLAYERNAME
+            else if (args.length > 1 && args[0].equalsIgnoreCase("KillEffects")) // it killeffects POTTYPE POTLEVEL DURATION PLAYERNAME
             {
-                if(args[4].equals("all"))
+                if (args[4].equals("all"))
                 {
-                    for (Player player:Bukkit.getOnlinePlayers())
+                    for (Player player : Bukkit.getOnlinePlayers())
                     {
-                        killEffects.put(player,args[1]+"-"+args[2]+"-"+args[3]); // pot type, levles, duartion
+                        killEffects.put(player, args[1] + "-" + args[2] + "-" + args[3]); // pot type, levles, duartion
                         World world = Commands.MasterPlayer.getWorld();
                         new BukkitRunnable()
                         {
@@ -1656,7 +1664,7 @@ public class Commands implements CommandExecutor, TabExecutor
                 }
                 else
                 {
-                    killEffects.put(Bukkit.getPlayer(args[4]),args[1]+"-"+args[2]+"-"+args[3]); // pot type, levles, duartion
+                    killEffects.put(Bukkit.getPlayer(args[4]), args[1] + "-" + args[2] + "-" + args[3]); // pot type, levles, duartion
                     World world = Bukkit.getPlayer(args[4]).getWorld();
                     new BukkitRunnable() // kills at max 1 minute after match ends or player dies and leaves
                     {
@@ -1672,17 +1680,17 @@ public class Commands implements CommandExecutor, TabExecutor
                     }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
                 }
             }
-            else if(args.length > 1 && args[0].equalsIgnoreCase("KillItems")) // it killitems itemtype amount normal player
+            else if (args.length > 1 && args[0].equalsIgnoreCase("KillItems")) // it killitems itemtype amount normal player
             {
-                if(args[4].equals("all"))
+                if (args[4].equals("all"))
                 {
-                    for (Player player:Bukkit.getOnlinePlayers())
+                    for (Player player : Bukkit.getOnlinePlayers())
                     {
-                        if(args[3].equalsIgnoreCase("normal"))
+                        if (args[3].equalsIgnoreCase("normal"))
                         {
                             ItemStack item = new ItemStack(Material.getMaterial(args[1]));
                             item.setAmount(Integer.parseInt(args[2]));
-                            killItems.put(player,item);
+                            killItems.put(player, item);
 
                             World world = Commands.MasterPlayer.getWorld();
                             new BukkitRunnable()
@@ -1698,11 +1706,11 @@ public class Commands implements CommandExecutor, TabExecutor
                                 }
                             }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
                         }
-                        else if(args[3].equalsIgnoreCase("lb"))
+                        else if (args[3].equalsIgnoreCase("lb"))
                         {
                             ItemStack item = new createLuckyBlocks().getByName(args[1]);
                             item.setAmount(Integer.parseInt(args[2]));
-                            killItems.put(player,item);
+                            killItems.put(player, item);
 
                             World world = Commands.MasterPlayer.getWorld();
                             new BukkitRunnable()
@@ -1718,11 +1726,11 @@ public class Commands implements CommandExecutor, TabExecutor
                                 }
                             }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
                         }
-                        else if(args[3].equalsIgnoreCase("item"))
+                        else if (args[3].equalsIgnoreCase("item"))
                         {
                             ItemStack item = new createItems().getByName(args[1]);
                             item.setAmount(Integer.parseInt(args[2]));
-                            killItems.put(player,item);
+                            killItems.put(player, item);
 
                             World world = Commands.MasterPlayer.getWorld();
                             new BukkitRunnable()
@@ -1742,13 +1750,13 @@ public class Commands implements CommandExecutor, TabExecutor
                 }
                 else
                 {
-                    if(args[3].equalsIgnoreCase("normal"))
+                    if (args[3].equalsIgnoreCase("normal"))
                     {
                         ItemStack item = new ItemStack(Material.getMaterial(args[1]));
                         item.setAmount(Integer.parseInt(args[2]));
-                        killItems.put(Bukkit.getPlayer(args[4]),item);
-                      //  System.out.println((Bukkit.getPlayer(args[4]);
-                     //   System.out.println(Bukkit.getPlayer(String.valueOf(item)));
+                        killItems.put(Bukkit.getPlayer(args[4]), item);
+                        //  System.out.println((Bukkit.getPlayer(args[4]);
+                        //   System.out.println(Bukkit.getPlayer(String.valueOf(item)));
 
                         World world = Bukkit.getPlayer(args[4]).getWorld();
                         sender.sendMessage(ChatColor.AQUA + Bukkit.getPlayer(args[4]).getName() + item.getType() + " after every kill");
@@ -1765,11 +1773,11 @@ public class Commands implements CommandExecutor, TabExecutor
                             }
                         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
                     }
-                    else if(args[3].equalsIgnoreCase("lb"))
+                    else if (args[3].equalsIgnoreCase("lb"))
                     {
                         ItemStack item = new createLuckyBlocks().getByName(args[1]);
                         item.setAmount(Integer.parseInt(args[2]));
-                        killItems.put(Bukkit.getPlayer(args[4]),item);
+                        killItems.put(Bukkit.getPlayer(args[4]), item);
 
                         World world = Bukkit.getPlayer(args[4]).getWorld();
                         new BukkitRunnable()
@@ -1785,11 +1793,11 @@ public class Commands implements CommandExecutor, TabExecutor
                             }
                         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
                     }
-                    else if(args[3].equalsIgnoreCase("item"))
+                    else if (args[3].equalsIgnoreCase("item"))
                     {
                         ItemStack item = new createItems().getByName(args[1]);
                         item.setAmount(Integer.parseInt(args[2]));
-                        killItems.put(Bukkit.getPlayer(args[4]),item);
+                        killItems.put(Bukkit.getPlayer(args[4]), item);
 
                         World world = Bukkit.getPlayer(args[4]).getWorld();
                         new BukkitRunnable()
@@ -1807,17 +1815,17 @@ public class Commands implements CommandExecutor, TabExecutor
                     }
                 }
             }
-            else if(args.length > 1 && args[0].equalsIgnoreCase("DeathItems")) // it deathitems itemtype amount normal player
+            else if (args.length > 1 && args[0].equalsIgnoreCase("DeathItems")) // it deathitems itemtype amount normal player
             {
-                if(args[4].equals("all"))
+                if (args[4].equals("all"))
                 {
-                    for (Player player:Bukkit.getOnlinePlayers())
+                    for (Player player : Bukkit.getOnlinePlayers())
                     {
-                        if(args[3].equalsIgnoreCase("normal"))
+                        if (args[3].equalsIgnoreCase("normal"))
                         {
                             ItemStack item = new ItemStack(Material.getMaterial(args[1]));
                             item.setAmount(Integer.parseInt(args[2]));
-                            deathItems.put(player,item);
+                            deathItems.put(player, item);
 
                             World world = Commands.MasterPlayer.getWorld();
                             new BukkitRunnable()
@@ -1833,11 +1841,11 @@ public class Commands implements CommandExecutor, TabExecutor
                                 }
                             }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
                         }
-                        else if(args[3].equalsIgnoreCase("lb"))
+                        else if (args[3].equalsIgnoreCase("lb"))
                         {
                             ItemStack item = new createLuckyBlocks().getByName(args[1]);
                             item.setAmount(Integer.parseInt(args[2]));
-                            deathItems.put(player,item);
+                            deathItems.put(player, item);
 
                             World world = Commands.MasterPlayer.getWorld();
                             new BukkitRunnable()
@@ -1853,11 +1861,11 @@ public class Commands implements CommandExecutor, TabExecutor
                                 }
                             }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
                         }
-                        else if(args[3].equalsIgnoreCase("item"))
+                        else if (args[3].equalsIgnoreCase("item"))
                         {
                             ItemStack item = new createItems().getByName(args[1]);
                             item.setAmount(Integer.parseInt(args[2]));
-                            deathItems.put(player,item);
+                            deathItems.put(player, item);
 
                             World world = Commands.MasterPlayer.getWorld();
                             new BukkitRunnable()
@@ -1877,11 +1885,11 @@ public class Commands implements CommandExecutor, TabExecutor
                 }
                 else
                 {
-                    if(args[3].equalsIgnoreCase("normal"))
+                    if (args[3].equalsIgnoreCase("normal"))
                     {
                         ItemStack item = new ItemStack(Material.getMaterial(args[1]));
                         item.setAmount(Integer.parseInt(args[2]));
-                        deathItems.put(Bukkit.getPlayer(args[4]),item);
+                        deathItems.put(Bukkit.getPlayer(args[4]), item);
                         //  System.out.println((Bukkit.getPlayer(args[4]);
                         //   System.out.println(Bukkit.getPlayer(String.valueOf(item)));
 
@@ -1900,11 +1908,11 @@ public class Commands implements CommandExecutor, TabExecutor
                             }
                         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
                     }
-                    else if(args[3].equalsIgnoreCase("lb"))
+                    else if (args[3].equalsIgnoreCase("lb"))
                     {
                         ItemStack item = new createLuckyBlocks().getByName(args[1]);
                         item.setAmount(Integer.parseInt(args[2]));
-                        deathItems.put(Bukkit.getPlayer(args[4]),item);
+                        deathItems.put(Bukkit.getPlayer(args[4]), item);
 
                         World world = Bukkit.getPlayer(args[4]).getWorld();
                         new BukkitRunnable()
@@ -1920,11 +1928,11 @@ public class Commands implements CommandExecutor, TabExecutor
                             }
                         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
                     }
-                    else if(args[3].equalsIgnoreCase("item"))
+                    else if (args[3].equalsIgnoreCase("item"))
                     {
                         ItemStack item = new createItems().getByName(args[1]);
                         item.setAmount(Integer.parseInt(args[2]));
-                        deathItems.put(Bukkit.getPlayer(args[4]),item);
+                        deathItems.put(Bukkit.getPlayer(args[4]), item);
 
                         World world = Bukkit.getPlayer(args[4]).getWorld();
                         new BukkitRunnable()
@@ -1950,7 +1958,7 @@ public class Commands implements CommandExecutor, TabExecutor
                     }
                 }
             }
-            else if(args.length > 1 && args[0].equalsIgnoreCase("teamworkeffect"))
+            else if (args.length > 1 && args[0].equalsIgnoreCase("teamworkeffect"))
             {
                 Player player = (Player) sender;
                 World world = player.getWorld();
@@ -1961,27 +1969,27 @@ public class Commands implements CommandExecutor, TabExecutor
                 int a2 = Integer.parseInt(args[4]);
 
                 boolean check = false;
-                for (PotionEffectType p: PotionEffectType.values())
+                for (PotionEffectType p : PotionEffectType.values())
                 {
-                    if(e1.equalsIgnoreCase(p.getName()))
+                    if (e1.equalsIgnoreCase(p.getName()))
                         check = true;
                 }
-                if(!check)
+                if (!check)
                     e1 = "LUCK";
                 check = false;
 
-                for (PotionEffectType p: PotionEffectType.values())
+                for (PotionEffectType p : PotionEffectType.values())
                 {
-                    if(e2.equalsIgnoreCase(p.getName()))
+                    if (e2.equalsIgnoreCase(p.getName()))
                         check = true;
                 }
-                if(!check)
+                if (!check)
                     e2 = "LUCK";
 
                 Game game = BedwarsAPI.getInstance().getGameOfPlayer((Player) sender);
-                new TeamworkEffect().createEffect(e1,e2,game,a1,a2);
+                new TeamworkEffect().createEffect(e1, e2, game, a1, a2);
                 sender.sendMessage(ChatColor.AQUA + "Teammate Based Effect Enabled");
-                if(!check)
+                if (!check)
                     sender.sendMessage(ChatColor.RED + "incorrectly spelled effect has been replaced.");
 
                 new BukkitRunnable()
@@ -1994,109 +2002,109 @@ public class Commands implements CommandExecutor, TabExecutor
                             TeamworkEffect.players1.clear();
                             TeamworkEffect.players2.clear();
                             TeamworkEffect.gameongoing = false;
-                           // System.out.println("canceled");
+                            // System.out.println("canceled");
                             this.cancel();
                         }
                     }
                 }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
             }
-            else if(args.length > 1 && args[0].equalsIgnoreCase("repeatedcancel"))
+            else if (args.length > 1 && args[0].equalsIgnoreCase("repeatedcancel"))
             {
                 giveItemRepeated.repeatedCancel = Boolean.parseBoolean(args[1]);
                 sender.sendMessage(ChatColor.AQUA + "GiveItem global cancel: " + ChatColor.YELLOW + giveItemRepeated.repeatedCancel);
             }
-            else if(args.length > 1 && args[0].equalsIgnoreCase("master"))
+            else if (args.length > 1 && args[0].equalsIgnoreCase("master"))
             {
                 Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
                 FileConfiguration config = plugin.getConfig();
                 MasterPlayer = Bukkit.getPlayer(args[1]);
-                config.set("masterplayer",args[1]);
+                config.set("masterplayer", args[1]);
                 plugin.saveConfig();
                 sender.sendMessage(ChatColor.AQUA + "Master player is now " + ChatColor.YELLOW + args[1]);
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("master"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("master"))
             {
                 Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
                 FileConfiguration config = plugin.getConfig();
                 MasterPlayer = Bukkit.getPlayer(config.getString("masterplayer"));
                 sender.sendMessage(ChatColor.AQUA + "Master player is currently " + ChatColor.YELLOW + config.getString("masterplayer"));
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("alwaysbridge"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("alwaysbridge"))
             {
                 Player player = (Player) sender;
-                sender.sendMessage(ChatColor.AQUA + "Always bridging active in world " + ChatColor.YELLOW +player.getWorld().getName());
-                for (Player p:Bukkit.getOnlinePlayers())
+                sender.sendMessage(ChatColor.AQUA + "Always bridging active in world " + ChatColor.YELLOW + player.getWorld().getName());
+                for (Player p : Bukkit.getOnlinePlayers())
                 {
                     if (player.getWorld().equals(p.getWorld()))
                         new AlwaysBridge(p);
                 }
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("alwaysbridgesingle"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("alwaysbridgesingle"))
             {
                 Player player = (Player) sender;
                 player.sendMessage(ChatColor.AQUA + "Scaffold now active while you have wool! Hold crouch to fall.");
-                    new AlwaysBridge(player);
+                new AlwaysBridge(player);
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("closeTeammateEffect"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("closeTeammateEffect"))
             {
                 Player player = (Player) sender;
                 sender.sendMessage(ChatColor.AQUA + "giving effects when you're near your teammate");
-                for (Player p:Bukkit.getOnlinePlayers())
+                for (Player p : Bukkit.getOnlinePlayers())
                 {
                     if (player.getWorld().equals(p.getWorld()))
-                        new CloseEffectSpecific(p,p.getWorld().getName(),args[1],Integer.parseInt(args[2]));
+                        new CloseEffectSpecific(p, p.getWorld().getName(), args[1], Integer.parseInt(args[2]));
                 }
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("closeTeammateEffectSingle"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("closeTeammateEffectSingle"))
             {
                 Player player = (Player) sender;
                 sender.sendMessage(ChatColor.AQUA + "giving effects when you're near your teammate");
-                new CloseEffectSpecific(getPlayer(args[3]),player.getWorld().getName(),args[1],Integer.parseInt(args[2]));
+                new CloseEffectSpecific(getPlayer(args[3]), player.getWorld().getName(), args[1], Integer.parseInt(args[2]));
             }
-            else if(args.length > 1 && args[0].equalsIgnoreCase("manhunt"))
+            else if (args.length > 1 && args[0].equalsIgnoreCase("manhunt"))
             {
-                if(args[2].equalsIgnoreCase("random"))
+                if (args[2].equalsIgnoreCase("random"))
                 {
                     Player player = Bukkit.getOnlinePlayers().stream().skip((int) (Bukkit.getOnlinePlayers().size() * Math.random())).findFirst().orElse(null);
-                    new ManhuntMain(args[1],player);
+                    new ManhuntMain(args[1], player);
                 }
                 else
                 {
-                    new ManhuntMain(args[1],Bukkit.getPlayer(args[2]));
+                    new ManhuntMain(args[1], Bukkit.getPlayer(args[2]));
                 }
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("jumping"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("jumping"))
             {
-                if(args.length==1)
+                if (args.length == 1)
                 {
                     sender.sendMessage(ChatColor.AQUA + "Fireball and TnT jumping: ");
-                    sender.sendMessage(ChatColor.AQUA + "range: "+ChatColor.YELLOW + ExplosionsListener.range);
-                    sender.sendMessage(ChatColor.AQUA + "x: "+ChatColor.YELLOW + ExplosionsListener.xzmultiplier);
-                    sender.sendMessage(ChatColor.AQUA + "y: "+ChatColor.YELLOW + ExplosionsListener.ymultiplier);
-                    sender.sendMessage(ChatColor.AQUA + "op: "+ChatColor.YELLOW + ExplosionsListener.op);
+                    sender.sendMessage(ChatColor.AQUA + "range: " + ChatColor.YELLOW + ExplosionsListener.range);
+                    sender.sendMessage(ChatColor.AQUA + "x: " + ChatColor.YELLOW + ExplosionsListener.xzmultiplier);
+                    sender.sendMessage(ChatColor.AQUA + "y: " + ChatColor.YELLOW + ExplosionsListener.ymultiplier);
+                    sender.sendMessage(ChatColor.AQUA + "op: " + ChatColor.YELLOW + ExplosionsListener.op);
                 }
 
-                if(args[1].equalsIgnoreCase("range"))
+                if (args[1].equalsIgnoreCase("range"))
                     ExplosionsListener.range = Double.parseDouble(args[2]);
-                else if(args[1].equalsIgnoreCase("x"))
+                else if (args[1].equalsIgnoreCase("x"))
                     ExplosionsListener.xzmultiplier = Double.parseDouble(args[2]);
-                else if(args[1].equalsIgnoreCase("y"))
+                else if (args[1].equalsIgnoreCase("y"))
                     ExplosionsListener.ymultiplier = Double.parseDouble(args[2]);
-                else if(args[1].equalsIgnoreCase("op"))
+                else if (args[1].equalsIgnoreCase("op"))
                     ExplosionsListener.op = Boolean.parseBoolean(args[2]);
 
                 sender.sendMessage(ChatColor.YELLOW + args[1] + ChatColor.AQUA + " set to " + ChatColor.YELLOW + args[2]);
             }
-            else if(args.length == 4 && args[0].equalsIgnoreCase("giveitem"))
+            else if (args.length == 4 && args[0].equalsIgnoreCase("giveitem"))
             {
                 Player player = (Player) sender; // who, specific, type, player
-                giveitem.giveItem(args[1],args[2],args[3],player);
+                giveitem.giveItem(args[1], args[2], args[3], player);
             }
-            else if(args.length == 5 && args[0].equalsIgnoreCase("giveitem"))
+            else if (args.length == 5 && args[0].equalsIgnoreCase("giveitem"))
             {
-                giveitem.giveItem(args[1],args[2],args[3],getPlayer(args[4]));
+                giveitem.giveItem(args[1], args[2], args[3], getPlayer(args[4]));
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("destroyaddedblocks"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("destroyaddedblocks"))
             {
                 for (Block block : coalBlocks)
                 {
@@ -2112,25 +2120,25 @@ public class Commands implements CommandExecutor, TabExecutor
 
                 sender.sendMessage(ChatColor.AQUA + "All added blocks have been destroyed");
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("DamageTeammates"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("DamageTeammates"))
             {
                 Player player = (Player) sender;
-                new DamageTeammates(7.5,15,player.getWorld().getName(),2);
+                new DamageTeammates(7.5, 15, player.getWorld().getName(), 2);
             }
-            else if(args.length > 1 && args[0].equalsIgnoreCase("DamageTeammates"))
+            else if (args.length > 1 && args[0].equalsIgnoreCase("DamageTeammates"))
             {
                 Player player = (Player) sender;
                 double distance = Double.parseDouble(args[1]);
                 double intialbox = Double.parseDouble(args[2]);
                 int potlevel = Integer.parseInt(args[3]);
-                new DamageTeammates(distance,intialbox,player.getWorld().getName(),potlevel);
+                new DamageTeammates(distance, intialbox, player.getWorld().getName(), potlevel);
             }
-            else if(args.length == 2 && args[0].equalsIgnoreCase("setarena"))
+            else if (args.length == 2 && args[0].equalsIgnoreCase("setarena"))
             {
                 Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
                 final FileConfiguration Config = plugin.getConfig();
                 String arena = args[1];
-                if(arena != null)
+                if (arena != null)
                 {
                     Config.set("loadedgame", arena);
                     plugin.saveConfig();
@@ -2139,7 +2147,7 @@ public class Commands implements CommandExecutor, TabExecutor
                 else
                     sender.sendMessage(ChatColor.RED + "Arena name is not valid");
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("setarena"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("setarena"))
             {
                 Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
                 final FileConfiguration Config = plugin.getConfig();
@@ -2147,29 +2155,29 @@ public class Commands implements CommandExecutor, TabExecutor
                 Config.set("loadedgame", "none");
                 plugin.saveConfig();
             }
-            else if(args.length > 1 && args[0].equalsIgnoreCase("preventDrop"))
+            else if (args.length > 1 && args[0].equalsIgnoreCase("preventDrop"))
             {
                 String type = args[1];
                 String item = args[2];
                 Player p = Bukkit.getPlayer(args[3]);
-                if(type.equalsIgnoreCase("normal"))
+                if (type.equalsIgnoreCase("normal"))
                 {
-                    disableDrops.forbidDrop.put(p,item);
+                    disableDrops.forbidDrop.put(p, item);
                 }
-                else if(type.equalsIgnoreCase("item"))
+                else if (type.equalsIgnoreCase("item"))
                 {
                     ItemStack i = new createItems().getByName(item);
                     item = i.getItemMeta().getDisplayName();
-                    disableDrops.forbidDrop.put(p,item);
+                    disableDrops.forbidDrop.put(p, item);
                 }
                 sender.sendMessage(ChatColor.AQUA + "Forbidden Drop added: " + ChatColor.YELLOW + item + ChatColor.AQUA + " for " + ChatColor.YELLOW + args[3]);
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("preventDrop"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("preventDrop"))
             {
                 disableDrops.forbidDrop.clear();
                 sender.sendMessage(ChatColor.AQUA + "Forbidden Drops cleared");
             }
-            else if(args.length > 0 && args[0].equalsIgnoreCase("SetHealth")) // sethealth all/one/random/decrease/reset, value, player/interval
+            else if (args.length > 0 && args[0].equalsIgnoreCase("SetHealth")) // sethealth all/one/random/decrease/reset, value, player/interval
             {
                 if (args[1].equalsIgnoreCase("all"))
                 {
@@ -2198,65 +2206,65 @@ public class Commands implements CommandExecutor, TabExecutor
                     sender.sendMessage(ChatColor.AQUA + "Maximum Health will randomize with a max of " + ChatColor.YELLOW + Integer.parseInt(args[2]) + ChatColor.AQUA + " every " + ChatColor.YELLOW + Integer.parseInt(args[3]) + ChatColor.AQUA + " seconds");
                 }
             }
-            else if(args.length >= 2 && args[0].equalsIgnoreCase("spawner"))
+            else if (args.length >= 2 && args[0].equalsIgnoreCase("spawner"))
             {
                 String config = args[1];
                 String midorisland = args[2];
                 Player player = (Player) sender;
 
                 Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
-              //  File pFile = new File(plugin.getDataFolder().getPath() + "\\Spawner" + File.separator + config + ".yml");
+                //  File pFile = new File(plugin.getDataFolder().getPath() + "\\Spawner" + File.separator + config + ".yml");
                 File Folder = new File(plugin.getDataFolder(), "Spawner");
                 File pFile = new File(Folder, config + ".yml");
 
                 final FileConfiguration spawner = YamlConfiguration.loadConfiguration(pFile);
                 String test = spawner.getString("items.0.type");
 
-                if(test != null)
+                if (test != null)
                 {
-                    new ItemSpawner(config,player.getLocation().getWorld().getName(),player,midorisland);
+                    new ItemSpawner(config, player.getLocation().getWorld().getName(), player, midorisland);
                     sender.sendMessage(ChatColor.AQUA + "Custom spawner active in world " + ChatColor.YELLOW + player.getLocation().getWorld().getName() + ChatColor.AQUA + " using config " + ChatColor.YELLOW + config);
                 }
                 else
                     sender.sendMessage(ChatColor.RED + "Requires a valid config.yml and valid spawner location in this world");
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("spawner"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("spawner"))
             {
                 sender.sendMessage(ChatColor.RED + "Requires a valid config.yml");
             }
-            else if(args.length == 2 && args[0].equalsIgnoreCase("randomeffect"))
+            else if (args.length == 2 && args[0].equalsIgnoreCase("randomeffect"))
             {
                 intensityLimit = Integer.parseInt(args[1]);
 
-                for (Player player:Bukkit.getOnlinePlayers())
+                for (Player player : Bukkit.getOnlinePlayers())
                 {
                     worldName = player.getLocation().getWorld().getName();
                     new randomEffect(intensityLimit, worldName, player, effecttime);
                 }
                 sender.sendMessage(ChatColor.AQUA + "Applying random effect with intensity limit " + ChatColor.YELLOW + intensityLimit + ChatColor.AQUA + " in world " + ChatColor.YELLOW + worldName);
             }
-            else if(args.length == 1 && args[0].equalsIgnoreCase("randomeffect"))
+            else if (args.length == 1 && args[0].equalsIgnoreCase("randomeffect"))
             {
-                for (Player player:Bukkit.getOnlinePlayers())
+                for (Player player : Bukkit.getOnlinePlayers())
                 {
                     worldName = player.getLocation().getWorld().getName();
                     new randomEffect(intensityLimit, worldName, player, effecttime);
                 }
                 sender.sendMessage(ChatColor.AQUA + "Applying random effect with intensity limit " + ChatColor.YELLOW + intensityLimit + ChatColor.AQUA + " in world " + ChatColor.YELLOW + worldName);
             }
-            else if(args.length == 3 && args[0].equalsIgnoreCase("randomeffect"))
+            else if (args.length == 3 && args[0].equalsIgnoreCase("randomeffect"))
             {
                 intensityLimit = Integer.parseInt(args[1]);
                 effecttime = Integer.parseInt(args[2]);
 
-                for (Player player:Bukkit.getOnlinePlayers())
+                for (Player player : Bukkit.getOnlinePlayers())
                 {
                     worldName = player.getLocation().getWorld().getName();
                     new randomEffect(intensityLimit, worldName, player, effecttime);
                 }
                 sender.sendMessage(ChatColor.AQUA + "Applying random effect with intensity limit " + ChatColor.YELLOW + intensityLimit + ChatColor.AQUA + " in world " + ChatColor.YELLOW + worldName);
             }
-            else if(args.length >= 3 && args[0].equalsIgnoreCase("randomeffectsingle"))
+            else if (args.length >= 3 && args[0].equalsIgnoreCase("randomeffectsingle"))
             {
                 intensityLimit = Integer.parseInt(args[1]);
                 effecttime = Integer.parseInt(args[2]);
@@ -2266,23 +2274,23 @@ public class Commands implements CommandExecutor, TabExecutor
                 new randomEffect(intensityLimit, worldName, player, effecttime);
                 sender.sendMessage(ChatColor.AQUA + "You will now receive random potion effects every " + ChatColor.YELLOW + effecttime);
             }
-            else if(args.length >= 1 && args[0].equalsIgnoreCase("creative"))
-                {
-                    Player player = (Player)sender;
-                    worldName = player.getLocation().getWorld().getName();
-
-                        name = args[3];
-                        int intervalBetween = Integer.parseInt(args[1]);
-                        int timeIn = Integer.parseInt(args[2]);
-                        new creative(intervalBetween, timeIn, name);
-                        sender.sendMessage(ChatColor.AQUA + "Entering creative mode for " + ChatColor.YELLOW + timeIn + ChatColor.AQUA + " seconds every " + ChatColor.YELLOW + intervalBetween + ChatColor.AQUA + " seconds in world " + ChatColor.YELLOW + worldName+ ChatColor.AQUA + " for player "+ ChatColor.YELLOW + name);
-                }
-            else if(args.length == 3 && args[0].equalsIgnoreCase("tnt"))
+            else if (args.length >= 1 && args[0].equalsIgnoreCase("creative"))
             {
-                Player p = (Player)sender;
+                Player player = (Player) sender;
+                worldName = player.getLocation().getWorld().getName();
+
+                name = args[3];
+                int intervalBetween = Integer.parseInt(args[1]);
+                int timeIn = Integer.parseInt(args[2]);
+                new creative(intervalBetween, timeIn, name);
+                sender.sendMessage(ChatColor.AQUA + "Entering creative mode for " + ChatColor.YELLOW + timeIn + ChatColor.AQUA + " seconds every " + ChatColor.YELLOW + intervalBetween + ChatColor.AQUA + " seconds in world " + ChatColor.YELLOW + worldName + ChatColor.AQUA + " for player " + ChatColor.YELLOW + name);
+            }
+            else if (args.length == 3 && args[0].equalsIgnoreCase("tnt"))
+            {
+                Player p = (Player) sender;
                 name = sender.getName();
                 worldName = p.getLocation().getWorld().getName();
-                if(blacklistedWorlds.contains(worldName))
+                if (blacklistedWorlds.contains(worldName))
                 {
                     sender.sendMessage(ChatColor.RED + "Cannot be activated in world " + ChatColor.YELLOW + worldName);
                 }
@@ -2290,19 +2298,19 @@ public class Commands implements CommandExecutor, TabExecutor
                 {
                     interval = Integer.parseInt(args[1]);
                     fuse = Integer.parseInt(args[2]);
-                    for (Player player:Bukkit.getOnlinePlayers())
+                    for (Player player : Bukkit.getOnlinePlayers())
                     {
                         new tnt(interval, worldName, fuse, player);
                     }
                     sender.sendMessage(ChatColor.AQUA + "Spawning tnt on players at an interval of " + ChatColor.YELLOW + interval + ChatColor.AQUA + " in world " + ChatColor.YELLOW + worldName);
                 }
             }
-            else if(args.length >= 4 && args[0].equalsIgnoreCase("tntsingle"))
+            else if (args.length >= 4 && args[0].equalsIgnoreCase("tntsingle"))
             {
-                Player p = (Player)sender;
+                Player p = (Player) sender;
                 name = sender.getName();
                 worldName = p.getLocation().getWorld().getName();
-                if(blacklistedWorlds.contains(worldName))
+                if (blacklistedWorlds.contains(worldName))
                 {
                     sender.sendMessage(ChatColor.RED + "Cannot be activated in world " + ChatColor.YELLOW + worldName);
                 }
@@ -2310,7 +2318,7 @@ public class Commands implements CommandExecutor, TabExecutor
                 {
                     interval = Integer.parseInt(args[1]);
                     fuse = Integer.parseInt(args[2]);
-                        new tnt(interval, worldName, fuse, Bukkit.getPlayer(args[3]));
+                    new tnt(interval, worldName, fuse, Bukkit.getPlayer(args[3]));
                     sender.sendMessage(ChatColor.AQUA + "TnT will now spawn on top of you every " + ChatColor.YELLOW + interval + ChatColor.AQUA + " seconds ");
                 }
             }
@@ -2318,10 +2326,10 @@ public class Commands implements CommandExecutor, TabExecutor
             {
                 if (args.length > 1 && args[1].equalsIgnoreCase("invictools"))
                 {
-                 //   assert Invictools != null;
+                    //   assert Invictools != null;
                     Invictools.reloadConfig();
                     sender.sendMessage(ChatColor.AQUA + "Invictools Config Reloaded");
-                  //  Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "bweffects reload"); // executes below disable and enable from other plugin
+                    //  Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "bweffects reload"); // executes below disable and enable from other plugin
                 }
                 else if (args.length > 1 && args[1].equalsIgnoreCase("bweffects"))
                 {
@@ -2360,7 +2368,7 @@ public class Commands implements CommandExecutor, TabExecutor
         return true;
     }
 
-    Commands(List<String> worlds , double sety, List<String> blacklist,List<String> games)
+    Commands(List<String> worlds, double sety, List<String> blacklist, List<String> games)
     {
         worldstemp = worlds;
         ytemp = sety;

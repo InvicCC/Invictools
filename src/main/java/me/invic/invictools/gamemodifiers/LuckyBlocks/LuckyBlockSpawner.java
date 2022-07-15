@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class LuckyBlockSpawner
 {
-    public LuckyBlockSpawner(Location loc,String text,String type, int delay)
+    public LuckyBlockSpawner(Location loc, String text, String type, int delay)
     {
 
         new BukkitRunnable()
@@ -26,7 +26,7 @@ public class LuckyBlockSpawner
                     this.cancel();
 
                 ItemStack lb;
-                if(type.equalsIgnoreCase("random"))
+                if (type.equalsIgnoreCase("random"))
                     lb = new createLuckyBlocks().getRandomBlockWeighted();
                 else
                     lb = new createLuckyBlocks().getByName(type);
@@ -37,7 +37,7 @@ public class LuckyBlockSpawner
         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), delay * 20L, delay * 20L); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn
 
 
-        Location ArmorStand1Loc = new Location(loc.getWorld(),loc.getX(), loc.getY() + .3, loc.getZ());
+        Location ArmorStand1Loc = new Location(loc.getWorld(), loc.getX(), loc.getY() + .3, loc.getZ());
         Location ArmorStand2Loc = loc;
         ArmorStand as1 = (ArmorStand) loc.getWorld().spawnEntity(ArmorStand1Loc, EntityType.ARMOR_STAND);
         ArmorStand as2 = (ArmorStand) loc.getWorld().spawnEntity(ArmorStand2Loc, EntityType.ARMOR_STAND);
@@ -48,7 +48,7 @@ public class LuckyBlockSpawner
         as1.setVisible(false);
 
         as2.setGravity(false);
-        as2.setCustomName(ChatColor.YELLOW + "Spawns in "+ ChatColor.RED + delay + ChatColor.YELLOW + " seconds");
+        as2.setCustomName(ChatColor.YELLOW + "Spawns in " + ChatColor.RED + delay + ChatColor.YELLOW + " seconds");
         as2.setCustomNameVisible(true);
         as2.setVisible(false);
 
@@ -68,7 +68,7 @@ public class LuckyBlockSpawner
                 if (resettableDelay[0] == -1)
                     resettableDelay[0] = delay - 1;
 
-                as2.setCustomName(ChatColor.YELLOW + "Spawns in "+ ChatColor.RED + resettableDelay[0] + ChatColor.YELLOW + " seconds");
+                as2.setCustomName(ChatColor.YELLOW + "Spawns in " + ChatColor.RED + resettableDelay[0] + ChatColor.YELLOW + " seconds");
                 resettableDelay[0]--;
             }
         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20L, 20L); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn

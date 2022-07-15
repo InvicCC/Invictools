@@ -18,25 +18,25 @@ import java.util.*;
 
 public class Lobby1Handler
 {
-    public static HashMap<Player,Boolean> cancelLobbyCosmetic = new HashMap<>();
-    public static HashMap<Player,Long> lobbyCooldown = new HashMap<>();
+    public static HashMap<Player, Boolean> cancelLobbyCosmetic = new HashMap<>();
+    public static HashMap<Player, Long> lobbyCooldown = new HashMap<>();
     static int cooldown = 5; // seconds
 
     public static void FullHandle(Player p)
     {
         if (lobbyCooldown.containsKey(p))
         {
-            long secondsLeft = ((lobbyCooldown.get(p)/1000)+cooldown) - (System.currentTimeMillis()/1000);
-            if(secondsLeft <= 0)
+            long secondsLeft = ((lobbyCooldown.get(p) / 1000) + cooldown) - (System.currentTimeMillis() / 1000);
+            if (secondsLeft <= 0)
             {
                 into(p);
-                lobbyCooldown.put(p,System.currentTimeMillis());
+                lobbyCooldown.put(p, System.currentTimeMillis());
             }
         }
         else
         {
             into(p);
-            lobbyCooldown.put(p,System.currentTimeMillis());
+            lobbyCooldown.put(p, System.currentTimeMillis());
         }
     }
 
@@ -51,10 +51,10 @@ public class Lobby1Handler
         String effect = balls.getString("Lobby1");
 
         //effectOwner.playSound(effectOwner.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 10, 350);
-        if(effect == null)
+        if (effect == null)
             return;
 
-        if(cancelLobbyCosmetic.get(effectOwner)!= null)
+        if (cancelLobbyCosmetic.get(effectOwner) != null)
             return;
 
         switch (effect.toLowerCase(Locale.ROOT))
@@ -77,14 +77,14 @@ public class Lobby1Handler
         }
     }
 
-    public static HashMap<String,Integer> Lobby1Effects()
+    public static HashMap<String, Integer> Lobby1Effects()
     {
         HashMap<String, Integer> e = new HashMap<>();
-        e.put("FireFeet",-2);
-        e.put("WaterCrown",50);
-        e.put("LavaCrown",100);
-        e.put("Rank",-1);
-        e.put("Error",20);
+        e.put("FireFeet", -2);
+        e.put("WaterCrown", 50);
+        e.put("LavaCrown", 100);
+        e.put("Rank", -1);
+        e.put("Error", 20);
         return e;
     }
 
@@ -102,20 +102,20 @@ public class Lobby1Handler
         int wins = data.getInt("data." + player.getUniqueId() + ".score");
         wins = new leaderboard().starLevel(wins);
 
-        if(effect.equals("none"))
+        if (effect.equals("none"))
         {
             playerData.set("Lobby1", "none");
-            cancelLobbyCosmetic.put(player,true);
+            cancelLobbyCosmetic.put(player, true);
             player.sendMessage(ChatColor.YELLOW + "Your Lobby Cosmetic is now disabled.");
         }
-        else if(Lobby1Effects().get(effect) != null)
+        else if (Lobby1Effects().get(effect) != null)
         {
 
-            if(Lobby1Effects().get(effect) <= wins && Lobby1Effects().get(effect) > -1 || bypass)
+            if (Lobby1Effects().get(effect) <= wins && Lobby1Effects().get(effect) > -1 || bypass)
             {
                 playerData.set("Lobby1", effect);
                 player.sendMessage(ChatColor.YELLOW + "Your Lobby Cosmetic is now set to " + ChatColor.AQUA + effect);
-                cancelLobbyCosmetic.put(player,true);
+                cancelLobbyCosmetic.put(player, true);
                 new BukkitRunnable()
                 {
                     @Override
@@ -133,11 +133,11 @@ public class Lobby1Handler
                     }
                 }.runTaskLater(Commands.Invictools, 5L);
             }
-            else if(Lobby1Effects().get(effect) == -1 && player.hasPermission("invic.firestick"))
+            else if (Lobby1Effects().get(effect) == -1 && player.hasPermission("invic.firestick"))
             {
                 playerData.set("Lobby1", effect);
                 player.sendMessage(ChatColor.YELLOW + "Your Lobby Cosmetic is now set to " + ChatColor.AQUA + effect);
-                cancelLobbyCosmetic.put(player,true);
+                cancelLobbyCosmetic.put(player, true);
                 new BukkitRunnable()
                 {
                     @Override
@@ -158,19 +158,20 @@ public class Lobby1Handler
             else
             {
                 player.sendMessage(ChatColor.RED + "You haven't unlocked this effect yet!");
-                if(Lobby1Effects().get(effect) == -1)
+                if (Lobby1Effects().get(effect) == -1)
                 {
                     player.sendMessage(ChatColor.RED + "This effect can also be unlocked with a rank.");
                     player.sendMessage(ChatColor.AQUA + "Type /ranks to learn how to get one");
                 }
                 else
-                    player.sendMessage(ChatColor.RED + "You only have " + wins + " / "+Lobby1Effects().get(effect)+" stars.");
+                    player.sendMessage(ChatColor.RED + "You only have " + wins + " / " + Lobby1Effects().get(effect) + " stars.");
             }
 
             try
             {
                 playerData.save(pFile);
-            } catch (IOException e)
+            }
+            catch (IOException e)
             {
                 e.printStackTrace();
             }
@@ -185,12 +186,12 @@ public class Lobby1Handler
             @Override
             public void run()
             {
-                p.getWorld().spawnParticle(Particle.FLAME,p.getLocation(),1,0,0,0,0);
+                p.getWorld().spawnParticle(Particle.FLAME, p.getLocation(), 1, 0, 0, 0, 0);
 
-                if(!p.isOnline() || !p.getWorld().equals(world))
+                if (!p.isOnline() || !p.getWorld().equals(world))
                     this.cancel();
 
-                if(cancelLobbyCosmetic.get(p) != null)
+                if (cancelLobbyCosmetic.get(p) != null)
                 {
                     this.cancel();
                     cancelLobbyCosmetic.remove(p);
@@ -206,49 +207,50 @@ public class Lobby1Handler
         {
             Location loc = p.getLocation();
             int i = 0;
+
             @Override
             public void run()
             {
-                if(p.getLocation().getX() == loc.getX()
+                if (p.getLocation().getX() == loc.getX()
                         && p.getLocation().getY() == loc.getY()
                         && p.getLocation().getZ() == loc.getZ())
                 {
-                    switch(i)
+                    switch (i)
                     {
                         case 0:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER,p.getLocation().clone().add(.4,2,0),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(.4, 2, 0), 1);
                             break;
                         case 1:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER,p.getLocation().clone().add(.3,2,.3),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(.3, 2, .3), 1);
                             break;
                         case 2:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER,p.getLocation().clone().add(0,2,.4),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(0, 2, .4), 1);
                             break;
                         case 3:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER,p.getLocation().clone().add(-.3,2,.3),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(-.3, 2, .3), 1);
                             break;
                         case 4:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER,p.getLocation().clone().add(-.4,2,0),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(-.4, 2, 0), 1);
                             break;
                         case 5:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER,p.getLocation().clone().add(-.3,2,-.3),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(-.3, 2, -.3), 1);
                             break;
                         case 6:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER,p.getLocation().clone().add(0,2,-.4),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(0, 2, -.4), 1);
                             break;
                         case 7:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER,p.getLocation().clone().add(.3,2,-.3),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(.3, 2, -.3), 1);
                             break;
                     }
                     i++;
-                    if(i==8)
-                        i=0;
+                    if (i == 8)
+                        i = 0;
                 }
 
-                if(!p.isOnline() || !p.getWorld().equals(world))
+                if (!p.isOnline() || !p.getWorld().equals(world))
                     this.cancel();
 
-                if(cancelLobbyCosmetic.get(p) != null)
+                if (cancelLobbyCosmetic.get(p) != null)
                 {
                     this.cancel();
                     cancelLobbyCosmetic.remove(p);
@@ -266,49 +268,50 @@ public class Lobby1Handler
         {
             Location loc = p.getLocation();
             int i = 0;
+
             @Override
             public void run()
             {
-                if(p.getLocation().getX() == loc.getX()
+                if (p.getLocation().getX() == loc.getX()
                         && p.getLocation().getY() == loc.getY()
                         && p.getLocation().getZ() == loc.getZ())
                 {
-                    switch(i)
+                    switch (i)
                     {
                         case 0:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA,p.getLocation().clone().add(.4,2,0),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(.4, 2, 0), 1);
                             break;
                         case 1:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA,p.getLocation().clone().add(.3,2,.3),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(.3, 2, .3), 1);
                             break;
                         case 2:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA,p.getLocation().clone().add(0,2,.4),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(0, 2, .4), 1);
                             break;
                         case 3:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA,p.getLocation().clone().add(-.3,2,.3),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(-.3, 2, .3), 1);
                             break;
                         case 4:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA,p.getLocation().clone().add(-.4,2,0),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(-.4, 2, 0), 1);
                             break;
                         case 5:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA,p.getLocation().clone().add(-.3,2,-.3),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(-.3, 2, -.3), 1);
                             break;
                         case 6:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA,p.getLocation().clone().add(0,2,-.4),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(0, 2, -.4), 1);
                             break;
                         case 7:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA,p.getLocation().clone().add(.3,2,-.3),1);
+                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(.3, 2, -.3), 1);
                             break;
                     }
                     i++;
-                    if(i==8)
-                        i=0;
+                    if (i == 8)
+                        i = 0;
                 }
 
-                if(!p.isOnline() || !p.getWorld().equals(world))
+                if (!p.isOnline() || !p.getWorld().equals(world))
                     this.cancel();
 
-                if(cancelLobbyCosmetic.get(p) != null)
+                if (cancelLobbyCosmetic.get(p) != null)
                 {
                     this.cancel();
                     cancelLobbyCosmetic.remove(p);
@@ -328,11 +331,11 @@ public class Lobby1Handler
         String s = playerData.getString("Displayname");
         Color color;
 
-        if(s.charAt(1) == 'f')
+        if (s.charAt(1) == 'f')
             color = ChatColorToColor(s.charAt(4));
         else
             color = ChatColorToColor(s.charAt(1));
-        Particle.DustOptions dust = new Particle.DustOptions(color,1);
+        Particle.DustOptions dust = new Particle.DustOptions(color, 1);
 
 
         World world = p.getWorld();
@@ -340,27 +343,28 @@ public class Lobby1Handler
         {
             Location loc = p.getLocation();
             int i = 0;
+
             @Override
             public void run()
             {
-                if(p.getLocation().getX() == loc.getX()
+                if (p.getLocation().getX() == loc.getX()
                         && p.getLocation().getY() == loc.getY()
                         && p.getLocation().getZ() == loc.getZ())
+                {
+                    p.getWorld().spawnParticle(Particle.REDSTONE, p.getLocation().clone().add(0, 1, 0), 5, .5, 1, .5, dust);
+
+                    if (!p.isOnline() || !p.getWorld().equals(world))
+                        this.cancel();
+
+                    if (cancelLobbyCosmetic.get(p) != null)
                     {
-                        p.getWorld().spawnParticle(Particle.REDSTONE, p.getLocation().clone().add(0,1,0), 5, .5, 1, .5, dust);
-
-                        if (!p.isOnline() || !p.getWorld().equals(world))
-                            this.cancel();
-
-                        if (cancelLobbyCosmetic.get(p) != null)
-                        {
-                            this.cancel();
-                            cancelLobbyCosmetic.remove(p);
-                        }
+                        this.cancel();
+                        cancelLobbyCosmetic.remove(p);
                     }
-                loc = p.getLocation();
                 }
-            }.runTaskTimer(Commands.Invictools, 0L, 5L);
+                loc = p.getLocation();
+            }
+        }.runTaskTimer(Commands.Invictools, 0L, 5L);
     }
 
     private static void Error(Player p)
@@ -372,11 +376,11 @@ public class Lobby1Handler
             @Override
             public void run()
             {
-                Bat f = (Bat) world.spawnEntity(p.getLocation().add((new Random().nextDouble()-.5)*2,new Random().nextDouble()+2,(new Random().nextDouble()-.5)*2),EntityType.BAT);
+                Bat f = (Bat) world.spawnEntity(p.getLocation().add((new Random().nextDouble() - .5) * 2, new Random().nextDouble() + 2, (new Random().nextDouble() - .5) * 2), EntityType.BAT);
                 f.setSilent(true);
                 f.setInvisible(true);
                 f.setInvulnerable(true);
-                ArmorStand bat = (ArmorStand) world.spawnEntity(f.getLocation().clone().add(0,100,0), EntityType.ARMOR_STAND);
+                ArmorStand bat = (ArmorStand) world.spawnEntity(f.getLocation().clone().add(0, 100, 0), EntityType.ARMOR_STAND);
                 new BukkitRunnable()
                 {
                     @Override
@@ -387,9 +391,9 @@ public class Lobby1Handler
                     }
                 }.runTaskLater(Commands.Invictools, 1L);
                 bat.setInvisible(true);
-                bat.setCustomName( color+ChatColor.translateAlternateColorCodes('&', "&k&l[O]"));
+                bat.setCustomName(color + ChatColor.translateAlternateColorCodes('&', "&k&l[O]"));
                 bat.setCustomNameVisible(true);
-               // bat.setVelocity(bat.getVelocity().add(new Vector((new Random().nextDouble()-.5)/4,.3,(new Random().nextDouble()-.5)/4)));
+                // bat.setVelocity(bat.getVelocity().add(new Vector((new Random().nextDouble()-.5)/4,.3,(new Random().nextDouble()-.5)/4)));
                 new BukkitRunnable()
                 {
                     @Override
@@ -400,10 +404,10 @@ public class Lobby1Handler
                     }
                 }.runTaskLater(Commands.Invictools, 25L);
 
-                if(!p.isOnline() || !p.getWorld().equals(world))
+                if (!p.isOnline() || !p.getWorld().equals(world))
                     this.cancel();
 
-                if(cancelLobbyCosmetic.get(p) != null)
+                if (cancelLobbyCosmetic.get(p) != null)
                 {
                     this.cancel();
                     cancelLobbyCosmetic.remove(p);
@@ -414,7 +418,7 @@ public class Lobby1Handler
 
     public static Color ChatColorToColor(char c)
     {
-        switch(c)
+        switch (c)
         {
             case 'c':
                 return Color.RED;

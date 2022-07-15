@@ -21,7 +21,7 @@ public class DamageTeammates
         for (Player player : Bukkit.getOnlinePlayers())
         {
             List<Player> teammates = GrabTeammates.getTeammates(player);
-            if(teammates == null)
+            if (teammates == null)
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "broadcast Warning: at least 1 player's teammate did not get registered");
             else
             {
@@ -31,13 +31,13 @@ public class DamageTeammates
                     @Override
                     public void run()
                     {
-                        if(!player.getWorld().getName().equalsIgnoreCase(WorldName))
+                        if (!player.getWorld().getName().equalsIgnoreCase(WorldName))
                             this.cancel();
 
                         assert team != null;
-                        if(withinDistance(player,team,distance) && player.getGameMode() != GameMode.SPECTATOR && team.getGameMode() != GameMode.SPECTATOR)
+                        if (withinDistance(player, team, distance) && player.getGameMode() != GameMode.SPECTATOR && team.getGameMode() != GameMode.SPECTATOR)
                         {
-                            player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 25, potionlevel -1, false, false));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 25, potionlevel - 1, false, false));
                         }
                     }
                 }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20L, 20L); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn

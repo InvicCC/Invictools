@@ -29,8 +29,8 @@ public class ProjTrailHandler
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
         String effect = balls.getString("ProjTrail");
 
-        if(effect == null)
-            new ProjTrailConfig(effectOwner,"Crit",false);
+        if (effect == null)
+            new ProjTrailConfig(effectOwner, "Crit", false);
 
         effectSwitch(effect, effectOwner, entity);
     }
@@ -59,13 +59,13 @@ public class ProjTrailHandler
                 Hearts(entity);
                 break;
             case "pres":
-                pres(entity,player);
+                pres(entity, player);
                 break;
             case "lava":
                 Lava(entity);
                 break;
             case "sculk":
-                barrier(entity,true);
+                barrier(entity, true);
             case "bubble":
                 bubble(entity);
                 break;
@@ -85,29 +85,30 @@ public class ProjTrailHandler
     {
         new BukkitRunnable()
         {
-            int i=0;
+            int i = 0;
+
             @Override
             public void run()
             {
-                entity.getWorld().spawnParticle(Particle.WATER_BUBBLE, entity.getLocation(), 10, .8, .8, .8,.2);
+                entity.getWorld().spawnParticle(Particle.WATER_BUBBLE, entity.getLocation(), 10, .8, .8, .8, .2);
                 //  System.out.println(entity.getLocation() + " "+entity.getWorld().getName());
 
-                if(entity.isDead() || entity.isOnGround())
+                if (entity.isDead() || entity.isOnGround())
                 {
-                    entity.getWorld().spawnParticle(Particle.BUBBLE_POP, entity.getLocation(), 10, .8, .8, .8,.2);
+                    entity.getWorld().spawnParticle(Particle.BUBBLE_POP, entity.getLocation(), 10, .8, .8, .8, .2);
                     this.cancel();
                 }
 
-                if(entity.getType().equals(EntityType.PLAYER))
+                if (entity.getType().equals(EntityType.PLAYER))
                 {
                     Player p = (Player) entity;
-                    if(!p.isGliding())
+                    if (!p.isGliding())
                     {
-                        entity.getWorld().spawnParticle(Particle.BUBBLE_POP, entity.getLocation(), 10, .8, .8, .8,.2);
+                        entity.getWorld().spawnParticle(Particle.BUBBLE_POP, entity.getLocation(), 10, .8, .8, .8, .2);
                         this.cancel();
                     }
                 }
-                else if(i>100)
+                else if (i > 100)
                     this.cancel();
 
                 i++;
@@ -119,30 +120,31 @@ public class ProjTrailHandler
     {
         new BukkitRunnable()
         {
-            int i=0;
+            int i = 0;
+
             @Override
             public void run()
             {
-                entity.getWorld().spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, entity.getLocation(), 1, 0, 0, 0,0);
-                entity.getWorld().spawnParticle(Particle.CAMPFIRE_SIGNAL_SMOKE, entity.getLocation(), 1, 0, 0, 0,0);
+                entity.getWorld().spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, entity.getLocation(), 1, 0, 0, 0, 0);
+                entity.getWorld().spawnParticle(Particle.CAMPFIRE_SIGNAL_SMOKE, entity.getLocation(), 1, 0, 0, 0, 0);
                 //  System.out.println(entity.getLocation() + " "+entity.getWorld().getName());
 
-                if(entity.isDead() || entity.isOnGround())
+                if (entity.isDead() || entity.isOnGround())
                 {
-                    entity.getLocation().getWorld().spawnParticle(Particle.LAVA, entity.getLocation(),12);
+                    entity.getLocation().getWorld().spawnParticle(Particle.LAVA, entity.getLocation(), 12);
                     this.cancel();
                 }
 
-                if(entity.getType().equals(EntityType.PLAYER))
+                if (entity.getType().equals(EntityType.PLAYER))
                 {
                     Player p = (Player) entity;
-                    if(!p.isGliding())
+                    if (!p.isGliding())
                     {
                         entity.getLocation().getWorld().spawnParticle(Particle.LAVA, entity.getLocation(), 5);
                         this.cancel();
                     }
                 }
-                else if(i>100)
+                else if (i > 100)
                     this.cancel();
 
                 i++;
@@ -154,45 +156,46 @@ public class ProjTrailHandler
     {
         new BukkitRunnable()
         {
-            int i=0;
+            int i = 0;
+
             @Override
             public void run()
             {
                 entity.getWorld().spawnParticle(Particle.SONIC_BOOM, entity.getLocation(), 1, 0, 0, 0);
 
-                if(entity.isDead() || entity.isOnGround())
+                if (entity.isDead() || entity.isOnGround())
                 {
                     new BukkitRunnable()
                     {
                         @Override
                         public void run()
                         {
-                            entity.getWorld().spawnParticle(Particle.SCULK_SOUL, entity.getLocation(), 30, 0, 0, 0,.5);
-                            entity.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, entity.getLocation(), 30, 0, 0, 0,.5);
+                            entity.getWorld().spawnParticle(Particle.SCULK_SOUL, entity.getLocation(), 30, 0, 0, 0, .5);
+                            entity.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, entity.getLocation(), 30, 0, 0, 0, .5);
                         }
                     }.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10L);
                     this.cancel();
                 }
 
-                if(entity.getType().equals(EntityType.PLAYER) && glide)
+                if (entity.getType().equals(EntityType.PLAYER) && glide)
                 {
                     Player p = (Player) entity;
-                    if(!p.isGliding())
+                    if (!p.isGliding())
                     {
                         new BukkitRunnable()
                         {
                             @Override
                             public void run()
                             {
-                                entity.getWorld().spawnParticle(Particle.SCULK_SOUL, entity.getLocation(), 10, 0, 0, 0,.5);
-                                entity.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, entity.getLocation(), 30, 0, 0, 0,.5);
+                                entity.getWorld().spawnParticle(Particle.SCULK_SOUL, entity.getLocation(), 10, 0, 0, 0, .5);
+                                entity.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, entity.getLocation(), 30, 0, 0, 0, .5);
                             }
                         }.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10L);
 
                         this.cancel();
                     }
                 }
-                else if(i>100)
+                else if (i > 100)
                     this.cancel();
 
                 i++;
@@ -204,26 +207,27 @@ public class ProjTrailHandler
     {
         new BukkitRunnable()
         {
-            int i=0;
+            int i = 0;
+
             @Override
             public void run()
             {
                 entity.getWorld().spawnParticle(Particle.CRIT, entity.getLocation(), 5, 0, 0, 0);
                 //  System.out.println(entity.getLocation() + " "+entity.getWorld().getName());
 
-                if(entity.isDead())
+                if (entity.isDead())
                     this.cancel();
 
-                if(entity.isOnGround())
+                if (entity.isOnGround())
                     this.cancel();
 
-                if(entity.getType().equals(EntityType.PLAYER))
+                if (entity.getType().equals(EntityType.PLAYER))
                 {
                     Player p = (Player) entity;
-                    if(!p.isGliding())
+                    if (!p.isGliding())
                         this.cancel();
                 }
-                else if(i>100)
+                else if (i > 100)
                     this.cancel();
 
                 i++;
@@ -235,29 +239,30 @@ public class ProjTrailHandler
     {
         new BukkitRunnable()
         {
-            int i=0;
+            int i = 0;
+
             @Override
             public void run()
             {
                 entity.getWorld().spawnParticle(Particle.NOTE, entity.getLocation(), 5, .6, .6, .6);
-               // System.out.println(entity.getLocation() + " "+entity.getWorld().getName());
+                // System.out.println(entity.getLocation() + " "+entity.getWorld().getName());
 
-                if(entity.isDead())
+                if (entity.isDead())
                     this.cancel();
 
-                if(entity.isOnGround())
+                if (entity.isOnGround())
                     this.cancel();
 
-                if(entity.getType().equals(EntityType.PLAYER))
+                if (entity.getType().equals(EntityType.PLAYER))
                 {
-                   Player p = (Player) entity;
-                   if(!p.isGliding())
-                       this.cancel();
+                    Player p = (Player) entity;
+                    if (!p.isGliding())
+                        this.cancel();
                 }
-                else if(i>100)
+                else if (i > 100)
                     this.cancel();
 
-                    i++;
+                i++;
             }
         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 3L, 2L);
     }
@@ -266,26 +271,27 @@ public class ProjTrailHandler
     {
         new BukkitRunnable()
         {
-            int i=0;
+            int i = 0;
+
             @Override
             public void run()
             {
                 entity.getWorld().spawnParticle(Particle.HEART, entity.getLocation(), 1, 0, 0, 0);
-              //  System.out.println(entity.getLocation() + " "+entity.getWorld().getName());
+                //  System.out.println(entity.getLocation() + " "+entity.getWorld().getName());
 
-                if(entity.isDead())
+                if (entity.isDead())
                     this.cancel();
 
-                if(entity.isOnGround())
+                if (entity.isOnGround())
                     this.cancel();
 
-                if(entity.getType().equals(EntityType.PLAYER))
+                if (entity.getType().equals(EntityType.PLAYER))
                 {
                     Player p = (Player) entity;
-                    if(!p.isGliding())
+                    if (!p.isGliding())
                         this.cancel();
                 }
-                else if(i>100)
+                else if (i > 100)
                     this.cancel();
 
                 i++;
@@ -297,27 +303,28 @@ public class ProjTrailHandler
     {
         new BukkitRunnable()
         {
-            int i=0;
+            int i = 0;
+
             @Override
             public void run()
             {
-                entity.getLocation().getWorld().spawnParticle(Particle.DRIP_LAVA, entity.getLocation(),1);
-                entity.getLocation().getWorld().spawnParticle(Particle.LAVA, entity.getLocation(),1);
+                entity.getLocation().getWorld().spawnParticle(Particle.DRIP_LAVA, entity.getLocation(), 1);
+                entity.getLocation().getWorld().spawnParticle(Particle.LAVA, entity.getLocation(), 1);
                 //  System.out.println(entity.getLocation() + " "+entity.getWorld().getName());
 
-                if(entity.isDead())
+                if (entity.isDead())
                     this.cancel();
 
-                if(entity.isOnGround())
+                if (entity.isOnGround())
                     this.cancel();
 
-                if(entity.getType().equals(EntityType.PLAYER))
+                if (entity.getType().equals(EntityType.PLAYER))
                 {
                     Player p = (Player) entity;
-                    if(!p.isGliding())
+                    if (!p.isGliding())
                         this.cancel();
                 }
-                else if(i>100)
+                else if (i > 100)
                     this.cancel();
 
                 i++;
@@ -327,12 +334,13 @@ public class ProjTrailHandler
 
     public void pres(Entity entity, Player p)
     {
-        Particle.DustOptions dust = new Particle.DustOptions(presColor(p),5);
-      //  Random random = new Random();
-      //  int i;
+        Particle.DustOptions dust = new Particle.DustOptions(presColor(p), 5);
+        //  Random random = new Random();
+        //  int i;
         new BukkitRunnable()
         {
-            int i=0;
+            int i = 0;
+
             @Override
             public void run()
             {
@@ -356,30 +364,30 @@ public class ProjTrailHandler
                     entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(0,0,-.5), 0, 0, 0, 0, dust);
 */
                 entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation(), 0, 0, 0, 0, dust);
-                entity.getLocation().getWorld().spawnParticle(Particle.CRIT, entity.getLocation(),10);
+                entity.getLocation().getWorld().spawnParticle(Particle.CRIT, entity.getLocation(), 10);
 
-                if(entity.isDead())
+                if (entity.isDead())
                 {
                     this.cancel();
-                    if(VictoryDanceHandler.isVictoryDancing.get(p.getName())!= null && entity.getType().equals(EntityType.SNOWBALL))
+                    if (VictoryDanceHandler.isVictoryDancing.get(p.getName()) != null && entity.getType().equals(EntityType.SNOWBALL))
                     {
-                        TNTPrimed tnt = (TNTPrimed) entity.getLocation().getWorld().spawnEntity(entity.getLocation(),EntityType.PRIMED_TNT);
+                        TNTPrimed tnt = (TNTPrimed) entity.getLocation().getWorld().spawnEntity(entity.getLocation(), EntityType.PRIMED_TNT);
                         tnt.setFuseTicks(1);
                         tnt.setYield(3);
                     }
                 }
 
 
-                if(entity.isOnGround())
+                if (entity.isOnGround())
                     this.cancel();
 
-                if(entity.getType().equals(EntityType.PLAYER))
+                if (entity.getType().equals(EntityType.PLAYER))
                 {
                     Player p = (Player) entity;
-                    if(!p.isGliding())
+                    if (!p.isGliding())
                         this.cancel();
                 }
-                else if(i>100)
+                else if (i > 100)
                     this.cancel();
 
                 i++;
@@ -393,33 +401,33 @@ public class ProjTrailHandler
         File Folder = new File(plugin.getDataFolder(), "database");
         File pFile = new File(Folder, "bw_stats_players.yml");
         final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
-        int defaultlvl = data.getInt("data."+p.getUniqueId()+".score");
+        int defaultlvl = data.getInt("data." + p.getUniqueId() + ".score");
 
-        int intlvl = defaultlvl/500+1;
-      //  String strlvl = String.valueOf(intlvl);
+        int intlvl = defaultlvl / 500 + 1;
+        //  String strlvl = String.valueOf(intlvl);
 
-            if(intlvl >= 0 && intlvl <= 9)
-                return Color.GRAY;
-            else if(intlvl >= 10 && intlvl <= 19)
-                return Color.WHITE;
-            else if(intlvl >= 20 && intlvl <= 29)
-                return Color.ORANGE;
-            else if(intlvl >= 30 && intlvl <= 39)
-                return Color.YELLOW;
-            else if(intlvl >= 40 && intlvl <= 49)
-                return Color.GREEN;
-            else if(intlvl >= 50 && intlvl <= 59)
-                return Color.TEAL;
-            else if(intlvl >= 60 && intlvl <= 69)
-                return Color.RED;
-            else if(intlvl >= 70 && intlvl <= 79)
-                return Color.LIME;
-            else if(intlvl >= 80 && intlvl <= 89)
-                return Color.BLUE;
-            else if(intlvl >= 90 && intlvl <= 99)
-                return Color.PURPLE;
-            else
-                return Color.AQUA;
+        if (intlvl >= 0 && intlvl <= 9)
+            return Color.GRAY;
+        else if (intlvl >= 10 && intlvl <= 19)
+            return Color.WHITE;
+        else if (intlvl >= 20 && intlvl <= 29)
+            return Color.ORANGE;
+        else if (intlvl >= 30 && intlvl <= 39)
+            return Color.YELLOW;
+        else if (intlvl >= 40 && intlvl <= 49)
+            return Color.GREEN;
+        else if (intlvl >= 50 && intlvl <= 59)
+            return Color.TEAL;
+        else if (intlvl >= 60 && intlvl <= 69)
+            return Color.RED;
+        else if (intlvl >= 70 && intlvl <= 79)
+            return Color.LIME;
+        else if (intlvl >= 80 && intlvl <= 89)
+            return Color.BLUE;
+        else if (intlvl >= 90 && intlvl <= 99)
+            return Color.PURPLE;
+        else
+            return Color.AQUA;
     }
 
     public Material PrestigeMaterial(Player p)
@@ -428,30 +436,30 @@ public class ProjTrailHandler
         File Folder = new File(plugin.getDataFolder(), "database");
         File pFile = new File(Folder, "bw_stats_players.yml");
         final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
-        int defaultlvl = data.getInt("data."+p.getUniqueId()+".score");
+        int defaultlvl = data.getInt("data." + p.getUniqueId() + ".score");
 
-        int intlvl = defaultlvl/500+1;
+        int intlvl = defaultlvl / 500 + 1;
         //  String strlvl = String.valueOf(intlvl);
 
-        if(intlvl >= 0 && intlvl <= 9)
+        if (intlvl >= 0 && intlvl <= 9)
             return Material.GRAY_STAINED_GLASS;
-        else if(intlvl >= 10 && intlvl <= 19)
+        else if (intlvl >= 10 && intlvl <= 19)
             return Material.WHITE_STAINED_GLASS;
-        else if(intlvl >= 20 && intlvl <= 29)
+        else if (intlvl >= 20 && intlvl <= 29)
             return Material.ORANGE_STAINED_GLASS;
-        else if(intlvl >= 30 && intlvl <= 39)
+        else if (intlvl >= 30 && intlvl <= 39)
             return Material.YELLOW_STAINED_GLASS;
-        else if(intlvl >= 40 && intlvl <= 49)
+        else if (intlvl >= 40 && intlvl <= 49)
             return Material.GREEN_STAINED_GLASS;
-        else if(intlvl >= 50 && intlvl <= 59)
+        else if (intlvl >= 50 && intlvl <= 59)
             return Material.CYAN_STAINED_GLASS;
-        else if(intlvl >= 60 && intlvl <= 69)
+        else if (intlvl >= 60 && intlvl <= 69)
             return Material.RED_STAINED_GLASS;
-        else if(intlvl >= 70 && intlvl <= 79)
+        else if (intlvl >= 70 && intlvl <= 79)
             return Material.LIME_STAINED_GLASS;
-        else if(intlvl >= 80 && intlvl <= 89)
+        else if (intlvl >= 80 && intlvl <= 89)
             return Material.BLUE_STAINED_GLASS;
-        else if(intlvl >= 90 && intlvl <= 99)
+        else if (intlvl >= 90 && intlvl <= 99)
             return Material.PURPLE_STAINED_GLASS;
         else
             return Material.LIGHT_BLUE_STAINED_GLASS;

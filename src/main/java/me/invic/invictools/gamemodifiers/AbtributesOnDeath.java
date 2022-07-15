@@ -23,7 +23,7 @@ public class AbtributesOnDeath implements Listener
         List<Player> players = getPlayersInSameWorld(player);
         DeathCounter.InitializeDeathCounter(players);
 
-        for (Player p:players)
+        for (Player p : players)
         {
             handleAbtribute(p, attribute, attributeInterval, baseValue);
         }
@@ -40,19 +40,20 @@ public class AbtributesOnDeath implements Listener
     {
         AttributeInstance a = player.getAttribute(Attribute.valueOf(attribute));
         a.setBaseValue(baseValue);
-        if(attribute.equalsIgnoreCase("GENERIC_MAX_HEALTH"))
+        if (attribute.equalsIgnoreCase("GENERIC_MAX_HEALTH"))
             player.setHealth(baseValue);
 
         new BukkitRunnable()
         {
             int deaths = DeathCounter.deaths.get(player);
+
             @Override
             public void run()
             {
-                if(DeathCounter.deaths.get(player) == null)
+                if (DeathCounter.deaths.get(player) == null)
                     this.cancel();
 
-                if(DeathCounter.deaths.get(player)>deaths)
+                if (DeathCounter.deaths.get(player) > deaths)
                 {
                     a.setBaseValue(a.getValue() + interval);
                     deaths = DeathCounter.deaths.get(player);
@@ -76,9 +77,9 @@ public class AbtributesOnDeath implements Listener
     {
         AbtributesOnDeath.ActiveAttributes.forEach((a, value) ->
         {
-            for (Player p: Bukkit.getOnlinePlayers())
+            for (Player p : Bukkit.getOnlinePlayers())
             {
-                if(!Attribute.valueOf(a).equals(Attribute.GENERIC_MOVEMENT_SPEED))
+                if (!Attribute.valueOf(a).equals(Attribute.GENERIC_MOVEMENT_SPEED))
                     p.getAttribute(Attribute.valueOf(a)).setBaseValue(p.getAttribute(Attribute.valueOf(a)).getDefaultValue());
                 else
                     p.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(.1);
@@ -93,12 +94,12 @@ public class AbtributesOnDeath implements Listener
         {
             try
             {
-                if(!a.equals(Attribute.GENERIC_MOVEMENT_SPEED))
+                if (!a.equals(Attribute.GENERIC_MOVEMENT_SPEED))
                     p.getAttribute(a).setBaseValue(p.getAttribute(a).getDefaultValue());
                 else
                     p.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(.1);
             }
-            catch(NullPointerException ex)
+            catch (NullPointerException ex)
             {
                 continue;
             }

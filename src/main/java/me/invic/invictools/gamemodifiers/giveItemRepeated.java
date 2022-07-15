@@ -23,10 +23,10 @@ public class giveItemRepeated // specific item handled in commands.java
             @Override
             public void run()
             {
-                if(!repeatedCancel)
+                if (!repeatedCancel)
                 {
-                   // System.out.println(player.getWorld().getName() + " "+worldname);
-                    if(player.getWorld().getName().equalsIgnoreCase(worldname))
+                    // System.out.println(player.getWorld().getName() + " "+worldname);
+                    if (player.getWorld().getName().equalsIgnoreCase(worldname))
                     {
                         if (type.equalsIgnoreCase("normal"))
                         {
@@ -36,7 +36,8 @@ public class giveItemRepeated // specific item handled in commands.java
                             {
                                 player.getWorld().dropItemNaturally(player.getLocation(), item);
                             }
-                        } else if (type.equalsIgnoreCase("random"))
+                        }
+                        else if (type.equalsIgnoreCase("random"))
                         {
                             if (item.getType().equals(Material.SEA_LANTERN))
                             {
@@ -68,7 +69,8 @@ public class giveItemRepeated // specific item handled in commands.java
                 else
                     this.cancel();
             }
-        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), delay * 20L,delay * 20L);
+        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), delay * 20L, delay * 20L);
     }
+
     public static boolean repeatedCancel;
 }

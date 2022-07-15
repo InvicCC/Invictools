@@ -90,16 +90,16 @@ public class TeamSelection implements Listener
         {
             List<Integer> nums = new ArrayList<>();
             Game game = api.getGameOfPlayer((Player) e.getWhoClicked());
-            for (int i = 0; i<game.getAvailableTeams().size();i++)
+            for (int i = 0; i < game.getAvailableTeams().size(); i++)
             {
                 nums.add(i);
             }
             Collections.shuffle(nums);
             int i = 0;
             int t = 0;
-            while(i<game.getConnectedPlayers().size())
+            while (i < game.getConnectedPlayers().size())
             {
-                if(i==game.getAvailableTeams().size())
+                if (i == game.getAvailableTeams().size())
                 {
                     i = 0;
                     Collections.shuffle(nums);
@@ -112,7 +112,8 @@ public class TeamSelection implements Listener
                 i++;
                 t++;
             }
-        } else if (TeamSelector.containsValue(e.getClickedInventory()) && e.getCurrentItem() != null)
+        }
+        else if (TeamSelector.containsValue(e.getClickedInventory()) && e.getCurrentItem() != null)
         {
             e.setCancelled(true);
             updateItem(e.getCurrentItem(), (Player) e.getWhoClicked(), true);
@@ -126,7 +127,8 @@ public class TeamSelection implements Listener
         {
             TeamSelector.remove(e.getGame());
             teamSize.clear();
-        } else
+        }
+        else
         {
             for (int i = 0; i < TeamSelector.get(e.getGame()).getSize(); i++)
             {
@@ -145,7 +147,8 @@ public class TeamSelection implements Listener
                         otherMeta.setDisplayName(ChatColor.RESET + "" + teamColorToChatColor(e.getGame().getTeamFromName(otherTeam[1]).getColor().toString()) + " " + e.getGame().getTeamFromName(otherTeam[1]).getName() + " " + ChatColor.GRAY + "(" + ChatColor.WHITE + (other.getAmount() - 1) + ChatColor.GRAY + "/" + ChatColor.WHITE + e.getGame().getTeamFromName(otherTeam[1]).getMaxPlayers() + ChatColor.GRAY + ")");
                         other.setAmount(other.getAmount() - 1);
                         //    teamSize.put(game.getName()+";"+team[1],teamSize.get(game.getName()+";"+team[1])-1);
-                    } else
+                    }
+                    else
                     {
                         otherMeta.setDisplayName(ChatColor.RESET + "" + teamColorToChatColor(e.getGame().getTeamFromName(otherTeam[1]).getColor().toString()) + " " + e.getGame().getTeamFromName(otherTeam[1]).getName() + " " + ChatColor.GRAY + "(" + ChatColor.WHITE + "0" + ChatColor.GRAY + "/" + ChatColor.WHITE + e.getGame().getTeamFromName(otherTeam[1]).getMaxPlayers() + ChatColor.GRAY + ")");
                         //  teamSize.put(game.getName()+";"+team[1],teamSize.get(game.getName()+";"+team[1])-1);
@@ -179,7 +182,7 @@ public class TeamSelection implements Listener
         meta.setLore(lore);
         block.setItemMeta(meta);
 
-        p.getInventory().setItem(0,block);
+        p.getInventory().setItem(0, block);
 
         block = new ItemStack(Material.COMPARATOR);
         meta = block.getItemMeta();
@@ -191,12 +194,12 @@ public class TeamSelection implements Listener
         meta.setLore(lore);
         block.setItemMeta(meta);
 
-        p.getInventory().setItem(1,block);
+        p.getInventory().setItem(1, block);
     }
 
-    public void openInventory(Player p,Game game,boolean fast)
+    public void openInventory(Player p, Game game, boolean fast)
     {
-        if(fast)
+        if (fast)
         {
             p.openInventory(TeamSelector.get(game));
         }
@@ -215,32 +218,32 @@ public class TeamSelection implements Listener
 
     public void createInventory(Game game)
     {
-        Inventory inventory = Bukkit.createInventory(null, nearest(game.getAvailableTeams().size()),panelName);
-        for (int s = 0; s < game.getAvailableTeams().size() ; s++)
+        Inventory inventory = Bukkit.createInventory(null, nearest(game.getAvailableTeams().size()), panelName);
+        for (int s = 0; s < game.getAvailableTeams().size(); s++)
         {
-            ItemStack item = new ItemStack(Material.valueOf(game.getAvailableTeams().get(s).getColor().toString().toUpperCase(Locale.ROOT)+"_WOOL"));
+            ItemStack item = new ItemStack(Material.valueOf(game.getAvailableTeams().get(s).getColor().toString().toUpperCase(Locale.ROOT) + "_WOOL"));
             ItemMeta meta = item.getItemMeta();
-            meta.setDisplayName(ChatColor.RESET +""+teamColorToChatColor(game.getAvailableTeams().get(s).getColor().toString()) + " " +game.getAvailableTeams().get(s).getName() + " "+ChatColor.GRAY+"("+ ChatColor.WHITE+"0"+ ChatColor.GRAY+"/"+ ChatColor.WHITE+game.getAvailableTeams().get(1).getMaxPlayers()+ChatColor.GRAY+")");
+            meta.setDisplayName(ChatColor.RESET + "" + teamColorToChatColor(game.getAvailableTeams().get(s).getColor().toString()) + " " + game.getAvailableTeams().get(s).getName() + " " + ChatColor.GRAY + "(" + ChatColor.WHITE + "0" + ChatColor.GRAY + "/" + ChatColor.WHITE + game.getAvailableTeams().get(1).getMaxPlayers() + ChatColor.GRAY + ")");
             meta.setLore(Collections.singletonList(joinMsg));
             item.setItemMeta(meta);
-            inventory.setItem(s,item);
+            inventory.setItem(s, item);
         }
-        TeamSelector.put(game,inventory);
+        TeamSelector.put(game, inventory);
     }
 
     private int nearest(int v)
     {
         for (int i = 1; i < 54; i++)
         {
-            if (v <= 9*i)
-                return 9*i;
+            if (v <= 9 * i)
+                return 9 * i;
         }
         return 54;
     }
 
     private void updateItem(ItemStack item, Player p, boolean chooseteam)
     {
-        if(loreContains(item.getItemMeta().getLore(),p.getDisplayName()) != -1)
+        if (loreContains(item.getItemMeta().getLore(), p.getDisplayName()) != -1)
         {
             return;
         }
@@ -248,30 +251,30 @@ public class TeamSelection implements Listener
         Game game = api.getGameOfPlayer(p);
         String[] team = item.getItemMeta().getDisplayName().split(" ");
 
-        if(teamSize.get(game.getName()+";"+team[1]) != null)
+        if (teamSize.get(game.getName() + ";" + team[1]) != null)
         {
-            System.out.println(teamSize.get(game.getName()+";"+team[1]));
+            System.out.println(teamSize.get(game.getName() + ";" + team[1]));
             System.out.println(game.getTeamFromName(team[1]).getMaxPlayers());
-            if(teamSize.get(game.getName()+";"+team[1]) == game.getTeamFromName(team[1]).getMaxPlayers())
+            if (teamSize.get(game.getName() + ";" + team[1]) == game.getTeamFromName(team[1]).getMaxPlayers())
             {
                 System.out.println("size cancel");
                 return;
             }
         }
 
-        if(chooseteam)
+        if (chooseteam)
         {
             game.selectPlayerTeam(p, game.getTeamFromName(team[1]));
-            teamSize.put(game.getName()+";"+team[1],teamSize.get(game.getName()+";"+team[1])+1);
+            teamSize.put(game.getName() + ";" + team[1], teamSize.get(game.getName() + ";" + team[1]) + 1);
         }
 
         ItemMeta meta = item.getItemMeta();
-        if(meta.getLore().size() > 1) // join line and a player
+        if (meta.getLore().size() > 1) // join line and a player
         {
-            item.setAmount(item.getAmount()+1);
+            item.setAmount(item.getAmount() + 1);
         }
 
-        meta.setDisplayName(ChatColor.RESET +""+teamColorToChatColor(game.getTeamFromName(team[1]).getColor().toString()) + " " +game.getTeamFromName(team[1]).getName()+" "+ChatColor.GRAY+"("+ ChatColor.WHITE+item.getAmount()+ ChatColor.GRAY+"/"+ ChatColor.WHITE+game.getTeamFromName(team[1]).getMaxPlayers()+ChatColor.GRAY+")");
+        meta.setDisplayName(ChatColor.RESET + "" + teamColorToChatColor(game.getTeamFromName(team[1]).getColor().toString()) + " " + game.getTeamFromName(team[1]).getName() + " " + ChatColor.GRAY + "(" + ChatColor.WHITE + item.getAmount() + ChatColor.GRAY + "/" + ChatColor.WHITE + game.getTeamFromName(team[1]).getMaxPlayers() + ChatColor.GRAY + ")");
 
         List<String> lore = meta.getLore();
 
@@ -279,13 +282,13 @@ public class TeamSelection implements Listener
         meta.setLore(lore);
         item.setItemMeta(meta);
 
-        for(int i = 0;i<TeamSelector.get(game).getSize();i++)
+        for (int i = 0; i < TeamSelector.get(game).getSize(); i++)
         {
             ItemStack other = TeamSelector.get(game).getItem(i);
-            if(other != null && !other.getItemMeta().getDisplayName().equals(item.getItemMeta().getDisplayName()))
+            if (other != null && !other.getItemMeta().getDisplayName().equals(item.getItemMeta().getDisplayName()))
             {
-                int a = loreContains(other.getItemMeta().getLore(),p.getDisplayName());
-                if (loreContains(other.getItemMeta().getLore(),p.getDisplayName()) != -1)
+                int a = loreContains(other.getItemMeta().getLore(), p.getDisplayName());
+                if (loreContains(other.getItemMeta().getLore(), p.getDisplayName()) != -1)
                 {
                     ItemMeta otherMeta = other.getItemMeta();
                     List<String> lore2 = otherMeta.getLore();
@@ -295,25 +298,25 @@ public class TeamSelection implements Listener
                     other.setItemMeta(otherMeta);
                     if (other.getAmount() > 1)
                     {
-                        otherMeta.setDisplayName(ChatColor.RESET +""+teamColorToChatColor(game.getTeamFromName(otherTeam[1]).getColor().toString()) + " " +game.getTeamFromName(otherTeam[1]).getName()+" "+ChatColor.GRAY+"("+ ChatColor.WHITE+(other.getAmount()-1)+ ChatColor.GRAY+"/"+ ChatColor.WHITE+game.getTeamFromName(otherTeam[1]).getMaxPlayers()+ChatColor.GRAY+")");
+                        otherMeta.setDisplayName(ChatColor.RESET + "" + teamColorToChatColor(game.getTeamFromName(otherTeam[1]).getColor().toString()) + " " + game.getTeamFromName(otherTeam[1]).getName() + " " + ChatColor.GRAY + "(" + ChatColor.WHITE + (other.getAmount() - 1) + ChatColor.GRAY + "/" + ChatColor.WHITE + game.getTeamFromName(otherTeam[1]).getMaxPlayers() + ChatColor.GRAY + ")");
                         other.setAmount(other.getAmount() - 1);
-                    //    teamSize.put(game.getName()+";"+team[1],teamSize.get(game.getName()+";"+team[1])-1);
+                        //    teamSize.put(game.getName()+";"+team[1],teamSize.get(game.getName()+";"+team[1])-1);
                     }
                     else
                     {
                         otherMeta.setDisplayName(ChatColor.RESET + "" + teamColorToChatColor(game.getTeamFromName(otherTeam[1]).getColor().toString()) + " " + game.getTeamFromName(otherTeam[1]).getName() + " " + ChatColor.GRAY + "(" + ChatColor.WHITE + "0" + ChatColor.GRAY + "/" + ChatColor.WHITE + game.getTeamFromName(otherTeam[1]).getMaxPlayers() + ChatColor.GRAY + ")");
-                      //  teamSize.put(game.getName()+";"+team[1],teamSize.get(game.getName()+";"+team[1])-1);
+                        //  teamSize.put(game.getName()+";"+team[1],teamSize.get(game.getName()+";"+team[1])-1);
                     }
                     other.setItemMeta(otherMeta);
-                    teamSize.put(game.getName()+";"+otherTeam[1],teamSize.get(game.getName()+";"+otherTeam[1])-1);
+                    teamSize.put(game.getName() + ";" + otherTeam[1], teamSize.get(game.getName() + ";" + otherTeam[1]) - 1);
                 }
             }
         }
     }
 
-    private int loreContains(List<String> c1,String c2)
+    private int loreContains(List<String> c1, String c2)
     {
-        if(c1 == null)
+        if (c1 == null)
             return -1;
 
         for (int a = 0; a < c1.size(); a++)
@@ -327,7 +330,7 @@ public class TeamSelection implements Listener
 
     public ChatColor teamColorToChatColor(String s)
     {
-        switch(s.toUpperCase(Locale.ROOT))
+        switch (s.toUpperCase(Locale.ROOT))
         {
             case "LIGHT_GRAY":
                 return ChatColor.GRAY;

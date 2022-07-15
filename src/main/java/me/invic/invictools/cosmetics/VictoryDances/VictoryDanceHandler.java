@@ -33,7 +33,7 @@ import java.util.*;
 public class VictoryDanceHandler implements Listener
 {
     static final int effectDuration = 14; // seconds
-    public static HashMap<String,Boolean> isVictoryDancing = new HashMap<>();
+    public static HashMap<String, Boolean> isVictoryDancing = new HashMap<>();
 
     public void grabEffect(Player effectOwner)
     {
@@ -42,7 +42,7 @@ public class VictoryDanceHandler implements Listener
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
         String effect = balls.getString("VictoryDance");
 
-        effectOwner.playSound(effectOwner.getLocation(), Sound.ENTITY_PLAYER_LEVELUP,10,20);
+        effectOwner.playSound(effectOwner.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 10, 20);
         effectSwitch(effect, effectOwner);
     }
 
@@ -88,7 +88,7 @@ public class VictoryDanceHandler implements Listener
                 Firework(player);
         }
 
-        isVictoryDancing.put(player.getName(),true);
+        isVictoryDancing.put(player.getName(), true);
         new BukkitRunnable()
         {
             @Override
@@ -96,7 +96,7 @@ public class VictoryDanceHandler implements Listener
             {
                 isVictoryDancing.remove(player.getName());
             }
-        }.runTaskLater(Commands.Invictools, effectDuration*20);
+        }.runTaskLater(Commands.Invictools, effectDuration * 20);
     }
 
     private void Storm(Player p)
@@ -108,87 +108,90 @@ public class VictoryDanceHandler implements Listener
             final World world = p.getWorld();
             final Random rand = new Random();
             boolean cancel = false;
+
             @Override
             public void run()
             {
-               world.setStorm(true);
-               world.setThundering(true);
+                world.setStorm(true);
+                world.setThundering(true);
 
                 new BukkitRunnable()
                 {
                     @Override
                     public void run()
                     {
-                        p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(),p.getLocation().getX()+rand.nextInt(50)-25,p.getLocation().getY(),p.getLocation().getZ()+rand.nextInt(25)-50));
+                        p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(), p.getLocation().getX() + rand.nextInt(50) - 25, p.getLocation().getY(), p.getLocation().getZ() + rand.nextInt(25) - 50));
 
-                        if(rand.nextInt(2)==1)
+                        if (rand.nextInt(2) == 1)
                         {
                             new BukkitRunnable()
                             {
                                 @Override
                                 public void run()
                                 {
-                                    p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(),p.getLocation().getX()+rand.nextInt(50)-25,p.getLocation().getY(),p.getLocation().getZ()+rand.nextInt(50)-25));
+                                    p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(), p.getLocation().getX() + rand.nextInt(50) - 25, p.getLocation().getY(), p.getLocation().getZ() + rand.nextInt(50) - 25));
                                 }
                             }.runTaskLater(Commands.Invictools, 3L);
                         }
 
-                        if(rand.nextInt(3)==1)
+                        if (rand.nextInt(3) == 1)
                         {
                             new BukkitRunnable()
                             {
                                 @Override
                                 public void run()
                                 {
-                                    p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(),p.getLocation().getX()+rand.nextInt(50)-25,p.getLocation().getY(),p.getLocation().getZ()+rand.nextInt(50)-25));
+                                    p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(), p.getLocation().getX() + rand.nextInt(50) - 25, p.getLocation().getY(), p.getLocation().getZ() + rand.nextInt(50) - 25));
                                 }
-                            }.runTaskLater(Commands.Invictools, 6L); }
+                            }.runTaskLater(Commands.Invictools, 6L);
+                        }
 
-                        if(rand.nextInt(3)==1)
+                        if (rand.nextInt(3) == 1)
                         {
                             new BukkitRunnable()
                             {
                                 @Override
                                 public void run()
                                 {
-                                    p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(),p.getLocation().getX()+rand.nextInt(50)-25,p.getLocation().getY(),p.getLocation().getZ()+rand.nextInt(50)-25));
+                                    p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(), p.getLocation().getX() + rand.nextInt(50) - 25, p.getLocation().getY(), p.getLocation().getZ() + rand.nextInt(50) - 25));
                                 }
-                            }.runTaskLater(Commands.Invictools, 6L); }
+                            }.runTaskLater(Commands.Invictools, 6L);
+                        }
 
-                        if(rand.nextInt(3)==1)
+                        if (rand.nextInt(3) == 1)
                         {
                             new BukkitRunnable()
                             {
                                 @Override
                                 public void run()
                                 {
-                                    p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(),p.getLocation().getX()+rand.nextInt(50)-25,p.getLocation().getY(),p.getLocation().getZ()+rand.nextInt(50)-25));
+                                    p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(), p.getLocation().getX() + rand.nextInt(50) - 25, p.getLocation().getY(), p.getLocation().getZ() + rand.nextInt(50) - 25));
                                 }
                             }.runTaskLater(Commands.Invictools, 9L);
                         }
-                        if(rand.nextInt(4)==1)
+                        if (rand.nextInt(4) == 1)
                         {
-                            p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(),p.getLocation().getX()+rand.nextInt(25)-50,p.getLocation().getY(),p.getLocation().getZ()+rand.nextInt(25)-50));
+                            p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(), p.getLocation().getX() + rand.nextInt(25) - 50, p.getLocation().getY(), p.getLocation().getZ() + rand.nextInt(25) - 50));
                         }
 
-                        if(cancel)
+                        if (cancel)
                             this.cancel();
                     }
                 }.runTaskTimer(Commands.Invictools, 40L, 13L);
 
-               new BukkitRunnable()
-               {
+                new BukkitRunnable()
+                {
                     @Override
                     public void run()
                     {
-                        if(!storm || world.getName().equals("bwlobby"))
+                        if (!storm || world.getName().equals("bwlobby"))
                         {
                             world.setStorm(false);
                             world.setThundering(false);
                             cancel = true;
                         }
                     }
-               }.runTaskLater(Commands.Invictools, (effectDuration*18));
+                }.runTaskLater(Commands.Invictools, (effectDuration * 18));
             }
         }.runTaskLater(Commands.Invictools, 40);
     }
@@ -198,11 +201,11 @@ public class VictoryDanceHandler implements Listener
         ItemStack bow = new createItems().RIDEBOW();
         ItemStack arrow = new ItemStack(Material.ARROW);
         arrow.setAmount(64);
-        p.getInventory().setItem(9,arrow);
+        p.getInventory().setItem(9, arrow);
 
-        for (int i = 0; i <= 8;i++)
+        for (int i = 0; i <= 8; i++)
         {
-            p.getInventory().setItem(i,bow);
+            p.getInventory().setItem(i, bow);
         }
     }
 
@@ -218,11 +221,11 @@ public class VictoryDanceHandler implements Listener
         meta.setDisplayName(ChatColor.BOLD + "Snowball");
         arrow.setItemMeta(meta);
         arrow.setAmount(64);
-        new ProjTrailConfig(p,"pres",true);
+        new ProjTrailConfig(p, "pres", true);
 
-        for (int i = 0; i <= 8;i++)
+        for (int i = 0; i <= 8; i++)
         {
-            p.getInventory().setItem(i,arrow);
+            p.getInventory().setItem(i, arrow);
         }
 
         new BukkitRunnable()
@@ -230,9 +233,9 @@ public class VictoryDanceHandler implements Listener
             @Override
             public void run()
             {
-                new ProjTrailConfig(p,effect,false);
+                new ProjTrailConfig(p, effect, false);
             }
-        }.runTaskLater(Commands.Invictools, (effectDuration*20));
+        }.runTaskLater(Commands.Invictools, (effectDuration * 20));
     }
 
     private void Firework(Player player)
@@ -240,61 +243,63 @@ public class VictoryDanceHandler implements Listener
         new BukkitRunnable()
         {
             int stop = 0;
+
             @Override
             public void run()
             {
                 new BukkitRunnable()
                 {
                     int i = 0;
+
                     @Override
                     public void run()
                     {
-                        switch(i)
+                        switch (i)
                         {
                             case 0:
-                                creation(player.getLocation().clone().add(6,4,0),player);
+                                creation(player.getLocation().clone().add(6, 4, 0), player);
                                 break;
                             case 1:
-                                creation(player.getLocation().clone().add(4,4,4),player);
+                                creation(player.getLocation().clone().add(4, 4, 4), player);
                                 break;
                             case 2:
-                                creation(player.getLocation().clone().add(0,4,6),player);
+                                creation(player.getLocation().clone().add(0, 4, 6), player);
                                 break;
                             case 3:
-                                creation(player.getLocation().clone().add(-4,4,4),player);
+                                creation(player.getLocation().clone().add(-4, 4, 4), player);
                                 break;
                             case 4:
-                                creation(player.getLocation().clone().add(-6,4,0),player);
+                                creation(player.getLocation().clone().add(-6, 4, 0), player);
                                 break;
                             case 5:
-                                creation(player.getLocation().clone().add(-4,4,-4),player);
+                                creation(player.getLocation().clone().add(-4, 4, -4), player);
                                 break;
                             case 6:
-                                creation(player.getLocation().clone().add(0,4,-6),player);
+                                creation(player.getLocation().clone().add(0, 4, -6), player);
                                 break;
                             case 7:
-                                creation(player.getLocation().clone().add(4,4,-4),player);
+                                creation(player.getLocation().clone().add(4, 4, -4), player);
                                 break;
                         }
                         i++;
-                        if(i==8)
+                        if (i == 8)
                             this.cancel();
                     }
                 }.runTaskTimer(Commands.Invictools, 0L, 5L);
-                stop+=70;
-                if(effectDuration*20 < stop)
+                stop += 70;
+                if (effectDuration * 20 < stop)
                     this.cancel();
             }
         }.runTaskTimer(Commands.Invictools, 0L, 70L);
     }
 
-    private void creation(Location loc,Player player)
+    private void creation(Location loc, Player player)
     {
         BedwarsAPI api = BedwarsAPI.getInstance();
         Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
         FireworkMeta fwm = fw.getFireworkMeta();
 
-        if(new Random().nextInt(2) == 1)
+        if (new Random().nextInt(2) == 1)
         {
             Color color = ProjTrailHandler.presColor(player);
             fwm.addEffect(FireworkEffect.builder().withColor(color).with(FireworkEffect.Type.STAR).flicker(true).trail(true).build());
@@ -328,9 +333,9 @@ public class VictoryDanceHandler implements Listener
         ExplosionsListener.op = true;
         ExplosionsListener.xzmultiplier = 5;
         ExplosionsListener.ymultiplier = 5;
-        for (int i = 0; i <= 8;i++)
+        for (int i = 0; i <= 8; i++)
         {
-            p.getInventory().setItem(i,firestick);
+            p.getInventory().setItem(i, firestick);
         }
         ItemListener.Falling.add(p);
         p.setInvulnerable(true);
@@ -345,7 +350,7 @@ public class VictoryDanceHandler implements Listener
                 ExplosionsListener.xzmultiplier = xz;
                 ExplosionsListener.ymultiplier = y;
             }
-        }.runTaskLater(Commands.Invictools, (effectDuration*20));
+        }.runTaskLater(Commands.Invictools, (effectDuration * 20));
     }
 
     private void Dragon(Player p)
@@ -356,32 +361,32 @@ public class VictoryDanceHandler implements Listener
             public void run()
             {
                 Allay dragon = p.getWorld().spawn(p.getLocation(), Allay.class);
-              //  Bat bat = p.getWorld().spawn(p.getLocation(), Bat.class);
-               // bat.setInvisible(true);
-            //    bat.setInvulnerable(true);
+                //  Bat bat = p.getWorld().spawn(p.getLocation(), Bat.class);
+                // bat.setInvisible(true);
+                //    bat.setInvulnerable(true);
                 dragon.setCollidable(false);
-            //    bat.addPassenger(dragon);
+                //    bat.addPassenger(dragon);
                 dragon.setAware(true);
                 dragon.addPassenger(p);
                 dragon.setInvulnerable(true);
-           //     bat.addPassenger(dragon);
+                //     bat.addPassenger(dragon);
                 p.setInvulnerable(true);
 
-                p.getInventory().setItem(40,new ItemStack(Material.SHIELD));
+                p.getInventory().setItem(40, new ItemStack(Material.SHIELD));
 
                 new BukkitRunnable()
                 {
                     @Override
                     public void run()
                     {
-                        if(!dragon.isDead())
+                        if (!dragon.isDead())
                         {
-                           // System.out.println(p.getLocation().getDirection().multiply(new Vector(2,10,2)));
-                            if(!p.isBlocking())
+                            // System.out.println(p.getLocation().getDirection().multiply(new Vector(2,10,2)));
+                            if (!p.isBlocking())
                             {
                                 dragon.getLocation().setDirection(p.getLocation().getDirection());
-                                dragon.setVelocity((p.getLocation().getDirection().multiply(new Vector(2,2,2))));
-                                if(!dragon.hasAI())
+                                dragon.setVelocity((p.getLocation().getDirection().multiply(new Vector(2, 2, 2))));
+                                if (!dragon.hasAI())
                                     dragon.setAI(true);
                             }
                             else
@@ -397,7 +402,7 @@ public class VictoryDanceHandler implements Listener
                     @Override
                     public void run()
                     {
-                        if(!dragon.isDead())
+                        if (!dragon.isDead())
                         {
                             p.getWorld().playSound(dragon.getLocation(), Sound.ENTITY_ALLAY_HURT, 3, 1);
                             LargeFireball ball = dragon.launchProjectile(LargeFireball.class);
@@ -416,14 +421,14 @@ public class VictoryDanceHandler implements Listener
                     {
                         p.setInvulnerable(false);
 
-                        if(!dragon.isDead())
+                        if (!dragon.isDead())
                             dragon.remove();
 
-                //        if(!bat.isDead())
-                     //       bat.remove();
+                        //        if(!bat.isDead())
+                        //       bat.remove();
 
                     }
-                }.runTaskLater(Commands.Invictools, effectDuration*20);
+                }.runTaskLater(Commands.Invictools, effectDuration * 20);
             }
         }.runTaskLater(Commands.Invictools, 20);
     }
@@ -435,16 +440,16 @@ public class VictoryDanceHandler implements Listener
             @Override
             public void run()
             {
-                SkeletonHorse horse = new dareListener().spawnDare(p.getLocation(),p,true,true);
+                SkeletonHorse horse = new dareListener().spawnDare(p.getLocation(), p, true, true);
                 new BukkitRunnable()
                 {
                     @Override
                     public void run()
                     {
-                        if(!horse.isDead())
-                            horse.damage(horse.getHealth()*99999);
+                        if (!horse.isDead())
+                            horse.damage(horse.getHealth() * 99999);
                     }
-                }.runTaskLater(Commands.Invictools, (effectDuration*20));
+                }.runTaskLater(Commands.Invictools, (effectDuration * 20));
             }
         }.runTaskLater(Commands.Invictools, 20);
     }

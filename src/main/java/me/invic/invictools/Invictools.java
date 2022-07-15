@@ -111,12 +111,12 @@ public final class Invictools extends JavaPlugin
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
         File Folder = new File(plugin.getDataFolder(), "Maps");
         File[] yamlFiles = Folder.listFiles();
-        for (File file:yamlFiles)
+        for (File file : yamlFiles)
         {
             FileConfiguration map = YamlConfiguration.loadConfiguration(file);
             worlds.add(map.getString("World"));
             String[] mapName = file.getName().split("\\.");
-            Configs.add(mapName[0]+"_"+map.getString("Conversion"));
+            Configs.add(mapName[0] + "_" + map.getString("Conversion"));
             games.add(mapName[0]);
         }
         List<String> blackListedWorlds = fileConfiguration.getStringList("blacklistedWorlds");
@@ -173,9 +173,9 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new DeathCounter(), this); // bw death and end game event
 
         // changed world & join server
-      //  Bukkit.getPluginManager().registerEvents(new SpawnNPC(), this); // changed world and join
-      //  if(UsePlugNPC)
-      //      Bukkit.getPluginManager().registerEvents(new SpawnPlugNPC(), this); // changed world and join
+        //  Bukkit.getPluginManager().registerEvents(new SpawnNPC(), this); // changed world and join
+        //  if(UsePlugNPC)
+        //      Bukkit.getPluginManager().registerEvents(new SpawnPlugNPC(), this); // changed world and join
         Bukkit.getPluginManager().registerEvents(new ConfigHandler(this), this); // join event
         Bukkit.getPluginManager().registerEvents(new AbtributesOnDeath(), this); // join event
         Bukkit.getPluginManager().registerEvents(new MasterPlayerJoin(), this); // changed world event
@@ -184,8 +184,8 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new deathListener(), this); // bw death, lucky blocks on death, clear data on bedwars games end, falling blocks lb grabber, bounce fall damage cancel
 
         // commands
-        this.getCommand("invictools").setExecutor(new Commands(worlds, y, blackListedWorlds,games));
-        this.getCommand("it").setExecutor(new Commands(worlds, y, blackListedWorlds,games));
+        this.getCommand("invictools").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
+        this.getCommand("it").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
 
         // to run after server loads
         BukkitRunnable runnable = new BukkitRunnable()
@@ -196,18 +196,18 @@ public final class Invictools extends JavaPlugin
                 deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
                 new voider(worlds, y);
                 new panels().loadPanels();
-               // new SpawnNPC();
-               // new DetectClickOnNPC();
-                new BlazeNpc().spawnNPC("npc",true);
+                // new SpawnNPC();
+                // new DetectClickOnNPC();
+                new BlazeNpc().spawnNPC("npc", true);
                 new leaderboard().loadLeaderboard("Star");
                 new leaderboardHologram().createLeaderboard();
-                if(UsePlugNPC)
+                if (UsePlugNPC)
                 {
                     //new SpawnPlugNPC();
                     //new DetectClickOnPlugNPC();
-                    new BlazeNpc().spawnNPC("npc2",false);
+                    new BlazeNpc().spawnNPC("npc2", false);
                 }
-                for (String config:Configs)
+                for (String config : Configs)
                 {
                     ChangeTeamSize.createLists(config);
                 }

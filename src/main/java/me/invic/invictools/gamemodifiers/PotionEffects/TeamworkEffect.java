@@ -46,29 +46,29 @@ public class TeamworkEffect implements Listener
         players2.clear();
         players1.clear();
 
-        for (Player p:Bukkit.getOnlinePlayers())
+        for (Player p : Bukkit.getOnlinePlayers())
         {
             if (api.isPlayerPlayingAnyGame(p))
             {
-                if(api.getGameOfPlayer(p).equals(currentGame) && GrabTeammates.getTeamSize(p) > 1 && !players1.contains(p) && !players2.contains(p))
+                if (api.getGameOfPlayer(p).equals(currentGame) && GrabTeammates.getTeamSize(p) > 1 && !players1.contains(p) && !players2.contains(p))
                 {
                     Player team = GrabTeammates.getTeammates(p).get(0);
-                    double dist1 = p.getLocation().distance(new Location(p.getWorld(),0,100,0));
-                    double dist2 = team.getLocation().distance(new Location(team.getWorld(),0,100,0));
+                    double dist1 = p.getLocation().distance(new Location(p.getWorld(), 0, 100, 0));
+                    double dist2 = team.getLocation().distance(new Location(team.getWorld(), 0, 100, 0));
 
-                    if(dist1 < dist2)
+                    if (dist1 < dist2)
                     {
                         players1.add(p);
                         players2.add(team);
-                        p.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effect1), 1000000, amp1-1, false, false));
-                        team.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effect2), 1000000, amp2-1, false, false));
+                        p.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effect1), 1000000, amp1 - 1, false, false));
+                        team.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effect2), 1000000, amp2 - 1, false, false));
                     }
                     else
                     {
                         players1.add(team);
                         players2.add(p);
-                        team.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effect1), 1000000, amp1-1, false, false));
-                        p.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effect2), 1000000, amp2-1, false, false));
+                        team.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effect1), 1000000, amp1 - 1, false, false));
+                        p.addPotionEffect(new PotionEffect(PotionEffectType.getByName(effect2), 1000000, amp2 - 1, false, false));
                     }
                 }
             }
@@ -83,24 +83,24 @@ public class TeamworkEffect implements Listener
             @Override
             public void run()
             {
-                if(!gameongoing)
+                if (!gameongoing)
                     this.cancel();
 
-                if(e.getPlayer().getGameMode().equals(GameMode.SURVIVAL) && gameongoing)
+                if (e.getPlayer().getGameMode().equals(GameMode.SURVIVAL) && gameongoing)
                 {
-                    if(players1.contains(e.getPlayer()))
+                    if (players1.contains(e.getPlayer()))
                     {
-                        e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.getByName(effect1), 1000000, amp1-1, false, false));
+                        e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.getByName(effect1), 1000000, amp1 - 1, false, false));
                         System.out.println("added e1");
                     }
-                    else if(players2.contains(e.getPlayer()))
+                    else if (players2.contains(e.getPlayer()))
                     {
-                        e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.getByName(effect2), 1000000, amp2-1, false, false));
+                        e.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.getByName(effect2), 1000000, amp2 - 1, false, false));
                         System.out.println("added e2");
                     }
                 }
             }
         };
-        runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), (20*5+1));
+        runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), (20 * 5 + 1));
     }
 }

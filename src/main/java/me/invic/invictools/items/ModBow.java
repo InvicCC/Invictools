@@ -53,18 +53,21 @@ public class ModBow implements Listener
                         doFireball(p);
                         ItemStack arrows = searchInventory(p, Material.ARROW.name());
                         arrows.setAmount(arrows.getAmount() - 1);
-                    } else
+                    }
+                    else
                     {
                         p.sendMessage(ChatColor.RED + "On cooldown for " + secondsLeft + " seconds.");
                         p.updateInventory();
                     }
-                } else
+                }
+                else
                 {
                     doFireball(p);
                     ItemStack arrows = searchInventory(p, Material.ARROW.name());
                     arrows.setAmount(arrows.getAmount() - 1);
                 }
-            } else if (ItemListener.ModBow.get((Player) e.getEntity()).equals(0)) // BRIDGE
+            }
+            else if (ItemListener.ModBow.get((Player) e.getEntity()).equals(0)) // BRIDGE
             {
                 /*
                 if (e.getForce() <= 0.35)
@@ -130,13 +133,16 @@ public class ModBow implements Listener
                                 runs[0]++;
                                 if (runs[0] == 20 * 3) //5 seconds
                                     this.cancel();
-                            } else
+                            }
+                            else
                                 this.cancel();
-                        } else
+                        }
+                        else
                             this.cancel();
                     }
                 }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 2L, 1L);
-            } else if (ItemListener.ModBow.get((Player) e.getEntity()).equals(2)) // HEAL
+            }
+            else if (ItemListener.ModBow.get((Player) e.getEntity()).equals(2)) // HEAL
             {
                 e.setCancelled(true);
                 Player p = (Player) e.getEntity();
@@ -149,12 +155,14 @@ public class ModBow implements Listener
                         doEffects(p);
                         ItemStack arrows = searchInventory(p, Material.ARROW.name());
                         arrows.setAmount(arrows.getAmount() - 1);
-                    } else
+                    }
+                    else
                     {
                         p.sendMessage(ChatColor.RED + "On cooldown for " + secondsLeft + " seconds.");
                         p.updateInventory();
                     }
-                } else
+                }
+                else
                 {
                     doEffects(p);
                     ItemStack arrows = searchInventory(p, Material.ARROW.name());
@@ -200,83 +208,83 @@ public class ModBow implements Listener
         }
     }
 
-        public void doEffects (Player p)
+    public void doEffects(Player p)
+    {
+        ModBowHealCooldown.put(p, System.currentTimeMillis());
+        p.getLocation().getWorld().strikeLightningEffect(p.getLocation());
+        p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 100, 4, false, true));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 100, 0, false, true));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 1, false, true));
+        for (Player team : GrabTeammates.getTeammates(p))
         {
-            ModBowHealCooldown.put(p, System.currentTimeMillis());
-            p.getLocation().getWorld().strikeLightningEffect(p.getLocation());
-            p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 100, 4, false, true));
-            p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 100, 0, false, true));
-            p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 1, false, true));
-            for (Player team : GrabTeammates.getTeammates(p))
+            if (DamageTeammates.withinDistance(p, team, 15) && team.getGameMode() != GameMode.SPECTATOR)
             {
-                if (DamageTeammates.withinDistance(p, team, 15) && team.getGameMode() != GameMode.SPECTATOR)
-                {
-                    team.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 100, 4, false, true));
-                    team.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 100, 0, false, true));
-                    team.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 1, false, true));
-                }
+                team.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 100, 4, false, true));
+                team.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 100, 0, false, true));
+                team.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 1, false, true));
             }
         }
+    }
 
-        public void doFireball (Player p)
-        {
-            ModBowFireballCooldown.put(p, System.currentTimeMillis());
-            Fireball ball = p.launchProjectile(Fireball.class);
-          //  new ProjTrailHandler().grabEffect(p,ball);
-            ball.setYield(3);
-            ball.setShooter(p);
-            p.playSound(p.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 1, 1);
-            //    ball.setVelocity((p.getLocation().getDirection().multiply(1)));
-        }
+    public void doFireball(Player p)
+    {
+        ModBowFireballCooldown.put(p, System.currentTimeMillis());
+        Fireball ball = p.launchProjectile(Fireball.class);
+        //  new ProjTrailHandler().grabEffect(p,ball);
+        ball.setYield(3);
+        ball.setShooter(p);
+        p.playSound(p.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 1, 1);
+        //    ball.setVelocity((p.getLocation().getDirection().multiply(1)));
+    }
 
-        public void addLater (Block block, Player player)
+    public void addLater(Block block, Player player)
+    {
+        BukkitRunnable runnable = new BukkitRunnable()
         {
-            BukkitRunnable runnable = new BukkitRunnable()
+            @Override
+            public void run()
             {
-                @Override
-                public void run()
-                {
-                    BedwarsAPI.getInstance().getGameOfPlayer(player).getRegion().addBuiltDuringGame(block.getLocation());
-                }
-            };
-            runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1);
-        }
-
-        public void addLater (Block block, Game game)
-        {
-            BukkitRunnable runnable = new BukkitRunnable()
-            {
-                @Override
-                public void run()
-                {
-                    game.getRegion().addBuiltDuringGame(block.getLocation());
-                }
-            };
-            runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 5);
-        }
-
-        public ItemStack searchInventory (Player p, String name)
-        {
-            for (ItemStack i : p.getInventory())
-            {
-                if (i != null)
-                    if (i.getType().toString().equalsIgnoreCase(name))
-                        return i;
+                BedwarsAPI.getInstance().getGameOfPlayer(player).getRegion().addBuiltDuringGame(block.getLocation());
             }
-            return null;
-        }
+        };
+        runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1);
+    }
 
-        public ItemStack searchInventory (Player p, ItemStack item)
+    public void addLater(Block block, Game game)
+    {
+        BukkitRunnable runnable = new BukkitRunnable()
         {
-            for (ItemStack i : p.getInventory())
+            @Override
+            public void run()
             {
-                if (i != null)
-                    if (i.equals(item))
-                        return i;
+                game.getRegion().addBuiltDuringGame(block.getLocation());
             }
-            return null;
-        }
+        };
+        runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 5);
+    }
 
-        public static HashMap<Player, Long> ModBowHealCooldown = new HashMap<>();
-        public static HashMap<Player, Long> ModBowFireballCooldown = new HashMap<>();
+    public ItemStack searchInventory(Player p, String name)
+    {
+        for (ItemStack i : p.getInventory())
+        {
+            if (i != null)
+                if (i.getType().toString().equalsIgnoreCase(name))
+                    return i;
+        }
+        return null;
+    }
+
+    public ItemStack searchInventory(Player p, ItemStack item)
+    {
+        for (ItemStack i : p.getInventory())
+        {
+            if (i != null)
+                if (i.equals(item))
+                    return i;
+        }
+        return null;
+    }
+
+    public static HashMap<Player, Long> ModBowHealCooldown = new HashMap<>();
+    public static HashMap<Player, Long> ModBowFireballCooldown = new HashMap<>();
 }

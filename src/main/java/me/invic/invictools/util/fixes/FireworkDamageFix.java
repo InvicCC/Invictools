@@ -11,9 +11,11 @@ public class FireworkDamageFix implements Listener
     @EventHandler
     public void fireworkDamage(EntityDamageByEntityEvent e)
     {
-        if (e.getDamager() instanceof Firework) {
+        if (e.getDamager() instanceof Firework)
+        {
             Firework fw = (Firework) e.getDamager();
-            if (fw.hasMetadata("nodamage")) {
+            if (fw.hasMetadata("nodamage"))
+            {
                 e.setCancelled(true);
             }
         }

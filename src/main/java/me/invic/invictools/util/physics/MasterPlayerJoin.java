@@ -19,10 +19,10 @@ public class MasterPlayerJoin implements Listener
         String masterplayer = config.getString("masterplayer");
         Commands.MasterPlayer = Bukkit.getPlayer(masterplayer);
 
-        if(e.getPlayer().getName().equalsIgnoreCase(masterplayer))
+        if (e.getPlayer().getName().equalsIgnoreCase(masterplayer))
         {
-            if(e.getPlayer().getWorld().getName().equalsIgnoreCase("Tree"))
-               new grabSandstone(e.getPlayer());
+            if (e.getPlayer().getWorld().getName().equalsIgnoreCase("Tree"))
+                new grabSandstone(e.getPlayer());
             /*
             else if(e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
                 new grabSandstone(e.getPlayer());

@@ -21,7 +21,7 @@ public class RiptideDamage implements Listener
         int lvl = trident.getEnchantmentLevel(Enchantment.RIPTIDE);
         int maxDura = Material.TRIDENT.getMaxDurability();
         int change;
-        switch(lvl)
+        switch (lvl)
         {
             case 1:
                 change = 10;
@@ -44,24 +44,24 @@ public class RiptideDamage implements Listener
             default:
                 change = 10;
         }
-        int mathed = maxDura/change;
+        int mathed = maxDura / change;
 
         ItemMeta meta = trident.getItemMeta();
-        int damage = ((Damageable)meta).getDamage();
+        int damage = ((Damageable) meta).getDamage();
 
-        if(mathed+damage >= maxDura)
+        if (mathed + damage >= maxDura)
         {
-            trident.setAmount(trident.getAmount()-1);
+            trident.setAmount(trident.getAmount() - 1);
             e.getPlayer().playSound(e.getPlayer().getLocation(), Sound.ENTITY_ITEM_BREAK, 1F, 1F);
         }
 
-        ((Damageable) meta).setDamage(mathed+damage);
+        ((Damageable) meta).setDamage(mathed + damage);
         trident.setItemMeta(meta);
     }
 
     public static void setWorldCheck(boolean bool)
     {
-        if(bool)
+        if (bool)
             checkWorlds = true;
         if (!bool)
             checkWorlds = false;

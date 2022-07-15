@@ -22,11 +22,11 @@ public class ItemSpawner // changes spawner logic to trigger every second and co
 {
     public ItemSpawner(String config, String world, Player player, String midorisland) // config set drop location, yml for each scenario sets amount, type, everything else
     {
-        if(!BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+        if (!BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
             return;
 
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
-     //   File pFile = new File(plugin.getDataFolder().getPath() + "\\Spawner" + File.separator + config + ".yml");
+        //   File pFile = new File(plugin.getDataFolder().getPath() + "\\Spawner" + File.separator + config + ".yml");
         File Folder = new File(plugin.getDataFolder(), "Spawner");
         File pFile = new File(Folder, config + ".yml");
         final FileConfiguration spawner = YamlConfiguration.loadConfiguration(pFile);
@@ -42,12 +42,13 @@ public class ItemSpawner // changes spawner logic to trigger every second and co
             if (temp != null)
             {
                 itemSize[0]++;
-            } else
+            }
+            else
                 break;
         }
 
         //System.out.println(pluginConfig.getDouble(world + "." + midorisland + ".x"));
-        Location loc = new Location(player.getLocation().getWorld(), pluginConfig.getDouble("Spawner." + midorisland + ".x"), pluginConfig.getDouble("Spawner." + midorisland + ".y"), pluginConfig.getDouble("Spawner." + midorisland +  ".z"));
+        Location loc = new Location(player.getLocation().getWorld(), pluginConfig.getDouble("Spawner." + midorisland + ".x"), pluginConfig.getDouble("Spawner." + midorisland + ".y"), pluginConfig.getDouble("Spawner." + midorisland + ".z"));
 
         Random rand = new Random();
         final int[] i = {0};
@@ -80,7 +81,8 @@ public class ItemSpawner // changes spawner logic to trigger every second and co
                     {
                         drop.addUnsafeEnchantment(Objects.requireNonNull(Enchantment.getByKey(NamespacedKey.minecraft(enchants.get(i[0])))), Integer.parseInt(enchantsLevels.get(i[0])));
                         i[0]++;
-                    } else
+                    }
+                    else
                     {
                         i[0] = 0;
                         break;
@@ -90,7 +92,7 @@ public class ItemSpawner // changes spawner logic to trigger every second and co
             }
         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), delayL, delayL); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn
 
-        Location ArmorStand1Loc = loc.clone().add(0,.3,0);
+        Location ArmorStand1Loc = loc.clone().add(0, .3, 0);
         Location ArmorStand2Loc = loc;
         ArmorStand as1 = (ArmorStand) player.getWorld().spawnEntity(ArmorStand1Loc, EntityType.ARMOR_STAND);
         ArmorStand as2 = (ArmorStand) player.getWorld().spawnEntity(ArmorStand2Loc, EntityType.ARMOR_STAND);
@@ -101,7 +103,7 @@ public class ItemSpawner // changes spawner logic to trigger every second and co
         as1.setVisible(false);
 
         as2.setGravity(false);
-        as2.setCustomName(ChatColor.YELLOW + "Spawns in "+ ChatColor.RED + delay + ChatColor.YELLOW + " seconds");
+        as2.setCustomName(ChatColor.YELLOW + "Spawns in " + ChatColor.RED + delay + ChatColor.YELLOW + " seconds");
         as2.setCustomNameVisible(true);
         as2.setVisible(false);
 
@@ -122,7 +124,7 @@ public class ItemSpawner // changes spawner logic to trigger every second and co
                 if (resettableDelay[0] == -1)
                     resettableDelay[0] = delay - 1;
 
-                as2.setCustomName(ChatColor.YELLOW + "Spawns in "+ ChatColor.RED + resettableDelay[0] + ChatColor.YELLOW + " seconds");
+                as2.setCustomName(ChatColor.YELLOW + "Spawns in " + ChatColor.RED + resettableDelay[0] + ChatColor.YELLOW + " seconds");
                 resettableDelay[0]--;
             }
         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20L, 20L); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn

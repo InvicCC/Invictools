@@ -31,8 +31,8 @@ public class ManhuntMain
     public ManhuntMain(String loadout, Player hunted)
     {
         // only grabs teammates if this is a doubles game TEMP REMOVAL FOR QUIG EVENT
-    //    if (Bukkit.getOnlinePlayers().size() > 9 && Bukkit.getOnlinePlayers().size() < 17)
-     //       new GrabTeammates(Commands.MasterPlayer);
+        //    if (Bukkit.getOnlinePlayers().size() > 9 && Bukkit.getOnlinePlayers().size() < 17)
+        //       new GrabTeammates(Commands.MasterPlayer);
 
         //Loads teams, handles solos and doubles games
         setTeams(hunted);
@@ -49,7 +49,7 @@ public class ManhuntMain
         //wash chat with empty spaces to hide ugly command start syntaxes and grab a list of active modifiers that look clean so each team knows what they have.
         List<String> HunterModifiers = cleanSyntax(HunterEffects);
         List<String> HuntedModifiers = cleanSyntax(HuntedEffects);
-        if(realmanhunt)
+        if (realmanhunt)
         {
             HunterModifiers.add(ChatColor.AQUA + "You are hunting the team of " + ChatColor.YELLOW + hunted.getName());
             HunterModifiers.add(" ");
@@ -66,14 +66,14 @@ public class ManhuntMain
                 {
                     if (team.equalsIgnoreCase(Hunter))
                     {
-                        for (String message:HunterModifiers)
+                        for (String message : HunterModifiers)
                         {
                             player.sendMessage(message);
                         }
                     }
-                    else if(team.equalsIgnoreCase(Hunted))
+                    else if (team.equalsIgnoreCase(Hunted))
                     {
-                        for (String message:HuntedModifiers)
+                        for (String message : HuntedModifiers)
                         {
                             player.sendMessage(message);
                         }
@@ -92,7 +92,7 @@ public class ManhuntMain
             @Override
             public void run()
             {
-                if(hunted.getWorld() != GameWorld)
+                if (hunted.getWorld() != GameWorld)
                 {
                     ManhuntTeam.clear();
 
@@ -102,14 +102,14 @@ public class ManhuntMain
                     HunterItems.clear();
                     HunterEffects.clear();
 
-                   // System.out.println("Cleared");
+                    // System.out.println("Cleared");
 
                     this.cancel();
                 }
             }
         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1, 120); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn
         // Audio notification of the game's start
-        ManhuntTeam.forEach((player, s) -> player.playSound(player.getLocation(),Sound.ENTITY_ENDER_DRAGON_GROWL,1,1));
+        ManhuntTeam.forEach((player, s) -> player.playSound(player.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL, 1, 1));
     }
 
     private boolean getRealManhunt(String loadout)
@@ -119,7 +119,7 @@ public class ManhuntMain
         File pFile = new File(Folder, loadout + ".yml");
         //  System.out.println(plugin.getDataFolder() +loadout + ".yml");
         final FileConfiguration loadoutConfig = YamlConfiguration.loadConfiguration(pFile);
-        if(loadoutConfig.getBoolean("fake"))
+        if (loadoutConfig.getBoolean("fake"))
             return false;
         else
             return true;
@@ -130,13 +130,13 @@ public class ManhuntMain
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
         File Folder = new File(plugin.getDataFolder(), "Manhunt");
         File pFile = new File(Folder, loadout + ".yml");
-      //  System.out.println(plugin.getDataFolder() +loadout + ".yml");
+        //  System.out.println(plugin.getDataFolder() +loadout + ".yml");
         final FileConfiguration loadoutConfig = YamlConfiguration.loadConfiguration(pFile);
 
-        int HunterEffectSize = getModifierSize(Hunter,"effect",loadoutConfig);
-        int HunterSpecialItemSize = getModifierSize(Hunter,"special",loadoutConfig);
-        int HuntedEffectSize = getModifierSize(Hunted,"effect",loadoutConfig);
-        int HuntedSpecialItemSize = getModifierSize(Hunted,"special",loadoutConfig);
+        int HunterEffectSize = getModifierSize(Hunter, "effect", loadoutConfig);
+        int HunterSpecialItemSize = getModifierSize(Hunter, "special", loadoutConfig);
+        int HuntedEffectSize = getModifierSize(Hunted, "effect", loadoutConfig);
+        int HuntedSpecialItemSize = getModifierSize(Hunted, "special", loadoutConfig);
 
         // Handles Normal Items
         @SuppressWarnings("unchecked")
@@ -150,70 +150,70 @@ public class ManhuntMain
             HuntedItems.addAll(HuntedNormalItems);
 
         // Handles Effect given by Commands
-        for (int i = 0 ; i < HunterEffectSize ; i++)
+        for (int i = 0; i < HunterEffectSize; i++)
         {
-            HunterEffects.add(loadoutConfig.getString("Hunter.effect."+i+".name"));
+            HunterEffects.add(loadoutConfig.getString("Hunter.effect." + i + ".name"));
         }
-        for (int i = 0 ; i < HuntedEffectSize ; i++)
+        for (int i = 0; i < HuntedEffectSize; i++)
         {
-            HuntedEffects.add(loadoutConfig.getString("Hunted.effect."+i+".name"));
+            HuntedEffects.add(loadoutConfig.getString("Hunted.effect." + i + ".name"));
         }
 
         // Handles Special Items
-        for (int i = 0 ; i < HunterSpecialItemSize ; i++)
+        for (int i = 0; i < HunterSpecialItemSize; i++)
         {
-            String specialItem = loadoutConfig.getString("Hunter.special."+i+".name"); // item / lb
-            String specialType = loadoutConfig.getString("Hunter.special."+i+".type"); // command parameter
-            int specialAmount = loadoutConfig.getInt("Hunter.special."+i+".amount"); // count
-            if(specialItem.equals("item"))
+            String specialItem = loadoutConfig.getString("Hunter.special." + i + ".name"); // item / lb
+            String specialType = loadoutConfig.getString("Hunter.special." + i + ".type"); // command parameter
+            int specialAmount = loadoutConfig.getInt("Hunter.special." + i + ".amount"); // count
+            if (specialItem.equals("item"))
             {
                 ItemStack item = new createItems().getByName(specialType);
                 item.setAmount(specialAmount);
                 HunterItems.add(item);
             }
-            else if(specialItem.equals("lb"))
+            else if (specialItem.equals("lb"))
             {
                 ItemStack item = new createLuckyBlocks().getByName(specialType);
                 item.setAmount(specialAmount);
                 HunterItems.add(item);
             }
-            else if(specialItem.equals("randomitem"))
+            else if (specialItem.equals("randomitem"))
             {
                 ItemStack item = new createItems().getRandomItem();
                 item.setAmount(specialAmount);
                 HunterItems.add(item);
             }
-            else if(specialItem.equals("randomlb"))
+            else if (specialItem.equals("randomlb"))
             {
                 ItemStack item = new createLuckyBlocks().getRandomBlockWeighted();
                 item.setAmount(specialAmount);
                 HunterItems.add(item);
             }
         }
-        for (int i = 0 ; i < HuntedSpecialItemSize ; i++)
+        for (int i = 0; i < HuntedSpecialItemSize; i++)
         {
-            String specialItem = loadoutConfig.getString("Hunted.special."+i+".name"); // item / lb
-            String specialType = loadoutConfig.getString("Hunted.special."+i+".type"); // specification for creation
-            int specialAmount = loadoutConfig.getInt("Hunted.special."+i+".amount"); // specification for creation
-            if(specialItem.equals("item"))
+            String specialItem = loadoutConfig.getString("Hunted.special." + i + ".name"); // item / lb
+            String specialType = loadoutConfig.getString("Hunted.special." + i + ".type"); // specification for creation
+            int specialAmount = loadoutConfig.getInt("Hunted.special." + i + ".amount"); // specification for creation
+            if (specialItem.equals("item"))
             {
                 ItemStack item = new createItems().getByName(specialType);
                 item.setAmount(specialAmount);
                 HuntedItems.add(item);
             }
-            else if(specialItem.equals("lb"))
+            else if (specialItem.equals("lb"))
             {
                 ItemStack item = new createLuckyBlocks().getByName(specialType);
                 item.setAmount(specialAmount);
                 HuntedItems.add(item);
             }
-            else if(specialItem.equals("randomitem"))
+            else if (specialItem.equals("randomitem"))
             {
                 ItemStack item = new createItems().getRandomItem();
                 item.setAmount(specialAmount);
                 HuntedItems.add(item);
             }
-            else if(specialItem.equals("randomlb"))
+            else if (specialItem.equals("randomlb"))
             {
                 ItemStack item = new createLuckyBlocks().getRandomBlockWeighted();
                 item.setAmount(specialAmount);
@@ -231,20 +231,20 @@ public class ManhuntMain
             {
                 for (Player player : Bukkit.getOnlinePlayers())
                 {
-                    if(player.getWorld().equals(hunted.getWorld()))
+                    if (player.getWorld().equals(hunted.getWorld()))
                     {
                         if (ManhuntTeam.get(player).equalsIgnoreCase(Hunted))
                         {
-                            if(HuntedItems.size() != 0)
+                            if (HuntedItems.size() != 0)
                             {
-                                for (ItemStack item:HuntedItems)
+                                for (ItemStack item : HuntedItems)
                                 {
                                     player.getInventory().addItem(item);
-                                    player.playSound(player.getLocation(),Sound.ENTITY_CHICKEN_EGG,1,1);
+                                    player.playSound(player.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
                                 }
                             }
 
-                            if(HuntedEffects.size() != 0)
+                            if (HuntedEffects.size() != 0)
                             {
                                 for (String huntedEffect : HuntedEffects)
                                 {
@@ -268,16 +268,16 @@ public class ManhuntMain
                         }
                         else if (ManhuntTeam.get(player).equalsIgnoreCase(Hunter))
                         {
-                            if(HunterItems.size() != 0)
+                            if (HunterItems.size() != 0)
                             {
-                                for (ItemStack item:HunterItems)
+                                for (ItemStack item : HunterItems)
                                 {
                                     player.getInventory().addItem(item);
-                                    player.playSound(player.getLocation(),Sound.ENTITY_CHICKEN_EGG,1,1);
+                                    player.playSound(player.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
                                 }
                             }
 
-                            if(HunterEffects.size() != 0)
+                            if (HunterEffects.size() != 0)
                             {
                                 for (String hunterEffect : HunterEffects)
                                 {
@@ -316,7 +316,8 @@ public class ManhuntMain
             if (temp != null)
             {
                 itemSize++;
-            } else
+            }
+            else
                 break;
         }
         return itemSize;
@@ -327,14 +328,14 @@ public class ManhuntMain
         if (Commands.teammates.get(hunted) != null)
         {
             ManhuntTeam.put(Commands.teammates.get(hunted), Hunted);
-           // Commands.teammates.get(hunted).sendMessage(ChatColor.AQUA + "You are about to be " + ChatColor.YELLOW + Hunted);
+            // Commands.teammates.get(hunted).sendMessage(ChatColor.AQUA + "You are about to be " + ChatColor.YELLOW + Hunted);
         }
-        ManhuntTeam.put(hunted,Hunted);
-     //   hunted.sendMessage(ChatColor.AQUA + "You are about to be " + ChatColor.YELLOW + Hunted);
+        ManhuntTeam.put(hunted, Hunted);
+        //   hunted.sendMessage(ChatColor.AQUA + "You are about to be " + ChatColor.YELLOW + Hunted);
 
         for (Player player : Bukkit.getOnlinePlayers())
         {
-            if(player.getWorld()==hunted.getWorld() && player.getGameMode() != GameMode.SPECTATOR && player != hunted && ManhuntTeam.get(player) == null)
+            if (player.getWorld() == hunted.getWorld() && player.getGameMode() != GameMode.SPECTATOR && player != hunted && ManhuntTeam.get(player) == null)
             {
                 ManhuntTeam.put(player, Hunter);
             }
@@ -343,41 +344,41 @@ public class ManhuntMain
 
     private List<String> cleanSyntax(List<String> effects)
     {
-        List <String> list = new ArrayList<>();
-        list.add(ChatColor.RED+ "Stop using chat condensers you're ruining my formatting i spent so long making :(");
-        for (int i = 0;i<25;i++)
+        List<String> list = new ArrayList<>();
+        list.add(ChatColor.RED + "Stop using chat condensers you're ruining my formatting i spent so long making :(");
+        for (int i = 0; i < 25; i++)
         {
             list.add(" ");
         }
 
-        list.add(ChatColor.GOLD+"Your modifiers for this round:");
+        list.add(ChatColor.GOLD + "Your modifiers for this round:");
         list.add(" ");
 
-        for (String command: effects)
+        for (String command : effects)
         {
             String currentEffect;
             String[] commandSplit = command.split(" ");
             commandSplit[1] = commandSplit[1].toLowerCase(Locale.ROOT);
-            switch(commandSplit[1])
+            switch (commandSplit[1])
             {
                 case "alwaysbridgesingle":
                     currentEffect = ChatColor.AQUA + "  - Automatically bridge with wool in your hotbar (Hold sneak to disable)";
                     list.add(currentEffect);
                     break;
                 case "giveitem":
-                    currentEffect = ChatColor.AQUA + "  - Receive a " + TranslateCustomItem(commandSplit[3]) + ChatColor.AQUA+" at the start of the game.";
+                    currentEffect = ChatColor.AQUA + "  - Receive a " + TranslateCustomItem(commandSplit[3]) + ChatColor.AQUA + " at the start of the game.";
                     list.add(currentEffect);
                     break;
                 case "deathitems":
-                    if(commandSplit[4].equalsIgnoreCase("normal"))
+                    if (commandSplit[4].equalsIgnoreCase("normal"))
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive "+ ChatColor.YELLOW+commandSplit[3] + " " + removeUnderscores(commandSplit[2]).toLowerCase(Locale.ROOT) + "(s) "+ ChatColor.AQUA + "after dying ";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " + removeUnderscores(commandSplit[2]).toLowerCase(Locale.ROOT) + "(s) " + ChatColor.AQUA + "after dying ";
                         list.add(currentEffect);
                         break;
                     }
                     else
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] +" "+ TranslateCustomItem(commandSplit[2])+ ChatColor.AQUA + "(s) after dying ";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " + TranslateCustomItem(commandSplit[2]) + ChatColor.AQUA + "(s) after dying ";
                         list.add(currentEffect);
                         break;
                     }
@@ -386,67 +387,67 @@ public class ManhuntMain
                     list.add(currentEffect);
                     break;
                 case "preventdrop":
-                    currentEffect = ChatColor.AQUA + "  - You cannot drop "+ TranslateCustomItem(commandSplit[3]) + ChatColor.AQUA + " items during this round";
+                    currentEffect = ChatColor.AQUA + "  - You cannot drop " + TranslateCustomItem(commandSplit[3]) + ChatColor.AQUA + " items during this round";
                     list.add(currentEffect);
                     break;
                 case "closeteammateeffectsingle":
-                    currentEffect = ChatColor.AQUA + "  - When near your teammate, receive "+ ChatColor.YELLOW+translatePotion(commandSplit[2]) + " "+commandSplit[3];
+                    currentEffect = ChatColor.AQUA + "  - When near your teammate, receive " + ChatColor.YELLOW + translatePotion(commandSplit[2]) + " " + commandSplit[3];
                     list.add(currentEffect);
                     break;
                 case "creative":
-                    currentEffect = ChatColor.AQUA + "  - Enter creative every "+ ChatColor.YELLOW+commandSplit[2]+ ChatColor.AQUA + " seconds";
+                    currentEffect = ChatColor.AQUA + "  - Enter creative every " + ChatColor.YELLOW + commandSplit[2] + ChatColor.AQUA + " seconds";
                     list.add(currentEffect);
                     break;
                 case "single": // bw effects
-                    if(commandSplit[3].equalsIgnoreCase("c") || commandSplit[3].equalsIgnoreCase("constant"))
+                    if (commandSplit[3].equalsIgnoreCase("c") || commandSplit[3].equalsIgnoreCase("constant"))
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive "+ ChatColor.YELLOW+translatePotion(commandSplit[2]) + " " +commandSplit[4];
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + translatePotion(commandSplit[2]) + " " + commandSplit[4];
                         list.add(currentEffect);
                     }
-                    else if(commandSplit[3].equalsIgnoreCase("p") || commandSplit[3].equalsIgnoreCase("procedural"))
+                    else if (commandSplit[3].equalsIgnoreCase("p") || commandSplit[3].equalsIgnoreCase("procedural"))
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive "+ ChatColor.YELLOW+translatePotion(commandSplit[2])+ ChatColor.AQUA + " at an increasing level";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + translatePotion(commandSplit[2]) + ChatColor.AQUA + " at an increasing level";
                         list.add(currentEffect);
                     }
                     break;
                 case "randomeffectsingle":
-                    currentEffect = ChatColor.AQUA + "  - Receive random effects every "+ ChatColor.YELLOW+commandSplit[3]+ ChatColor.AQUA + " seconds ";
+                    currentEffect = ChatColor.AQUA + "  - Receive random effects every " + ChatColor.YELLOW + commandSplit[3] + ChatColor.AQUA + " seconds ";
                     list.add(currentEffect);
                     break;
                 case "sethealth":
-                    currentEffect = ChatColor.AQUA + "  - You have "+ ChatColor.YELLOW+commandSplit[3]+ ChatColor.AQUA + " health ";
+                    currentEffect = ChatColor.AQUA + "  - You have " + ChatColor.YELLOW + commandSplit[3] + ChatColor.AQUA + " health ";
                     list.add(currentEffect);
                     break;
                 case "tntsingle":
-                    currentEffect = ChatColor.RED + "  - Tnt spawns on you every "+ ChatColor.YELLOW+commandSplit[2]+ ChatColor.AQUA + " seconds ";
+                    currentEffect = ChatColor.RED + "  - Tnt spawns on you every " + ChatColor.YELLOW + commandSplit[2] + ChatColor.AQUA + " seconds ";
                     list.add(currentEffect);
                     break;
                 case "repeateditem":
-                    if(commandSplit[5].equalsIgnoreCase("normal"))
+                    if (commandSplit[5].equalsIgnoreCase("normal"))
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive "+ ChatColor.YELLOW+commandSplit[3] + " " + removeUnderscores(commandSplit[2]).toLowerCase(Locale.ROOT) + "(s) "+ ChatColor.AQUA + "every "+ ChatColor.YELLOW+commandSplit[4]+ ChatColor.AQUA + " seconds ";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " + removeUnderscores(commandSplit[2]).toLowerCase(Locale.ROOT) + "(s) " + ChatColor.AQUA + "every " + ChatColor.YELLOW + commandSplit[4] + ChatColor.AQUA + " seconds ";
                         list.add(currentEffect);
                     }
                     else
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " +TranslateCustomItem(commandSplit[2]) + "(s) " + ChatColor.AQUA + "every " + ChatColor.YELLOW + commandSplit[4] + ChatColor.AQUA + " seconds ";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " + TranslateCustomItem(commandSplit[2]) + "(s) " + ChatColor.AQUA + "every " + ChatColor.YELLOW + commandSplit[4] + ChatColor.AQUA + " seconds ";
                         list.add(currentEffect);
                     }
                     break;
                 case "killeffects":
-                    currentEffect = ChatColor.AQUA + "  - Receive "+ ChatColor.YELLOW+translatePotion(commandSplit[2])+ ChatColor.AQUA + " after killing a player";
+                    currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + translatePotion(commandSplit[2]) + ChatColor.AQUA + " after killing a player";
                     list.add(currentEffect);
                     break;
                 case "killitems":
-                    if(commandSplit[4].equalsIgnoreCase("normal"))
+                    if (commandSplit[4].equalsIgnoreCase("normal"))
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive "+ ChatColor.YELLOW+commandSplit[3] + " " + removeUnderscores(commandSplit[2]).toLowerCase(Locale.ROOT) + "(s) "+ ChatColor.AQUA + "after killing a player ";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " + removeUnderscores(commandSplit[2]).toLowerCase(Locale.ROOT) + "(s) " + ChatColor.AQUA + "after killing a player ";
                         list.add(currentEffect);
                         break;
                     }
                     else
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] +" "+ TranslateCustomItem(commandSplit[2])+ ChatColor.AQUA + "(s) after killing a player ";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " + TranslateCustomItem(commandSplit[2]) + ChatColor.AQUA + "(s) after killing a player ";
                         list.add(currentEffect);
                         break;
                     }
@@ -463,7 +464,7 @@ public class ManhuntMain
 
     String removeUnderscores(String text)
     {
-        return text.replace("_"," ");
+        return text.replace("_", " ");
     }
 
     String TranslateCustomItem(String text)
@@ -482,7 +483,7 @@ public class ManhuntMain
     String translatePotion(String text)
     {
         text = removeUnderscores(text).toLowerCase(Locale.ROOT);
-      //  text = text.substring(0, 1).toUpperCase() + text.substring(1);
+        //  text = text.substring(0, 1).toUpperCase() + text.substring(1);
 
         switch (text)
         {

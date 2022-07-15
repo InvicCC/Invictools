@@ -27,7 +27,7 @@ public class TableToList
         {
             return replaceCurrency((List<ItemStack>) loot.populateLoot(new Random(), new LootContext.Builder(Commands.MasterPlayer.getLocation()).build()));
         }
-        catch(java.lang.IllegalArgumentException e)
+        catch (java.lang.IllegalArgumentException e)
         {
             System.out.println(ChatColor.RED + "WARNING: LootTable was invalid, defaulting to End City");
             return replaceCurrency((List<ItemStack>) LootTables.END_CITY_TREASURE.getLootTable().populateLoot(new Random(), new LootContext.Builder(Commands.MasterPlayer.getLocation()).build()));

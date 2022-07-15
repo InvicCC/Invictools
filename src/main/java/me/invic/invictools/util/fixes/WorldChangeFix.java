@@ -10,7 +10,7 @@ public class WorldChangeFix implements Listener
     @EventHandler
     public void WorldChangeFix(PlayerPortalEvent e)
     {
-        if(!Commands.worldswap)
+        if (!Commands.worldswap)
             e.setCancelled(true);
     }
 }

@@ -10,14 +10,14 @@ public class SculkGameStart implements Listener
     @EventHandler
     public void gameStart(BedwarsGameStartedEvent e)
     {
-        if(e.getGame().getName().equalsIgnoreCase("Sculk"))
+        if (e.getGame().getName().equalsIgnoreCase("Sculk"))
             new WardenSpawner().shriekerFromPlayer(e.getGame().getConnectedPlayers().get(0), false);
     }
 
     @EventHandler
     public void gameEnd(BedwarsGameEndingEvent e)
     {
-        if(e.getGame().getName().equalsIgnoreCase("Sculk"))
-            new WardenSpawner().shriekerFromPlayer(e.getGame().getConnectedPlayers().get(0),true);
+        if (e.getGame().getName().equalsIgnoreCase("Sculk"))
+            new WardenSpawner().shriekerFromPlayer(e.getGame().getConnectedPlayers().get(0), true);
     }
 }

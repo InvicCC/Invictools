@@ -19,7 +19,7 @@ public class ProjTrailConfig
         File Folder = new File(plugin.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, player.getUniqueId() + ".yml");
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
-        if(playerData.getString("ProjTrail") == null)
+        if (playerData.getString("ProjTrail") == null)
         {
             playerData.set("ProjTrail", "Crit");
         }
@@ -28,42 +28,42 @@ public class ProjTrailConfig
         File f2 = new File(bw.getDataFolder(), "database");
         File File = new File(f2, "bw_stats_players.yml");
         final FileConfiguration data = YamlConfiguration.loadConfiguration(File);
-        int wins = data.getInt("data."+player.getUniqueId()+".kills");
+        int wins = data.getInt("data." + player.getUniqueId() + ".kills");
 
         //  int wins = api.getStatisticsManager().loadStatistic(player.getUniqueId()).getDestroyedBeds();
 
-        if(effect.equalsIgnoreCase("Crit") || bypass)
+        if (effect.equalsIgnoreCase("Crit") || bypass)
         {
             playerData.set("ProjTrail", effect);
             player.sendMessage(ChatColor.YELLOW + "Your Projectile Trail is now set to " + ChatColor.AQUA + effect);
         }
-        else if(wins == 0)
+        else if (wins == 0)
         {
             player.sendMessage(ChatColor.RED + "You have not unlocked this effect yet!");
         }
-        else if(effect.equalsIgnoreCase("Hearts")&& wins >= 25)
+        else if (effect.equalsIgnoreCase("Hearts") && wins >= 25)
         {
             playerData.set("ProjTrail", effect);
             player.sendMessage(ChatColor.YELLOW + "Your Projectile Trail is now set to " + ChatColor.AQUA + effect);
         }
-        else if(effect.equalsIgnoreCase("Pres") && wins >= 100 || effect.equalsIgnoreCase("Lava")&& wins >=100)
+        else if (effect.equalsIgnoreCase("Pres") && wins >= 100 || effect.equalsIgnoreCase("Lava") && wins >= 100)
         {
             playerData.set("ProjTrail", effect);
             player.sendMessage(ChatColor.YELLOW + "Your Projectile Trail is now set to " + ChatColor.AQUA + effect);
         }
-        else if(effect.equalsIgnoreCase("Notes") && wins >= 250)
+        else if (effect.equalsIgnoreCase("Notes") && wins >= 250)
         {
             playerData.set("ProjTrail", effect);
             player.sendMessage(ChatColor.YELLOW + "Your Projectile Trail is now set to " + ChatColor.AQUA + effect);
         }
-        else if(effect.equalsIgnoreCase("Smoke") && wins >= 500)
+        else if (effect.equalsIgnoreCase("Smoke") && wins >= 500)
         {
             playerData.set("ProjTrail", effect);
             player.sendMessage(ChatColor.YELLOW + "Your Projectile Trail is now set to " + ChatColor.AQUA + effect);
         }
-        else if(effect.equalsIgnoreCase("Sculk"))
+        else if (effect.equalsIgnoreCase("Sculk"))
         {
-            if(player.hasPermission("invic.firestick") || wins >= 1000)
+            if (player.hasPermission("invic.firestick") || wins >= 1000)
             {
                 playerData.set("ProjTrail", effect);
                 player.sendMessage(ChatColor.YELLOW + "Your Projectile Trail is now set to " + ChatColor.AQUA + effect);
@@ -72,13 +72,13 @@ public class ProjTrailConfig
             {
                 player.sendMessage(ChatColor.RED + "This effect requires any rank or 1000 kills.");
                 player.sendMessage(ChatColor.AQUA + "Type /ranks to learn how to get one");
-                player.sendMessage(ChatColor.RED + "You've killed "+wins+" players.");
+                player.sendMessage(ChatColor.RED + "You've killed " + wins + " players.");
             }
         }
         else
         {
             player.sendMessage(ChatColor.RED + "You haven't unlocked this effect yet!");
-            player.sendMessage(ChatColor.RED + "You've killed "+wins+" players.");
+            player.sendMessage(ChatColor.RED + "You've killed " + wins + " players.");
         }
 
         try
