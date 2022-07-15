@@ -1,0 +1,18 @@
+name: Invictools
+version: 3.0
+main: me.invic.invictools.Invictools
+api-version: 1.19
+authors: [ Invic ]
+description: Various tools to work with my other plugins
+depend: [BedWars]
+website: solo.to/Invic
+commands:
+  invictools:
+    usage: /invictools help for list of commands
+    description: Use '/invictools help' for list of commands
+  it:
+    usage: /invictools help for list of commands
+    description: Use '/invictools help' for list of commands
+permissions:
+  invictools.*:
+    description: Gives access the entire plugin

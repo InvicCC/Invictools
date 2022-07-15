@@ -1,0 +1,267 @@
+masterplayer: Invictable
+worlds:
+  - OasisB
+  - OasisBscen
+  - MarsB
+  - MarsBscen
+  - Fusion
+  - Fusionscen
+  - Monastery
+  - Tree
+  - slipslide
+  - Frozenthrone
+ylevel:
+  - '0'
+blacklistedWorlds:
+  - bwlobby
+items:
+  - wooden_pickaxe
+  - stone_pickaxe
+  - iron_pickaxe
+  - golden_pickaxe
+  - diamond_pickaxe
+  - shears
+jump:
+  tnt:
+    xzmultiplier: 0.4
+    ymultiplier: 0.6
+    range: 5
+  fireball:
+    xzmultiplier: 0.4
+    ymultiplier: 0.6
+    range: 4
+    op: false
+OasisbScen:
+  island:
+    x: 45.5
+    y: 79.5
+    z: 109.5
+  mid:
+    x: 0.5
+    y: 102
+    z: 0.5
+OasisB:
+  mid:
+    x: 0.5
+    y: 102
+    z: 0.5
+MarsB:
+  island:
+    x: -58.5
+    y: 47
+    z: -112.5
+  mid:
+    x: 0.5
+    y: 83.5
+    z: 0.5
+FusionScen:
+  island:
+    x: 50.5
+    y: 46
+    z: 105.5
+  mid:
+    x: 0.5
+    y: 55
+    z: 0.5
+Fusion:
+  mid:
+    x: 0.5
+    y: 55
+    z: 0.5
+Monastery:
+  island:
+    x: 77.5
+    y: 61
+    z: 28.5
+  mid:
+    x: 0.5
+    y: 70
+    z: 0.5
+Tree:
+  island:
+    x: 50.5
+    y: 120
+    z: 0.5
+  mid:
+    x: 50.5
+    y: 120
+    z: 0.5
+slipslide:
+  island:
+    x: 0.5
+    y: 69.5
+    z: 0.5
+  mid:
+    x: 0.5
+    y: 69.5
+    z: 0.5
+bwlobby:
+  island:
+    x: 239.5
+    y: 128
+    z: 261.5
+  mid:
+    x: 261.5
+    y: 129
+    z: 261.5
+npc:
+  x: 263.5
+  y: 129
+  z: 250.5
+  yaw: 90
+  pitch: -15
+  ID: 388
+  skin: Quig
+  title: §e§lPLAY HERE
+loadedgame: FusionScenario
+twinkle:
+  Tree:
+    x: 0
+    y: 87
+    z: 0
+    delay: 45
+  bwlobby:
+    x: 253
+    y: 159
+    z: 177
+    delay: 30
+luckyspawners:
+  Tree:
+    '0':
+      x: 6.5
+      y: 53.5
+      z: -2.5
+      delay: 0
+    '1':
+      x: 3.5
+      y: 53.5
+      z: 6.5
+      delay: 0
+    '2':
+      x: -6.5
+      y: 53.5
+      z: 1.5
+      delay: 0
+    '3':
+      x: -3.5
+      y: 53.5
+      z: -6.5
+      delay: 0
+  slipslide:
+    '0':
+      x: -33.5
+      y: 65.5
+      z: 3.5
+      delay: 0
+    '1':
+      x: 1
+      y: 69.5
+      z: 0.5
+      delay: 0
+    '2':
+      x: 34.5
+      y: 65.5
+      z: -2.5
+      delay: 0
+  OasisB:
+    '0':
+      x: 0.5
+      y: 98.5
+      z: 0.5
+      delay: 0
+    '1':
+      x: -21
+      y: 84.5
+      z: 24
+      delay: 0
+    '2':
+      x: 21
+      y: 84.5
+      z: -24
+      delay: 0
+  OasisBscen:
+    '0':
+      x: 0.5
+      y: 98.5
+      z: 0.5
+      delay: 0
+    '1':
+      x: -21
+      y: 84.5
+      z: 24
+      delay: 0
+    '2':
+      x: 21
+      y: 84.5
+      z: -24
+      delay: 0
+  Fusion:
+    '0':
+      x: 0.5
+      y: 42.5
+      z: 27.5
+      delay: 0
+    '1':
+      x: 27.5
+      y: 42.5
+      z: 0.5
+      delay: 0
+    '2':
+      x: -27.5
+      y: 42.5
+      z: 0.5
+      delay: 0
+    '3':
+      x: 0.5
+      y: 42.5
+      z: -27.5
+      delay: 0
+  FusionScen:
+    '0':
+      x: 0.5
+      y: 42.5
+      z: 27.5
+      delay: 0
+    '1':
+      x: 27.5
+      y: 42.5
+      z: 0.5
+      delay: 0
+    '2':
+      x: -27.5
+      y: 42.5
+      z: 0.5
+      delay: 0
+    '3':
+      x: 0.5
+      y: 42.5
+      z: -27.5
+      delay: 0
+  Monastery:
+    '0':
+      x: 0.5
+      y: 75.8
+      z: 13.5
+      delay: 0
+    '1':
+      x: 0.5
+      y: 75.8
+      z: -13.5
+      delay: 0
+    '2':
+      x: 0.5
+      y: 57.5
+      z: 0.5
+      delay: 0
+pid:
+  ==: org.bukkit.inventory.ItemStack
+  v: 2586
+  type: BOW
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"One
+      Punch Bow"}],"text":""}'
+    enchants:
+      ARROW_KNOCKBACK: 5
+    Damage: 381
