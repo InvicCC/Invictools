@@ -20,8 +20,8 @@ public class EffectSometimes
     {
         final World[] gameworld = {player.getWorld()};
 
-        delayrandom = delayrandom *20;
-        min = min *20;
+        delayrandom = delayrandom * 20;
+        min = min * 20;
         effecttime = effecttime * 20;
 
         int finalEffecttime = effecttime;
@@ -30,24 +30,24 @@ public class EffectSometimes
             @Override
             public void run()
             {
-                if(player.getWorld() != (gameworld[0]))
+                if (player.getWorld() != (gameworld[0]))
                     this.cancel();
 
-                if(all)
+                if (all)
                 {
-                    for (Player p:Bukkit.getOnlinePlayers())
+                    for (Player p : Bukkit.getOnlinePlayers())
                     {
-                        if(p.getWorld() == gameworld[0])
-                            p.addPotionEffect(new PotionEffect(PotionEffectType.getByName(Effect), finalEffecttime, effectlevel-1, false, false));
+                        if (p.getWorld() == gameworld[0])
+                            p.addPotionEffect(new PotionEffect(PotionEffectType.getByName(Effect), finalEffecttime, effectlevel - 1, false, false));
                     }
                 }
                 else
                 {
-                    if(player.getWorld() == gameworld[0])
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.getByName(Effect), finalEffecttime, effectlevel-1, false, false));
+                    if (player.getWorld() == gameworld[0])
+                        player.addPotionEffect(new PotionEffect(PotionEffectType.getByName(Effect), finalEffecttime, effectlevel - 1, false, false));
                 }
             }
-        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), rand.nextInt(delayrandom)+min, rand.nextInt(delayrandom)+min);
+        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), rand.nextInt(delayrandom) + min, rand.nextInt(delayrandom) + min);
 
     }
 }

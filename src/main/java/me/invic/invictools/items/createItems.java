@@ -55,7 +55,7 @@ public class createItems
         meta.setLore(lore);
         block.setItemMeta(meta);
 
-        block.addUnsafeEnchantment(Enchantment.DURABILITY,10);
+        block.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
 
         return block;
     }
@@ -72,7 +72,7 @@ public class createItems
         meta.setLore(lore);
         block.setItemMeta(meta);
 
-        block.addUnsafeEnchantment(Enchantment.ARROW_FIRE,1);
+        block.addUnsafeEnchantment(Enchantment.ARROW_FIRE, 1);
 
         return block;
     }
@@ -90,7 +90,7 @@ public class createItems
         meta.setLore(lore);
         block.setItemMeta(meta);
 
-        block.addUnsafeEnchantment(Enchantment.FROST_WALKER,10);
+        block.addUnsafeEnchantment(Enchantment.FROST_WALKER, 10);
 
         return block;
     }
@@ -245,7 +245,7 @@ public class createItems
         meta.setLore(lore);
         block.setItemMeta(meta);
 
-        block.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE,10);
+        block.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 10);
 
         return block;
     }
@@ -256,7 +256,7 @@ public class createItems
         Collections.shuffle(items);
 
         // exclusion from randomizer
-        if(items.get(0).equalsIgnoreCase("infdarebone"))
+        if (items.get(0).equalsIgnoreCase("infdarebone"))
             return getByName(items.get(1));
         else
             return getByName(items.get(0));

@@ -22,7 +22,7 @@ public class OlympusFires implements Listener
     @EventHandler
     public void bedDetect(BedwarsPlayerBreakBlock e)
     {
-        if(!e.getGame().getGameWorld().equals(Bukkit.getWorld("map2")))
+        if (!e.getGame().getGameWorld().equals(Bukkit.getWorld("map2")))
             return;
 
         if (e.getBlock().getType().equals(Material.BLUE_BED)
@@ -44,7 +44,7 @@ public class OlympusFires implements Listener
                 @Override
                 public void run()
                 {
-                    if(loc.getBlock().getType()!=block)
+                    if (loc.getBlock().getType() != block)
                     {
                         placeBedrock(s[0], true, Material.COAL_BLOCK);
                     }
@@ -56,7 +56,7 @@ public class OlympusFires implements Listener
     @EventHandler
     public void init(BedwarsGameStartedEvent e)
     {
-        if(!e.getGame().getGameWorld().equals(Bukkit.getWorld("map2")))
+        if (!e.getGame().getGameWorld().equals(Bukkit.getWorld("map2")))
             return;
 
         List<String> teams = new ArrayList<>();
@@ -69,12 +69,12 @@ public class OlympusFires implements Listener
         teams.add("ORANGE");
         teams.add("LIME");
 
-        for (Player p:e.getGame().getConnectedPlayers())
+        for (Player p : e.getGame().getConnectedPlayers())
         {
             teams.remove(e.getGame().getTeamOfPlayer(p).getName().toUpperCase(Locale.ROOT));
         }
 
-        for (String s:teams)
+        for (String s : teams)
         {
             placeBedrock(s, false, Material.COAL_BLOCK);
         }
@@ -83,7 +83,7 @@ public class OlympusFires implements Listener
     @EventHandler
     public void reset(BedwarsGameEndingEvent e)
     {
-        if(!e.getGame().getGameWorld().equals(Bukkit.getWorld("map2")))
+        if (!e.getGame().getGameWorld().equals(Bukkit.getWorld("map2")))
             return;
 
         resetFires();
@@ -101,7 +101,7 @@ public class OlympusFires implements Listener
         teams.add("ORANGE");
         teams.add("LIME");
 
-        for (String s:teams)
+        for (String s : teams)
         {
             placeBedrock(s, false, Material.CAMPFIRE);
         }
@@ -115,41 +115,41 @@ public class OlympusFires implements Listener
         {
             case "LIGHT":
             case "BLUE":
-                loc = new Location(Bukkit.getWorld("map2"), -35,y,-107);
+                loc = new Location(Bukkit.getWorld("map2"), -35, y, -107);
                 break;
             case "GRAY":
-                loc = new Location(Bukkit.getWorld("map2"), -106,y,-36);
+                loc = new Location(Bukkit.getWorld("map2"), -106, y, -36);
                 break;
             case "RED":
-                loc = new Location(Bukkit.getWorld("map2"), -107,y,36);
+                loc = new Location(Bukkit.getWorld("map2"), -107, y, 36);
                 break;
             case "WHITE":
-                loc = new Location(Bukkit.getWorld("map2"), -36,y,107);
+                loc = new Location(Bukkit.getWorld("map2"), -36, y, 107);
                 break;
             case "YELLOW":
-                loc = new Location(Bukkit.getWorld("map2"), 37,y,107);
+                loc = new Location(Bukkit.getWorld("map2"), 37, y, 107);
                 break;
             case "PINK":
-                loc = new Location(Bukkit.getWorld("map2"), 108,y,36);
+                loc = new Location(Bukkit.getWorld("map2"), 108, y, 36);
                 break;
             case "LIME":
-                loc = new Location(Bukkit.getWorld("map2"), 37,y,-107);
+                loc = new Location(Bukkit.getWorld("map2"), 37, y, -107);
                 break;
             case "ORANGE":
-                loc = new Location(Bukkit.getWorld("map2"), 108,y,-36);
+                loc = new Location(Bukkit.getWorld("map2"), 108, y, -36);
                 break;
             default:
-                loc = new Location(Bukkit.getWorld("map2"), -34,y,-106);
+                loc = new Location(Bukkit.getWorld("map2"), -34, y, -106);
         }
 
-        if(strike)
+        if (strike)
             loc.getWorld().strikeLightningEffect(loc);
 
         loc.getBlock().setType(material);
-       // game.getRegion().addBuiltDuringGame(loc);
+        // game.getRegion().addBuiltDuringGame(loc);
 
-     //   Location loc2 = loc.clone().add(0,1,0);
-     //   loc2.getBlock().setType(Material.COAL_BLOCK);
-      //  game.getRegion().addBuiltDuringGame(loc2);
+        //   Location loc2 = loc.clone().add(0,1,0);
+        //   loc2.getBlock().setType(Material.COAL_BLOCK);
+        //  game.getRegion().addBuiltDuringGame(loc2);
     }
 }

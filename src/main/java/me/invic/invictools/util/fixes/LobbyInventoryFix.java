@@ -29,23 +29,23 @@ import java.util.List;
 public class LobbyInventoryFix implements Listener
 {
     File Folder = new File(Commands.Invictools.getDataFolder(), "PlayerData");
-    public static HashMap<Player,Long> InventorySaveCooldown = new HashMap<>();
+    public static HashMap<Player, Long> InventorySaveCooldown = new HashMap<>();
     int cooldown = 20; // seconds before file can save again
 
     @EventHandler
     public void worldChange(PlayerChangedWorldEvent e)
     {
-        if(e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby_nether") || e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby_the_end"))
+        if (e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby_nether") || e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby_the_end"))
             return;
 
-        if(e.getFrom().getName().equalsIgnoreCase("bwlobby_nether") || e.getFrom().getName().equalsIgnoreCase("bwlobby_the_end"))
+        if (e.getFrom().getName().equalsIgnoreCase("bwlobby_nether") || e.getFrom().getName().equalsIgnoreCase("bwlobby_the_end"))
             return;
 
-        if(e.getFrom().getName().equalsIgnoreCase("bwlobby"))
+        if (e.getFrom().getName().equalsIgnoreCase("bwlobby"))
         {
             saveInventory(e.getPlayer());
         }
-        else if(e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
+        else if (e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
         {
             loadInventory(e.getPlayer(), e.getPlayer());
         }
@@ -66,12 +66,12 @@ public class LobbyInventoryFix implements Listener
     @EventHandler
     public void JoinEvent(PlayerJoinEvent e)
     {
-        if(!e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby") && !e.getPlayer().isOp())
-            Bukkit.dispatchCommand(e.getPlayer(),"spawn");
+        if (!e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby") && !e.getPlayer().isOp())
+            Bukkit.dispatchCommand(e.getPlayer(), "spawn");
 
-        if(e.getPlayer().hasPlayedBefore())
+        if (e.getPlayer().hasPlayedBefore())
         {
-            if(e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
+            if (e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
             {
                 loadInventory(e.getPlayer(), e.getPlayer());
             }
@@ -81,40 +81,40 @@ public class LobbyInventoryFix implements Listener
     @EventHandler
     public void LeaveEvent(PlayerQuitEvent e)
     {
-        if(e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
+        if (e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
             saveInventory(e.getPlayer());
     }
 
     public void saveInventory(Player p)
     {
-        if(InventorySaveCooldown.containsKey(p))
+        if (InventorySaveCooldown.containsKey(p))
         {
-            long secondsLeft = ((InventorySaveCooldown.get(p)/1000)+cooldown) - (System.currentTimeMillis()/1000);
-            if(secondsLeft <= 0)
-                saveInventoryAfter(p,true);
+            long secondsLeft = ((InventorySaveCooldown.get(p) / 1000) + cooldown) - (System.currentTimeMillis() / 1000);
+            if (secondsLeft <= 0)
+                saveInventoryAfter(p, true);
         }
         else
-            saveInventoryAfter(p,true);
+            saveInventoryAfter(p, true);
     }
 
     public void saveInventoryUnsafe(Player p)
     {
-        saveInventoryAfter(p,false);
+        saveInventoryAfter(p, false);
     }
 
-    private void saveInventoryAfter(Player p,boolean respectCooldown)
+    private void saveInventoryAfter(Player p, boolean respectCooldown)
     {
-        if(respectCooldown)
-            InventorySaveCooldown.put(p,System.currentTimeMillis());
+        if (respectCooldown)
+            InventorySaveCooldown.put(p, System.currentTimeMillis());
 
         File pFile = new File(Folder, p.getUniqueId() + ".yml");
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
 
         List<ItemStack> inventoryList = new ArrayList<>();
-        for (int i = 0; i <=40; i++)
+        for (int i = 0; i <= 40; i++)
         {
             ItemStack item = p.getInventory().getItem(i);
-            if(item != null)
+            if (item != null)
             {
                 inventoryList.add(item);
             }
@@ -127,12 +127,12 @@ public class LobbyInventoryFix implements Listener
                 inventoryList.add(voidItem);
             }
         }
-        balls.set("lobby",inventoryList);
+        balls.set("lobby", inventoryList);
 
         try
         {
             balls.save(pFile);
-            if(!p.getWorld().getName().equalsIgnoreCase("bwlobby"))
+            if (!p.getWorld().getName().equalsIgnoreCase("bwlobby"))
                 p.getInventory().clear();
         }
         catch (IOException ioException)
@@ -146,16 +146,16 @@ public class LobbyInventoryFix implements Listener
         File pFile = new File(Folder, p.getUniqueId() + ".yml");
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
 
-        if(balls.get("lobby") != null)
+        if (balls.get("lobby") != null)
         {
             recipient.getInventory().clear();
             @SuppressWarnings("unchecked")
             List<ItemStack> inventoryList = (List<ItemStack>) balls.get("lobby");
-            for (int i = 0; i <=40; i++)
+            for (int i = 0; i <= 40; i++)
             {
                 ItemStack item = inventoryList.get(i);
-                if(item.getType() != Material.STRUCTURE_VOID)
-                    recipient.getInventory().setItem(i,item);
+                if (item.getType() != Material.STRUCTURE_VOID)
+                    recipient.getInventory().setItem(i, item);
             }
 /*
             new BukkitRunnable()
@@ -178,10 +178,10 @@ public class LobbyInventoryFix implements Listener
 
     public void clearMainInventory(Player p)
     {
-        for (int i = 0; i <=35; i++)
+        for (int i = 0; i <= 35; i++)
         {
             ItemStack item = p.getInventory().getItem(i);
-            if(item != null)
+            if (item != null)
                 item.setType(Material.AIR);
         }
     }

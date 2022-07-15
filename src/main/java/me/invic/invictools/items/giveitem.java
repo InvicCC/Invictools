@@ -15,66 +15,66 @@ public class giveitem
 {
     public static void giveItem(String who, String specify, String type, Player p)
     {
-            if(who.equalsIgnoreCase("single"))
+        if (who.equalsIgnoreCase("single"))
+        {
+            if (type.equalsIgnoreCase("lb"))
+                makelb(specify, p);
+            else if (type.equalsIgnoreCase("item"))
+                makeitem(specify, p);
+        }
+        else if (who.equalsIgnoreCase("all"))
+        {
+            for (Player player : Bukkit.getOnlinePlayers())
+            {
+                if (player.getWorld().equals(p.getWorld()))
+                {
+                    if (type.equalsIgnoreCase("lb"))
+                        makelb(specify, player);
+                    else if (type.equalsIgnoreCase("item"))
+                        makeitem(specify, player);
+                }
+            }
+        }
+        else if (who.equalsIgnoreCase("mteam") || who.equalsIgnoreCase("manhuntteam"))
+        {
+            for (Player player : ManhuntMain.ManhuntTeam.keySet())
+            {
+                if (ManhuntMain.ManhuntTeam.get(player).equalsIgnoreCase(ManhuntMain.ManhuntTeam.get(p)))
+                {
+                    if (type.equalsIgnoreCase("lb"))
+                        makelb(specify, player);
+                    else if (type.equalsIgnoreCase("item"))
+                        makeitem(specify, player);
+                }
+            }
+        }
+        else if (who.equalsIgnoreCase("bteam") || who.equalsIgnoreCase("bedwarsteam"))
+        {
+            try
+            {
+                List<Player> teammates = GrabTeammates.getTeammates(p);
+                for (Player player : teammates)
+                {
+                    if (type.equalsIgnoreCase("lb"))
+                        makelb(specify, player);
+                    else if (type.equalsIgnoreCase("item"))
+                        makeitem(specify, player);
+                }
+            }
+            catch (NullPointerException n)
             {
                 if (type.equalsIgnoreCase("lb"))
                     makelb(specify, p);
                 else if (type.equalsIgnoreCase("item"))
                     makeitem(specify, p);
             }
-            else if(who.equalsIgnoreCase("all"))
-            {
-                for (Player player: Bukkit.getOnlinePlayers())
-                {
-                    if(player.getWorld().equals(p.getWorld()))
-                    {
-                        if (type.equalsIgnoreCase("lb"))
-                            makelb(specify, player);
-                        else if (type.equalsIgnoreCase("item"))
-                            makeitem(specify, player);
-                    }
-                }
-            }
-            else if(who.equalsIgnoreCase("mteam") || who.equalsIgnoreCase("manhuntteam"))
-            {
-                for (Player player: ManhuntMain.ManhuntTeam.keySet())
-                {
-                    if(ManhuntMain.ManhuntTeam.get(player).equalsIgnoreCase(ManhuntMain.ManhuntTeam.get(p)))
-                    {
-                        if (type.equalsIgnoreCase("lb"))
-                            makelb(specify, player);
-                        else if (type.equalsIgnoreCase("item"))
-                            makeitem(specify, player);
-                    }
-                }
-            }
-            else if(who.equalsIgnoreCase("bteam") || who.equalsIgnoreCase("bedwarsteam"))
-            {
-                try
-                {
-                    List<Player> teammates = GrabTeammates.getTeammates(p);
-                    for (Player player: teammates)
-                    {
-                            if (type.equalsIgnoreCase("lb"))
-                                makelb(specify, player);
-                            else if (type.equalsIgnoreCase("item"))
-                                makeitem(specify, player);
-                    }
-                }
-                catch (NullPointerException n)
-                {
-                    if (type.equalsIgnoreCase("lb"))
-                        makelb(specify, p);
-                    else if (type.equalsIgnoreCase("item"))
-                        makeitem(specify, p);
-                }
-            }
         }
+    }
 
     static void makeitem(String item, Player player)
     {
         ItemStack lb;
-        switch(item)
+        switch (item)
         {
             case "random":
                 lb = new createItems().getRandomItem();
@@ -82,13 +82,13 @@ public class giveitem
             default:
                 lb = new createItems().getByName(item);
         }
-        smartGive(lb,player);
+        smartGive(lb, player);
     }
 
     static void makelb(String type, Player player)
     {
         ItemStack lb;
-        switch(type)
+        switch (type)
         {
             case "random":
                 lb = new createLuckyBlocks().getRandomBlock();
@@ -96,7 +96,7 @@ public class giveitem
             default:
                 lb = new createLuckyBlocks().getByName(type);
         }
-        smartGive(lb,player);
+        smartGive(lb, player);
     }
 
     public static void smartGive(ItemStack i, Player player)

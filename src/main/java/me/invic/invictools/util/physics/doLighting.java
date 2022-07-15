@@ -16,23 +16,23 @@ import static me.invic.invictools.util.physics.grabSandstone.getNearbyBlocks;
 
 public class doLighting
 {
-    public doLighting(Block sandstone,Player player)
+    public doLighting(Block sandstone, Player player)
     {
         String worldname = player.getWorld().getName();
-        List<Block> nearbyLamps = getNearbyBlocks(sandstone.getLocation(),3,"redstone_lamp",false);
+        List<Block> nearbyLamps = getNearbyBlocks(sandstone.getLocation(), 3, "redstone_lamp", false);
 
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
         final FileConfiguration Config = plugin.getConfig();
 
         Random rand = new Random();
-        int delay = rand.nextInt(Config.getInt("twinkle."+worldname+".delay"));
+        int delay = rand.nextInt(Config.getInt("twinkle." + worldname + ".delay"));
 
         new BukkitRunnable()
         {
             @Override
             public void run()
             {
-                if(!player.getWorld().getName().equalsIgnoreCase(worldname))
+                if (!player.getWorld().getName().equalsIgnoreCase(worldname))
                 {
                     unlightall(nearbyLamps);
                     this.cancel();
@@ -41,19 +41,19 @@ public class doLighting
                 for (Block block : nearbyLamps)
                 {
                     Lightable lightable = (Lightable) block.getBlockData();
-                    if(lightable.isLit())
+                    if (lightable.isLit())
                     {
                         lightable.setLit(false);
                         block.setBlockData(lightable);
                     }
-                    else if(!lightable.isLit())
+                    else if (!lightable.isLit())
                     {
                         lightable.setLit(true);
                         block.setBlockData(lightable);
                     }
                 }
             }
-        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), delay+20, delay+20);
+        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), delay + 20, delay + 20);
     }
 
     void unlightall(List<Block> lamps)

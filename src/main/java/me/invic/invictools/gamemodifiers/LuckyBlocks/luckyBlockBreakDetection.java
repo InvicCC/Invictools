@@ -35,38 +35,39 @@ public class luckyBlockBreakDetection implements Listener // can add blocks to l
         {
             Random rand = new Random();
             int percent = rand.nextInt(101);
-            if(badBlocks.contains(e.getBlock())) // bad blocks
+            if (badBlocks.contains(e.getBlock())) // bad blocks
             {
-                if(percent > 0 && percent <= 2)
-                    new OPBlocks(e.getBlock().getLocation(),e.getPlayer());
-                else if(percent > 6 && percent <= 21)
-                    new goodBlocks(e.getBlock().getLocation(),e.getPlayer());
+                if (percent > 0 && percent <= 2)
+                    new OPBlocks(e.getBlock().getLocation(), e.getPlayer());
+                else if (percent > 6 && percent <= 21)
+                    new goodBlocks(e.getBlock().getLocation(), e.getPlayer());
                 else
-                    new badBlocks(e.getBlock().getLocation(),e.getPlayer());
+                    new badBlocks(e.getBlock().getLocation(), e.getPlayer());
             }
-            else if(goodBlocks.contains(e.getBlock())) // normal blocks
+            else if (goodBlocks.contains(e.getBlock())) // normal blocks
             {
-                if(percent > 75 && percent <= 81)
-                    new OPBlocks(e.getBlock().getLocation(),e.getPlayer());
-                else if(percent > 0 && percent <= 75)
-                    new goodBlocks(e.getBlock().getLocation(),e.getPlayer());
+                if (percent > 75 && percent <= 81)
+                    new OPBlocks(e.getBlock().getLocation(), e.getPlayer());
+                else if (percent > 0 && percent <= 75)
+                    new goodBlocks(e.getBlock().getLocation(), e.getPlayer());
                 else
-                    new badBlocks(e.getBlock().getLocation(),e.getPlayer());
+                    new badBlocks(e.getBlock().getLocation(), e.getPlayer());
             }
-            else if(OPBlocks.contains(e.getBlock())) // op blocks
+            else if (OPBlocks.contains(e.getBlock())) // op blocks
             {
-                if(percent > 0 && percent <= 80)
-                    new OPBlocks(e.getBlock().getLocation(),e.getPlayer());
-                else if(percent > 80 && percent <= 95)
-                    new goodBlocks(e.getBlock().getLocation(),e.getPlayer());
+                if (percent > 0 && percent <= 80)
+                    new OPBlocks(e.getBlock().getLocation(), e.getPlayer());
+                else if (percent > 80 && percent <= 95)
+                    new goodBlocks(e.getBlock().getLocation(), e.getPlayer());
                 else
-                    new badBlocks(e.getBlock().getLocation(),e.getPlayer());
+                    new badBlocks(e.getBlock().getLocation(), e.getPlayer());
             }
 
-            if(OPBlocks.contains(e.getBlock()) || goodBlocks.contains(e.getBlock()) || badBlocks.contains(e.getBlock()))
+            if (OPBlocks.contains(e.getBlock()) || goodBlocks.contains(e.getBlock()) || badBlocks.contains(e.getBlock()))
             {
                 e.setCancelled(true);
-                BukkitRunnable runnable = new BukkitRunnable() {
+                BukkitRunnable runnable = new BukkitRunnable()
+                {
                     @Override
                     public void run()
                     {
@@ -76,15 +77,15 @@ public class luckyBlockBreakDetection implements Listener // can add blocks to l
                 runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1L);
             }
         }
-        else if(deathListener.coalBlocks.contains(e.getBlock()))
+        else if (deathListener.coalBlocks.contains(e.getBlock()))
         {
             e.setCancelled(true);
             Location loc = e.getBlock().getLocation();
             Random rand = new Random();
             int amount = rand.nextInt(5);
-            if(rand.nextInt(10) == 0)
+            if (rand.nextInt(10) == 0)
             {
-                String command = "execute at "+e.getPlayer().getName()+" run summon minecraft:tnt " + loc.getX() + " " + loc.getY() + " " + loc.getZ() + " {Fuse:" + 1 + "}";
+                String command = "execute at " + e.getPlayer().getName() + " run summon minecraft:tnt " + loc.getX() + " " + loc.getY() + " " + loc.getZ() + " {Fuse:" + 1 + "}";
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
             }
             else
@@ -108,24 +109,25 @@ public class luckyBlockBreakDetection implements Listener // can add blocks to l
                         type = api.getItemSpawnerTypeByName("iron");
                 }
 
-                e.getPlayer().playSound(loc, Sound.ENTITY_CHICKEN_EGG,1,1);
+                e.getPlayer().playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
 
                 ItemStack stack = type.getStack();
                 stack.setAmount(amount);
 
-                if(stack.getType()!=Material.AIR)
+                if (stack.getType() != Material.AIR)
                 {
-                  //  System.out.println(stack.getType());
+                    //  System.out.println(stack.getType());
                     loc.getWorld().dropItemNaturally(loc, stack);
                 }
                 else
                 {
-                    String command = "execute at "+e.getPlayer().getName()+" run summon minecraft:tnt " + loc.getX() + " " + loc.getY() + " " + loc.getZ() + " {Fuse:" + 1 + "}";
+                    String command = "execute at " + e.getPlayer().getName() + " run summon minecraft:tnt " + loc.getX() + " " + loc.getY() + " " + loc.getZ() + " {Fuse:" + 1 + "}";
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
                 }
             }
 
-            BukkitRunnable runnable = new BukkitRunnable() {
+            BukkitRunnable runnable = new BukkitRunnable()
+            {
                 @Override
                 public void run()
                 {
@@ -146,17 +148,17 @@ public class luckyBlockBreakDetection implements Listener // can add blocks to l
             List<String> lore = Objects.requireNonNull(block.getItemMeta()).getLore();
 
             assert lore != null;
-            if(lore.get(0).equalsIgnoreCase("§7Unlucky I"))
+            if (lore.get(0).equalsIgnoreCase("§7Unlucky I"))
                 badBlocks.add(e.getBlock());
-            else if(lore.get(0).equalsIgnoreCase("§7lucky I"))
+            else if (lore.get(0).equalsIgnoreCase("§7lucky I"))
                 goodBlocks.add(e.getBlock());
-            else if(lore.get(0).equalsIgnoreCase("§7lucky II"))
+            else if (lore.get(0).equalsIgnoreCase("§7lucky II"))
                 OPBlocks.add(e.getBlock());
         }
-        else if(e.getBlock().getType().equals(Material.CHEST))
+        else if (e.getBlock().getType().equals(Material.CHEST))
         {
             List<String> lore = Objects.requireNonNull(block.getItemMeta()).getLore();
-            if(lore.get(0).equalsIgnoreCase("§7Contains loot!"))
+            if (lore.get(0).equalsIgnoreCase("§7Contains loot!"))
             {
                 LootBoc.fillBoc(e.getBlock().getLocation());
             }

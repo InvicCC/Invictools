@@ -21,50 +21,50 @@ public class VictoryDanceConfig
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
         int wins = playerData.getInt("FinalKills");
 
-        if(effect.equalsIgnoreCase("Firework") || bypass)
+        if (effect.equalsIgnoreCase("Firework") || bypass)
         {
             playerData.set("VictoryDance", effect);
             player.sendMessage(ChatColor.YELLOW + "Your Victory Dance is now set to " + ChatColor.AQUA + effect);
         }
-        else if(wins == 0)
+        else if (wins == 0)
         {
             player.sendMessage(ChatColor.RED + "You have not unlocked this effect yet!");
-            player.sendMessage(ChatColor.RED + "You have "+wins+" final kills.");
+            player.sendMessage(ChatColor.RED + "You have " + wins + " final kills.");
             player.sendMessage(ChatColor.RED + "(Finals have only tracked since June 2022)");
         }
-        else if(effect.equalsIgnoreCase("Bow")&& wins >= 3) // rideable arrows
+        else if (effect.equalsIgnoreCase("Bow") && wins >= 3) // rideable arrows
         {
             playerData.set("VictoryDance", effect);
             player.sendMessage(ChatColor.YELLOW + "Your Victory Dance is now set to " + ChatColor.AQUA + effect);
         }
-        else if(effect.equalsIgnoreCase("Firestick") && wins >= 12)
+        else if (effect.equalsIgnoreCase("Firestick") && wins >= 12)
         {
             playerData.set("VictoryDance", effect);
             player.sendMessage(ChatColor.YELLOW + "Your Victory Dance is now set to " + ChatColor.AQUA + effect);
         }
-        else if(effect.equalsIgnoreCase("Dragon") && wins >= 25)
+        else if (effect.equalsIgnoreCase("Dragon") && wins >= 25)
         {
             playerData.set("VictoryDance", effect);
             player.sendMessage(ChatColor.YELLOW + "Your Victory Dance is now set to " + ChatColor.AQUA + effect);
         }
-        else if(effect.equalsIgnoreCase("Snowball") && wins >= 50) // snowballs with forced prestige projectile trail
+        else if (effect.equalsIgnoreCase("Snowball") && wins >= 50) // snowballs with forced prestige projectile trail
         {
             playerData.set("VictoryDance", effect);
             player.sendMessage(ChatColor.YELLOW + "Your Victory Dance is now set to " + ChatColor.AQUA + effect);
         }
-        else if(effect.equalsIgnoreCase("Storm") && wins >= 75)
+        else if (effect.equalsIgnoreCase("Storm") && wins >= 75)
         {
             playerData.set("VictoryDance", effect);
             player.sendMessage(ChatColor.YELLOW + "Your Victory Dance is now set to " + ChatColor.AQUA + effect);
         }
-        else if(effect.equalsIgnoreCase("pls") && wins >= 90)
+        else if (effect.equalsIgnoreCase("pls") && wins >= 90)
         {
             playerData.set("VictoryDance", effect);
             player.sendMessage(ChatColor.YELLOW + "Your Victory Dance is now set to " + ChatColor.AQUA + effect);
         }
-        else if(effect.equalsIgnoreCase("Dare"))
+        else if (effect.equalsIgnoreCase("Dare"))
         {
-            if(player.hasPermission("invic.firestick") || wins >= 150)
+            if (player.hasPermission("invic.firestick") || wins >= 150)
             {
                 playerData.set("VictoryDance", effect);
                 player.sendMessage(ChatColor.YELLOW + "Your Victory Dance is now set to " + ChatColor.AQUA + effect);
@@ -73,14 +73,14 @@ public class VictoryDanceConfig
             {
                 player.sendMessage(ChatColor.RED + "This effect requires any rank or 150 final kills.");
                 player.sendMessage(ChatColor.AQUA + "Type /ranks to learn how to get one");
-                player.sendMessage(ChatColor.RED + "You have "+wins+" final kills.");
+                player.sendMessage(ChatColor.RED + "You have " + wins + " final kills.");
                 player.sendMessage(ChatColor.RED + "(Finals have only tracked since June 2022)");
             }
         }
         else
         {
             player.sendMessage(ChatColor.RED + "You haven't unlocked this effect yet!");
-            player.sendMessage(ChatColor.RED + "You have "+wins+" final kills.");
+            player.sendMessage(ChatColor.RED + "You have " + wins + " final kills.");
             player.sendMessage(ChatColor.RED + "(Finals have only tracked since June 2022)");
         }
 

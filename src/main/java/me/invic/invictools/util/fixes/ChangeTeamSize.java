@@ -34,14 +34,14 @@ public class ChangeTeamSize
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("BedWars");
         File Folder = new File(plugin.getDataFolder(), "arenas");
         List<String> teams = new ArrayList<>();
-        for (String arena:shortArena)
+        for (String arena : shortArena)
         {
-            if(CheckValidity(arena))
+            if (CheckValidity(arena))
             {
                 BedwarsAPI.getInstance().getGameByName(arena).getAvailableTeams().forEach(team -> teams.add(team.getName()));
                 File pFile = new File(Folder, ConfigConversion(arena) + ".yml");
                 final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
-                for (String team:teams)
+                for (String team : teams)
                 {
                     player.sendMessage(ChatColor.YELLOW + arena + ": " + team + ": " + ChatColor.AQUA + data.get("teams." + team + ".maxPlayers"));
                 }
@@ -60,27 +60,28 @@ public class ChangeTeamSize
             {
                 System.out.println("editing " + s);
                 EditEveryTeamSize(s, teamSize);
-            } else
+            }
+            else
                 System.out.println("skipping " + s);
         }
 
-        Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&',msg));
+        Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
     }
 
     public static void ChangeSingleArenaTeamSize(String config, int teamSize)
     {
-        if(CheckValidity(config))
-            EditEveryTeamSize((config),teamSize);
+        if (CheckValidity(config))
+            EditEveryTeamSize((config), teamSize);
 
-        Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&',msg));
+        Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
     }
 
     public static void ChangeSingleTeamSize(String config, int teamSize, String teamColor)
     {
-        if(CheckValidity(config))
+        if (CheckValidity(config))
             EditSingleTeamSize((config), teamSize, teamColor);
 
-        Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&',msg));
+        Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
     }
 
     public static boolean CheckValidity(String config) // checks if config is correctly grabbed from short name only
@@ -89,14 +90,14 @@ public class ChangeTeamSize
         File Folder = new File(plugin.getDataFolder(), "arenas");
         File pFile = new File(Folder, ConfigConversion(config) + ".yml");
         final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
-        if(data.getString("name") == null)
+        if (data.getString("name") == null)
         {
             Commands.MasterPlayer.sendMessage(ChatColor.RED + "It looks like this arena config isn't loading properly. Mismatched ID or not setup?: " + ChatColor.WHITE + config);
             return false;
         }
-        else if(!data.getString("name").toLowerCase(Locale.ROOT).equals(config.toLowerCase(Locale.ROOT)))
+        else if (!data.getString("name").toLowerCase(Locale.ROOT).equals(config.toLowerCase(Locale.ROOT)))
         {
-            Commands.MasterPlayer.sendMessage(ChatColor.RED + "It looks like this arena's name does not match the config it's corresponding to: "  + ChatColor.WHITE + config);
+            Commands.MasterPlayer.sendMessage(ChatColor.RED + "It looks like this arena's name does not match the config it's corresponding to: " + ChatColor.WHITE + config);
             return false;
         }
 
@@ -105,7 +106,7 @@ public class ChangeTeamSize
             List<String> teams = new ArrayList<>();
             BedwarsAPI.getInstance().getGameByName(config).getAvailableTeams().forEach(team -> teams.add(team.getName()));
         }
-        catch(NullPointerException e)
+        catch (NullPointerException e)
         {
             return false;
         }
@@ -115,9 +116,9 @@ public class ChangeTeamSize
 
     public static String ConfigConversion(String shortName) // uses shortname to return long yml name
     {
-        for (int i = 0; i<longArena.size(); i++)
+        for (int i = 0; i < longArena.size(); i++)
         {
-            if(shortArena.get(i).equalsIgnoreCase(shortName))
+            if (shortArena.get(i).equalsIgnoreCase(shortName))
                 return longArena.get(i);
         }
         return null;
@@ -130,7 +131,7 @@ public class ChangeTeamSize
         {
             BedwarsAPI.getInstance().getGameByName(config).getAvailableTeams().forEach(team -> teams.add(team.getName()));
         }
-        catch(NullPointerException e)
+        catch (NullPointerException e)
         {
             Commands.MasterPlayer.sendMessage(ChatColor.RED + "Skipping " + config);
             return;
@@ -164,7 +165,7 @@ public class ChangeTeamSize
         {
             BedwarsAPI.getInstance().getGameByName(config).getAvailableTeams().forEach(team -> teams.add(team.getName()));
         }
-        catch(NullPointerException e)
+        catch (NullPointerException e)
         {
             Commands.MasterPlayer.sendMessage(ChatColor.RED + "Skipping " + config);
             return;
@@ -175,7 +176,7 @@ public class ChangeTeamSize
         File pFile = new File(Folder, ConfigConversion(config) + ".yml");
         final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
 
-        if(data.getString("teams." + teamColor + ".maxPlayers") != null)
+        if (data.getString("teams." + teamColor + ".maxPlayers") != null)
             data.set("teams." + teamColor + ".maxPlayers", teamSize);
         else
         {
@@ -186,7 +187,7 @@ public class ChangeTeamSize
         try
         {
             data.save(pFile);
-            Commands.MasterPlayer.sendMessage(ChatColor.YELLOW + data.getString("name") + " " +teamColor+ChatColor.AQUA + " can now hold " + ChatColor.YELLOW + teamSize + ChatColor.AQUA + " players.");
+            Commands.MasterPlayer.sendMessage(ChatColor.YELLOW + data.getString("name") + " " + teamColor + ChatColor.AQUA + " can now hold " + ChatColor.YELLOW + teamSize + ChatColor.AQUA + " players.");
         }
         catch (IOException ex)
         {

@@ -78,7 +78,7 @@ public class ItemRain
         int x;
         int z;
 
-        for (ItemStack item:table)
+        for (ItemStack item : table)
         {
             int amount = item.getAmount();
             x = (rand.nextInt(200) - 100) + shift;
@@ -104,7 +104,7 @@ public class ItemRain
                     break;
             }
             item.setAmount(amount);
-            player.getWorld().dropItemNaturally(loc,item);
+            player.getWorld().dropItemNaturally(loc, item);
         }
     }
 

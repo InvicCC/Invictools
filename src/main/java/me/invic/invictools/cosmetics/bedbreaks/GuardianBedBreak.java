@@ -54,7 +54,8 @@ public class GuardianBedBreak
             Laser laser = new Laser.GuardianLaser(bed, start, (ticks / 30), 50);
             laser.start(Commands.Invictools);
             laser.moveEnd(end.getLocation(), 20, null);
-        } catch (ReflectiveOperationException e)
+        }
+        catch (ReflectiveOperationException e)
         {
             e.printStackTrace();
         }
@@ -66,19 +67,19 @@ public class GuardianBedBreak
             @Override
             public void run()
             {
-                end.getWorld().spawnParticle(Particle.EXPLOSION_LARGE,end.getLocation(),1);
-                end.getWorld().playSound(end.getLocation(),Sound.ENTITY_GENERIC_EXPLODE,1,1);
-                end.getWorld().playSound(end.getLocation(),Sound.ENTITY_ELDER_GUARDIAN_DEATH,1,1);
+                end.getWorld().spawnParticle(Particle.EXPLOSION_LARGE, end.getLocation(), 1);
+                end.getWorld().playSound(end.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1, 1);
+                end.getWorld().playSound(end.getLocation(), Sound.ENTITY_ELDER_GUARDIAN_DEATH, 1, 1);
                 Guardian g = (Guardian) end.getWorld().spawnEntity(end.getLocation(), EntityType.GUARDIAN);
                 Guardian g2 = (Guardian) end.getWorld().spawnEntity(end.getLocation(), EntityType.GUARDIAN);
                 new ProjTrailHandler().bubble(g);
                 new ProjTrailHandler().bubble(g2);
-           //     g.setAware(false);
-             //   g2.setAware(false);
+                //     g.setAware(false);
+                //   g2.setAware(false);
                 g.setCollidable(false);
                 g2.setCollidable(false);
-                g.setVelocity(new Vector(2*(rand.nextDouble() - .5), 1.2, 2*(rand.nextDouble() - .5)));
-                g2.setVelocity(new Vector(2*(rand.nextDouble() - .5), 1.2, 2*(rand.nextDouble() - .5)));
+                g.setVelocity(new Vector(2 * (rand.nextDouble() - .5), 1.2, 2 * (rand.nextDouble() - .5)));
+                g2.setVelocity(new Vector(2 * (rand.nextDouble() - .5), 1.2, 2 * (rand.nextDouble() - .5)));
                 as1.remove();
                 end.remove();
                 new BukkitRunnable()
@@ -87,13 +88,13 @@ public class GuardianBedBreak
                     public void run()
                     {
 
-                        g2.damage(g2.getHealth()*2);
-                        g.damage(g.getHealth()*2);
+                        g2.damage(g2.getHealth() * 2);
+                        g.damage(g.getHealth() * 2);
 
-                        if(!g.isDead())
+                        if (!g.isDead())
                             g.remove();
 
-                        if(!g2.isDead())
+                        if (!g2.isDead())
                             g2.remove();
                     }
                 }.runTaskLater(Commands.Invictools, 35L);

@@ -23,17 +23,17 @@ public class leaderboardHologram
     public void createLeaderboard()
     {
         destroyHolos();
-        Location as = loc.clone().subtract(0,1.5,0);
+        Location as = loc.clone().subtract(0, 1.5, 0);
         List<String> leaderboard = new ArrayList<>();
-        leaderboard.add(ChatColor.WHITE+" "+ChatColor.BOLD + modifySort(me.invic.invictools.util.leaderboard.Sort) +ChatColor.AQUA+" "+ChatColor.BOLD +"Leaderboard ");
+        leaderboard.add(ChatColor.WHITE + " " + ChatColor.BOLD + modifySort(me.invic.invictools.util.leaderboard.Sort) + ChatColor.AQUA + " " + ChatColor.BOLD + "Leaderboard ");
         leaderboard.addAll(me.invic.invictools.util.leaderboard.formattedLeaderboard);
-        leaderboard.add(ChatColor.AQUA + " "+ChatColor.BOLD + "Click to Toggle ");
+        leaderboard.add(ChatColor.AQUA + " " + ChatColor.BOLD + "Click to Toggle ");
         Collections.reverse(leaderboard);
-        createStand(ChatColor.WHITE + " /it leaderboard position <name> ",as.clone().add(-2,.3,2));
-        createStand(ChatColor.WHITE + " to check other players ",as.clone().add(-2,0,2));
-        for (int i = 0; i < leaderboard.size();i++)
+        createStand(ChatColor.WHITE + " /it leaderboard position <name> ", as.clone().add(-2, .3, 2));
+        createStand(ChatColor.WHITE + " to check other players ", as.clone().add(-2, 0, 2));
+        for (int i = 0; i < leaderboard.size(); i++)
         {
-            createStand(leaderboard.get(i),as.add(0,.3,0));
+            createStand(leaderboard.get(i), as.add(0, .3, 0));
         }
     }
 
@@ -60,7 +60,7 @@ public class leaderboardHologram
         }
     }
 
-    private void createStand(String title,Location loc)
+    private void createStand(String title, Location loc)
     {
         ArmorStand as = (ArmorStand) loc.getWorld().spawnEntity(loc, EntityType.ARMOR_STAND);
         as.setGravity(false);

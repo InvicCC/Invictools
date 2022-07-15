@@ -44,13 +44,13 @@ public class LobbyLogic implements Listener
     @EventHandler
     public void LobbyStarted(BedwarsPlayerJoinEvent e)
     {
-        if(e.getGame().getConnectedPlayers().size() == 0) // 1 player idfk why
+        if (e.getGame().getConnectedPlayers().size() == 0) // 1 player idfk why
         {
             double x = e.getGame().getLobbySpawn().getX();
             double y = e.getGame().getLobbySpawn().getY();
             double z = e.getGame().getLobbySpawn().getZ();
 
-            createLobby(e.getGame().getName(),x,y,z,e.getGame().getLobbyWorld());
+            createLobby(e.getGame().getName(), x, y, z, e.getGame().getLobbyWorld());
             startTicker(e);
         }
     }
@@ -58,25 +58,25 @@ public class LobbyLogic implements Listener
     @EventHandler
     public void GameStarted(BedwarsGameStartedEvent e)
     {
-        destroyLobby(e.getGame().getName(),e.getGame().getLobbyWorld());
+        destroyLobby(e.getGame().getName(), e.getGame().getLobbyWorld());
     }
 
-    public void createLobby(String gameName ,double x, double y, double z, World gameWorld)
+    public void createLobby(String gameName, double x, double y, double z, World gameWorld)
     {
         Clipboard lobby = loadSchem(getGameLobby(gameName));
         try (EditSession editSession = WorldEdit.getInstance().newEditSession((new BukkitWorld(gameWorld))))
         {
             Operation operation = new ClipboardHolder(lobby)
                     .createPaste(editSession)
-                    .to(BlockVector3.at(x,y,z))
+                    .to(BlockVector3.at(x, y, z))
                     .build();
             Operations.complete(operation);
             Region region = lobby.getRegion();
             double xchange = lobby.getOrigin().getX() - x;
             double ychange = lobby.getOrigin().getY() - y;
             double zchange = lobby.getOrigin().getZ() - z;
-            region.shift(BlockVector3.at(-xchange,-ychange,-zchange));
-            lobbyRegion.put(gameName,region);
+            region.shift(BlockVector3.at(-xchange, -ychange, -zchange));
+            lobbyRegion.put(gameName, region);
         }
         catch (WorldEditException worldEditException)
         {
@@ -90,17 +90,20 @@ public class LobbyLogic implements Listener
         {
             Region region = lobbyRegion.get(gameName);
 
-            if(!getGameLobbyEffect(gameName).equalsIgnoreCase("none"))
+            if (!getGameLobbyEffect(gameName).equalsIgnoreCase("none"))
             {
                 Location loc = new Location(lobbyWorld, region.getCenter().getX(), region.getCenter().getY(), region.getCenter().getZ());
-                lobbyEffects.effectHandler(getGameLobbyEffect(gameName),loc);
+                lobbyEffects.effectHandler(getGameLobbyEffect(gameName), loc);
             }
 
             try (EditSession editSession = WorldEdit.getInstance().newEditSession((new BukkitWorld(lobbyWorld))))
             {
                 editSession.setBlocks(region, BlockTypes.AIR.getDefaultState());
                 lobbyRegion.remove(gameName);
-            } catch (MaxChangedBlocksException ignored) { }
+            }
+            catch (MaxChangedBlocksException ignored)
+            {
+            }
         }
     }
 
@@ -113,11 +116,11 @@ public class LobbyLogic implements Listener
             {
                 if (e.getGame().getLobbyWorld().getPlayers().size() == 0 && lobbyRegion.get(e.getGame().getName()) != null)
                 {
-                    destroyLobby(e.getGame().getName(),e.getGame().getLobbyWorld());
+                    destroyLobby(e.getGame().getName(), e.getGame().getLobbyWorld());
                     this.cancel();
                 }
             }
-        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20*10, 20*30);
+        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20 * 10, 20 * 30);
     }
 
     public String getGameLobby(String game)
@@ -148,7 +151,6 @@ public class LobbyLogic implements Listener
     }
 
     /**
-     *
      * @param world use getMapFromConfiguration if possible because multiple games may be in the same world!
      */
     public FileConfiguration getMapConfigurationFromWorld(String world)
@@ -156,11 +158,11 @@ public class LobbyLogic implements Listener
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
         File Folder = new File(plugin.getDataFolder(), "Maps");
         File[] yamlFiles = Folder.listFiles();
-        for (File file:yamlFiles)
+        for (File file : yamlFiles)
         {
             FileConfiguration map = YamlConfiguration.loadConfiguration(file);
-            if(map.getString("World") != null)
-                if(map.getString("World").equalsIgnoreCase(world))
+            if (map.getString("World") != null)
+                if (map.getString("World").equalsIgnoreCase(world))
                     return map;
         }
         System.out.println("no match");

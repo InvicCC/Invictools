@@ -18,27 +18,28 @@ import java.util.Objects;
 public class WorldBorder
 {
     Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
+
     public WorldBorder(int InitialSize, int reductionSize, int reductionTime, int center, World world, boolean useConfig)
     {
         FileConfiguration fileConfiguration = Bukkit.getPluginManager().getPlugin("Invictools").getConfig();
         List<String> blackListedWorlds = fileConfiguration.getStringList("blacklistedWorlds");
-        if(blackListedWorlds.contains(world.getName()))
+        if (blackListedWorlds.contains(world.getName()))
         {
             Commands.MasterPlayer.sendMessage(ChatColor.RED + "World Border cannot be activated in a blacklisted world");
             return;
         }
 
         FileConfiguration config = new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameOfPlayer(Commands.MasterPlayer) + ".yml");
-        if(config.getString("WorldBorder") != null && useConfig)
+        if (config.getString("WorldBorder") != null && useConfig)
         {
             String[] vars = config.getString("WorldBorder").split(";");
-            world.getWorldBorder().setCenter(new Location(world,Double.parseDouble(vars[3]),0,Double.parseDouble(vars[3])));
+            world.getWorldBorder().setCenter(new Location(world, Double.parseDouble(vars[3]), 0, Double.parseDouble(vars[3])));
             world.getWorldBorder().setSize(Double.parseDouble(vars[0]));
             world.getWorldBorder().setSize(Double.parseDouble(vars[1]), (long) Double.parseDouble(vars[2]));
         }
         else
         {
-            world.getWorldBorder().setCenter(new Location(world,center,0,center));
+            world.getWorldBorder().setCenter(new Location(world, center, 0, center));
             world.getWorldBorder().setSize(InitialSize);
             world.getWorldBorder().setSize(reductionSize, reductionTime);
         }
@@ -49,7 +50,7 @@ public class WorldBorder
             @Override
             public void run()
             {
-                if(world.getPlayers().size() == 0)
+                if (world.getPlayers().size() == 0)
                 {
                     world.getWorldBorder().setSize(5000);
                     this.cancel();

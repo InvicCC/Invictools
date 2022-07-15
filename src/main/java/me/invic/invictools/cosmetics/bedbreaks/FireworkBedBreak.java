@@ -27,16 +27,16 @@ public class FireworkBedBreak
             @Override
             public void run()
             {
-                if(i[0] == 0)
-                    spawnFireworks(loc, c, false,p);
-                else if(i[0] == 1 || i[0] == 2 || i[0] == 3)
+                if (i[0] == 0)
+                    spawnFireworks(loc, c, false, p);
+                else if (i[0] == 1 || i[0] == 2 || i[0] == 3)
                 {
-                    spawnFireworks(loc, c, true,p);
+                    spawnFireworks(loc, c, true, p);
                 }
                 else this.cancel();
                 i[0]++;
             }
-        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")),  0, 5);
+        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 5);
     }
 
     public static void spawnFireworks(Location loc, int c, boolean pos, Player p)
@@ -47,9 +47,9 @@ public class FireworkBedBreak
         int z = rand.nextInt(6);
         int t = rand.nextInt(2);
 
-        if(pos)
+        if (pos)
         {
-            if(t == 1)
+            if (t == 1)
                 loc.add(x, 4, z);
             else
                 loc.subtract(x, -4, z);
@@ -60,7 +60,7 @@ public class FireworkBedBreak
 
         fwm.setPower(0);
 
-        if(pos)
+        if (pos)
         {
             fwm.addEffect(FireworkEffect.builder().withColor(ProjTrailHandler.presColor(p)).flicker(true).trail(true).with(FireworkEffect.Type.STAR).build());
             fwm.addEffect(FireworkEffect.builder().withColor(Color.WHITE).trail(true).with(FireworkEffect.Type.STAR).flicker(true).build());
@@ -73,9 +73,9 @@ public class FireworkBedBreak
         fw.setFireworkMeta(fwm);
         fw.detonate();
 
-        if(pos)
+        if (pos)
         {
-            if(t == 1)
+            if (t == 1)
                 loc.subtract(x, 0, z);
             else
                 loc.add(x, 0, z);

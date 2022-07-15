@@ -37,7 +37,7 @@ public class LootBoc
         String table;
         List<ItemStack> loot;
 
-        switch(rand.nextInt(2))
+        switch (rand.nextInt(2))
         {
             case 0:
                 table = lootTable.get(rand.nextInt(lootTable.size()));
@@ -51,7 +51,7 @@ public class LootBoc
                 loot = new TableToList().CHESTTABLE("BASTION_BRIDGE");
         }
 
-        for (ItemStack item:loot)
+        for (ItemStack item : loot)
         {
             int amount = item.getAmount();
             switch (item.getType().toString())
@@ -74,7 +74,7 @@ public class LootBoc
                     break;
             }
             item.setAmount(amount);
-            chest.getInventory().setItem(rand.nextInt(po),item);
+            chest.getInventory().setItem(rand.nextInt(po), item);
         }
     }
 

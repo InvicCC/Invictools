@@ -12,9 +12,9 @@ public class PreventElytraClick implements Listener
     final void ClickListener(InventoryClickEvent e)
     {
         Player p = (Player) e.getWhoClicked();
-        if(Commands.ProximityElytra.get(p) != null)
-            if(Commands.ProximityElytra.get(p))
-                if(e.getSlot() == 38)
+        if (Commands.ProximityElytra.get(p) != null)
+            if (Commands.ProximityElytra.get(p))
+                if (e.getSlot() == 38)
                     e.setCancelled(true);
     }
 }

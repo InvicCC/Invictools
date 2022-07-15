@@ -31,27 +31,27 @@ public class FinalKillListener implements Listener
     @EventHandler
     public void bwdeath(BedwarsPlayerKilledEvent e)
     {
-        if((e.getKiller() != null))
+        if ((e.getKiller() != null))
         {
-            if(api.getGameOfPlayer(e.getPlayer()).getTeamOfPlayer(e.getPlayer()) == null) // team eliminated
-                logic(e.getKiller(),e.getPlayer());
-            else if(sizes.get(e.getGame().getTeamOfPlayer(e.getPlayer()).getName()) != GrabTeammates.getTeamSize(e.getPlayer())) // team size decreased
+            if (api.getGameOfPlayer(e.getPlayer()).getTeamOfPlayer(e.getPlayer()) == null) // team eliminated
+                logic(e.getKiller(), e.getPlayer());
+            else if (sizes.get(e.getGame().getTeamOfPlayer(e.getPlayer()).getName()) != GrabTeammates.getTeamSize(e.getPlayer())) // team size decreased
             {
-                sizes.put(e.getGame().getTeamOfPlayer(e.getPlayer()).getName(),GrabTeammates.getTeamSize(e.getPlayer()));
-                logic(e.getKiller(),e.getPlayer());
+                sizes.put(e.getGame().getTeamOfPlayer(e.getPlayer()).getName(), GrabTeammates.getTeamSize(e.getPlayer()));
+                logic(e.getKiller(), e.getPlayer());
             }
             else // regular kill with valid killer, hopefully
-                new NormalKillHandler().grabEffect(e.getKiller(),e.getPlayer(),e.getPlayer().getLocation());
+                new NormalKillHandler().grabEffect(e.getKiller(), e.getPlayer(), e.getPlayer().getLocation());
         }
         else
         {
-            if(api.getGameOfPlayer(e.getPlayer()).getTeamOfPlayer(e.getPlayer()) == null) // team eliminated
+            if (api.getGameOfPlayer(e.getPlayer()).getTeamOfPlayer(e.getPlayer()) == null) // team eliminated
             {
                 addFinalDeath(e.getPlayer());
             }
-            else if(sizes.get(e.getGame().getTeamOfPlayer(e.getPlayer()).getName()) != GrabTeammates.getTeamSize(e.getPlayer())) // team size decreased
+            else if (sizes.get(e.getGame().getTeamOfPlayer(e.getPlayer()).getName()) != GrabTeammates.getTeamSize(e.getPlayer())) // team size decreased
             {
-                sizes.put(e.getGame().getTeamOfPlayer(e.getPlayer()).getName(),GrabTeammates.getTeamSize(e.getPlayer()));
+                sizes.put(e.getGame().getTeamOfPlayer(e.getPlayer()).getName(), GrabTeammates.getTeamSize(e.getPlayer()));
                 addFinalDeath(e.getPlayer());
             }
         }
@@ -59,7 +59,7 @@ public class FinalKillListener implements Listener
 
     private void logic(Player k, Player p)
     {
-        new FinalKillHandler().grabEffect(k,p,p.getLocation());
+        new FinalKillHandler().grabEffect(k, p, p.getLocation());
         new FinalKillListener().addFinalKill(k);
         new FinalKillListener().addFinalDeath(p);
     }
@@ -67,17 +67,17 @@ public class FinalKillListener implements Listener
 
     private void addFinalKill(Player k)
     {
-        if(!Commands.StatsTrack || !disableStats.shouldTrack(k))
+        if (!Commands.StatsTrack || !disableStats.shouldTrack(k))
             return;
 
         File pFile = new File(Folder, k.getUniqueId() + ".yml");
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
-        if(!playerData.contains("FinalKills"))
-            playerData.set("FinalKills",1);
+        if (!playerData.contains("FinalKills"))
+            playerData.set("FinalKills", 1);
         else
         {
             int finals = playerData.getInt("FinalKills");
-            playerData.set("FinalKills",finals+1);
+            playerData.set("FinalKills", finals + 1);
         }
 
         try
@@ -92,17 +92,17 @@ public class FinalKillListener implements Listener
 
     private void addFinalDeath(Player p)
     {
-        if(!Commands.StatsTrack || !disableStats.shouldTrack(p))
+        if (!Commands.StatsTrack || !disableStats.shouldTrack(p))
             return;
 
         File pFile2 = new File(Folder, p.getUniqueId() + ".yml");
         final FileConfiguration playerData2 = YamlConfiguration.loadConfiguration(pFile2);
-        if(!playerData2.contains("FinalDeaths"))
-            playerData2.set("FinalDeaths",1);
+        if (!playerData2.contains("FinalDeaths"))
+            playerData2.set("FinalDeaths", 1);
         else
         {
             int finals = playerData2.getInt("FinalDeaths");
-            playerData2.set("FinalDeaths",finals+1);
+            playerData2.set("FinalDeaths", finals + 1);
         }
 
         try
@@ -120,9 +120,9 @@ public class FinalKillListener implements Listener
     @EventHandler
     public void bwstart(BedwarsGameStartedEvent e)
     {
-        for (Player p :e.getGame().getConnectedPlayers())
+        for (Player p : e.getGame().getConnectedPlayers())
         {
-            sizes.put(api.getGameOfPlayer(p).getTeamOfPlayer(p).getName(),GrabTeammates.getTeamSize(p));
+            sizes.put(api.getGameOfPlayer(p).getTeamOfPlayer(p).getName(), GrabTeammates.getTeamSize(p));
         }
     }
 

@@ -43,7 +43,7 @@ public class AlwaysBridge
                             if (player.isSneaking())
                                 return;
 
-                            if(api.isPlayerPlayingAnyGame(player))
+                            if (api.isPlayerPlayingAnyGame(player))
                             {
                                 if (!api.getGameOfPlayer(player).isLocationInArena(player.getLocation().getBlock().getRelative(BlockFace.DOWN).getLocation()))
                                     return;
@@ -53,14 +53,14 @@ public class AlwaysBridge
                             {
                                 player.getLocation().getBlock().getRelative(BlockFace.DOWN).setType(player.getInventory().getItem(size).getType());
                                 player.getInventory().getItem(size).setAmount(player.getInventory().getItem(size).getAmount() - 1);
-                                if(api.isPlayerPlayingAnyGame(player))
-                                api.getGameOfPlayer(player).getRegion().addBuiltDuringGame(player.getLocation().getBlock().getRelative(BlockFace.DOWN).getLocation());
+                                if (api.isPlayerPlayingAnyGame(player))
+                                    api.getGameOfPlayer(player).getRegion().addBuiltDuringGame(player.getLocation().getBlock().getRelative(BlockFace.DOWN).getLocation());
                             }
 
-                            if(isMaterialWool(player.getLocation().getBlock().getRelative(BlockFace.DOWN).getType()))
+                            if (isMaterialWool(player.getLocation().getBlock().getRelative(BlockFace.DOWN).getType()))
                             {
                                 Location loc2 = SecondBlockLocation(player, player.getLocation().getBlock().getRelative(BlockFace.DOWN).getLocation());
-                                if(loc2.getBlock().getType().equals(Material.AIR))
+                                if (loc2.getBlock().getType().equals(Material.AIR))
                                 {
                                     loc2.getBlock().setType(player.getInventory().getItem(size).getType());
                                     player.getInventory().getItem(size).setAmount(player.getInventory().getItem(size).getAmount() - 1);
@@ -69,7 +69,7 @@ public class AlwaysBridge
                                         @Override
                                         public void run()
                                         {
-                                            if(api.isPlayerPlayingAnyGame(player))
+                                            if (api.isPlayerPlayingAnyGame(player))
                                                 api.getGameOfPlayer(player).getRegion().addBuiltDuringGame(loc2);
                                         }
                                     };
@@ -108,20 +108,20 @@ public class AlwaysBridge
 
     Location SecondBlockLocation(Player player, Location loca)
     {
-        BlockFace direction = yawToFace(player.getLocation().getYaw(),false);
-        switch(direction)
+        BlockFace direction = yawToFace(player.getLocation().getYaw(), false);
+        switch (direction)
         {
             case NORTH:
-                loca.add(0,0,-1);
+                loca.add(0, 0, -1);
                 break;
             case EAST:
-                loca.add(+1,0,0);
+                loca.add(+1, 0, 0);
                 break;
             case SOUTH:
-                loca.add(0,0,+1);
+                loca.add(0, 0, +1);
                 break;
             case WEST:
-                loca.add(-1,0,0);
+                loca.add(-1, 0, 0);
                 break;
         }
         return loca;
@@ -135,6 +135,6 @@ public class AlwaysBridge
         return axis[Math.round(yaw / 90f) & 0x3].getOppositeFace();
     }
 
-    private static final BlockFace[] axis = { BlockFace.NORTH, BlockFace.EAST, BlockFace.SOUTH, BlockFace.WEST };
-    private static final BlockFace[] radial = { BlockFace.NORTH, BlockFace.NORTH_EAST, BlockFace.EAST, BlockFace.SOUTH_EAST, BlockFace.SOUTH, BlockFace.SOUTH_WEST, BlockFace.WEST, BlockFace.NORTH_WEST };
+    private static final BlockFace[] axis = {BlockFace.NORTH, BlockFace.EAST, BlockFace.SOUTH, BlockFace.WEST};
+    private static final BlockFace[] radial = {BlockFace.NORTH, BlockFace.NORTH_EAST, BlockFace.EAST, BlockFace.SOUTH_EAST, BlockFace.SOUTH, BlockFace.SOUTH_WEST, BlockFace.WEST, BlockFace.NORTH_WEST};
 }

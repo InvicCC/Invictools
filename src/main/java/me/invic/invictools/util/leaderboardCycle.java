@@ -34,21 +34,21 @@ public class leaderboardCycle implements Listener
     @EventHandler
     public void rightClick(PlayerInteractAtEntityEvent e)
     {
-        if(e.getRightClicked() instanceof ArmorStand && e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
+        if (e.getRightClicked() instanceof ArmorStand && e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
         {
             Player p = e.getPlayer();
             boolean direction = p.isSneaking();
 
-            if(p.getLocation().distance(loc) < 6)
+            if (p.getLocation().distance(loc) < 6)
             {
                 if (HoloSwapCooldown.containsKey(p))
                 {
-                    long secondsLeft = ((HoloSwapCooldown.get(p)/1000)+cooldown) - (System.currentTimeMillis()/1000);
-                    if(secondsLeft <= 0)
-                        doSwap(p,direction);
+                    long secondsLeft = ((HoloSwapCooldown.get(p) / 1000) + cooldown) - (System.currentTimeMillis() / 1000);
+                    if (secondsLeft <= 0)
+                        doSwap(p, direction);
                 }
                 else
-                    doSwap(p,direction);
+                    doSwap(p, direction);
             }
         }
     }
@@ -64,8 +64,8 @@ public class leaderboardCycle implements Listener
         File Folder = new File(Commands.Invictools.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, p.getUniqueId() + ".yml");
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
-        playerData.set("Displayname",p.getDisplayName());
-       // System.out.println(p.getDisplayName());
+        playerData.set("Displayname", p.getDisplayName());
+        // System.out.println(p.getDisplayName());
 
         try
         {
@@ -79,21 +79,21 @@ public class leaderboardCycle implements Listener
 
     private void doSwap(Player p, boolean direction)
     {
-        HoloSwapCooldown.put(p,System.currentTimeMillis());
+        HoloSwapCooldown.put(p, System.currentTimeMillis());
 
-        if(!direction)
+        if (!direction)
             ticker++;
         else
-            ticker --;
+            ticker--;
 
-        if(ticker == 11)
+        if (ticker == 11)
             ticker = 0;
 
-        if(ticker == -1)
+        if (ticker == -1)
             ticker = 10;
 
-        p.getLocation().getWorld().playSound(p.getLocation(),Sound.BLOCK_LEVER_CLICK,1,1);
-        switch(ticker)
+        p.getLocation().getWorld().playSound(p.getLocation(), Sound.BLOCK_LEVER_CLICK, 1, 1);
+        switch (ticker)
         {
             case 4:
                 new leaderboard().loadLeaderboard("destroyedBeds");

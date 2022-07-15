@@ -35,7 +35,7 @@ public class disableSpectatorTeleport implements Listener
         if (event.isCancelled())
             return;
  */
-        if(!event.getTo().getWorld().equals(event.getFrom().getWorld()) && event.getCause().equals(PlayerTeleportEvent.TeleportCause.SPECTATE))
+        if (!event.getTo().getWorld().equals(event.getFrom().getWorld()) && event.getCause().equals(PlayerTeleportEvent.TeleportCause.SPECTATE))
         {
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 240, 0, false, false));
             event.setCancelled(true);

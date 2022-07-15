@@ -37,11 +37,11 @@ public class deathListener implements Listener
             Location loc = player.getLocation();
 
             ItemStack lb = new createLuckyBlocks().getRandomBlockWeighted();
-            player.playSound(loc,Sound.ENTITY_CHICKEN_EGG,1,1);
+            player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
             player.getWorld().dropItemNaturally(loc, lb);
         }
 
-        if(Commands.Hauntable.containsKey(e.getPlayer()))
+        if (Commands.Hauntable.containsKey(e.getPlayer()))
         {
             BukkitRunnable runnable = new BukkitRunnable()
             {
@@ -52,7 +52,7 @@ public class deathListener implements Listener
                         new Haunt(e.getPlayer(), Commands.HauntConfig);
                 }
             };
-            runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10L*20L);
+            runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10L * 20L);
         }
     }
 
@@ -101,46 +101,46 @@ public class deathListener implements Listener
         ItemListener.Falling.clear();
         Commands.killEffects.clear();
         OlympusFires.resetFires();
-     //   SculkFires.resetFires(); hanlded in class
+        //   SculkFires.resetFires(); hanlded in class
         Commands.killItems.clear();
         Commands.Hauntable.clear();
         Commands.ProximityElytra.clear();
         Commands.noShop.clear();
         giveItemRepeated.repeatedCancel = false;
 
-        for (Entity e:world.getEntitiesByClass(Warden.class))
+        for (Entity e : world.getEntitiesByClass(Warden.class))
         {
             e.remove();
         }
-        for (Entity e:world.getEntitiesByClass(Allay.class))
+        for (Entity e : world.getEntitiesByClass(Allay.class))
         {
             e.remove();
         }
-        for (Entity e:world.getEntitiesByClass(ArmorStand.class))
+        for (Entity e : world.getEntitiesByClass(ArmorStand.class))
         {
-           // if(!e.hasMetadata("holo"))
+            // if(!e.hasMetadata("holo"))
             e.remove();
         }
-        for (Entity e:world.getEntitiesByClass(EnderDragon.class))
-        {
-            e.remove();
-        }
-        for (Entity e:world.getEntitiesByClass(SkeletonHorse.class))
+        for (Entity e : world.getEntitiesByClass(EnderDragon.class))
         {
             e.remove();
         }
-        for (Entity e:Bukkit.getWorld("bwlobby").getEntitiesByClass(Illusioner.class))
+        for (Entity e : world.getEntitiesByClass(SkeletonHorse.class))
         {
             e.remove();
         }
-        for (Entity e:Bukkit.getWorld("bwlobby").getEntitiesByClass(ArmorStand.class))
+        for (Entity e : Bukkit.getWorld("bwlobby").getEntitiesByClass(Illusioner.class))
+        {
+            e.remove();
+        }
+        for (Entity e : Bukkit.getWorld("bwlobby").getEntitiesByClass(ArmorStand.class))
         {
             e.remove();
         }
 
 
-        new BlazeNpc().spawnNPC("npc",true);
-        new BlazeNpc().spawnNPC("npc2",false);
+        new BlazeNpc().spawnNPC("npc", true);
+        new BlazeNpc().spawnNPC("npc2", false);
         new leaderboard().loadLeaderboard("Star");
         new leaderboardHologram().createLeaderboard();
 
@@ -149,7 +149,7 @@ public class deathListener implements Listener
             @Override
             public void run()
             {
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"nte reload");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "nte reload");
             }
         };
         runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1L);
@@ -159,8 +159,8 @@ public class deathListener implements Listener
     public void CancelFallDamage(EntityDamageEvent e)
     {
         if (e.getCause() == EntityDamageEvent.DamageCause.FALL)
-                if(ItemListener.Falling.contains(e.getEntity()))
-                    e.setCancelled(true);
+            if (ItemListener.Falling.contains(e.getEntity()))
+                e.setCancelled(true);
     }
 
     public static List<Block> coalBlocks = new ArrayList<>();

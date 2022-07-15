@@ -20,7 +20,7 @@ public class Haunt
     {
         player.setGameMode(GameMode.CREATIVE);
         player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 999999999, 0, false, false));
-        player.getInventory().setItem(39,new ItemStack(Material.DRAGON_EGG));
+        player.getInventory().setItem(39, new ItemStack(Material.DRAGON_EGG));
 
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
         File Folder = new File(plugin.getDataFolder(), "Haunt");
@@ -28,9 +28,9 @@ public class Haunt
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
         List<String> commands = balls.getStringList("haunts");
 
-        for (String string:commands)
+        for (String string : commands)
         {
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), string+player.getName());
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), string + player.getName());
         }
     }
 }

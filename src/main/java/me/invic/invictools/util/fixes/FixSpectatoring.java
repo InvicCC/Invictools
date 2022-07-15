@@ -26,23 +26,24 @@ public class FixSpectatoring implements Listener
         FileConfiguration Config = plugin.getConfig();
         List<String> blacklisted = Config.getStringList("blacklistedWorlds");
 
-        if(!blacklisted.contains(world))
+        if (!blacklisted.contains(world))
         {
             new BukkitRunnable()
             {
                 int i = 0;
+
                 @Override
                 public void run()
                 {
-                    if(p.getGameMode() != GameMode.SPECTATOR)
+                    if (p.getGameMode() != GameMode.SPECTATOR)
                         p.setGameMode(GameMode.SPECTATOR);
 
-                    if(i >= 4*20 || p.getGameMode() == GameMode.SPECTATOR)
+                    if (i >= 4 * 20 || p.getGameMode() == GameMode.SPECTATOR)
                         this.cancel();
 
                     i++;
                 }
-            }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")),  0, 1);
+            }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 1);
         }
     }
 }

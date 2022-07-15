@@ -18,14 +18,14 @@ public class Totem implements Listener
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerDamage(EntityDamageEvent e)
     {
-        if(e.getEntity() instanceof Player)
+        if (e.getEntity() instanceof Player)
         {
             Player player = (Player) e.getEntity();
 
             if (Commands.InfiniteTotems.get(player) == null)
                 return;
 
-            if(e.isCancelled())
+            if (e.isCancelled())
                 return;
 
             if (Commands.InfiniteTotems.get(player))
@@ -33,9 +33,9 @@ public class Totem implements Listener
                 double Health = player.getHealth();
                 double Damage = e.getFinalDamage();
 
-                if(Damage>=Health)
+                if (Damage >= Health)
                 {
-                    if(player.getInventory().getItem(40) != null)
+                    if (player.getInventory().getItem(40) != null)
                     {
                         ItemStack offhand = player.getInventory().getItem(40);
                         BukkitRunnable runnable = new BukkitRunnable()
@@ -43,7 +43,7 @@ public class Totem implements Listener
                             @Override
                             public void run()
                             {
-                                player.getInventory().setItem(40,offhand);
+                                player.getInventory().setItem(40, offhand);
                             }
                         };
                         runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1L);
@@ -60,7 +60,7 @@ public class Totem implements Listener
                         };
                         runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1L);
                     }
-                    player.getInventory().setItem(40,new ItemStack(Material.TOTEM_OF_UNDYING));
+                    player.getInventory().setItem(40, new ItemStack(Material.TOTEM_OF_UNDYING));
                 }
             }
         }

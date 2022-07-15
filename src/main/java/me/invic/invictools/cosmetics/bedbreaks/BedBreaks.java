@@ -23,7 +23,7 @@ public class BedBreaks implements Listener
     {
         String bed = e.getBlock().getType().toString();
 
-        if(e.getBlock().getType().equals(Material.BLUE_BED)
+        if (e.getBlock().getType().equals(Material.BLUE_BED)
                 || e.getBlock().getType().equals(Material.GRAY_BED)
                 || e.getBlock().getType().equals(Material.RED_BED)
                 || e.getBlock().getType().equals(Material.LIGHT_BLUE_BED)
@@ -63,52 +63,52 @@ public class BedBreaks implements Listener
                                 }
                             }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 1L);
                         }
-                        handle(loc,player,bed,true,"ingame");
+                        handle(loc, player, bed, true, "ingame");
                     }
                     this.cancel();
                 }
             };
-            runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")),  1);
+            runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1);
         }
     }
 
-    public void handle(Location loc, Player player,String bed,boolean real,String override)
+    public void handle(Location loc, Player player, String bed, boolean real, String override)
     {
-                    Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
-                    //  File pFile = new File(plugin.getDataFolder().getPath() + "\\PlayerData" + File.separator + player.getUniqueId() + ".yml");
-                    File Folder = new File(plugin.getDataFolder(), "PlayerData");
-                    File pFile = new File(Folder, player.getUniqueId() + ".yml");
-                    final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
-                    String bedBreak = playerData.getString("BedBreak");
-                    if(!override.equals("ingame"))
-                        bedBreak = override;
+        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
+        //  File pFile = new File(plugin.getDataFolder().getPath() + "\\PlayerData" + File.separator + player.getUniqueId() + ".yml");
+        File Folder = new File(plugin.getDataFolder(), "PlayerData");
+        File pFile = new File(Folder, player.getUniqueId() + ".yml");
+        final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
+        String bedBreak = playerData.getString("BedBreak");
+        if (!override.equals("ingame"))
+            bedBreak = override;
 
-                    switch (bedBreak)
-                    {
-                        case "Lightning":
-                            new LightningBedBreak(loc);
-                            break;
-                        case "Fireworks":
-                            new FireworkBedBreak(loc,player);
-                            break;
-                        case "Ranked":
-                            new RankedBedBreak(loc);
-                            break;
-                        case "Tornado":
-                            new TornadoBedBreak(loc);
-                            break;
-                        case "Enderman":
-                            new EndermanBedBreak(loc,bed,real);
-                            break;
-                        case "Holo":
-                            new HoloBedBreak(loc, player, bed, real);
-                            break;
-                        case "Guardian":
-                            new GuardianBedBreak(loc);
-                            break;
-                        default:
-                            new FireworkBedBreak(loc,player);
-                    }
+        switch (bedBreak)
+        {
+            case "Lightning":
+                new LightningBedBreak(loc);
+                break;
+            case "Fireworks":
+                new FireworkBedBreak(loc, player);
+                break;
+            case "Ranked":
+                new RankedBedBreak(loc);
+                break;
+            case "Tornado":
+                new TornadoBedBreak(loc);
+                break;
+            case "Enderman":
+                new EndermanBedBreak(loc, bed, real);
+                break;
+            case "Holo":
+                new HoloBedBreak(loc, player, bed, real);
+                break;
+            case "Guardian":
+                new GuardianBedBreak(loc);
+                break;
+            default:
+                new FireworkBedBreak(loc, player);
+        }
     }
 
 }

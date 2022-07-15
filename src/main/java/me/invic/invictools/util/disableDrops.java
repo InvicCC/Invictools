@@ -17,23 +17,23 @@ public class disableDrops implements Listener
     @EventHandler
     public void DropListener(PlayerDropItemEvent e)
     {
-      //  System.out.println("hey");
-        if(!forbidDrop.containsKey(e.getPlayer()))
+        //  System.out.println("hey");
+        if (!forbidDrop.containsKey(e.getPlayer()))
             return;
 
-       // System.out.println("check");
-        if(e.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase(forbidDrop.get(e.getPlayer())))
+        // System.out.println("check");
+        if (e.getItemDrop().getItemStack().getItemMeta().getDisplayName().equalsIgnoreCase(forbidDrop.get(e.getPlayer())))
         {
             e.setCancelled(true);
         }
 
-        if(e.getItemDrop().getItemStack().getItemMeta().getLore() == null)
+        if (e.getItemDrop().getItemStack().getItemMeta().getLore() == null)
             return;
 
         ItemStack i = new createItems().MODBOW();
-        if(forbidDrop.get(e.getPlayer()).equalsIgnoreCase(i.getItemMeta().getDisplayName()))
+        if (forbidDrop.get(e.getPlayer()).equalsIgnoreCase(i.getItemMeta().getDisplayName()))
         {
-            if(e.getItemDrop().getItemStack().getItemMeta().getLore().get(0).equalsIgnoreCase("§7Multi-purposed Ranged Weapon"))
+            if (e.getItemDrop().getItemStack().getItemMeta().getLore().get(0).equalsIgnoreCase("§7Multi-purposed Ranged Weapon"))
                 e.setCancelled(true);
         }
     }

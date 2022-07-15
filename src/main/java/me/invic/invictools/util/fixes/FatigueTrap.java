@@ -13,17 +13,19 @@ public class FatigueTrap implements Listener
     @EventHandler
     public void FatigueTrap(EntityPotionEffectEvent e)
     {
-        if(e.getEntity().getType() != EntityType.PLAYER)
+        if (e.getEntity().getType() != EntityType.PLAYER)
             return;
 
         try
         {
-            if(e.getNewEffect().getType().equals(PotionEffectType.BLINDNESS))
+            if (e.getNewEffect().getType().equals(PotionEffectType.BLINDNESS))
             {
                 Player player = (Player) e.getEntity();
-                player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 20*7, 0, false, true));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 20 * 7, 0, false, true));
             }
         }
-        catch(NullPointerException ignored){}
+        catch (NullPointerException ignored)
+        {
+        }
     }
 }

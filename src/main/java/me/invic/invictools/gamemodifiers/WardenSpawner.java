@@ -16,7 +16,7 @@ public class WardenSpawner
 {
     public void setShrieker(Location loc)
     {
-        if(loc.getBlock().getType().equals(Material.AIR))
+        if (loc.getBlock().getType().equals(Material.AIR))
         {
             loc.getBlock().setType(Material.SCULK_SHRIEKER);
             SculkShrieker sculk = (SculkShrieker) loc.getBlock().getBlockData();
@@ -27,7 +27,7 @@ public class WardenSpawner
 
     public void setAir(Location loc)
     {
-        if(loc.getBlock().getType().equals(Material.SCULK_SHRIEKER))
+        if (loc.getBlock().getType().equals(Material.SCULK_SHRIEKER))
         {
             loc.getBlock().setType(Material.AIR);
             loc.getBlock().setBlockData(loc.getBlock().getBlockData());
@@ -37,9 +37,9 @@ public class WardenSpawner
     public void shriekerFromPlayer(Player player, boolean toggle)
     {
         final FileConfiguration pluginConfig = new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameOfPlayer(player).getName());
-        for (String s:pluginConfig.getStringList("Shrieker"))
+        for (String s : pluginConfig.getStringList("Shrieker"))
         {
-            if(!toggle)
+            if (!toggle)
                 setShrieker(locationFromConfig(s));
             else
                 setAir(locationFromConfig(s));
@@ -49,15 +49,15 @@ public class WardenSpawner
     public Location locationFromConfig(String s)
     {
         String[] array = s.split(";");
-        return new Location(Bukkit.getWorld(array[0]), Double.parseDouble(array[1]), Double.parseDouble(array[2]), Double.parseDouble(array[3]),Float.parseFloat(array[4]),Float.parseFloat(array[5]));
+        return new Location(Bukkit.getWorld(array[0]), Double.parseDouble(array[1]), Double.parseDouble(array[2]), Double.parseDouble(array[3]), Float.parseFloat(array[4]), Float.parseFloat(array[5]));
     }
 
     public void ShriekerFromWorld(World world, boolean toggle)
     {
         final FileConfiguration pluginConfig = new LobbyLogic().getMapConfigurationFromWorld(world.getName());
-        for (String s:pluginConfig.getStringList("Shrieker"))
+        for (String s : pluginConfig.getStringList("Shrieker"))
         {
-            if(!toggle)
+            if (!toggle)
                 setShrieker(locationFromConfig(s));
             else
                 setAir(locationFromConfig(s));

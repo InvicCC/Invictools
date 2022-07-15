@@ -25,7 +25,7 @@ public class leaderboard
     public static HashMap<OfflinePlayer, Double> leaderboard = new HashMap<>();
     public static HashMap<OfflinePlayer, Integer> Placement = new HashMap<>();
     public static List<String> formattedLeaderboard = new ArrayList<>();
-    public static int leaderboardTotal=0;
+    public static int leaderboardTotal = 0;
     public static String Sort;
 
     private static final DecimalFormat df = new DecimalFormat("0.00");
@@ -34,8 +34,8 @@ public class leaderboard
 
     public void loadLeaderboard(String sort)
     {
-        lbsize = pluginConfig.getInt("Leaderboard.Size",10);
-        gamesBeforeLeaderboard = pluginConfig.getInt("Leaderboard.MinGames",5);
+        lbsize = pluginConfig.getInt("Leaderboard.Size", 10);
+        gamesBeforeLeaderboard = pluginConfig.getInt("Leaderboard.MinGames", 5);
 
         Sort = sort;
         formattedLeaderboard.clear();
@@ -44,10 +44,10 @@ public class leaderboard
         leaderboard.clear();
         File Folder2 = new File(Commands.Invictools.getDataFolder(), "PlayerData");
         File[] yamlFiles = Folder2.listFiles();
-        for (File file:yamlFiles)
+        for (File file : yamlFiles)
         {
             String[] id = file.getName().split("\\.");
-            if(!Bukkit.getOfflinePlayer(UUID.fromString(id[0])).getName().equalsIgnoreCase("Tower")
+            if (!Bukkit.getOfflinePlayer(UUID.fromString(id[0])).getName().equalsIgnoreCase("Tower")
                     && !Bukkit.getOfflinePlayer(UUID.fromString(id[0])).getName().equalsIgnoreCase("Unchargeableness")
                     && !Bukkit.getOfflinePlayer(UUID.fromString(id[0])).getName().equalsIgnoreCase("Chargeable")
                     && !Bukkit.getOfflinePlayer(UUID.fromString(id[0])).getName().equalsIgnoreCase("mayberry15"))
@@ -58,7 +58,8 @@ public class leaderboard
                     {
                         leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), data.getDouble("data." + id[0] + ".score"));
                     }
-                } else if (sort.equalsIgnoreCase("kdr"))
+                }
+                else if (sort.equalsIgnoreCase("kdr"))
                 {
                     if (data.getInt("data." + id[0] + ".loses") + data.getInt("data." + id[0] + ".wins") >= gamesBeforeLeaderboard)
                     {
@@ -67,7 +68,8 @@ public class leaderboard
                         else
                             leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), data.getDouble("data." + id[0] + ".kills"));
                     }
-                } else if (sort.equalsIgnoreCase("wl"))
+                }
+                else if (sort.equalsIgnoreCase("wl"))
                 {
                     if (data.getInt("data." + id[0] + ".loses") + data.getInt("data." + id[0] + ".wins") >= gamesBeforeLeaderboard)
                     {
@@ -76,7 +78,8 @@ public class leaderboard
                         else
                             leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), data.getDouble("data." + id[0] + ".wins"));
                     }
-                } else if (sort.equalsIgnoreCase("fkdr"))
+                }
+                else if (sort.equalsIgnoreCase("fkdr"))
                 {
                     if (data.getInt("data." + id[0] + ".loses") + data.getInt("data." + id[0] + ".wins") >= gamesBeforeLeaderboard)
                     {
@@ -91,7 +94,8 @@ public class leaderboard
                 {
                     FileConfiguration temp = YamlConfiguration.loadConfiguration(file);
                     leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), temp.getDouble("FinalKills"));
-                }else
+                }
+                else
                 {
                     if (data.getInt("data." + id[0] + "." + sort) > 0)
                     {
@@ -102,7 +106,7 @@ public class leaderboard
             }
         }
 
-        List<Map.Entry<OfflinePlayer, Double> > list
+        List<Map.Entry<OfflinePlayer, Double>> list
                 = new LinkedList<>(
                 leaderboard.entrySet());
 
@@ -110,17 +114,18 @@ public class leaderboard
         Collections.reverse(list);
 
         HashMap<OfflinePlayer, Double> temp = new LinkedHashMap<>();
-        for (Map.Entry<OfflinePlayer, Double> aa : list) {
+        for (Map.Entry<OfflinePlayer, Double> aa : list)
+        {
             temp.put(aa.getKey(), aa.getValue());
         }
 
         leaderboard = temp;
 
-        if(sort.equalsIgnoreCase("star"))
+        if (sort.equalsIgnoreCase("star"))
         {
-            for (OfflinePlayer player:leaderboard.keySet())
+            for (OfflinePlayer player : leaderboard.keySet())
             {
-                leaderboard.replace(player,leaderboard.get(player), (double) starLevel((int) Math.round(leaderboard.get(player))));
+                leaderboard.replace(player, leaderboard.get(player), (double) starLevel((int) Math.round(leaderboard.get(player))));
             }
         }
 /*
@@ -136,16 +141,16 @@ public class leaderboard
 
     public int starLevel(int score)
     {
-        return score/500+1;
+        return score / 500 + 1;
     }
 
     public void makeLeaderboardText(int size)
     {
         int i = 0;
-        for (OfflinePlayer player:leaderboard.keySet())
+        for (OfflinePlayer player : leaderboard.keySet())
         {
-            Placement.put(player,i+1);
-            if(i<size)
+            Placement.put(player, i + 1);
+            if (i < size)
             {
                 String playername = safeDisplayName(player);
                 if (leaderboard.get(player) == null)
@@ -153,19 +158,19 @@ public class leaderboard
                     String s = ChatColor.translateAlternateColorCodes('&', " &b&lUNRANKED &f" + playername + "&b - ");
                     formattedLeaderboard.add(s);
                 }
-                else if(Sort.equalsIgnoreCase("star"))
+                else if (Sort.equalsIgnoreCase("star"))
                 {
-                    String s = ChatColor.translateAlternateColorCodes('&'," &b&l"+ (i + 1) +". &f"+playername+"&b - "+ presColor((int)Math.round(leaderboard.get(player)))+ (int)Math.round(leaderboard.get(player))+"✰ ");
+                    String s = ChatColor.translateAlternateColorCodes('&', " &b&l" + (i + 1) + ". &f" + playername + "&b - " + presColor((int) Math.round(leaderboard.get(player))) + (int) Math.round(leaderboard.get(player)) + "✰ ");
                     formattedLeaderboard.add(s);
                 }
-                else if(Sort.equalsIgnoreCase("fkdr") || Sort.equalsIgnoreCase("wl")|| Sort.equalsIgnoreCase("kdr"))
+                else if (Sort.equalsIgnoreCase("fkdr") || Sort.equalsIgnoreCase("wl") || Sort.equalsIgnoreCase("kdr"))
                 {
-                    String s = ChatColor.translateAlternateColorCodes('&'," &b&l"+ (i + 1) +". &f"+playername+"&b - &f"+(df.format(leaderboard.get(player))));
+                    String s = ChatColor.translateAlternateColorCodes('&', " &b&l" + (i + 1) + ". &f" + playername + "&b - &f" + (df.format(leaderboard.get(player))));
                     formattedLeaderboard.add(s);
                 }
                 else
                 {
-                    String s = ChatColor.translateAlternateColorCodes('&'," &b&l"+ (i + 1) +". &f"+playername+"&b - &f"+((int)Math.round(leaderboard.get(player)))+ " ");
+                    String s = ChatColor.translateAlternateColorCodes('&', " &b&l" + (i + 1) + ". &f" + playername + "&b - &f" + ((int) Math.round(leaderboard.get(player))) + " ");
                     formattedLeaderboard.add(s);
                 }
             }
@@ -175,24 +180,24 @@ public class leaderboard
 
     public void givePosition(OfflinePlayer finded, Player p)
     {
-        if(leaderboard.get(finded) == null)
+        if (leaderboard.get(finded) == null)
         {
-            p.sendMessage(ChatColor.AQUA+""+ChatColor.BOLD + finded.getName()+ChatColor.WHITE +" is unranked");
+            p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + finded.getName() + ChatColor.WHITE + " is unranked");
         }
-        else if(Sort.equalsIgnoreCase("fkdr") || Sort.equalsIgnoreCase("wl")|| Sort.equalsIgnoreCase("kdr"))
-            p.sendMessage(ChatColor.AQUA+""+ChatColor.BOLD + finded.getName()+ChatColor.WHITE +" is number" +ChatColor.AQUA+" "+ChatColor.BOLD +Placement.get(finded) + ChatColor.WHITE + " out of"+ChatColor.AQUA+" "+ChatColor.BOLD +leaderboardTotal+ ChatColor.WHITE +" with"+ChatColor.AQUA+" "+ChatColor.BOLD + df.format(leaderboard.get(finded)));
-        else if(Sort.equalsIgnoreCase("star"))
-            p.sendMessage(ChatColor.AQUA+""+ChatColor.BOLD + finded.getName()+ChatColor.WHITE +" is number" +ChatColor.AQUA+" "+ChatColor.BOLD +Placement.get(finded) + ChatColor.WHITE + " out of"+ChatColor.AQUA+" "+ChatColor.BOLD +leaderboardTotal+ ChatColor.WHITE +" with "+presColor((int)Math.round(leaderboard.get(finded)))+ (int)Math.round(leaderboard.get(finded)));
+        else if (Sort.equalsIgnoreCase("fkdr") || Sort.equalsIgnoreCase("wl") || Sort.equalsIgnoreCase("kdr"))
+            p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + finded.getName() + ChatColor.WHITE + " is number" + ChatColor.AQUA + " " + ChatColor.BOLD + Placement.get(finded) + ChatColor.WHITE + " out of" + ChatColor.AQUA + " " + ChatColor.BOLD + leaderboardTotal + ChatColor.WHITE + " with" + ChatColor.AQUA + " " + ChatColor.BOLD + df.format(leaderboard.get(finded)));
+        else if (Sort.equalsIgnoreCase("star"))
+            p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + finded.getName() + ChatColor.WHITE + " is number" + ChatColor.AQUA + " " + ChatColor.BOLD + Placement.get(finded) + ChatColor.WHITE + " out of" + ChatColor.AQUA + " " + ChatColor.BOLD + leaderboardTotal + ChatColor.WHITE + " with " + presColor((int) Math.round(leaderboard.get(finded))) + (int) Math.round(leaderboard.get(finded)));
         else
-            p.sendMessage(ChatColor.AQUA+""+ChatColor.BOLD + finded.getName()+ChatColor.WHITE +" is number" +ChatColor.AQUA+" "+ChatColor.BOLD +Placement.get(finded) + ChatColor.WHITE + " out of"+ChatColor.AQUA+" "+ChatColor.BOLD +leaderboardTotal+ ChatColor.WHITE +" with"+ChatColor.AQUA+" "+ChatColor.BOLD + (int)Math.round(leaderboard.get(finded)));
+            p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + finded.getName() + ChatColor.WHITE + " is number" + ChatColor.AQUA + " " + ChatColor.BOLD + Placement.get(finded) + ChatColor.WHITE + " out of" + ChatColor.AQUA + " " + ChatColor.BOLD + leaderboardTotal + ChatColor.WHITE + " with" + ChatColor.AQUA + " " + ChatColor.BOLD + (int) Math.round(leaderboard.get(finded)));
     }
 
     public void printFormattedLeaderboard(Player p)
     {
         p.sendMessage(" ");
-        p.sendMessage(ChatColor.BOLD + "" + ChatColor.WHITE + new leaderboardHologram().modifySort(Sort) +ChatColor.AQUA+" "+ChatColor.BOLD + "Leaderboard:");
+        p.sendMessage(ChatColor.BOLD + "" + ChatColor.WHITE + new leaderboardHologram().modifySort(Sort) + ChatColor.AQUA + " " + ChatColor.BOLD + "Leaderboard:");
         formattedLeaderboard.forEach(p::sendMessage);
-        p.sendMessage(ChatColor.WHITE+" You are number" + ChatColor.AQUA+" "+ChatColor.BOLD + Placement.get(p) + ChatColor.WHITE +" out of" +ChatColor.AQUA+" "+ChatColor.BOLD +leaderboardTotal);
+        p.sendMessage(ChatColor.WHITE + " You are number" + ChatColor.AQUA + " " + ChatColor.BOLD + Placement.get(p) + ChatColor.WHITE + " out of" + ChatColor.AQUA + " " + ChatColor.BOLD + leaderboardTotal);
         p.sendMessage(ChatColor.WHITE + " /it leaderboard position <name> to check other players ");
     }
 
@@ -200,11 +205,11 @@ public class leaderboard
     {
         File Folder2 = new File(Commands.Invictools.getDataFolder(), "PlayerData");
         File pFile = new File(Folder2, p.getUniqueId() + ".yml");
-     //   System.out.println(p.getUniqueId() + ".yml");
+        //   System.out.println(p.getUniqueId() + ".yml");
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
         String s;
 
-        if(Bukkit.getPlayer(p.getUniqueId())!=null)
+        if (Bukkit.getPlayer(p.getUniqueId()) != null)
         {
             Player online = Bukkit.getPlayer(p.getUniqueId());
             new leaderboardCycle().saveDisplayName(online);
@@ -213,7 +218,7 @@ public class leaderboard
         else
         {
             Object o = playerData.get("Displayname");
-        //    System.out.println(o);
+            //    System.out.println(o);
             try
             {
                 s = o.toString();
@@ -230,57 +235,57 @@ public class leaderboard
     {
         File pFile = new File(Folder, "bw_stats_players.yml");
         final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
-        int intlvl = (data.getInt("data."+p.getUniqueId()+".score")/500)+1;
+        int intlvl = (data.getInt("data." + p.getUniqueId() + ".score") / 500) + 1;
 
-            if(intlvl >= 0 && intlvl <= 9)
-                return ChatColor.GRAY;
-            else if(intlvl >= 10 && intlvl <= 19)
-                return ChatColor.WHITE;
-            else if(intlvl >= 20 && intlvl <= 29)
-                return ChatColor.GOLD;
-            else if(intlvl >= 30 && intlvl <= 39)
-                return ChatColor.YELLOW;
-            else if(intlvl >= 40 && intlvl <= 49)
-                return ChatColor.DARK_GREEN;
-            else if(intlvl >= 50 && intlvl <= 59)
-                return ChatColor.DARK_AQUA;
-            else if(intlvl >= 60 && intlvl <= 69)
-                return ChatColor.RED;
-            else if(intlvl >= 70 && intlvl <= 79)
-                return ChatColor.LIGHT_PURPLE;
-            else if(intlvl >= 80 && intlvl <= 89)
-                return ChatColor.BLUE;
-            else if(intlvl >= 90 && intlvl <= 99)
-                return ChatColor.DARK_PURPLE;
-            else if(intlvl >=100)
-                return ChatColor.AQUA;
+        if (intlvl >= 0 && intlvl <= 9)
+            return ChatColor.GRAY;
+        else if (intlvl >= 10 && intlvl <= 19)
+            return ChatColor.WHITE;
+        else if (intlvl >= 20 && intlvl <= 29)
+            return ChatColor.GOLD;
+        else if (intlvl >= 30 && intlvl <= 39)
+            return ChatColor.YELLOW;
+        else if (intlvl >= 40 && intlvl <= 49)
+            return ChatColor.DARK_GREEN;
+        else if (intlvl >= 50 && intlvl <= 59)
+            return ChatColor.DARK_AQUA;
+        else if (intlvl >= 60 && intlvl <= 69)
+            return ChatColor.RED;
+        else if (intlvl >= 70 && intlvl <= 79)
+            return ChatColor.LIGHT_PURPLE;
+        else if (intlvl >= 80 && intlvl <= 89)
+            return ChatColor.BLUE;
+        else if (intlvl >= 90 && intlvl <= 99)
+            return ChatColor.DARK_PURPLE;
+        else if (intlvl >= 100)
+            return ChatColor.AQUA;
 
         return ChatColor.GRAY;
     }
 
     public ChatColor presColor(int intlvl)
     {
-        if(intlvl >= 0 && intlvl <= 9)
+        if (intlvl >= 0 && intlvl <= 9)
             return ChatColor.GRAY;
-        else if(intlvl >= 10 && intlvl <= 19)
+        else if (intlvl >= 10 && intlvl <= 19)
             return ChatColor.WHITE;
-        else if(intlvl >= 20 && intlvl <= 29)
+        else if (intlvl >= 20 && intlvl <= 29)
             return ChatColor.GOLD;
-        else if(intlvl >= 30 && intlvl <= 39)
+        else if (intlvl >= 30 && intlvl <= 39)
             return ChatColor.YELLOW;
-        else if(intlvl >= 40 && intlvl <= 49)
+        else if (intlvl >= 40 && intlvl <= 49)
             return ChatColor.DARK_GREEN;
-        else if(intlvl >= 50 && intlvl <= 59)
+        else if (intlvl >= 50 && intlvl <= 59)
             return ChatColor.DARK_AQUA;
-        else if(intlvl >= 60 && intlvl <= 69)
+        else if (intlvl >= 60 && intlvl <= 69)
             return ChatColor.RED;
-        else if(intlvl >= 70 && intlvl <= 79)
+        else if (intlvl >= 70 && intlvl <= 79)
             return ChatColor.LIGHT_PURPLE;
-        else if(intlvl >= 80 && intlvl <= 89)
+        else if (intlvl >= 80 && intlvl <= 89)
             return ChatColor.BLUE;
-        else if(intlvl >= 90 && intlvl <= 99)
+        else if (intlvl >= 90 && intlvl <= 99)
             return ChatColor.DARK_PURPLE;
-        else if(intlvl >=100)
+        else if (intlvl >= 100)
             return ChatColor.AQUA;
 
         return ChatColor.GRAY;

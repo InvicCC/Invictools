@@ -14,7 +14,7 @@ public class GrabTeammates
 {
     public GrabTeammates(Player p)
     {
-        for(Player player : Bukkit.getOnlinePlayers())
+        for (Player player : Bukkit.getOnlinePlayers())
         {
             List<Player> team = getTeammates(player);
             /*
@@ -33,8 +33,8 @@ public class GrabTeammates
                 Commands.teammates.put(player,team);
             }
             */
-            if(team.get(0) != null)
-                Commands.teammates.put(player,team.get(0));
+            if (team.get(0) != null)
+                Commands.teammates.put(player, team.get(0));
         }
         p.sendMessage(ChatColor.AQUA + "Teammates assigned");
     }
@@ -46,7 +46,7 @@ public class GrabTeammates
         if (!api.isPlayerPlayingAnyGame(p1) || !api.isPlayerPlayingAnyGame(p2))
             return false;
 
-        if(p1.equals(p2))
+        if (p1.equals(p2))
             return false;
 
         return api.getGameOfPlayer(p1).getTeamOfPlayer(p2) == api.getGameOfPlayer(p1).getTeamOfPlayer(p1);
@@ -72,13 +72,13 @@ public class GrabTeammates
         List<Player> l = new ArrayList<>();
         Game game = api.getGameOfPlayer(p1);
 
-        for (Player p2:Bukkit.getOnlinePlayers())
+        for (Player p2 : Bukkit.getOnlinePlayers())
         {
             if (api.isPlayerPlayingAnyGame(p2))
             {
-                if(api.getGameOfPlayer(p2).equals(game))
+                if (api.getGameOfPlayer(p2).equals(game))
                 {
-                    if(api.getGameOfPlayer(p1).getTeamOfPlayer(p2) == api.getGameOfPlayer(p1).getTeamOfPlayer(p1) && !p1.equals(p2))
+                    if (api.getGameOfPlayer(p1).getTeamOfPlayer(p2) == api.getGameOfPlayer(p1).getTeamOfPlayer(p1) && !p1.equals(p2))
                         l.add(p2);
                 }
             }
