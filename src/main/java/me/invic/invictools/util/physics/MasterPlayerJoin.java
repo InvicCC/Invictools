@@ -1,7 +1,6 @@
 package me.invic.invictools.util.physics;
 
 import me.invic.invictools.Commands;
-import me.invic.invictools.Invictools;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
@@ -35,7 +34,7 @@ public class MasterPlayerJoin implements Listener
     @EventHandler
     public void Join(PlayerJoinEvent e)
     {
-        Plugin plugin = new Invictools();
+        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
         final FileConfiguration config = plugin.getConfig();
         String masterplayer = config.getString("masterplayer");
         Commands.MasterPlayer = Bukkit.getPlayer(masterplayer);
