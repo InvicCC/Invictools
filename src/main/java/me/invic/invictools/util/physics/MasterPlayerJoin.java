@@ -14,7 +14,7 @@ public class MasterPlayerJoin implements Listener
     @EventHandler
     public void WorldSwitch(PlayerChangedWorldEvent e) // update to dynamically grab valid worlds
     {
-        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
+        Plugin plugin = Commands.Invictools;
         final FileConfiguration config = plugin.getConfig();
         String masterplayer = config.getString("masterplayer");
         Commands.MasterPlayer = Bukkit.getPlayer(masterplayer);
@@ -34,7 +34,7 @@ public class MasterPlayerJoin implements Listener
     @EventHandler
     public void Join(PlayerJoinEvent e)
     {
-        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
+        Plugin plugin = Commands.Invictools;
         final FileConfiguration config = plugin.getConfig();
         String masterplayer = config.getString("masterplayer");
         Commands.MasterPlayer = Bukkit.getPlayer(masterplayer);
