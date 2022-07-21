@@ -24,6 +24,7 @@ import org.screamingsandals.bedwars.api.BedwarsAPI;
 import java.util.*;
 
 import static me.invic.invictools.util.physics.grabSandstone.getNearbyBlocks;
+import static me.invic.invictools.util.physics.grabSandstone.taggedBlocks;
 
 public class ItemListener implements Listener
 {
@@ -125,28 +126,19 @@ public class ItemListener implements Listener
             else if (lore.get(0).equalsIgnoreCase("§7Shoots a Fireball") && e.getAction().equals(Action.RIGHT_CLICK_AIR) || lore.get(0).equalsIgnoreCase("§7Shoots a Fireball") && e.getAction().equals(Action.RIGHT_CLICK_BLOCK))
             {
                 e.setCancelled(true);
-                new BukkitRunnable()
+                Player p = e.getPlayer();
+                double cooldown = .3; // seconds
+                if (FireballCooldown.containsKey(p))
                 {
-                    @Override
-                    public void run()
+                    double secondsLeft = ((FireballCooldown.get(p) / 1000) + cooldown) - (System.currentTimeMillis() / 1000);
+                    if (secondsLeft <= 0)
                     {
-                        Player p = e.getPlayer();
-                        double cooldown = .3; // seconds
-                        if (FireballCooldown.containsKey(p))
-                        {
-                            double secondsLeft = ((FireballCooldown.get(p) / 1000) + cooldown) - (System.currentTimeMillis() / 1000);
-                            if (secondsLeft <= 0)
-                            {
-                                doFireball(e.getItem(), p);
-                            }
-                        }
-                        else
-                        {
-                            doFireball(e.getItem(), p);
-                        }
+                        doFireball(e.getItem(), p);
                     }
-                }.runTaskLater(Commands.Invictools, 5L);
-
+                } else
+                {
+                    doFireball(e.getItem(), p);
+                }
             }
             else if (lore.get(0).equalsIgnoreCase("§7Sends a barrage of anvils raining down where you're looking"))
             {
@@ -394,28 +386,40 @@ public class ItemListener implements Listener
     {
         item.setAmount(item.getAmount() - 1);
         FireballCooldown.put(p, System.currentTimeMillis());
-        Fireball ball = p.launchProjectile(Fireball.class);
-        ball.setMetadata("sender", new FixedMetadataValue(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), p.getName()));
-        ball.setInvulnerable(true);
-        ball.setYield(3);
-        ball.setShooter(p);
-        //new ProjTrailHandler().grabEffect(p, ball);
-        p.playSound(p.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 1, 1);
-        ball.setVelocity((p.getLocation().getDirection().multiply(1.1)));
-
-        BukkitRunnable runnable = new BukkitRunnable()
+        new BukkitRunnable()
         {
+            final Location spawnloc = p.getLocation();
+            final Vector facing = p.getLocation().getDirection();
             @Override
             public void run()
             {
-                ball.setInvulnerable(false);
+                Fireball ball = p.launchProjectile(Fireball.class);
+                ball.setMetadata("sender", new FixedMetadataValue(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), p.getName()));
+                ball.setInvulnerable(true);
+                ball.setYield(3);
+                ball.setShooter(p);
+                //new ProjTrailHandler().grabEffect(p, ball);
+                p.playSound(p.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 1, 1);
+                ball.teleport(spawnloc);
+                ball.setVelocity((facing.multiply(1.1)));
+
+                BukkitRunnable runnable = new BukkitRunnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        ball.setInvulnerable(false);
+                    }
+                };
+                runnable.runTaskLater(Commands.Invictools, 15);
             }
-        };
-        runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 25);
+        }.runTaskLater(Commands.Invictools, 2L);
     }
 
     void incChange(List<Block> blocks, boolean type, Location loc, boolean sound)
     {
+        blocks.removeAll(taggedBlocks);
+
         new BukkitRunnable()
         {
             int i = 0;
@@ -442,7 +446,7 @@ public class ItemListener implements Listener
                     }
 
                     if (sound)
-                        Bukkit.getOnlinePlayers().forEach((player) -> player.playSound(blocks.get(i).getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, i ^ 3 + 1));
+                        Bukkit.getOnlinePlayers().forEach((player) -> player.playSound(blocks.get(i).getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, (float) ((double) i/10+.8)));
 
                     if (type)
                         i += 3;

@@ -1,6 +1,7 @@
 package me.invic.invictools.util;
 
 import com.comphenix.protocol.events.PacketListener;
+import me.invic.invictools.Commands;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -63,12 +64,19 @@ public class ExplosionsListener implements Listener
                 {
                     Player p = (Player) e.getEntity();
 
-                    double damage = (4.0 - distance);
+                    double damage = (3.0 - distance);
+
                     if (damage < 0)
                         damage = .5;
 
-                    p.setHealth(p.getHealth() - damage);
-                    Bukkit.getPluginManager().callEvent(new EntityDamageEvent(p, EntityDamageEvent.DamageCause.ENTITY_EXPLOSION, damage));
+                    if(damage > p.getHealth())
+                        damage = p.getHealth();
+
+                    if(!p.isInvulnerable() || !p.getWorld().getName().equals("bwlobby"))
+                    {
+                        p.setHealth(p.getHealth() - damage);
+                        Bukkit.getPluginManager().callEvent(new EntityDamageEvent(p, EntityDamageEvent.DamageCause.ENTITY_EXPLOSION, damage));
+                    }
                 }
 
                 BukkitRunnable runnable = new BukkitRunnable()
@@ -98,7 +106,7 @@ public class ExplosionsListener implements Listener
                             e.getEntity().setVelocity(new Vector(x[0] / 5, finalYsubtracter1 / 2, z[0] / 5));
                     }
                 };
-                runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1);
+                runnable.runTaskLater(Commands.Invictools, 1);
             }
         }
         else if (e.getCause().equals(EntityDamageEvent.DamageCause.ENTITY_EXPLOSION) && e.getDamager().getName().equalsIgnoreCase("primed tnt"))
@@ -150,7 +158,7 @@ public class ExplosionsListener implements Listener
                             e.getEntity().setVelocity(new Vector(x[0] / 5, finalYsubtracter1 / 2, z[0] / 5));
                     }
                 };
-                runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1);
+                runnable.runTaskLater(Commands.Invictools, 1);
             }
         }
     }

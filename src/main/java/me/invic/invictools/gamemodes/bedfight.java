@@ -149,7 +149,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                             {
                                 for (int i = 0; i < spacing; i++) // for every gap
                                 {
-                                    List<BlockFace> directions = d; // block face list of left and right from opposite bed face
+                                    List<BlockFace> directions = new ArrayList<>(d); // block face list of left and right from opposite bed face
                                     directions.remove(face);
                                     directions.remove(BlockFace.UP);
                                     Location temp = cardinal.clone().subtract(face.getOppositeFace().getDirection()); // subtracts 1 towards other bed half
@@ -162,7 +162,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                             }
                             new ModBow().addLater(cardinal.getBlock(), api.getGameByName(game));
                         }
-                        block.getWorld().playSound(block.getLocation(), Sound.BLOCK_STONE_PLACE, 3, 1);
+                        block.getWorld().playSound(block.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_PLACE, 3, 1);
                     }
                 }
             }
@@ -212,7 +212,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
         else return null;
     }
 
-    public boolean isAnyBlock(ItemStack item, String type)
+    public boolean isAnyBlock(ItemStack item, String type) // wont work for any items with underscores past coloration
     {
         String[] s = item.getType().toString().split("_");
 
