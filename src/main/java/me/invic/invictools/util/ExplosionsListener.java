@@ -64,16 +64,17 @@ public class ExplosionsListener implements Listener
                 {
                     Player p = (Player) e.getEntity();
 
-                    double damage = (3.0 - distance);
-
-                    if (damage < 0)
-                        damage = .5;
-
-                    if(damage > p.getHealth())
-                        damage = p.getHealth();
-
-                    if(!p.isInvulnerable() || !p.getWorld().getName().equals("bwlobby"))
+                    if(!p.isInvulnerable() && !p.getWorld().getName().equals("bwlobby"))
                     {
+                        double damage = (3.0 - distance);
+
+                        if (damage < 0)
+                            damage = .5;
+
+                        if(damage > p.getHealth())
+                            damage = p.getHealth();
+
+
                         p.setHealth(p.getHealth() - damage);
                         Bukkit.getPluginManager().callEvent(new EntityDamageEvent(p, EntityDamageEvent.DamageCause.ENTITY_EXPLOSION, damage));
                     }

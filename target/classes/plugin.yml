@@ -4,7 +4,7 @@ main: me.invic.invictools.Invictools
 api-version: 1.19
 authors: [ Invic ]
 description: Various tools to work with my other plugins
-depend: [BedWars]
+depend: [ BedWars ]
 website: solo.to/Invic
 commands:
   invictools:
