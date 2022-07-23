@@ -173,7 +173,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
 
         if (placement.getBlock().getType().equals(Material.AIR))
         {
-            placement.getBlock().setType(Material.valueOf(blocktype)); // this
+            placement.getBlock().setType(Material.valueOf(blocktype)); // this doesnt place
             new ModBow().addLater(cardinal.clone().add(temp.clone().subtract(direction.getDirection().multiply(spacing))).getBlock(), api.getGameByName(game));
         }
 
