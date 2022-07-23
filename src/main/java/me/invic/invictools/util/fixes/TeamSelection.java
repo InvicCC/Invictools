@@ -131,7 +131,7 @@ public class TeamSelection implements Listener
             TeamSelector.remove(e.getGame());
             teamSize.clear();
         }
-        else
+        else if(TeamSelector.get(e.getGame()) != null)
         {
             for (int i = 0; i < TeamSelector.get(e.getGame()).getSize(); i++)
             {

@@ -55,10 +55,10 @@ public class dareListener implements Listener
         horse.setOwner(player);
         if (!lobby)
             horse.setGlowing(true);
-        else
-            horse.addPassenger(player);
 
+        horse.addPassenger(player);
         ItemListener.Falling.add(horse);
+        ItemListener.Falling.add(player);
         dareParticle(horse);
         dareBoomLoop(horse);
 

@@ -7,6 +7,7 @@ import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import me.invic.invictools.gamemodifiers.PotionEffects.DamageTeammates;
 import me.invic.invictools.items.createItems;
 import me.invic.invictools.util.GrabTeammates;
+import me.invic.invictools.util.LobbyLogic;
 import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.enchantments.Enchantment;
@@ -303,7 +304,7 @@ public class goodBlocks
                 ItemStack item = new createItems().getRandomItem();
                 player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
                 player.getWorld().dropItemNaturally(loc, item);
-                System.out.println(choice);
+                giveArrows(player,item);
                 break;
             case 15:
                 player.setAllowFlight(true);
@@ -343,6 +344,7 @@ public class goodBlocks
                 break;
             case 16:
                 ItemStack item2 = new createItems().getRandomItem();
+                giveArrows(player,item2);
                 player.getWorld().dropItemNaturally(loc, item2);
                 player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
                 break;
@@ -352,6 +354,19 @@ public class goodBlocks
                 break;
             default:
                 System.out.println("default");
+        }
+    }
+
+    public static void giveArrows(Player p, ItemStack item)
+    {
+        if(item.getType().equals(Material.BOW) && BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+        {
+            if(new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameOfPlayer(p).getName()).getString("GameType").equalsIgnoreCase("bedfight"))
+            {
+                ItemStack arrow = new ItemStack(Material.ARROW);
+                arrow.setAmount(new Random().nextInt(3)+1);
+                p.getInventory().addItem(arrow);
+            }
         }
     }
 }
