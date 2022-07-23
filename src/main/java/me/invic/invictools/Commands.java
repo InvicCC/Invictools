@@ -796,6 +796,11 @@ public class Commands implements CommandExecutor, TabExecutor
             new bedfight().saveBedfightInventory(args[1], (Player) sender, true);
             sender.sendMessage(ChatColor.AQUA + "Saved your inventory as bedfight loadout" + args[1]);
         }
+        else if (args.length >= 1 && args[0].equalsIgnoreCase("rbfc"))
+        {
+            new bedfight().loadBedfightInventory(args[2], Bukkit.getPlayer(args[1]), true);
+            sender.sendMessage(ChatColor.AQUA + "reset bedfight inventory " + args[2] +" for " + args[1]);
+        }
         else if (args.length >= 2 && args[0].equalsIgnoreCase("alljoin"))
         {
             if (BedwarsAPI.getInstance().isGameWithNameExists(args[1]))
@@ -1522,14 +1527,14 @@ public class Commands implements CommandExecutor, TabExecutor
             else if (args.length == 1 && args[0].equalsIgnoreCase("luckyblocks"))
             {
                 Player p = (Player) sender;
-
                 if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
                 {
-                    String worldname = p.getWorld().getName();
                     int spawnerSize = 0;
                     LuckyBlocksEnabled = true;
-                    sender.sendMessage(ChatColor.AQUA + "Lucky Blocks enabled in world " + ChatColor.YELLOW + worldname);
-                    FileConfiguration config = new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameOfPlayer(p).getName());
+
+                    String game = BedwarsAPI.getInstance().getGameOfPlayer(p).getName();
+                    FileConfiguration config = new LobbyLogic().getMapConfiguration(game);
+                    sender.sendMessage(ChatColor.AQUA + "Lucky Blocks enabled in game " + ChatColor.YELLOW + game);
 
                     while (true)
                     {
@@ -1559,15 +1564,16 @@ public class Commands implements CommandExecutor, TabExecutor
                         @Override
                         public void run()
                         {
-                            if (!p.getWorld().getName().equals(worldname))
+                            if (!BedwarsAPI.getInstance().getGameByName(game).getStatus().equals(GameStatus.RUNNING))
                             {
-                                sender.sendMessage(ChatColor.AQUA + "Lucky Blocks disabled in world " + ChatColor.YELLOW + worldname);
                                 LuckyBlocksEnabled = false;
                                 this.cancel();
                             }
                         }
                     }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 100, 100);
                 }
+                else
+                    p.sendMessage(ChatColor.RED +"Must be in-game to enable!");
             }
             else if (args.length > 1 && args[0].equalsIgnoreCase("repeatedItem"))
             {

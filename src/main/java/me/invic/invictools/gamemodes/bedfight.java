@@ -1,16 +1,17 @@
 package me.invic.invictools.gamemodes;
 
 import me.invic.invictools.Commands;
+import me.invic.invictools.gamemodifiers.WardenSpawner;
 import me.invic.invictools.items.ModBow;
 import me.invic.invictools.util.LobbyLogic;
 import me.invic.invictools.util.disableStats;
 import me.invic.invictools.util.fixes.LobbyInventoryFix;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.type.Bed;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Bat;
@@ -18,12 +19,18 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityPickupItemEvent;
+import org.bukkit.event.entity.EntityPotionEffectEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.RunningTeam;
+import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsGameStartEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsTargetBlockDestroyedEvent;
@@ -32,15 +39,14 @@ import org.screamingsandals.bedwars.api.game.GameStatus;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class bedfight implements Listener //map file optional bedfight.layers, optional bedfight.loadout. bedfioght folder holds loadout.yml
 {
     String bedfight = "bedfight";
     static String loadout = Commands.Invictools.getConfig().getString("defaultBedfightLoadout", "default");
     BedwarsAPI api = BedwarsAPI.getInstance();
+    static HashMap<Player,String> spawnPoints = new HashMap<>();
 
     @EventHandler
     public void init(BedwarsGameStartEvent e) // creates defence
@@ -48,9 +54,8 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
         if (!disableStats.getGameType(e.getGame()).equalsIgnoreCase(bedfight))
             return;
 
-        System.out.println(loadout);
         //      if(new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.loadout") != null)
-        //       loadout = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString(loadout);
+        loadout = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.loadout","default");
 
         new BukkitRunnable()
         {
@@ -62,7 +67,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                     loadBedfightInventory(loadout, p, false);
                 }
             }
-        }.runTaskLater(Commands.Invictools, 20L);
+        }.runTaskLater(Commands.Invictools, 30L);
 
         String[] layers = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.layers", "ENDSTONE;PLANKS;WOOL").split(";");
         for (int i = 0; i < layers.length; i++)
@@ -70,25 +75,115 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             for (RunningTeam team : e.getGame().getRunningTeams())
             {
                 buildDefence(team.getTargetBlock(), layers[i], i, team.getColor().name(), e.getGame().getName());
+                buildDefence(findBed(team.getTargetBlock()) , layers[i], i, team.getColor().name(), e.getGame().getName());
             }
         }
 
         for (Player p : e.getGame().getConnectedPlayers())
         {
-            p.sendTitle(ChatColor.translateAlternateColorCodes('&', "&bSTARTING IN 10 SECONDS"), ChatColor.translateAlternateColorCodes('&', "&r&fOrganize your inventory!"), 40, 5 * 20, 30);
+            //spawnCage(p)\
+            new BukkitRunnable()
+            {
+                @Override
+                public void run()
+                {
+                    if(p.getGameMode().equals(GameMode.SURVIVAL))
+                    {
+                        p.setInvulnerable(true);
+                        spawnPoints.put(p,p.getWorld().getName()+";"+p.getLocation().getX()+";"+p.getLocation().getY()+";"+p.getLocation().getZ()+";"+p.getLocation().getYaw()+";"+p.getLocation().getPitch());
+                        p.teleport(new Location(p.getWorld(),0.5,66,0.5));
+                    }
+                }
+            }.runTaskLater(Commands.Invictools, 20L);
+            p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.BOLD +" "+ChatColor.RED + "Sort your hotbar before the game starts!"));
+            p.sendTitle(ChatColor.translateAlternateColorCodes('&', "&eStarting in 10 Seconds"), ChatColor.translateAlternateColorCodes('&', "&r&fSneak to start early!"), 40, 5 * 20, 30);
         }
 
         new BukkitRunnable()
         {
+            int i = 0;
             @Override
             public void run()
             {
+                i++;
+
+                int required = e.getGame().getConnectedPlayers().size();
+                int sneaking = 0;
                 for (Player p : e.getGame().getConnectedPlayers())
                 {
-                    saveBedfightInventory(loadout, p, false);
+                    if(p.isSneaking())
+                        sneaking++;
+                }
+
+                if(sneaking==required || i == 11)
+                {
+                    if(e.getGame().getStatus().equals(GameStatus.RUNNING))
+                    {
+                        for (Player p : e.getGame().getConnectedPlayers())
+                        {
+                            if(p.getGameMode().equals(GameMode.SURVIVAL) && spawnPoints.get(p) != null)
+                            {
+                                p.setInvulnerable(false);
+                                p.teleport(new WardenSpawner().locationFromConfig(spawnPoints.get(p)));
+                                spawnPoints.remove(p);
+                                saveBedfightInventory(loadout, p, false);
+                                p.playSound(p.getLocation(),Sound.ENTITY_ENDER_DRAGON_GROWL,1,1);
+                                p.sendTitle(ChatColor.translateAlternateColorCodes('&', "&eGame Started!"), ChatColor.translateAlternateColorCodes('&', "&fGood Luck"), 20, 50, 15);
+                                //destroyCage(p);
+                            }
+                            else if(spawnPoints.get(p) == null)
+                                p.damage(p.getHealth()+9999);
+                        }
+                    }
+                    this.cancel();
+                }
+
+                for (Player p : e.getGame().getConnectedPlayers())
+                {
+                    p.playSound(p.getLocation(),Sound.BLOCK_NOTE_BLOCK_HAT,1,1);
                 }
             }
-        }.runTaskLater(Commands.Invictools, 20 * 10);
+        }.runTaskTimer(Commands.Invictools, 0L, 20L);
+
+        spawnPoints.clear();
+    }
+
+    @EventHandler
+    public void drops(PlayerDropItemEvent e)
+    {
+        if(spawnPoints.containsKey(e.getPlayer()))
+            e.setCancelled(true);
+    }
+
+    @EventHandler
+    public void drops(BlockPlaceEvent e)
+    {
+        if(spawnPoints.containsKey(e.getPlayer()))
+            e.setCancelled(true);
+
+        if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(e.getPlayer()))
+        {
+            if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer())).equals(bedfight))
+            {
+                if (isAnyBlock(new ItemStack(e.getBlock().getType()), "WOOL") && !spawnPoints.containsKey(e.getPlayer()))
+                {
+                    ItemStack item = new ModBow().searchInventory(e.getPlayer(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()).getTeamOfPlayer(e.getPlayer()).getColor() + "_WOOL");
+                    if(item.getAmount() < 64)
+                        item.setAmount(item.getAmount()+1);
+                }
+            }
+        }
+    }
+
+    @EventHandler
+    public void drops(EntityPickupItemEvent e)
+    {
+        if(e.getEntity() instanceof Player)
+        {
+            Player p = (Player) e.getEntity();
+            if(spawnPoints.containsKey(p))
+                e.setCancelled(true);
+        }
     }
 
     @EventHandler
@@ -102,9 +197,17 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             @Override
             public void run()
             {
-                loadBedfightInventory(loadout, e.getPlayer(), false);
+                if(e.getGame().getStatus().equals(GameStatus.RUNNING))
+                    loadBedfightInventory(loadout, e.getPlayer(), false);
             }
         }.runTaskLater(Commands.Invictools, 20 * 4 + 5);
+
+        if(e.getKiller() != null)
+        {
+            e.getKiller().getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
+        }
+
+        // STATISTIC TRACKING HERE
     }
 
     @EventHandler
@@ -118,7 +221,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
     {
         if (layer.equalsIgnoreCase("WOOL")
                 || layer.equalsIgnoreCase("STAINED_GLASS")
-                || layer.equalsIgnoreCase("STAINED_GLASS_PANES")
+                || layer.equalsIgnoreCase("STAINED_GLASS_PANE")
                 || layer.equalsIgnoreCase("CONCRETE")
                 || layer.equalsIgnoreCase("TERRACOTTA")
                 || layer.equalsIgnoreCase("CONCRETE_POWDER"))
@@ -132,7 +235,6 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
         d.add(BlockFace.SOUTH); // +
         d.add(BlockFace.UP);
         d.remove(findBedFace(loc));
-        //    Location loc2 = findBed(loc.clone());
         String finalLayer = layer;
         new BukkitRunnable()
         {
@@ -142,12 +244,15 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                 for (BlockFace face : d)
                 {
                     Location cardinal = block.getRelative(face).getLocation().add(directionAddition(face).multiply(spacing));
-                    if (cardinal.getBlock().getType().equals(Material.AIR))
-                    {
+
                         if (api.getGameByName(game).getStatus().equals(GameStatus.RUNNING))
                         {
-                            cardinal.getBlock().setType(Material.valueOf(finalLayer));
-                            new ModBow().addLater(cardinal.getBlock(), api.getGameByName(game));
+                            if (cardinal.getBlock().getType().equals(Material.AIR))
+                            {
+                                cardinal.getBlock().setType(Material.valueOf(finalLayer));
+                                new ModBow().addLater(cardinal.getBlock(), api.getGameByName(game));
+                            }
+
                             if (face.getOppositeFace().equals(findBedFace(loc)) && spacing > 0) // true if opposite other half of bed
                             {
                                 System.out.println("entering for " + finalLayer);
@@ -163,33 +268,40 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                                     // for one up
                                     if(i>0)
                                     {
-                                        placeDiagonal(cardinal.clone().add(0, i, 0).add(directionAddition(face)), face, directions.get(1), spacing, finalLayer, game);
-                                        placeDiagonal(cardinal.clone().add(0, i, 0).add(directionAddition(face)), face, directions.get(0), spacing, finalLayer, game);
-                                        cardinal.clone().add(0, i, 0).add(directionAddition(face)).getBlock().setType(Material.valueOf(finalLayer));
-                                        new ModBow().addLater(cardinal.clone().add(0, i, 0).add(directionAddition(face)).getBlock(), api.getGameByName(game));
+                                        Location upover = cardinal.clone().add(0, i, 0).subtract(directionAddition(face).multiply(i));
+                                        placeDiagonal(upover, face, directions.get(1), spacing-i+1, finalLayer, game);
+                                        placeDiagonal(upover, face, directions.get(0), spacing-i+1, finalLayer, game);
+                                        upover.getBlock().setType(Material.valueOf(finalLayer));
+                                        new ModBow().addLater(upover.getBlock(), api.getGameByName(game));
                                     }
                                 }
                             }
                         }
                         block.getWorld().playSound(block.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_PLACE, 3, 1);
                     }
-                }
             }
-        }.runTaskLater(Commands.Invictools, spacing * 20L);
+        }.runTaskLater(Commands.Invictools, spacing * 15L + new Random().nextInt(10));
     }
 
     private void placeDiagonal(Location cardinal,BlockFace face, BlockFace direction,int spacing,String blocktype,String game)
     {
-        if(spacing==0) return;
+        if(spacing<=0) return;
 
         Location temp = cardinal.clone().add(face.getOppositeFace().getDirection()); // subtracts 1 towards other bed half
         Location placement = temp.clone().add(direction.getDirection()/*.multiply(spacing)*/);
 
         if (placement.getBlock().getType().equals(Material.AIR))
         {
-            placement.getBlock().setType(Material.valueOf(blocktype));
-            new ModBow().addLater(placement.getBlock(), api.getGameByName(game));
-            System.out.println(placement);
+            new BukkitRunnable()
+            {
+                @Override
+                public void run()
+                {
+                    placement.getBlock().setType(Material.valueOf(blocktype));
+                    new ModBow().addLater(placement.getBlock(), api.getGameByName(game));
+                    placement.getWorld().playSound(placement, Sound.BLOCK_AMETHYST_BLOCK_PLACE, 3, 1);
+                }
+            }.runTaskLater(Commands.Invictools, new Random().nextInt(25));
         }
 
         placeDiagonal(placement,face,direction,spacing-1,blocktype,game);
@@ -288,7 +400,6 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
 
         String pass = balls.getString(loadout, "pass");
 
-        System.out.println("cleared");
         //  new LobbyInventoryFix().clearMainInventory(p);
         for (int i = 0; i <= 35; i++)
         {
@@ -299,7 +410,6 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
 
         if (!pass.equalsIgnoreCase("pass") && !forceReset)
         {
-            System.out.println("giving saved");
             @SuppressWarnings("unchecked")
             List<ItemStack> inventoryList = (List<ItemStack>) balls.get(loadout);
             for (int a = 0; a <= 10; a++)
@@ -316,7 +426,6 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                     items++;
                     if (api.isPlayerPlayingAnyGame(p))
                     {
-                        System.out.println("ingame setting inventory");
                         if (item.getType().equals(Material.WHITE_WOOL))
                         {
                             item.setType(Material.valueOf(api.getGameOfPlayer(p).getTeamOfPlayer(p).getColor().toString() + "_WOOL"));
@@ -331,7 +440,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             }
         }
 
-        if (pass.equalsIgnoreCase("pass"))
+        if (pass.equalsIgnoreCase("pass") || forceReset)
         {
             @SuppressWarnings("unchecked")
             List<ItemStack> uneditedLoadout = (List<ItemStack>) bf.get(loadout);
@@ -413,9 +522,10 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             ItemStack item = p.getInventory().getItem(i);
             if (item != null)
             {
-                if (isAnyBlock(item, "WOOL"))
-                    item.setType(Material.WHITE_WOOL);
-                inventoryList.add(item);
+                ItemStack cloned = item.clone();
+                if (isAnyBlock(cloned, "WOOL"))
+                    cloned.setType(Material.WHITE_WOOL);
+                inventoryList.add(cloned);
             }
             else
             {

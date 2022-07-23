@@ -162,6 +162,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new TeamSelection(), this); //bwjoin invnetory click
         Bukkit.getPluginManager().registerEvents(new disableStats(), this); //bw stats bw start
         Bukkit.getPluginManager().registerEvents(new bedfight(), this); //bedfight gamemode
+        Bukkit.getPluginManager().registerEvents(new voider(), this); //checks y level effects
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection
@@ -194,7 +195,7 @@ public final class Invictools extends JavaPlugin
             public void run()
             {
                 deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
-                new voider(worlds, y);
+              //  new voider(worlds, y);
                 new panels().loadPanels();
                 // new SpawnNPC();
                 // new DetectClickOnNPC();
