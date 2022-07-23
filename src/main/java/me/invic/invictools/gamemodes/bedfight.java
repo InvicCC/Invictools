@@ -13,6 +13,8 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Bat;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -137,7 +139,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             @Override
             public void run() // 4 9 15  (*2)
             {
-                for (BlockFace face : d) // concurrent modification exception here
+                for (BlockFace face : d)
                 {
                     Location cardinal = block.getRelative(face).getLocation().add(directionAddition(face).multiply(spacing));
                     if (cardinal.getBlock().getType().equals(Material.AIR))
@@ -145,19 +147,29 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                         if (api.getGameByName(game).getStatus().equals(GameStatus.RUNNING))
                         {
                             cardinal.getBlock().setType(Material.valueOf(finalLayer));
+                            new ModBow().addLater(cardinal.getBlock(), api.getGameByName(game));
                             if (face.getOppositeFace().equals(findBedFace(loc)) && spacing > 0) // true if opposite other half of bed
                             {
-                                for (int i = 0; i < spacing; i++) // for every gap
+                                System.out.println("entering for " + finalLayer);
+                                List<BlockFace> directions = new ArrayList<>(d); // block face list of left and right from opposite bed face
+                                directions.remove(face);
+                                directions.remove(BlockFace.UP);
+                                for (int i = 0; i < spacing+1; i++) // for one up
                                 {
-                                    System.out.println(i + " i");
-                                    List<BlockFace> directions = new ArrayList<>(d); // block face list of left and right from opposite bed face
-                                    directions.remove(face);
-                                    directions.remove(BlockFace.UP);
+                                    // for sides
                                     placeDiagonal(cardinal,face,directions.get(0),spacing,finalLayer,game);
                                     placeDiagonal(cardinal,face,directions.get(1),spacing,finalLayer,game);
+
+                                    // for one up
+                                    if(i>0)
+                                    {
+                                        placeDiagonal(cardinal.clone().add(0, i, 0).add(directionAddition(face)), face, directions.get(1), spacing, finalLayer, game);
+                                        placeDiagonal(cardinal.clone().add(0, i, 0).add(directionAddition(face)), face, directions.get(0), spacing, finalLayer, game);
+                                        cardinal.clone().add(0, i, 0).add(directionAddition(face)).getBlock().setType(Material.valueOf(finalLayer));
+                                        new ModBow().addLater(cardinal.clone().add(0, i, 0).add(directionAddition(face)).getBlock(), api.getGameByName(game));
+                                    }
                                 }
                             }
-                            new ModBow().addLater(cardinal.getBlock(), api.getGameByName(game));
                         }
                         block.getWorld().playSound(block.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_PLACE, 3, 1);
                     }
@@ -168,16 +180,19 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
 
     private void placeDiagonal(Location cardinal,BlockFace face, BlockFace direction,int spacing,String blocktype,String game)
     {
+        if(spacing==0) return;
+
         Location temp = cardinal.clone().add(face.getOppositeFace().getDirection()); // subtracts 1 towards other bed half
-        Location placement = cardinal.clone().add(temp.clone().add(direction.getDirection().multiply(spacing)));
+        Location placement = temp.clone().add(direction.getDirection()/*.multiply(spacing)*/);
 
         if (placement.getBlock().getType().equals(Material.AIR))
         {
-            placement.getBlock().setType(Material.valueOf(blocktype)); // this doesnt place
-            new ModBow().addLater(cardinal.clone().add(temp.clone().subtract(direction.getDirection().multiply(spacing))).getBlock(), api.getGameByName(game));
+            placement.getBlock().setType(Material.valueOf(blocktype));
+            new ModBow().addLater(placement.getBlock(), api.getGameByName(game));
+            System.out.println(placement);
         }
 
-        System.out.println(temp.clone().subtract(direction.getDirection().multiply(spacing)));// clones temp and grabs location one to the right and one to the left of temp
+        placeDiagonal(placement,face,direction,spacing-1,blocktype,game);
     }
 
     private Vector directionAddition(BlockFace face)
@@ -301,6 +316,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                     items++;
                     if (api.isPlayerPlayingAnyGame(p))
                     {
+                        System.out.println("ingame setting inventory");
                         if (item.getType().equals(Material.WHITE_WOOL))
                         {
                             item.setType(Material.valueOf(api.getGameOfPlayer(p).getTeamOfPlayer(p).getColor().toString() + "_WOOL"));
