@@ -413,7 +413,7 @@ public class ItemListener implements Listener
                 };
                 runnable.runTaskLater(Commands.Invictools, 15);
             }
-        }.runTaskLater(Commands.Invictools, 2L);
+        }.runTaskLater(Commands.Invictools, 5L); // corrects directional errors
     }
 
     void incChange(List<Block> blocks, boolean type, Location loc, boolean sound)

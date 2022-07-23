@@ -149,15 +149,12 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                             {
                                 for (int i = 0; i < spacing; i++) // for every gap
                                 {
+                                    System.out.println(i + " i");
                                     List<BlockFace> directions = new ArrayList<>(d); // block face list of left and right from opposite bed face
                                     directions.remove(face);
                                     directions.remove(BlockFace.UP);
-                                    Location temp = cardinal.clone().subtract(face.getOppositeFace().getDirection()); // subtracts 1 towards other bed half
-                                    cardinal.clone().subtract(temp.clone().subtract(directions.get(0).getDirection().multiply(spacing))).getBlock().setType(Material.valueOf(finalLayer));
-                                    cardinal.clone().subtract(temp.clone().subtract(directions.get(1).getDirection().multiply(spacing))).getBlock().setType(Material.valueOf(finalLayer));
-                                    new ModBow().addLater(cardinal.clone().subtract(temp.clone().subtract(directions.get(0).getDirection().multiply(spacing))).getBlock(), api.getGameByName(game));
-                                    new ModBow().addLater(cardinal.clone().subtract(temp.clone().subtract(directions.get(1).getDirection().multiply(spacing))).getBlock(), api.getGameByName(game));
-                                    // clones temp and grabs location one to the right and one to the left of temp
+                                    placeDiagonal(cardinal,face,directions.get(0),spacing,finalLayer,game);
+                                    placeDiagonal(cardinal,face,directions.get(1),spacing,finalLayer,game);
                                 }
                             }
                             new ModBow().addLater(cardinal.getBlock(), api.getGameByName(game));
@@ -167,6 +164,20 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                 }
             }
         }.runTaskLater(Commands.Invictools, spacing * 20L);
+    }
+
+    private void placeDiagonal(Location cardinal,BlockFace face, BlockFace direction,int spacing,String blocktype,String game)
+    {
+        Location temp = cardinal.clone().add(face.getOppositeFace().getDirection()); // subtracts 1 towards other bed half
+        Location placement = cardinal.clone().add(temp.clone().add(direction.getDirection().multiply(spacing)));
+
+        if (placement.getBlock().getType().equals(Material.AIR))
+        {
+            placement.getBlock().setType(Material.valueOf(blocktype)); // this
+            new ModBow().addLater(cardinal.clone().add(temp.clone().subtract(direction.getDirection().multiply(spacing))).getBlock(), api.getGameByName(game));
+        }
+
+        System.out.println(temp.clone().subtract(direction.getDirection().multiply(spacing)));// clones temp and grabs location one to the right and one to the left of temp
     }
 
     private Vector directionAddition(BlockFace face)
@@ -322,18 +333,14 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                     indendedItems++;
                     if (pass.equalsIgnoreCase("pass") || forceReset)
                     {
-                        if (api.isPlayerPlayingAnyGame(p))
-                        {
-                            if (item.getType().equals(Material.WHITE_WOOL))
-                            {
-                                item.setType(Material.valueOf(api.getGameOfPlayer(p).getTeamOfPlayer(p).getColor().toString() + "_WOOL"));
-                                p.getInventory().setItem(i, item);
-                            }
-                            else
-                                p.getInventory().setItem(i, item);
-                        }
-                        else
-                            p.getInventory().setItem(i, item);
+                       if (item.getType().equals(Material.WHITE_WOOL))
+                       {
+                           ItemStack newitem = new ItemStack(Material.valueOf(api.getGameOfPlayer(p).getTeamOfPlayer(p).getColor().toString() + "_WOOL"));
+                           newitem.setAmount(item.getAmount());
+                           p.getInventory().setItem(i, newitem);
+                       }
+                       else
+                       p.getInventory().setItem(i, item);
                     }
                 }
             }
@@ -391,12 +398,8 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             if (item != null)
             {
                 if (isAnyBlock(item, "WOOL"))
-                {
                     item.setType(Material.WHITE_WOOL);
-                    inventoryList.add(item);
-                }
-                else
-                    inventoryList.add(item);
+                inventoryList.add(item);
             }
             else
             {
