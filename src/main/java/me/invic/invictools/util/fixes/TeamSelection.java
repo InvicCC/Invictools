@@ -65,6 +65,9 @@ public class TeamSelection implements Listener
         if (e.getItem() == null)
             return;
 
+        if(e.getItem().getItemMeta() == null)
+            return;
+
         if ((e.getItem().getItemMeta()).getLore() != null)
         {
             List<String> lore = e.getItem().getItemMeta().getLore();
