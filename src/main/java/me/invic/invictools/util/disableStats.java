@@ -28,12 +28,16 @@ public class disableStats implements Listener
     @EventHandler
     public void saveEvent(BedwarsSavePlayerStatisticEvent e)
     {
-        if (!shouldTrack(Bukkit.getPlayer(e.getPlayerStatistic().getName())) || !Commands.StatsTrack)
+        if(!recentGame.containsKey((e.getPlayerStatistic().getName())))
+        {
+            e.setCancelled(true);
+            System.out.println("missing "+Bukkit.getPlayer(e.getPlayerStatistic().getName()));
+        }
+        else if (!shouldTrack(Bukkit.getPlayer(e.getPlayerStatistic().getName())) || !Commands.StatsTrack)
         {
             e.setCancelled(true);
         }
     }
-
 
     @EventHandler
     public void gameStart(BedwarsGameStartedEvent e)
@@ -45,7 +49,15 @@ public class disableStats implements Listener
             recentGame.put(p.getName(), e.getGame().getName());
         }
 
-        if (!Commands.StatsTrack || !shouldTrack(e.getGame().getConnectedPlayers().get(0)))
+        if (!Commands.StatsTrack)
+        {
+            for (Player p : e.getGame().getConnectedPlayers())
+            {
+                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&l(!) &r&fStats will not track this match"));
+                p.playSound(p.getLocation(), Sound.ENTITY_VILLAGER_NO, 3, 90);
+            }
+        }
+        else if(!shouldTrack(e.getGame().getConnectedPlayers().get(0)) && !getGameType(e.getGame()).equalsIgnoreCase("bedfight"))
         {
             for (Player p : e.getGame().getConnectedPlayers())
             {

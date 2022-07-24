@@ -36,6 +36,7 @@ public class OPBlocks
                 new LuckyBlockSpawner(player.getLocation(), "§b§lLucky Block Spawner", "random", 45);
             case 8:
                 ItemStack item = new createItems().getRandomItem();
+                goodBlocks.giveArrows(player,item);
                 item.setAmount(5);
                 player.getWorld().dropItemNaturally(loc, item);
                 player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);

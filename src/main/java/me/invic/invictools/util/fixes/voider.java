@@ -1,45 +1,61 @@
 package me.invic.invictools.util.fixes;
 
+import me.invic.invictools.Commands;
+import me.invic.invictools.util.LobbyLogic;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
+import org.screamingsandals.bedwars.api.events.BedwarsGameStartEvent;
+import org.screamingsandals.bedwars.api.events.BedwarsPlayerLeaveEvent;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.List;
+import java.util.HashMap;
 
-public class voider
+public class voider implements Listener
 {
-    double dynamicy;
+    HashMap<Player,Integer> voidLevel = new HashMap<>();
+    public static boolean shouldVoidCheck = true;
 
-    HashSet<String> worlds = new HashSet<>();
-
-    public voider(List<String> worlds, double sety)
+    @EventHandler
+    public void bwstart(BedwarsGameStartEvent e)
     {
-        this.worlds.addAll(worlds);
-        this.worlds.add("bwlobby");
+        if(!shouldVoidCheck) // disablable for performence in case of 100 player events etc
+            return;
 
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), () ->
+        System.out.println("starting voider");
+        FileConfiguration config = new LobbyLogic().getMapConfiguration(e.getGame().getName());
+        for (Player p: e.getGame().getConnectedPlayers())
         {
-            for (Player player : Bukkit.getOnlinePlayers())
+            voidLevel.put(p,config.getInt("Void",0));
+        }
+
+    }
+
+    @EventHandler
+    public void bwend(BedwarsPlayerLeaveEvent e)
+    {
+        voidLevel.remove(e.getPlayer());
+    }
+
+    @EventHandler
+    public void VoidWatcher(PlayerMoveEvent e)
+    {
+        if(e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby") && e.getPlayer().getLocation().getY() <=5)
+        {
+            Bukkit.dispatchCommand(e.getPlayer(), "spawn");
+        }
+        else if(voidLevel.get(e.getPlayer()) != null)
+        {
+            if (e.getPlayer().getLocation().getY() < voidLevel.get(e.getPlayer()))
             {
-                Location loc = player.getLocation();
-                dynamicy = loc.getY();
-                if (worlds.contains(player.getLocation().getWorld().getName()) && dynamicy <= sety && player.getHealth() > 1)
-                {
-                    for (PotionEffect effect : player.getActivePotionEffects())
-                    {
-                        player.removePotionEffect(effect.getType());
-                    }
-                }
-                else if (player.getLocation().getWorld().getName().equals("bwlobby") && dynamicy <= 5)
-                {
-                    Bukkit.dispatchCommand(player, "spawn");
-                }
+                e.getPlayer().damage(e.getPlayer().getHealth() + 9999999);
+                new EntityDamageEvent(e.getPlayer(), EntityDamageEvent.DamageCause.VOID, e.getPlayer().getHealth() + 9999999);
             }
-        }, 1, 20);
+        }
     }
 }

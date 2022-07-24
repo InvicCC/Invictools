@@ -51,7 +51,6 @@ public class badBlocks
                     }
                 }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 5);
                 break;
-            case 1:
                 /*
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a&lMerry &c&lChristmas!"));
 
@@ -84,24 +83,18 @@ public class badBlocks
                 break;
 
                  */
+            /*
             case 3:
-                if (!player.getWorld().getName().equals("map2"))
-                {
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lWEEEEEEEEEEEEEEeeeeeeeeeeeeeee!!!!!!!!!!!!!!"));
                     player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1, 1);
                     player.setVelocity(new Vector(0, 20, 0));
                     player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 300, 0, false, false));
                     break;
-                }
+
+             */
+            case 3:
             case 4:
                 ItemStack coal = new ItemStack(Material.OCHRE_FROGLIGHT);
-                //  ItemMeta meta3 = coal.getItemMeta();
-                // meta3.setDisplayName(ChatColor.BLACK + "Coal");
-                //  List<String> lore = new ArrayList<>();
-                //   lore.add(ChatColor.translateAlternateColorCodes('&',"&7You know you deserve it."));
-                //  meta3.setLore(lore);
-                //   coal.setItemMeta(meta3);
-
                 new BukkitRunnable()
                 {
                     int i = 0;
@@ -109,7 +102,7 @@ public class badBlocks
                     @Override
                     public void run()
                     {
-                        if (i >= 8)
+                        if (i >= 18)
                             this.cancel();
 
                         player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
@@ -166,6 +159,7 @@ public class badBlocks
                 };
                 runnable2.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20 * 60);
                 break;
+            case 1:
             case 8:
                 ItemStack bed = new ItemStack(Material.BLACK_BED);
                 ItemMeta meta4 = bed.getItemMeta();
@@ -224,7 +218,6 @@ public class badBlocks
     public static Player getRandomPlayer(Player originalplayer)
     {
         List<Player> players = new ArrayList<>(Bukkit.getOnlinePlayers());
-        List<Player> team = GrabTeammates.getTeammates(originalplayer);
 
         int i = 0;
         Collections.shuffle(players);
