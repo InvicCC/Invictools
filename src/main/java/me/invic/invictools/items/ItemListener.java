@@ -228,6 +228,7 @@ public class ItemListener implements Listener
                 wool.addAll(getNearbyBlocks(e.getPlayer().getLocation(), 20, "LIGHT_BLUE_WOOL", true));
                 wool.addAll(getNearbyBlocks(e.getPlayer().getLocation(), 20, "LIGHT_GRAY_WOOL", true));
 
+                wool.removeAll(taggedBlocks);
                 grabSandstone.taggedBlocks.addAll(wool);
 /*
                 if(!api.getGameOfPlayer(e.getPlayer()).getName().equalsIgnoreCase("SnowThree"))
@@ -418,7 +419,6 @@ public class ItemListener implements Listener
 
     void incChange(List<Block> blocks, boolean type, Location loc, boolean sound)
     {
-        blocks.removeAll(taggedBlocks);
 
         new BukkitRunnable()
         {

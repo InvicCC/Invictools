@@ -33,6 +33,8 @@ public class WorldBorder
         if (config.getString("WorldBorder") != null && useConfig)
         {
             String[] vars = config.getString("WorldBorder").split(";");
+            if(vars.length>4)
+                return;
             world.getWorldBorder().setCenter(new Location(world, Double.parseDouble(vars[3]), 0, Double.parseDouble(vars[3])));
             world.getWorldBorder().setSize(Double.parseDouble(vars[0]));
             world.getWorldBorder().setSize(Double.parseDouble(vars[1]), (long) Double.parseDouble(vars[2]));
