@@ -6,9 +6,11 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -83,6 +85,15 @@ public class LobbyInventoryFix implements Listener
     {
         if (e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
             saveInventory(e.getPlayer());
+    }
+
+    @EventHandler
+    public void AllayEvent(EntityPickupItemEvent e)
+    {
+        if (e.getItem().getName().equalsIgnoreCase("bwlobby") && e.getEntity().getType().equals(EntityType.ALLAY))
+        {
+            e.setCancelled(true);
+        }
     }
 
     public void saveInventory(Player p)
