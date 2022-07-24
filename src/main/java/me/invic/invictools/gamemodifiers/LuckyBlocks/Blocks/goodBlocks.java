@@ -8,6 +8,7 @@ import me.invic.invictools.gamemodifiers.PotionEffects.DamageTeammates;
 import me.invic.invictools.items.createItems;
 import me.invic.invictools.util.GrabTeammates;
 import me.invic.invictools.util.LobbyLogic;
+import me.invic.invictools.util.disableStats;
 import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.enchantments.Enchantment;
@@ -361,11 +362,11 @@ public class goodBlocks
     {
         if(item.getType().equals(Material.BOW) && BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
         {
-            if(new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameOfPlayer(p).getName()).getString("GameType").equalsIgnoreCase("bedfight"))
+            if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(p)).equalsIgnoreCase("bedfight"))
             {
                 ItemStack arrow = new ItemStack(Material.ARROW);
                 arrow.setAmount(new Random().nextInt(3)+1);
-                p.getInventory().addItem(arrow);
+                p.getWorld().dropItemNaturally(p.getLocation(),arrow);
             }
         }
     }

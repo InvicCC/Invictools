@@ -165,7 +165,6 @@ public class LobbyLogic implements Listener
                 if (map.getString("World").equalsIgnoreCase(world))
                     return map;
         }
-        System.out.println("no match");
         return null;
     }
 

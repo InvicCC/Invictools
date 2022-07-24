@@ -807,9 +807,13 @@ public class Commands implements CommandExecutor, TabExecutor
             {
                 for (Player player : Bukkit.getOnlinePlayers())
                 {
-                    new LobbyInventoryFix().saveInventory(player);
-                    BedwarsAPI.getInstance().getGameByName(args[1]).joinToGame(player);
-                    //new SafeOpCommand(player, "bw join " +args[1]);
+                    if(!BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+                    {
+                        if(player.getWorld().getName().equalsIgnoreCase("bwlobby"))
+                            new LobbyInventoryFix().saveInventory(player);
+
+                        BedwarsAPI.getInstance().getGameByName(args[1]).joinToGame(player);
+                    }
                 }
                 sender.sendMessage(ChatColor.AQUA + "sending to game " + ChatColor.YELLOW + args[1]);
             }
