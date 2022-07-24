@@ -157,8 +157,8 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                                 for (int i = 0; i < spacing+1; i++) // for one up
                                 {
                                     // for sides
-                                    placeDiagonal(cardinal,face,directions.get(0),spacing,finalLayer,game);
-                                    placeDiagonal(cardinal,face,directions.get(1),spacing,finalLayer,game);
+                                    placeDiagonal(cardinal, face, directions.get(0), spacing, finalLayer, game);
+                                    placeDiagonal(cardinal, face, directions.get(1), spacing, finalLayer, game);
 
                                     // for one up
                                     if(i>0)
@@ -178,7 +178,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
         }.runTaskLater(Commands.Invictools, spacing * 20L);
     }
 
-    private void placeDiagonal(Location cardinal,BlockFace face, BlockFace direction,int spacing,String blocktype,String game)
+    private void placeDiagonal(Location cardinal, BlockFace face, BlockFace direction, int spacing, String blocktype, String game)
     {
         if(spacing==0) return;
 
@@ -349,14 +349,14 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                     indendedItems++;
                     if (pass.equalsIgnoreCase("pass") || forceReset)
                     {
-                       if (item.getType().equals(Material.WHITE_WOOL))
-                       {
-                           ItemStack newitem = new ItemStack(Material.valueOf(api.getGameOfPlayer(p).getTeamOfPlayer(p).getColor().toString() + "_WOOL"));
-                           newitem.setAmount(item.getAmount());
-                           p.getInventory().setItem(i, newitem);
-                       }
-                       else
-                       p.getInventory().setItem(i, item);
+                        if (item.getType().equals(Material.WHITE_WOOL))
+                        {
+                            ItemStack newitem = new ItemStack(Material.valueOf(api.getGameOfPlayer(p).getTeamOfPlayer(p).getColor().toString() + "_WOOL"));
+                            newitem.setAmount(item.getAmount());
+                            p.getInventory().setItem(i, newitem);
+                        }
+                        else
+                            p.getInventory().setItem(i, item);
                     }
                 }
             }
