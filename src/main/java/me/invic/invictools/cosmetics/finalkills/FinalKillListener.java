@@ -18,12 +18,14 @@ import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class FinalKillListener implements Listener
 {
     BedwarsAPI api = BedwarsAPI.getInstance();
-    HashMap<String, Integer> sizes = new HashMap<>();
+    public static HashMap<String, Integer> sizes = new HashMap<>();
 
     Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
     File Folder = new File(plugin.getDataFolder(), "PlayerData");
@@ -35,9 +37,9 @@ public class FinalKillListener implements Listener
         {
             if (api.getGameOfPlayer(e.getPlayer()).getTeamOfPlayer(e.getPlayer()) == null) // team eliminated
                 logic(e.getKiller(), e.getPlayer());
-            else if (sizes.get(e.getGame().getTeamOfPlayer(e.getPlayer()).getName()) != GrabTeammates.getTeamSize(e.getPlayer())) // team size decreased
+            else if (sizes.get(e.getGame().getName()+"_"+e.getGame().getTeamOfPlayer(e.getPlayer()).getName()) != GrabTeammates.getTeamSize(e.getPlayer())) // team size decreased
             {
-                sizes.put(e.getGame().getTeamOfPlayer(e.getPlayer()).getName(), GrabTeammates.getTeamSize(e.getPlayer()));
+                sizes.put(e.getGame().getName()+"_"+e.getGame().getTeamOfPlayer(e.getPlayer()).getName(), GrabTeammates.getTeamSize(e.getPlayer()));
                 logic(e.getKiller(), e.getPlayer());
             }
             else // regular kill with valid killer, hopefully
@@ -49,9 +51,9 @@ public class FinalKillListener implements Listener
             {
                 addFinalDeath(e.getPlayer());
             }
-            else if (sizes.get(e.getGame().getTeamOfPlayer(e.getPlayer()).getName()) != GrabTeammates.getTeamSize(e.getPlayer())) // team size decreased
+            else if (sizes.get(e.getGame().getName()+"_"+e.getGame().getTeamOfPlayer(e.getPlayer()).getName()) != GrabTeammates.getTeamSize(e.getPlayer())) // team size decreased
             {
-                sizes.put(e.getGame().getTeamOfPlayer(e.getPlayer()).getName(), GrabTeammates.getTeamSize(e.getPlayer()));
+                sizes.put(e.getGame().getName()+"_"+e.getGame().getTeamOfPlayer(e.getPlayer()).getName(), GrabTeammates.getTeamSize(e.getPlayer()));
                 addFinalDeath(e.getPlayer());
             }
         }
@@ -116,19 +118,25 @@ public class FinalKillListener implements Listener
 
     }
 
-
     @EventHandler
     public void bwstart(BedwarsGameStartedEvent e)
     {
         for (Player p : e.getGame().getConnectedPlayers())
         {
-            sizes.put(api.getGameOfPlayer(p).getTeamOfPlayer(p).getName(), GrabTeammates.getTeamSize(p));
+            sizes.put(e.getGame().getName()+"_"+api.getGameOfPlayer(p).getTeamOfPlayer(p).getName(), GrabTeammates.getTeamSize(p));
         }
     }
 
     @EventHandler
     public void bwend(BedwarsGameEndingEvent e)
     {
-        sizes.clear();
+        HashMap<String, Integer> sizesReduced = new HashMap<>(sizes);
+        for (String s:sizes.keySet())
+        {
+            String[] split = s.split("_");
+            if(split[0].equalsIgnoreCase(e.getGame().getName()))
+                sizesReduced.remove(s);
+        }
+        sizes = new HashMap<>(sizesReduced); // dawg idek
     }
 }

@@ -4,6 +4,7 @@ import me.invic.invictools.Commands;
 import me.invic.invictools.gamemodifiers.WardenSpawner;
 import me.invic.invictools.items.ModBow;
 import me.invic.invictools.util.LobbyLogic;
+import me.invic.invictools.util.cageHandler;
 import me.invic.invictools.util.disableStats;
 import me.invic.invictools.util.fixes.LobbyInventoryFix;
 import net.md_5.bungee.api.ChatMessageType;
@@ -47,6 +48,8 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
     static String loadout = Commands.Invictools.getConfig().getString("defaultBedfightLoadout", "default");
     BedwarsAPI api = BedwarsAPI.getInstance();
     static HashMap<Player,String> spawnPoints = new HashMap<>();
+    static HashMap<Player,Location> cager = new HashMap<>();
+    static HashMap<Game,String> customLoadout = new HashMap<>(); // for gamemode selector
 
     @EventHandler
     public void init(BedwarsGameStartEvent e) // creates defence
@@ -54,8 +57,13 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
         if (!disableStats.getGameType(e.getGame()).equalsIgnoreCase(bedfight))
             return;
 
-        //      if(new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.loadout") != null)
-        loadout = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.loadout","default");
+        if(customLoadout.get(e.getGame()) == null)
+            loadout = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.loadout","default");
+        else
+        {
+            loadout = customLoadout.get(e.getGame());
+            customLoadout.remove(e.getGame());
+        }
 
         new BukkitRunnable()
         {
@@ -69,7 +77,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             }
         }.runTaskLater(Commands.Invictools, 30L);
 
-        String[] layers = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.layers", "ENDSTONE;PLANKS;WOOL").split(";");
+        String[] layers = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.layers", "END_STONE;MANGROVE_PLANKS;STAINED_GLASS").split(";");
         for (int i = 0; i < layers.length; i++)
         {
             for (RunningTeam team : e.getGame().getRunningTeams())
@@ -79,9 +87,16 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             }
         }
 
+        for (RunningTeam team:e.getGame().getRunningTeams())
+        {
+            List<Player> players = team.getConnectedPlayers();
+            Collections.shuffle(players);
+            cager.put(players.get(0),team.getTeamSpawn().clone().add(0,8,0));
+            new cageHandler().buildCage(players.get(0),team.getTeamSpawn().clone().add(0,8,0));
+        }
+
         for (Player p : e.getGame().getConnectedPlayers())
         {
-            //spawnCage(p)\
             new BukkitRunnable()
             {
                 @Override
@@ -91,7 +106,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                     {
                         p.setInvulnerable(true);
                         spawnPoints.put(p,p.getWorld().getName()+";"+p.getLocation().getX()+";"+p.getLocation().getY()+";"+p.getLocation().getZ()+";"+p.getLocation().getYaw()+";"+p.getLocation().getPitch());
-                        p.teleport(new Location(p.getWorld(),0.5,66,0.5));
+                        p.teleport(e.getGame().getTeamOfPlayer(p).getTeamSpawn().clone().add(0,8,0));
                     }
                 }
             }.runTaskLater(Commands.Invictools, 20L);
@@ -121,18 +136,30 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                     {
                         for (Player p : e.getGame().getConnectedPlayers())
                         {
-                            if(p.getGameMode().equals(GameMode.SURVIVAL) && spawnPoints.get(p) != null)
+                            if(spawnPoints.get(p) != null)
                             {
-                                p.setInvulnerable(false);
-                                p.teleport(new WardenSpawner().locationFromConfig(spawnPoints.get(p)));
+                                new BukkitRunnable()
+                                {
+                                    @Override
+                                    public void run()
+                                    {
+                                        p.setInvulnerable(false);
+                                    }
+                                }.runTaskLater(Commands.Invictools, 50L);
+
+                               // p.teleport(new WardenSpawner().locationFromConfig(spawnPoints.get(p)));
                                 spawnPoints.remove(p);
                                 saveBedfightInventory(loadout, p, false);
                                 p.playSound(p.getLocation(),Sound.ENTITY_ENDER_DRAGON_GROWL,1,1);
                                 p.sendTitle(ChatColor.translateAlternateColorCodes('&', "&eGame Started!"), ChatColor.translateAlternateColorCodes('&', "&fGood Luck"), 20, 50, 15);
-                                //destroyCage(p);
                             }
                             else if(spawnPoints.get(p) == null)
                                 p.damage(p.getHealth()+9999);
+                        }
+
+                        for (Player p:cager.keySet())
+                        {
+                            new cageHandler().destroyCage(p,cager.get(p));
                         }
                     }
                     this.cancel();
@@ -156,7 +183,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
     }
 
     @EventHandler
-    public void drops(BlockPlaceEvent e)
+    public void place(BlockPlaceEvent e)
     {
         if(spawnPoints.containsKey(e.getPlayer()))
             e.setCancelled(true);
@@ -187,7 +214,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
     }
 
     @EventHandler
-    public void killed(BedwarsPlayerKilledEvent e) // final kill, wins,  kill, death, loss stats. give items after respawn
+    public void killed(BedwarsPlayerKilledEvent e)
     {
         if (!disableStats.getGameType(e.getGame()).equalsIgnoreCase(bedfight))
             return;
@@ -206,15 +233,6 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
         {
             e.getKiller().getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
         }
-
-        // STATISTIC TRACKING HERE
-    }
-
-    @EventHandler
-    public void bedBreak(BedwarsTargetBlockDestroyedEvent e) //bedbreak stats
-    {
-        if (!disableStats.getGameType(e.getGame()).equalsIgnoreCase(bedfight))
-            return;
     }
 
     public void buildDefence(Location loc, String layer, int spacing, String color, String game) // spacing is for iterator, delays loop for aesthetic and spaces next layer

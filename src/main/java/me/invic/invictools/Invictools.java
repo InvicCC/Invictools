@@ -7,6 +7,7 @@ import me.invic.invictools.cosmetics.bedbreaks.BedBreaks;
 import me.invic.invictools.cosmetics.ConfigHandler;
 import me.invic.invictools.cosmetics.finalkills.FinalKillListener;
 import me.invic.invictools.gamemodes.bedfight;
+import me.invic.invictools.gamemodes.bedfightStatistics;
 import me.invic.invictools.gamemodifiers.*;
 import me.invic.invictools.items.ItemListener;
 import me.invic.invictools.items.ModBow;
@@ -162,7 +163,8 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new TeamSelection(), this); //bwjoin invnetory click
         Bukkit.getPluginManager().registerEvents(new disableStats(), this); //bw stats bw start
         Bukkit.getPluginManager().registerEvents(new bedfight(), this); //bedfight gamemode
-        Bukkit.getPluginManager().registerEvents(new voider(), this); //checks y level effects
+        Bukkit.getPluginManager().registerEvents(new voider(), this); //checks y level
+        Bukkit.getPluginManager().registerEvents(new bedfightStatistics(), this); //does waht it says
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection
