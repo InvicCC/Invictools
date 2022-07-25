@@ -1,6 +1,6 @@
 package me.invic.invictools.gamemodifiers.Manhunt;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.items.createItems;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import me.invic.invictools.util.fixes.SafeOpCommand;

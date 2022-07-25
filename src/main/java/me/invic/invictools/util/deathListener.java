@@ -1,12 +1,14 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.Commands;
-import me.invic.invictools.Invictools;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.gamemodifiers.Haunt;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import me.invic.invictools.gamemodifiers.giveItemRepeated;
 import me.invic.invictools.items.ItemListener;
-import me.invic.invictools.util.OlympusFires;
+import me.invic.invictools.util.Leaderboards.BedfightLeaderboard;
+import me.invic.invictools.util.Leaderboards.BedfightLeaderboardHologram;
+import me.invic.invictools.util.Leaderboards.leaderboard;
+import me.invic.invictools.util.Leaderboards.leaderboardHologram;
 import me.invic.invictools.util.npc.BlazeNpc;
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -17,7 +19,6 @@ import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsGameEndingEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
 
@@ -101,7 +102,7 @@ public class deathListener implements Listener
         ItemListener.Falling.clear();
         Commands.killEffects.clear();
         OlympusFires.resetFires();
-        //   SculkFires.resetFires(); hanlded in class
+        //   SculkFires.resetFires(); handled in class
         Commands.killItems.clear();
         Commands.Hauntable.clear();
         Commands.ProximityElytra.clear();
@@ -138,11 +139,12 @@ public class deathListener implements Listener
             e.remove();
         }
 
-
         new BlazeNpc().spawnNPC("npc", true);
         new BlazeNpc().spawnNPC("npc2", false);
         new leaderboard().loadLeaderboard("Star");
         new leaderboardHologram().createLeaderboard();
+        new BedfightLeaderboard().loadBFLeaderboard("score");
+        new BedfightLeaderboardHologram().createBFLeaderboard();
 
         BukkitRunnable runnable = new BukkitRunnable()
         {
@@ -152,7 +154,7 @@ public class deathListener implements Listener
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "nte reload");
             }
         };
-        runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1L);
+        runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20L);
     }
 
     @EventHandler

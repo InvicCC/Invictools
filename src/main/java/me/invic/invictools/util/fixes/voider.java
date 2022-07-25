@@ -1,10 +1,7 @@
 package me.invic.invictools.util.fixes;
 
-import me.invic.invictools.Commands;
 import me.invic.invictools.util.LobbyLogic;
 import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

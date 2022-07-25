@@ -1,7 +1,6 @@
 package me.invic.invictools.util.npc;
 
-import com.comphenix.protocol.wrappers.EnumWrappers;
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;

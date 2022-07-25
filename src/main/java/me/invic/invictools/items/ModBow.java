@@ -1,9 +1,7 @@
 package me.invic.invictools.items;
 
-import me.invic.invictools.Commands;
-import me.invic.invictools.items.ItemListener;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.gamemodifiers.PotionEffects.DamageTeammates;
-import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import me.invic.invictools.util.GrabTeammates;
 import org.bukkit.*;
 import org.bukkit.block.Block;

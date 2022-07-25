@@ -13,6 +13,12 @@ commands:
   it:
     usage: /invictools help for list of commands
     description: Use '/invictools help' for list of commands
+  lb:
+    usage: /lb (bw/bf) (playername)
+    description: check leaderboard positions of players
+  leaderboard:
+    usage: /lb (bw/bf) (playername)
+    description: check leaderboard positions of players
 permissions:
   invictools.*:
     description: Gives access the entire plugin

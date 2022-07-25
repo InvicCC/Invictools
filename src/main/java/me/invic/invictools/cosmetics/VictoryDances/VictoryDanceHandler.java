@@ -1,7 +1,6 @@
 package me.invic.invictools.cosmetics.VictoryDances;
 
-import me.invic.invictools.Commands;
-import me.invic.invictools.cosmetics.bedbreaks.TornadoBedBreak;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.cosmetics.finalkills.FinalKillHandler;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailConfig;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
@@ -10,24 +9,19 @@ import me.invic.invictools.items.createItems;
 import me.invic.invictools.items.dareListener;
 import me.invic.invictools.util.ExplosionsListener;
 import org.bukkit.*;
-import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.*;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
-import org.spigotmc.event.entity.EntityDismountEvent;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 public class VictoryDanceHandler implements Listener

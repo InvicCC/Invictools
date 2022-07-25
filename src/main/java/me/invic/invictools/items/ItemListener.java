@@ -1,8 +1,6 @@
 package me.invic.invictools.items;
 
-import me.invic.invictools.Commands;
-import me.invic.invictools.gamemodifiers.LuckyBlocks.Blocks.OPBlocks;
-import me.invic.invictools.items.FireStick;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import me.invic.invictools.util.physics.grabSandstone;
 import org.bukkit.*;

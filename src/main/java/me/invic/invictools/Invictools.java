@@ -1,6 +1,7 @@
 package me.invic.invictools;
 
-import me.invic.invictools.cosmetics.Lobby1Handler;
+import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.leaderboardCommands;
 import me.invic.invictools.cosmetics.LobbyListener;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceListener;
 import me.invic.invictools.cosmetics.bedbreaks.BedBreaks;
@@ -12,17 +13,17 @@ import me.invic.invictools.gamemodifiers.*;
 import me.invic.invictools.items.ItemListener;
 import me.invic.invictools.items.ModBow;
 import me.invic.invictools.items.dareListener;
-import me.invic.invictools.util.deathListener;
+import me.invic.invictools.util.*;
+import me.invic.invictools.util.Leaderboards.*;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.luckyBlockBreakDetection;
 import me.invic.invictools.gamemodifiers.PotionEffects.KillEffectListener;
 import me.invic.invictools.gamemodifiers.PotionEffects.TeamworkEffect;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailListener;
-import me.invic.invictools.util.*;
-import me.invic.invictools.util.fixes.*;
 //import me.invic.invictools.util.npc.DetectClickOnNPC;
 //import me.invic.invictools.util.npc.DetectClickOnPlugNPC;
 //import me.invic.invictools.util.npc.SpawnNPC;
 //import me.invic.invictools.util.npc.SpawnPlugNPC;
+import me.invic.invictools.util.fixes.*;
 import me.invic.invictools.util.npc.BlazeNpc;
 import me.invic.invictools.util.physics.CancelConcreteChange;
 import me.invic.invictools.util.physics.CancelLampUpdates;
@@ -31,18 +32,13 @@ import me.invic.invictools.util.physics.RiptideDamage;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Entity;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
-import scala.util.matching.Regex;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -168,7 +164,6 @@ public final class Invictools extends JavaPlugin
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection
-        //Bukkit.getPluginManager().registerEvents(new keepitems(), this); // move event is disabled, cancels firework bedbreak damage used to be here.
 
         // death
         Bukkit.getPluginManager().registerEvents(new FixSpectatoring(), this); // death event
@@ -176,9 +171,6 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new DeathCounter(), this); // bw death and end game event
 
         // changed world & join server
-        //  Bukkit.getPluginManager().registerEvents(new SpawnNPC(), this); // changed world and join
-        //  if(UsePlugNPC)
-        //      Bukkit.getPluginManager().registerEvents(new SpawnPlugNPC(), this); // changed world and join
         Bukkit.getPluginManager().registerEvents(new ConfigHandler(this), this); // join event
         Bukkit.getPluginManager().registerEvents(new AbtributesOnDeath(), this); // join event
         Bukkit.getPluginManager().registerEvents(new MasterPlayerJoin(), this); // changed world event
@@ -190,6 +182,9 @@ public final class Invictools extends JavaPlugin
         this.getCommand("invictools").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
         this.getCommand("it").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
 
+        this.getCommand("leaderboard").setExecutor(new leaderboardCommands());
+        this.getCommand("lb").setExecutor(new leaderboardCommands());
+
         // to run after server loads
         BukkitRunnable runnable = new BukkitRunnable()
         {
@@ -197,17 +192,14 @@ public final class Invictools extends JavaPlugin
             public void run()
             {
                 deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
-              //  new voider(worlds, y);
                 new panels().loadPanels();
-                // new SpawnNPC();
-                // new DetectClickOnNPC();
                 new BlazeNpc().spawnNPC("npc", true);
                 new leaderboard().loadLeaderboard("Star");
                 new leaderboardHologram().createLeaderboard();
+                new BedfightLeaderboard().loadBFLeaderboard("score");
+                new BedfightLeaderboardHologram().createBFLeaderboard();
                 if (UsePlugNPC)
                 {
-                    //new SpawnPlugNPC();
-                    //new DetectClickOnPlugNPC();
                     new BlazeNpc().spawnNPC("npc2", false);
                 }
                 for (String config : Configs)

@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics.projtrail;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -9,7 +9,6 @@ import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.*;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.util.Vector;
 
 import java.util.Objects;
 
