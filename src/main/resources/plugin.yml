@@ -3,7 +3,7 @@ version: ${project.version}
 main: me.invic.invictools.Invictools
 api-version: 1.19
 authors: [ Invic ]
-description: Various tools to work with my other plugins
+description: Gamemodes, Bedwars Bug Fixes, and hosting Utilities for Invic Bedwars
 depend: [ BedWars ]
 website: solo.to/Invic
 commands:
@@ -16,9 +16,14 @@ commands:
   lb:
     usage: /lb (bw/bf) (playername)
     description: check leaderboard positions of players
-  leaderboard:
-    usage: /lb (bw/bf) (playername)
-    description: check leaderboard positions of players
+  toggle:
+    usage: /toggle (boolean)
+    description: toggles plugin features
 permissions:
   invictools.*:
     description: Gives access the entire plugin
+  invic.invictools:
+    description: Gives access to hosting commands
+  invic.firestick:
+    description: Basic nondefault rank permissions
+

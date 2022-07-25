@@ -2,6 +2,7 @@ package me.invic.invictools;
 
 import me.invic.invictools.commands.Commands;
 import me.invic.invictools.commands.leaderboardCommands;
+import me.invic.invictools.commands.toggleCommands;
 import me.invic.invictools.cosmetics.LobbyListener;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceListener;
 import me.invic.invictools.cosmetics.bedbreaks.BedBreaks;
@@ -182,7 +183,7 @@ public final class Invictools extends JavaPlugin
         this.getCommand("invictools").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
         this.getCommand("it").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
 
-        this.getCommand("leaderboard").setExecutor(new leaderboardCommands());
+        this.getCommand("toggle").setExecutor(new toggleCommands());
         this.getCommand("lb").setExecutor(new leaderboardCommands());
 
         // to run after server loads
