@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics.finalkills;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.cosmetics.NormalKillHandler;
 import me.invic.invictools.util.GrabTeammates;
 import me.invic.invictools.util.disableStats;
@@ -18,9 +18,7 @@ import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class FinalKillListener implements Listener
 {

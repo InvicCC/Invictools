@@ -10,7 +10,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Objects;
 
-import static me.invic.invictools.Commands.teammates;
+import static me.invic.invictools.commands.Commands.teammates;
 
 public class CloseEffectSpecific
 {

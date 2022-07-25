@@ -1,6 +1,6 @@
 package me.invic.invictools.util.fixes;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerPortalEvent;

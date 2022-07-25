@@ -1,6 +1,6 @@
 package me.invic.invictools.gamemodifiers;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.util.DeathCounter;
 import org.bukkit.Bukkit;
 import org.bukkit.attribute.Attribute;

@@ -1,6 +1,6 @@
 package me.invic.invictools.util.physics;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;

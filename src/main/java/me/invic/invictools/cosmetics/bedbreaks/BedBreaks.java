@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics.bedbreaks;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;

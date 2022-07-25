@@ -1,9 +1,8 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
@@ -11,8 +10,6 @@ import org.bukkit.loot.LootContext;
 import org.bukkit.loot.LootTable;
 import org.bukkit.loot.LootTables;
 import org.bukkit.plugin.Plugin;
-import org.screamingsandals.bedwars.api.BedwarsAPI;
-import org.screamingsandals.bedwars.api.game.ItemSpawnerType;
 
 import java.io.File;
 import java.util.List;

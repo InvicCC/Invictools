@@ -1,6 +1,6 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -9,10 +9,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.plugin.Plugin;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
-import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsGameStartedEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsSavePlayerStatisticEvent;
 import org.screamingsandals.bedwars.api.game.Game;
@@ -31,7 +28,7 @@ public class disableStats implements Listener
         if(!recentGame.containsKey((e.getPlayerStatistic().getName())))
         {
             e.setCancelled(true);
-            System.out.println("missing "+Bukkit.getPlayer(e.getPlayerStatistic().getName()));
+            System.out.println("missing "+Bukkit.getPlayer(e.getPlayerStatistic().getName()).getName());
         }
         else if (!shouldTrack(Bukkit.getPlayer(e.getPlayerStatistic().getName())) || !Commands.StatsTrack)
         {

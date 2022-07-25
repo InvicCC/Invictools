@@ -1,8 +1,6 @@
 package me.invic.invictools.items;
 
-import me.invic.invictools.Commands;
-import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
-import org.bukkit.Bukkit;
+import me.invic.invictools.commands.Commands;
 import org.bukkit.Sound;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;

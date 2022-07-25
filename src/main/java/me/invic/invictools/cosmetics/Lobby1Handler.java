@@ -1,19 +1,16 @@
 package me.invic.invictools.cosmetics;
 
-import me.invic.invictools.Commands;
-import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
-import me.invic.invictools.util.leaderboard;
+import me.invic.invictools.commands.Commands;
+import me.invic.invictools.util.Leaderboards.leaderboard;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.*;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.util.Vector;
 
 import java.io.File;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.util.*;
 
 public class Lobby1Handler

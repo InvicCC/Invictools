@@ -1,13 +1,10 @@
 package me.invic.invictools.gamemodifiers.LuckyBlocks.Blocks;
 
-import me.invic.invictools.Commands;
 import me.invic.invictools.gamemodifiers.CustomHealth;
-import me.invic.invictools.gamemodifiers.LuckyBlocks.Blocks.badBlocks;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import me.invic.invictools.gamemodifiers.PotionEffects.DamageTeammates;
 import me.invic.invictools.items.createItems;
 import me.invic.invictools.util.GrabTeammates;
-import me.invic.invictools.util.LobbyLogic;
 import me.invic.invictools.util.disableStats;
 import org.bukkit.*;
 import org.bukkit.attribute.Attribute;

@@ -1,7 +1,5 @@
 package me.invic.invictools.gamemodifiers;
 
-import me.invic.invictools.Commands;
-import me.invic.invictools.Invictools;
 import me.invic.invictools.util.LobbyLogic;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics.VictoryDances;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.cosmetics.Lobby1Handler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

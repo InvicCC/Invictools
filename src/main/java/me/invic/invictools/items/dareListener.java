@@ -1,6 +1,6 @@
 package me.invic.invictools.items;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceHandler;
 import org.bukkit.*;
 import org.bukkit.attribute.Attribute;

@@ -1,24 +1,17 @@
 package me.invic.invictools.gamemodifiers.LuckyBlocks.Blocks;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.gamemodifiers.CustomHealth;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.dynamicSpawner;
 import me.invic.invictools.util.GrabTeammates;
 import org.bukkit.*;
-import org.bukkit.attribute.Attribute;
-import org.bukkit.attribute.AttributeInstance;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 import java.util.*;
-
-import static me.invic.invictools.Commands.teammates;
 
 public class badBlocks
 {

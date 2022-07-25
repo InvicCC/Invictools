@@ -1,6 +1,6 @@
 package me.invic.invictools.gamemodes;
 
-import me.invic.invictools.Commands;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.cosmetics.finalkills.FinalKillListener;
 import me.invic.invictools.util.GrabTeammates;
 import me.invic.invictools.util.disableStats;
@@ -36,6 +36,27 @@ public class bedfightStatistics implements Listener
     static HashMap<UUID,Integer> Loss = new HashMap<>();
     static HashMap<UUID,Integer> BedBreak = new HashMap<>();
     static HashMap<UUID,Game> Game = new HashMap<>();
+
+    FileConfiguration config = Commands.Invictools.getConfig();
+    int BedBreakScore = config.getInt("BedfightScore.BedBreak",50);
+    int FinalKillScore = config.getInt("BedfightScore.FinalKill",15);
+    int NormalKillScore = config.getInt("BedfightScore.NormalKill",3);
+    int FinalDeathScore = config.getInt("BedfightScore.FinalDeath",0);
+    int NormalDeathScore = config.getInt("BedfightScore.NormalDeath",0);
+    int WinScore = config.getInt("BedfightScore.Win",50);
+    int LossScore = config.getInt("BedfightScore.Loss",0);
+    public int calculateScore(FileConfiguration file,String uuid)
+    {
+        int score = 0;
+        score += file.getInt("data."+uuid+".FinalKills")*FinalKillScore;
+        score += file.getInt("data."+uuid+".FinalDeaths")*FinalDeathScore;
+        score += file.getInt("data."+uuid+".NormalKills")*NormalKillScore;
+        score += file.getInt("data."+uuid+".NormalDeaths")*NormalDeathScore;
+        score += file.getInt("data."+uuid+".BedBreaks")*BedBreakScore;
+        score += file.getInt("data."+uuid+".Wins")*WinScore;
+        score += file.getInt("data."+uuid+".Losses")*LossScore;
+        return score;
+    }
 
     @EventHandler
     public void bwdeath(BedwarsPlayerKilledEvent e)

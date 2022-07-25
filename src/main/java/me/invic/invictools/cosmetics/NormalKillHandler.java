@@ -1,10 +1,8 @@
 package me.invic.invictools.cosmetics;
 
-import it.unimi.dsi.fastutil.Hash;
-import me.invic.invictools.Commands;
-import me.invic.invictools.cosmetics.bedbreaks.TornadoBedBreak;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
-import me.invic.invictools.util.leaderboard;
+import me.invic.invictools.util.Leaderboards.leaderboard;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
