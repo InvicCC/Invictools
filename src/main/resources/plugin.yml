@@ -22,8 +22,4 @@ commands:
 permissions:
   invictools.*:
     description: Gives access the entire plugin
-  invic.invictools:
-    description: Gives access to hosting commands
-  invic.firestick:
-    description: Basic nondefault rank permissions
 
