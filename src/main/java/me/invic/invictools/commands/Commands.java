@@ -69,6 +69,8 @@ public class Commands implements CommandExecutor, TabExecutor
     public static Plugin BWeffects = getServer().getPluginManager().getPlugin("Bweffects");
     public static Plugin Invictools = getServer().getPluginManager().getPlugin("Invictools");
 
+    public static final String permissionsError = Invictools.getConfig().getString("Strings.NoPerm","You do not have permission to run this command!");
+
     //global controls
     public static Player MasterPlayer = Bukkit.getPlayer("Invictable");
     public static HashMap<Player, Player> teammates = new HashMap<>();

@@ -23,7 +23,7 @@ public class leaderboardHologram
         destroyHolos();
         Location as = loc.clone().subtract(0, 1.5, 0);
         List<String> leaderboard = new ArrayList<>();
-        leaderboard.add(ChatColor.WHITE + " " + ChatColor.BOLD + modifySort(me.invic.invictools.util.Leaderboards.leaderboard.Sort) + ChatColor.AQUA + " " + ChatColor.BOLD + "Leaderboard ");
+        leaderboard.add(ChatColor.WHITE + " " + ChatColor.BOLD + modifySort(me.invic.invictools.util.Leaderboards.leaderboard.Sort) + ChatColor.AQUA + " " + ChatColor.BOLD + "Bedwars Leaderboard ");
         leaderboard.addAll(me.invic.invictools.util.Leaderboards.leaderboard.formattedLeaderboard);
         leaderboard.add(ChatColor.AQUA + " " + ChatColor.BOLD + "Click to Toggle ");
         Collections.reverse(leaderboard);
