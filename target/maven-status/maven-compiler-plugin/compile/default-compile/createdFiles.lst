@@ -19,6 +19,7 @@ me\invic\invictools\commands\Commands$5.class
 me\invic\invictools\util\Leaderboards\leaderboardCycle.class
 me\invic\invictools\commands\Commands$10.class
 me\invic\invictools\commands\Commands$22.class
+me\invic\invictools\commands\toggleCommands.class
 me\invic\invictools\util\Leaderboards\leaderboardHologram.class
 me\invic\invictools\gamemodes\bedfight$5.class
 me\invic\invictools\commands\Commands.class

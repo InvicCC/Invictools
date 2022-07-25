@@ -17,6 +17,9 @@ import static me.invic.invictools.commands.Commands.*;
 public class toggleCommands implements TabExecutor, CommandExecutor
 {
     public static boolean isHosting = false;
+    public static boolean bedfightQueue = false;
+    public static boolean bedwarsQueue = false;
+    public static boolean bedwarsSelector = false;
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args)
@@ -40,6 +43,9 @@ public class toggleCommands implements TabExecutor, CommandExecutor
             tabComplete.add("stats");
             tabComplete.add("portal");
             tabComplete.add("parkour");
+            tabComplete.add("bedwarsQueue");
+            tabComplete.add("bedfightQueue");
+            tabComplete.add("bedfightSelector");
         }
         return tabComplete;
     }
@@ -124,7 +130,46 @@ public class toggleCommands implements TabExecutor, CommandExecutor
         else if (args.length == 1 && args[0].equalsIgnoreCase("parkour"))
         {
             new disableParkour();
-            sender.sendMessage(ChatColor.AQUA + "Parkour blocked: " + disableParkour.parkour);
+            sender.sendMessage(ChatColor.AQUA + "Parkour open: " + disableParkour.parkour);
+        }
+        else if (args.length == 1 && args[0].equalsIgnoreCase("bedfightQueue"))
+        {
+            if (isHosting)
+            {
+                isHosting = false;
+                sender.sendMessage(ChatColor.AQUA + "Bedfight Queue disabled");
+            }
+            else
+            {
+                isHosting = true;
+                sender.sendMessage(ChatColor.AQUA + "Bedfight Queue enabled");
+            }
+        }
+        else if (args.length == 1 && args[0].equalsIgnoreCase("bedwarsQueue"))
+        {
+            if (isHosting)
+            {
+                isHosting = false;
+                sender.sendMessage(ChatColor.AQUA + "Bedwars Queue disabled");
+            }
+            else
+            {
+                isHosting = true;
+                sender.sendMessage(ChatColor.AQUA + "Bedwars Queue enabled");
+            }
+        }
+        else if (args.length == 1 && args[0].equalsIgnoreCase("bedwarsSelector"))
+        {
+            if (bedwarsSelector)
+            {
+                bedwarsSelector = false;
+                sender.sendMessage(ChatColor.AQUA + "Bedwars Map Selector disabled");
+            }
+            else
+            {
+                bedwarsSelector = true;
+                sender.sendMessage(ChatColor.AQUA + "Bedwars Map Selector enabled");
+            }
         }
 
         return true;
