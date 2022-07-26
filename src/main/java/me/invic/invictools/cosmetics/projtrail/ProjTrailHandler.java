@@ -27,10 +27,7 @@ public class ProjTrailHandler
         File Folder = new File(plugin.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, effectOwner.getUniqueId() + ".yml");
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
-        String effect = balls.getString("ProjTrail");
-
-        if (effect == null)
-            new ProjTrailConfig(effectOwner, "Crit", false);
+        String effect = balls.getString("ProjTrail","crit");
 
         effectSwitch(effect, effectOwner, entity);
     }
