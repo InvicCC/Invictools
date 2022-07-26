@@ -1,3 +1,4 @@
+me\invic\invictools\util\deathListener$4.class
 me\invic\invictools\commands\Commands$18.class
 me\invic\invictools\commands\Commands$25.class
 me\invic\invictools\commands\Commands$2.class
@@ -18,6 +19,7 @@ me\invic\invictools\util\Leaderboards\leaderboard.class
 me\invic\invictools\commands\Commands$5.class
 me\invic\invictools\util\Leaderboards\leaderboardCycle.class
 me\invic\invictools\commands\Commands$10.class
+me\invic\invictools\commands\teamSizeCommands.class
 me\invic\invictools\commands\Commands$22.class
 me\invic\invictools\commands\toggleCommands.class
 me\invic\invictools\util\Leaderboards\leaderboardHologram.class
