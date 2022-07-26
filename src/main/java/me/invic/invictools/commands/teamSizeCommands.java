@@ -21,7 +21,6 @@ public class teamSizeCommands implements CommandExecutor, TabExecutor
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args)
     {
         List<String> tabComplete = new ArrayList<>();
-
         if(sender instanceof Player)
         {
             if(!sender.hasPermission("invic.invictools"))
