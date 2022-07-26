@@ -87,6 +87,8 @@ added final kill tracking, reorganized classes, added more cosmetics.
 6/19/2022
 Fixed new lobby inventory bug, fixed spectator mode using whether lobby exists, adjusted boss lucky blocks, added DareDevil + dd items
 made inventory save when moved around automatically. added leaderboard for every stat. prevented lobby mob despawning. previously added command panels in plugin
+7/15/2022
+changelog now implmented via github
 TODO: bedfight leaderboard / full statistics tracking,
   scenario selector that works for normal players when no mod / opped players are in game but special players always,
    via version checks to notify players / fix slow falling,

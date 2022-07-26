@@ -13,6 +13,7 @@ me\invic\invictools\commands\Commands$14.class
 me\invic\invictools\commands\Commands$11.class
 me\invic\invictools\commands\Commands$9.class
 me\invic\invictools\items\ItemListener$5$1.class
+me\invic\invictools\commands\utilityCommands$1.class
 me\invic\invictools\commands\Commands$13.class
 me\invic\invictools\commands\Commands$12.class
 me\invic\invictools\util\Leaderboards\leaderboard.class
@@ -35,9 +36,11 @@ me\invic\invictools\commands\Commands$24.class
 me\invic\invictools\commands\leaderboardCommands.class
 me\invic\invictools\commands\Commands$1.class
 me\invic\invictools\commands\Commands$21.class
+me\invic\invictools\util\safeSizeChange.class
 me\invic\invictools\commands\Commands$17.class
 me\invic\invictools\commands\Commands$3.class
 me\invic\invictools\commands\Commands$19.class
 me\invic\invictools\commands\Commands$4.class
 me\invic\invictools\gamemodes\bedfight$6.class
 me\invic\invictools\commands\Commands$23.class
+me\invic\invictools\commands\utilityCommands.class

@@ -21,7 +21,10 @@ commands:
     description: toggles plugin features
   teamsize:
     usage: /teamsize (type of change)
-    description: swaps map configs team sizes
+    description: swaps map config team sizes
+  utility:
+    usage: /utility (util)
+    description: edits many server options
 permissions:
   invictools.*:
     description: Gives access the entire plugin

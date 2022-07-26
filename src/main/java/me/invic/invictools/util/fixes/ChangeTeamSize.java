@@ -11,6 +11,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
+import org.screamingsandals.bedwars.api.game.Game;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,6 +44,27 @@ public class ChangeTeamSize
         String[] cutconfig = config.split("_");
         shortArena.add(cutconfig[0]);
         longArena.add(cutconfig[1]);
+    }
+
+    public static int getTeamSize(Game game)
+    {
+        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("BedWars");
+        File Folder = new File(plugin.getDataFolder(), "arenas");
+        List<String> teams = new ArrayList<>();
+
+        game.getAvailableTeams().forEach(team -> teams.add(team.getName()));
+        File pFile = new File(Folder, ConfigConversion(game.getName()) + ".yml");
+        final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
+
+        if(teams.size() >=4)
+        {
+            if (data.getInt("teams." + teams.get(0) + ".maxPlayers") == data.getInt("teams." + teams.get(3) + ".maxPlayers"))
+                return data.getInt("teams." + teams.get(0) + ".maxPlayers");
+            else
+                return data.getInt("teams." + teams.get(6) + ".maxPlayers");
+        }
+        else
+            return data.getInt("teams." + teams.get(0) + ".maxPlayers");
     }
 
     public static void printTeamSizes(CommandSender player)
