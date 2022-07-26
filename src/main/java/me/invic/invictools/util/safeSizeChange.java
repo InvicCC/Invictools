@@ -11,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
+import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsGameEndingEvent;
 import org.screamingsandals.bedwars.api.game.Game;
 import org.screamingsandals.bedwars.api.game.GameStatus;
@@ -88,11 +89,15 @@ public class safeSizeChange implements Listener
     }
 
     @EventHandler
-    public void bwend(BedwarsGameEndingEvent e)
+    public void bwend(BedwarsGameEndEvent e)
     {
         if(returnSize.containsKey(e.getGame()))
         {
             ChangeTeamSize.ChangeSingleArenaTeamSize(e.getGame().getName(),returnSize.get(e.getGame()));
+            if(!isAnyGameRunning())
+            {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw reload");
+            }
             returnSize.remove(e.getGame());
         }
     }

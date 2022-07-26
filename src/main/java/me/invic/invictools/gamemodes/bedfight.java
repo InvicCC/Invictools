@@ -38,8 +38,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
     String bedfight = "bedfight";
     static String loadout = Commands.Invictools.getConfig().getString("defaultBedfightLoadout", "default");
     BedwarsAPI api = BedwarsAPI.getInstance();
-    static HashMap<Player,String> spawnPoints = new HashMap<>();
-    static HashMap<Player,Location> cager = new HashMap<>();
+    HashMap<Player,String> spawnPoints = new HashMap<>();
     static HashMap<Game,String> customLoadout = new HashMap<>(); // for gamemode selector
 
     @EventHandler
@@ -48,122 +47,136 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
         if (!disableStats.getGameType(e.getGame()).equalsIgnoreCase(bedfight))
             return;
 
-        if(customLoadout.get(e.getGame()) == null)
-            loadout = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.loadout","default");
-        else
-        {
-            loadout = customLoadout.get(e.getGame());
-            customLoadout.remove(e.getGame());
-        }
-
-        new BukkitRunnable()
+        new BukkitRunnable() //  1 tick delay to try to fix no team select not giving items or building defence
         {
             @Override
             public void run()
             {
-                for (Player p : e.getGame().getConnectedPlayers())
+                if(customLoadout.get(e.getGame()) == null)
+                    loadout = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.loadout","default");
+                else
                 {
-                    loadBedfightInventory(loadout, p, false);
-                }
-            }
-        }.runTaskLater(Commands.Invictools, 30L);
-
-        String[] layers = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.layers", "END_STONE;MANGROVE_PLANKS;STAINED_GLASS").split(";");
-        for (int i = 0; i < layers.length; i++)
-        {
-            for (RunningTeam team : e.getGame().getRunningTeams())
-            {
-                buildDefence(team.getTargetBlock(), layers[i], i, team.getColor().name(), e.getGame().getName());
-                buildDefence(findBed(team.getTargetBlock()) , layers[i], i, team.getColor().name(), e.getGame().getName());
-            }
-        }
-
-        for (RunningTeam team:e.getGame().getRunningTeams())
-        {
-            List<Player> players = team.getConnectedPlayers();
-            Collections.shuffle(players);
-            cager.put(players.get(0),team.getTeamSpawn().clone().add(0,8,0));
-            new cageHandler().buildCage(players.get(0),team.getTeamSpawn().clone().add(0,8,0));
-        }
-
-        for (Player p : e.getGame().getConnectedPlayers())
-        {
-            new BukkitRunnable()
-            {
-                @Override
-                public void run()
-                {
-                    if(p.getGameMode().equals(GameMode.SURVIVAL))
-                    {
-                        p.setInvulnerable(true);
-                        spawnPoints.put(p,p.getWorld().getName()+";"+p.getLocation().getX()+";"+p.getLocation().getY()+";"+p.getLocation().getZ()+";"+p.getLocation().getYaw()+";"+p.getLocation().getPitch());
-                        p.teleport(e.getGame().getTeamOfPlayer(p).getTeamSpawn().clone().add(0,8,0));
-                    }
-                }
-            }.runTaskLater(Commands.Invictools, 20L);
-            p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.BOLD +" "+ChatColor.RED + "Sort your hotbar before the game starts!"));
-            p.sendTitle(ChatColor.translateAlternateColorCodes('&', "&eStarting in 10 Seconds"), ChatColor.translateAlternateColorCodes('&', "&r&fSneak to start early!"), 40, 5 * 20, 30);
-        }
-
-        new BukkitRunnable()
-        {
-            int i = 0;
-            @Override
-            public void run()
-            {
-                i++;
-
-                int required = e.getGame().getConnectedPlayers().size();
-                int sneaking = 0;
-                for (Player p : e.getGame().getConnectedPlayers())
-                {
-                    if(p.isSneaking())
-                        sneaking++;
+                    loadout = customLoadout.get(e.getGame());
+                    customLoadout.remove(e.getGame());
                 }
 
-                if(sneaking==required || i == 11)
+                new BukkitRunnable()
                 {
-                    if(e.getGame().getStatus().equals(GameStatus.RUNNING))
+                    @Override
+                    public void run()
                     {
                         for (Player p : e.getGame().getConnectedPlayers())
                         {
-                            if(spawnPoints.get(p) != null)
-                            {
-                                new BukkitRunnable()
-                                {
-                                    @Override
-                                    public void run()
-                                    {
-                                        p.setInvulnerable(false);
-                                    }
-                                }.runTaskLater(Commands.Invictools, 50L);
-
-                               // p.teleport(new WardenSpawner().locationFromConfig(spawnPoints.get(p)));
-                                spawnPoints.remove(p);
-                                saveBedfightInventory(loadout, p, false);
-                                p.playSound(p.getLocation(),Sound.ENTITY_ENDER_DRAGON_GROWL,1,1);
-                                p.sendTitle(ChatColor.translateAlternateColorCodes('&', "&eGame Started!"), ChatColor.translateAlternateColorCodes('&', "&fGood Luck"), 20, 50, 15);
-                            }
-                            else if(spawnPoints.get(p) == null)
-                                p.damage(p.getHealth()+9999);
-                        }
-
-                        for (Player p:cager.keySet())
-                        {
-                            new cageHandler().destroyCage(p,cager.get(p));
+                            loadBedfightInventory(loadout, p, false);
                         }
                     }
-                    this.cancel();
+                }.runTaskLater(Commands.Invictools, 30L);
+
+                String[] layers = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.layers", "END_STONE;MANGROVE_PLANKS;STAINED_GLASS").split(";");
+                for (int i = 0; i < layers.length; i++)
+                {
+                    for (RunningTeam team : e.getGame().getRunningTeams())
+                    {
+                        buildDefence(team.getTargetBlock(), layers[i], i, team.getColor().name(), e.getGame().getName());
+                        buildDefence(findBed(team.getTargetBlock()) , layers[i], i, team.getColor().name(), e.getGame().getName());
+                    }
+                }
+
+                HashMap<Player,Location> cager = new HashMap<>();
+
+                for (RunningTeam team:e.getGame().getRunningTeams())
+                {
+                    List<Player> players = team.getConnectedPlayers();
+                    Collections.shuffle(players);
+                    cager.put(players.get(0),team.getTeamSpawn().clone().add(0,8,0));
+                    new cageHandler().buildCage(players.get(0),team.getTeamSpawn().clone().add(0,8,0));
                 }
 
                 for (Player p : e.getGame().getConnectedPlayers())
                 {
-                    p.playSound(p.getLocation(),Sound.BLOCK_NOTE_BLOCK_HAT,1,1);
+                    new BukkitRunnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            if(p.getGameMode().equals(GameMode.SURVIVAL))
+                            {
+                                p.setInvulnerable(true);
+                                spawnPoints.put(p,p.getWorld().getName()+";"+p.getLocation().getX()+";"+p.getLocation().getY()+";"+p.getLocation().getZ()+";"+p.getLocation().getYaw()+";"+p.getLocation().getPitch());
+                                p.teleport(e.getGame().getTeamOfPlayer(p).getTeamSpawn().clone().add(0,8,0));
+                            }
+                        }
+                    }.runTaskLater(Commands.Invictools, 10L);
+                    p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.BOLD +" "+ChatColor.RED + "Sort your hotbar before the game starts!"));
+                    p.sendTitle(ChatColor.translateAlternateColorCodes('&', "&eStarting in 10 Seconds"), ChatColor.translateAlternateColorCodes('&', "&r&fSneak to start early!"), 40, 5 * 20, 30);
                 }
-            }
-        }.runTaskTimer(Commands.Invictools, 0L, 20L);
 
-        spawnPoints.clear();
+                new BukkitRunnable()
+                {
+                    int i = 0;
+                    @Override
+                    public void run()
+                    {
+                        i++;
+
+                        int required = e.getGame().getConnectedPlayers().size();
+                        int sneaking = 0;
+                        for (Player p : e.getGame().getConnectedPlayers())
+                        {
+                            if(p.isSneaking())
+                                sneaking++;
+                        }
+
+                        if(sneaking==required || i == 11)
+                        {
+                            if(e.getGame().getStatus().equals(GameStatus.RUNNING))
+                            {
+                                for (Player p : e.getGame().getConnectedPlayers())
+                                {
+                                    if(spawnPoints.get(p) != null)
+                                    {
+                                        new BukkitRunnable()
+                                        {
+                                            @Override
+                                            public void run()
+                                            {
+                                                p.setInvulnerable(false);
+                                            }
+                                        }.runTaskLater(Commands.Invictools, 50L);
+
+                                        spawnPoints.remove(p);
+                                        saveBedfightInventory(loadout, p, false);
+                                        p.playSound(p.getLocation(),Sound.ENTITY_ENDER_DRAGON_GROWL,1,1);
+                                        p.sendTitle(ChatColor.translateAlternateColorCodes('&', "&eGame Started!"), ChatColor.translateAlternateColorCodes('&', "&fGood Luck"), 20, 50, 15);
+                                    }
+                                    else if(spawnPoints.get(p) == null)
+                                        p.damage(p.getHealth());
+                                }
+
+                                for (Player p:cager.keySet())
+                                {
+                                    new cageHandler().destroyCage(p,cager.get(p));
+                                }
+                            }
+                            else
+                            {
+                                for (Player p:cager.keySet())
+                                {
+                                    new cageHandler().destroyCage(p,cager.get(p));
+                                    spawnPoints.remove(p);
+                                }
+                            }
+                            this.cancel();
+                        }
+
+                        for (Player p : e.getGame().getConnectedPlayers())
+                        {
+                            p.playSound(p.getLocation(),Sound.BLOCK_NOTE_BLOCK_HAT,1,1);
+                        }
+                    }
+                }.runTaskTimer(Commands.Invictools, 0L, 20L);
+            }
+        }.runTaskLater(Commands.Invictools, 1L);
     }
 
     @EventHandler

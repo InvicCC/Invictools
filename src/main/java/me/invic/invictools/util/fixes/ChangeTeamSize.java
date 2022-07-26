@@ -229,7 +229,7 @@ public class ChangeTeamSize
         try
         {
             data.save(pFile);
-            Commands.MasterPlayer.sendMessage(ChatColor.YELLOW + data.getString("name") + ChatColor.AQUA + " can now hold " + ChatColor.YELLOW + teamSize + ChatColor.AQUA + " players.");
+            Commands.MasterPlayer.sendMessage(ChatColor.YELLOW + data.getString("name") + ChatColor.AQUA + " can now hold " + ChatColor.YELLOW + teamSize + ChatColor.AQUA + " players per team.");
         }
         catch (IOException ex)
         {
