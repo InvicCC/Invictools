@@ -7,6 +7,10 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
+import org.screamingsandals.bedwars.api.RunningTeam;
+import org.screamingsandals.bedwars.api.Team;
+import org.screamingsandals.bedwars.api.game.Game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +33,7 @@ public class teamSizeCommands implements CommandExecutor, TabExecutor
 
         if(args.length == 1)
         {
-            tabComplete.add("EveryArena");
+            //tabComplete.add("EveryArena");
             tabComplete.add("EveryGameType");
             tabComplete.add("SingleArena");
             tabComplete.add("print");
@@ -39,18 +43,49 @@ public class teamSizeCommands implements CommandExecutor, TabExecutor
             tabComplete.add("EveryTeam");
             tabComplete.add("SingleTeam");
         }
-        else if(args.length == 2 && args[0].equalsIgnoreCase("print"))
-        {
-            tabComplete.add("all");
-            tabComplete.add("GameType");
-        }
-        else if(args.length == 3 && args[0].equalsIgnoreCase("print") && args[2].equalsIgnoreCase("GameType"))
+        else if(args.length == 2 && args[0].equalsIgnoreCase("EveryGameType"))
         {
             tabComplete.add("normal");
             tabComplete.add("mega");
             tabComplete.add("fours");
             tabComplete.add("threes");
             tabComplete.add("bedfight");
+        }
+        else if(args.length == 2 && args[0].equalsIgnoreCase("print"))
+        {
+            tabComplete.add("all");
+            tabComplete.add("GameType");
+        }
+        else if(args.length == 3 && args[0].equalsIgnoreCase("SingleArena"))
+        {
+            for (Game game:BedwarsAPI.getInstance().getGames())
+            {
+                tabComplete.add(game.getName());
+            }
+        }
+        else if(args.length == 3 && args[0].equalsIgnoreCase("print") && args[1].equalsIgnoreCase("GameType"))
+        {
+            tabComplete.add("normal");
+            tabComplete.add("mega");
+            tabComplete.add("fours");
+            tabComplete.add("threes");
+            tabComplete.add("bedfight");
+        }
+        else if((args.length == 3 && args[0].equalsIgnoreCase("EveryGameType"))
+                ||(args.length == 2 && args[0].equalsIgnoreCase("EveryArena"))
+                ||(args.length == 4 && args[0].equalsIgnoreCase("SingleArena")))
+        {
+            tabComplete.add("1");
+            tabComplete.add("2");
+            tabComplete.add("3");
+            tabComplete.add("4");
+        }
+        else if(args.length == 5 && args[1].equalsIgnoreCase("SingleTeam"))
+        {
+            for (Team team:BedwarsAPI.getInstance().getGameByName(args[2]).getAvailableTeams())
+            {
+                tabComplete.add(team.getName());
+            }
         }
 
         return tabComplete;
@@ -85,7 +120,7 @@ public class teamSizeCommands implements CommandExecutor, TabExecutor
         }
         else if (args[0].equalsIgnoreCase("EveryGameType"))
         {
-            ChangeTeamSize.ChangeEveryOfGameType(Integer.parseInt(args[1]),args[2]);
+            ChangeTeamSize.ChangeEveryOfGameType(Integer.parseInt(args[2]),args[1]);
         }
         else if (args[0].equalsIgnoreCase("SingleArena"))
         {
@@ -95,7 +130,7 @@ public class teamSizeCommands implements CommandExecutor, TabExecutor
             }
             else if (args[1].equalsIgnoreCase("SingleTeam"))
             {
-                ChangeTeamSize.ChangeSingleTeamSize(args[2], Integer.parseInt(args[3]), args[5]);
+                ChangeTeamSize.ChangeSingleTeamSize(args[2], Integer.parseInt(args[3]), args[4]);
             }
         }
 

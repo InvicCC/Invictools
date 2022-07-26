@@ -12,6 +12,7 @@ import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class MasterPlayerJoin implements Listener
 {
@@ -42,11 +43,20 @@ public class MasterPlayerJoin implements Listener
     @EventHandler
     public void leave(PlayerQuitEvent e)
     {
-        probe();
+        new BukkitRunnable()
+        {
+            @Override
+            public void run()
+            {
+                probe();
+            }
+        }.runTaskLater(Commands.Invictools, 20L);
     }
 
     public void probe()
     {
+      //  if(Commands.MasterPlayer instanceof Player)
+
         try
         {
             Commands.MasterPlayer.sendMessage(" ");
@@ -58,8 +68,25 @@ public class MasterPlayerJoin implements Listener
                 Player next = Bukkit.getOnlinePlayers().iterator().next();
                 FileConfiguration config = Commands.Invictools.getConfig();
                 Commands.MasterPlayer = next;
-                config.set("masterplayer", next);
+                config.set("masterplayer", next.getName());
                 Commands.Invictools.saveConfig();
+                System.out.println("swapping null");
+            }
+        }
+
+        {
+            Player p = Commands.MasterPlayer;
+            if(!p.isOnline())
+            {
+                if(!toggleCommands.isHosting && Bukkit.getOnlinePlayers().size() > 0)
+                {
+                    Player next = Bukkit.getOnlinePlayers().iterator().next();
+                    FileConfiguration config = Commands.Invictools.getConfig();
+                    Commands.MasterPlayer = next;
+                    config.set("masterplayer", next.getName());
+                    Commands.Invictools.saveConfig();
+                    System.out.println("swapping !isonline");
+                }
             }
         }
     }
