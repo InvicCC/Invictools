@@ -72,7 +72,7 @@ public class Commands implements CommandExecutor, TabExecutor
     public static final String permissionsError = Invictools.getConfig().getString("Strings.NoPerm","You do not have permission to run this command!");
 
     //global controls
-    public static CommandSender MasterPlayer = Bukkit.getPlayer("Invictable");
+    public static Player MasterPlayer = Bukkit.getPlayer("Invictable");
     public static HashMap<Player, Player> teammates = new HashMap<>();
     public static boolean LuckyBlocksEnabled = false;
     public static boolean FireStickEnabled = true;

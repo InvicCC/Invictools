@@ -58,12 +58,12 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         {
             Commands.debug(sender);
         }
-        else if(args.length == 2 && args[0].equalsIgnoreCase("endgame"))
+        else if(args.length == 1 && args[0].equalsIgnoreCase("endgame"))
         {
             Player p = (Player) sender;
             endgameNoStats(BedwarsAPI.getInstance().getGameOfPlayer(p));
         }
-        else if(args.length >= 3 && args[0].equalsIgnoreCase("endgame"))
+        else if(args.length >= 2 && args[0].equalsIgnoreCase("endgame"))
         {
             endgameNoStats(BedwarsAPI.getInstance().getGameByName(args[1]));
         }
