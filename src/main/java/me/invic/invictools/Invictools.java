@@ -2,6 +2,7 @@ package me.invic.invictools;
 
 import me.invic.invictools.commands.Commands;
 import me.invic.invictools.commands.leaderboardCommands;
+import me.invic.invictools.commands.teamSizeCommands;
 import me.invic.invictools.commands.toggleCommands;
 import me.invic.invictools.cosmetics.LobbyListener;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceListener;
@@ -106,8 +107,7 @@ public final class Invictools extends JavaPlugin
     {
         this.saveDefaultConfig();
         FileConfiguration fileConfiguration = this.getConfig();
-        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
-        File Folder = new File(plugin.getDataFolder(), "Maps");
+        File Folder = new File(Commands.Invictools.getDataFolder(), "Maps");
         File[] yamlFiles = Folder.listFiles();
         for (File file : yamlFiles)
         {
@@ -185,6 +185,7 @@ public final class Invictools extends JavaPlugin
 
         this.getCommand("toggle").setExecutor(new toggleCommands());
         this.getCommand("lb").setExecutor(new leaderboardCommands());
+        this.getCommand("teamsize").setExecutor(new teamSizeCommands());
 
         // to run after server loads
         BukkitRunnable runnable = new BukkitRunnable()
@@ -207,6 +208,10 @@ public final class Invictools extends JavaPlugin
                 {
                     ChangeTeamSize.createLists(config);
                 }
+
+                final FileConfiguration config = Commands.Invictools.getConfig();
+                String masterplayer = config.getString("masterplayer","Invictable");
+                Commands.MasterPlayer = Bukkit.getPlayer(masterplayer);
             }
         };
         runnable.runTaskLater(this, 1L);

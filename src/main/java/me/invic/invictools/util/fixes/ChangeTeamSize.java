@@ -1,8 +1,11 @@
 package me.invic.invictools.util.fixes;
 
 import me.invic.invictools.commands.Commands;
+import me.invic.invictools.util.LobbyLogic;
+import me.invic.invictools.util.disableStats;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -21,6 +24,20 @@ public class ChangeTeamSize
     public static List<String> longArena = new ArrayList<>();
     static String msg = "&cYou must do /bw reload for these changes to take effect";
 
+    public static void grabConfigs()
+    {
+        shortArena.clear();
+        longArena.clear();
+        File Folder = new File(Commands.Invictools.getDataFolder(), "Maps");
+        File[] yamlFiles = Folder.listFiles();
+        for (File file : yamlFiles)
+        {
+            FileConfiguration map = YamlConfiguration.loadConfiguration(file);
+            String[] mapName = file.getName().split("\\.");
+            createLists(mapName[0] + "_" + map.getString("Conversion"));
+        }
+    }
+
     public static void createLists(String config) // creates the lists to pull the short and long arena names when server loads
     {
         String[] cutconfig = config.split("_");
@@ -28,7 +45,7 @@ public class ChangeTeamSize
         longArena.add(cutconfig[1]);
     }
 
-    public static void printTeamSizes(Player player)
+    public static void printTeamSizes(CommandSender player)
     {
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("BedWars");
         File Folder = new File(plugin.getDataFolder(), "arenas");
@@ -40,12 +57,56 @@ public class ChangeTeamSize
                 BedwarsAPI.getInstance().getGameByName(arena).getAvailableTeams().forEach(team -> teams.add(team.getName()));
                 File pFile = new File(Folder, ConfigConversion(arena) + ".yml");
                 final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
+                player.sendMessage(ChatColor.YELLOW + arena+":");
+                player.sendMessage(ChatColor.YELLOW + "GameType:" + new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameByName(arena).getName()).getString("GameType","normal"));
                 for (String team : teams)
                 {
-                    player.sendMessage(ChatColor.YELLOW + arena + ": " + team + ": " + ChatColor.AQUA + data.get("teams." + team + ".maxPlayers"));
+                    player.sendMessage(ChatColor.YELLOW + team + ": " + ChatColor.AQUA + data.get("teams." + team + ".maxPlayers"));
                 }
                 teams.clear();
                 player.sendMessage(" ");
+            }
+        }
+    }
+
+    public static void printTeamSizesGameType(CommandSender player,String gameType)
+    {
+        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("BedWars");
+        File Folder = new File(plugin.getDataFolder(), "arenas");
+        List<String> teams = new ArrayList<>();
+        for (String arena : shortArena)
+        {
+            if(disableStats.getGameType(BedwarsAPI.getInstance().getGameByName(arena)).equalsIgnoreCase(gameType))
+            {
+                if (CheckValidity(arena))
+                {
+                    BedwarsAPI.getInstance().getGameByName(arena).getAvailableTeams().forEach(team -> teams.add(team.getName()));
+                    File pFile = new File(Folder, ConfigConversion(arena) + ".yml");
+                    final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
+                    player.sendMessage(ChatColor.YELLOW + arena + ":");
+                    player.sendMessage(ChatColor.YELLOW + "GameType:" + new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameByName(arena).getName()).getString("GameType", "normal"));
+                    for (String team : teams)
+                    {
+                        player.sendMessage(ChatColor.YELLOW + team + ": " + ChatColor.AQUA + data.get("teams." + team + ".maxPlayers"));
+                    }
+                    teams.clear();
+                    player.sendMessage(" ");
+                }
+            }
+        }
+    }
+
+    public static void ChangeEveryOfGameType(int teamSize, String gameType)
+    {
+        for (String s : shortArena)
+        {
+            if(disableStats.getGameType(BedwarsAPI.getInstance().getGameByName(s)).equalsIgnoreCase(gameType))
+            {
+                boolean fuckOFF = CheckValidity(s);
+                if (fuckOFF)
+                {
+                    EditEveryTeamSize(s, teamSize);
+                }
             }
         }
     }
@@ -57,11 +118,8 @@ public class ChangeTeamSize
             boolean fuckOFF = CheckValidity(s);
             if (fuckOFF)
             {
-                System.out.println("editing " + s);
                 EditEveryTeamSize(s, teamSize);
             }
-            else
-                System.out.println("skipping " + s);
         }
 
         Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));

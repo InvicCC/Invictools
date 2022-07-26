@@ -27,13 +27,13 @@ public class AbtributesOnDeath implements Listener
         {
             handleAbtribute(p, attribute, attributeInterval, baseValue);
         }
-        ActiveAttributes.put(attribute, Commands.MasterPlayer.getAttribute(Attribute.valueOf(attribute)).getValue());
+        ActiveAttributes.put(attribute, player.getAttribute(Attribute.valueOf(attribute)).getValue());
     }
 
     public void AttributesOnDeathSingular(Player player, String attribute, double attributeInterval, double baseValue)
     {
         handleAbtribute(player, attribute, attributeInterval, baseValue);
-        ActiveAttributes.put(attribute, Commands.MasterPlayer.getAttribute(Attribute.valueOf(attribute)).getValue());
+        ActiveAttributes.put(attribute, player.getAttribute(Attribute.valueOf(attribute)).getValue());
     }
 
     private void handleAbtribute(Player player, String attribute, double interval, double baseValue)
@@ -59,7 +59,7 @@ public class AbtributesOnDeath implements Listener
                     deaths = DeathCounter.deaths.get(player);
                 }
             }
-        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20L, 20L);
+        }.runTaskTimer(Commands.Invictools, 20L, 20L);
     }
 
     public static List<Player> getPlayersInSameWorld(Player player)

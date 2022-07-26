@@ -134,27 +134,27 @@ public class toggleCommands implements TabExecutor, CommandExecutor
         }
         else if (args.length == 1 && args[0].equalsIgnoreCase("bedfightQueue"))
         {
-            if (isHosting)
+            if (bedfightQueue)
             {
-                isHosting = false;
+                bedfightQueue = false;
                 sender.sendMessage(ChatColor.AQUA + "Bedfight Queue disabled");
             }
             else
             {
-                isHosting = true;
+                bedfightQueue = true;
                 sender.sendMessage(ChatColor.AQUA + "Bedfight Queue enabled");
             }
         }
         else if (args.length == 1 && args[0].equalsIgnoreCase("bedwarsQueue"))
         {
-            if (isHosting)
+            if (bedwarsQueue)
             {
-                isHosting = false;
+                bedwarsQueue = false;
                 sender.sendMessage(ChatColor.AQUA + "Bedwars Queue disabled");
             }
             else
             {
-                isHosting = true;
+                bedwarsQueue = true;
                 sender.sendMessage(ChatColor.AQUA + "Bedwars Queue enabled");
             }
         }

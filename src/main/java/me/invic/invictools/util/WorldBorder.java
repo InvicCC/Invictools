@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
@@ -15,11 +16,9 @@ import java.util.Objects;
 
 public class WorldBorder
 {
-    Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
-
-    public WorldBorder(int InitialSize, int reductionSize, int reductionTime, int center, World world, boolean useConfig)
+    public WorldBorder(int InitialSize, int reductionSize, int reductionTime, int center, World world, boolean useConfig, Player player)
     {
-        FileConfiguration fileConfiguration = Bukkit.getPluginManager().getPlugin("Invictools").getConfig();
+        FileConfiguration fileConfiguration = Commands.Invictools.getConfig();
         List<String> blackListedWorlds = fileConfiguration.getStringList("blacklistedWorlds");
         if (blackListedWorlds.contains(world.getName()))
         {
@@ -27,7 +26,7 @@ public class WorldBorder
             return;
         }
 
-        FileConfiguration config = new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameOfPlayer(Commands.MasterPlayer) + ".yml");
+        FileConfiguration config = new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameOfPlayer(player) + ".yml");
         if (config.getString("WorldBorder") != null && useConfig)
         {
             String[] vars = config.getString("WorldBorder").split(";");

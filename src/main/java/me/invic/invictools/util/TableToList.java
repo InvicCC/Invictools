@@ -3,6 +3,7 @@ package me.invic.invictools.util;
 import me.invic.invictools.commands.Commands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
@@ -22,12 +23,12 @@ public class TableToList
         LootTable loot = LootTables.valueOf(tableConfig).getLootTable();
         try
         {
-            return replaceCurrency((List<ItemStack>) loot.populateLoot(new Random(), new LootContext.Builder(Commands.MasterPlayer.getLocation()).build()));
+            return replaceCurrency((List<ItemStack>) loot.populateLoot(new Random(), new LootContext.Builder(new Location(Bukkit.getWorld("bwlobby"),0,0,0)).build()));
         }
         catch (java.lang.IllegalArgumentException e)
         {
             System.out.println(ChatColor.RED + "WARNING: LootTable was invalid, defaulting to End City");
-            return replaceCurrency((List<ItemStack>) LootTables.END_CITY_TREASURE.getLootTable().populateLoot(new Random(), new LootContext.Builder(Commands.MasterPlayer.getLocation()).build()));
+            return replaceCurrency((List<ItemStack>) LootTables.END_CITY_TREASURE.getLootTable().populateLoot(new Random(), new LootContext.Builder(new Location(Bukkit.getWorld("bwlobby"),0,0,0)).build()));
         }
     }
 

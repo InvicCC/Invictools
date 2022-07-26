@@ -72,7 +72,7 @@ public class Commands implements CommandExecutor, TabExecutor
     public static final String permissionsError = Invictools.getConfig().getString("Strings.NoPerm","You do not have permission to run this command!");
 
     //global controls
-    public static Player MasterPlayer = Bukkit.getPlayer("Invictable");
+    public static CommandSender MasterPlayer = Bukkit.getPlayer("Invictable");
     public static HashMap<Player, Player> teammates = new HashMap<>();
     public static boolean LuckyBlocksEnabled = false;
     public static boolean FireStickEnabled = true;
@@ -484,7 +484,7 @@ public class Commands implements CommandExecutor, TabExecutor
         }
         else if (args.length == 5 && args[0].equalsIgnoreCase("DeathAttribute"))
         {
-            Player p = MasterPlayer;
+            Player p = Bukkit.getOnlinePlayers().iterator().next();
             Double value = p.getAttribute(Attribute.valueOf(args[2])).getValue();
             tabComplete.add(String.valueOf(value));
         }
@@ -1242,12 +1242,12 @@ public class Commands implements CommandExecutor, TabExecutor
             }
             else if (args.length == 1 && args[0].equalsIgnoreCase("worldborder"))
             {
-                new WorldBorder(250, 50, 240, 0, ((Player) sender).getWorld(), true);
+                new WorldBorder(250, 50, 240, 0, ((Player) sender).getWorld(), true,(Player)sender);
                 sender.sendMessage(ChatColor.AQUA + "world border closing");
             }
             else if (args.length > 1 && args[0].equalsIgnoreCase("worldborder"))
             {
-                new WorldBorder(Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4]), ((Player) sender).getWorld(), false);
+                new WorldBorder(Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4]), ((Player) sender).getWorld(), false,(Player)sender);
                 sender.sendMessage(ChatColor.AQUA + "World border closing on x/z" + Integer.parseInt(args[4]));
             }
             else if (args.length == 1 && args[0].equalsIgnoreCase("grabteammates"))
@@ -1276,7 +1276,14 @@ public class Commands implements CommandExecutor, TabExecutor
             }
             else if (args.length >= 1 && args[0].equalsIgnoreCase("reset"))
             {
-                deathListener.clearEverything(MasterPlayer.getWorld());
+                if(sender instanceof Player)
+                {
+                    Player p = (Player)sender;
+                    deathListener.clearEverything(p.getWorld());
+                }
+                else
+                    deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
+
                 sender.sendMessage(ChatColor.AQUA + "Scenarios mostly reset.");
             }
             else if (args.length >= 1 && args[0].equalsIgnoreCase("ProximityElytra"))
@@ -1334,7 +1341,7 @@ public class Commands implements CommandExecutor, TabExecutor
             }
             else if (args.length == 1 && args[0].equalsIgnoreCase("SetTeamSize"))
             {
-                ChangeTeamSize.printTeamSizes((Player) sender);
+                ChangeTeamSize.printTeamSizes(sender);
             }
             else if (args.length >= 1 && args[0].equalsIgnoreCase("EffectSometimes"))
             {
@@ -1472,10 +1479,10 @@ public class Commands implements CommandExecutor, TabExecutor
                 HauntConfig = args[2];
                 if (args[1].equalsIgnoreCase("all"))
                 {
-                    for (Player player : Bukkit.getOnlinePlayers())
+                    for (Player player : BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getConnectedPlayers())
                     {
                         player.sendMessage(ChatColor.AQUA + "You can now haunt players after you are final killed");
-                        if (MasterPlayer.getWorld().equals(player.getWorld()))
+                      //  if (MasterPlayer.getWorld().equals(player.getWorld()))
                         {
                             Hauntable.put(player, true);
                             World world = player.getWorld();
@@ -1502,7 +1509,7 @@ public class Commands implements CommandExecutor, TabExecutor
                 {
                     Player player = Bukkit.getPlayer(args[1]);
                     player.sendMessage(ChatColor.AQUA + "You can now haunt players after you are final killed");
-                    if (MasterPlayer.getWorld().equals(player.getWorld()))
+                  //  if (MasterPlayer.getWorld().equals(player.getWorld()))
                     {
                         Hauntable.put(player, true);
                         World world = player.getWorld();
@@ -1562,7 +1569,10 @@ public class Commands implements CommandExecutor, TabExecutor
                         {
                             int delay = rand.nextInt(30) + 40;
                             Location spawnerloc = new Location(p.getWorld(), config.getDouble("LuckySpawners." + a + ".x"), config.getDouble("LuckySpawners." + a + ".y"), config.getDouble("LuckySpawners." + a + ".z"));
-                            new LuckyBlockSpawner(spawnerloc, "§b§lLucky Block Spawner", "random", delay);
+                            if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer((Player)sender)).equalsIgnoreCase("BedFight"))
+                                new LuckyBlockSpawner(spawnerloc, "§b§lLucky Block Spawner", "random", delay/3);
+                            else
+                                new LuckyBlockSpawner(spawnerloc, "§b§lLucky Block Spawner", "random", delay);
                         }
                     }
 
@@ -1660,7 +1670,7 @@ public class Commands implements CommandExecutor, TabExecutor
                     for (Player player : Bukkit.getOnlinePlayers())
                     {
                         killEffects.put(player, args[1] + "-" + args[2] + "-" + args[3]); // pot type, levles, duartion
-                        World world = Commands.MasterPlayer.getWorld();
+                        World world = player.getWorld();
                         new BukkitRunnable()
                         {
                             @Override
@@ -1705,7 +1715,7 @@ public class Commands implements CommandExecutor, TabExecutor
                             item.setAmount(Integer.parseInt(args[2]));
                             killItems.put(player, item);
 
-                            World world = Commands.MasterPlayer.getWorld();
+                            World world = player.getWorld();
                             new BukkitRunnable()
                             {
                                 @Override
@@ -1725,7 +1735,7 @@ public class Commands implements CommandExecutor, TabExecutor
                             item.setAmount(Integer.parseInt(args[2]));
                             killItems.put(player, item);
 
-                            World world = Commands.MasterPlayer.getWorld();
+                            World world = player.getWorld();
                             new BukkitRunnable()
                             {
                                 @Override
@@ -1745,7 +1755,7 @@ public class Commands implements CommandExecutor, TabExecutor
                             item.setAmount(Integer.parseInt(args[2]));
                             killItems.put(player, item);
 
-                            World world = Commands.MasterPlayer.getWorld();
+                            World world = player.getWorld();
                             new BukkitRunnable()
                             {
                                 @Override
@@ -1840,7 +1850,7 @@ public class Commands implements CommandExecutor, TabExecutor
                             item.setAmount(Integer.parseInt(args[2]));
                             deathItems.put(player, item);
 
-                            World world = Commands.MasterPlayer.getWorld();
+                            World world = player.getWorld();
                             new BukkitRunnable()
                             {
                                 @Override
@@ -1860,7 +1870,7 @@ public class Commands implements CommandExecutor, TabExecutor
                             item.setAmount(Integer.parseInt(args[2]));
                             deathItems.put(player, item);
 
-                            World world = Commands.MasterPlayer.getWorld();
+                            World world = player.getWorld();
                             new BukkitRunnable()
                             {
                                 @Override
@@ -1880,7 +1890,7 @@ public class Commands implements CommandExecutor, TabExecutor
                             item.setAmount(Integer.parseInt(args[2]));
                             deathItems.put(player, item);
 
-                            World world = Commands.MasterPlayer.getWorld();
+                            World world = player.getWorld();
                             new BukkitRunnable()
                             {
                                 @Override

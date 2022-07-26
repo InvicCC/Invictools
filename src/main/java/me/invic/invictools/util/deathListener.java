@@ -9,6 +9,7 @@ import me.invic.invictools.util.Leaderboards.BedfightLeaderboard;
 import me.invic.invictools.util.Leaderboards.BedfightLeaderboardHologram;
 import me.invic.invictools.util.Leaderboards.leaderboard;
 import me.invic.invictools.util.Leaderboards.leaderboardHologram;
+import me.invic.invictools.util.fixes.ChangeTeamSize;
 import me.invic.invictools.util.npc.BlazeNpc;
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -76,13 +77,22 @@ public class deathListener implements Listener
                 }
             }
         };
-        runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10L);
+        runnable.runTaskLater(Commands.Invictools, 10L);
     }
 
     @EventHandler
     public void destroyAddedBlocks(BedwarsGameEndingEvent e)
     {
-        clearEverything(e.getGame().getGameWorld());
+       // clearEverything(e.getGame().getGameWorld());
+        BukkitRunnable runnable = new BukkitRunnable()
+        {
+            @Override
+            public void run()
+            {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "nte reload");
+            }
+        };
+        runnable.runTaskLater(Commands.Invictools, 20L);
     }
 
     public static void clearEverything(World world)
@@ -139,6 +149,7 @@ public class deathListener implements Listener
             e.remove();
         }
 
+        ChangeTeamSize.grabConfigs();
         new BlazeNpc().spawnNPC("npc", true);
         new BlazeNpc().spawnNPC("npc2", false);
         new leaderboard().loadLeaderboard("Star");

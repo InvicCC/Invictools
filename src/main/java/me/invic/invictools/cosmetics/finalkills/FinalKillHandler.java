@@ -278,6 +278,7 @@ public class FinalKillHandler
         return head;
     }
 
+    /*
     private static ItemStack getHead(String value)
     {
         ItemStack skull = new ItemStack(Material.PLAYER_HEAD);
@@ -288,6 +289,7 @@ public class FinalKillHandler
         );
     }
 
+     */
     public Color teamToColor(String teamColor)
     {
         if (teamColor == null)
