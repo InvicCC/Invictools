@@ -1136,63 +1136,7 @@ public class Commands implements CommandExecutor, TabExecutor
             }
             else if (args.length >= 1 && args[0].equalsIgnoreCase("debug"))
             {
-                sender.sendMessage(" ");
-                sender.sendMessage(ChatColor.WHITE + "Status:");
-                sender.sendMessage(ChatColor.YELLOW + "- Master Player: " + ChatColor.WHITE + MasterPlayer.getName());
-                sender.sendMessage(ChatColor.YELLOW + "- Lucky Blocks Enabled: " + ChatColor.WHITE + LuckyBlocksEnabled);
-                sender.sendMessage(ChatColor.YELLOW + "- FireStick Enabled: " + ChatColor.WHITE + FireStickEnabled);
-                sender.sendMessage(ChatColor.YELLOW + "- Teammates Assignment: ");
-                sender.sendMessage(ChatColor.YELLOW + "- Lobby: ");
-                LobbyLogic.lobbyRegion.forEach((attribute, value) ->
-                        sender.sendMessage(ChatColor.WHITE + attribute + " " + value));
-                sender.sendMessage(ChatColor.YELLOW + "- Attributes: ");
-                AbtributesOnDeath.ActiveAttributes.forEach((attribute, value) ->
-                        sender.sendMessage(ChatColor.WHITE + attribute + " at value " + value));
-                sender.sendMessage(ChatColor.YELLOW + "- ProximityElytra: ");
-                ProximityElytra.forEach((p, bool) ->
-                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has active elytra: " + bool));
-                teammates.forEach((p, team) ->
-                        sender.sendMessage(ChatColor.WHITE + p.getName() + " and " + team.getName()));
-                sender.sendMessage(ChatColor.YELLOW + "- killEffects: ");
-                killEffects.forEach((p, effect) ->
-                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has effect " + effect));
-                sender.sendMessage(ChatColor.YELLOW + "- NoShop: ");
-                noShop.forEach((p, effect) ->
-                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has noshop " + effect));
-                sender.sendMessage(ChatColor.YELLOW + "- killItems: ");
-                killItems.forEach((p, effect) ->
-                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has item " + effect));
-                sender.sendMessage(ChatColor.YELLOW + "- deathitems: ");
-                deathItems.forEach((p, effect) ->
-                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has item " + effect));
-                sender.sendMessage(ChatColor.YELLOW + "- Totems: ");
-                InfiniteTotems.forEach((p, value) ->
-                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has totems: " + value));
-                sender.sendMessage(ChatColor.YELLOW + "- PreventDrops: ");
-                disableDrops.forbidDrop.forEach((p, value) ->
-                        sender.sendMessage(ChatColor.WHITE + p.getName() + " cannot drop: " + value));
-                sender.sendMessage(ChatColor.YELLOW + "- Hauntable: ");
-                Hauntable.forEach((p, value) ->
-                        sender.sendMessage(ChatColor.WHITE + p.getName() + " will haunt: " + value));
-                sender.sendMessage(ChatColor.YELLOW + "- Deaths: ");
-                DeathCounter.deaths.forEach((p, value) ->
-                        sender.sendMessage(ChatColor.WHITE + p.getName() + " has this many deaths: " + value));
-                sender.sendMessage(ChatColor.YELLOW + "- Manhunt: ");
-                sender.sendMessage(ChatColor.YELLOW + "Teams: ");
-                ManhuntMain.ManhuntTeam.forEach((p, team) ->
-                        sender.sendMessage(ChatColor.WHITE + p.getName() + " is on team " + team));
-                sender.sendMessage(ChatColor.YELLOW + "Hunter items: ");
-                ManhuntMain.HunterItems.forEach((item) ->
-                        sender.sendMessage(ChatColor.WHITE + " hunter items: " + item));
-                sender.sendMessage(ChatColor.YELLOW + "Hunter effects: ");
-                ManhuntMain.HunterEffects.forEach((item) ->
-                        sender.sendMessage(ChatColor.WHITE + " hunter effects: " + item));
-                sender.sendMessage(ChatColor.YELLOW + "Hunted items: ");
-                ManhuntMain.HuntedItems.forEach((item) ->
-                        sender.sendMessage(ChatColor.WHITE + " hunted items: " + item));
-                sender.sendMessage(ChatColor.YELLOW + "Hunted effects: ");
-                ManhuntMain.HuntedEffects.forEach((item) ->
-                        sender.sendMessage(ChatColor.WHITE + " hunted effects: " + item));
+                debug(sender);
             }
             else if (args.length >= 1 && args[0].equalsIgnoreCase("forceManhuntTeam"))
             {
@@ -2397,5 +2341,66 @@ public class Commands implements CommandExecutor, TabExecutor
         ytemp = sety;
         blacklistedWorlds = blacklist;
         gamestemp = games;
+    }
+
+    public static void debug(CommandSender sender)
+    {
+        sender.sendMessage(" ");
+        sender.sendMessage(ChatColor.WHITE + "Status:");
+        sender.sendMessage(ChatColor.YELLOW + "- Master Player: " + ChatColor.WHITE + MasterPlayer.getName());
+        sender.sendMessage(ChatColor.YELLOW + "- Lucky Blocks Enabled: " + ChatColor.WHITE + LuckyBlocksEnabled);
+        sender.sendMessage(ChatColor.YELLOW + "- FireStick Enabled: " + ChatColor.WHITE + FireStickEnabled);
+        sender.sendMessage(ChatColor.YELLOW + "- Teammates Assignment: ");
+        sender.sendMessage(ChatColor.YELLOW + "- Lobby: ");
+        LobbyLogic.lobbyRegion.forEach((attribute, value) ->
+                sender.sendMessage(ChatColor.WHITE + attribute + " " + value));
+        sender.sendMessage(ChatColor.YELLOW + "- Attributes: ");
+        AbtributesOnDeath.ActiveAttributes.forEach((attribute, value) ->
+                sender.sendMessage(ChatColor.WHITE + attribute + " at value " + value));
+        sender.sendMessage(ChatColor.YELLOW + "- ProximityElytra: ");
+        ProximityElytra.forEach((p, bool) ->
+                sender.sendMessage(ChatColor.WHITE + p.getName() + " has active elytra: " + bool));
+        teammates.forEach((p, team) ->
+                sender.sendMessage(ChatColor.WHITE + p.getName() + " and " + team.getName()));
+        sender.sendMessage(ChatColor.YELLOW + "- killEffects: ");
+        killEffects.forEach((p, effect) ->
+                sender.sendMessage(ChatColor.WHITE + p.getName() + " has effect " + effect));
+        sender.sendMessage(ChatColor.YELLOW + "- NoShop: ");
+        noShop.forEach((p, effect) ->
+                sender.sendMessage(ChatColor.WHITE + p.getName() + " has noshop " + effect));
+        sender.sendMessage(ChatColor.YELLOW + "- killItems: ");
+        killItems.forEach((p, effect) ->
+                sender.sendMessage(ChatColor.WHITE + p.getName() + " has item " + effect));
+        sender.sendMessage(ChatColor.YELLOW + "- deathitems: ");
+        deathItems.forEach((p, effect) ->
+                sender.sendMessage(ChatColor.WHITE + p.getName() + " has item " + effect));
+        sender.sendMessage(ChatColor.YELLOW + "- Totems: ");
+        InfiniteTotems.forEach((p, value) ->
+                sender.sendMessage(ChatColor.WHITE + p.getName() + " has totems: " + value));
+        sender.sendMessage(ChatColor.YELLOW + "- PreventDrops: ");
+        disableDrops.forbidDrop.forEach((p, value) ->
+                sender.sendMessage(ChatColor.WHITE + p.getName() + " cannot drop: " + value));
+        sender.sendMessage(ChatColor.YELLOW + "- Hauntable: ");
+        Hauntable.forEach((p, value) ->
+                sender.sendMessage(ChatColor.WHITE + p.getName() + " will haunt: " + value));
+        sender.sendMessage(ChatColor.YELLOW + "- Deaths: ");
+        DeathCounter.deaths.forEach((p, value) ->
+                sender.sendMessage(ChatColor.WHITE + p.getName() + " has this many deaths: " + value));
+        sender.sendMessage(ChatColor.YELLOW + "- Manhunt: ");
+        sender.sendMessage(ChatColor.YELLOW + "Teams: ");
+        ManhuntMain.ManhuntTeam.forEach((p, team) ->
+                sender.sendMessage(ChatColor.WHITE + p.getName() + " is on team " + team));
+        sender.sendMessage(ChatColor.YELLOW + "Hunter items: ");
+        ManhuntMain.HunterItems.forEach((item) ->
+                sender.sendMessage(ChatColor.WHITE + " hunter items: " + item));
+        sender.sendMessage(ChatColor.YELLOW + "Hunter effects: ");
+        ManhuntMain.HunterEffects.forEach((item) ->
+                sender.sendMessage(ChatColor.WHITE + " hunter effects: " + item));
+        sender.sendMessage(ChatColor.YELLOW + "Hunted items: ");
+        ManhuntMain.HuntedItems.forEach((item) ->
+                sender.sendMessage(ChatColor.WHITE + " hunted items: " + item));
+        sender.sendMessage(ChatColor.YELLOW + "Hunted effects: ");
+        ManhuntMain.HuntedEffects.forEach((item) ->
+                sender.sendMessage(ChatColor.WHITE + " hunted effects: " + item));
     }
 }
