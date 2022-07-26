@@ -3,6 +3,7 @@ package me.invic.invictools.util.physics;
 import me.invic.invictools.commands.Commands;
 import me.invic.invictools.commands.toggleCommands;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -54,7 +55,11 @@ public class MasterPlayerJoin implements Listener
         {
             if(!toggleCommands.isHosting && Bukkit.getOnlinePlayers().size() > 0)
             {
-                Commands.MasterPlayer = Bukkit.getOnlinePlayers().iterator().next();
+                Player next = Bukkit.getOnlinePlayers().iterator().next();
+                FileConfiguration config = Commands.Invictools.getConfig();
+                Commands.MasterPlayer = next;
+                config.set("masterplayer", next);
+                Commands.Invictools.saveConfig();
             }
         }
     }

@@ -80,7 +80,7 @@ public class ChangeTeamSize
                 File pFile = new File(Folder, ConfigConversion(arena) + ".yml");
                 final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
                 player.sendMessage(ChatColor.YELLOW + arena+":");
-                player.sendMessage(ChatColor.YELLOW + "GameType:" + new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameByName(arena).getName()).getString("GameType","normal"));
+                player.sendMessage(ChatColor.YELLOW + "GameType: " + ChatColor.AQUA+ new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameByName(arena).getName()).getString("GameType","normal"));
                 for (String team : teams)
                 {
                     player.sendMessage(ChatColor.YELLOW + team + ": " + ChatColor.AQUA + data.get("teams." + team + ".maxPlayers"));
@@ -106,7 +106,7 @@ public class ChangeTeamSize
                     File pFile = new File(Folder, ConfigConversion(arena) + ".yml");
                     final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
                     player.sendMessage(ChatColor.YELLOW + arena + ":");
-                    player.sendMessage(ChatColor.YELLOW + "GameType:" + new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameByName(arena).getName()).getString("GameType", "normal"));
+                    player.sendMessage(ChatColor.YELLOW + "GameType: " + ChatColor.AQUA+new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameByName(arena).getName()).getString("GameType", "normal"));
                     for (String team : teams)
                     {
                         player.sendMessage(ChatColor.YELLOW + team + ": " + ChatColor.AQUA + data.get("teams." + team + ".maxPlayers"));
