@@ -24,7 +24,6 @@ public class voider implements Listener
         if(!shouldVoidCheck) // disablable for performence in case of 100 player events etc
             return;
 
-        System.out.println("starting voider");
         FileConfiguration config = new LobbyLogic().getMapConfiguration(e.getGame().getName());
         for (Player p: e.getGame().getConnectedPlayers())
         {
@@ -51,7 +50,7 @@ public class voider implements Listener
             if (e.getPlayer().getLocation().getY() < voidLevel.get(e.getPlayer()))
             {
                 e.getPlayer().damage(e.getPlayer().getHealth() + 9999999);
-                new EntityDamageEvent(e.getPlayer(), EntityDamageEvent.DamageCause.VOID, e.getPlayer().getHealth() + 9999999);
+               // new EntityDamageEvent(e.getPlayer(), EntityDamageEvent.DamageCause.VOID, e.getPlayer().getHealth() + 9999999);
             }
         }
     }

@@ -1,5 +1,6 @@
 me\invic\invictools\util\deathListener$4.class
 me\invic\invictools\commands\Commands$18.class
+me\invic\invictools\gamemodes\bedfight$1$3.class
 me\invic\invictools\commands\Commands$25.class
 me\invic\invictools\util\physics\MasterPlayerJoin$1.class
 me\invic\invictools\commands\Commands$2.class
@@ -15,10 +16,13 @@ me\invic\invictools\util\safeSizeChange$1.class
 me\invic\invictools\commands\Commands$11.class
 me\invic\invictools\commands\Commands$9.class
 me\invic\invictools\items\ItemListener$5$1.class
+me\invic\invictools\gamemodes\bedfight$1$1.class
+me\invic\invictools\gamemodes\bedfight$1$3$1.class
 me\invic\invictools\commands\utilityCommands$1.class
 me\invic\invictools\commands\Commands$13.class
 me\invic\invictools\commands\Commands$12.class
 me\invic\invictools\util\Leaderboards\leaderboard.class
+me\invic\invictools\gamemodes\bedfight$1$2.class
 me\invic\invictools\commands\Commands$5.class
 me\invic\invictools\util\Leaderboards\leaderboardCycle.class
 me\invic\invictools\commands\Commands$10.class
@@ -26,9 +30,7 @@ me\invic\invictools\commands\teamSizeCommands.class
 me\invic\invictools\commands\Commands$22.class
 me\invic\invictools\commands\toggleCommands.class
 me\invic\invictools\util\Leaderboards\leaderboardHologram.class
-me\invic\invictools\gamemodes\bedfight$5.class
 me\invic\invictools\commands\Commands.class
-me\invic\invictools\gamemodes\bedfight$3$1.class
 me\invic\invictools\commands\Commands$16.class
 me\invic\invictools\commands\Commands$15.class
 me\invic\invictools\commands\Commands$6.class
@@ -43,6 +45,5 @@ me\invic\invictools\commands\Commands$17.class
 me\invic\invictools\commands\Commands$3.class
 me\invic\invictools\commands\Commands$19.class
 me\invic\invictools\commands\Commands$4.class
-me\invic\invictools\gamemodes\bedfight$6.class
 me\invic\invictools\commands\Commands$23.class
 me\invic\invictools\commands\utilityCommands.class

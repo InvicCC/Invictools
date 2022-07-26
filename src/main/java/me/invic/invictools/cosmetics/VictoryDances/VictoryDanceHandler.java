@@ -34,7 +34,7 @@ public class VictoryDanceHandler implements Listener
         File Folder = new File(Commands.Invictools.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, effectOwner.getUniqueId() + ".yml");
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
-        String effect = balls.getString("VictoryDance");
+        String effect = balls.getString("VictoryDance","Firework");
 
         effectOwner.playSound(effectOwner.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 10, 20);
         effectSwitch(effect, effectOwner);

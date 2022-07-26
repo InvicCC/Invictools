@@ -39,7 +39,7 @@ public class FireworkBedBreak
         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 5);
     }
 
-    public static void spawnFireworks(Location loc, int c, boolean pos, Player p)
+    public void spawnFireworks(Location loc, int c, boolean pos, Player p)
     {
         Random rand = new Random();
 

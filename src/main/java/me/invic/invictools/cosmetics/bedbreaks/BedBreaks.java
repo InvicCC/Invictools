@@ -79,7 +79,7 @@ public class BedBreaks implements Listener
         File Folder = new File(plugin.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, player.getUniqueId() + ".yml");
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
-        String bedBreak = playerData.getString("BedBreak");
+        String bedBreak = playerData.getString("BedBreak","Fireworks");
         if (!override.equals("ingame"))
             bedBreak = override;
 

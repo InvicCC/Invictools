@@ -38,7 +38,7 @@ public class FinalKillHandler
         File Folder = new File(plugin.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, effectOwner.getUniqueId() + ".yml");
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
-        String effect = balls.getString("FinalKill");
+        String effect = balls.getString("FinalKill","Lightning");
         if (balls.getString("KillEffect") != null)
         {
             if (!balls.getString("KillEffect").equalsIgnoreCase("deprecated"))
