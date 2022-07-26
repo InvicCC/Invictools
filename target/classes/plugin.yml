@@ -19,6 +19,9 @@ commands:
   toggle:
     usage: /toggle (boolean)
     description: toggles plugin features
+  teamsize:
+    usage: /teamsize (type of change)
+    description: swaps map configs team sizes
 permissions:
   invictools.*:
     description: Gives access the entire plugin
