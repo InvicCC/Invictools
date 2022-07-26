@@ -84,7 +84,7 @@ public class LobbyInventoryFix implements Listener
     @EventHandler
     public void AllayEvent(EntityPickupItemEvent e)
     {
-        if (e.getItem().getName().equalsIgnoreCase("bwlobby") && e.getEntity().getType().equals(EntityType.ALLAY))
+        if (e.getEntity().getWorld().getName().equalsIgnoreCase("bwlobby") && e.getEntity().getType().equals(EntityType.ALLAY))
         {
             e.setCancelled(true);
         }
@@ -100,11 +100,6 @@ public class LobbyInventoryFix implements Listener
         }
         else
             saveInventoryAfter(p, true);
-    }
-
-    public void saveInventoryUnsafe(Player p)
-    {
-        saveInventoryAfter(p, false);
     }
 
     private void saveInventoryAfter(Player p, boolean respectCooldown)
