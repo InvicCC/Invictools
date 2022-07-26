@@ -1,9 +1,6 @@
 package me.invic.invictools;
 
-import me.invic.invictools.commands.Commands;
-import me.invic.invictools.commands.leaderboardCommands;
-import me.invic.invictools.commands.teamSizeCommands;
-import me.invic.invictools.commands.toggleCommands;
+import me.invic.invictools.commands.*;
 import me.invic.invictools.cosmetics.LobbyListener;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceListener;
 import me.invic.invictools.cosmetics.bedbreaks.BedBreaks;
@@ -164,6 +161,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new bedfight(), this); //bedfight gamemode
         Bukkit.getPluginManager().registerEvents(new voider(), this); //checks y level
         Bukkit.getPluginManager().registerEvents(new bedfightStatistics(), this); //does waht it says
+        Bukkit.getPluginManager().registerEvents(new safeSizeChange(), this); //teamsize panel handle
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection
@@ -188,6 +186,7 @@ public final class Invictools extends JavaPlugin
         this.getCommand("toggle").setExecutor(new toggleCommands());
         this.getCommand("lb").setExecutor(new leaderboardCommands());
         this.getCommand("teamsize").setExecutor(new teamSizeCommands());
+        this.getCommand("utility").setExecutor(new utilityCommands());
 
         // to run after server loads
         BukkitRunnable runnable = new BukkitRunnable()

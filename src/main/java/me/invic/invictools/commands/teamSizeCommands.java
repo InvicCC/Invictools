@@ -34,17 +34,17 @@ public class teamSizeCommands implements CommandExecutor, TabExecutor
             tabComplete.add("SingleArena");
             tabComplete.add("print");
         }
-        else if(args.length == 2 && args[1].equalsIgnoreCase("SingleArena"))
+        else if(args.length == 2 && args[0].equalsIgnoreCase("SingleArena"))
         {
             tabComplete.add("EveryTeam");
             tabComplete.add("SingleTeam");
         }
-        else if(args.length == 2 && args[1].equalsIgnoreCase("print"))
+        else if(args.length == 2 && args[0].equalsIgnoreCase("print"))
         {
             tabComplete.add("all");
             tabComplete.add("GameType");
         }
-        else if(args.length == 3 && args[1].equalsIgnoreCase("print") && args[2].equalsIgnoreCase("GameType"))
+        else if(args.length == 3 && args[0].equalsIgnoreCase("print") && args[2].equalsIgnoreCase("GameType"))
         {
             tabComplete.add("normal");
             tabComplete.add("mega");

@@ -45,22 +45,20 @@ public class safeSizeChange implements Listener
                 ChangeTeamSize.ChangeSingleArenaTeamSize(modify,size);
                 returnSize.put(api.getGameByName(modify),ChangeTeamSize.getTeamSize(api.getGameByName(modify)));
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw reload");
-                for (Player player:inLobby)
-                {
-                    new LobbyInventoryFix().saveInventory(player);
-                    api.getGameByName(modify).joinToGame(player);
-                }
-/*
+
                 new BukkitRunnable()
                 {
                     @Override
                     public void run()
                     {
-
+                        for (Player player:inLobby)
+                        {
+                            new LobbyInventoryFix().saveInventory(player);
+                            api.getGameByName(modify).joinToGame(player);
+                        }
                     }
                 }.runTaskLater(Commands.Invictools, 20L);
 
- */
             }
             catch (Throwable e)
             {
