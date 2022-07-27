@@ -28,7 +28,7 @@ public class Protocol47Fix implements Listener
         if(e.getNewEffect() ==null)
             return;
 
-        if(e.getNewEffect().getType().equals(PotionEffectType.SLOW_FALLING) && Via.getAPI().getPlayerVersion(e.getEntity()) == 47 && false)
+        if(e.getNewEffect().getType().equals(PotionEffectType.SLOW_FALLING) && Via.getAPI().getPlayerVersion(e.getEntity()) == 47)
         {
             Falling.add(e.getEntity());
             new BukkitRunnable()
@@ -42,7 +42,7 @@ public class Protocol47Fix implements Listener
         }
     }
 
-  //  ViaAPI api = Via.getPlatform().getApi();
+    ViaAPI api = Via.getPlatform().getApi();
     @EventHandler
     public void joinevent(PlayerJoinEvent e)
     {
@@ -53,12 +53,12 @@ public class Protocol47Fix implements Listener
             public void run()
             {
                 Player p = e.getPlayer();
-                //if(api.getPlayerVersion(e.getPlayer()) == 47)
+                if(api.getPlayerVersion(e.getPlayer()) == 47)
                 {
-                //    p.sendTitle(ChatColor.translateAlternateColorCodes('&', "&c" + "1.8 detected"), ChatColor.translateAlternateColorCodes('&', "&r&fUse 1.19 or some features will not work"), 10, 5 * 20, 15);
-           //         p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1F);
+                    p.sendTitle(ChatColor.translateAlternateColorCodes('&', "&c" + "1.8 Causes Bugs"), ChatColor.translateAlternateColorCodes('&', "&r&fUse 1.19 for a better experience"), 10, 5 * 20, 15);
+                    p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1F);
                 }
             }
-        }.runTaskLater(Commands.Invictools, 100L);
+        }.runTaskLater(Commands.Invictools, 300L);
     }
 }

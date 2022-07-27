@@ -221,7 +221,7 @@ public class joinCommands implements CommandExecutor, TabExecutor
                 sender.sendMessage(ChatColor.RED + "invalid game");
         } else if (args.length == 2 && args[0].equalsIgnoreCase("spec") && sender instanceof Player)
         {
-            if (!BedwarsAPI.getInstance().isPlayerPlayingAnyGame(Bukkit.getPlayer(args[1])))
+            if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(Bukkit.getPlayer(args[1])) && !BedwarsAPI.getInstance().isPlayerPlayingAnyGame((Player) sender))
             {
                 safeInventorySave();
                 BedwarsAPI.getInstance().getGameOfPlayer(Bukkit.getPlayer(args[1])).joinToGame((Player) sender);

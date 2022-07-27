@@ -28,7 +28,7 @@ public class disableStats implements Listener
         if(!recentGame.containsKey((e.getPlayerStatistic().getName())))
         {
             e.setCancelled(true);
-            System.out.println("missing "+Bukkit.getPlayer(e.getPlayerStatistic().getName()).getName());
+         //   System.out.println("missing "+Bukkit.getPlayer(e.getPlayerStatistic().getName()).getName());
         }
         else if (!shouldTrack(Bukkit.getPlayer(e.getPlayerStatistic().getName())) || !Commands.StatsTrack)
         {

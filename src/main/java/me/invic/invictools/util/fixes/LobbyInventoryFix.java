@@ -27,7 +27,7 @@ public class LobbyInventoryFix implements Listener
 {
     File Folder = new File(Commands.Invictools.getDataFolder(), "PlayerData");
     public static HashMap<Player, Long> InventorySaveCooldown = new HashMap<>();
-    int cooldown = 20; // seconds before file can save again
+    int cooldown = 60; // seconds before file can save again
 
     @EventHandler
     public void worldChange(PlayerChangedWorldEvent e)
