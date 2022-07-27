@@ -62,6 +62,8 @@ import java.util.List;
 
         FileConfiguration config = Commands.Invictools.getConfig();
 
+        1.8 protocal = 47
+
 DEV LOG
 2/15/2022
 Added Haunt, Instant Haunt, Attempted AlwaysBridge Smoothness, Attempted to add fail safes to stop spawner, dynamic spawner, and give-repeated-item logic
@@ -163,6 +165,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new bedfightStatistics(), this); //does waht it says
         Bukkit.getPluginManager().registerEvents(new safeSizeChange(), this); //teamsize panel handle
         Bukkit.getPluginManager().registerEvents(new queue(), this); //bedwars yeah u know what it is come on man
+        Bukkit.getPluginManager().registerEvents(new Protocol47Fix(), this); //new potion effect aka slow falling 1.8 fix, version reminder,
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection

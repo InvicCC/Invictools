@@ -42,10 +42,10 @@ public class safeSizeChange implements Listener
             {
                 beingModified.add(api.getGameByName(modify));
 
-                for (Player player:inLobby)
-                {
-                    api.getGameByName(modify).leaveFromGame(player);
-                }
+              //a  for (Player player:inLobby)
+              //  {
+              //      api.getGameByName(modify).leaveFromGame(player);
+             //   }
 
                 ChangeTeamSize.ChangeSingleArenaTeamSize(modify,size);
                 returnSize.put(api.getGameByName(modify),ChangeTeamSize.getTeamSize(api.getGameByName(modify)));

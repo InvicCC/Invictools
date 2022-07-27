@@ -26,7 +26,7 @@ commands:
     usage: /utility (util)
     description: edits many server options
   queue:
-    usage: /queue (bf/bw/selector/join/joinall)
+    usage: /queue (bf/bw/selector/join/joinall/spec/host)
     description: handles game queuing
 permissions:
   invictools.*:

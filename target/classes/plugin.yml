@@ -1,5 +1,5 @@
 name: Invictools
-version: 3.0
+version: 4.0
 main: me.invic.invictools.Invictools
 api-version: 1.19
 authors: [ Invic ]
@@ -25,6 +25,9 @@ commands:
   utility:
     usage: /utility (util)
     description: edits many server options
+  queue:
+    usage: /queue (bf/bw/selector/join/joinall/spec/host)
+    description: handles game queuing
 permissions:
   invictools.*:
     description: Gives access the entire plugin

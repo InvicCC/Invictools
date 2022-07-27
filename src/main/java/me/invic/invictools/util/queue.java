@@ -53,24 +53,31 @@ public class queue implements Listener
     @EventHandler
     public void status(BedwarsGameChangedStatusEvent e)
     {
-        if(e.getGame().equals(activeBedfightGame) && e.getGame().getStatus().equals(GameStatus.RUNNING))
+        new BukkitRunnable()
         {
-            activeBedfightGame = getRandomGame("Bedfight");
-        }
-        else if(e.getGame().equals(activeBedwarsGame) && e.getGame().getStatus().equals(GameStatus.RUNNING))
-        {
-            activeBedwarsGame = getRandomGame("Normal");
-        }
+            @Override
+            public void run()
+            {
+                if(e.getGame().equals(activeBedfightGame) && e.getGame().getStatus().equals(GameStatus.RUNNING))
+                {
+                    activeBedfightGame = getRandomGame("Bedfight");
+                }
+                else if(e.getGame().equals(activeBedwarsGame) && e.getGame().getStatus().equals(GameStatus.RUNNING))
+                {
+                    activeBedwarsGame = getRandomGame("Normal");
+                }
+            }
+        }.runTaskLater(Commands.Invictools, 1L);
     }
 
     @EventHandler
     public void bwstart(BedwarsPlayerJoinEvent e) // getgame.getconnected seems to grab the number before the player who invokes this actually joins, so -1
     {
-        if(e.getGame().equals(activeBedfightGame) && e.getGame().getConnectedPlayers().size() == e.getGame().getMaxPlayers()-1)
+        if(e.getGame().equals(activeBedfightGame) && e.getGame().getConnectedPlayers().size() == e.getGame().getMaxPlayers()-1 || e.getGame().equals(activeBedfightGame) && e.getGame().getStatus().equals(GameStatus.RUNNING))
         {
             activeBedfightGame = getRandomGame("Bedfight");
         }
-        else if(e.getGame().equals(activeBedwarsGame) && e.getGame().getConnectedPlayers().size() == e.getGame().getMaxPlayers()-1)
+        else if(e.getGame().equals(activeBedwarsGame) && e.getGame().getConnectedPlayers().size() == e.getGame().getMaxPlayers()-1|| e.getGame().equals(activeBedwarsGame) && e.getGame().getStatus().equals(GameStatus.RUNNING))
         {
             activeBedwarsGame = getRandomGame("Normal");
         }

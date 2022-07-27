@@ -9,6 +9,7 @@ me\invic\invictools\commands\Commands$7.class
 me\invic\invictools\util\Leaderboards\BedfightLeaderboard.class
 me\invic\invictools\commands\Commands$26.class
 me\invic\invictools\commands\Commands$20.class
+me\invic\invictools\util\fixes\Protocol47Fix.class
 me\invic\invictools\commands\utilityCommands$3.class
 me\invic\invictools\util\cageHandler.class
 me\invic\invictools\util\Leaderboards\BedfightLeaderboardHologram.class
@@ -18,6 +19,8 @@ me\invic\invictools\util\safeSizeChange$1.class
 me\invic\invictools\commands\Commands$11.class
 me\invic\invictools\commands\Commands$9.class
 me\invic\invictools\items\ItemListener$5$1.class
+me\invic\invictools\util\queue$1.class
+me\invic\invictools\util\fixes\Protocol47Fix$2.class
 me\invic\invictools\gamemodes\bedfight$1$1.class
 me\invic\invictools\gamemodes\bedfight$1$3$1.class
 me\invic\invictools\commands\utilityCommands$1.class
@@ -33,7 +36,9 @@ me\invic\invictools\commands\Commands$10.class
 me\invic\invictools\commands\teamSizeCommands.class
 me\invic\invictools\commands\Commands$22.class
 me\invic\invictools\commands\toggleCommands.class
+me\invic\invictools\util\fixes\Protocol47Fix$1.class
 me\invic\invictools\util\Leaderboards\leaderboardHologram.class
+me\invic\invictools\commands\joinCommands$3.class
 me\invic\invictools\commands\Commands.class
 me\invic\invictools\commands\Commands$16.class
 me\invic\invictools\commands\Commands$15.class
