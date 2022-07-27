@@ -144,7 +144,7 @@ public class ChangeTeamSize
             }
         }
 
-        Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+   //     Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
     }
 
     public static void ChangeSingleArenaTeamSize(String config, int teamSize)
@@ -152,7 +152,7 @@ public class ChangeTeamSize
         if (CheckValidity(config))
             EditEveryTeamSize((config), teamSize);
 
-        Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+      //  Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
     }
 
     public static void ChangeSingleTeamSize(String config, int teamSize, String teamColor)
@@ -160,7 +160,7 @@ public class ChangeTeamSize
         if (CheckValidity(config))
             EditSingleTeamSize((config), teamSize, teamColor);
 
-        Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+     //   Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
     }
 
     public static boolean CheckValidity(String config) // checks if config is correctly grabbed from short name only
@@ -229,27 +229,17 @@ public class ChangeTeamSize
         try
         {
             data.save(pFile);
-            Commands.MasterPlayer.sendMessage(ChatColor.YELLOW + data.getString("name") + ChatColor.AQUA + " can now hold " + ChatColor.YELLOW + teamSize + ChatColor.AQUA + " players per team.");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(config)+".yml");
+           // Commands.MasterPlayer.sendMessage(ChatColor.YELLOW + data.getString("name") + ChatColor.AQUA + " can now hold " + ChatColor.YELLOW + teamSize + ChatColor.AQUA + " players per team.");
         }
         catch (IOException ex)
         {
-            Commands.MasterPlayer.sendMessage(ChatColor.RED + "Error updating team sizes");
+          //  Commands.MasterPlayer.sendMessage(ChatColor.RED + "Error updating team sizes");
         }
     }
 
     private static void EditSingleTeamSize(String config, int teamSize, String teamColor)
     {
-        List<String> teams = new ArrayList<>();
-        try
-        {
-            BedwarsAPI.getInstance().getGameByName(config).getAvailableTeams().forEach(team -> teams.add(team.getName()));
-        }
-        catch (NullPointerException e)
-        {
-            Commands.MasterPlayer.sendMessage(ChatColor.RED + "Skipping " + config);
-            return;
-        }
-
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("BedWars");
         File Folder = new File(plugin.getDataFolder(), "arenas");
         File pFile = new File(Folder, ConfigConversion(config) + ".yml");
@@ -266,11 +256,12 @@ public class ChangeTeamSize
         try
         {
             data.save(pFile);
-            Commands.MasterPlayer.sendMessage(ChatColor.YELLOW + data.getString("name") + " " + teamColor + ChatColor.AQUA + " can now hold " + ChatColor.YELLOW + teamSize + ChatColor.AQUA + " players.");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ConfigConversion(config)+".yml");
+           // Commands.MasterPlayer.sendMessage(ChatColor.YELLOW + data.getString("name") + " " + teamColor + ChatColor.AQUA + " can now hold " + ChatColor.YELLOW + teamSize + ChatColor.AQUA + " players.");
         }
         catch (IOException ex)
         {
-            Commands.MasterPlayer.sendMessage(ChatColor.RED + "Error updating team sizes");
+           // Commands.MasterPlayer.sendMessage(ChatColor.RED + "Error updating team sizes");
         }
     }
 }

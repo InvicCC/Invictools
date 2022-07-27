@@ -50,7 +50,7 @@ public class safeSizeChange implements Listener
 
                 returnSize.put(api.getGameByName(modify),ChangeTeamSize.getTeamSize(api.getGameByName(modify)));
                 ChangeTeamSize.ChangeSingleArenaTeamSize(modify,size);
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(modify)+".yml");
+              //  Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(modify)+".yml");
 /*
                 if(p instanceof Player)
                 {
@@ -104,7 +104,7 @@ public class safeSizeChange implements Listener
         if(returnSize.containsKey(e.getGame()))
         {
             ChangeTeamSize.ChangeSingleArenaTeamSize(e.getGame().getName(),returnSize.get(e.getGame()));
-            Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(e.getGame().getName())+".yml");
+           // Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(e.getGame().getName())+".yml");
             returnSize.remove(e.getGame());
         }
     }
