@@ -86,7 +86,6 @@ public class queue implements Listener
     @EventHandler
     public void bwleave(BedwarsPlayerLeaveEvent e) // getgame.getconnected seems to grab the number before the player who invokes this actually joins, so 1 for empty.
     {
-        System.out.println(e.getGame().getConnectedPlayers().size()+" leave connected");
         if(e.getGame().equals(activeBedfightGame) && e.getGame().getConnectedPlayers().size() == 1 && !safeSizeChange.beingModified.contains(e.getGame()))
         {
             activeBedfightGame = getRandomGame("Bedfight");

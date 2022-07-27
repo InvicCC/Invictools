@@ -232,7 +232,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                 if(e.getGame().getStatus().equals(GameStatus.RUNNING))
                     loadBedfightInventory(loadout, e.getPlayer(), false);
             }
-        }.runTaskLater(Commands.Invictools, 20 * 4 + 5);
+        }.runTaskLater(Commands.Invictools, 20 * 3+1);
 
         if(e.getKiller() != null)
         {
@@ -452,9 +452,9 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                         if (item.getType().equals(Material.WHITE_WOOL))
                         {
                             item.setType(Material.valueOf(api.getGameOfPlayer(p).getTeamOfPlayer(p).getColor().toString() + "_WOOL"));
-                        //    if(Via.getAPI().getPlayerVersion(p) == 47 && i == 40)
-                             //   p.getInventory().addItem(item);
-                        //    else
+                            if(Via.getAPI().getPlayerVersion(p) == 47 && i == 40)
+                                p.getInventory().addItem(item);
+                            else
                                 p.getInventory().setItem(i, item);
                         }
                         else
@@ -462,9 +462,9 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                     }
                     else
                     {
-                  //      if(Via.getAPI().getPlayerVersion(p) == 47 && i == 40)
-                    //        p.getInventory().addItem(item);
-                     //   else
+                        if(Via.getAPI().getPlayerVersion(p) == 47 && i == 40)
+                            p.getInventory().addItem(item);
+                        else
                             p.getInventory().setItem(i, item);
                     }
                 }

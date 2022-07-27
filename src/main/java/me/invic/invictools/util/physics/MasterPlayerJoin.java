@@ -72,7 +72,7 @@ public class MasterPlayerJoin implements Listener
                 Commands.MasterPlayer = next;
                 config.set("masterplayer", next.getName());
                 Commands.Invictools.saveConfig();
-                System.out.println("swapping null");
+              //  System.out.println("swapping null");
             }
         }
 
@@ -87,7 +87,7 @@ public class MasterPlayerJoin implements Listener
                     Commands.MasterPlayer = next;
                     config.set("masterplayer", next.getName());
                     Commands.Invictools.saveConfig();
-                    System.out.println("swapping !isonline");
+                 //   System.out.println("swapping !isonline");
                 }
             }
         }

@@ -5,6 +5,7 @@ import me.invic.invictools.cosmetics.finalkills.FinalKillListener;
 import me.invic.invictools.util.GrabTeammates;
 import me.invic.invictools.util.disableStats;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -45,6 +46,7 @@ public class bedfightStatistics implements Listener
     int NormalDeathScore = config.getInt("BedfightScore.NormalDeath",0);
     int WinScore = config.getInt("BedfightScore.Win",50);
     int LossScore = config.getInt("BedfightScore.Loss",0);
+
     public int calculateScore(FileConfiguration file,String uuid)
     {
         int score = 0;
@@ -56,6 +58,34 @@ public class bedfightStatistics implements Listener
         score += file.getInt("data."+uuid+".Wins")*WinScore;
         score += file.getInt("data."+uuid+".Losses")*LossScore;
         return score;
+    }
+
+    public ChatColor presColor(int intlvl)
+    {
+        if (intlvl >= 0 && intlvl <= 9999)
+            return ChatColor.GRAY;
+        else if (intlvl >= 10000 && intlvl <= 19999)
+            return ChatColor.WHITE;
+        else if (intlvl >= 20000 && intlvl <= 29999)
+            return ChatColor.GOLD;
+        else if (intlvl >= 30000 && intlvl <= 39999)
+            return ChatColor.YELLOW;
+        else if (intlvl >= 40000 && intlvl <= 49999)
+            return ChatColor.DARK_GREEN;
+        else if (intlvl >= 50000 && intlvl <= 59999)
+            return ChatColor.DARK_AQUA;
+        else if (intlvl >= 60000 && intlvl <= 69999)
+            return ChatColor.RED;
+        else if (intlvl >= 70000 && intlvl <= 79999)
+            return ChatColor.LIGHT_PURPLE;
+        else if (intlvl >= 80000 && intlvl <= 89999)
+            return ChatColor.BLUE;
+        else if (intlvl >= 90000 && intlvl <= 99999)
+            return ChatColor.DARK_PURPLE;
+        else if (intlvl >= 100000)
+            return ChatColor.AQUA;
+
+        return ChatColor.GRAY;
     }
 
     @EventHandler
