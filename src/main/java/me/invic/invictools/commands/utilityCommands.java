@@ -1,6 +1,9 @@
 package me.invic.invictools.commands;
 
+import me.invic.invictools.util.queue;
 import me.invic.invictools.util.safeSizeChange;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -53,6 +56,62 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         if(args[0].equalsIgnoreCase("test") && args[1].equalsIgnoreCase("changeteamsize"))
         {
             new safeSizeChange().safeSizeEdit(args[2],sender,Integer.parseInt(args[3]));
+        }
+        else if(args[0].equalsIgnoreCase("test") && args[1].equalsIgnoreCase("bfq"))
+        {
+            if(sender instanceof Player)
+            {
+                Player p = (Player)sender;
+                new joinCommands().safeInventorySave();
+                queue.activeBedfightGame.joinToGame(p);
+                sender.sendMessage(ChatColor.AQUA+"Sending you to "+ChatColor.WHITE + queue.activeBedfightGame.getName());
+                new BukkitRunnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        System.out.println(p.getWorld().getName());
+                        if(p.getWorld().equals(Bukkit.getWorld("bwlobby")))
+                        { ;
+                            queue.activeBedfightGame = new queue().getRandomGame("bedfight");
+                            queue.activeBedfightGame.joinToGame(p);
+                            sender.sendMessage(ChatColor.AQUA+"Map load failure, Sending you to "+ChatColor.WHITE + queue.activeBedfightGame.getName());
+                        }
+                    }
+                }.runTaskLater(Commands.Invictools, 5L);
+            }
+            else
+            {
+                sender.sendMessage("Must be a player to execute this");
+            }
+        }
+        else if(args[0].equalsIgnoreCase("test") && args[1].equalsIgnoreCase("bwq"))
+        {
+            if(sender instanceof Player)
+            {
+                Player p = (Player)sender;
+                new joinCommands().safeInventorySave();
+                queue.activeBedwarsGame.joinToGame(p);
+                sender.sendMessage(ChatColor.AQUA+"Sending you to "+ChatColor.WHITE + queue.activeBedwarsGame.getName());
+                new BukkitRunnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        System.out.println(p.getWorld().getName());
+                        if(p.getWorld().equals(Bukkit.getWorld("bwlobby")))
+                        {
+                            queue.activeBedwarsGame = new queue().getRandomGame("normal");
+                            queue.activeBedwarsGame.joinToGame(p);
+                            sender.sendMessage(ChatColor.AQUA+"Map load failure, Sending you to "+ChatColor.WHITE + queue.activeBedwarsGame.getName());
+                        }
+                    }
+                }.runTaskLater(Commands.Invictools, 5L);
+            }
+            else
+            {
+                sender.sendMessage("Must be a player to execute this");
+            }
         }
         else if(args[0].equalsIgnoreCase("debug"))
         {

@@ -20,6 +20,14 @@ public class leaderboardCommands implements TabExecutor, CommandExecutor
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args)
     {
         List<String> tabComplete = new ArrayList<>();
+        if(sender instanceof Player)
+        {
+            if(!sender.hasPermission("invic.invictools"))
+            {
+                return tabComplete;
+            }
+        }
+
         if (args.length == 1)
         {
             tabComplete.add("bw");

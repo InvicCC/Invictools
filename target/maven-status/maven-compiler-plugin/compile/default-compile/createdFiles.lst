@@ -9,9 +9,11 @@ me\invic\invictools\commands\Commands$7.class
 me\invic\invictools\util\Leaderboards\BedfightLeaderboard.class
 me\invic\invictools\commands\Commands$26.class
 me\invic\invictools\commands\Commands$20.class
+me\invic\invictools\commands\utilityCommands$3.class
 me\invic\invictools\util\cageHandler.class
 me\invic\invictools\util\Leaderboards\BedfightLeaderboardHologram.class
 me\invic\invictools\commands\Commands$14.class
+me\invic\invictools\commands\utilityCommands$2.class
 me\invic\invictools\util\safeSizeChange$1.class
 me\invic\invictools\commands\Commands$11.class
 me\invic\invictools\commands\Commands$9.class
@@ -24,6 +26,8 @@ me\invic\invictools\commands\Commands$12.class
 me\invic\invictools\util\Leaderboards\leaderboard.class
 me\invic\invictools\gamemodes\bedfight$1$2.class
 me\invic\invictools\commands\Commands$5.class
+me\invic\invictools\util\queue.class
+me\invic\invictools\commands\joinCommands$2.class
 me\invic\invictools\util\Leaderboards\leaderboardCycle.class
 me\invic\invictools\commands\Commands$10.class
 me\invic\invictools\commands\teamSizeCommands.class
@@ -38,6 +42,7 @@ me\invic\invictools\commands\Commands$27.class
 me\invic\invictools\commands\Commands$7$1.class
 me\invic\invictools\commands\Commands$24.class
 me\invic\invictools\commands\leaderboardCommands.class
+me\invic\invictools\commands\joinCommands.class
 me\invic\invictools\commands\Commands$1.class
 me\invic\invictools\commands\Commands$21.class
 me\invic\invictools\util\safeSizeChange.class
@@ -46,4 +51,5 @@ me\invic\invictools\commands\Commands$3.class
 me\invic\invictools\commands\Commands$19.class
 me\invic\invictools\commands\Commands$4.class
 me\invic\invictools\commands\Commands$23.class
+me\invic\invictools\commands\joinCommands$1.class
 me\invic\invictools\commands\utilityCommands.class

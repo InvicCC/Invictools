@@ -16,12 +16,14 @@ import org.screamingsandals.bedwars.api.events.BedwarsGameEndingEvent;
 import org.screamingsandals.bedwars.api.game.Game;
 import org.screamingsandals.bedwars.api.game.GameStatus;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class safeSizeChange implements Listener
 {
-    HashMap<Game,Integer> returnSize = new HashMap<>();
+    static HashMap<Game,Integer> returnSize = new HashMap<>();
+    static List<Game> beingModified = new ArrayList<>();
 
     BedwarsAPI api = BedwarsAPI.getInstance();
     public boolean safeSizeEdit(String modify, CommandSender p, int size)
@@ -38,6 +40,8 @@ public class safeSizeChange implements Listener
 
             try
             {
+                beingModified.add(api.getGameByName(modify));
+
                 for (Player player:inLobby)
                 {
                     api.getGameByName(modify).leaveFromGame(player);
@@ -57,6 +61,7 @@ public class safeSizeChange implements Listener
                             new LobbyInventoryFix().saveInventory(player);
                             api.getGameByName(modify).joinToGame(player);
                         }
+                        beingModified.remove(api.getGameByName(modify));
                     }
                 }.runTaskLater(Commands.Invictools, 20L);
 
