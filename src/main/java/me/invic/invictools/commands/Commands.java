@@ -116,8 +116,8 @@ public class Commands implements CommandExecutor, TabExecutor
         if (args.length == 1)
         {
             //util
-            tabComplete.add("Srestart");
-            tabComplete.add("SetArena");
+          //  tabComplete.add("Srestart");
+           // tabComplete.add("SetArena");
             tabComplete.add("DestroyAddedBlocks");
             tabComplete.add("Pid");
             tabComplete.add("GivePID");
@@ -139,7 +139,7 @@ public class Commands implements CommandExecutor, TabExecutor
             tabComplete.add("ForceManhuntTeam");
             tabComplete.add("ResetDeathCounter");
             tabComplete.add("ResetAttributes");
-            tabComplete.add("Ranks");
+          //  tabComplete.add("Ranks");
           //  tabComplete.add("Debug");
             tabComplete.add("WorldBorder");
          //   tabComplete.add("SetTeamSize");
@@ -158,7 +158,7 @@ public class Commands implements CommandExecutor, TabExecutor
             tabComplete.add("reloadnpc");
             tabComplete.add("shrieker");
             tabComplete.add("loadInventory");
-            tabComplete.add("leaderboard");
+           // tabComplete.add("leaderboard");
 
             //Global Game Modifiers
             tabComplete.add("tnt");
@@ -193,7 +193,7 @@ public class Commands implements CommandExecutor, TabExecutor
             tabComplete.add("GiveItem");
 
             //Help
-            tabComplete.add("Help");
+        //    tabComplete.add("Help");
         }
         else if (args.length == 2 && args[0].equalsIgnoreCase("reload"))
         {

@@ -57,6 +57,7 @@ public class dareListener implements Listener
             horse.setGlowing(true);
 
         horse.addPassenger(player);
+     //   horse.setPassenger(player);
         ItemListener.Falling.add(horse);
         ItemListener.Falling.add(player);
         dareParticle(horse);

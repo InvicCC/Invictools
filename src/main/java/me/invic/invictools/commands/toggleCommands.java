@@ -99,6 +99,7 @@ public class toggleCommands implements TabExecutor, CommandExecutor
             {
                 isHosting = true;
                 sender.sendMessage(ChatColor.AQUA + "Games are now being hosted");
+                new joinCommands().announceHost();
             }
         }
         else if (args.length == 1 && args[0].equalsIgnoreCase("stats"))

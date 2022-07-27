@@ -1,5 +1,6 @@
 package me.invic.invictools.commands;
 
+import me.invic.invictools.gamemodes.bedfight;
 import me.invic.invictools.util.queue;
 import me.invic.invictools.util.safeSizeChange;
 import org.bukkit.Bukkit;
@@ -37,10 +38,22 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
             tabComplete.add("test");
             tabComplete.add("debug");
             tabComplete.add("endgame");
+            tabComplete.add("resetbf");
         }
         else if(args.length==2 && args[0].equalsIgnoreCase("test"))
         {
             tabComplete.add("changeTeamSize game size");
+        }
+        else if(args.length==2 && args[0].equalsIgnoreCase("resetbf"))
+        {
+            for (Player p:Bukkit.getOnlinePlayers())
+            {
+                tabComplete.add(p.getName());
+            }
+        }
+        else if(args.length==3 && args[0].equalsIgnoreCase("resetbf"))
+        {
+            tabComplete.add("default");
         }
         else if(args.length==2 && args[0].equalsIgnoreCase("endgame"))
         {
@@ -56,6 +69,11 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         if(args[0].equalsIgnoreCase("test") && args[1].equalsIgnoreCase("changeteamsize"))
         {
             new safeSizeChange().safeSizeEdit(args[2],sender,Integer.parseInt(args[3]));
+        }
+        if(args[0].equalsIgnoreCase("resetbf"))
+        {
+            new bedfight().loadBedfightInventory(args[2], Bukkit.getPlayer(args[1]), true);
+            sender.sendMessage(ChatColor.AQUA + "reset bedfight inventory " + args[2] +" for " + args[1]);
         }
         else if(args[0].equalsIgnoreCase("test") && args[1].equalsIgnoreCase("bfq"))
         {

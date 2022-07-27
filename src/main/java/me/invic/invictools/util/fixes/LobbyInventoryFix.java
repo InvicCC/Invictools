@@ -15,6 +15,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,7 +38,7 @@ public class LobbyInventoryFix implements Listener
         if (e.getFrom().getName().equalsIgnoreCase("bwlobby_nether") || e.getFrom().getName().equalsIgnoreCase("bwlobby_the_end"))
             return;
 
-        if (e.getFrom().getName().equalsIgnoreCase("bwlobby"))
+        if (e.getFrom().getName().equalsIgnoreCase("bwlobby") && !BedwarsAPI.getInstance().isPlayerPlayingAnyGame(e.getPlayer()))
         {
             saveInventory(e.getPlayer());
         }

@@ -1,5 +1,6 @@
 package me.invic.invictools.gamemodes;
 
+import com.viaversion.viaversion.api.Via;
 import me.invic.invictools.commands.Commands;
 import me.invic.invictools.items.ModBow;
 import me.invic.invictools.util.LobbyLogic;
@@ -451,13 +452,21 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                         if (item.getType().equals(Material.WHITE_WOOL))
                         {
                             item.setType(Material.valueOf(api.getGameOfPlayer(p).getTeamOfPlayer(p).getColor().toString() + "_WOOL"));
-                            p.getInventory().setItem(i, item);
+                        //    if(Via.getAPI().getPlayerVersion(p) == 47 && i == 40)
+                             //   p.getInventory().addItem(item);
+                        //    else
+                                p.getInventory().setItem(i, item);
                         }
                         else
                             p.getInventory().setItem(i, item);
                     }
                     else
-                        p.getInventory().setItem(i, item);
+                    {
+                  //      if(Via.getAPI().getPlayerVersion(p) == 47 && i == 40)
+                    //        p.getInventory().addItem(item);
+                     //   else
+                            p.getInventory().setItem(i, item);
+                    }
                 }
             }
         }

@@ -320,9 +320,9 @@ public class VictoryDanceHandler implements Listener
     private void Firestick(Player p)
     {
         ItemStack firestick = new createItems().FIRESTICK();
-        boolean op = ExplosionsListener.op;
-        double xz = ExplosionsListener.xzmultiplier;
-        double y = ExplosionsListener.ymultiplier;
+        boolean op = false;
+        double xz = .3;
+        double y = .4;
 
         ExplosionsListener.op = true;
         ExplosionsListener.xzmultiplier = 5;
