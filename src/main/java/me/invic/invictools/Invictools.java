@@ -162,6 +162,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new voider(), this); //checks y level
         Bukkit.getPluginManager().registerEvents(new bedfightStatistics(), this); //does waht it says
         Bukkit.getPluginManager().registerEvents(new safeSizeChange(), this); //teamsize panel handle
+        Bukkit.getPluginManager().registerEvents(new queue(), this); //bedwars yeah u know what it is come on man
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection
@@ -187,6 +188,7 @@ public final class Invictools extends JavaPlugin
         this.getCommand("lb").setExecutor(new leaderboardCommands());
         this.getCommand("teamsize").setExecutor(new teamSizeCommands());
         this.getCommand("utility").setExecutor(new utilityCommands());
+        this.getCommand("queue").setExecutor(new joinCommands());
 
         // to run after server loads
         BukkitRunnable runnable = new BukkitRunnable()
@@ -210,9 +212,13 @@ public final class Invictools extends JavaPlugin
                     ChangeTeamSize.createLists(config);
                 }
 
+                queue.activeBedfightGame = new queue().getRandomGame("Bedfight");
+                queue.activeBedwarsGame = new queue().getRandomGame("normal");
+
                 final FileConfiguration config = Commands.Invictools.getConfig();
                 String masterplayer = config.getString("masterplayer","Invictable");
                 Commands.MasterPlayer = Bukkit.getPlayer(masterplayer);
+
             }
         };
         runnable.runTaskLater(this, 1L);

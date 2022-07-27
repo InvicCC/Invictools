@@ -17,9 +17,9 @@ import static me.invic.invictools.commands.Commands.*;
 public class toggleCommands implements TabExecutor, CommandExecutor
 {
     public static boolean isHosting = false;
-    public static boolean bedfightQueue = false;
-    public static boolean bedwarsQueue = false;
-    public static boolean bedwarsSelector = false;
+    public static boolean bedfightQueue = true;
+    public static boolean bedwarsQueue = true;
+    public static boolean bedwarsSelector = true;
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args)

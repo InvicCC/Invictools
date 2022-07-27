@@ -2,6 +2,8 @@ package me.invic.invictools.util.physics;
 
 import me.invic.invictools.commands.Commands;
 import me.invic.invictools.commands.toggleCommands;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -59,7 +61,7 @@ public class MasterPlayerJoin implements Listener
 
         try
         {
-            Commands.MasterPlayer.sendMessage(" ");
+            Commands.MasterPlayer.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(" "));
         }
         catch (NullPointerException e)
         {

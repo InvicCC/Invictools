@@ -140,13 +140,13 @@ public class Commands implements CommandExecutor, TabExecutor
             tabComplete.add("ResetDeathCounter");
             tabComplete.add("ResetAttributes");
             tabComplete.add("Ranks");
-            tabComplete.add("Debug");
+          //  tabComplete.add("Debug");
             tabComplete.add("WorldBorder");
-            tabComplete.add("SetTeamSize");
-            tabComplete.add("Parkour");
+         //   tabComplete.add("SetTeamSize");
+      //      tabComplete.add("Parkour");
 
-            tabComplete.add("ToggleFireStick");
-            tabComplete.add("ToggleVictory");
+      //      tabComplete.add("ToggleFireStick");
+       //     tabComplete.add("ToggleVictory");
 
             tabComplete.add("jumping");
             tabComplete.add("repeatedcancel");
@@ -2402,5 +2402,8 @@ public class Commands implements CommandExecutor, TabExecutor
         sender.sendMessage(ChatColor.YELLOW + "Hunted effects: ");
         ManhuntMain.HuntedEffects.forEach((item) ->
                 sender.sendMessage(ChatColor.WHITE + " hunted effects: " + item));
+        sender.sendMessage(ChatColor.YELLOW + "Active random queue:");
+        sender.sendMessage(ChatColor.YELLOW + "Bedwars: "+ChatColor.WHITE+queue.activeBedwarsGame.getName());
+        sender.sendMessage(ChatColor.YELLOW + "Bedfight:" +ChatColor.WHITE+queue.activeBedfightGame.getName());
     }
 }

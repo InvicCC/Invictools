@@ -25,6 +25,9 @@ commands:
   utility:
     usage: /utility (util)
     description: edits many server options
+  queue:
+    usage: /queue (bf/bw/selector/join/joinall)
+    description: handles game queuing
 permissions:
   invictools.*:
     description: Gives access the entire plugin
