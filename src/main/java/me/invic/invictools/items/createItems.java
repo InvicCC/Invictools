@@ -79,7 +79,7 @@ public class createItems
 
     public ItemStack SNAP()
     {
-        ItemStack block = new ItemStack(Material.ICE);
+        ItemStack block = new ItemStack(Material.PACKED_ICE);
         ItemMeta meta = block.getItemMeta();
 
         List<String> lore = new ArrayList<>();

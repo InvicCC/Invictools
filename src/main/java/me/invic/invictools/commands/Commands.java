@@ -1484,57 +1484,7 @@ public class Commands implements CommandExecutor, TabExecutor
             }
             else if (args.length == 1 && args[0].equalsIgnoreCase("luckyblocks"))
             {
-                Player p = (Player) sender;
-                if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
-                {
-                    int spawnerSize = 0;
-                    LuckyBlocksEnabled = true;
-
-                    String game = BedwarsAPI.getInstance().getGameOfPlayer(p).getName();
-                    FileConfiguration config = new LobbyLogic().getMapConfiguration(game);
-                    sender.sendMessage(ChatColor.AQUA + "Lucky Blocks enabled in game " + ChatColor.YELLOW + game);
-
-                    while (true)
-                    {
-
-                        String temp = config.getString("LuckySpawners." + spawnerSize + ".x");
-                        if (temp != null)
-                        {
-                            spawnerSize++;
-                        }
-                        else
-                            break;
-                    }
-
-                    if (spawnerSize != 0)
-                    {
-                        Random rand = new Random();
-                        for (int a = 0; a < spawnerSize; a++)
-                        {
-                            int delay = rand.nextInt(30) + 40;
-                            Location spawnerloc = new Location(p.getWorld(), config.getDouble("LuckySpawners." + a + ".x"), config.getDouble("LuckySpawners." + a + ".y"), config.getDouble("LuckySpawners." + a + ".z"));
-                            if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer((Player)sender)).equalsIgnoreCase("BedFight"))
-                                new LuckyBlockSpawner(spawnerloc, "§b§lLucky Block Spawner", "random", delay/3);
-                            else
-                                new LuckyBlockSpawner(spawnerloc, "§b§lLucky Block Spawner", "random", delay);
-                        }
-                    }
-
-                    new BukkitRunnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            if (!BedwarsAPI.getInstance().getGameByName(game).getStatus().equals(GameStatus.RUNNING))
-                            {
-                                LuckyBlocksEnabled = false;
-                                this.cancel();
-                            }
-                        }
-                    }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 100, 100);
-                }
-                else
-                    p.sendMessage(ChatColor.RED +"Must be in-game to enable!");
+                new scenarioCommands().luckyblockEnable((Player)sender,"normal");
             }
             else if (args.length > 1 && args[0].equalsIgnoreCase("repeatedItem"))
             {

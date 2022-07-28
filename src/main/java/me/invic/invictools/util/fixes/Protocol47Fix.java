@@ -14,6 +14,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
+import org.screamingsandals.bedwars.api.game.Game;
 
 import static me.invic.invictools.items.ItemListener.Falling;
 
@@ -60,5 +62,35 @@ public class Protocol47Fix implements Listener
                 }
             }
         }.runTaskLater(Commands.Invictools, 300L);
+    }
+
+    public boolean isAnyPlayer47(Game game)
+    {
+        for (Player p:game.getConnectedPlayers())
+        {
+            if(api.getPlayerVersion(p) == 47)
+                return true;
+        }
+        return false;
+    }
+
+    public boolean isEveryPlayer47(Game game)
+    {
+        for (Player p:game.getConnectedPlayers())
+        {
+            if(api.getPlayerVersion(p) != 47)
+                return false;
+        }
+        return true;
+    }
+
+    public boolean isAnyLivingPlayer47(Game game)
+    {
+        for (Player p:game.getConnectedPlayers())
+        {
+            if(game.isPlayerInAnyTeam(p) &&api.getPlayerVersion(p) == 47)
+                return true;
+        }
+        return false;
     }
 }

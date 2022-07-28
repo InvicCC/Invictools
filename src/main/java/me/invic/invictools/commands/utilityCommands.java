@@ -90,7 +90,7 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
                     {
                         System.out.println(p.getWorld().getName());
                         if(p.getWorld().equals(Bukkit.getWorld("bwlobby")))
-                        { ;
+                        {
                             queue.activeBedfightGame = new queue().getRandomGame("bedfight");
                             queue.activeBedfightGame.joinToGame(p);
                             sender.sendMessage(ChatColor.AQUA+"Map load failure, Sending you to "+ChatColor.WHITE + queue.activeBedfightGame.getName());
@@ -151,20 +151,26 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
     {
         List<Player> players = game.getConnectedPlayers();
 
+        boolean swapTrack = false;
         if(Commands.StatsTrack)
+        {
             Commands.StatsTrack = false;
+            swapTrack = true;
+        }
 
         for (Player p:players)
         {
             game.leaveFromGame(p);
         }
 
+        boolean finalSwapTrack = swapTrack;
         new BukkitRunnable()
         {
             @Override
             public void run()
             {
-                Commands.StatsTrack = true;
+                if(finalSwapTrack)
+                    Commands.StatsTrack = true;
             }
         }.runTaskLater(Commands.Invictools, 20L);
     }

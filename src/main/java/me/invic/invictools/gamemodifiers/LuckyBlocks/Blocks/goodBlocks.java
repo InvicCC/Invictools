@@ -1,8 +1,11 @@
 package me.invic.invictools.gamemodifiers.LuckyBlocks.Blocks;
 
+import com.viaversion.viaversion.api.ViaAPI;
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.gamemodifiers.CustomHealth;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import me.invic.invictools.gamemodifiers.PotionEffects.DamageTeammates;
+import me.invic.invictools.gamemodifiers.gamemodeData;
 import me.invic.invictools.items.createItems;
 import me.invic.invictools.util.GrabTeammates;
 import me.invic.invictools.util.disableStats;
@@ -30,128 +33,46 @@ public class goodBlocks
         String worldName = player.getWorld().getName();
         Random rand = new Random();
         int choice = rand.nextInt(22); //total case statements + 1
+        boolean isBedfight = false;
+        if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+        {
+            if (disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                isBedfight = true;
+            else
+                isBedfight = false;
+        }
+        else
+        {
+            isBedfight = false;
+        }
+
         switch (choice)
         {
             case 0:
-                ItemSpawnerType type = api.getItemSpawnerTypeByName("diamond");
-                ItemStack stack = type.getStack();
-
-                new BukkitRunnable()
+                if(!isBedfight)
                 {
-                    int i = 0;
+                    ItemSpawnerType type = api.getItemSpawnerTypeByName("diamond");
+                    ItemStack stack = type.getStack();
 
-                    @Override
-                    public void run()
+                    new BukkitRunnable()
                     {
-                        if (i >= 7)
-                            this.cancel();
+                        int i = 0;
 
-                        player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
-                        player.getWorld().dropItemNaturally(loc, stack);
-
-                        i++;
-                    }
-                }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 4); // 20 TICKS IS 1 SECOND NOT 1 TICK
-                break;
-            case 1:
-                ItemSpawnerType type2 = api.getItemSpawnerTypeByName("emerald");
-                ItemStack stack2 = type2.getStack();
-
-                new BukkitRunnable()
-                {
-                    int i = 0;
-
-                    @Override
-                    public void run()
-                    {
-                        if (i >= 3)
-                            this.cancel();
-
-                        player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
-                        player.getWorld().dropItemNaturally(loc, stack2);
-
-                        i++;
-                    }
-                }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 4); // 20 TICKS IS 1 SECOND NOT 1 TICK
-                break;
-            case 2:
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&lYou will be teleported to a random player in 3 seconds..."));
-                BukkitRunnable runnable = new BukkitRunnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        Player swapplayer = badBlocks.getRandomPlayer(player);
-                        Location ploc = swapplayer.getLocation();
-                        player.teleport(ploc);
-                        player.playSound(ploc, Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lYou have teleported to &e" + swapplayer.getName()));
-                        swapplayer.sendMessage(ChatColor.YELLOW + player.getName() + ChatColor.AQUA + "§l has teleported to you!");
-                    }
-                };
-                runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 3 * 20);
-                break;
-            case 3:
-                double health = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
-                new CustomHealth("one", player, (int) health + 20, 0, player.getWorld().getName());
-                for (Player p : GrabTeammates.getTeammates(player))
-                {
-                    new CustomHealth("one", p, (int) health + 20, 0, p.getWorld().getName());
-                    p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
-                }
-                player.playSound(loc, Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
-                BukkitRunnable runnable2 = new BukkitRunnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        new CustomHealth("reset", player, (int) health, 0, player.getWorld().getName());
-                        player.playSound(loc, Sound.ENTITY_PLAYER_BURP, 1, 1);
-                        for (Player p : GrabTeammates.getTeammates(player))
+                        @Override
+                        public void run()
                         {
-                            new CustomHealth("reset", p, (int) health, 0, p.getWorld().getName());
-                            p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_BURP, 1, 1);
+                            if (i >= 7)
+                                this.cancel();
+
+                            player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
+                            player.getWorld().dropItemNaturally(loc, stack);
+
+                            i++;
                         }
-                    }
-                };
-                runnable2.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20 * 60);
-                break;
-            case 4:
-                new BukkitRunnable()
-                {
-                    int i = 0;
-
-                    @Override
-                    public void run()
-                    {
-                        if (i >= 13)
-                            this.cancel();
-
-                        int cblocX = rand.nextInt(16) - 8;
-                        int cblocZ = rand.nextInt(16) - 8;
-                        Location cblocation = new Location(loc.getWorld(), loc.getX() + cblocX, loc.getY() + 10, loc.getZ() + cblocZ);
-                        if (cblocation.getBlock().equals(Material.AIR))
-                            Objects.requireNonNull(loc.getWorld()).spawnFallingBlock(cblocation, Material.DIRT, (byte) 0);
-
-                        i++;
-                    }
-                }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 12);
-                break;
-            case 5:
-                ItemStack arrows = new ItemStack(Material.SPECTRAL_ARROW);
-                arrows.setAmount(3);
-                ItemStack bow = new ItemStack(Material.BOW);
-                ItemMeta meta = bow.getItemMeta();
-                meta.setDisplayName(ChatColor.YELLOW + "One Punch Bow");
-                if (meta instanceof Damageable)
-                    ((Damageable) meta).setDamage(Material.BOW.getMaxDurability() - 3);
-                bow.setItemMeta(meta);
-                bow.addUnsafeEnchantment(Enchantment.ARROW_KNOCKBACK, 5);
-                player.getWorld().dropItemNaturally(loc, bow);
-                player.getWorld().dropItemNaturally(loc, arrows);
-                player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
-                break;
-            case 6:
+                    }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 4); // 20 TICKS IS 1 SECOND NOT 1 TICK
+                    break;
+                }
+            case 1:
                 List<Player> teamm = GrabTeammates.getTeammates(player);
                 if (!teamm.isEmpty())
                 {
@@ -183,6 +104,118 @@ public class goodBlocks
                 }
                 //    else
                 //       player.sendMessage(ChatColor.AQUA + "Nothing happened because you don't have a teammate");
+            case 6:
+                if(!isBedfight)
+                {
+                    ItemSpawnerType type2 = api.getItemSpawnerTypeByName("emerald");
+                    ItemStack stack2 = type2.getStack();
+
+                    new BukkitRunnable()
+                    {
+                        int i = 0;
+
+                        @Override
+                        public void run()
+                        {
+                            if (i >= 3)
+                                this.cancel();
+
+                            player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
+                            player.getWorld().dropItemNaturally(loc, stack2);
+
+                            i++;
+                        }
+                    }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 4); // 20 TICKS IS 1 SECOND NOT 1 TICK
+                    break;
+                }
+            case 2:
+                player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&lYou will be teleported to a random player in 3 seconds..."));
+                BukkitRunnable runnable = new BukkitRunnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        Player swapplayer = badBlocks.getRandomPlayer(player);
+                        Location ploc = swapplayer.getLocation();
+                        player.teleport(ploc);
+                        player.playSound(ploc, Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lYou have teleported to &e" + swapplayer.getName()));
+                        swapplayer.sendMessage(ChatColor.YELLOW + player.getName() + ChatColor.AQUA + "§l has teleported to you!");
+                    }
+                };
+                runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 3 * 20);
+                break;
+            case 3:
+                int timehalfed;
+                if(isBedfight)
+                {
+                    timehalfed = 20;
+                }
+                else
+                    timehalfed = 60;
+
+                double health = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
+                new CustomHealth("one", player, (int) health + 20, 0, player.getWorld().getName());
+                for (Player p : GrabTeammates.getTeammates(player))
+                {
+                    new CustomHealth("one", p, (int) health + 20, 0, p.getWorld().getName());
+                    p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
+                }
+                player.playSound(loc, Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
+                BukkitRunnable runnable2 = new BukkitRunnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        new CustomHealth("reset", player, (int) health, 0, player.getWorld().getName());
+                        player.playSound(loc, Sound.ENTITY_PLAYER_BURP, 1, 1);
+                        for (Player p : GrabTeammates.getTeammates(player))
+                        {
+                            new CustomHealth("reset", p, (int) health, 0, p.getWorld().getName());
+                            p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_BURP, 1, 1);
+                        }
+                    }
+                };
+                runnable2.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20 * timehalfed);
+                break;
+            case 4:
+                /*
+                new BukkitRunnable()
+                {
+                    int i = 0;
+
+                    @Override
+                    public void run()
+                    {
+                        if (i >= 13)
+                            this.cancel();
+
+                        int cblocX = rand.nextInt(16) - 8;
+                        int cblocZ = rand.nextInt(16) - 8;
+                        Location cblocation = new Location(loc.getWorld(), loc.getX() + cblocX, loc.getY() + 10, loc.getZ() + cblocZ);
+                        if (cblocation.getBlock().equals(Material.AIR))
+                            Objects.requireNonNull(loc.getWorld()).spawnFallingBlock(cblocation, Material.DIRT, (byte) 0);
+
+                        i++;
+                    }
+                }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 12);
+                break;
+
+                 */
+            case 5:
+                ItemStack arrows = new ItemStack(Material.SPECTRAL_ARROW);
+                arrows.setAmount(3);
+                ItemStack bow = new ItemStack(Material.BOW);
+                ItemMeta meta = bow.getItemMeta();
+                meta.setDisplayName(ChatColor.YELLOW + "One Punch Bow");
+                if (meta instanceof Damageable)
+                    ((Damageable) meta).setDamage(Material.BOW.getMaxDurability() - 3);
+                bow.setItemMeta(meta);
+                bow.addUnsafeEnchantment(Enchantment.ARROW_KNOCKBACK, 5);
+                player.getWorld().dropItemNaturally(loc, bow);
+                player.getWorld().dropItemNaturally(loc, arrows);
+                player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
+                break;
             case 7:
                 List<Player> teamm2 = GrabTeammates.getTeammates(player);
                 if (!teamm2.isEmpty())
@@ -295,6 +328,24 @@ public class goodBlocks
                 }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 4); // 20 TICKS IS 1 SECOND NOT 1 TICK
                 break;
             case 14:
+                ItemStack arrow = new ItemStack(Material.ARROW);
+                new BukkitRunnable()
+                {
+                    int i = 0;
+
+                    @Override
+                    public void run()
+                    {
+                        if (i >= 7)
+                            this.cancel();
+
+                        player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
+                        player.getWorld().dropItemNaturally(loc, arrow);
+
+                        i++;
+                    }
+                }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 4); // 20 TICKS IS 1 SECOND NOT 1 TICK
+                break;
             case 17:
             case 18:
             case 19:
@@ -305,9 +356,20 @@ public class goodBlocks
                 giveArrows(player,item);
                 break;
             case 15:
+                int flytime;
+                if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+                {
+                    if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                        flytime = 3;
+                    else
+                        flytime = 10;
+                }
+                else
+                    flytime = 10;
+
                 player.setAllowFlight(true);
                 player.setFlying(true);
-                player.sendMessage(ChatColor.AQUA + "Flying has been enabled for 10 seconds!");
+                player.sendMessage(ChatColor.AQUA + "Flying has been enabled for "+flytime+ " seconds!");
                 player.playSound(loc, Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
                 List<Player> teamm3 = GrabTeammates.getTeammates(player);
                 if (!teamm3.isEmpty())
@@ -316,7 +378,7 @@ public class goodBlocks
                     {
                         team.setAllowFlight(true);
                         team.setFlying(true);
-                        team.sendMessage(ChatColor.AQUA + "Flying has been enabled for 10 seconds!");
+                        team.sendMessage(ChatColor.AQUA + "Flying has been enabled for "+flytime+ " seconds!");
                         team.playSound(team.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
                     }
                 }
@@ -338,13 +400,22 @@ public class goodBlocks
                         }
                     }
                 };
-                runnable3.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10 * 20);
+                runnable3.runTaskLater(Commands.Invictools, flytime * 20);
                 break;
             case 16:
                 ItemStack item2 = new createItems().getRandomItem();
-                giveArrows(player,item2);
+                if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+                {
+                    if(new gamemodeData().getLuckyBlockMode(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("47") && (item2.equals(new createItems().getByName("FIREBOW"))||(item2.equals(new createItems().getByName("DAREBONE")))))
+                    {
+                        System.out.println("swapping" +item2.getItemMeta().getDisplayName());
+                        item2 = new createItems().getByName("LOOTBOX");
+                    }
+                }
+
                 player.getWorld().dropItemNaturally(loc, item2);
                 player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
+                giveArrows(player,item2);
                 break;
             case 21:
                 player.getWorld().dropItemNaturally(loc, new ItemStack(Material.WARDEN_SPAWN_EGG));

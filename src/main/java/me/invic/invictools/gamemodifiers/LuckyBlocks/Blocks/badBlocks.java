@@ -4,12 +4,17 @@ import me.invic.invictools.commands.Commands;
 import me.invic.invictools.gamemodifiers.CustomHealth;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.dynamicSpawner;
 import me.invic.invictools.util.GrabTeammates;
+import me.invic.invictools.util.disableStats;
+import me.invic.invictools.util.fixes.Protocol47Fix;
 import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
 
 import java.util.*;
 
@@ -76,18 +81,15 @@ public class badBlocks
                 break;
 
                  */
-            /*
-            case 3:
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&lWEEEEEEEEEEEEEEeeeeeeeeeeeeeee!!!!!!!!!!!!!!"));
-                    player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1, 1);
-                    player.setVelocity(new Vector(0, 20, 0));
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 300, 0, false, false));
-                    break;
 
-             */
             case 3:
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&lsuffer"));
+                //    player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1, 1);
+                   // player.setVelocity(new Vector(0, 20, 0));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 150, 0, false, true));
+                    break;
             case 4:
-                ItemStack coal = new ItemStack(Material.OCHRE_FROGLIGHT);
+                ItemStack coal = new ItemStack(Material.AMETHYST_BLOCK);
                 new BukkitRunnable()
                 {
                     int i = 0;
@@ -103,7 +105,7 @@ public class badBlocks
 
                         i++;
                     }
-                }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 4); // 20 TICKS IS 1 SECOND NOT 1 TICK
+                }.runTaskTimer(Commands.Invictools, 0, 4); // 20 TICKS IS 1 SECOND NOT 1 TICK
                 break;
             case 5:
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&lYou will swap locations with a random player in 2 seconds..."));
@@ -129,6 +131,17 @@ public class badBlocks
                 new dynamicSpawner("badshop", player, loc);
                 break;
             case 7:
+                int timehalfed;
+                if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+                {
+                    if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                        timehalfed = 30;
+                    else
+                        timehalfed = 60;
+                }
+                else
+                    timehalfed = 60;
+
                 new CustomHealth("one", player, 10, 0, player.getWorld().getName());
                 for (Player p : GrabTeammates.getTeammates(player))
                 {
@@ -150,7 +163,7 @@ public class badBlocks
                         }
                     }
                 };
-                runnable2.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20 * 60);
+                runnable2.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20 * timehalfed);
                 break;
             case 1:
             case 8:
@@ -183,24 +196,56 @@ public class badBlocks
                         player.getWorld().spawnEntity(player.getLocation(), EntityType.WARDEN);
                         break;
                     case 3:
-                        player.sendMessage(ChatColor.RED + "RUN");
-                        Entity wither = player.getWorld().spawnEntity(player.getLocation().clone().add(0, 40, 0), EntityType.WITHER);
-                        new BukkitRunnable()
+                        boolean pass = false;
+                        if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
                         {
-                            @Override
-                            public void run()
-                            {
-                                wither.remove();
-                            }
-                        }.runTaskLater(Commands.Invictools, 3 * 20 * 60);
-                        break;
+                            if (disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                                pass =true;
+                        }
+
+                        if(!pass)
+                        {
+                            player.sendMessage(ChatColor.RED + "RUN");
+                            EnderDragon dragon = (EnderDragon) player.getWorld().spawnEntity(player.getLocation().clone().add(0, 10, 0), EntityType.ENDER_DRAGON);
+                            dragon.setAware(true);
+                            dragon.setPhase(EnderDragon.Phase.STRAFING);
+                            dragon.attack(player);
+                            break;
+                        }
                     case 5:
-                        player.sendMessage(ChatColor.RED + "RUN");
-                        EnderDragon dragon = (EnderDragon) player.getWorld().spawnEntity(player.getLocation().clone().add(0, 10, 0), EntityType.ENDER_DRAGON);
-                        dragon.setAware(true);
-                        dragon.setPhase(EnderDragon.Phase.STRAFING);
-                        dragon.attack(player);
-                        break;
+                        int withertime;
+                        if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+                        {
+                            if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                                withertime = 30;
+                            else
+                                withertime = 60;
+                        }
+                        else
+                            withertime = 60;
+
+                        if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+                        {
+                            if(!new Protocol47Fix().isAnyLivingPlayer47(BedwarsAPI.getInstance().getGameOfPlayer(player)))
+                            {
+                                player.sendMessage(ChatColor.RED + "RUN");
+                                Entity wither = player.getWorld().spawnEntity(player.getLocation().clone().add(0, 40, 0), EntityType.WITHER);
+                                new BukkitRunnable()
+                                {
+                                    @Override
+                                    public void run()
+                                    {
+                                        if(!wither.isDead())
+                                        {
+                                            wither.getLocation().getWorld().playSound(wither.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 20, 1);
+                                            wither.getLocation().getWorld().spawnParticle(Particle.EXPLOSION_HUGE, wither.getLocation(), 1);
+                                            wither.remove();
+                                        }
+                                    }
+                                }.runTaskLater(Commands.Invictools, withertime*20);
+                                break;
+                            }
+                        }
                 }
                 break;
             default:

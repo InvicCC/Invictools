@@ -3,9 +3,11 @@ package me.invic.invictools.gamemodifiers.LuckyBlocks.Blocks;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.LuckyBlockSpawner;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.dynamicSpawner;
+import me.invic.invictools.gamemodifiers.gamemodeData;
 import me.invic.invictools.items.createItems;
 import me.invic.invictools.items.dareListener;
 import me.invic.invictools.util.GrabTeammates;
+import me.invic.invictools.util.disableStats;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
@@ -13,6 +15,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,26 +28,39 @@ public class OPBlocks
     {
         //  String worldName = player.getWorld().getName();
         Random rand = new Random();
-        int choice = rand.nextInt(11); //total case statements + 1
+        int choice = rand.nextInt(12); //total case statements + 1
         switch (choice)
         {
             case 0:
                 new LuckyBlockSpawner(player.getLocation(), "§b§lLucky Block Spawner", "random", 45);
             case 8:
                 ItemStack item = new createItems().getRandomItem();
-                goodBlocks.giveArrows(player,item);
+                if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+                {
+                    if(new gamemodeData().getLuckyBlockMode(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("47") && (item.equals(new createItems().getByName("FIREBOW"))||(item.equals(new createItems().getByName("DAREBONE")))))
+                    {
+                        item= new createItems().getByName("LOOTBOX");
+                    }
+                }
                 item.setAmount(5);
                 player.getWorld().dropItemNaturally(loc, item);
                 player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
+                goodBlocks.giveArrows(player,item);
                 break;
             case 1:
-                loc.getWorld().strikeLightningEffect(loc);
-                ItemStack item2 = new ItemStack(Material.ELYTRA);
-                ItemStack item4 = new ItemStack(Material.FIREWORK_ROCKET);
-                item4.setAmount(3);
-                player.getWorld().dropItemNaturally(loc, item2);
-                player.getWorld().dropItemNaturally(loc, item4);
-                break;
+                if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+                {
+                    if(!new gamemodeData().getLuckyBlockMode(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("47"))
+                    {
+                        loc.getWorld().strikeLightningEffect(loc);
+                        ItemStack item2 = new ItemStack(Material.ELYTRA);
+                        ItemStack item4 = new ItemStack(Material.FIREWORK_ROCKET);
+                        item4.setAmount(3);
+                        player.getWorld().dropItemNaturally(loc, item2);
+                        player.getWorld().dropItemNaturally(loc, item4);
+                        break;
+                    }
+                }
             case 2:
                 if (rand.nextInt(2) == 1)
                     new dynamicSpawner("netheritedynamic", player, player.getLocation());
@@ -52,11 +68,28 @@ public class OPBlocks
                     new dynamicSpawner("oparmordynamic", player, player.getLocation());
                 break;
             case 3:
+                int flytime;
+                if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+                {
+                    if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                        flytime = 5;
+                    else
+                        flytime = 10;
+                }
+                else
+                    flytime = 10;
+
                 loc.getWorld().strikeLightningEffect(loc);
                 player.setGameMode(GameMode.CREATIVE);
-                player.setAllowFlight(true);
-                player.setFlying(true);
-                player.sendMessage(ChatColor.AQUA + "You have been given creative mode for 10 seconds!");
+                if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+                {
+                    if (!disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                    {
+                        player.setAllowFlight(true);
+                        player.setFlying(true);
+                    }
+                }
+                player.sendMessage(ChatColor.AQUA + "You have been given creative mode for "+flytime+" seconds!");
                 player.playSound(loc, Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
                 List<Player> teamm3 = GrabTeammates.getTeammates(player);
                 if (teamm3 != null)
@@ -64,9 +97,15 @@ public class OPBlocks
                     for (Player team : teamm3)
                     {
                         team.setGameMode(GameMode.CREATIVE);
-                        team.setAllowFlight(true);
-                        team.setFlying(true);
-                        team.sendMessage(ChatColor.AQUA + "You have been given creative mode for 10 seconds!");
+                        if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(team))
+                        {
+                            if (!disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(team)).equalsIgnoreCase("bedfight"))
+                            {
+                                team.setAllowFlight(true);
+                                team.setFlying(true);
+                            }
+                        }
+                        team.sendMessage(ChatColor.AQUA + "You have been given creative mode for "+flytime+" seconds!");
                         team.playSound(teamm3.get(0).getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
                     }
                 }
@@ -77,20 +116,32 @@ public class OPBlocks
                     public void run()
                     {
                         player.setGameMode(GameMode.SURVIVAL);
-                        player.setAllowFlight(false);
-                        player.setFlying(false);
+                        if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+                        {
+                            if (!disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                            {
+                                player.setAllowFlight(false);
+                                player.setFlying(false);
+                            }
+                        }
                         if (teamm3 != null)
                         {
                             for (Player team : teamm3)
                             {
                                 team.setGameMode(GameMode.SURVIVAL);
-                                team.setAllowFlight(false);
-                                team.setFlying(false);
+                                if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(team))
+                                {
+                                    if (!disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(team)).equalsIgnoreCase("bedfight"))
+                                    {
+                                        team.setAllowFlight(false);
+                                        team.setFlying(false);
+                                    }
+                                }
                             }
                         }
                     }
                 };
-                runnable3.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10 * 20);
+                runnable3.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), flytime * 20);
                 break;
             case 4:
                 ItemStack slime = new ItemStack(Material.SLIME_BALL);
@@ -152,9 +203,21 @@ public class OPBlocks
                 }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 4); // 20 TICKS IS 1 SECOND NOT 1 TICK
                 break;
             case 9:
-                new dareListener().spawnDare(loc, player, true, false);
-                break;
+                if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+                {
+                    if (!disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                    {
+                        new dareListener().spawnDare(loc, player, true, false);
+                        break;
+                    }
+                }
             case 10:
+                ItemStack box = new createItems().getByName("LOOTBOX");
+                box.setAmount(7);
+                player.getWorld().dropItemNaturally(loc, box);
+                player.getWorld().strikeLightningEffect(player.getLocation());
+                break;
+            case 11:
                 player.getWorld().spawnEntity(loc, EntityType.ALLAY);
                 player.getWorld().spawnEntity(loc, EntityType.ALLAY);
                 player.getWorld().spawnEntity(loc, EntityType.ALLAY);
