@@ -10,6 +10,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPickupItemEvent;
+import org.bukkit.event.inventory.InventoryEvent;
+import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -22,6 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class LobbyInventoryFix implements Listener
 {
@@ -80,16 +83,6 @@ public class LobbyInventoryFix implements Listener
     {
         if (e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
             saveInventory(e.getPlayer());
-    }
-
-    @EventHandler
-    public void AllayEvent(EntityPickupItemEvent e)
-    {
-        if (e.getEntity().getWorld().getName().equalsIgnoreCase("bwlobby") && e.getEntity().getType().equals(EntityType.ALLAY))
-        {
-            e.setCancelled(true);
-            e.getItem().remove();
-        }
     }
 
     public void saveInventory(Player p)

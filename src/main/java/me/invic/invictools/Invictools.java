@@ -32,7 +32,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.permissions.Permission;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -232,6 +231,7 @@ public final class Invictools extends JavaPlugin
 
         this.getCommand("toggle").setExecutor(new toggleCommands());
         this.getCommand("lb").setExecutor(new leaderboardCommands());
+//        this.getCommand("invictp").setExecutor(new InvicSpecCommand());
         this.getCommand("teamsize").setExecutor(new teamSizeCommands());
         this.getCommand("utility").setExecutor(new utilityCommands());
         this.getCommand("queue").setExecutor(new joinCommands());
