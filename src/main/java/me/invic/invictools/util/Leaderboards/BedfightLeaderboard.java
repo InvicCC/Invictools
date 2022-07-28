@@ -129,7 +129,7 @@ public class BedfightLeaderboard
                 }
                 else if(Sort.equalsIgnoreCase("score"))
                 {
-                    String s = ChatColor.translateAlternateColorCodes('&', " &b&l" + (i + 1) + ". &f" + playername + "&b - "+ new bedfightStatistics().presColor(((int) Math.round(leaderboard.get(player)))) + (int) Math.round(leaderboard.get(player))+"○ ");
+                    String s = ChatColor.translateAlternateColorCodes('&', " &b&l" + (i + 1) + ". &f" + playername + "&b - "+ new bedfightStatistics().presColor(((int) Math.round(leaderboard.get(player)))) + (int) Math.round(leaderboard.get(player))+"山 ");
                     formattedLeaderboard.add(s);
                 }
                 else
@@ -151,7 +151,7 @@ public class BedfightLeaderboard
         else if (Sort.equalsIgnoreCase("fkdr") || Sort.equalsIgnoreCase("wl") || Sort.equalsIgnoreCase("kdr"))
             p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + finded.getName() + ChatColor.WHITE + " is number" + ChatColor.AQUA + " " + ChatColor.BOLD + Placement.get(finded) + ChatColor.WHITE + " out of" + ChatColor.AQUA + " " + ChatColor.BOLD + leaderboardTotal + ChatColor.WHITE + " with" + ChatColor.AQUA + " " + ChatColor.BOLD + df.format(leaderboard.get(finded)) + ChatColor.WHITE +" "+new BedfightLeaderboardHologram().modifySort(Sort).toLowerCase(Locale.ROOT));
         else if (Sort.equalsIgnoreCase("score"))
-            p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + finded.getName() + ChatColor.WHITE + " is number" + ChatColor.AQUA + " " + ChatColor.BOLD + Placement.get(finded) + ChatColor.WHITE + " out of" + ChatColor.AQUA + " " + ChatColor.BOLD + leaderboardTotal + ChatColor.WHITE + " with" + ChatColor.AQUA + " " + new bedfightStatistics().presColor(((int) Math.round(leaderboard.get(finded)))) + (int) Math.round(leaderboard.get(finded)) + ChatColor.WHITE +" "+new BedfightLeaderboardHologram().modifySort(Sort).toLowerCase(Locale.ROOT)+"○");
+            p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + finded.getName() + ChatColor.WHITE + " is number" + ChatColor.AQUA + " " + ChatColor.BOLD + Placement.get(finded) + ChatColor.WHITE + " out of" + ChatColor.AQUA + " " + ChatColor.BOLD + leaderboardTotal + ChatColor.WHITE + " with" + ChatColor.AQUA + " " + new bedfightStatistics().presColor(((int) Math.round(leaderboard.get(finded)))) + (int) Math.round(leaderboard.get(finded)) + ChatColor.WHITE +" "+new BedfightLeaderboardHologram().modifySort(Sort).toLowerCase(Locale.ROOT)+"山");
         else
             p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + finded.getName() + ChatColor.WHITE + " is number" + ChatColor.AQUA + " " + ChatColor.BOLD + Placement.get(finded) + ChatColor.WHITE + " out of" + ChatColor.AQUA + " " + ChatColor.BOLD + leaderboardTotal + ChatColor.WHITE + " with" + ChatColor.AQUA + " " + ChatColor.BOLD + (int) Math.round(leaderboard.get(finded)) + ChatColor.WHITE +" "+new BedfightLeaderboardHologram().modifySort(Sort).toLowerCase(Locale.ROOT));
     }
@@ -161,7 +161,12 @@ public class BedfightLeaderboard
         p.sendMessage(" ");
         p.sendMessage(ChatColor.BOLD + "" + ChatColor.WHITE + new BedfightLeaderboardHologram().modifySort(Sort) + ChatColor.AQUA + " " + ChatColor.BOLD + "Bedfight Leaderboard:");
         formattedLeaderboard.forEach(p::sendMessage);
-        p.sendMessage(ChatColor.WHITE + " You are number" + ChatColor.AQUA + " " + ChatColor.BOLD + Placement.get(p) + ChatColor.WHITE + " out of" + ChatColor.AQUA + " " + ChatColor.BOLD + leaderboardTotal);
+        if (Sort.equalsIgnoreCase("fkdr") || Sort.equalsIgnoreCase("wl") || Sort.equalsIgnoreCase("kdr"))
+            p.sendMessage(ChatColor.WHITE + " You are number" + ChatColor.AQUA + " " + ChatColor.BOLD + Placement.get(p) + ChatColor.WHITE + " out of" + ChatColor.AQUA + " " + ChatColor.BOLD + leaderboardTotal + ChatColor.WHITE + " with" + ChatColor.AQUA + " " + ChatColor.BOLD + df.format(leaderboard.get(p)) + ChatColor.WHITE +" "+new BedfightLeaderboardHologram().modifySort(Sort).toLowerCase(Locale.ROOT));
+        else if (Sort.equalsIgnoreCase("score"))
+            p.sendMessage(ChatColor.WHITE + " You are number" + ChatColor.AQUA + " " + ChatColor.BOLD + Placement.get(p) + ChatColor.WHITE + " out of" + ChatColor.AQUA + " " + ChatColor.BOLD + leaderboardTotal + ChatColor.WHITE + " with" + ChatColor.AQUA + " " + new bedfightStatistics().presColor(((int) Math.round(leaderboard.get(p)))) + (int) Math.round(leaderboard.get(p)) + ChatColor.WHITE +" "+new BedfightLeaderboardHologram().modifySort(Sort).toLowerCase(Locale.ROOT)+"山");
+        else
+        p.sendMessage(ChatColor.WHITE + " You are number" + ChatColor.AQUA + " " + ChatColor.BOLD + Placement.get(p) + ChatColor.WHITE + " out of" + ChatColor.AQUA + " " + ChatColor.BOLD + leaderboardTotal + ChatColor.WHITE + " with" + ChatColor.AQUA + " " + ChatColor.BOLD + (int) Math.round(leaderboard.get(p)) + ChatColor.WHITE +" "+new BedfightLeaderboardHologram().modifySort(Sort).toLowerCase(Locale.ROOT));
         p.sendMessage(ChatColor.WHITE + " /lb bf (name) to check other players ");
     }
 }
