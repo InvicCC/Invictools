@@ -88,6 +88,7 @@ public class LobbyInventoryFix implements Listener
         if (e.getEntity().getWorld().getName().equalsIgnoreCase("bwlobby") && e.getEntity().getType().equals(EntityType.ALLAY))
         {
             e.setCancelled(true);
+            e.getItem().remove();
         }
     }
 
