@@ -128,7 +128,7 @@ public class TeamSelection implements Listener
         if (e.getGame().getGameWorld().getPlayers().size() == 1)
         {
             TeamSelector.remove(e.getGame());
-            teamSize.clear();
+          //  teamSize.clear();
         }
         else if(TeamSelector.get(e.getGame()) != null)
         {
@@ -167,7 +167,7 @@ public class TeamSelection implements Listener
     @EventHandler
     public void bwstart(BedwarsGameStartEvent e)
     {
-        teamSize.clear();
+      //  teamSize.clear();
         TeamSelector.remove(e.getGame());
     }
 
@@ -257,11 +257,10 @@ public class TeamSelection implements Listener
 
         if (teamSize.get(game.getName() + ";" + team[1]) != null)
         {
-            System.out.println(teamSize.get(game.getName() + ";" + team[1]));
-            System.out.println(game.getTeamFromName(team[1]).getMaxPlayers());
+          //  System.out.println(teamSize.get(game.getName() + ";" + team[1]));
+         //   System.out.println(game.getTeamFromName(team[1]).getMaxPlayers());
             if (teamSize.get(game.getName() + ";" + team[1]) == game.getTeamFromName(team[1]).getMaxPlayers())
             {
-                System.out.println("size cancel");
                 return;
             }
         }
@@ -269,7 +268,10 @@ public class TeamSelection implements Listener
         if (chooseteam)
         {
             game.selectPlayerTeam(p, game.getTeamFromName(team[1]));
-            teamSize.put(game.getName() + ";" + team[1], teamSize.get(game.getName() + ";" + team[1]) + 1);
+           // if(teamSize.containsKey(game.getName()))
+          //  {
+                teamSize.put(game.getName() + ";" + team[1], teamSize.get(game.getName() + ";" + team[1]) + 1);
+         //   }
         }
 
         ItemMeta meta = item.getItemMeta();

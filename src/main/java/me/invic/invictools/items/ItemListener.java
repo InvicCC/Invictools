@@ -2,6 +2,7 @@ package me.invic.invictools.items;
 
 import me.invic.invictools.commands.Commands;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
+import me.invic.invictools.util.fixes.Protocol47Fix;
 import me.invic.invictools.util.physics.grabSandstone;
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -300,16 +301,40 @@ public class ItemListener implements Listener
             {
                 e.getItem().setAmount(e.getItem().getAmount() - 1);
 
-                List<Block> wool = new ArrayList<>();
-                wool.addAll(getNearbyPlacedBlocks(e.getPlayer().getLocation(), 20));
+                List<Block> wool = new ArrayList<>(getNearbyPlacedBlocks(e.getPlayer().getLocation(), 20));
                 e.getPlayer().getLocation().getWorld().strikeLightningEffect(e.getPlayer().getLocation());
 
                 for (Block block : wool)
                 {
-                    Bukkit.getOnlinePlayers().forEach((player) -> player.playSound(block.getLocation(), Sound.BLOCK_GLASS_BREAK, 1, 1));
+                    new BukkitRunnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            Bukkit.getOnlinePlayers().forEach((player) -> player.playSound(block.getLocation(), Sound.BLOCK_GLASS_BREAK, 1, 1));
 
-                    if (api.getGameOfPlayer(e.getPlayer()).isBlockAddedDuringGame(block.getLocation()))
-                        block.setType(Material.PACKED_ICE);
+                            int type = new Random().nextInt(10);
+                            if (api.getGameOfPlayer(e.getPlayer()).isBlockAddedDuringGame(block.getLocation()))
+                            {
+                                switch (type)
+                                {
+                                    case 0:
+                                    case 1:
+                                        block.setType(Material.ICE);
+                                        break;
+                                    case 2:
+                                    case 3:
+                                        if(!new Protocol47Fix().isAnyLivingPlayer47(api.getGameOfPlayer(e.getPlayer())))
+                                        {
+                                            block.setType(Material.BLUE_ICE);
+                                            break;
+                                        }
+                                    default:
+                                        block.setType(Material.PACKED_ICE);
+                                }
+                            }
+                        }
+                    }.runTaskLater(Commands.Invictools, new Random().nextInt(40));
                 }
 
                 wool.clear();
@@ -483,7 +508,7 @@ public class ItemListener implements Listener
                     this.cancel();
                 }
             }
-        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 2L, 1L);
+        }.runTaskTimer(Commands.Invictools, 2L, 1L);
     }
 
     public static HashMap<Player, Long> FireballCooldown = new HashMap<>();

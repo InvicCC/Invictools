@@ -60,6 +60,52 @@ import java.util.List;
             }
         }.runTaskLater(Commands.Invictools, 20L);
 
+public class scenarioCommands implements TabExecutor, CommandExecutor
+{
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args)
+    {
+        List<String> tabComplete = new ArrayList<>();
+        if (sender instanceof Player)
+        {
+            if (!sender.hasPermission("invic.invictools"))
+            {
+                sender.sendMessage(Commands.permissionsError);
+                return tabComplete;
+            }
+        }
+
+        if(args.length == 1)
+        {
+
+        }
+
+        return tabComplete;
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
+    {
+        if (sender instanceof Player)
+        {
+            if (!sender.hasPermission("invic.invictools"))
+            {
+                sender.sendMessage(Commands.permissionsError);
+                return true;
+            }
+        }
+
+        if(args.length==1 && args[0].equalsIgnoreCase(""))
+        {
+
+        }
+
+        return true;
+    }
+}
+
+
+
         FileConfiguration config = Commands.Invictools.getConfig();
 
         1.8 protocal = 47
@@ -88,11 +134,7 @@ Fixed new lobby inventory bug, fixed spectator mode using whether lobby exists, 
 made inventory save when moved around automatically. added leaderboard for every stat. prevented lobby mob despawning. previously added command panels in plugin
 7/15/2022
 changelog now implmented via github
-TODO: bedfight leaderboard / full statistics tracking,
-  scenario selector that works for normal players when no mod / opped players are in game but special players always,
-   via version checks to notify players / fix slow falling,
-   game size changer avliable to all players when no games are running (because it runs /bw reload to work) but toggeable with command,
-   second option in game join npc for normal players to select any map ,
+TODO:
    rewrite every command to be grouped by what they are or just individual if used by normal players a lot. ex /lbpos instead of /it leaderboard position
    do not replace commands just write new ones that utilize the same code so manhunt configuration files and related still work but typing is cleaner
 
@@ -166,6 +208,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new safeSizeChange(), this); //teamsize panel handle
         Bukkit.getPluginManager().registerEvents(new queue(), this); //bedwars yeah u know what it is come on man
         Bukkit.getPluginManager().registerEvents(new Protocol47Fix(), this); //new potion effect aka slow falling 1.8 fix, version reminder,
+        Bukkit.getPluginManager().registerEvents(new stuckOnDeathFix(), this); //new potion effect aka slow falling 1.8 fix, version reminder,
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection
@@ -192,6 +235,12 @@ public final class Invictools extends JavaPlugin
         this.getCommand("teamsize").setExecutor(new teamSizeCommands());
         this.getCommand("utility").setExecutor(new utilityCommands());
         this.getCommand("queue").setExecutor(new joinCommands());
+        this.getCommand("scen").setExecutor(new scenarioCommands());
+
+        if(Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI"))
+        {
+            new PAPIexpansion().register();
+        }
 
         // to run after server loads
         BukkitRunnable runnable = new BukkitRunnable()

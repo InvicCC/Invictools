@@ -5,6 +5,9 @@ api-version: 1.19
 authors: [ Invic ]
 description: Gamemodes, Bedwars Bug Fixes, and hosting Utilities for Invic Bedwars
 depend: [ BedWars ]
+softdepend:
+  - PlaceholderAPI
+  - WorldEdit
 website: solo.to/Invic
 commands:
   invictools:
@@ -28,6 +31,9 @@ commands:
   queue:
     usage: /queue (bf/bw/selector/join/joinall/spec/host)
     description: handles game queuing
+  scen:
+    usage: /scen (lucky/etc/list)
+    description: handles gamemode queuing. ender list for gamemode list
 permissions:
   invictools.*:
     description: Gives access the entire plugin
