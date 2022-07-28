@@ -39,6 +39,7 @@ public class disableSpectatorTeleport implements Listener
         {
             event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 240, 0, false, false));
             event.setCancelled(true);
+            event.getPlayer().setGameMode(GameMode.SPECTATOR);
         }
     }
 }
