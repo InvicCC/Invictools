@@ -80,7 +80,7 @@ public class PAPIexpansion extends PlaceholderExpansion
             else if (intlvl >= 90000 && intlvl <= 99999)
                 return ChatColor.translateAlternateColorCodes('&', "&5");
             else if (intlvl >= 100000)
-                return ChatColor.translateAlternateColorCodes('&', "&b&l");
+                return ChatColor.translateAlternateColorCodes('&', "&3&l");
         }
         else if(identifier.equalsIgnoreCase("bfpres2"))
         {
@@ -105,11 +105,15 @@ public class PAPIexpansion extends PlaceholderExpansion
             else if (intlvl >= 90000 && intlvl <= 99999)
                 return ChatColor.translateAlternateColorCodes('&', "&5");
             else if (intlvl >= 100000)
-                return ChatColor.translateAlternateColorCodes('&', "&f&l");
+                return ChatColor.translateAlternateColorCodes('&', "&8&l");
         }
         else if(identifier.equalsIgnoreCase("bflvls"))
         {
-            return String.valueOf(intlvl)+"○";
+            return String.valueOf(intlvl)+"山";
+        }
+        else if(identifier.equalsIgnoreCase("bfs"))
+        {
+            return "山";
         }
         else if(identifier.equalsIgnoreCase("bflvl"))
         {
@@ -142,7 +146,7 @@ public class PAPIexpansion extends PlaceholderExpansion
             else if(bwlvl >= 90 && bwlvl <= 99)
                 return ChatColor.translateAlternateColorCodes('&',"&5");
             else if(bwlvl >=100)
-                return ChatColor.translateAlternateColorCodes('&',"&b&l");
+                return ChatColor.translateAlternateColorCodes('&',"&3&l");
         }
         else if(identifier.equalsIgnoreCase("bwpres2"))
         {
@@ -167,7 +171,39 @@ public class PAPIexpansion extends PlaceholderExpansion
             else if(bwlvl >= 90 && bwlvl <= 99)
                 return ChatColor.translateAlternateColorCodes('&',"&5");
             else if(bwlvl >=100)
-                return ChatColor.translateAlternateColorCodes('&',"&f&l");
+                return ChatColor.translateAlternateColorCodes('&',"&8&l");
+        }
+        else if(identifier.equalsIgnoreCase("bfw"))
+        {
+            return data.getString("data."+player.getUniqueId()+".Wins",String.valueOf(0));
+        }
+        else if(identifier.equalsIgnoreCase("bfl"))
+        {
+            return data.getString("data."+player.getUniqueId()+".Losses",String.valueOf(0));
+        }
+        else if(identifier.equalsIgnoreCase("bfk"))
+        {
+            return data.getString("data."+player.getUniqueId()+".NormalKills",String.valueOf(0));
+        }
+        else if(identifier.equalsIgnoreCase("bfd"))
+        {
+            return data.getString("data."+player.getUniqueId()+".NormalDeaths",String.valueOf(0));
+        }
+        else if(identifier.equalsIgnoreCase("bffk"))
+        {
+            return data.getString("data."+player.getUniqueId()+".FinalKills",String.valueOf(0));
+        }
+        else if(identifier.equalsIgnoreCase("bffd"))
+        {
+            return data.getString("data."+player.getUniqueId()+".FinalDeaths",String.valueOf(0));
+        }
+        else if(identifier.equalsIgnoreCase("bfbb"))
+        {
+            return data.getString("data."+player.getUniqueId()+".BedBreaks",String.valueOf(0));
+        }
+        else if(identifier.equalsIgnoreCase("bfws"))
+        {
+            return data.getString("data."+player.getUniqueId()+".BestWinStreak",String.valueOf(0));
         }
         return null;
     }
