@@ -47,6 +47,9 @@ public class bedfightStatistics implements Listener
     int WinScore = config.getInt("BedfightScore.Win",50);
     int LossScore = config.getInt("BedfightScore.Loss",0);
 
+    //"data."+uuid+".CurrentWinStreak"
+    //"data."+uuid+".BestWinStreak"
+
     public int calculateScore(FileConfiguration file,String uuid)
     {
         int score = 0;
