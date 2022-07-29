@@ -1,0 +1,20 @@
+lastAccountName: Gravatus
+timestamps:
+  login: 1634156034529
+  lastteleport: 1634156175954
+  logout: 1634156245315
+ipAddress: 76.71.38.92
+lastlocation:
+  world: OasisB
+  x: 495.6474350685193
+  y: 103.00133597911214
+  z: 498.3129750090774
+  yaw: -344.8286
+  pitch: 32.899036
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: -89.39903
+  pitch: -8.276491

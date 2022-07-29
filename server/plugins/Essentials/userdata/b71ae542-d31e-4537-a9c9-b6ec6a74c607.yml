@@ -1,0 +1,26 @@
+lastAccountName: The_Great_Raptor
+timestamps:
+  login: 1649796779886
+  logout: 1649796818861
+  lastteleport: 1648229265704
+  kits:
+    fw: 1648256873781
+    elytra: 1648254175100
+    boots: 1648256823851
+    dragon: 1648254235302
+    fireworks: 1648257246359
+ipAddress: 51.161.99.25
+logoutlocation:
+  world: bwlobby
+  x: 243.27139902706847
+  y: 127.5
+  z: 250.53811382406943
+  yaw: 185.17993
+  pitch: 18.581413
+lastlocation:
+  world: bwlobby
+  x: 223.47887042808043
+  y: 108.97009687730667
+  z: 258.16563034925053
+  yaw: 56.03444
+  pitch: 83.63733

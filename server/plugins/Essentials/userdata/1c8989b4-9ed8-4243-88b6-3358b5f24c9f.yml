@@ -1,0 +1,23 @@
+lastAccountName: Wyldn
+timestamps:
+  login: 1634152358074
+  kits:
+    fw: 1634153300376
+    tools: 1631128765612
+  lastteleport: 1634152819462
+  logout: 1634153407311
+ipAddress: 169.235.64.157
+lastlocation:
+  world: bwlobby
+  x: 254.06588136198198
+  y: 128.29673560066868
+  z: 250.67053806781877
+  yaw: 115.51822
+  pitch: 61.669777
+logoutlocation:
+  world: bwlobby
+  x: 261.73089350496826
+  y: 129.25220334025371
+  z: 247.86211849717904
+  yaw: 22.134033
+  pitch: 56.979237

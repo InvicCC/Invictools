@@ -1,0 +1,22 @@
+lastAccountName: EpicGamerTime_YT
+timestamps:
+  login: 1636836172728
+  logout: 1636836536515
+  lastteleport: 1636836338231
+  kits:
+    fw: 1636836247027
+ipAddress: 96.242.18.140
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: 217.89758
+  pitch: -8.276491
+lastlocation:
+  world: bwlobby
+  x: 216.54809993082864
+  y: 111.87735470561792
+  z: 230.85370388674966
+  yaw: 173.30914
+  pitch: 86.96581

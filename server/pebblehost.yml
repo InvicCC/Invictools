@@ -1,0 +1,98 @@
+# Version 1.3.7
+# This is the settings file for the PebbleHost server loader.
+# Got a suggestion for this file? Join our discord and suggest it using -suggest
+
+# THESE SETTINGS CAN BREAK PARTS OF YOUR SERVER, BE CAREFUL WHEN EDITING THEM
+
+# If you break this file, Please delete it and it will automatically regenerate.
+
+### Automatic reboot / restart on crash settings
+#
+# Possible Settings: true, false
+# Default: false
+#
+# This will enable and create a start.sh file which is required for both using the /restart commnad
+# and is required for a server to restart if it crashes.
+# Please ensure your server supports this file format and it is setup within spigot.yml
+#
+auto-reboot=true
+
+### Server URL redirection
+#
+# This setting allows you to redirect any URL requests to your servers IP to your own website
+# For example, if your servers IP is 1.25.6.54:25567 you can redirect 1.25.6.54 in your browser to your website
+# You need a domain for this to work!
+#
+# Your servers IP Address (must be a domain!)
+redirect-from=
+# The website you would like users to be redirected to
+redirect-to=
+
+### Heaplimiter Settings
+#
+# If your server is running out of metaspace memory frequently we suggest enabling this option, You may read more @ https://help.pebblehost.com/en/article/1lsc8ad/
+# 
+# Possible Settings: 1,2,3
+# Default: 1
+# 1. 0MB 
+# 2. 300MB
+# 3. 600MB
+heaplimited=1
+
+### Startup flag options
+#
+# The following option enables UTF-8 encoding in your servers startup settings
+#
+# Possible Settings: true, false
+# Default: false
+#
+utf8=false
+
+# This option removes the 20 second wait time by adding the -DIKnowWhatImDoingISwear flag to your servers startup command
+#
+# Possible Settings: true, false
+# Default: false
+#
+waitremoval=true
+
+# This option adds the --forceUpgrade argument to your servers startup for 1 boot allowing you to upgrade to a new version.
+#
+# Possible Settings: true, false
+# Default: false
+#
+forceupgrade=false
+
+### Forge Timeout Settings
+#
+# You can set the following options inside the `-Dfml.readTimeout=` flag on your server
+# 
+# Possible Settings: 1,2,3
+# Default: 1
+# 1. Disabled
+# 2. 120 seconds
+# 3. 240 seconds
+forgetimeout=1
+
+### Rescue Mode
+#
+# This enables a temporary 1.8 paper server to test / debug any issues.
+rescue=false
+
+### Java Version setting
+# Possible Settings: 8,11
+# Default: 8
+# 8. Your server will run on Java 8.
+# 11. Your server will run on Java 11.
+javaversion=17
+
+### Reverse Proxy Settings
+#
+# Please configure these options from within your panel under Tools -> Reverse Proxy
+# Reverse Proxy Domain
+proxy-domain=
+# Reverse Proxy Port
+proxy-port=
+# Custom startup flags
+startupflags=
+#
+# Please keep in mind, Any changes made to this will take up to 60 seconds to update and will require a server reboot. 

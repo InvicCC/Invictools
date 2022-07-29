@@ -1,0 +1,22 @@
+lastAccountName: Standen05
+timestamps:
+  login: 1643333028697
+  lastteleport: 1643333987098
+  logout: 1643334071973
+  kits:
+    fw: 1643333992954
+ipAddress: 216.195.22.82
+lastlocation:
+  world: bwlobby
+  x: 250.70852847255
+  y: 127.0
+  z: 250.4655420855147
+  yaw: -92.19799
+  pitch: -10.137906
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: -129.12051
+  pitch: -8.276491

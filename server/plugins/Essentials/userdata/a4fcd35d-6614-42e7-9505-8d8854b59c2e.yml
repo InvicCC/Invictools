@@ -1,0 +1,26 @@
+lastAccountName: __owlgod__
+timestamps:
+  login: 1654548084975
+  kits:
+    fw: 1654263644234
+    elytra: 1653679579372
+    boots: 1653680061368
+    dragon: 1653679850462
+    fireworks: 1653679931571
+  lastteleport: 1653681524476
+  logout: 1654548243744
+ipAddress: 51.161.99.61
+lastlocation:
+  world: bwlobby
+  x: 264.7474347302061
+  y: 129.75220334025371
+  z: 253.72582902222206
+  yaw: -270.6944
+  pitch: 3.011382
+logoutlocation:
+  world: bwlobby
+  x: 235.80812302703853
+  y: 128.0
+  z: 247.08053216016103
+  yaw: 290.7981
+  pitch: 10.921174

@@ -1,0 +1,23 @@
+Hunted:
+  effect:
+    0:
+      name: "it repeateditem SEA_LANTERN 1 30 random "
+  items:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: OBSIDIAN
+    amount: 8
+  special:
+    0:
+      name: randomlb
+      amount: 3
+    1:
+      name: item
+      type: bounce
+      amount: 1
+Hunter:
+  effect:
+  items:
+  special:
+    
+    

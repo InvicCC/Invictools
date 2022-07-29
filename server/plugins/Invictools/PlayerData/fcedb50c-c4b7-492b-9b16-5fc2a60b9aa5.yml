@@ -1,0 +1,17 @@
+Username: Skins08
+BedBreak: Fireworks
+ProjTrail: 'null'
+KillEffect: 'null'
+VictoryDance: 'null'
+tracker: 8
+items:
+- ==: org.bukkit.inventory.ItemStack
+  v: 2586
+  type: STONE_PICKAXE
+- ==: org.bukkit.inventory.ItemStack
+  v: 2586
+  type: WOODEN_PICKAXE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    Damage: 36

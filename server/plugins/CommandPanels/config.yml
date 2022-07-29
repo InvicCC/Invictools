@@ -1,0 +1,64 @@
+# |------------------------------------------------------------------------
+# |                       CommandPanels Config File
+# |                           By RockyHawk v5.1
+# | https://www.spigotmc.org/resources/command-panels-custom-guis.67788/
+# |
+# |        auto-update and minor-updates-only is HEAVILY RECOMMENDED
+# |------------------------------------------------------------------------
+config:
+  refresh-panels: true
+  refresh-delay: 20
+  panel-blocks: true
+  ingame-editor: true
+  hotbar-items: true
+  custom-commands: true
+  auto-register-commands: false
+  auto-update-panels: false
+  server-ping-timeout: 10
+  stop-sound: true
+  disabled-world-message: true
+  update-notifications: true
+  panel-snooper: false
+  format:
+    tag: '&b&l:'
+    perms: '&cNo permission.'
+    reload: '&aReloaded.'
+    nopanel: '&cPanel not found.'
+    noitem: '&cPanel doesn''t have clickable item.'
+    notitem: '&cPlayer not found.'
+    error: '&cError found in config.'
+    offline: Offline
+    offlineHeadValue: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmU1Mjg2YzQ3MGY2NmZmYTFhMTgzMzFjYmZmYjlhM2MyYTQ0MjRhOGM3MjU5YzQ0MzZmZDJlMzU1ODJhNTIyIn19fQ==
+input:
+  input-cancel: cancel
+  input-cancelled: '&cCancelled!'
+  input-message:
+  - '%cp-tag%&aEnter Input for Command'
+  - '&cType &4%cp-args% &cto Cancel the command'
+hexcodes:
+  start_tag: '#'
+  end_tag: ''
+placeholders:
+  primary:
+    start: '%'
+    end: '%'
+  secondary:
+    start: '{'
+    end: '}'
+updater:
+  auto-update: true
+  minor-updates-only: true
+  update-checks: true
+purchase:
+  currency:
+    success: '&aSuccessfully Bought For $%cp-args%'
+    failure: '&cInsufficient Funds!'
+  tokens:
+    success: '&aSuccessfully Bought For %cp-args% Tokens.'
+    failure: '&cInsufficient Tokens!'
+  item:
+    success: '&aSuccessfully Sold %cp-args%.'
+    failure: '&cInsufficient Items!'
+  xp:
+    success: '&aSuccessfully Bought For %cp-args% xp level.'
+    failure: '&cInsufficient xp levels!'

@@ -1,0 +1,118 @@
+sign:
+- name: Fusion
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 264.0
+    y: 129.0
+    z: 249.0
+    pitch: 0.0
+    yaw: 0.0
+- name: FusionScenario
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 265.0
+    y: 129.0
+    z: 255.0
+    pitch: 0.0
+    yaw: 0.0
+- name: Fusion
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 261.0
+    y: 129.0
+    z: 255.0
+    pitch: 0.0
+    yaw: 0.0
+- name: Mars
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 264.0
+    y: 129.0
+    z: 251.0
+    pitch: 0.0
+    yaw: 0.0
+- name: MarsScenario
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 265.0
+    y: 129.0
+    z: 258.0
+    pitch: 0.0
+    yaw: 0.0
+- name: Oasis
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 263.0
+    y: 130.0
+    z: 249.0
+    pitch: 0.0
+    yaw: 0.0
+- name: Monastery
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 264.0
+    y: 129.0
+    z: 252.0
+    pitch: 0.0
+    yaw: 0.0
+- name: MonasteryScen
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 265.0
+    y: 129.0
+    z: 257.0
+    pitch: 0.0
+    yaw: 0.0
+- name: Mars
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 263.0
+    y: 130.0
+    z: 251.0
+    pitch: 0.0
+    yaw: 0.0
+- name: OasisScenario
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 263.0
+    y: 129.0
+    z: 249.0
+    pitch: 0.0
+    yaw: 0.0
+- name: OasisScenario
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 265.0
+    y: 129.0
+    z: 256.0
+    pitch: 0.0
+    yaw: 0.0
+- name: Oasis
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 264.0
+    y: 129.0
+    z: 250.0
+    pitch: 0.0
+    yaw: 0.0
+- name: MarsScenario
+  location:
+    ==: org.bukkit.Location
+    world: bwlobby
+    x: 263.0
+    y: 129.0
+    z: 251.0
+    pitch: 0.0
+    yaw: 0.0

@@ -1,0 +1,21 @@
+lastAccountName: KingKaso
+timestamps:
+  login: 1644035964960
+  lastteleport: 1639885976933
+  logout: 1644038044279
+ipAddress: 51.161.99.6
+lastlocation:
+  world: bwlobby
+  x: 246.38734207445754
+  y: 128.0
+  z: 238.94178091758823
+  yaw: -252.9354
+  pitch: 17.139526
+logoutlocation:
+  world: World
+  x: -205.38119672598958
+  y: 54.0
+  z: 163.75475182625337
+  yaw: 209.00708
+  pitch: 14.477821
+godmode: false

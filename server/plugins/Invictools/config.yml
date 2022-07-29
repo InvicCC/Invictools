@@ -1,0 +1,111 @@
+npccounter: 291
+masterplayer: Invictable
+UsePlugNPC: true
+dareTimeout: 165
+ScaffoldInventoryCheckSize: 9
+Leaderboard:
+  Holo: bwlobby;261.5;128;239.5;0;0
+  Size: 10
+  MinGames: 5
+BedfightLeaderboard:
+  Holo: bwlobby;261.5;128;261.5;0;0
+VictoryDance:
+  Preview: bwlobby;250.5;139;-68.5;0;0
+  enabled: true
+ProjPreview:
+  Player: bwlobby;241.5;156;134.5;180;0
+  Projectile: bwlobby;231;157;125;272;0
+worlds:
+- OasisB
+- OasisBscen
+- MarsB
+- MarsBscen
+- Fusion
+- Fusionscen
+- Monastery
+- Tree
+- slipslide
+- Snowstorm
+- map1
+- map2
+- map3
+- map4
+- large
+- MarsFours
+- MegaShire
+- ocean
+fenceloc:
+- 233-128-252
+- 233-128-251
+- 233-128-250
+- 233-128-249
+- 233-128-248
+- 233-129-252
+- 233-129-251
+- 233-129-250
+- 233-129-249
+- 233-129-248
+ylevel:
+- 0
+blacklistedWorlds:
+- bwlobby
+PlugMessages:
+- '&b------------------------------------'
+- '&fWant to play? Join the &b&lDiscord&f!'
+- '&fWant to see more content? Check out the rest!'
+- ' '
+- '&9&lDiscord: &fhttps://discord.gg/7JSKKcVDBP'
+- '&c&lYouTube: &fhttps://www.youtube.com/invictah'
+- '&5&lTwitch: &fhttps://www.twitch.tv/invicontwitch'
+- '&b------------------------------------'
+RankMessages:
+- '&b------------------------------------'
+- '&fType /verify to sync your ranks in game'
+- ' '
+- '&fEvery rank but default grants access to special cosmetics'
+- ' '
+- 'Obtainable:'
+- '&b[&f&lInvic&b]&f: Owner of the server'
+- '&c[&fCREATOR&c]&f: Content Creators'
+- '&f[&6&lSubscriber&f]: Invics Twitch Subscribers'
+- '&f[&d&lBooster&f]: Invics Discord Server Boosters'
+- '&f[&5&lVIP&f]: Friends of Invic or Creators'
+- '&a[&fMod&a]&f: Bedwars game moderators'
+- ' '
+- '&fDefault:'
+- '&8[&7Player&8]&f: Everyone else'
+- '&b------------------------------------'
+jump:
+  tnt:
+    xzmultiplier: 0.3
+    ymultiplier: 0.5
+    range: 4
+  fireball:
+    xzmultiplier: 0.5
+    ymultiplier: 0.3
+    range: 3.5
+    op: false
+npc:
+  x: 263.5
+  y: 129
+  z: 250.5
+  yaw: 90
+  pitch: -15
+  ID: 145
+  skin: Invictable
+  title: §f§lPLAY HERE
+npc2:
+  x: 254
+  y: 128
+  z: 246.8
+  yaw: 45
+  pitch: 12.5
+  ID: 147
+  skin: Invictable
+  title: §b§lCLICK ME
+loadedgame: none
+pid:
+  ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: AIR
+  amount: 0

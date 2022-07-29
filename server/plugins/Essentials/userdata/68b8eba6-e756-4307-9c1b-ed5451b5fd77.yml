@@ -1,0 +1,22 @@
+lastAccountName: BoboRozo
+timestamps:
+  login: 1634158942800
+  lastteleport: 1634153397074
+  logout: 1634158979253
+  kits:
+    fw: 1634158563308
+ipAddress: 151.230.65.237
+lastlocation:
+  world: bwlobby
+  x: 221.39246672104773
+  y: 127.57969854367613
+  z: 260.69999998807907
+  yaw: 22.137936
+  pitch: 9.449888
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: -145.23473
+  pitch: -8.276491

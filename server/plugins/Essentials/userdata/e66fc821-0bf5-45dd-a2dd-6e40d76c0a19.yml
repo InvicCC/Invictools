@@ -1,0 +1,25 @@
+lastAccountName: FizzyIsBusy
+timestamps:
+  login: 1652833887230
+  logout: 1652834820220
+  lastteleport: 1652832933280
+  kits:
+    fw: 1652833931473
+    elytra: 1652832908665
+    dragon: 1652832734392
+    fireworks: 1652832930865
+ipAddress: 51.161.99.58
+logoutlocation:
+  world: bwlobby
+  x: 249.12887851832457
+  y: 128.0
+  z: 241.91175424698056
+  yaw: -179.22487
+  pitch: 17.566154
+lastlocation:
+  world: bwlobby
+  x: 186.974319335375
+  y: 137.0
+  z: 289.1958051894041
+  yaw: 241.04434
+  pitch: 19.387001

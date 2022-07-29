@@ -1,0 +1,27 @@
+lastAccountName: LuckyDoggo_
+timestamps:
+  login: 1654995364365
+  lastteleport: 1654912545453
+  logout: 1654995359776
+  kits:
+    fw: 1654550497688
+    elytra: 1654912526142
+    boots: 1653597839067
+    arrows: 1654795526058
+    dragon: 1654994357061
+    fireworks: 1654912507341
+ipAddress: 51.161.38.232
+lastlocation:
+  world: bwlobby
+  x: 274.51874337935516
+  y: 175.0
+  z: 220.43906129983415
+  yaw: 30.939087
+  pitch: 36.229893
+logoutlocation:
+  world: bwlobby
+  x: 245.37395180520585
+  y: 130.02442408821366
+  z: 256.30000001192093
+  yaw: 174.9822
+  pitch: 85.49853

@@ -1,0 +1,24 @@
+lastAccountName: _Mine_Kid_
+timestamps:
+  login: 1638313858402
+  lastteleport: 1638322874153
+  kits:
+    fw: 1638322903042
+    elytra: 1638323396659
+    boots: 1638315190815
+  logout: 1638324751346
+ipAddress: 50.125.83.77
+lastlocation:
+  world: bwlobby
+  x: 254.15121752477944
+  y: 127.0
+  z: 251.8596587213307
+  yaw: -67.584526
+  pitch: 14.518686
+logoutlocation:
+  world: bwlobby
+  x: 261.24538291420475
+  y: 129.0
+  z: 250.50177623989026
+  yaw: -15.374212
+  pitch: 8.682496

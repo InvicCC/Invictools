@@ -1,0 +1,27 @@
+lastAccountName: 2alovespizza
+timestamps:
+  login: 1652660197358
+  lastteleport: 1652663369181
+  logout: 1652664003498
+  kits:
+    fw: 1652660284732
+    elytra: 1646601791244
+    boots: 1646517322740
+    dragon: 1645228167016
+    fireworks: 1652660299801
+ipAddress: 51.161.38.239
+lastlocation:
+  world: bwlobby
+  x: 238.34568847190064
+  y: 132.62170358718302
+  z: 253.3133485526213
+  yaw: 80.09247
+  pitch: 44.490257
+logoutlocation:
+  world: bwlobby
+  x: 288.2410737715263
+  y: 99.73183476970412
+  z: 245.74226641259264
+  yaw: -95.978065
+  pitch: 30.004826
+godmode: false

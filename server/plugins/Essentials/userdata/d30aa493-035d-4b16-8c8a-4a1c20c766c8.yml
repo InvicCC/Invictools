@@ -1,0 +1,22 @@
+lastAccountName: CxrtxR
+timestamps:
+  login: 1634154698891
+  lastteleport: 1634154792509
+  logout: 1634155612549
+  kits:
+    fw: 1634154789815
+ipAddress: 118.136.75.77
+lastlocation:
+  world: bwlobby
+  x: 222.85627023828124
+  y: -102.84374690760653
+  z: 249.8820057773416
+  yaw: 88.40304
+  pitch: 24.513706
+logoutlocation:
+  world: bwlobby
+  x: 218.0122876569249
+  y: -1.5086932549636158
+  z: 266.41901293370574
+  yaw: -345.24246
+  pitch: 24.365965

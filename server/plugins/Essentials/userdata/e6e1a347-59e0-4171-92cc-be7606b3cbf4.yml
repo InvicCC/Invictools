@@ -1,0 +1,26 @@
+lastAccountName: _Phoenic
+timestamps:
+  login: 1654651935920
+  lastteleport: 1654647262801
+  kits:
+    fw: 1654639842461
+    elytra: 1654645310641
+    boots: 1654548213042
+    arrows: 1654647086582
+    fireworks: 1654647341031
+  logout: 1654651988777
+ipAddress: 51.161.99.91
+lastlocation:
+  world: bwlobby
+  x: 275.22541328430754
+  y: 1.0
+  z: 221.2135924838196
+  yaw: -85.37402
+  pitch: -24.172861
+logoutlocation:
+  world: bwlobby
+  x: 246.78484033021766
+  y: 128.0
+  z: 241.92225692947875
+  yaw: -57.43371
+  pitch: 12.009115

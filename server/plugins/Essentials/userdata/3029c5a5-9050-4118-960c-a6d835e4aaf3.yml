@@ -1,0 +1,27 @@
+lastAccountName: Jonnyzistic
+timestamps:
+  login: 1654442298170
+  lastteleport: 1653422988491
+  kits:
+    fw: 1647981671411
+    elytra: 1648086297420
+    boots: 1650075438415
+    dragon: 1648495353104
+    fireworks: 1648494893053
+  logout: 1654442329000
+ipAddress: 51.161.19.224
+lastlocation:
+  world: bwlobby
+  x: 225.4892299330811
+  y: 5.0
+  z: 251.43874734713987
+  yaw: 21.76923
+  pitch: 21.759373
+logoutlocation:
+  world: bwlobby
+  x: 259.3178738863156
+  y: 128.0
+  z: 263.9838753033424
+  yaw: 340.09692
+  pitch: 13.160295
+godmode: false

@@ -1,0 +1,72 @@
+data:
+
+-   stack: "ENDER_EYE;1;§e§lSecret Knockback Shop;§7Skill time!"
+    column: center
+    row: 2
+    items:
+    - price: 3
+      price-type: "gold"
+      stack:
+        type: stick
+        display-name: "§7Knockback Stick"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            KNOCKBACK: 1
+    - price: 16
+      price-type: "gold"
+      stack:
+        type: BLAZE_ROD
+        display-name: "§cFlaming Knockback Stick"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            KNOCKBACK: 3
+            FIRE_ASPECT: 1
+          lore:
+           - "§c§llit!"
+
+    - price: 3
+      price-type: "emerald"
+      stack:
+        type: SLIME_BALL
+        display-name: "§a§lKnockback ball"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            KNOCKBACK: 10
+          lore:
+           - "§7A true classic"
+
+    - price: 8
+      price-type: "emerald"
+      stack:
+        type: FIRE_CHARGE
+        display-name: "§e§lBoop Ball"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            KNOCKBACK: 100
+          lore:
+           - "§7There's no escape"
+
+    - price: 20
+      price-type: "emerald"
+      stack:
+        type: ENDER_EYE
+        display-name: "§8§l§klLFSDFESF§r§f§l Super Knockback Ball §8§l§kLFSDFESF"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            KNOCKBACK: 10000
+

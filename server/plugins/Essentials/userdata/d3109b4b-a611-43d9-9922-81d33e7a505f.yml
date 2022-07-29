@@ -1,0 +1,22 @@
+lastAccountName: legomanmi
+timestamps:
+  login: 1632081288990
+  logout: 1632084336620
+  lastteleport: 1632084091296
+  kits:
+    tools: 1632080456125
+ipAddress: 68.56.221.30
+lastlocation:
+  world: bwlobby
+  x: 256.3813372934864
+  y: 127.0
+  z: 250.46664715790834
+  yaw: -90.45609
+  pitch: -11.980772
+logoutlocation:
+  world: monastery
+  x: -4.16803279509956
+  y: -66.19263605860128
+  z: 16.53156495746768
+  yaw: -19.716309
+  pitch: -90.0

@@ -1,0 +1,35 @@
+#test of different item types
+delay: 5
+text: §f§l§kAS §a§lTest Spawner §f§l§kAS
+items:
+  0:
+    type: NETHERITE_CHESTPLATE
+    amount: 1
+    data:
+      enchants:
+        - "protection"
+      levels:
+        - "4"
+  1:
+    type: GOLDEN_APPLE
+    amount: 16
+  2:
+    type: ENCHANTED_GOLDEN_APPLE
+    amount: 10
+  3:
+    type: NETHERITE_HELMET
+    amount: 1
+    data:
+      enchants:
+        - "protection"
+        - "unbreaking"
+      levels:
+        - "4"
+        - "3"
+      lore:
+        - §c§lSo Swag
+        - §7§lratio
+      name: §a§lIdiot Helmet
+  4:
+    type: POTION
+    amount: 5

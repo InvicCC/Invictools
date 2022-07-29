@@ -1,0 +1,23 @@
+lastAccountName: shooken
+timestamps:
+  login: 1654644944850
+  kits:
+    fw: 1636835232963
+    elytra: 1654645478782
+  lastteleport: 1654645428801
+  logout: 1654652985314
+ipAddress: 51.222.93.26
+lastlocation:
+  world: bwlobby
+  x: 229.63689109525524
+  y: 1.0
+  z: 288.12531162164794
+  yaw: -209.14502
+  pitch: -20.611021
+logoutlocation:
+  world: bwlobby
+  x: 248.31251724319372
+  y: 16060.775865011026
+  z: 248.88067419799592
+  yaw: -81.75031
+  pitch: 27.045338

@@ -1,0 +1,313 @@
+panels:
+  final:
+    perm: default
+    rows: 6
+    command: cosmetics
+    title: '&8&lFINAL KILLS'
+    sound-on-open: BLOCK_AMETHYST_BLOCK_STEP
+    empty: AIR
+    item:
+      '0':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '2':
+        material: DARK_OAK_DOOR
+        stack: 1
+        name: '&f&lLobby Effects'
+        lore:
+        - '&7Ambient Effects that play in the lobby'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel lobby
+        - right= invictools panel lobby
+      '3':
+        material: TOTEM_OF_UNDYING
+        stack: 1
+        name: '&f&lVictory Dances'
+        lore:
+        - '&7Effects that play when the game has been won' 
+        - '&7Click to view' 
+        commands:
+        - left= invictools panel victory
+        - right= invictools panel victory
+      '7':
+        material: ARROW
+        stack: 1
+        name: '&f&lProjectile Trails'
+        lore:
+        - '&7Effects that play when a projectile is thrown'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel proj
+        - right= invictools panel proj
+      '5':
+        material: WHITE_DYE
+        stack: 1
+        name: '&f&lKill Effects'
+        lore:
+        - '&7Effects that play when an enemy dies with a bed'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel kill
+        - right= invictools panel kill
+      '13':
+        material: RED_DYE
+        stack: 1
+        name: '&f&lFinal Kill Effects'
+        lore:
+        - '&7Effects that play when an enemy is eliminated'
+      '1':
+        material: GLASS
+        stack: 1
+        name: '&f&lBedfight Cages'
+        lore:
+        - '&7Cages appear in Bedfight pregame' 
+        - '&7Click to view' 
+        commands:
+        - left= invictools panel cage
+        - right= invictools panel cage
+        - invictools tracker
+      '4':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '8':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '9':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '10':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '11':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '12':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '6':
+        material: RED_BED
+        stack: 1
+        name: '&f&lBed Breaks'
+        lore:
+        - '&7Effects that play when an enemies bed is broken'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel bed
+        - right= invictools panel bed
+      '29':
+        material: GLASS
+        stack: 1
+        name: '&f&lLightning Strike'
+        lore:
+        - '&fA godly display of force'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 5 Bed Breaks'
+        commands:
+        - left= invictools finalkill Lightning
+        - right= invictools finalkilltest Lightning cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '28':
+        material: FIREWORK_ROCKET
+        stack: 1
+        name: '&6&lTeam Fireworks'
+        lore:
+        - '&fShows off your teamcolor'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        commands:
+        - left= invictools finalkill Firework
+        - right= invictools finalkilltest Firework cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '30':
+        material: APPLE
+        stack: 1
+        name: '&c&lTaste of Ranked'
+        lore:
+        - '&fStill obtainable!'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 20 Bed Breaks'
+        commands:
+        - left= invictools finalkill Ranked
+        - right= invictools finalkilltest Ranked cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '31':
+        material: FEATHER
+        stack: 1
+        name: '&9&lCrit Tornado'
+        lore:
+        - '&fClimate change sure clicks fast'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 20 Bed Breaks'
+        commands:
+        - left= invictools finalkill Tornado
+        - right= invictools finalkilltest Tornado cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '32':
+        material: PLAYER_HEAD
+        stack: 1
+        name: '&7&lHead Rocket'
+        lore:
+        - '&fThe walmart version.'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 50 Bed Breaks'
+        commands:
+        - left= invictools finalkill Head
+        - right= invictools finalkilltest Head cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '33':
+        material: SOUL_LANTERN
+        stack: 1
+        name: '&b&lSoul Snatch'
+        lore:
+        - '&fLet them be free' 
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 75 Bed Breaks'
+        commands:
+        - left= invictools finalkill Sonic
+        - right= invictools finalkilltest Sonic cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '34':
+        material: END_ROD
+        stack: 1
+        name: '&f&lPresylon'
+        lore:
+        - '&fTall and flexful' 
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 250 Bed Breaks OR any rank.' 
+        - '&c&lType /ranks to learn more' 
+        commands:
+        - left= invictools finalkill pres
+        - right= invictools finalkilltest pres cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '37':
+        material: GLASS_PANE
+        stack: 1
+        name: '&6&lShatter'
+        lore:
+        - '&fMay leave prestige colored cuts'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 250 Bed Breaks OR any rank.' 
+        - '&c&lType /ranks to learn more' 
+        commands:
+        - left= invictools finalkill Shatter
+        - right= invictools finalkilltest Shatter cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '14':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '15':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '16':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '17':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '18':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '19':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '20':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '21':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '22':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '23':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '24':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '25':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '26':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '27':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '35':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '36':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '44':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '45':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '46':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '47':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '48':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '49':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '50':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '51':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '52':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '53':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'

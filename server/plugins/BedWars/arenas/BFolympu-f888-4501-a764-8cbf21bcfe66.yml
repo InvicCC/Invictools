@@ -1,0 +1,81 @@
+name: OlympusBedfight
+pauseCountdown: 60
+gameTime: 3600
+world: bedfight
+pos1: 225.5754020274007;58.16668886147842;75.94188172698269;-158.26758;8.400199
+pos2: 275.60812425426525;84.72223845663613;-73.95166912000072;93.829834;31.7552
+specSpawn: 265.43709215852414;79.99698775803066;0.8192756758499452;90.24219;49.629032
+lobbySpawn: 250.27188639544883;104.30695531192664;0.7115238353290779;-86.85596;90.0
+lobbySpawnWorld: bedfight
+minPlayers: 2
+postGameWaiting: 15
+teams:
+  Yellow:
+    isNewColor: false
+    color: YELLOW
+    maxPlayers: 3
+    bed: 250.0;65.0;-54.0;0.0;0.0
+    spawn: 250.47075944228374;64.0;-36.32372131681106;0.33544922;-3.0777695
+  Pink:
+    isNewColor: false
+    color: PINK
+    maxPlayers: 3
+    bed: 250.0;65.0;54.0;0.0;0.0
+    spawn: 250.52262432042184;64.0;37.44204700331491;-179.95837;-2.3440692
+spawners:
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: 250.04334136206546;59.0;0.18827816802189842;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: gold
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: 250.04334136206546;59.0;0.18827816802189842;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+stores:
+- isBaby: 'false'
+  loc: 249.04168519145648;59.0;-3.7161953124642313;-102.61212;20.201427
+  parent: 'false'
+  shop: shop.yml
+  name: §4
+  skin: null
+  type: ARMOR_STAND
+constant:
+  compass-enabled: inherit
+  add-wool-to-inventory-on-join: inherit
+  in-lobby-colored-leather-by-team: inherit
+  allow-crafting: inherit
+  join-randomly-after-lobby-timeout: inherit
+  join-randomly-on-lobby-join: inherit
+  keep-inventory-on-death: inherit
+  prevent-killing-villagers: inherit
+  player-drops: inherit
+  friendlyfire: inherit
+  lobbybossbar: inherit
+  bossbar: inherit
+  lobbyscoreboard: inherit
+  scoreboard: inherit
+  prevent-spawning-mobs: inherit
+  spawner-holograms: inherit
+  spawner-disable-merge: inherit
+  game-start-items: inherit
+  player-respawn-items: inherit
+  spawner-holograms-countdown: inherit
+  damage-when-player-is-not-in-arena: inherit
+  remove-unused-target-blocks: inherit
+  allow-block-falling: inherit
+  holo-above-bed: inherit
+  allow-spectator-join: inherit
+  anchor-auto-fill: inherit
+  anchor-decreasing: inherit
+  cake-target-block-eating: inherit
+  target-block-explosions: inherit
+arenaTime: WORLD
+arenaWeather: default
+lobbyBossBarColor: default
+gameBossBarColor: default

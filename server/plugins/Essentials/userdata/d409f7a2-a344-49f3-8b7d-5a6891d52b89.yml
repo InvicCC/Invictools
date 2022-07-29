@@ -1,0 +1,20 @@
+lastAccountName: Flamify
+timestamps:
+  login: 1645466867048
+  logout: 1645467435508
+  lastteleport: 1645412025749
+ipAddress: 51.161.99.55
+logoutlocation:
+  world: OasisB
+  x: 110.45994106298672
+  y: 86.0
+  z: -32.59602589619817
+  yaw: -196.7771
+  pitch: 6.766587
+lastlocation:
+  world: bwlobby
+  x: 251.22264204403496
+  y: 128.7531999805212
+  z: 270.297379604999
+  yaw: -7.1837854
+  pitch: 12.769615

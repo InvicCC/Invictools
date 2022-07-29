@@ -1,0 +1,22 @@
+lastAccountName: carbonice1500
+timestamps:
+  login: 1636832850201
+  lastteleport: 1636832852605
+  kits:
+    fw: 1636832902165
+  logout: 1636833372375
+ipAddress: 65.50.138.239
+lastlocation:
+  world: bwlobby
+  x: 251.5
+  y: 256.7663679939575
+  z: 250.5
+  yaw: 0.0
+  pitch: 0.0
+logoutlocation:
+  world: bwlobby
+  x: 266.3344271033857
+  y: 128.0
+  z: 253.9397533926417
+  yaw: 204.59393
+  pitch: 44.86916

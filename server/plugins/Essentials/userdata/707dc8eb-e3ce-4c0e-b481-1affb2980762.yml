@@ -1,0 +1,22 @@
+lastAccountName: ZanetheBlade
+timestamps:
+  login: 1636832540125
+  lastteleport: 1636832600471
+  kits:
+    fw: 1636832605003
+  logout: 1636832626032
+ipAddress: 49.36.93.250
+lastlocation:
+  world: bwlobby
+  x: 236.5
+  y: 128.0
+  z: 250.5
+  yaw: 89.6344
+  pitch: -2.4627163
+logoutlocation:
+  world: bwlobby
+  x: 260.1871455548313
+  y: 128.0
+  z: 245.74670901532522
+  yaw: -181.12276
+  pitch: 7.422588

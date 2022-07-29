@@ -1,0 +1,21 @@
+name: gamemod
+permissions:
+- bw.cmd.join
+- bw.disable.joinall
+- displayname.GameMod
+- essentials.gamemode
+- essentials.invsee
+- essentials.kick
+- essentials.teleport
+- essentials.tphere
+- essentials.vanish
+- invic.firestick
+- invic.invictools
+- nospectp.allowteleport
+- tag.mod
+- weight.75
+parents:
+- default
+prefixes:
+- '&a[&fMod&a]&f ':
+    priority: 75

@@ -1,0 +1,23 @@
+lastAccountName: spookyispog
+timestamps:
+  login: 1647351447996
+  lastteleport: 1646919792045
+  logout: 1647351767455
+  kits:
+    fw: 1646919695947
+    dragon: 1641594774061
+ipAddress: 141.95.23.12
+lastlocation:
+  world: bwlobby
+  x: 221.4928010458104
+  y: 85.14441316887846
+  z: 250.34794719247944
+  yaw: 95.42154
+  pitch: 70.28952
+logoutlocation:
+  world: bwlobby
+  x: 245.85365469677325
+  y: 128.0
+  z: 260.9897488641016
+  yaw: -98.543274
+  pitch: 18.33226

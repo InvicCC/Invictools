@@ -1,0 +1,300 @@
+panels:
+  victory:
+    perm: default
+    rows: 6
+    command: cosmetics
+    title: '&8&lVICTORY DANCES'
+    sound-on-open: BLOCK_AMETHYST_BLOCK_STEP
+    empty: AIR
+    item:
+      '0':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '2':
+        material: DARK_OAK_DOOR
+        stack: 1
+        name: '&f&lLobby Effects'
+        lore:
+        - '&7Ambient Effects that play in the lobby'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel lobby
+        - right= invictools panel lobby
+      '13':
+        material: TOTEM_OF_UNDYING
+        stack: 1
+        name: '&f&lVictory Dances'
+        lore:
+        - '&7Effects that play when the game has been won' 
+      '7':
+        material: ARROW
+        stack: 1
+        name: '&f&lProjectile Trails'
+        lore:
+        - '&7Effects that play when a projectile is thrown'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel proj
+        - right= invictools panel proj
+      '5':
+        material: WHITE_DYE
+        stack: 1
+        name: '&f&lKill Effects'
+        lore:
+        - '&7Effects that play when an enemy dies with a bed'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel kill
+        - right= invictools panel kill
+      '6':
+        material: RED_DYE
+        stack: 1
+        name: '&f&lFinal Kill Effects'
+        lore:
+        - '&7Effects that play when an enemy is eliminated'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel final
+        - right= invictools panel final
+      '1':
+        material: GLASS
+        stack: 1
+        name: '&f&lBedfight Cages'
+        lore:
+        - '&7Cages appear in Bedfight pregame' 
+        - '&7Click to view' 
+        commands:
+        - left= invictools panel cage
+        - right= invictools panel cage
+        - invictools tracker
+      '4':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '8':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '9':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '10':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '11':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '12':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '3':
+        material: RED_BED
+        stack: 1
+        name: '&f&lBed Breaks'
+        lore:
+        - '&7Effects that play when an enemies bed is broken'
+        - '&7Click to view' 
+        commands:
+        - left= invictools panel bed
+        - right= invictools panel bed
+      '31':
+        material: ALLIUM
+        stack: 1
+        name: '&3&lAllay Rider'
+        lore:
+        - '&fIts so cute. and nonviolent.'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 25 Final Kills' 
+        commands:
+        - left= invictools VictoryDance Dragon
+        - right= invictools VictoryDancePreview Dragon
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - invictools tracker
+      '28':
+        material: FIREWORK_ROCKET
+        stack: 1
+        name: '&f&lDual Rockets'
+        lore:
+        - '&fA healthy mix'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        commands:
+        - left= invictools VictoryDance Firework
+        - right= invictools VictoryDancePreview Firework
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '29':
+        material: BOW
+        stack: 1
+        name: '&7&lRideable Bow'
+        lore:
+        - '&fRide into the sunset'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 3 Final Kills' 
+        commands:
+        - left= invictools VictoryDance Bow
+        - right= invictools VictoryDancePreview Bow
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '30':
+        material: BLAZE_ROD
+        stack: 1
+        name: '&e&lFire Stick'
+        lore:
+        - '&fEnter the Stratosphere'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 12 Final Kills' 
+        commands:
+        - left= invictools VictoryDance Firestick
+        - right= invictools VictoryDancePreview Firestick
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '32':
+        material: SNOWBALL
+        stack: 1
+        name: '&f&lSnowball Fight'
+        lore:
+        - '&fSo Childish'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 50 Final Kills' 
+        commands:
+        - left= invictools VictoryDance Snowball
+        - right= invictools VictoryDancePreview Snowball
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '33':
+        material: LIGHTNING_ROD
+        stack: 1
+        name: '&7&lOlympus Might'
+        lore:
+        - '&fSomeones not happy you won'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 75 Final Kills' 
+        commands:
+        - left= invictools VictoryDance Storm
+        - right= invictools VictoryDancePreview Storm
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '34':
+        material: BONE
+        stack: 1
+        name: '&f&lDare Devil'
+        lore:
+        - '&fBows only, I dont make the rules.'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 150 Final Kills OR any rank.' 
+        - '&c&lType /ranks to learn more'
+        commands:
+        - left= invictools VictoryDance Dare
+        - right= invictools VictoryDancePreview Dare
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '14':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '15':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '16':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '17':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '18':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '19':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '20':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '21':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '22':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '23':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '24':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '25':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '26':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '27':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '35':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '36':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '44':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '45':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '46':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '47':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '48':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '49':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '50':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '51':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '52':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '53':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'

@@ -1,0 +1,29 @@
+data:
+
+-   stack: "ELYTRA;1;§f§lSky Shop;§7for travelers of the skies."
+    column: center
+    row: 2
+    items:
+    - price: 4
+      price-type: "emerald"
+      stack:
+        type: FIREWORK_ROCKET
+        amount: 2
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "§bFirework"
+          lore:
+           - "§7Zoom Zoom"
+
+    - price: 1
+      price-type: "emerald"
+      stack:
+        type: COBBLESTONE
+        amount: 16
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "§c§lEmergency Blocks"
+          lore:
+           - "§7Incase you miscalculated on your voyage"

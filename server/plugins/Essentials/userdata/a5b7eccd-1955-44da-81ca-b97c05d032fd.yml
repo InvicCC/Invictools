@@ -1,0 +1,22 @@
+lastAccountName: witchess
+timestamps:
+  login: 1641938492688
+  lastteleport: 1641938433033
+  logout: 1641939207784
+  kits:
+    fw: 1641939121066
+ipAddress: 24.104.190.41
+lastlocation:
+  world: bwlobby
+  x: 246.62920518049953
+  y: 127.92159999847412
+  z: 247.34137125519646
+  yaw: 238.51447
+  pitch: 17.108435
+logoutlocation:
+  world: bwlobby
+  x: 300.49695721033873
+  y: -49.667904317456916
+  z: 180.52848858073438
+  yaw: 38.994995
+  pitch: 8.92791

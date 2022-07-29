@@ -1,0 +1,20 @@
+lastAccountName: mayberry15
+timestamps:
+  login: 1656361387878
+  lastteleport: 1656361431905
+  logout: 1656361113716
+ipAddress: 127.0.0.1
+lastlocation:
+  world: OasisB
+  x: -32.280709013432876
+  y: 86.5625
+  z: 105.91651025022337
+  yaw: -89.29098
+  pitch: 11.95535
+logoutlocation:
+  world: OasisB
+  x: -28.260669801461663
+  y: 86.0
+  z: 106.43473670028844
+  yaw: -90.89241
+  pitch: 8.685644

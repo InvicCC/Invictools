@@ -1,0 +1,11 @@
+name: booster
+permissions:
+- displayname.booster
+- invic.firestick
+- tag.booster
+- weight.49
+parents:
+- default
+prefixes:
+- '&f[&d&lBooster&f] ':
+    priority: 49

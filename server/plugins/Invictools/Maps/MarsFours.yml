@@ -1,0 +1,33 @@
+World: MarsFours
+GameType: Fours
+Conversion: MarsFour-0bf7-4ddd-a3be-7c96dddf6beb
+WorldBorder: 260;50;270;0
+Lobby:
+  name: default
+  effect: strike
+Spawner:
+  island:
+    x: 1.5
+    y: 130
+    z: -119.5
+  mid:
+    x: 0.5
+    y: 100
+    z: 0.5
+LuckySpawners:
+  0:
+    x: -1
+    y: 119
+    z: 38
+  1:
+    x: 2
+    y: 119
+    z: -37
+  2:
+    x: -20
+    y: 116
+    z: 17
+  3:
+    x: 22
+    y: 116
+    z: -17

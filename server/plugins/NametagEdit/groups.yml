@@ -1,0 +1,36 @@
+Groups:
+  Invic:
+    Permission: tag.invic
+    Prefix: '&b[&f&lInvic&b] '
+    Suffix: ''
+    SortPriority: 100
+  Creator:
+    Permission: tag.creator
+    Prefix: '&c[&fCREATOR&c] '
+    Suffix: ''
+    SortPriority: 80
+  Vip:
+    Permission: tag.vip
+    Prefix: '&f[&5&lVIP&f] &5'
+    Suffix: ''
+    SortPriority: 75
+  Mod:
+    Permission: tag.mod
+    Prefix: '&a[&fMod&a] '
+    Suffix: ''
+    SortPriority: 70
+  Sub:
+    Permission: tag.sub
+    Prefix: '&f[&6&lSub&f] &6'
+    Suffix: ''
+    SortPriority: 50
+  Booster:
+    Permission: tag.booster
+    Prefix: '&f[&dBoost&f] &d'
+    Suffix: ''
+    SortPriority: 49
+  player:
+    Permission: tag.player
+    Prefix: '&8[&7Player&8] '
+    Suffix: ''
+    SortPriority: 1

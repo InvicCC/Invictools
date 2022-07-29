@@ -1,0 +1,28 @@
+lastAccountName: Tower
+timestamps:
+  login: 1656361488512
+  logout: 1656278066926
+  lastteleport: 1656276659115
+  kits:
+    fw: 1653343937798
+    color: 1653867403376
+    elytra: 1644697518736
+    boots: 1644697707412
+    fireworks: 1644697822390
+    tools: 1627266395572
+ipAddress: 127.0.0.1
+lastlocation:
+  world: bwlobby
+  x: 243.52445823739808
+  y: 104.23425526327486
+  z: 223.48721690145615
+  yaw: -167.8139
+  pitch: 33.228874
+logoutlocation:
+  world: bwlobby
+  x: 250.9730604943982
+  y: 127.0
+  z: 249.88926319021738
+  yaw: -91.39496
+  pitch: 10.007261
+godmode: false

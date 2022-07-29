@@ -1,0 +1,11 @@
+World: ocean
+Conversion: Atlantis-3c9a-4ad8-99d8-302ae0b83814
+WorldBorder: 400;30;240;0
+Lobby:
+  name: ocean
+  effect: strike
+Spawner:
+  mid:
+    x: 0.5
+    y: 93
+    z: 0.5

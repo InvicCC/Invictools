@@ -1,0 +1,26 @@
+lastAccountName: Smartson
+timestamps:
+  login: 1648317709178
+  lastteleport: 1648317803078
+  logout: 1648317877238
+  kits:
+    fw: 1646601477165
+    elytra: 1648317747795
+    boots: 1648317764302
+    dragon: 1646601606352
+    fireworks: 1646604820916
+ipAddress: 51.222.93.29
+lastlocation:
+  world: bwlobby
+  x: 222.58795044791023
+  y: 110.68393018670787
+  z: 257.12264971826346
+  yaw: 79.48726
+  pitch: 48.679485
+logoutlocation:
+  world: bwlobby
+  x: 235.50416979694924
+  y: 128.0
+  z: 249.14485456074317
+  yaw: 77.32338
+  pitch: 21.484612

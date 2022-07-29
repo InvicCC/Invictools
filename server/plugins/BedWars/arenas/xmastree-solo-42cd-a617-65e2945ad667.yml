@@ -1,0 +1,432 @@
+name: Tree
+pauseCountdown: 120
+gameTime: 3600
+world: Tree
+pos1: 141.0275255151075;44.89732154308136;140.20858138026512;134.92014;0.65507966
+pos2: -142.03347789065737;137.3814432763508;-138.68951745282797;-45.5053;1.4156816
+specSpawn: 0.537295270037994;132.28438675151958;-19.617742417831877;0.8616717;90.0
+lobbySpawn: 1.0577249660598707;102.18311300338743;-59.98738651628236;-358.97156;3.8831396
+lobbySpawnWorld: Tree
+minPlayers: 2
+postGameWaiting: 15
+teams:
+  Blue:
+    isNewColor: true
+    color: BLUE
+    maxPlayers: 1
+    bed: 108.0;81.0;74.0;0.0;0.0
+    spawn: 122.46081196719483;85.0;74.51885002396214;121.58949;1.752349
+  Gray:
+    isNewColor: true
+    color: LIGHT_GRAY
+    maxPlayers: 1
+    bed: 74.0;81.0;108.0;0.0;0.0
+    spawn: 74.60305167066228;85.0;122.3733397701895;-210.80421;-1.8360639
+  Red:
+    isNewColor: true
+    color: RED
+    maxPlayers: 1
+    bed: -108.0;81.0;74.0;0.0;0.0
+    spawn: -121.4120585879458;85.0;74.55225185423879;-120.86585;0.96779174
+  White:
+    isNewColor: true
+    color: WHITE
+    maxPlayers: 1
+    bed: -74.0;81.0;108.0;0.0;0.0
+    spawn: -73.4490335516518;85.0;122.49249723177451;-148.56549;-0.8266661
+  Yellow:
+    isNewColor: true
+    color: YELLOW
+    maxPlayers: 1
+    bed: -108.0;81.0;-74.0;0.0;0.0
+    spawn: -121.38695530921107;85.0;-73.51505295566965;-58.177902;0.29537398
+  Pink:
+    isNewColor: true
+    color: PINK
+    maxPlayers: 1
+    bed: -74.0;81.0;-108.0;0.0;0.0
+    spawn: -73.52149881897549;85.0;-121.55253856763986;-31.2612;-0.26494962
+  Orange:
+    isNewColor: true
+    color: ORANGE
+    maxPlayers: 1
+    bed: 74.0;81.0;-108.0;0.0;0.0
+    spawn: 74.54661718592763;85.0;-121.50731091264234;30.64214;0.5200414
+  Green:
+    isNewColor: true
+    color: LIME
+    maxPlayers: 1
+    bed: 108.0;81.0;-74.0;0.0;0.0
+    spawn: 122.49327328043684;85.0;-73.5142282998409;58.566666;2.314518
+spawners:
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: 129.55493705665455;85.375;81.48044316120912;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: 129.55493705665455;85.375;81.48044316120912;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 16
+  hologramEnabled: true
+  location: 129.55493705665455;85.375;81.48044316120912;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: gold
+- maxSpawnedResources: 16
+  hologramEnabled: true
+  location: 81.52562838669473;85.375;129.45912490333922;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: gold
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: 81.53018902786928;85.375;129.4681310879012;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: 81.53018902786928;85.375;129.4681310879012;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: -80.49617023064998;85.375;129.45092103885804;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: -80.49617023064998;85.375;129.45092103885804;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 16
+  hologramEnabled: true
+  location: -80.49617023064998;85.375;129.45092103885804;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: gold
+- maxSpawnedResources: 16
+  hologramEnabled: true
+  location: -128.53086349327248;85.375;81.56515838599387;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: gold
+- maxSpawnedResources: 16
+  hologramEnabled: true
+  location: -128.53615872172742;85.375;81.55999155302783;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: -128.53615872172742;85.375;81.55999155302783;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: -128.4891517358758;85.375;-80.52326040223147;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: -128.4891517358758;85.375;-80.52326040223147;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 16
+  hologramEnabled: true
+  location: -128.4891517358758;85.375;-80.52326040223147;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: gold
+- maxSpawnedResources: 16
+  hologramEnabled: true
+  location: -80.62390908317504;85.375;-128.46339195646584;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: gold
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: -80.62390908317504;85.375;-128.46339195646584;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: -80.62390908317504;85.375;-128.46339195646584;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: 81.4080916881995;85.375;-128.49012500932668;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: 81.4080916881995;85.375;-128.49012500932668;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 16
+  hologramEnabled: true
+  location: 81.4080916881995;85.375;-128.49012500932668;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: gold
+- maxSpawnedResources: 16
+  hologramEnabled: true
+  location: 129.5109132448135;85.375;-80.42220885207014;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: gold
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: 129.50599547912856;85.375;-80.42745369976102;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: 24
+  hologramEnabled: true
+  location: 129.50599547912856;85.375;-80.42745369976102;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: 100.56544413313989;85.0;-99.56036579239739;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: diamond
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: -99.521078724545;85.0;-99.5203427164075;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: diamond
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: -99.52015427700013;85.0;100.47586206756262;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: diamond
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: 100.48901778557799;85.0;100.53531887467162;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: diamond
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: 29.51171720698954;60.0;29.52269384531362;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: emerald
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: 29.498218117918125;60.0;-28.47177447186533;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: emerald
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: -28.523911699003985;60.0;-28.452688969783164;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: emerald
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: -28.506671647851974;60.0;29.476875812545703;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: emerald
+stores:
+- isBaby: 'false'
+  loc: -67.53297609487636;85.0;121.49291866472136;-269.79153;0.39712262
+  parent: 'false'
+  shop: shop.yml
+  name: §e§lITEM SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: -120.5219981374594;85.0;68.45432796504414;-359.39798;0.28501707
+  parent: 'false'
+  shop: shop.yml
+  name: §e§lITEM SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: -67.3292050707106;85.0;-120.53046313554808;-269.9998;1.8555491
+  parent: 'false'
+  shop: shop.yml
+  name: §e§lITEM SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: -122.46774400698506;85.0;-67.41170064667394;-179.16426;1.5189713
+  parent: 'false'
+  shop: upgradeShop.yml
+  name: §b§lUPGRADE SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: -67.32785210029023;85.0;-122.46945323641208;-269.9998;1.8555491
+  parent: 'false'
+  shop: upgradeShop.yml
+  name: §b§lUPGRADE SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: 121.53037546939942;85.0;68.44232155160522;0.47628587;-0.8364351
+  parent: 'false'
+  shop: shop.yml
+  name: §e§lITEM SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: 68.46998628944813;85.0;-120.48188573773517;-89.99094;0.6218811
+  parent: 'false'
+  shop: shop.yml
+  name: §e§lITEM SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: -120.53208852349016;85.0;-67.39817146325531;-179.16426;1.5189713
+  parent: 'false'
+  shop: shop.yml
+  name: §e§lITEM SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: 68.46998628944813;85.0;-122.44037476473723;-89.99094;0.6218811
+  parent: 'false'
+  shop: upgradeShop.yml
+  name: §b§lUPGRADE SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: 123.54194323034513;85.0;-67.48940342034123;-180.04022;-0.7235313
+  parent: 'false'
+  shop: upgradeShop.yml
+  name: §b§lUPGRADE SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: 121.3839623784077;85.0;-67.48940342034123;-180.04022;-0.7235313
+  parent: 'false'
+  shop: shop.yml
+  name: §e§lITEM SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: 123.46812451342453;85.0;68.44908634209978;0.47628587;-0.8364351
+  parent: 'false'
+  shop: upgradeShop.yml
+  name: §b§lUPGRADE SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: 68.49811299665394;85.0;123.48370560922082;-88.45392;1.2943007
+  parent: 'false'
+  shop: upgradeShop.yml
+  name: §b§lUPGRADE SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: -122.48268391281908;85.0;68.44485734829802;-359.39798;0.28501707
+  parent: 'false'
+  shop: upgradeShop.yml
+  name: §b§lUPGRADE SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: 68.52111090096639;85.0;121.54545228593832;-88.45392;1.2943007
+  parent: 'false'
+  shop: shop.yml
+  name: §e§lITEM SHOP
+  skin: null
+  type: WANDERING_TRADER
+- isBaby: 'false'
+  loc: -67.53703499710163;85.0;123.43189050505862;-269.79153;0.39712262
+  parent: 'false'
+  shop: upgradeShop.yml
+  name: §b§lUPGRADE SHOP
+  skin: null
+  type: WANDERING_TRADER
+constant:
+  compass-enabled: inherit
+  add-wool-to-inventory-on-join: inherit
+  in-lobby-colored-leather-by-team: inherit
+  allow-crafting: inherit
+  join-randomly-after-lobby-timeout: inherit
+  join-randomly-on-lobby-join: inherit
+  keep-inventory-on-death: inherit
+  prevent-killing-villagers: inherit
+  player-drops: inherit
+  friendlyfire: inherit
+  lobbybossbar: inherit
+  bossbar: inherit
+  lobbyscoreboard: inherit
+  scoreboard: inherit
+  prevent-spawning-mobs: inherit
+  spawner-holograms: inherit
+  spawner-disable-merge: inherit
+  game-start-items: inherit
+  player-respawn-items: inherit
+  spawner-holograms-countdown: inherit
+  damage-when-player-is-not-in-arena: inherit
+  remove-unused-target-blocks: inherit
+  allow-block-falling: inherit
+  holo-above-bed: inherit
+  allow-spectator-join: inherit
+  anchor-auto-fill: inherit
+  anchor-decreasing: inherit
+  cake-target-block-eating: inherit
+  target-block-explosions: inherit
+arenaTime: NOON
+arenaWeather: CLEAR
+lobbyBossBarColor: default
+gameBossBarColor: default

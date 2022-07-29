@@ -1,0 +1,21 @@
+name: default
+permissions:
+- essentials.kits.*
+- essentials.msg.*
+- bukkit.command.tps
+- essentials.help
+- essentials.helpop
+- essentials.motd
+- essentials.msg
+- essentials.msgtoggle
+- essentials.rtoggle
+- essentials.rules
+- essentials.signs.gamemode.use
+- essentials.signs.use.kit
+- essentials.signs.use.warp
+- essentials.spawn
+- tag.player
+- weight.25
+prefixes:
+- '&8[&7Player&8]&7 ':
+    priority: 25

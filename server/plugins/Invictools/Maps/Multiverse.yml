@@ -1,0 +1,7 @@
+World: 100
+GameType: mega
+Conversion: multiver-3586-4513-b660-f918b13c9eb4DISABLED
+WorldBorder: 900;94;240;0
+Lobby:
+  name: mega
+  effect: strike

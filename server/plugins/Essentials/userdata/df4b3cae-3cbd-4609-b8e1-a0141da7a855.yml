@@ -1,0 +1,23 @@
+lastAccountName: NotLightnings
+timestamps:
+  login: 1636833689470
+  logout: 1636834201711
+  kits:
+    fw: 1636831700272
+    fireworks: 1636824840734
+  lastteleport: 1636834139168
+ipAddress: 73.22.96.78
+logoutlocation:
+  world: bwlobby
+  x: 216.24800788630955
+  y: 108.53918646823168
+  z: 231.0028149443709
+  yaw: 177.44487
+  pitch: 43.669388
+lastlocation:
+  world: bwlobby
+  x: 251.50735578371476
+  y: 127.0
+  z: 251.73264085123904
+  yaw: 27.744034
+  pitch: 16.219204

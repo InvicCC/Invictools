@@ -1,0 +1,28 @@
+lastAccountName: IFoundXan
+timestamps:
+  login: 1654995702669
+  lastteleport: 1654989284534
+  kits:
+    fw: 1654634872765
+    elytra: 1654646467015
+    boots: 1653628456075
+    arrows: 1654820696918
+    dragon: 1651533628537
+    fireworks: 1654980744036
+  logout: 1654995705532
+ipAddress: 51.161.38.233
+lastlocation:
+  world: MegaShire
+  x: 4.009771660788067
+  y: 61.0
+  z: 7.225891904839092
+  yaw: -61.395752
+  pitch: -53.899345
+logoutlocation:
+  world: bwlobby
+  x: 267.1219078234452
+  y: 128.0
+  z: 239.80684059449354
+  yaw: 31.75447
+  pitch: 28.278229
+godmode: false

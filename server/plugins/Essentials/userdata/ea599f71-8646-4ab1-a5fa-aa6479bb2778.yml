@@ -1,0 +1,22 @@
+lastAccountName: AngelaEV
+timestamps:
+  login: 1636832421332
+  kits:
+    fw: 1636833413962
+  lastteleport: 1636835134601
+  logout: 1636836501559
+ipAddress: 109.157.84.74
+lastlocation:
+  world: bwlobby
+  x: 260.34147605231465
+  y: 134.17675927506423
+  z: 226.06904056080566
+  yaw: 216.22119
+  pitch: 26.441217
+logoutlocation:
+  world: bwlobby
+  x: 254.62854276927135
+  y: 128.0
+  z: 245.39192553371836
+  yaw: 39.99756
+  pitch: 37.08377

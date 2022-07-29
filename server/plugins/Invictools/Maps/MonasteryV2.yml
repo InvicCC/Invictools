@@ -1,0 +1,28 @@
+World: Monastery
+Conversion: MonastV2-a3a5-437c-a401-d700d4e8c69c
+WorldBorder: 250;50;240;500
+Lobby:
+  name: default
+  effect: strike
+Spawner:
+  mid:
+    x: 495
+    y: 75
+    z: 500.5
+LuckySpawners:
+  0:
+    x: 496
+    y: 68.5
+    z: 536
+  1:
+    x: 523
+    y: 68.5
+    z: 499
+  2:
+    x: 468
+    y: 68.5
+    z: 500
+  3:
+    x: 495
+    y: 68.5
+    z: 464

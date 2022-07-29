@@ -1,0 +1,9 @@
+World: FusionScen
+GameType: Bedfight
+Conversion: testtest-eed2-4a64-a6ec-4cd0de6428d3
+Lobby:
+  name: default
+  effect: strike
+Bedfight:
+  loadout: default
+  layers: END_STONE;DARK_OAK_PLANKS;WOOL;

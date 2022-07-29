@@ -1,0 +1,21 @@
+Hunted:
+  effect:
+    0:
+      name: "it proximityelytrasingle 10 "
+    1:
+      name: "it repeateditem FIREWORK_ROCKET 1 30 normal "
+  items:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DIAMOND_LEGGINGS
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: EMERALD
+    amount: 4
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":"Emerald"}],"text":""}'
+Hunter:
+    

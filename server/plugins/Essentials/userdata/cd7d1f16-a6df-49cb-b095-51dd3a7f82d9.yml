@@ -1,0 +1,22 @@
+lastAccountName: FinlayPacks
+timestamps:
+  login: 1654124596467
+  logout: 1654124692464
+  lastteleport: 1654119249884
+  kits:
+    fw: 1636837011339
+ipAddress: 51.77.31.35
+lastlocation:
+  world: bwlobby
+  x: 137.22515870264482
+  y: 146.0
+  z: 206.0439096180383
+  yaw: 302.45837
+  pitch: 13.144688
+logoutlocation:
+  world: bwlobby
+  x: 250.25933568840384
+  y: 127.5
+  z: 245.22054945751228
+  yaw: -27.0708
+  pitch: 6.477348

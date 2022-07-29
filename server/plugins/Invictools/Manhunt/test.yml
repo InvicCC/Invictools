@@ -1,0 +1,108 @@
+Hunted:
+  effect:
+    0:
+      name: "it alwaysbridgesingle "
+    1:
+      name: "it closeTeammateEffectSingle FAST_DIGGING 10 "
+    2:
+      name: "it creative 180 10 "
+    3:
+      name: "bweffects single SPEED c 2 "
+    4:
+      name: "bweffects single JUMP p "
+    5:
+      name: "it randomeffectsingle 4 60 "
+    6:
+      name: "it sethealth one 40 "
+    7:
+      name: "it tntsingle 12 6 "
+    8:
+      name: "it repeateditem ENDER_PEARL 2 30 normal "
+    9:
+      name: "it repeateditem ENCHANTED_GOLDEN_APPLE 1 30 normal "
+    10:
+      name: "it repeateditem PAPER 3 30 random "
+    11:
+      name: "it repeateditem BOUNCE 1 20 specificItem "
+    12:
+      name: "it killeffects INCREASE_DAMAGE 1 100 "
+    13:
+      name: "it killitems GOLDEN_APPLE 1 normal "
+  items:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: BOW
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"One Punch Bow"}],"text":""}'
+      enchants:
+        ARROW_KNOCKBACK: 5
+      Damage: 355
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: ENDER_PEARL
+    amount: 4
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: ARROW
+    amount: 12
+  special:
+    0:
+      name: lb
+      type: op
+      amount: 3
+    1:
+      name: randomlb
+      amount: 2
+    2:
+      name: randomitem
+      amount: 3
+    3:
+      name: item
+      type: bounce
+      amount: 3
+    4:
+      name: item
+      type: wool
+      amount: 2
+Hunter:
+  effect:
+    0:
+      name: "it alwaysbridgesingle "
+    3:
+      name: "it closeTeammateEffectSingle FAST_DIGGING 2 "
+    1:
+      name: "it creative 180 10 "
+  items:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DIAMOND_PICKAXE
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: IRON_PICKAXE
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: ENDER_PEARL
+    amount: 12
+  special:
+    0:
+      name: lb
+      type: op
+      amount: 3
+    1:
+      name: randomlb
+      amount: 2
+    2:
+      name: randomitem
+      amount: 3
+    3:
+      name: item
+      type: bounce
+      amount: 1
+    4:
+      name: item
+      type: wool
+      amount: 2
+    
+    

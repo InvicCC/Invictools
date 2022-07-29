@@ -1,0 +1,20 @@
+lastAccountName: BanaenaeWrapper
+timestamps:
+  login: 1643596126191
+  lastteleport: 1643335295857
+  logout: 1643596666824
+ipAddress: 115.69.51.182
+lastlocation:
+  world: bwlobby
+  x: 280.11785592220133
+  y: 124.25220334025373
+  z: 256.6724467641371
+  yaw: 118.160805
+  pitch: 13.602107
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: 90.231445
+  pitch: -8.276491

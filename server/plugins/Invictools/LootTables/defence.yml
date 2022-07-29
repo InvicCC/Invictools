@@ -1,0 +1,26 @@
+rainfall:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: OBSIDIAN
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: OBSIDIAN
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: OBSIDIAN
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: BLACK_STAINED_GLASS
+    amount: 7
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: BLACK_STAINED_GLASS
+    amount: 4
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: BLACK_STAINED_GLASS
+    amount: 8
+    

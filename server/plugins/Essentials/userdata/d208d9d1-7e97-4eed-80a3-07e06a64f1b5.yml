@@ -1,0 +1,26 @@
+lastAccountName: KBDuck
+timestamps:
+  login: 1647711434450
+  lastteleport: 1647712413450
+  kits:
+    fw: 1647712431001
+    elytra: 1647712153344
+    boots: 1647712408940
+    dragon: 1647712314646
+    fireworks: 1647712054448
+  logout: 1647713575398
+ipAddress: 51.161.99.76
+lastlocation:
+  world: bwlobby
+  x: 118.14844720907867
+  y: 62.812361759694255
+  z: 142.81435435726303
+  yaw: 4.0509324
+  pitch: 10.257356
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: 148.1574
+  pitch: -8.276491

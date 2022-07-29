@@ -1,0 +1,302 @@
+panels:
+  bed:
+    perm: default
+    rows: 6
+    command: cosmetics
+    title: '&8&lBED BREAKS'
+    sound-on-open: BLOCK_AMETHYST_BLOCK_STEP
+    empty: AIR
+    item:
+      '0':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '2':
+        material: DARK_OAK_DOOR
+        stack: 1
+        name: '&f&lLobby Effects'
+        lore:
+        - '&7Ambient Effects that play in the lobby'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel lobby
+        - right= invictools panel lobby
+      '3':
+        material: TOTEM_OF_UNDYING
+        stack: 1
+        name: '&f&lVictory Dances'
+        lore:
+        - '&7Effects that play when the game has been won' 
+        - '&7Click to view' 
+        commands:
+        - left= invictools panel victory
+        - right= invictools panel victory
+      '7':
+        material: ARROW
+        stack: 1
+        name: '&f&lProjectile Trails'
+        lore:
+        - '&7Effects that play when a projectile is thrown'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel proj
+        - right= invictools panel proj
+      '5':
+        material: WHITE_DYE
+        stack: 1
+        name: '&f&lKill Effects'
+        lore:
+        - '&7Effects that play when an enemy dies with a bed'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel kill
+        - right= invictools panel kill
+      '6':
+        material: RED_DYE
+        stack: 1
+        name: '&f&lFinal Kill Effects'
+        lore:
+        - '&7Effects that play when an enemy is eliminated'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel final
+        - right= invictools panel final
+      '1':
+        material: GLASS
+        stack: 1
+        name: '&f&lBedfight Cages'
+        lore:
+        - '&7Cages appear in Bedfight pregame' 
+        - '&7Click to view' 
+        commands:
+        - left= invictools panel cage
+        - right= invictools panel cage
+        - invictools tracker
+      '4':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '8':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '9':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '10':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '11':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '12':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '13':
+        material: RED_BED
+        stack: 1
+        name: '&f&lBed Breaks'
+        lore:
+        - '&7Effects that play when an enemies bed is broken'
+      '32':
+        material: APPLE
+        stack: 1
+        name: '&c&lTaste of Ranked'
+        lore:
+        - '&fEvery iron divisions dream'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 5 wins' 
+        commands:
+        - left= invictools bedbreak Ranked
+        - right= invictools bedbreaktest Ranked cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '34':
+        material: PRISMARINE_SHARD
+        stack: 1
+        name: '&3&lGuardian Beam'
+        lore:
+        - '&fBeam me up.'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 50 wins' 
+        commands:
+        - left= invictools bedbreak Guardian
+        - right= invictools bedbreaktest Guardian cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '33':
+        material: ENDER_PEARL
+        stack: 1
+        name: '&5&lEnderman Robbery'
+        lore:
+        - '&fIts his bed, not yours.'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 15 wins' 
+        commands:
+        - left= invictools bedbreak Enderman
+        - right= invictools bedbreaktest Enderman cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '28':
+        material: FIREWORK_ROCKET
+        stack: 1
+        name: '&6&lPrestigous Rockets'
+        lore:
+        - '&fBarrage of prestige colored fireworks'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview' 
+        commands:
+        - left= invictools bedbreak Fireworks
+        - right= invictools bedbreaktest Fireworks cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '29':
+        material: GLASS
+        stack: 1
+        name: '&f&lLightning Strike'
+        lore:
+        - '&fA godly display of force'
+        - '&7Left Click to set'
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 1 win' 
+        commands:
+        - left= invictools bedbreak Lightning
+        - right= invictools bedbreaktest Lightning cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '30':
+        material: OAK_SIGN
+        stack: 1
+        name: '&c&l#rekt &f&lholo'
+        lore:
+        - '&fA classical flex'
+        - '&7Left Click to set'
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 2 wins' 
+        commands:
+        - left= invictools bedbreak Holo
+        - right= invictools bedbreaktest Holo cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '31':
+        material: FEATHER
+        stack: 1
+        name: '&9&lCrit Tornado'
+        lore:
+        - '&fClimate change sure clicks fast'
+        - '&7Left Click to set'
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 2 wins' 
+        commands:
+        - left= invictools bedbreak Tornado
+        - right= invictools bedbreaktest Tornado cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+      '14':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '15':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '16':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '17':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '18':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '19':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '20':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '21':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '22':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '23':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '24':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '25':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '26':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '27':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '35':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '36':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '44':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '45':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '46':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '47':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '48':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '49':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '50':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '51':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '52':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '53':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'

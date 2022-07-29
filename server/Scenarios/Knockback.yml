@@ -1,0 +1,74 @@
+data:
+
+-   stack: "ENDER_EYE;1;§e§lSecret Knockback Shop;§7Skill time!"
+    column: center
+    row: 2
+    items:
+    - price: 3
+      price-type: "gold"
+      stack:
+        type: stick
+        display-name: "§7Knockback Stick"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            KNOCKBACK: 1
+    - price: 16
+      price-type: "gold"
+      stack:
+        type: BLAZE_ROD
+        display-name: "§7Flaming Knockback Stick"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            KNOCKBACK: 3
+            FIRE_ASPECT: 1
+          lore:
+           - "§c§llit!"
+
+    - price: 4
+      price-type: "emerald"
+      stack:
+        type: SLIME_BALL
+        display-name: "§aThe Knockback Slimeball"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            KNOCKBACK: 10
+          lore:
+           - "§fEveryone's favorite"
+
+    - price: 8
+      price-type: "emerald"
+      stack:
+        type: FIRE_CHARGE
+        display-name: "§e§lThe Deleter"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            KNOCKBACK: 100
+          lore:
+           - "§fThere's no escape"
+
+    - price: 32
+      price-type: "emerald"
+      stack:
+        type: FIRE_CHARGE
+        display-name: "§k§l§0LFSDFESF§r§l§0Death§k§l§0LFSDFESF"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            KNOCKBACK: 1000
+          lore:
+           - "§fThe end."
+

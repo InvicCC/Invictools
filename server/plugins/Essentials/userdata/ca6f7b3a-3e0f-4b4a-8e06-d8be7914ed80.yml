@@ -1,0 +1,23 @@
+lastAccountName: Specularpotato
+timestamps:
+  login: 1654122601785
+  logout: 1654124918200
+  lastteleport: 1654121361898
+  kits:
+    fw: 1654122413016
+ipAddress: 51.161.99.73
+logoutlocation:
+  world: bwlobby
+  x: 252.92991851855857
+  y: 128.7531999805212
+  z: 238.9313088844101
+  yaw: -233.7522
+  pitch: 18.490812
+lastlocation:
+  world: bwlobby
+  x: 259.27672404162576
+  y: 128.0
+  z: 258.18926241919974
+  yaw: -144.28992
+  pitch: 19.89424
+godmode: false

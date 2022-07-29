@@ -1,0 +1,168 @@
+# --{ =-=-=-=-=-=-=-=-=-= ItemJoin's Custom Item Configurations, by RockinChaos =-=-=-=-=-=-=-=-=-= }--
+# See the tutorial page for a more in-depth explanation; https://github.com/RockinChaos/ItemJoin/wiki
+# Join the discord for easy plugin support; https://discord.gg/D5FnJ7C
+#
+# Modifying the Version will cause this file to break and regenerate.
+items-Version: 8
+items-Delay: 2
+items-Overwrite: false
+items-Spamming: false
+items-RestrictCount: false
+items:
+  drop-item:
+    id: IRON_SWORD
+    slot: ARBITRARY
+    name: '&cStolen Sword'
+    lore:
+    - '&7Pulled from the ashes of chaos.'
+    mobs-drop:
+    - ZOMBIE:0.001
+    - PIG:0.3
+    blocks-drop:
+    - DIAMOND_ORE:0.5
+    - GOLD_ORE:0.19
+    triggers: DISABLED
+    enabled-worlds: world, world_the_end
+  recipe-item:
+    id: BEDROCK
+    slot: ARBITRARY
+    name: '&6Essence'
+    lore:
+    - '&7Shhhh don''t tell anyone...'
+    recipe:
+    - XGX
+    - IDI
+    - XGX
+    ingredients:
+    - G:GOLD_INGOT
+    - I:IRON_INGOT
+    - D:DIAMOND
+    triggers: DISABLED
+  item_2:
+    id: DIAMOND
+    slot: 3
+    name: '&b&lLeaderboard &7(Right Click)'
+    interact:
+    - 'op: bw leaderboard'
+    commands-sound: BLOCK_NOTE_BLOCK_CHIME
+    itemflags: PLACEMENT, INVENTORY-MODIFY, DEATH-DROPS, SELF-DROPS, MOVE-NEXT
+    triggers: join, respawn, world-switch
+    enabled-worlds: bwlobby_nether
+  profile-item:
+    id: PLAYER_HEAD
+    slot: 4
+    durability: 3
+    name: '&e&lPlayer Info &7(Right Click)'
+    lore:
+    - '&7Click to view your statistics'
+    interact:
+    - 'op: bw stats %player%'
+    commands-sound: BLOCK_NOTE_BLOCK_PLING
+    itemflags: PLACEMENT, INVENTORY-MODIFY, DEATH-DROPS, SELF-DROPS, MOVE-NEXT
+    triggers: join, respawn, world-switch
+    skull-owner: '%player%'
+    enabled-worlds: bwlobby
+  item_11:
+    id: STONE_SWORD
+    slot: 1
+    name: '&7PvP Sword'
+    lore:
+    - '&7Usable in the pvp pit only'
+    itemflags: UNBREAKABLE, HIDE-ATTRIBUTES, HIDE-DURABILITY, INVENTORY-MODIFY, GLOWING,
+      ITEM-STORE, DEATH-DROPS, SELF-DROPS, MOVE-NEXT, OVERWRITE
+    triggers: REGION-ACCESS
+    enabled-regions: pvp
+  item_1:
+    id: LIGHT_WEIGHTED_PRESSURE_PLATE
+    slot: 1
+    name: '&e&lParkour Teleporter &7(Right Click)'
+    interact-air-right:
+    - 'console: heal %player%'
+    - 'op: warp parkour'
+    itemflags: PLACEMENT, INVENTORY-MODIFY, DEATH-DROPS, SELF-DROPS, OVERWRITE, AUTO-REMOVE
+    triggers: JOIN, RESPAWN, WORLD-SWITCH, REGION-EGRESS
+    enabled-regions: pvp
+    enabled-worlds: bwlobby
+  item_13:
+    id: BLAZE_ROD
+    slot: 7
+    name: '&e&lFire Stick &7(Requires Rank)'
+    lore:
+    - '&7Right click to boing.'
+    interact:
+    - 'player: it firestick'
+    itemflags: PLACEMENT, GLOWING, ITEM-STORE, SELF-DROPS, ITEM-MODIFIABLE, ITEM-REPAIRABLE,
+      ITEM-CRAFTABLE, MOVE-NEXT
+    triggers: JOIN, RESPAWN, WORLD-SWITCH, REGION-EGRESS
+    enabled-regions: pvp
+    enabled-worlds: bwlobby
+  item_3:
+    id: NETHER_STAR
+    slot: 5
+    name: '&c&lFireworks! &7(Right Click)'
+    lore:
+    - '&7Click to get Fireworks'
+    interact:
+    - 'op: kit fw'
+    commands-sound: ENTITY_FIREWORK_ROCKET_LAUNCH
+    itemflags: PLACEMENT, INVENTORY-MODIFY, SELF-DROPS, MOVE-NEXT
+    triggers: join, respawn, world-switch
+    enabled-worlds: bwlobby_the_end
+  item_16:
+    id: COMPASS
+    name: '&f&lPlay Bedwars &7(Right Click)'
+    lore:
+    - '&7Joins the Active Bedwars Game'
+    - '&7Allows you to spectate as well'
+    slot: 0
+    interact:
+    - 'player: it gamejoiner'
+    triggers: JOIN, RESPAWN, WORLD-SWITCH
+    enabled-worlds: bwlobby
+  item_17:
+    id: BLACK_STAINED_GLASS_PANE
+    name: '&7&lGame Loader'
+    lore:
+    - '&7(Requires Game Mod)'
+    slot: 9
+    enabled-worlds: bwlobby
+    itemflags: PLACEMENT, INVENTORY-MODIFY, SELF-DROPS, MOVE-NEXT
+    triggers: JOIN, RESPAWN, WORLD-SWITCH
+    inventory-left:
+    - 'player: it panel games'
+  item_14:
+    id: BOW
+    slot: 32
+    name: '&6&lRideable Fireball Bow &7(Requires Rank)'
+    lore:
+    - '&7Does what it says, somehow.'
+    - '&7(Requires Arrows)'
+    itemflags: PLACEMENT, GLOWING, ITEM-STORE, SELF-DROPS, ITEM-MODIFIABLE, ITEM-REPAIRABLE,
+      ITEM-CRAFTABLE, MOVE-NEXT
+    triggers: JOIN, RESPAWN, WORLD-SWITCH, REGION-EGRESS
+    enabled-regions: pvp
+    enabled-worlds: bwlobby
+  item_15:
+    id: BONE
+    slot: 30
+    name: '&f&lDare Devil &7(Requires Rank)'
+    lore:
+    - '&7Right click to dash around.'
+    interact:
+    - 'player: it lobbydare'
+    itemflags: PLACEMENT, GLOWING, ITEM-STORE, SELF-DROPS, ITEM-MODIFIABLE, ITEM-REPAIRABLE,
+      ITEM-CRAFTABLE, MOVE-NEXT
+    triggers: JOIN, RESPAWN, WORLD-SWITCH, REGION-EGRESS
+    enabled-regions: pvp
+    enabled-worlds: bwlobby
+  item_9:
+    id: EMERALD
+    slot: 8
+    name: '&a&lCosmetics &7(Right Click)'
+    lore:
+    - '&7Click to change your active cosmetics'
+    interact:
+    - 'player: it panel pass'
+    itemflags: PLACEMENT, INVENTORY-MODIFY, SELF-DROPS, MOVE-NEXT
+    triggers: JOIN, RESPAWN, WORLD-SWITCH
+    enabled-worlds: bwlobby

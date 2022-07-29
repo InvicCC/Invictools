@@ -1,0 +1,29 @@
+data:
+
+-   stack: "ENDER_EYE;1;§e§lLootBox Shop;§7Providing a sense of pride and acomplishment"
+    column: center
+    row: 2
+    items:
+    - price: 3
+      price-type: "gold"
+      stack:
+        type: chest
+        display-name: "§e§lLoot Box"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          lore:
+           - "§7Contains loot!"
+
+    - price: 6
+      price-type: "emerald"
+      stack:
+        type: chest
+        display-name: "§e§lLoot Box"
+        amount: 10
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          lore:
+           - "§7Contains loot!"

@@ -1,0 +1,15 @@
+name: sub
+permissions:
+- worldedit.*:
+    value: true
+    context:
+      world: map1
+- displayname.TwitchSub
+- invic.firestick
+- tag.sub
+- weight.50
+parents:
+- default
+prefixes:
+- '&f[&6&lSubscriber&f]&f ':
+    priority: 50

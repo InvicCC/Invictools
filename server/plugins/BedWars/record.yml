@@ -1,0 +1,85 @@
+record:
+  MarsFours:
+    time: 9
+    team: §aLime
+    winners:
+    - Tower
+  Atlantis:
+    time: 84
+    team: §eYellow
+    winners:
+    - Invictable
+  Snowstorm:
+    time: 6
+    team: §6Orange
+    winners:
+    - IFoundXan
+  castle:
+    time: 519
+    team: §cRed
+    winners:
+    - Phalipsio
+  MonasteryV2:
+    time: 8
+    team: §9Blue
+    winners:
+    - Invictable
+  Oasis:
+    time: 5
+    team: §8Gray
+    winners:
+    - mayberry15
+  OasisScenario:
+    time: 842
+    team: §1Blue
+    winners:
+    - Zeltraks
+  Multiverse:
+    time: 668
+    team: §6Orange
+    winners:
+    - Jonnyzistic
+    - Blo00m_fan
+    - Zeltraks
+    - 2athevoid
+  Fusion:
+    time: 528
+    team: §cRed
+    winners:
+    - 2alovespizza
+  Monastery:
+    time: 14
+    team: §9Blue
+    winners:
+    - Invictable
+  Mars:
+    time: 5
+    team: §1Blue
+    winners:
+    - Invictable
+  Paradise:
+    time: 74
+    team: §cRed
+    winners:
+    - Invictable
+  Skylantis:
+    time: 106
+    team: §cRed
+    winners:
+    - IFoundXan
+    - _DarkWarrior_
+  Olympus:
+    time: 9
+    team: §cRed
+    winners:
+    - Invictable
+  stream:
+    time: 1358
+    team: §cRed
+    winners:
+    - Tower
+  SnowThree:
+    time: 205
+    team: §cRed
+    winners:
+    - Invictable

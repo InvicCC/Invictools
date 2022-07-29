@@ -1,0 +1,22 @@
+lastAccountName: Fozipe
+timestamps:
+  login: 1637429196479
+  lastteleport: 1637430538300
+  kits:
+    fireworks: 1637430155792
+  logout: 1637430545814
+ipAddress: 46.98.142.243
+lastlocation:
+  world: bwlobby
+  x: 216.80611056993905
+  y: 82.79750082806241
+  z: 231.30000001192093
+  yaw: 191.28595
+  pitch: 48.87526
+logoutlocation:
+  world: bwlobby
+  x: 216.35612149095653
+  y: 76.61873877698066
+  z: 236.42539586139506
+  yaw: 211.97968
+  pitch: 68.57972

@@ -1,0 +1,524 @@
+panels:
+  cosmetics:
+    perm: default
+    rows: 6
+    command: cosmetics
+    title: '&8&lCOSMETICS'
+    sound-on-open: BLOCK_AMETHYST_BLOCK_STEP
+    empty: AIR
+    item:
+      '0':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '45':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '1':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '46':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '10':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '19':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '28':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '37':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lCategories'
+      '2':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '3':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '4':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '5':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '6':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '8':
+        material: ORANGE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&6&lRank Effects /ranks'
+      '7':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '47':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '48':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '49':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '50':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '51':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '52':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lEffects'
+      '53':
+        material: ORANGE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&6&lRank Effects /ranks'
+      '9':
+        material: RED_BED
+        stack: 1
+        name: '&f&lBed Breaks'
+        lore:
+        - '&7Effects that play when an enemies bed is broken' 
+      '36':
+        material: TOTEM_OF_UNDYING
+        stack: 1
+        name: '&f&lVictory Dances'
+        lore:
+        - '&7Effects that play when the game has been won' 
+      '41':
+        material: DRAGON_EGG
+        stack: 1
+        name: '&5&lDragon Rider'
+        lore:
+        - '&fClassic.'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 25 Final Kills' 
+        commands:
+        - left= invictools VictoryDance Dragon
+        - right= invictools VictoryDancePreview Dragon
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - invictools tracker
+      '38':
+        material: FIREWORK_ROCKET
+        stack: 1
+        name: '&f&lDual Rockets'
+        lore:
+        - '&fA healthy mix'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        commands:
+        - left= invictools VictoryDance Firework
+        - right= invictools VictoryDancePreview Firework
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - invictools tracker
+      '39':
+        material: BOW
+        stack: 1
+        name: '&7&lRideable Bow'
+        lore:
+        - '&fRide into the sunset'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 3 Final Kills' 
+        commands:
+        - left= invictools VictoryDance Bow
+        - right= invictools VictoryDancePreview Bow
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - invictools tracker
+      '40':
+        material: BLAZE_ROD
+        stack: 1
+        name: '&e&lFire Stick'
+        lore:
+        - '&fEnter the Stratosphere'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 12 Final Kills' 
+        commands:
+        - left= invictools VictoryDance Firestick
+        - right= invictools VictoryDancePreview Firestick
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - invictools tracker
+      '42':
+        material: SNOWBALL
+        stack: 1
+        name: '&f&lSnowball Fight'
+        lore:
+        - '&fSo Childish'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 50 Final Kills' 
+        commands:
+        - left= invictools VictoryDance Snowball
+        - right= invictools VictoryDancePreview Snowball
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - invictools tracker
+      '43':
+        material: LIGHTNING_ROD
+        stack: 1
+        name: '&7&lOlympus Might'
+        lore:
+        - '&fSomeones not happy you won'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 75 Final Kills' 
+        commands:
+        - left= invictools VictoryDance Storm
+        - right= invictools VictoryDancePreview Storm
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - invictools tracker
+      '44':
+        material: BONE
+        stack: 1
+        name: '&f&lDare Devil'
+        lore:
+        - '&fBows only, I dont make the rules.'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 150 Final Kills OR any rank.' 
+        - '&c&lType /ranks to learn more'
+        commands:
+        - left= invictools VictoryDance Dare
+        - right= invictools VictoryDancePreview Dare
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - invictools tracker
+      '27':
+        material: RED_DYE
+        stack: 1
+        name: '&f&lFinal Kill Effects'
+        lore:
+        - '&7Effects that play when an enemy is eliminated'
+        commands:
+        - left= invictools finalkill Ranked
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - invictools tracker
+      '30':
+        material: PAPER
+        stack: 1
+        name: '&f&lLightning Strike'
+        lore:
+        - '&fA godly display of force'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 5 Bed Breaks'
+        commands:
+        - left= invictools finalkill Lightning
+        - right= invictools finalkilltest Lightning cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '29':
+        material: FIRE_CHARGE
+        stack: 1
+        name: '&6&lTeam Fireworks'
+        lore:
+        - '&fShows off your teamcolor'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        commands:
+        - left= invictools finalkill Firework
+        - right= invictools finalkilltest Firework cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '31':
+        material: FEATHER
+        stack: 1
+        name: '&9&lCrit Tornado'
+        lore:
+        - '&fClimate change sure clicks fast'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 20 Bed Breaks'
+        commands:
+        - left= invictools finalkill Tornado
+        - right= invictools finalkilltest Tornado cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '32':
+        material: PLAYER_HEAD
+        stack: 1
+        name: '&7&lHead Rocket'
+        lore:
+        - '&fThe walmart version.'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 50 Bed Breaks'
+        commands:
+        - left= invictools finalkill Head
+        - right= invictools finalkilltest Head cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '33':
+        material: SOUL_LANTERN
+        stack: 1
+        name: '&b&lSoul Snatch'
+        lore:
+        - '&fLet them be free' 
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 75 Bed Breaks'
+        commands:
+        - left= invictools finalkill Sonic
+        - right= invictools finalkilltest Sonic cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '34':
+        material: END_ROD
+        stack: 1
+        name: '&f&lPresylon'
+        lore:
+        - '&fTall and flexful' 
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 250 Bed Breaks OR any rank.' 
+        - '&c&lType /ranks to learn more' 
+        commands:
+        - left= invictools finalkill pres
+        - right= invictools finalkilltest pres cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '35':
+        material: GLASS_PANE
+        stack: 1
+        name: '&6&lShatter'
+        lore:
+        - '&fMay leave prestige colored cuts'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview'
+        - '&c&lUnlocked at 250 Bed Breaks OR any rank.' 
+        - '&c&lType /ranks to learn more' 
+        commands:
+        - left= invictools finalkill Shatter
+        - right= invictools finalkilltest Shatter cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '18':
+        material: ARROW
+        stack: 1
+        name: '&f&lProjectile Trails'
+        lore:
+        - '&7Effects that play when a projectile is thrown' 
+      '20':
+        material: GUNPOWDER
+        stack: 1
+        name: '&7&lCrits'
+        lore:
+        - '&fbasic but quirky'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview' 
+        commands:
+        - left= invictools projtrail Crit
+        - right= invictools projpreview Crit
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '21':
+        material: REDSTONE
+        stack: 1
+        name: '&c&lHearts'
+        lore:
+        - '&fCompletely Original'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 25 kills' 
+        commands:
+        - left= invictools projtrail Hearts
+        - right= invictools projpreview Hearts
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '22':
+        material: LAVA_BUCKET
+        stack: 1
+        name: '&6&lLava'
+        lore:
+        - '&fDrippy.'
+        - '&7Left Click to set'
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 100 kills' 
+        commands:
+        - left= invictools projtrail Lava
+        - right= invictools projpreview Lava
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '23':
+        material: NETHER_STAR
+        stack: 1
+        name: '&f&lPrestige Core'
+        lore:
+        - '&fYour current bedwars prestige in beam form'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 100 kills' 
+        commands:
+        - left= invictools projtrail Pres
+        - right= invictools projpreview Pres
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '24':
+        material: NOTE_BLOCK
+        stack: 1
+        name: '&9&lNotes'
+        lore:
+        - '&fAnother original design'
+        - '&7Left Click to set'
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 250 kills' 
+        commands:
+        - left= invictools projtrail Notes
+        - right= invictools projpreview Notes
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '25':
+        material: COAL
+        stack: 1
+        name: '&8&lSmoke'
+        lore:
+        - '&fDont touch it'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 500 kills' 
+        commands:
+        - left= invictools projtrail Smoke
+        - right= invictools projpreview Smoke
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '26':
+        material: ECHO_SHARD
+        stack: 1
+        name: '&3&lSculk Beam'
+        lore:
+        - '&fWill not give away position'
+        - '&7Left Click to set'
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 1000 kills OR any rank.' 
+        - '&c&lType /ranks to learn more' 
+        commands:
+        - left= invictools projtrail Sculk
+        - right= invictools projpreview Sculk
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '14':
+        material: APPLE
+        stack: 1
+        name: '&c&lTaste of Ranked'
+        lore:
+        - '&fEvery iron divisions dream'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 5 wins' 
+        commands:
+        - left= invictools bedbreak Ranked
+        - right= invictools bedbreaktest Ranked cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '16':
+        material: PRISMARINE_SHARD
+        stack: 1
+        name: '&3&lGuardian Beam'
+        lore:
+        - '&fBeam me up.'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 50 wins' 
+        commands:
+        - left= invictools bedbreak Guardian
+        - right= invictools bedbreaktest Guardian cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '15':
+        material: ENDER_PEARL
+        stack: 1
+        name: '&5&lEnderman Robbery'
+        lore:
+        - '&fIts his bed, not yours.'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 15 wins' 
+        commands:
+        - left= invictools bedbreak Enderman
+        - right= invictools bedbreaktest Enderman cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '11':
+        material: FIREWORK_ROCKET
+        stack: 1
+        name: '&6&lPrestigous Rockets'
+        lore:
+        - '&fBarrage of prestige colored fireworks'
+        - '&7Left Click to set' 
+        - '&7Right Click to preview' 
+        commands:
+        - left= invictools bedbreak Fireworks
+        - right= invictools bedbreaktest Fireworks cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '12':
+        material: GLASS
+        stack: 1
+        name: '&f&lLightning Strike'
+        lore:
+        - '&fA godly display of force'
+        - '&7Left Click to set'
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 1 win' 
+        commands:
+        - left= invictools bedbreak Lightning
+        - right= invictools bedbreaktest Lightning cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+      '13':
+        material: OAK_SIGN
+        stack: 1
+        name: '&c&l#rekt &f&lholo'
+        lore:
+        - '&fA classical flex'
+        - '&7Left Click to set'
+        - '&7Right Click to preview' 
+        - '&c&lUnlocked at 2 wins' 
+        commands:
+        - left= invictools bedbreak Holo
+        - right= invictools bedbreaktest Holo cp
+        - sound= BLOCK_RESPAWN_ANCHOR_CHARGE
+        - cpc
+        - invictools tracker
+

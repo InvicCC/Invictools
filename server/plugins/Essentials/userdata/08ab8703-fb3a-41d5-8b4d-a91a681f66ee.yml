@@ -1,0 +1,20 @@
+lastAccountName: shwabb
+timestamps:
+  login: 1654112983951
+  logout: 1654121685773
+  lastteleport: 1654113288715
+ipAddress: 51.161.99.8
+lastlocation:
+  world: bwlobby
+  x: 241.57212173421303
+  y: 128.0
+  z: 248.55152054909277
+  yaw: -167.37572
+  pitch: 3.688627
+logoutlocation:
+  world: bwlobby
+  x: 254.21703653667802
+  y: 128.0
+  z: 260.4535960332216
+  yaw: -339.60553
+  pitch: 2.8131251

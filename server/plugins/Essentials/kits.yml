@@ -1,0 +1,52 @@
+# EssentialsX kit configuration.
+# If you don't have any kits defined in this file, the plugin will try to copy them from the config.yml
+
+# Note: All items MUST be followed by a quantity!
+# All kit names should be lower case, and will be treated as lower in permissions/costs.
+# Syntax: - name[:durability] amount [enchantment:level]... [itemmeta:value]...
+# For Item Meta information visit http://wiki.ess3.net/wiki/Item_Meta
+# To make the kit execute a command, add /<command> to the items list. Use {USERNAME} to specify the player receiving the kit.
+# {PLAYER} will show the player's displayname instead of username.
+# 'delay' refers to the cooldown between how often you can use each kit, measured in seconds.
+# Set delay to -1 for a one time kit.
+# For more information, visit http://wiki.ess3.net/wiki/Kits
+kits:
+  fw:
+    delay: 450
+    items:
+      - fireworkrocket 2 name:§a§lAngry_Creeper color:red fade:green type:creeper power:1
+      - fireworkrocket 3 name:§c§lInvictable color:blue,white fade:blue type:star effect:trail,twinkle power:1
+      - fireworkrocket 4 name:§6§lSolar_Wind color:yellow,orange fade:red shape:large effect:twinkle color:yellow,orange fade:red shape:ball effect:trail color:red,purple fade:pink shape:star effect:trail power:1
+  color:
+    delay: 3
+    items:
+      - writtenbook 1 title:&4Book_&9o_&6Colors author:KHobbits lore:Ingame_color_codes book:Colors
+  elytra:
+    delay: 2500
+    items:
+      - elytra
+  boots:
+    delay: 25000
+    items:
+      - netherite_boots 1 blast_protection:10 feather_falling:5
+  arrows:
+    delay: 600
+    items:
+      - arrow 32
+  dragon:
+    delay: 2500
+    items:
+      - dragon_head
+  fireworks:
+    delay: 600
+    items:
+      - fireworkrocket 16
+  fight:
+    delay: 5
+    items:
+      - iron_helmet
+      - iron_boots
+      - iron_chestplate
+      - iron_leggings
+      - diamond_sword
+      - golden_apple 6

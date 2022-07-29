@@ -1,0 +1,102 @@
+name: test
+pauseCountdown: 60
+gameTime: 3600
+world: FusionScen
+pos1: 55.336812851261264;51.153656019310276;-23.853836733894568;69.811035;29.446789
+pos2: 8.338230228441711;13.580177788413547;49.58887928938949;177.9141;-1.6487881
+specSpawn: 30.736826647584287;45.23404749870748;15.645021230931352;-169.13837;38.054943
+lobbySpawn: 33.11100759692519;65.32115759211173;29.29901584988515;-171.54063;66.214516
+lobbySpawnWorld: FusionScen
+minPlayers: 2
+postGameWaiting: 15
+teams:
+  Red:
+    isNewColor: false
+    color: RED
+    maxPlayers: 3
+    bed: 38.0;37.0;0.0;0.0;0.0
+    spawn: 35.87213663054567;37.0;10.806052062420601;165.83754;9.895416
+  White:
+    isNewColor: false
+    color: WHITE
+    maxPlayers: 3
+    bed: 26.0;37.0;0.0;0.0;0.0
+    spawn: 27.6250763073441;37.0;12.729771230586545;-161.13199;9.094673
+spawners:
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: 32.396154674455595;37.0;15.857292528756274;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: diamond
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: 28.17410048629478;37.0;16.525747687763914;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: emerald
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: 19.957194942857363;37.0;16.059420301813443;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: gold
+- maxSpawnedResources: -1
+  hologramEnabled: true
+  location: 19.957194942857363;37.0;16.059420301813443;0.0;0.0
+  customName: null
+  startLevel: 1.0
+  team: null
+  type: iron
+stores:
+- isBaby: 'false'
+  loc: 33.104971844092645;37.0;18.92502405343503;-178.87335;7.76017
+  parent: 'false'
+  shop: upgradeShop.yml
+  name: §4Barter
+  skin: null
+  type: VILLAGER
+- isBaby: 'false'
+  loc: 38.45599338082768;37.0;16.696428161565354;147.15979;9.76203
+  parent: 'false'
+  shop: shop.yml
+  name: §a§lVillager_shop
+  skin: null
+  type: VILLAGER
+constant:
+  compass-enabled: inherit
+  add-wool-to-inventory-on-join: inherit
+  in-lobby-colored-leather-by-team: inherit
+  allow-crafting: inherit
+  join-randomly-after-lobby-timeout: inherit
+  join-randomly-on-lobby-join: inherit
+  keep-inventory-on-death: inherit
+  prevent-killing-villagers: inherit
+  player-drops: inherit
+  friendlyfire: inherit
+  lobbybossbar: inherit
+  bossbar: inherit
+  lobbyscoreboard: inherit
+  scoreboard: inherit
+  prevent-spawning-mobs: inherit
+  spawner-holograms: inherit
+  spawner-disable-merge: inherit
+  game-start-items: inherit
+  player-respawn-items: inherit
+  spawner-holograms-countdown: inherit
+  damage-when-player-is-not-in-arena: inherit
+  remove-unused-target-blocks: inherit
+  allow-block-falling: inherit
+  holo-above-bed: inherit
+  allow-spectator-join: inherit
+  anchor-auto-fill: inherit
+  anchor-decreasing: inherit
+  cake-target-block-eating: inherit
+  target-block-explosions: inherit
+arenaTime: WORLD
+arenaWeather: default
+lobbyBossBarColor: default
+gameBossBarColor: default

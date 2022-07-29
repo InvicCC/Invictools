@@ -1,0 +1,42 @@
+data:
+
+-   stack: "ENDER_EYE;1;§e§lSecret Knockback Shop;§7Skill time!"
+    column: center
+    row: 2
+    items:
+    - price: 5
+      price-type: "emerald"
+      stack:
+        type: Elytra
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          lore:
+           - "§7Very balanced!"
+
+    - price: 8
+      price-type: "gold"
+      stack:
+        type: FIREWORK_ROCKET
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          display-name: "§bFirework"
+          lore:
+           - "§7Zoom Zoom"
+
+    - price: 4
+      price-type: "emerald"
+      stack:
+        type: TRIDENT
+        amount: 1
+        meta:
+          ==: ItemMeta
+          enchants:
+            RIPTIDE: 1
+          meta-type: UNSPECIFIC
+          display-name: "§b§lTrident"
+          lore:
+           - "§7Try spinning, it's a good trick!"

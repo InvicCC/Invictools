@@ -1,0 +1,22 @@
+lastAccountName: ManWithRaft
+timestamps:
+  login: 1643333068847
+  logout: 1643334583602
+  kits:
+    fw: 1643333150300
+  lastteleport: 1643334086726
+ipAddress: 84.84.113.252
+logoutlocation:
+  world: bwlobby
+  x: 255.15189241220878
+  y: 129.0
+  z: 255.5734584095829
+  yaw: 283.01926
+  pitch: 29.567629
+lastlocation:
+  world: bwlobby
+  x: 261.5
+  y: 129.0
+  z: 250.5
+  yaw: 270.0
+  pitch: 0.0

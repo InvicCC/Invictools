@@ -1,0 +1,24 @@
+lastAccountName: pvpUS
+timestamps:
+  login: 1654919390637
+  logout: 1654919396633
+  lastteleport: 1654662208802
+  kits:
+    fw: 1654044986049
+    dragon: 1654316561299
+ipAddress: 51.161.38.226
+lastlocation:
+  world: FusionScen
+  x: 722.8027229549084
+  y: 115.36422312976023
+  z: 608.7675080418567
+  yaw: 256.61264
+  pitch: 33.54502
+logoutlocation:
+  world: bwlobby
+  x: 247.42108506855936
+  y: 128.0
+  z: 241.8865097793276
+  yaw: -296.81158
+  pitch: 14.474815
+godmode: false

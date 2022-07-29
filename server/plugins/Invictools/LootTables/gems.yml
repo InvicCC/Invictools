@@ -1,0 +1,33 @@
+rainfall:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: IRON_INGOT
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DIAMOND
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: IRON_INGOT
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DIAMOND
+    amount: 4
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: GOLD_INGOT
+    amount: 6
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: IRON_INGOT
+    amount: 3
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: EMERALD
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: EMERALD
+    amount: 2

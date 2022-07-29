@@ -1,0 +1,50 @@
+HEALTH BOOST DOESNT WORK
+Queue:
+1. speed p // Fusion
+2. jump p // Oasis
+3. strength p 
+4. haste p
+5. resistance p
+6. slowness c
+7. invis c
+8. blindness c
+9. slow falling c // Fusion
+10. random effect 
+11. creative mode (30 seconds every 3 minutes) // NOT Fusion
+12. tnt spawn on you
+13. knockback scen (loaded)
+14. elytra scen // Fusion
+15. low gravity // effect 20 constant level 1, effect 2 constant level 5
+
+1. Oasis
+2. Mars
+3. Fusion
+4. Monastery
+
+hacked client
+
+Look into:
+
+- everyone gets random item every minutes
+- inventory share
+- fireball command to stick // /powertool fireball
+
+Custom shops for:
+- crossbows / bows // no melee damage?
+- pearl mania
+
+- water map
+- nether map
+- cave map
+- end map ?
+
+edits:
+- sound when buying things maybe?
+- maybe final kill cosemetics based on wins
+- old proj physics 
+
+- = do
+
+ask Zyph and Quig about doing this stuff together for both exposure and players
+
+bed breaks done - selectable and unlockable through wins

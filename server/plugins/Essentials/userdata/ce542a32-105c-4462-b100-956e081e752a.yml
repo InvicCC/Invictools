@@ -1,0 +1,22 @@
+lastAccountName: PokeyFinn
+timestamps:
+  login: 1634159934666
+  logout: 1634159919955
+  lastteleport: 1634160363007
+  kits:
+    fw: 1634160212118
+ipAddress: 96.227.116.72
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: 27.928772
+  pitch: -8.276491
+lastlocation:
+  world: bwlobby
+  x: 221.56862208679746
+  y: 126.93050451123717
+  z: 260.7195953874499
+  yaw: -1.238659
+  pitch: 36.693974

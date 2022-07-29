@@ -1,0 +1,22 @@
+lastAccountName: TwinsLO
+timestamps:
+  login: 1654554453509
+  lastteleport: 1654554770411
+  kits:
+    fw: 1654552553412
+  logout: 1654555612057
+ipAddress: 51.222.93.0
+lastlocation:
+  world: bwlobby
+  x: 221.5406025985545
+  y: 97.12808536014035
+  z: 258.84689150517386
+  yaw: 96.60971
+  pitch: 10.853648
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: -88.69996
+  pitch: -8.276491

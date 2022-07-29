@@ -1,0 +1,22 @@
+lastAccountName: Danyelus
+timestamps:
+  login: 1643771179980
+  kits:
+    fw: 1643332937483
+  lastteleport: 1643334330222
+  logout: 1643771500602
+ipAddress: 190.69.33.2
+lastlocation:
+  world: bwlobby
+  x: 252.932746740304
+  y: 128.17675927506423
+  z: 249.43462029543295
+  yaw: -89.39903
+  pitch: -7.755011
+logoutlocation:
+  world: bwlobby
+  x: 236.83594860643916
+  y: 128.0
+  z: 242.86437432473576
+  yaw: 311.27972
+  pitch: 20.509192

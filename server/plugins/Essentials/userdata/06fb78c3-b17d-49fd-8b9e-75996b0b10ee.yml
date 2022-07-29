@@ -1,0 +1,22 @@
+lastAccountName: Zyphalopagus
+timestamps:
+  login: 1643486385444
+  kits:
+    fw: 1636822936621
+  lastteleport: 1643488495086
+  logout: 1643490592566
+ipAddress: 104.13.167.220
+lastlocation:
+  world: Fusion
+  x: 468.96434964280206
+  y: 60.2975578795195
+  z: 476.10790953356036
+  yaw: 311.97845
+  pitch: -1.0597452
+logoutlocation:
+  world: Fusion
+  x: 500.0
+  y: 141.2409868880738
+  z: 500.0
+  yaw: 182.35461
+  pitch: 90.0

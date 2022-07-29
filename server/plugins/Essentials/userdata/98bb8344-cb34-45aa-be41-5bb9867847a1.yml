@@ -1,0 +1,26 @@
+lastAccountName: NotH0tdog
+timestamps:
+  login: 1654369081514
+  lastteleport: 1648061736130
+  kits:
+    fw: 1648061610018
+    elytra: 1647886932924
+    boots: 1647888794500
+    dragon: 1646679110813
+    fireworks: 1646770260972
+  logout: 1654369102406
+ipAddress: 51.161.19.243
+lastlocation:
+  world: bwlobby
+  x: 262.98530623792055
+  y: 129.0
+  z: 251.63428886890566
+  yaw: -223.32565
+  pitch: 14.414184
+logoutlocation:
+  world: bwlobby
+  x: 262.39629522622124
+  y: 128.0
+  z: 254.0258828046289
+  yaw: 53.024456
+  pitch: 42.500343

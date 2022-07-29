@@ -1,0 +1,22 @@
+lastAccountName: Weakify
+timestamps:
+  login: 1642300613687
+  kits:
+    fw: 1642302907960
+  lastteleport: 1642302889637
+  logout: 1642303687215
+ipAddress: 45.18.36.144
+lastlocation:
+  world: bwlobby
+  x: 235.83122944297736
+  y: 128.0
+  z: 250.5479647183494
+  yaw: 89.05009
+  pitch: -19.074194
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: 143.304
+  pitch: -8.276491

@@ -1,0 +1,23 @@
+World: Snowstorm
+Conversion: snowstrm-solo-486d-8978-7448b354cc0a
+Lobby:
+  name: snow
+  effect: strike
+Spawner:
+  island:
+    x: 55
+    y: 38.2
+    z: 95
+  mid:
+    x: 0.5
+    y: 36
+    z: 0.5
+LuckySpawners:
+  0:
+    x: 7.5
+    y: 33
+    z: 0.5
+  1:
+    x: -6.5
+    y: 33
+    z: 0.5

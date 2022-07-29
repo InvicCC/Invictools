@@ -1,0 +1,20 @@
+lastAccountName: lynxerror
+timestamps:
+  login: 1643597257339
+  lastteleport: 1643597195192
+  logout: 1643597288501
+ipAddress: 68.44.141.128
+lastlocation:
+  world: bwlobby
+  x: 260.7781312116783
+  y: 128.0
+  z: 257.23837992801583
+  yaw: 6.744001
+  pitch: 4.3692074
+logoutlocation:
+  world: bwlobby
+  x: 234.82560341983756
+  y: 128.0
+  z: 249.74607842921986
+  yaw: -83.31569
+  pitch: 12.687296

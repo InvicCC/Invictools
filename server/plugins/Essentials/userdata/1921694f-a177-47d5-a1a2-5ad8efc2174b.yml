@@ -1,0 +1,26 @@
+lastAccountName: Zombiewarlord_
+timestamps:
+  login: 1639879886770
+  logout: 1639883070062
+  kits:
+    fw: 1639880518660
+    elytra: 1639879934008
+    boots: 1638067422582
+    dragon: 1638069714623
+    fireworks: 1639879959195
+  lastteleport: 1638323258278
+ipAddress: 69.120.168.141
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: 7.3116746
+  pitch: -8.276491
+lastlocation:
+  world: bwlobby
+  x: 211.90406479187635
+  y: 234.64832900962165
+  z: 243.31312438819782
+  yaw: 202.38623
+  pitch: -90.0

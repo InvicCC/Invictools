@@ -1,0 +1,22 @@
+lastAccountName: Sir_Epke
+timestamps:
+  login: 1654040043057
+  lastteleport: 1638323442530
+  logout: 1654041601130
+  mute: 0
+ipAddress: 51.161.99.48
+lastlocation:
+  world: bwlobby
+  x: 214.94047491863984
+  y: -41.02146688745316
+  z: 245.61360111233864
+  yaw: -345.31
+  pitch: 66.85524
+logoutlocation:
+  world: bwlobby
+  x: 266.5473666331903
+  y: 141.37266338380684
+  z: 242.8865570650067
+  yaw: 154.82126
+  pitch: 23.542715
+muted: true

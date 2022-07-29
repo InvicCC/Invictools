@@ -1,0 +1,22 @@
+lastAccountName: _Decan
+timestamps:
+  login: 1643333036647
+  logout: 1643333427184
+  lastteleport: 1643333191099
+  kits:
+    fw: 1643332700334
+ipAddress: 14.200.225.230
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: -158.34496
+  pitch: -8.276491
+lastlocation:
+  world: bwlobby
+  x: 251.05463820020304
+  y: 127.41999998688698
+  z: 250.4827688083254
+  yaw: -90.75714
+  pitch: -4.4546056

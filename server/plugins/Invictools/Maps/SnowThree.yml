@@ -1,0 +1,25 @@
+World: SnowThree
+GameType: Threes
+Conversion: snowthre-4315-4529-8e7c-f760224fd8dc
+WorldBorder: 300;28;240;0
+Lobby:
+  name: snow
+  effect: strike
+Spawner:
+  mid:
+    x: 0.5
+    y: 72
+    z: 0.5
+LuckySpawners:
+  0:
+    x: 20
+    y: 74
+    z: 18
+  1:
+    x: 0.5
+    y: 74
+    z: 32
+  2:
+    x: -20
+    y: 74
+    z: -17

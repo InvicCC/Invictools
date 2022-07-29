@@ -1,0 +1,22 @@
+lastAccountName: sopermana
+timestamps:
+  login: 1636823758632
+  kits:
+    fw: 1636823798698
+  lastteleport: 1636823812320
+  logout: 1636823837866
+ipAddress: 73.27.151.152
+lastlocation:
+  world: bwlobby
+  x: 234.45771774926794
+  y: 128.0
+  z: 250.5070353825326
+  yaw: 25.762892
+  pitch: 29.877249
+logoutlocation:
+  world: bwlobby
+  x: 254.6633478884582
+  y: 128.0
+  z: 240.76691512174835
+  yaw: -294.7265
+  pitch: 18.719988

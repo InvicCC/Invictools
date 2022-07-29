@@ -1,0 +1,22 @@
+lastAccountName: 7moo
+timestamps:
+  login: 1646933733894
+  lastteleport: 1646933705095
+  kits:
+    fw: 1646933697146
+  logout: 1646933819406
+ipAddress: 51.178.221.7
+lastlocation:
+  world: bwlobby
+  x: 243.06442273158407
+  y: 129.1707870772188
+  z: 253.1277708529457
+  yaw: -115.865616
+  pitch: 3.98728
+logoutlocation:
+  world: bwlobby
+  x: 275.29962783616475
+  y: 123.0
+  z: 260.33893302625313
+  yaw: -158.46017
+  pitch: 31.140238

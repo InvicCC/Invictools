@@ -1,0 +1,22 @@
+lastAccountName: nylite
+timestamps:
+  login: 1653684256288
+  kits:
+    fw: 1652840174154
+  lastteleport: 1652842498302
+  logout: 1653687075299
+ipAddress: 51.161.99.29
+lastlocation:
+  world: bwlobby
+  x: 219.51304613611637
+  y: 109.51180590588957
+  z: 265.91692517230587
+  yaw: 10.55758
+  pitch: -15.204947
+logoutlocation:
+  world: bwlobby
+  x: 239.40748174861903
+  y: 128.0
+  z: 249.14473727882196
+  yaw: -89.39903
+  pitch: -8.276491

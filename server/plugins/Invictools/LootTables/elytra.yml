@@ -1,0 +1,22 @@
+rainfall:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: ELYTRA
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      Damage: 400
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: FIREWORK_ROCKET
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: FIREWORK_ROCKET
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: FIREWORK_ROCKET
+    amount: 1
+
+    

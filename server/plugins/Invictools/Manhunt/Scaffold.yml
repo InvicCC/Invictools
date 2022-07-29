@@ -1,0 +1,28 @@
+Hunter:
+  effect:
+    0:
+      name: "it alwaysbridgesingle "
+  items:
+  special:
+Hunted:
+  effect:
+    0:
+      name: "it repeateditem ENDER_PEARL 1 80 normal "
+    1:
+      name: "it repeateditem WOOL 1 100 specificItem "
+  items:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: ENDER_PEARL
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: OBSIDIAN
+    amount: 8
+  special:
+    0:
+      name: item
+      type: wool
+      amount: 1
+    
+    

@@ -1,0 +1,22 @@
+lastAccountName: KirbeeCharacter
+timestamps:
+  login: 1644021103439
+  kits:
+    fw: 1644021147191
+  logout: 1644021316173
+  lastteleport: 1644020557155
+ipAddress: 217.182.27.224
+logoutlocation:
+  world: bwlobby
+  x: 268.97322123944224
+  y: 129.0
+  z: 248.60888484008564
+  yaw: -91.39036
+  pitch: 51.21168
+lastlocation:
+  world: bwlobby
+  x: 263.45078204660706
+  y: 129.0
+  z: 249.85681195739832
+  yaw: -0.5726576
+  pitch: 31.926733

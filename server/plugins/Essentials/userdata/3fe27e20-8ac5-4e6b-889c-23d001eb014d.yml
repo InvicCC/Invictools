@@ -1,0 +1,26 @@
+lastAccountName: ClickinqRanger
+timestamps:
+  login: 1643920040986
+  logout: 1643920657518
+  kits:
+    fw: 1643919885807
+    elytra: 1642115811787
+    boots: 1641939167364
+    fireworks: 1642117726840
+  lastteleport: 1643919880401
+ipAddress: 94.110.142.36
+logoutlocation:
+  world: bwlobby
+  x: 260.5509126213583
+  y: 128.0
+  z: 254.04011910388311
+  yaw: 68.77292
+  pitch: 37.907715
+lastlocation:
+  world: bwlobby
+  x: 268.4028609497057
+  y: 129.5
+  z: 243.51140257632372
+  yaw: 173.6399
+  pitch: 22.868639
+godmode: false

@@ -1,0 +1,21 @@
+lastAccountName: Trixxo
+timestamps:
+  login: 1640134801028
+  lastteleport: 1640134358512
+  logout: 1640138008607
+ipAddress: 68.129.61.131
+lastlocation:
+  world: Monastery
+  x: -64.45464020573517
+  y: 75.0
+  z: 16.211491199158022
+  yaw: -7.5302434
+  pitch: 30.22047
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: -80.43846
+  pitch: -8.276491
+godmode: false

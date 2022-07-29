@@ -1,0 +1,23 @@
+Hunted:
+  effect:
+    0:
+      name: "it repeateditem ENDER_PEARL 1 60 normal "
+    1:
+      name: "it killeffects INCREASE_DAMAGE 1 60 "
+    2:
+      name: "it killitems GOLDEN_APPLE 1 normal "
+  items:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DIAMOND_LEGGINGS
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DIAMOND_BOOTS
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: OBSIDIAN
+    amount: 8
+Hunter:
+    

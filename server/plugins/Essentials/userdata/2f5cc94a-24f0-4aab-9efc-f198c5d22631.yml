@@ -1,0 +1,22 @@
+lastAccountName: teamvoided
+timestamps:
+  login: 1636836623508
+  lastteleport: 1636836475393
+  kits:
+    fw: 1636836287708
+  logout: 1636836651500
+ipAddress: 66.65.113.198
+lastlocation:
+  world: bwlobby
+  x: 252.7770295777963
+  y: 128.00133597911216
+  z: 250.47806322241476
+  yaw: -90.45609
+  pitch: -11.980772
+logoutlocation:
+  world: bwlobby
+  x: 250.63230913316772
+  y: 128.0
+  z: 241.1968474522502
+  yaw: -200.54164
+  pitch: 26.092299

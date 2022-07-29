@@ -1,0 +1,22 @@
+lastAccountName: Superman100
+timestamps:
+  login: 1654920641371
+  lastteleport: 1654725472199
+  logout: 1654920681917
+  kits:
+    fw: 1654551086318
+ipAddress: 51.161.38.243
+lastlocation:
+  world: bwlobby
+  x: 292.71455877391975
+  y: 1.0
+  z: 258.5138670033865
+  yaw: -253.71556
+  pitch: -25.139519
+logoutlocation:
+  world: bwlobby
+  x: 264.46849464824163
+  y: 128.0
+  z: 255.68861158352394
+  yaw: -225.76657
+  pitch: 3.890091

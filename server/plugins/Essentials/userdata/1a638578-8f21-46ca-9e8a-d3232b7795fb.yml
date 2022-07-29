@@ -1,0 +1,20 @@
+lastAccountName: Szicor
+timestamps:
+  login: 1643598109588
+  logout: 1643598187903
+  lastteleport: 1643598163289
+ipAddress: 180.150.11.251
+logoutlocation:
+  world: bwlobby
+  x: 260.90547533283797
+  y: 128.0
+  z: 252.499286110604
+  yaw: -66.1361
+  pitch: 16.827435
+lastlocation:
+  world: bwlobby
+  x: 223.98225278656855
+  y: 118.4886385542065
+  z: 258.8890725008648
+  yaw: 24.048676
+  pitch: 31.512642

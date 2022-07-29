@@ -1,0 +1,27 @@
+lastAccountName: Dylbram
+timestamps:
+  login: 1646696733371
+  lastteleport: 1646598897196
+  logout: 1646697874583
+  kits:
+    fw: 1644020459793
+    elytra: 1643243864680
+    boots: 1646697013136
+    dragon: 1642297422811
+    fireworks: 1643247797213
+ipAddress: 51.161.99.59
+lastlocation:
+  world: bwlobby
+  x: 254.43391560745258
+  y: 127.5
+  z: 253.5688869456798
+  yaw: -51.162167
+  pitch: 11.411347
+logoutlocation:
+  world: bwlobby
+  x: 233.40380607888602
+  y: 55.24570372021925
+  z: 220.7464466808206
+  yaw: 92.52579
+  pitch: 85.37714
+nickname: Awesomer

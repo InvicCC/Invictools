@@ -1,0 +1,2185 @@
+data:
+  120a6ace-db7e-4774-9738-a76469f5f0a7:
+    kills: 1387
+    wins: 149
+    score: 87169
+    loses: 182
+    name: Invictable
+    destroyedBeds: 587
+    deaths: 1052
+  ff7e19bd-4311-4993-85b8-8f1ca009e7bc:
+    kills: 6
+    wins: 0
+    score: 265
+    loses: 2
+    name: Prusso
+    destroyedBeds: 2
+    deaths: 17
+  15f154be-c576-4244-9ab2-86a4e92fa2d6:
+    kills: 90
+    wins: 7
+    score: 4550
+    loses: 12
+    name: Quig
+    destroyedBeds: 31
+    deaths: 86
+  465c9c26-6903-485d-86cc-c03325130e3b:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 2
+    name: SamuelThePenguin
+    destroyedBeds: 0
+    deaths: 8
+  b7d73f19-5bfc-4fc3-8926-9e8e93e17f7c:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Manzarch
+    destroyedBeds: 0
+    deaths: 0
+  eb716400-fedb-49ba-8224-4800dcf9a042:
+    kills: 20
+    wins: 0
+    score: 700
+    loses: 5
+    name: oGarfield
+    destroyedBeds: 5
+    deaths: 35
+  1c8989b4-9ed8-4243-88b6-3358b5f24c9f:
+    kills: 3
+    wins: 0
+    score: 45
+    loses: 3
+    name: Wyldn
+    destroyedBeds: 0
+    deaths: 8
+  fc73e608-08bf-4205-a9ff-201db4a45a94:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 2
+    name: ThatsAKiwi
+    destroyedBeds: 0
+    deaths: 16
+  514e2dbd-ff04-478f-b0f4-1d99b933268c:
+    kills: 3
+    wins: 0
+    score: 45
+    loses: 2
+    name: _CammyB
+    destroyedBeds: 0
+    deaths: 6
+  a9ac71d8-6b4b-4d15-9288-060fea1e2a7e:
+    kills: 3
+    wins: 1
+    score: 195
+    loses: 1
+    name: Shardie_CrimsoN
+    destroyedBeds: 0
+    deaths: 20
+  45964402-b9ef-4e86-978d-252bc9552e54:
+    kills: 10
+    wins: 0
+    score: 200
+    loses: 5
+    name: LegionX289
+    destroyedBeds: 1
+    deaths: 15
+  2ae31ba9-e4fe-47f9-83ed-e91b86b1b3e2:
+    kills: 2
+    wins: 0
+    score: 30
+    loses: 1
+    name: Mummnic
+    destroyedBeds: 0
+    deaths: 6
+  7b7cc97c-1e80-464b-9853-488caab0e98c:
+    kills: 17
+    wins: 0
+    score: 605
+    loses: 3
+    name: ItsFinnishDaniel
+    destroyedBeds: 5
+    deaths: 13
+  1429cdd6-1dde-48c7-a220-c2770f3603df:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 1
+    name: Yikesify
+    destroyedBeds: 0
+    deaths: 1
+  b82549da-28b0-4fb3-b7b7-26125d770e86:
+    kills: 38
+    wins: 4
+    score: 1675
+    loses: 9
+    name: NicoPlaysThings
+    destroyedBeds: 8
+    deaths: 77
+  35b90c44-88bc-4810-9f77-14803e111a99:
+    kills: 3
+    wins: 0
+    score: 45
+    loses: 2
+    name: TUCD_
+    destroyedBeds: 0
+    deaths: 17
+  6503eaec-e557-4289-9c5a-eded7532b801:
+    kills: 4
+    wins: 0
+    score: 135
+    loses: 2
+    name: JENSENS06
+    destroyedBeds: 1
+    deaths: 5
+  68b8eba6-e756-4307-9c1b-ed5451b5fd77:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 2
+    name: BoboRozo
+    destroyedBeds: 0
+    deaths: 6
+  37573b71-9fda-486d-9e37-b8f1f931193f:
+    kills: 5
+    wins: 1
+    score: 455
+    loses: 4
+    name: ItsNitroTiger
+    destroyedBeds: 1
+    deaths: 6
+  0d780de8-995f-4fc9-b680-2f476e4db404:
+    kills: 8
+    wins: 0
+    score: 245
+    loses: 7
+    name: Pikemanisnotme
+    destroyedBeds: 1
+    deaths: 17
+  ad65bc29-7b0b-40bd-8d2f-4bed134b7688:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Massacred
+    destroyedBeds: 0
+    deaths: 0
+  676d79fc-dbba-4373-9f44-f1c8c39ec797:
+    kills: 4
+    wins: 0
+    score: 60
+    loses: 6
+    name: RyanBurger
+    destroyedBeds: 0
+    deaths: 14
+  f3779271-f5d6-48a8-97ed-c7ae1639a18c:
+    kills: 5
+    wins: 1
+    score: 350
+    loses: 1
+    name: Theospelar
+    destroyedBeds: 2
+    deaths: 9
+  036dbe8f-d4dd-4138-a236-d340c819f1c7:
+    kills: 10
+    wins: 1
+    score: 425
+    loses: 3
+    name: Sorday
+    destroyedBeds: 1
+    deaths: 16
+  3bc1f180-779a-4154-b90c-d934666ddd84:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 2
+    name: Hobbes81
+    destroyedBeds: 0
+    deaths: 5
+  3ef0b6b8-cb4d-4b4b-8f0e-33726c9b9621:
+    kills: 6
+    wins: 1
+    score: 290
+    loses: 1
+    name: arrf
+    destroyedBeds: 0
+    deaths: 4
+  3f12924b-8ed3-41af-9f14-77e62548532d:
+    kills: 7
+    wins: 0
+    score: 105
+    loses: 5
+    name: RuneTheViking07
+    destroyedBeds: 0
+    deaths: 16
+  219ade63-a4dc-4bfd-acda-2e79a80ab5cb:
+    kills: 53
+    wins: 2
+    score: 3355
+    loses: 19
+    name: Bruno__Gamer
+    destroyedBeds: 23
+    deaths: 73
+  864cbfec-6958-4fd1-93bc-9a039e296520:
+    kills: 2
+    wins: 0
+    score: 30
+    loses: 2
+    name: WickedPhatter
+    destroyedBeds: 0
+    deaths: 7
+  01ac269e-d171-4c3b-b0c9-0502d600abf0:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: ActiveAsh
+    destroyedBeds: 0
+    deaths: 0
+  1921694f-a177-47d5-a1a2-5ad8efc2174b:
+    kills: 27
+    wins: 0
+    score: 1005
+    loses: 15
+    name: Zombiewarlord_
+    destroyedBeds: 9
+    deaths: 72
+  9c06909a-e574-4113-b210-7f4254c95872:
+    kills: 11
+    wins: 0
+    score: 390
+    loses: 3
+    name: luxuryz
+    destroyedBeds: 3
+    deaths: 6
+  053bd634-df26-4039-8c85-372183a55f44:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: AverageDerp
+    destroyedBeds: 0
+    deaths: 1
+  30d8c576-2628-4ba8-b6ec-1d761500d6f4:
+    kills: 6
+    wins: 0
+    score: 190
+    loses: 2
+    name: Mr_EpicGamer
+    destroyedBeds: 1
+    deaths: 10
+  8c3f15f8-0cac-4734-8cb2-38f094a3c79e:
+    kills: 5
+    wins: 0
+    score: 250
+    loses: 3
+    name: NickeWilde
+    destroyedBeds: 3
+    deaths: 14
+  1deec86d-0f63-4694-a2e3-5b565c083275:
+    kills: 7
+    wins: 0
+    score: 255
+    loses: 5
+    name: conpro24
+    destroyedBeds: 1
+    deaths: 14
+  b2befa70-45af-4317-819f-0a0d7e31580c:
+    kills: 23
+    wins: 1
+    score: 720
+    loses: 2
+    name: Hqks
+    destroyedBeds: 3
+    deaths: 4
+  d2bc99d7-e20a-4a9a-9c83-499554e28a89:
+    kills: 3
+    wins: 0
+    score: 95
+    loses: 2
+    name: KirbeeCharacter
+    destroyedBeds: 1
+    deaths: 5
+  a9de7c41-88aa-47ac-8064-e64ab6def196:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 2
+    name: battyfish79
+    destroyedBeds: 0
+    deaths: 4
+  c900060b-d31d-4d36-a6fa-6ccf3caefa25:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 1
+    name: Klyze
+    destroyedBeds: 0
+    deaths: 5
+  46e60f73-f662-4535-b6e1-87291f5d512b:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: Chatter_Box06
+    destroyedBeds: 0
+    deaths: 5
+  d30aa493-035d-4b16-8c8a-4a1c20c766c8:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 1
+    name: CxrtxR
+    destroyedBeds: 0
+    deaths: 3
+  7db42a8f-7d6a-4cae-9ba6-e159add2547c:
+    kills: 3
+    wins: 0
+    score: 120
+    loses: 1
+    name: Gravatus
+    destroyedBeds: 1
+    deaths: 1
+  9ea7bb23-52fc-482d-ba9f-a89bbbdb931b:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 3
+    name: HajerxBee
+    destroyedBeds: 0
+    deaths: 11
+  ce542a32-105c-4462-b100-956e081e752a:
+    kills: 15
+    wins: 0
+    score: 325
+    loses: 3
+    name: PokeyFinn
+    destroyedBeds: 1
+    deaths: 12
+  ae014c4e-b389-4388-a593-33fa1223516a:
+    kills: 10
+    wins: 0
+    score: 150
+    loses: 3
+    name: AshGreninja360
+    destroyedBeds: 0
+    deaths: 9
+  43ae3608-7be5-494b-96e3-ed3072dba81d:
+    kills: 17
+    wins: 2
+    score: 880
+    loses: 1
+    name: FrostedCircle
+    destroyedBeds: 3
+    deaths: 16
+  6b8eb7f8-08ff-4c39-b7bb-f3c9d5df20d3:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 3
+    name: 0BluePegasus90
+    destroyedBeds: 0
+    deaths: 5
+  2c7fbebf-3c6d-4372-bc5c-a5ac1e59bda4:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 1
+    name: evei
+    destroyedBeds: 0
+    deaths: 1
+  1cad43bc-c0f4-41a5-9872-36b8e29a7a83:
+    kills: 4
+    wins: 18
+    score: 3350
+    loses: 17
+    name: mayberry15
+    destroyedBeds: 17
+    deaths: 32
+  19abc35b-36e2-4244-b05d-4fa1f5cc6ba7:
+    kills: 17
+    wins: 3
+    score: 705
+    loses: 0
+    name: Trixxo
+    destroyedBeds: 2
+    deaths: 35
+  4f636c5d-ee56-45e5-b758-c63db7a3b874:
+    kills: 20
+    wins: 1
+    score: 525
+    loses: 2
+    name: Yah_ramen
+    destroyedBeds: 0
+    deaths: 10
+  06fb78c3-b17d-49fd-8b9e-75996b0b10ee:
+    kills: 62
+    wins: 2
+    score: 1530
+    loses: 4
+    name: Zyphalopagus
+    destroyedBeds: 3
+    deaths: 23
+  43f3f3ce-a036-458c-a97a-66bdfa929916:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 3
+    name: eulb99
+    destroyedBeds: 0
+    deaths: 10
+  2f5cc94a-24f0-4aab-9efc-f198c5d22631:
+    kills: 16
+    wins: 0
+    score: 540
+    loses: 7
+    name: teamvoided
+    destroyedBeds: 2
+    deaths: 43
+  1dc5089f-12f7-40f8-9567-aa27a65199fc:
+    kills: 2
+    wins: 0
+    score: 30
+    loses: 1
+    name: BigERich
+    destroyedBeds: 0
+    deaths: 5
+  56053567-2018-42f5-9148-08d434853df2:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: DKC8069
+    destroyedBeds: 0
+    deaths: 2
+  df7d5cf8-e5df-4b36-9202-f185adb71d22:
+    kills: 16
+    wins: 0
+    score: 290
+    loses: 2
+    name: O_R
+    destroyedBeds: 0
+    deaths: 12
+  3054080c-bea7-4201-ab89-7a38579b0882:
+    kills: 7
+    wins: 0
+    score: 205
+    loses: 5
+    name: nlj623
+    destroyedBeds: 1
+    deaths: 14
+  2a17b447-d4f2-4771-9b81-b418a9834ab8:
+    kills: 14
+    wins: 0
+    score: 360
+    loses: 3
+    name: PseudoEmerald
+    destroyedBeds: 2
+    deaths: 20
+  d1ff0e54-2577-4e45-87ef-83abc2bab851:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 2
+    name: keyman1
+    destroyedBeds: 0
+    deaths: 2
+  20c2ffb3-ddc6-43bc-a00b-316c95731d02:
+    kills: 11
+    wins: 1
+    score: 315
+    loses: 4
+    name: Puzzlebox427
+    destroyedBeds: 0
+    deaths: 26
+  da060898-2920-4e98-a8da-858773293728:
+    kills: 6
+    wins: 0
+    score: 240
+    loses: 2
+    name: Nicoglass18
+    destroyedBeds: 2
+    deaths: 8
+  cfed2554-a8ae-4921-b647-6d8ab54573dd:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: DerpyOrangeCow
+    destroyedBeds: 0
+    deaths: 0
+  f5092a44-c245-472b-b5e9-ac8f0fc9bfdf:
+    kills: 12
+    wins: 1
+    score: 380
+    loses: 3
+    name: MrCactusCreeper
+    destroyedBeds: 1
+    deaths: 24
+  c05111eb-c221-453c-b4e0-8482363b6443:
+    kills: 0
+    wins: 0
+    score: 50
+    loses: 2
+    name: Evanthemight
+    destroyedBeds: 1
+    deaths: 9
+  f10c4ccf-99b2-4224-9884-759fcdcfa18c:
+    kills: 277
+    wins: 21
+    score: 16010
+    loses: 83
+    name: Zeltraks
+    destroyedBeds: 108
+    deaths: 294
+  4cf0473f-b2ba-41ff-b976-325b0a164044:
+    kills: 9
+    wins: 1
+    score: 510
+    loses: 4
+    name: TinnyTea
+    destroyedBeds: 4
+    deaths: 30
+  5617eeb8-dbb7-4922-98c7-66561781c2be:
+    kills: 2
+    wins: 0
+    score: 30
+    loses: 1
+    name: enderman524
+    destroyedBeds: 0
+    deaths: 2
+  535e8ef4-ea08-4f9c-b97a-53c9544ab1f8:
+    kills: 9
+    wins: 0
+    score: 260
+    loses: 3
+    name: Sqwildy
+    destroyedBeds: 1
+    deaths: 18
+  3cd407a5-fa2b-43dd-8d72-a453eaae35bd:
+    kills: 7
+    wins: 0
+    score: 305
+    loses: 2
+    name: Butticus4
+    destroyedBeds: 3
+    deaths: 17
+  df4b3cae-3cbd-4609-b8e1-a0141da7a855:
+    kills: 4
+    wins: 0
+    score: 85
+    loses: 4
+    name: NotLightnings
+    destroyedBeds: 0
+    deaths: 9
+  20b8de66-77a0-48c7-92af-5f06d82c4817:
+    kills: 15
+    wins: 0
+    score: 400
+    loses: 4
+    name: thatonefox07
+    destroyedBeds: 3
+    deaths: 9
+  0999da88-2e46-444a-b572-6b24c0526e02:
+    kills: 5
+    wins: 0
+    score: 100
+    loses: 1
+    name: Dopey___
+    destroyedBeds: 0
+    deaths: 2
+  00694849-6b88-4587-a68e-7e2a88d35482:
+    kills: 2
+    wins: 0
+    score: 30
+    loses: 1
+    name: DiamondSword243
+    destroyedBeds: 0
+    deaths: 4
+  a939cb12-1d34-4fec-8687-bf976aa40de2:
+    kills: 13
+    wins: 1
+    score: 450
+    loses: 5
+    name: shooken
+    destroyedBeds: 1
+    deaths: 26
+  08b93853-3e37-44ef-a9fd-4f0b23cd9785:
+    kills: 0
+    wins: 0
+    score: 50
+    loses: 1
+    name: Ryguypixel
+    destroyedBeds: 1
+    deaths: 13
+  625bd1d9-8838-4dbb-aae8-6dedb45ea404:
+    kills: 6
+    wins: 0
+    score: 365
+    loses: 2
+    name: Galaxymation
+    destroyedBeds: 4
+    deaths: 17
+  33bcf976-d8aa-44f7-88cc-243657a3ef50:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: TheTiker_
+    destroyedBeds: 0
+    deaths: 1
+  d8494140-b4e6-489f-a804-6597d0848852:
+    kills: 4
+    wins: 0
+    score: 110
+    loses: 1
+    name: REDRATH
+    destroyedBeds: 1
+    deaths: 15
+  50c2a825-ed67-43ac-a5ce-57ded531c49a:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: obvMath
+    destroyedBeds: 0
+    deaths: 6
+  8b3d3606-ecc3-41de-a48b-2c7335b07a6f:
+    kills: 7
+    wins: 0
+    score: 105
+    loses: 1
+    name: Commandcracker8
+    destroyedBeds: 0
+    deaths: 2
+  d208d9d1-7e97-4eed-80a3-07e06a64f1b5:
+    kills: 10
+    wins: 0
+    score: 380
+    loses: 3
+    name: KBDuck
+    destroyedBeds: 3
+    deaths: 19
+  8bca0f61-60f0-43a0-a29a-efb07c815ace:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: xxmxq
+    destroyedBeds: 0
+    deaths: 0
+  ea599f71-8646-4ab1-a5fa-aa6479bb2778:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 1
+    name: AngelaEV
+    destroyedBeds: 0
+    deaths: 2
+  1996ee29-076f-4e53-96a6-ba7aff6eeee7:
+    kills: 2
+    wins: 0
+    score: 30
+    loses: 1
+    name: FakeFz
+    destroyedBeds: 0
+    deaths: 4
+  8286cfb5-2746-425c-8c38-b46c71bfba0a:
+    kills: 6
+    wins: 0
+    score: 165
+    loses: 1
+    name: NotNiko167
+    destroyedBeds: 0
+    deaths: 7
+  108bbc59-8c55-475f-bf92-ca11d752a0a9:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: JeffTheLeaf
+    destroyedBeds: 0
+    deaths: 0
+  43f0697c-a7aa-4408-a3a7-5ebbde25dd3c:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: EpicGamerTime_YT
+    destroyedBeds: 0
+    deaths: 0
+  1abe4374-ae9b-4a7c-a84b-91da771ee1a8:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: uhDucky
+    destroyedBeds: 0
+    deaths: 0
+  6d58294a-ba0d-4753-90b0-5d85e66c87e4:
+    kills: 12
+    wins: 0
+    score: 280
+    loses: 8
+    name: _Mine_Kid_
+    destroyedBeds: 2
+    deaths: 19
+  9244bd3b-b619-4d0e-9c96-3d31fa3238b6:
+    kills: 6
+    wins: 1
+    score: 540
+    loses: 2
+    name: Michael1_
+    destroyedBeds: 4
+    deaths: 18
+  09bf79c2-7619-4328-90c8-d383fb77e36b:
+    kills: 8
+    wins: 0
+    score: 320
+    loses: 7
+    name: Psycho2Chipmunk
+    destroyedBeds: 3
+    deaths: 19
+  f1674c3d-12aa-47e4-861b-49f17fc5c4b3:
+    kills: 293
+    wins: 38
+    score: 19915
+    loses: 150
+    name: IFoundXan
+    destroyedBeds: 108
+    deaths: 687
+  402f924b-a8b1-47df-82f4-04cf9b6fc500:
+    kills: 4
+    wins: 0
+    score: 60
+    loses: 3
+    name: Godswordmaster2
+    destroyedBeds: 0
+    deaths: 7
+  fe976052-faf8-439b-8cec-cc85390dbc6e:
+    kills: 61
+    wins: 6
+    score: 4035
+    loses: 81
+    name: 2alovespizza
+    destroyedBeds: 20
+    deaths: 330
+  533d9029-a127-4016-a56b-f225d9a0f31a:
+    kills: 51
+    wins: 3
+    score: 2465
+    loses: 10
+    name: Lovelicot
+    destroyedBeds: 20
+    deaths: 55
+  92dbb1c8-e3a6-4543-8097-3873c15ef086:
+    kills: 2
+    wins: 0
+    score: 125
+    loses: 4
+    name: Sir_Epke
+    destroyedBeds: 1
+    deaths: 11
+  e70c93eb-7ebe-4f5d-a251-17316e86a7a8:
+    kills: 4
+    wins: 6
+    score: 1470
+    loses: 19
+    name: unchargeableness
+    destroyedBeds: 5
+    deaths: 30
+  49ad2d3f-bec4-46bc-9521-25b53a2b789d:
+    kills: 52
+    wins: 4
+    score: 2680
+    loses: 35
+    name: warsheep4
+    destroyedBeds: 21
+    deaths: 159
+  5e8c5547-9db7-4ed0-a66e-5ec11b15b97e:
+    kills: 53
+    wins: 9
+    score: 3275
+    loses: 36
+    name: Oopsieee_
+    destroyedBeds: 19
+    deaths: 163
+  fcedb50c-c4b7-492b-9b16-5fc2a60b9aa5:
+    kills: 7
+    wins: 0
+    score: 405
+    loses: 20
+    name: Skins08
+    destroyedBeds: 5
+    deaths: 95
+  cc1b86e2-606f-4ec0-b338-0b6a85afdec4:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 1
+    name: KingKaso
+    destroyedBeds: 0
+    deaths: 6
+  17d8d859-d1e9-41e2-af74-fba9ea650f1b:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: MrDoors
+    destroyedBeds: 0
+    deaths: 0
+  455aff37-4ca4-471d-902a-dcf939550f95:
+    kills: 1
+    wins: 0
+    score: 65
+    loses: 1
+    name: egyptiancow
+    destroyedBeds: 1
+    deaths: 2
+  614f30e1-93e3-48df-bf86-577012eacb3b:
+    kills: 78
+    wins: 7
+    score: 4225
+    loses: 48
+    name: Blo00m_fan
+    destroyedBeds: 14
+    deaths: 175
+  8d4417a2-2d78-45de-896a-b3cdc81f443e:
+    kills: 2
+    wins: 0
+    score: 80
+    loses: 1
+    name: sherae
+    destroyedBeds: 1
+    deaths: 6
+  0068d9ff-46fa-4aae-8bcf-86a215cd4264:
+    kills: 169
+    wins: 21
+    score: 11510
+    loses: 55
+    name: LifelessNerd
+    destroyedBeds: 85
+    deaths: 270
+  e7471417-767c-4e6e-a51a-291913be474b:
+    kills: 5
+    wins: 1
+    score: 275
+    loses: 2
+    name: spookyispog
+    destroyedBeds: 1
+    deaths: 21
+  5147cf29-8c93-4704-b765-30a2060aee8c:
+    kills: 4
+    wins: 0
+    score: 110
+    loses: 1
+    name: Itz0ni
+    destroyedBeds: 1
+    deaths: 11
+  ca6f7b3a-3e0f-4b4a-8e06-d8be7914ed80:
+    kills: 83
+    wins: 2
+    score: 3115
+    loses: 13
+    name: Specularpotato
+    destroyedBeds: 25
+    deaths: 40
+  04cca822-5f32-42b8-958e-ef2501ba6430:
+    kills: 22
+    wins: 0
+    score: 880
+    loses: 12
+    name: Flicker78
+    destroyedBeds: 6
+    deaths: 42
+  3fe27e20-8ac5-4e6b-889c-23d001eb014d:
+    kills: 51
+    wins: 7
+    score: 2950
+    loses: 15
+    name: ClickinqRanger
+    destroyedBeds: 20
+    deaths: 73
+  a5b7eccd-1955-44da-81ca-b97c05d032fd:
+    kills: 1
+    wins: 0
+    score: 90
+    loses: 2
+    name: witchess
+    destroyedBeds: 1
+    deaths: 2
+  b1671280-dc2b-4ea6-a7bf-8d1bd577251f:
+    kills: 84
+    wins: 8
+    score: 5285
+    loses: 53
+    name: LuckyDoggo_
+    destroyedBeds: 27
+    deaths: 194
+  fad96202-e443-4539-9afd-7418e8570a07:
+    kills: 13
+    wins: 1
+    score: 445
+    loses: 3
+    name: Musical_Doge
+    destroyedBeds: 2
+    deaths: 23
+  d4964ae9-840e-4979-bf0a-bab08c07ccba:
+    kills: 109
+    wins: 9
+    score: 5900
+    loses: 44
+    name: Phalipsio
+    destroyedBeds: 35
+    deaths: 211
+  8fd1ea99-dff7-4398-ab21-903da7a085f4:
+    kills: 82
+    wins: 13
+    score: 4570
+    loses: 40
+    name: NebulaBC
+    destroyedBeds: 17
+    deaths: 134
+  72bb6f92-b354-4f52-9c6c-5b289488558c:
+    kills: 19
+    wins: 4
+    score: 1240
+    loses: 20
+    name: Dylbram
+    destroyedBeds: 7
+    deaths: 67
+  bde3a510-c6ba-4d1d-9f49-98be433df160:
+    kills: 22
+    wins: 0
+    score: 835
+    loses: 13
+    name: Tatertot5
+    destroyedBeds: 9
+    deaths: 51
+  a027f763-4560-49c4-bdc9-e720885b2c83:
+    kills: 4
+    wins: 0
+    score: 60
+    loses: 5
+    name: SinPasteles874
+    destroyedBeds: 0
+    deaths: 19
+  c9d98a86-dfd0-4430-9431-25e2dc4fc573:
+    kills: 9
+    wins: 1
+    score: 560
+    loses: 1
+    name: Disisaperson
+    destroyedBeds: 4
+    deaths: 6
+  ac844df1-e207-4492-8bef-143dae8cdc98:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: Legendns
+    destroyedBeds: 0
+    deaths: 1
+  b2f69ea4-673d-42e0-bc5a-668cc27c0fd5:
+    kills: 8
+    wins: 0
+    score: 220
+    loses: 9
+    name: iisums09
+    destroyedBeds: 2
+    deaths: 19
+  40c6cc4d-1ae2-4bd4-8014-19b16778f7f7:
+    kills: 1
+    wins: 0
+    score: 40
+    loses: 3
+    name: Weakify
+    destroyedBeds: 0
+    deaths: 7
+  dea69693-b92d-43b6-9916-ff4ee6a64495:
+    kills: 11
+    wins: 0
+    score: 165
+    loses: 2
+    name: Benetolos
+    destroyedBeds: 0
+    deaths: 5
+  b963aa2a-169a-40af-9d1e-1ef9524f46fc:
+    kills: 12
+    wins: 0
+    score: 470
+    loses: 9
+    name: Moogothacksnow
+    destroyedBeds: 5
+    deaths: 30
+  884f9639-3d88-499e-9aaa-a2ec60ca05a2:
+    kills: 51
+    wins: 5
+    score: 4755
+    loses: 14
+    name: Lollogara
+    destroyedBeds: 22
+    deaths: 109
+  36e6e19e-3136-4f46-90cd-0d2c8925a1a2:
+    kills: 2
+    wins: 0
+    score: 110
+    loses: 5
+    name: BrainCrashed
+    destroyedBeds: 1
+    deaths: 19
+  45b06467-7270-41a7-8873-cde5aceaadfd:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 3
+    name: mantyme
+    destroyedBeds: 0
+    deaths: 12
+  5b0491fb-e16d-45af-8c86-939ca8dc36f5:
+    kills: 8
+    wins: 1
+    score: 370
+    loses: 4
+    name: '1616161660'
+    destroyedBeds: 2
+    deaths: 7
+  5646213d-27be-486b-9a31-da1d076915a9:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: salbon
+    destroyedBeds: 0
+    deaths: 0
+  db0a1c23-37bb-4d3d-8a97-2b3aa5eb54f0:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: QueenSnitch
+    destroyedBeds: 0
+    deaths: 0
+  d9daa545-30df-41d3-a122-15920d834be5:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: jlobudder
+    destroyedBeds: 0
+    deaths: 2
+  7de27696-0d59-4c46-9633-334e5b8fbad6:
+    kills: 59
+    wins: 5
+    score: 4395
+    loses: 69
+    name: DaG1ngerViking_
+    destroyedBeds: 21
+    deaths: 260
+  57df9b30-0694-45c7-82d6-906e122891d1:
+    kills: 1
+    wins: 1
+    score: 115
+    loses: 3
+    name: shara0401
+    destroyedBeds: 0
+    deaths: 7
+  97687700-3faa-4700-adcd-b569a406ee08:
+    kills: 13
+    wins: 3
+    score: 1120
+    loses: 8
+    name: aquabee_
+    destroyedBeds: 10
+    deaths: 48
+  da2ac632-84f9-468a-b3db-cfc661d90262:
+    kills: 1
+    wins: 1
+    score: 190
+    loses: 1
+    name: Ronan_00
+    destroyedBeds: 1
+    deaths: 2
+  b57dbc51-57e1-4112-901a-b7a991985cca:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: SamanthaS1911
+    destroyedBeds: 0
+    deaths: 2
+  a8ee53d4-0116-476f-a043-8a4eb040cf87:
+    kills: 0
+    wins: 1
+    score: 100
+    loses: 0
+    name: ChargedX
+    destroyedBeds: 0
+    deaths: 0
+  ccf573ae-b1d1-4c58-ad49-1ef6a9064f7f:
+    kills: 5
+    wins: 1
+    score: 225
+    loses: 3
+    name: BanaenaeWrapper
+    destroyedBeds: 0
+    deaths: 7
+  c6af1373-2a8c-4fe0-bc8d-8028d99ef32e:
+    kills: 0
+    wins: 2
+    score: 200
+    loses: 0
+    name: Kaizo
+    destroyedBeds: 0
+    deaths: 3
+  46a2d81d-a427-4b75-add4-958a8abbb809:
+    kills: 12
+    wins: 1
+    score: 755
+    loses: 5
+    name: Danyelus
+    destroyedBeds: 5
+    deaths: 9
+  87d89de6-d4cf-4372-81f5-11bfe342b5be:
+    kills: 5
+    wins: 2
+    score: 590
+    loses: 3
+    name: Vallows
+    destroyedBeds: 2
+    deaths: 11
+  2ea34ee9-6117-443e-8cb4-1de20dddc9c0:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Eli_IsveryFat
+    destroyedBeds: 0
+    deaths: 0
+  6170e37c-43a2-4acf-b236-79ba10310794:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: DlSTANT
+    destroyedBeds: 0
+    deaths: 1
+  b87ac17a-3a06-451a-8cdb-780051413c30:
+    kills: 0
+    wins: 1
+    score: 100
+    loses: 0
+    name: Standen05
+    destroyedBeds: 0
+    deaths: 0
+  22040d5a-c15b-45ce-b46f-3d0dc4f3e582:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: Pandoes_
+    destroyedBeds: 0
+    deaths: 1
+  5a16f718-25cf-4f82-9bfe-b23f09b2137d:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: _Decan
+    destroyedBeds: 0
+    deaths: 0
+  887e2589-977c-45ac-8253-92633191b3d9:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: TheTerminatorK
+    destroyedBeds: 0
+    deaths: 0
+  ffdc6737-22cf-4b17-b239-9e77d693ddbb:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Rowlet
+    destroyedBeds: 0
+    deaths: 0
+  654d7e80-3d37-4ff2-ae7c-f2f4c20d8caf:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: ToffeeAndDreams
+    destroyedBeds: 0
+    deaths: 0
+  e3fdbe83-a7c5-4091-a631-aa14ca6207e3:
+    kills: 0
+    wins: 1
+    score: 100
+    loses: 0
+    name: 5izzler
+    destroyedBeds: 0
+    deaths: 0
+  b4271657-2ec3-408d-95c3-77efab24f223:
+    kills: 1
+    wins: 0
+    score: 65
+    loses: 3
+    name: chIoemarie7
+    destroyedBeds: 1
+    deaths: 8
+  04af1177-2242-4ef0-b0d3-cb675a05340a:
+    kills: 1
+    wins: 2
+    score: 290
+    loses: 0
+    name: ManWithRaft
+    destroyedBeds: 1
+    deaths: 1
+  85210ebd-963e-4b1c-b66f-6cb43a711f2c:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 3
+    name: enchantedwaffle
+    destroyedBeds: 0
+    deaths: 6
+  f25fbc64-f691-45c5-9db7-4de87bec6378:
+    kills: 2
+    wins: 0
+    score: 130
+    loses: 7
+    name: thepoggest
+    destroyedBeds: 2
+    deaths: 29
+  5563bbc7-efb6-4fd9-8404-2a83f0354d5b:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: ubhi
+    destroyedBeds: 0
+    deaths: 0
+  8b136e69-adc4-4967-a57f-7d99151c07b9:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Jibstrux
+    destroyedBeds: 0
+    deaths: 0
+  9014f599-ecea-4e3a-93e1-152812ffb703:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: fruitran
+    destroyedBeds: 0
+    deaths: 0
+  46a55e83-8783-49b1-971e-eaf6e2e6ec01:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: ShinySammy
+    destroyedBeds: 0
+    deaths: 0
+  d46f50db-3dba-46f4-9451-636358002dcb:
+    kills: 2
+    wins: 0
+    score: 55
+    loses: 1
+    name: YellowChickens
+    destroyedBeds: 0
+    deaths: 3
+  cf0089a7-a954-40b9-8096-ae7bb5852887:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: fndp
+    destroyedBeds: 0
+    deaths: 6
+  5e43dc14-37e7-4a1a-89c1-4f537ac40baf:
+    kills: 5
+    wins: 1
+    score: 590
+    loses: 7
+    name: Boxoffun2020
+    destroyedBeds: 5
+    deaths: 35
+  5722364a-ef04-4abe-8205-2cbbf15d73eb:
+    kills: 0
+    wins: 1
+    score: 125
+    loses: 2
+    name: Ayamenakmen21
+    destroyedBeds: 0
+    deaths: 9
+  29dbc404-844c-4cd4-ba66-7cea4183effb:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: noncoolguy1
+    destroyedBeds: 0
+    deaths: 2
+  02de03b5-4901-4143-8e62-fc4f58b1e72d:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Ninjaisaac04
+    destroyedBeds: 0
+    deaths: 0
+  30ea0d32-c982-4bac-b982-db8868d9f351:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: PiCkTiCk457
+    destroyedBeds: 0
+    deaths: 0
+  fb1b8bff-ec1b-45d9-a01d-96f4d4a47536:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Panify
+    destroyedBeds: 0
+    deaths: 0
+  dfafb730-833e-42a6-b1be-47ab77b628f3:
+    kills: 0
+    wins: 1
+    score: 265
+    loses: 0
+    name: Jibah_
+    destroyedBeds: 0
+    deaths: 5
+  cd78d59e-6295-4b2c-94f7-79064ae6cf9e:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 1
+    name: Jester946
+    destroyedBeds: 0
+    deaths: 4
+  4f87df5e-3d6d-4f00-be56-c2e3858c3175:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: Luc_Knight
+    destroyedBeds: 0
+    deaths: 3
+  7a6400c8-2c0d-49e3-b30d-38f8aaeecf84:
+    kills: 8
+    wins: 2
+    score: 420
+    loses: 1
+    name: Toying_1
+    destroyedBeds: 0
+    deaths: 5
+  79b86128-c275-4456-84d6-f80d91ba0e64:
+    kills: 0
+    wins: 1
+    score: 100
+    loses: 2
+    name: Kingdoggogod
+    destroyedBeds: 0
+    deaths: 7
+  b7bea81c-6b61-4237-92f4-fe68bd2843fe:
+    kills: 4
+    wins: 2
+    score: 335
+    loses: 1
+    name: Urmum7
+    destroyedBeds: 0
+    deaths: 11
+  0adad110-f458-4af6-867a-8a0a5a0bf72b:
+    kills: 1
+    wins: 0
+    score: 15
+    loses: 1
+    name: SeaBeast7068155
+    destroyedBeds: 0
+    deaths: 2
+  b5e10c2a-a910-4ab3-84d6-de4683d20c88:
+    kills: 3
+    wins: 1
+    score: 1080
+    loses: 13
+    name: Smartson
+    destroyedBeds: 12
+    deaths: 38
+  fa30226d-bc6b-4835-b5af-49e795a978c0:
+    kills: 8
+    wins: 3
+    score: 655
+    loses: 6
+    name: Shadowbeast7575
+    destroyedBeds: 2
+    deaths: 26
+  a15e6013-0903-4d6f-83ea-d28999b33df1:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 1
+    name: Gigistar123334
+    destroyedBeds: 0
+    deaths: 2
+  57472104-7f47-4cc2-bf67-421980ad9e78:
+    kills: 0
+    wins: 1
+    score: 100
+    loses: 1
+    name: Tyzxd
+    destroyedBeds: 0
+    deaths: 4
+  e1ba2110-12a2-4cb2-aace-c385a367835d:
+    kills: 0
+    wins: 1
+    score: 100
+    loses: 1
+    name: OwlmanMC
+    destroyedBeds: 0
+    deaths: 3
+  a7ee6b84-cd7e-4335-b1a9-f92b86220013:
+    kills: 0
+    wins: 2
+    score: 200
+    loses: 0
+    name: FleeingComb2243
+    destroyedBeds: 0
+    deaths: 5
+  1a638578-8f21-46ca-9e8a-d3232b7795fb:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Szicor
+    destroyedBeds: 0
+    deaths: 0
+  84e65040-a443-428e-8942-7686b0bd360d:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Deltric
+    destroyedBeds: 0
+    deaths: 0
+  b191dbfd-b6fe-4669-a948-c0398ef08a7d:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: M0F
+    destroyedBeds: 0
+    deaths: 0
+  7f4d50b1-37d2-482f-b981-c21619b8d628:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Pikachu
+    destroyedBeds: 0
+    deaths: 0
+  57d2608e-b2db-4a47-94a6-02565d5a9a1a:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: JDawesome23
+    destroyedBeds: 0
+    deaths: 0
+  694597af-da7d-4f5e-87ae-1acd04cc9f0f:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: EndaeLIVE
+    destroyedBeds: 0
+    deaths: 0
+  3a726b04-91d9-41f6-baad-2dca7c869184:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: JackbbFan
+    destroyedBeds: 0
+    deaths: 2
+  fba8f1f5-ca21-4d04-8140-9375dbc5706e:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: DJLKO
+    destroyedBeds: 0
+    deaths: 0
+  109befac-8ed9-41f2-bfd0-8815672a78ac:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: defara
+    destroyedBeds: 0
+    deaths: 0
+  da4e2704-10cc-420a-9185-a29aa622923d:
+    kills: 0
+    wins: 0
+    score: 5
+    loses: 0
+    name: katoneimoidia
+    destroyedBeds: 0
+    deaths: 1
+  df53a74e-9635-4987-98d1-24ce0a8f34a4:
+    kills: 1
+    wins: 0
+    score: 50
+    loses: 1
+    name: AciDicBliTzz
+    destroyedBeds: 0
+    deaths: 2
+  32fbf256-dde1-4067-bc47-17256509e172:
+    kills: 0
+    wins: 1
+    score: 260
+    loses: 0
+    name: 7ing
+    destroyedBeds: 0
+    deaths: 2
+  5237b4b7-5eed-421d-a43f-0e4968e69207:
+    kills: 14
+    wins: 0
+    score: 310
+    loses: 1
+    name: hannahxxrose
+    destroyedBeds: 0
+    deaths: 2
+  a3f1facb-9b5e-4a53-a0e2-4501146b2d18:
+    kills: 0
+    wins: 1
+    score: 265
+    loses: 0
+    name: _Lizena_
+    destroyedBeds: 0
+    deaths: 3
+  645701d1-6923-4fd0-8894-794a18784d3e:
+    kills: 0
+    wins: 1
+    score: 250
+    loses: 0
+    name: ChristineNgo
+    destroyedBeds: 0
+    deaths: 0
+  57f5699d-df25-4df4-aac3-405eb6177e6a:
+    kills: 1
+    wins: 1
+    score: 335
+    loses: 0
+    name: Rekt_DJ
+    destroyedBeds: 0
+    deaths: 3
+  ce8249a3-6040-4a03-a4a8-129a9ea4569c:
+    kills: 320
+    wins: 32
+    score: 20695
+    loses: 112
+    name: _DarkWarrior_
+    destroyedBeds: 123
+    deaths: 554
+  889812bb-8343-47c9-9c8f-92bc64a8c8bf:
+    kills: 3
+    wins: 1
+    score: 465
+    loses: 4
+    name: FatahBisa
+    destroyedBeds: 1
+    deaths: 10
+  0d63a19a-9af7-4e7e-a21e-4138fae2635b:
+    kills: 3
+    wins: 1
+    score: 320
+    loses: 0
+    name: Caplann
+    destroyedBeds: 0
+    deaths: 2
+  f1e47f01-0c1a-44f4-85a7-177484fb3e9a:
+    kills: 0
+    wins: 1
+    score: 260
+    loses: 0
+    name: ImJustMelo
+    destroyedBeds: 0
+    deaths: 2
+  f6cc4e6a-6839-4a3e-b6c2-6417c6d7be0f:
+    kills: 1
+    wins: 1
+    score: 325
+    loses: 0
+    name: blwoomi
+    destroyedBeds: 0
+    deaths: 1
+  d5997185-df76-4c7d-9a81-d3602f86c3e3:
+    kills: 0
+    wins: 1
+    score: 260
+    loses: 0
+    name: carvhes
+    destroyedBeds: 0
+    deaths: 2
+  20a38a8d-a667-469c-8777-07f86d2ac4f9:
+    kills: 0
+    wins: 1
+    score: 250
+    loses: 0
+    name: GlacierStudios
+    destroyedBeds: 0
+    deaths: 0
+  6ee3b8ec-0c8d-46e8-8cf1-24a88f07854c:
+    kills: 0
+    wins: 1
+    score: 250
+    loses: 0
+    name: Honey_Goat
+    destroyedBeds: 0
+    deaths: 0
+  39c54fb2-eca5-4da0-a10e-915e6462a3f1:
+    kills: 0
+    wins: 1
+    score: 255
+    loses: 0
+    name: Luislolz
+    destroyedBeds: 0
+    deaths: 1
+  1acc7383-954b-481a-9389-d73c20efc494:
+    kills: 0
+    wins: 1
+    score: 260
+    loses: 0
+    name: neelani
+    destroyedBeds: 0
+    deaths: 2
+  56263287-144b-42c0-839b-0192300d42fb:
+    kills: 0
+    wins: 1
+    score: 260
+    loses: 0
+    name: LillyCharlotte
+    destroyedBeds: 0
+    deaths: 2
+  4ddb517d-84d5-4bd1-aea0-5437a35bd0f9:
+    kills: 1
+    wins: 1
+    score: 275
+    loses: 0
+    name: Aethema
+    destroyedBeds: 0
+    deaths: 1
+  9136fda5-13e6-4cd0-8043-b26f5822fd88:
+    kills: 0
+    wins: 1
+    score: 250
+    loses: 0
+    name: SeniorMarigold
+    destroyedBeds: 0
+    deaths: 0
+  60ae8bf0-fd15-4acc-863a-0b45c5e0a5c3:
+    kills: 0
+    wins: 1
+    score: 330
+    loses: 0
+    name: Iggy_Tea
+    destroyedBeds: 1
+    deaths: 1
+  63d9d7b2-a917-4a34-bd2c-14a816213393:
+    kills: 0
+    wins: 1
+    score: 260
+    loses: 0
+    name: Lumier
+    destroyedBeds: 0
+    deaths: 2
+  355d676d-d5fd-4242-a726-804d28ba1be2:
+    kills: 0
+    wins: 1
+    score: 265
+    loses: 0
+    name: moonchld_ii
+    destroyedBeds: 0
+    deaths: 3
+  a64607a8-c25d-4aeb-a459-706a0f19cf94:
+    kills: 0
+    wins: 1
+    score: 255
+    loses: 0
+    name: SpaceDestroyerSH
+    destroyedBeds: 0
+    deaths: 1
+  852b8cc0-44c4-4b57-baec-305a4b1c9269:
+    kills: 0
+    wins: 1
+    score: 265
+    loses: 0
+    name: Adonis2
+    destroyedBeds: 0
+    deaths: 3
+  9fabdd33-cb30-448c-875b-c2e8af423002:
+    kills: 0
+    wins: 1
+    score: 260
+    loses: 0
+    name: ChocoSammii
+    destroyedBeds: 0
+    deaths: 2
+  040a2bb4-2e51-4db2-be6f-c11db037199e:
+    kills: 0
+    wins: 1
+    score: 260
+    loses: 0
+    name: rattleboness
+    destroyedBeds: 0
+    deaths: 2
+  80eb609d-8bbb-4164-b3d1-92fe01e94c63:
+    kills: 0
+    wins: 1
+    score: 260
+    loses: 0
+    name: Kenne432
+    destroyedBeds: 0
+    deaths: 2
+  f806c3df-38f0-4957-904e-94a5260c16ce:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Nitro2989
+    destroyedBeds: 0
+    deaths: 0
+  8e0b3810-1b31-40b6-a2d1-7c8518f957b9:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: _Skooter_
+    destroyedBeds: 0
+    deaths: 0
+  3c53f306-3500-41ba-a3b7-f82f740163ac:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Vall0ws
+    destroyedBeds: 0
+    deaths: 0
+  30e5fa79-5b0a-40ca-b1dc-231ddb622a08:
+    kills: 10
+    wins: 0
+    score: 930
+    loses: 13
+    name: Grover_U
+    destroyedBeds: 3
+    deaths: 47
+  814bec2b-6c03-4b61-96cc-0ed61789a874:
+    kills: 1
+    wins: 0
+    score: 180
+    loses: 3
+    name: MrYeet__
+    destroyedBeds: 1
+    deaths: 14
+  3029c5a5-9050-4118-960c-a6d835e4aaf3:
+    kills: 113
+    wins: 9
+    score: 7530
+    loses: 52
+    name: Jonnyzistic
+    destroyedBeds: 48
+    deaths: 187
+  c1b274a8-35e1-4cb7-96ae-999747e7d306:
+    kills: 6
+    wins: 0
+    score: 315
+    loses: 3
+    name: Fight_and_Build
+    destroyedBeds: 1
+    deaths: 12
+  d409f7a2-a344-49f3-8b7d-5a6891d52b89:
+    kills: 3
+    wins: 0
+    score: 45
+    loses: 0
+    name: Flamify
+    destroyedBeds: 0
+    deaths: 4
+  65120a2c-c367-48d6-a47b-42f3f5a56f5d:
+    kills: 2
+    wins: 0
+    score: 45
+    loses: 1
+    name: peterpanfan16
+    destroyedBeds: 0
+    deaths: 6
+  6a11ab62-c0cf-4710-b1ca-1ffa4bfd05ee:
+    kills: 11
+    wins: 0
+    score: 635
+    loses: 8
+    name: stepanJBC
+    destroyedBeds: 5
+    deaths: 45
+  bbd553c8-585f-449c-b5c4-4990c39b66f2:
+    kills: 38
+    wins: 4
+    score: 1855
+    loses: 9
+    name: Superman100
+    destroyedBeds: 9
+    deaths: 49
+  3bc0fff5-35f7-420e-b3d6-e57152437ae6:
+    kills: 9
+    wins: 0
+    score: 390
+    loses: 7
+    name: Distopher
+    destroyedBeds: 2
+    deaths: 12
+  a4fcd35d-6614-42e7-9505-8d8854b59c2e:
+    kills: 10
+    wins: 0
+    score: 720
+    loses: 23
+    name: __owlgod__
+    destroyedBeds: 4
+    deaths: 52
+  98bb8344-cb34-45aa-be41-5bb9867847a1:
+    kills: 0
+    wins: 0
+    score: 80
+    loses: 2
+    name: NotH0tdog
+    destroyedBeds: 1
+    deaths: 7
+  eac8a720-0249-4072-a971-b35d9707e25f:
+    kills: 3
+    wins: 0
+    score: 185
+    loses: 1
+    name: SavageTaiga
+    destroyedBeds: 2
+    deaths: 15
+  f145aa2f-aac9-46a4-84d3-bbdb313f4968:
+    kills: 4
+    wins: 0
+    score: 260
+    loses: 5
+    name: MrAnu
+    destroyedBeds: 2
+    deaths: 9
+  f16af4ca-a5df-4b72-8c5c-5cfde8c60e5d:
+    kills: 5
+    wins: 0
+    score: 395
+    loses: 8
+    name: yogitommymc
+    destroyedBeds: 3
+    deaths: 23
+  b71ae542-d31e-4537-a9c9-b6ec6a74c607:
+    kills: 1
+    wins: 0
+    score: 195
+    loses: 2
+    name: The_Great_Raptor
+    destroyedBeds: 3
+    deaths: 5
+  28655168-f88d-4999-aef2-92ad83dbe3df:
+    kills: 12
+    wins: 10
+    score: 2315
+    loses: 9
+    name: Tower
+    destroyedBeds: 8
+    deaths: 21
+  3b824797-c04c-4483-8060-5a2abf0246e6:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Stachu2173
+    destroyedBeds: 0
+    deaths: 0
+  3068ecf6-d6df-4621-92f0-196a206e28f7:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: mathfactsfun
+    destroyedBeds: 0
+    deaths: 0
+  2a8b65eb-8d40-414d-b063-ed7cbcade766:
+    kills: 60
+    wins: 7
+    score: 2465
+    loses: 6
+    name: pvpUS
+    destroyedBeds: 10
+    deaths: 83
+  6eb3cb95-64ef-4797-8f6e-5bc2f2b39a58:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: Ofercuz
+    destroyedBeds: 0
+    deaths: 0
+  52e6ddc8-85f5-4ee9-a55a-e56f50807cd1:
+    kills: 6
+    wins: 0
+    score: 205
+    loses: 1
+    name: VortexTheDragon
+    destroyedBeds: 2
+    deaths: 9
+  c67f9e26-810b-42c0-91ac-9212731cf64a:
+    kills: 2
+    wins: 0
+    score: 95
+    loses: 1
+    name: KF1387
+    destroyedBeds: 1
+    deaths: 5
+  b6448ed5-f96c-4708-a9dc-d204f11b24a9:
+    kills: 10
+    wins: 0
+    score: 460
+    loses: 4
+    name: MuhammadAzri_ID
+    destroyedBeds: 4
+    deaths: 15
+  e66fc821-0bf5-45dd-a2dd-6e40d76c0a19:
+    kills: 5
+    wins: 0
+    score: 130
+    loses: 2
+    name: FizzyIsBusy
+    destroyedBeds: 0
+    deaths: 21
+  b92e2e59-deac-4cfe-848b-bde56b32eeb0:
+    kills: 34
+    wins: 3
+    score: 1720
+    loses: 34
+    name: Nisika
+    destroyedBeds: 6
+    deaths: 102
+  d1608e3f-4b7d-47f0-9795-3da4a4ea5b81:
+    kills: 1
+    wins: 0
+    score: 30
+    loses: 1
+    name: itztutlzlol
+    destroyedBeds: 0
+    deaths: 5
+  5cb720f1-7bb6-4625-a9f8-498886a91903:
+    kills: 12
+    wins: 1
+    score: 665
+    loses: 4
+    name: cinika1
+    destroyedBeds: 5
+    deaths: 10
+  5dc65c68-2e8c-49a9-ab38-af7f142f46b5:
+    kills: 1
+    wins: 0
+    score: 90
+    loses: 0
+    name: NotWTap
+    destroyedBeds: 1
+    deaths: 0
+  dcff21ea-f59f-4ea7-a307-56d8204ce067:
+    kills: 3
+    wins: 1
+    score: 360
+    loses: 6
+    name: nylite
+    destroyedBeds: 0
+    deaths: 15
+  3e008f65-0648-40bd-8212-03b133269320:
+    kills: 30
+    wins: 3
+    score: 1765
+    loses: 16
+    name: TypicWolf3629
+    destroyedBeds: 10
+    deaths: 58
+  d904ad7e-60e7-4e21-bd4e-c64173e9ce44:
+    kills: 3
+    wins: 1
+    score: 305
+    loses: 4
+    name: Keanoes
+    destroyedBeds: 1
+    deaths: 12
+  07192bfd-10a3-45a6-beec-161c8a740f15:
+    kills: 19
+    wins: 0
+    score: 690
+    loses: 12
+    name: HomeLikeLama64
+    destroyedBeds: 3
+    deaths: 41
+  65b36eef-439b-4271-acbb-97e592100c30:
+    kills: 0
+    wins: 1
+    score: 145
+    loses: 3
+    name: WolfyePlayz
+    destroyedBeds: 0
+    deaths: 27
+  6f5a5547-2a4a-43ff-bb06-9f19ca650b55:
+    kills: 0
+    wins: 0
+    score: 15
+    loses: 1
+    name: CountGangrene
+    destroyedBeds: 0
+    deaths: 1
+  75e3fe08-46ce-43a3-bd97-2bb7028b1089:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: marcelc1009
+    destroyedBeds: 0
+    deaths: 3
+  110b5609-9516-4be2-8fbb-657cfe8e74e7:
+    kills: 0
+    wins: 0
+    score: 0
+    loses: 0
+    name: aironbajron
+    destroyedBeds: 0
+    deaths: 1
+  08ab8703-fb3a-41d5-8b4d-a91a681f66ee:
+    kills: 18
+    wins: 0
+    score: 555
+    loses: 4
+    name: shwabb
+    destroyedBeds: 3
+    deaths: 27
+  0da85608-299d-4bb9-b5ef-4bcf086ae270:
+    kills: 11
+    wins: 0
+    score: 250
+    loses: 4
+    name: xBudgie
+    destroyedBeds: 0
+    deaths: 15
+  1f682fc9-cca5-4c4c-869c-786b137380c1:
+    kills: 8
+    wins: 0
+    score: 205
+    loses: 4
+    name: Rilly
+    destroyedBeds: 0
+    deaths: 22
+  e009ceb9-1984-4978-aa8e-246125ce4abd:
+    kills: 32
+    wins: 2
+    score: 1225
+    loses: 3
+    name: sweatgod
+    destroyedBeds: 7
+    deaths: 20
+  cd7d1f16-a6df-49cb-b095-51dd3a7f82d9:
+    kills: 10
+    wins: 0
+    score: 275
+    loses: 5
+    name: FinlayPacks
+    destroyedBeds: 0
+    deaths: 17
+  08c2f0b9-15a6-4259-af98-6666b1461cad:
+    kills: 11
+    wins: 1
+    score: 425
+    loses: 4
+    name: JthaloTime
+    destroyedBeds: 1
+    deaths: 9
+  1fd3b48a-1944-4804-a977-0471a5bb0494:
+    kills: 10
+    wins: 2
+    score: 570
+    loses: 3
+    name: 1eaf
+    destroyedBeds: 2
+    deaths: 26
+  e8f3ed14-1b66-4f50-abf9-6e31debdd2c6:
+    kills: 7
+    wins: 0
+    score: 290
+    loses: 4
+    name: wadis
+    destroyedBeds: 2
+    deaths: 30
+  b984854b-5049-4972-afbe-5d3c5855e7fe:
+    kills: 12
+    wins: 0
+    score: 365
+    loses: 4
+    name: Infernally
+    destroyedBeds: 1
+    deaths: 21
+  d4252acb-8199-49a6-aa39-e9785993f784:
+    kills: 9
+    wins: 0
+    score: 320
+    loses: 4
+    name: Defone
+    destroyedBeds: 2
+    deaths: 20
+  e2f69d3e-e11d-4870-81b6-08ed6bdf09c0:
+    kills: 9
+    wins: 2
+    score: 705
+    loses: 3
+    name: Rackals
+    destroyedBeds: 4
+    deaths: 23
+  e6e1a347-59e0-4171-92cc-be7606b3cbf4:
+    kills: 6
+    wins: 0
+    score: 355
+    loses: 6
+    name: _Phoenic
+    destroyedBeds: 2
+    deaths: 22
+  8b72b004-ad76-42dd-be94-ddc492728781:
+    kills: 19
+    wins: 3
+    score: 1110
+    loses: 5
+    name: smhTony
+    destroyedBeds: 7
+    deaths: 24
+  42ade20c-bc8e-48f5-b333-8efaa61d45e2:
+    kills: 1
+    wins: 0
+    score: 75
+    loses: 4
+    name: TwinsLO
+    destroyedBeds: 0
+    deaths: 16
+  697948dd-a797-495b-8127-7c848fca36ac:
+    kills: 1
+    wins: 0
+    score: 250
+    loses: 4
+    name: TigerG2017
+    destroyedBeds: 3
+    deaths: 4

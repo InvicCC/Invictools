@@ -1,0 +1,25 @@
+lastAccountName: Phalipsio
+timestamps:
+  login: 1654646598534
+  logout: 1654652837116
+  lastteleport: 1648612897738
+  kits:
+    fw: 1651459140404
+    elytra: 1648172636419
+    dragon: 1647993469612
+    fireworks: 1648494604130
+ipAddress: 51.161.99.6
+logoutlocation:
+  world: bwlobby
+  x: 235.7537553541884
+  y: 128.0
+  z: 251.96412897476452
+  yaw: -59.253723
+  pitch: 25.71917
+lastlocation:
+  world: bwlobby
+  x: 288.6341229320293
+  y: 110.30301974435339
+  z: 246.40397805832126
+  yaw: -264.4363
+  pitch: 49.489365

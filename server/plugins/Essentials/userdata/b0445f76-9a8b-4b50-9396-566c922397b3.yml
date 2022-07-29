@@ -1,0 +1,22 @@
+lastAccountName: Totoeevee
+timestamps:
+  login: 1636833251125
+  lastteleport: 1636833191558
+  kits:
+    fw: 1636832964709
+  logout: 1636833326759
+ipAddress: 50.39.105.11
+lastlocation:
+  world: bwlobby
+  x: 250.65432703150503
+  y: 127.0
+  z: 250.48614289105498
+  yaw: -90.45609
+  pitch: -11.980772
+logoutlocation:
+  world: bwlobby
+  x: 230.07499998807907
+  y: 115.0
+  z: 245.35903521334433
+  yaw: 284.83905
+  pitch: 32.422436

@@ -1,0 +1,38 @@
+data:
+  - stack: "IRON_CHESTPLATE;1;§bProtection;§7Increases your Protection level."
+    column: 2
+    price: 4 of diamond
+    properties: protection
+
+  - stack: "IRON_SWORD;1;§bSharpness;§7Upgrades your sharpness level."
+    column: 1
+    price: 4 of diamond
+    properties: sharpness
+
+  - stack: "GOLDEN_PICKAXE;1;§bEfficiency;§7Increases your efficiency level."
+    price: 4 of diamond
+    column: 3
+    properties: efficiency
+
+  - stack: "BEACON;1;§bHeal Pool;§7Gives you Regeneration at your base."
+    column: 4
+    row: 1
+    properties: healpool
+    price: 2 of diamond
+
+  - stack: "LEATHER;1;§bTraps;§eClick to view!"
+    column: 5
+    items:
+      - price: 1 of diamond
+        skip: 1
+        properties: blindtrap
+        stack:
+          type: ENDER_EYE
+          display-name: "§bBlindness Trap"
+
+      - price: 1 of diamond
+        skip: 1
+        properties: minertrap
+        stack:
+          type: STONE_PICKAXE
+          display-name: "§bMining Fatigue trap"

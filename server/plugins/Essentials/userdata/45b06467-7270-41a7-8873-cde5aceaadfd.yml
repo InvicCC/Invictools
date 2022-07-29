@@ -1,0 +1,22 @@
+lastAccountName: mantyme
+timestamps:
+  login: 1643334621274
+  kits:
+    fw: 1643332765633
+  lastteleport: 1643335372157
+  logout: 1643336852068
+ipAddress: 50.5.32.244
+lastlocation:
+  world: bwlobby
+  x: 262.8593156540654
+  y: 129.0
+  z: 251.22466173393536
+  yaw: -94.20895
+  pitch: 13.900807
+logoutlocation:
+  world: bwlobby
+  x: 263.8711946316277
+  y: 128.0
+  z: 233.01688674825837
+  yaw: 56.652435
+  pitch: 28.852892

@@ -1,0 +1,22 @@
+lastAccountName: Jibstrux
+timestamps:
+  login: 1643333676998
+  lastteleport: 1643333854898
+  kits:
+    fw: 1643333859949
+  logout: 1643334087811
+ipAddress: 73.4.152.240
+lastlocation:
+  world: bwlobby
+  x: 236.3378399084181
+  y: 128.41999998688698
+  z: 251.78493034641835
+  yaw: -109.84761
+  pitch: 10.9275875
+logoutlocation:
+  world: bwlobby
+  x: 261.5
+  y: 129.0
+  z: 250.5
+  yaw: 270.0
+  pitch: 0.0

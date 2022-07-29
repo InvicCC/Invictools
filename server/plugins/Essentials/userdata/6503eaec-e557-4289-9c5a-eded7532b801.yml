@@ -1,0 +1,22 @@
+lastAccountName: JENSENS06
+timestamps:
+  login: 1634153480265
+  lastteleport: 1634153326215
+  logout: 1634153664837
+  kits:
+    fw: 1634152449710
+ipAddress: 86.23.84.9
+lastlocation:
+  world: bwlobby
+  x: 82.86763176317606
+  y: 26.660613880086206
+  z: 281.8601282618824
+  yaw: -193.76427
+  pitch: -58.991882
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: -115.117424
+  pitch: -8.276491

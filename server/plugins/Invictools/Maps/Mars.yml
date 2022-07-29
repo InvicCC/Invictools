@@ -1,0 +1,31 @@
+World: MarsB
+Conversion: mars1929-solo-4b85-aa1b-e1d08c995ead
+Lobby:
+  name: default
+  effect: strike
+Spawner:
+  island:
+    x: -58.5
+    y: 47
+    z: -112.5
+  mid:
+    x: 0.5
+    y: 83.5
+    z: 0.5
+LuckySpawners:
+  0:
+    x: 0.5
+    y: 60
+    z: -59.5
+  1:
+    x: -59.5
+    y: 60
+    z: 0.5
+  2:
+    x: 0.5
+    y: 60
+    z: 59.5
+  3:
+    x: 59.5
+    y: 60
+    z: 0.5

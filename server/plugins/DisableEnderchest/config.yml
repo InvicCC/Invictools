@@ -1,0 +1,24 @@
+# DisableEnderchest
+
+# DisableEnderchest
+ErrorMessage: '&cThe enderchest is not allowed here!'
+DisabledWorlds:
+- OasisB
+- OasisBscen
+- MarsB
+- MarsBscen
+- Fusion
+- Fusionscen
+- Monastery
+- Tree
+- slipslide
+- Snowstorm
+- map1
+- map2
+- map3
+- map4
+- large
+- MarsFours
+- MegaShire
+- ocean
+- SnowThree

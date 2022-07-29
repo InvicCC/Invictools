@@ -1,0 +1,14 @@
+Username: legomanmi
+BedBreak: Lightning
+ProjTrail: 'null'
+KillEffect: 'null'
+VictoryDance: 'null'
+tracker: 9
+items:
+- ==: org.bukkit.inventory.ItemStack
+  v: 2586
+  type: WOODEN_PICKAXE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    Damage: 26

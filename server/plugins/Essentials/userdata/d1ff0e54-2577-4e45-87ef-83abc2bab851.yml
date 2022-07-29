@@ -1,0 +1,21 @@
+lastAccountName: keyman1
+timestamps:
+  login: 1636824178408
+  logout: 1636826251270
+  kits:
+    fw: 1636825631465
+ipAddress: 84.56.218.18
+lastlocation:
+  world: OasisbScen
+  x: 496.42472335409
+  y: 102.0
+  z: 504.2820828467533
+  yaw: -129.75536
+  pitch: 15.7152195
+logoutlocation:
+  world: bwlobby
+  x: 266.8695868555176
+  y: 128.0
+  z: 252.75361883774212
+  yaw: -216.57927
+  pitch: 10.684973

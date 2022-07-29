@@ -1,0 +1,25 @@
+lastAccountName: Rackals
+timestamps:
+  login: 1654122809241
+  lastteleport: 1654121951883
+  kits:
+    fw: 1654124609003
+    elytra: 1654114416826
+    boots: 1654117316372
+    dragon: 1654113858528
+  logout: 1654124807965
+ipAddress: 51.161.38.237
+lastlocation:
+  world: bwlobby
+  x: 224.56288725087924
+  y: 1.0
+  z: 258.48702210165
+  yaw: 55.711437
+  pitch: -19.446915
+logoutlocation:
+  world: bwlobby
+  x: 250.36786196719993
+  y: 127.0
+  z: 257.49349639892864
+  yaw: -86.531494
+  pitch: -18.234066

@@ -1,0 +1,22 @@
+lastAccountName: Kaizo
+timestamps:
+  login: 1643671939139
+  logout: 1643672061303
+  lastteleport: 1643331873497
+  kits:
+    fw: 1643331838998
+ipAddress: 138.207.199.32
+logoutlocation:
+  world: bwlobby
+  x: 235.18058012131007
+  y: 128.0
+  z: 246.0504916156265
+  yaw: -178.57498
+  pitch: 20.267788
+lastlocation:
+  world: bwlobby
+  x: 235.531869868677
+  y: 128.1212968405392
+  z: 252.303089219133
+  yaw: 65.77826
+  pitch: 44.937344

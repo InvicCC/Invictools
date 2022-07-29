@@ -1,0 +1,31 @@
+World: map4
+Conversion: castle12-solo-4cfb-9177-4c9d5ea0375d
+Lobby:
+  name: default
+  effect: strike
+Spawner:
+  island:
+    x: 107.5
+    y: 55
+    z: -27.5
+  mid:
+    x: 0.5
+    y: 51
+    z: 0.5
+LuckySpawners:
+  0:
+    x: 24.5
+    y: 46
+    z: 23.5   
+  1:
+    x: -22.5
+    y: 46
+    z: 24.5
+  2:     
+    x: -23.5
+    y: 46
+    z: -22.5
+  3:
+    x: 23.5
+    y: 46
+    z: -23.5

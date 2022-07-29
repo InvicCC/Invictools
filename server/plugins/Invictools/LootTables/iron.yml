@@ -1,0 +1,25 @@
+rainfall:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: IRON_INGOT
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: IRON_INGOT
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: IRON_INGOT
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: IRON_INGOT
+    amount: 4
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: IRON_INGOT
+    amount: 6
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: IRON_INGOT
+    amount: 3

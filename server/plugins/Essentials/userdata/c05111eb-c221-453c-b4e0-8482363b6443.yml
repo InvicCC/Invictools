@@ -1,0 +1,22 @@
+lastAccountName: Evanthemight
+timestamps:
+  login: 1636834270611
+  kits:
+    fw: 1636835246620
+  lastteleport: 1636835226780
+  logout: 1636836549875
+ipAddress: 47.40.74.107
+lastlocation:
+  world: bwlobby
+  x: 216.82148207050005
+  y: 123.29566555349935
+  z: 231.30000001192093
+  yaw: 178.41252
+  pitch: 67.75638
+logoutlocation:
+  world: bwlobby
+  x: 216.79299220249348
+  y: -216.64862520973531
+  z: 230.46676262701035
+  yaw: -187.06348
+  pitch: 68.065155

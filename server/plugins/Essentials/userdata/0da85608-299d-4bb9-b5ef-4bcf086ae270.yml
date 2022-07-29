@@ -1,0 +1,22 @@
+lastAccountName: xBudgie
+timestamps:
+  login: 1654115919132
+  kits:
+    fw: 1654113863898
+  lastteleport: 1654113879196
+  logout: 1654121686251
+ipAddress: 51.161.99.28
+lastlocation:
+  world: bwlobby
+  x: 244.2849508822917
+  y: 128.0
+  z: 247.5558194758271
+  yaw: -185.82721
+  pitch: 41.7228
+logoutlocation:
+  world: bwlobby
+  x: 253.42594314470261
+  y: 128.0
+  z: 262.44225002040076
+  yaw: -139.88174
+  pitch: 6.231635

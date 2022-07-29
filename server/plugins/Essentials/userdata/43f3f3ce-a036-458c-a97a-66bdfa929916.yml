@@ -1,0 +1,22 @@
+lastAccountName: eulb99
+timestamps:
+  login: 1636834795697
+  kits:
+    fw: 1636836113648
+  logout: 1636836513322
+  lastteleport: 1636836284193
+ipAddress: 99.255.86.120
+lastlocation:
+  world: bwlobby
+  x: 228.02127004343845
+  y: 97.19989002729221
+  z: 247.62371235662653
+  yaw: 113.07818
+  pitch: 76.688446
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: 120.80472
+  pitch: -8.276491

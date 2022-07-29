@@ -1,0 +1,25 @@
+lastAccountName: Psycho2Chipmunk
+timestamps:
+  login: 1638314506588
+  lastteleport: 1638324352289
+  kits:
+    fw: 1638319197487
+    elytra: 1638322200833
+    boots: 1638317981908
+    dragon: 1638314964092
+  logout: 1638324435911
+ipAddress: 98.156.125.17
+lastlocation:
+  world: bwlobby
+  x: 222.3936934625308
+  y: 99.0227455592185
+  z: 260.6394181240079
+  yaw: -312.0776
+  pitch: 17.998213
+logoutlocation:
+  world: bwlobby
+  x: 255.27984959906922
+  y: 129.0
+  z: 245.66027260935778
+  yaw: 17.285587
+  pitch: 14.612597

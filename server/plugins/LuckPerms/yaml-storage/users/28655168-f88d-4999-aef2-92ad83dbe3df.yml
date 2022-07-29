@@ -1,0 +1,5 @@
+uuid: 28655168-f88d-4999-aef2-92ad83dbe3df
+name: Tower
+primary-group: gamemod
+parents:
+- gamemod

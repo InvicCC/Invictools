@@ -1,0 +1,21 @@
+lastAccountName: Sorday
+timestamps:
+  login: 1634154697507
+  logout: 1634155612596
+  kits:
+    fw: 1634155573367
+ipAddress: 73.250.179.182
+lastlocation:
+  world: bwlobby
+  x: 244.29426320669347
+  y: 128.79673560066868
+  z: 244.8180646766389
+  yaw: -302.50302
+  pitch: 20.582418
+logoutlocation:
+  world: bwlobby
+  x: 222.99174520946931
+  y: 129.0
+  z: 256.5840945013606
+  yaw: -321.34134
+  pitch: 20.158327

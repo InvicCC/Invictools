@@ -1,0 +1,26 @@
+[
+  {
+    "uuid": "e70c93eb-7ebe-4f5d-a251-17316e86a7a8",
+    "name": "unchargeableness",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "1cad43bc-c0f4-41a5-9872-36b8e29a7a83",
+    "name": "mayberry15",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "120a6ace-db7e-4774-9738-a76469f5f0a7",
+    "name": "Invictable",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "28655168-f88d-4999-aef2-92ad83dbe3df",
+    "name": "Tower",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  }
+]

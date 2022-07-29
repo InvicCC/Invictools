@@ -1,0 +1,8 @@
+name: invic
+permissions:
+- displayname.Invic
+- tag.invic
+- weight.1000
+prefixes:
+- '&b[&f&lInvic&b]&f ':
+    priority: 1000

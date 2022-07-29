@@ -1,0 +1,25 @@
+rainfall:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DEAD_BUSH
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DEAD_BUSH
+    amount: 3
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DEAD_BUSH
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DEAD_BUSH
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DEAD_BUSH
+    amount: 5
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DEAD_BUSH
+    amount: 2

@@ -1,0 +1,199 @@
+panels:
+  games:
+    perm: default
+    rows: 3
+    command: cosmetics
+    title: '&7&lMAP LIST'
+    sound-on-open: BLOCK_CHEST_OPEN
+    empty: AIR
+    item:
+      '0':
+        material: BARRIER
+        stack: 1
+        name: '&c&lNone'
+        lore:
+        - '&fLeft Click to unload npc'
+        - '&fRight Click to send all players to the npc'
+        commands:
+        - left= invictools setarena none
+        - right= minecraft:tp @a 261 129 250 270 0
+      '1':
+        material: YELLOW_STAINED_GLASS_PANE
+        stack: 1
+        name: '&e&lOasis'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Oasis
+        - right= bw alljoin Oasis
+      '2':
+        material: PURPLE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&9&lFusion'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Fusion
+        - right= bw alljoin Fusion
+      '3':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMonastery V1'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Monastery
+        - right= bw alljoin Monastery
+      '4':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMonastery V2'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena MonasteryV2
+        - right= bw alljoin MonasteryV2
+      '5':
+        material: RED_STAINED_GLASS_PANE
+        stack: 1
+        name: '&c&lMars'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Mars
+        - right= bw alljoin Mars
+      '6':
+        material: RED_STAINED_GLASS_PANE
+        stack: 1
+        name: '&c&lMars Fours'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena MarsFours
+        - right= bw alljoin MarsFours
+      '7':
+        material: GRAY_STAINED_GLASS_PANE
+        stack: 1
+        name: '&7&lCastle'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena castle
+        - right= bw alljoin castle
+      '8':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lSnowstorm'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Snowstorm
+        - right= bw alljoin Snowstorm
+      '9':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lSnowstorm Threes'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena SnowstormThrees
+        - right= bw alljoin SnowstormThrees
+      '10':
+        material: LIGHT_GRAY_STAINED_GLASS_PANE
+        stack: 1
+        name: '&7&lOlympus'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Olympus
+        - right= bw alljoin Olympus
+      '11':
+        material: YELLOW_STAINED_GLASS_PANE
+        stack: 1
+        name: '&e&lParadise'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Paradise
+        - right= bw alljoin Paradise
+      '12':
+        material: ORANGE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&5&lSculk'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Sculk
+        - right= bw alljoin Sculk
+      '13':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&b&lAtlantis'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Atlantis
+        - right= bw alljoin Atlantis
+      '14':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lSkylantis'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Skylantis
+        - right= bw alljoin Skylantis
+      '15':
+        material: ORANGE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&6&lMultiverse'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Multiverse
+        - right= bw alljoin Multiverse
+      '16':
+        material: YELLOW_STAINED_GLASS_PANE
+        stack: 1
+        name: '&e&lOasis Scenario'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena OasisScenario
+        - right= bw alljoin OasisScenario
+      '17':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: '&f&lSlipslide'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Slipslide
+        - right= bw alljoin Slipslide
+      '18':
+        material: GREEN_STAINED_GLASS_PANE
+        stack: 1
+        name: '&2&lTree'
+        lore:
+        - '&fLeft Click to load npc'
+        - '&fRight Click to send all players'
+        commands:
+        - left= invictools setarena Tree
+        - right= bw alljoin Tree

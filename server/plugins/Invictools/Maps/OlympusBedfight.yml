@@ -1,0 +1,38 @@
+World: bedfight
+GameType: bedfight
+Conversion: BFolympu-f888-4501-a764-8cbf21bcfe66
+WorldBorder: 260;50;270;0;DISABLED
+Void: 53
+Lobby:
+  name: Olympus
+  effect: strike
+Bedfight:
+  loadout: default
+  layers: END_STONE;BIRCH_PLANKS;STAINED_GLASS
+  #layers: SNOW_BLOCK;WOOL;STAINED_GLASS
+Spawner:
+  island:
+    x: 250.5
+    y: 67
+    z: .5
+  mid:
+    x: 250.5
+    y: 67
+    z: .5
+LuckySpawners:
+  0:
+    x: 241.5
+    y: 64
+    z: .5
+  1:
+    x: 259.5
+    y: 64
+    z: .5
+  2:
+    x: 250.5
+    y: 65
+    z: -45.5
+  3:
+    x: 250.5
+    y: 65
+    z: 45.5

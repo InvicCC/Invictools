@@ -1,0 +1,22 @@
+lastAccountName: suteki_
+timestamps:
+  login: 1636837385389
+  kits:
+    fw: 1636838035424
+  lastteleport: 1636838056191
+  logout: 1636838065990
+ipAddress: 68.48.75.105
+lastlocation:
+  world: bwlobby
+  x: 216.22152954241375
+  y: 111.87735470561792
+  z: 230.84999427058145
+  yaw: 177.9719
+  pitch: 46.193977
+logoutlocation:
+  world: bwlobby
+  x: 227.1831802448798
+  y: 116.0
+  z: 247.4502042447036
+  yaw: 130.62956
+  pitch: 12.857541

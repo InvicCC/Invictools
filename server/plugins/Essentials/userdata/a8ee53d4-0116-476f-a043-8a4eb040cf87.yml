@@ -1,0 +1,22 @@
+lastAccountName: ChargedX
+timestamps:
+  login: 1643333027999
+  kits:
+    fw: 1643334097799
+  lastteleport: 1643334095148
+  logout: 1643334418016
+ipAddress: 65.191.111.228
+lastlocation:
+  world: bwlobby
+  x: 236.9387057096712
+  y: 128.41999998688698
+  z: 253.68764021811793
+  yaw: 34.756794
+  pitch: 26.666574
+logoutlocation:
+  world: bwlobby
+  x: 267.0950186742573
+  y: 128.0
+  z: 258.30600335498883
+  yaw: -232.91913
+  pitch: 7.4237075

@@ -1,0 +1,127 @@
+data:
+
+-   stack: "TRIDENT;1;§b§lEnter the Aquatic Shop;§7water u doing"
+    column: center
+    row: 2
+    items:
+    - price: 8
+      price-type: "iron"
+      stack:
+        type: SAND
+        amount: 4
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          lore:
+           - "§7Place ontop of your tnt for underwater use"
+    - price: 16
+      price-type: "iron"
+      stack:
+        type: PRISMARINE
+        amount: 7
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          lore:
+           - "§7Expand your conduits range"
+    - price: 24
+      price-type: "iron"
+      stack:
+        type: SOUL_SAND
+        amount: 2
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          lore:
+           - "§7Quickly get to the surface"
+    - price: 24
+      price-type: "iron"
+      stack:
+        type: MAGMA_BLOCK
+        amount: 4
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          lore:
+           - "§7Take a breather"
+    - price: 4
+      price-type: "gold"
+      stack:
+        type: turtle_helmet
+        display-name: "§aTactical Scuba Gear"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            OXYGEN: 2
+    - price: 4
+      price-type: "gold"
+      stack:
+        type: turtle_helmet
+        display-name: "§aSpeedy Scuba Gear"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            DEPTH_STRIDER: 5
+    - price: 16
+      price-type: "emerald"
+      stack:
+        type: golden_helmet
+        display-name: "§eAdvanced Scuba Gear"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            OXYGEN: 3
+            WATER_WORKER: 1
+            DEPTH_STRIDER: 5
+    - price: 2
+      price-type: "emerald"
+      stack:
+        type: DOLPHIN_SPAWN_EGG
+        display-name: "§7§lDolphin Friend"
+        amount: 1
+    - price: 16
+      price-type: "gold"
+      stack:
+        type: TRIDENT
+        display-name: "§3§lRiptide Trident"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            RIPTIDE: 1
+          lore:
+           - "§7Takes damage as you use it!"
+    - price: 8
+      price-type: "emerald"
+      stack:
+        type: TRIDENT
+        display-name: "§3§lRiptide Trident^2"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            RIPTIDE: 5
+          lore:
+           - "§7Takes damage as you use it!"
+    - price: 16
+      price-type: "gold"
+      stack:
+        type: TRIDENT
+        display-name: "§e§lRanged Trident"
+        amount: 1
+        meta:
+          ==: ItemMeta
+          meta-type: UNSPECIFIC
+          enchants:
+            CHANNELING: 1
+            LOYALTY: 3
+          lore:
+           - "§7Sometimes strikes lightning but always comes back"

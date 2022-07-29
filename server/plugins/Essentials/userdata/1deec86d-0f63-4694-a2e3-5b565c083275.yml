@@ -1,0 +1,22 @@
+lastAccountName: conpro24
+timestamps:
+  login: 1644448236938
+  kits:
+    fw: 1643332741132
+  logout: 1644448735449
+  lastteleport: 1644448680689
+ipAddress: 51.161.99.59
+logoutlocation:
+  world: bwlobby
+  x: 261.98101988346747
+  y: 128.0
+  z: 254.3876154287243
+  yaw: 286.9284
+  pitch: 15.873194
+lastlocation:
+  world: bwlobby
+  x: 219.30378854254118
+  y: -156.39760032210899
+  z: 246.35266129097587
+  yaw: -262.002
+  pitch: -60.22071

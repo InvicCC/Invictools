@@ -1,0 +1,36 @@
+Hunted:
+  effect:
+    0:
+      name: "it killeffects INCREASE_DAMAGE 1 100 "
+    1:
+      name: "it killitems GOLDEN_APPLE 1 normal "
+  items:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DIAMOND_LEGGINGS
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DIAMOND_BOOTS
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DIAMOND_CHESTPLATE
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: SPECTRAL_ARROW
+    amount: 32
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: BOW
+    meta:
+      ==: ItemMeta
+      meta-type: UNSPECIFIC
+      display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Super Punch Bow"}],"text":""}'
+      lore:
+      - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Stay back!"}],"text":""}'
+      enchants:
+        ARROW_KNOCKBACK: 2
+Hunter:
+    

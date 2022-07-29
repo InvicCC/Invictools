@@ -1,0 +1,22 @@
+lastAccountName: QueenSnitch
+timestamps:
+  login: 1643332111345
+  lastteleport: 1643331927297
+  logout: 1643332261678
+  kits:
+    fw: 1643331745098
+ipAddress: 216.195.22.82
+lastlocation:
+  world: bwlobby
+  x: 250.70685069215696
+  y: 127.0
+  z: 250.4637568526242
+  yaw: -99.31706
+  pitch: -12.510912
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: 133.90858
+  pitch: -8.276491

@@ -1,0 +1,22 @@
+lastAccountName: egyptiancow
+timestamps:
+  login: 1641591156420
+  kits:
+    fw: 1641591410210
+  lastteleport: 1641591453152
+  logout: 1641592266461
+ipAddress: 69.180.211.102
+lastlocation:
+  world: bwlobby
+  x: 223.48675157722525
+  y: 105.87735470561789
+  z: 260.2338197804329
+  yaw: -56.00643
+  pitch: 0.16267586
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: -344.40427
+  pitch: -8.276491

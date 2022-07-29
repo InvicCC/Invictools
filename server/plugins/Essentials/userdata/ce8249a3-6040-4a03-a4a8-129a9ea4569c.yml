@@ -1,0 +1,28 @@
+lastAccountName: _DarkWarrior_
+timestamps:
+  login: 1654994991640
+  lastteleport: 1654989551394
+  logout: 1654994991505
+  kits:
+    fw: 1654635526922
+    elytra: 1654968638305
+    boots: 1653597391115
+    arrows: 1654989972640
+    dragon: 1654968550904
+    fireworks: 1654995096240
+ipAddress: 51.222.93.31
+lastlocation:
+  world: MegaShire
+  x: -8.088215106591555
+  y: 60.95891870624891
+  z: 3.551296864714447
+  yaw: -99.23009
+  pitch: 4.429871
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: 270.12405
+  pitch: -8.276491
+godmode: false

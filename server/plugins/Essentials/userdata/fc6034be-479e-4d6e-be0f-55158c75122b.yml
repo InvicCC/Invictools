@@ -1,0 +1,22 @@
+lastAccountName: WumboUnderscore
+timestamps:
+  login: 1644019928648
+  logout: 1644020172221
+  kits:
+    fw: 1644020129904
+  lastteleport: 1644020170826
+ipAddress: 51.222.93.18
+logoutlocation:
+  world: bwlobby
+  x: 236.02024596420827
+  y: 128.0
+  z: 250.54357590589694
+  yaw: 89.6344
+  pitch: -2.4627163
+lastlocation:
+  world: bwlobby
+  x: 200.8013962497608
+  y: 109.03918646823168
+  z: 273.72521884961276
+  yaw: -98.843475
+  pitch: -78.13686

@@ -1,0 +1,26 @@
+lastAccountName: LifelessNerd
+timestamps:
+  login: 1654983151703
+  lastteleport: 1654550642930
+  kits:
+    fw: 1654549387582
+    boots: 1653421139713
+    dragon: 1647718500534
+    fireworks: 1653687058945
+    tools: 1632083230283
+  logout: 1654986985635
+ipAddress: 51.161.99.37
+lastlocation:
+  world: bwlobby
+  x: 257.4019936093407
+  y: 128.0
+  z: 263.19272749641226
+  yaw: -110.52792
+  pitch: 9.334872
+logoutlocation:
+  world: MegaShire
+  x: -55.85370702043299
+  y: 68.75342325341578
+  z: -42.76620171577373
+  yaw: -88.420685
+  pitch: 13.3415

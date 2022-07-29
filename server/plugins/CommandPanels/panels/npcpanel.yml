@@ -1,0 +1,121 @@
+panels:
+  npcpanel:
+    perm: default
+    rows: 3
+    command: npcpanel
+    title: ' '
+    empty: BLACK_STAINED_GLASS_PANE
+    item:
+      '0':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '1':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '2':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '3':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '4':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '5':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '6':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '7':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '8':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '9':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '10':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '11':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '12':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '13':
+        material: RED_BED
+        stack: 1
+        name: '&b&lCLICK HERE TO PLAY'
+        lore:
+        - '&7Joins the active bedwars lobby'
+        commands:
+        - invictools gamejoiner
+        - cpc
+      '14':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '15':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '16':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '17':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '18':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '19':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '20':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '21':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '22':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '23':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '24':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '25':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '26':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '

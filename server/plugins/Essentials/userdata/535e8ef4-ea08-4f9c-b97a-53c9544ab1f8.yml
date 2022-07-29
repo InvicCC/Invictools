@@ -1,0 +1,22 @@
+lastAccountName: Sqwildy
+timestamps:
+  login: 1636825436028
+  logout: 1636827274608
+  lastteleport: 1636826905222
+  kits:
+    fw: 1636825454895
+ipAddress: 73.242.91.5
+lastlocation:
+  world: bwlobby
+  x: 259.7788871722705
+  y: 128.0
+  z: 247.14194522955432
+  yaw: 356.85388
+  pitch: 11.272767
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: 1.1515278
+  pitch: -8.276491

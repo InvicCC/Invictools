@@ -1,0 +1,22 @@
+lastAccountName: TUCD_
+timestamps:
+  login: 1644020087281
+  lastteleport: 1631129077312
+  logout: 1644020209933
+  kits:
+    fw: 1644019823562
+ipAddress: 51.77.31.46
+lastlocation:
+  world: bwlobby
+  x: 207.08247820640756
+  y: 53.130266742359666
+  z: 270.05868521340176
+  yaw: -133.64154
+  pitch: 46.99396
+logoutlocation:
+  world: bwlobby
+  x: 249.3034437875244
+  y: 127.0
+  z: 250.86832501062509
+  yaw: -99.8645
+  pitch: 2.3613236

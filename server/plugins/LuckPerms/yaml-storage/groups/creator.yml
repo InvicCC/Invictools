@@ -1,0 +1,16 @@
+name: creator
+permissions:
+- bw.cmd.join
+- bw.disable.joinall:
+    value: false
+- displayname.Creator
+- essentials.list
+- essentials.tps
+- invic.firestick
+- tag.creator
+- weight.100
+parents:
+- default
+prefixes:
+- '&c[&fCREATOR&c]&f ':
+    priority: 100

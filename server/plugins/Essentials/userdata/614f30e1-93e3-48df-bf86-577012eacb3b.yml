@@ -1,0 +1,28 @@
+lastAccountName: BitSquidds_maid
+timestamps:
+  login: 1654987899924
+  lastteleport: 1653686984255
+  kits:
+    fw: 1653686855172
+    color: 1645225481983
+    elytra: 1654983637327
+    boots: 1653678618820
+    dragon: 1654983627138
+    fireworks: 1654983618283
+  logout: 1654993169078
+ipAddress: 51.89.81.59
+lastlocation:
+  world: bwlobby
+  x: 240.30000001192093
+  y: 128.0
+  z: 269.7458350147531
+  yaw: 96.40802
+  pitch: 27.335636
+logoutlocation:
+  world: MegaShire
+  x: -320.1983041101074
+  y: 164.41680469154315
+  z: -157.6051361466443
+  yaw: -25.21585
+  pitch: 25.813194
+godmode: false

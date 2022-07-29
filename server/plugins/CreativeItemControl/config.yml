@@ -1,0 +1,125 @@
+# Rate limiting (defaults to disabled)
+# Limits item clicks to rateLimit per rateLimitTime.
+# Example below for limiting to 100 item clicks or drops per 60 seconds.
+#
+# rateLimit: 10
+# rateLimitTime: 60
+
+# Custom blacklists
+#
+# You can name these whatever you want, a permission with the appropriate name
+# will be created automatically.
+#
+# The lists below serve only as an example, feel free to rename, remove or
+# add lists according to your server's needs.
+
+blacklist:
+  basic:
+    items:
+      - 'minecraft:barrier'
+      - 'minecraft:water_bucket'
+      - 'minecraft:flint_and_steel'
+      - 'minecraft:monster_egg'
+  spawner:
+    items:
+      - 'minecraft:mob_spawner'
+  #     - 'minecraft:spawn_egg'
+  limited:
+    items:
+      - 'minecraft:lava_bucket'
+      - 'minecraft:tnt'
+      - 'minecraft:tnt_minecart'
+
+# Whitelist - items to allow arbitrary nbt on.
+# Enchanted items may not be safe e.g. looting 32000.
+whitelist:
+  item0:
+    type: 'minecraft:diamond_sword'
+    tags:
+      - "{HideFlags : 1}"
+  item1:
+    type: 'minecraft:skull'
+
+# In strings
+# %1$s - player name.
+# %2$s - item name.
+# %3$s - full item nbt.
+# Note: you can limit the length of the strings with the following:
+# %3$.80s - full item nbt (limited to 80 characters).
+
+# Action when a player spawns an item not in the creative menu.
+unavailable:
+  # Optional, defaults to true
+  #   block: true
+
+  # Optional, if not set, no message is sent.
+  message: 'You do not have permission for %2$s.'
+
+  # Optional, defaults to bukkit.broadcast.admin
+  #   broadcastPermission: bukkit.broadcast.admin
+
+  # Optional, if not set, no broadcast is sent.
+  broadcastMessage: '%1$s attempted to spawn in %3$s'
+
+# List of commands, to run.
+#   commands: 
+#      - 'kick %1$s You do not have permission for %2$s.'
+
+# Action when a player spawns an item in the creative menu they have no permission for.
+# Any of the values from the unavailable action can be set here.
+nopermission:
+  # Optional, defaults to true
+  #   block: true
+
+  message: 'You do not have permission for %2$s.'
+
+# Action when a player spawns an item which is blacklisted.
+# Any of the values from the unavailable action can be set here.
+blacklisted:
+  # Optional, defaults to true
+  #   block: true
+  message: 'You do not have permission for %2$s.'
+
+# Action when a player spawns an item which is whitelisted.
+# Any of the values from the unavailable action can be set here.
+whitelisted:
+  # Optional, defaults to true
+  #   block: true
+  message: 'You do not have permission for %2$s.'
+
+# Action when a player exceeds the item click/drop rate limit
+# Note: this check is performed first
+# This might be extremely spammy for admins.
+onRateLimit:
+  broadcastMessage: '%1$s exceeded rate limit for inventory clicks or dropped items'
+  message: 'Do not click so fast!'
+
+checkInSurvival:
+  # setting this option 'true' will check blacklist in survival mode.
+  block: false
+
+  # Optional, if not set, no message is sent.
+  message: 'You do not have permission for %2$s.'
+
+  # Optional, defaults to bukkit.broadcast.admin
+  #   broadcastPermission: bukkit.broadcast.admin
+
+  # Optional, if not set, no broadcast is sent.
+  broadcastMessage: '%1$s attempted to spawn in %3$s'
+
+# List of commands, to run.
+#   commands:
+#      - 'kick %1$s You do not have permission for %2$s.'
+
+# Action when a player drops an item in the creative menu they have no permission for.
+# Any of the values from the unavailable action can be set here.
+nodroppermission:
+  message: 'You do not have permission to drop %2$s.'
+
+# adjust these event priority if those event processes from this plugin
+# interfere with other plugins' event processes.
+eventprioritymap:
+  InventoryCreativeEvent: "LOWEST"
+  PlayerDropItemEvent: "LOWEST"
+  PlayerPickupItemEvent: "LOWEST"
+

@@ -1,0 +1,22 @@
+lastAccountName: Butticus4
+timestamps:
+  login: 1636833044331
+  lastteleport: 1636836479908
+  logout: 1636836553145
+  kits:
+    fw: 1636835248196
+ipAddress: 131.150.205.62
+lastlocation:
+  world: bwlobby
+  x: 216.81438499533283
+  y: 61.47644381717692
+  z: 229.72015639813034
+  yaw: 161.23401
+  pitch: 64.647064
+logoutlocation:
+  world: bwlobby
+  x: 222.74137717663373
+  y: 56.62272263272157
+  z: 248.45672946892398
+  yaw: 124.76694
+  pitch: 70.7033

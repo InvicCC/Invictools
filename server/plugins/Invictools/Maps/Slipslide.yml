@@ -1,0 +1,27 @@
+World: slipslide
+Conversion: slipslid-solo-4826-90f3-b505037630c7
+Lobby:
+  name: snow
+  effect: strike
+Spawner:
+  island:
+    x: 0.5
+    y: 69.5
+    z: 0.5
+  mid:
+    x: 0.5
+    y: 69.5
+    z: 0.5
+LuckySpawners:
+  0:
+    x: -33.5
+    y: 65.5
+    z: 3.5
+  1:
+    x: 1
+    y: 69.5
+    z: 0.5
+  2:
+    x: 34.5
+    y: 65.5
+    z: -2.5

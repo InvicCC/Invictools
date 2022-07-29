@@ -1,0 +1,22 @@
+lastAccountName: Massacred
+timestamps:
+  login: 1634152626058
+  lastteleport: 1634152433039
+  kits:
+    fw: 1634152444732
+  logout: 1634152631256
+ipAddress: 31.205.100.148
+lastlocation:
+  world: bwlobby
+  x: 205.45818125414456
+  y: 117.48863855420647
+  z: 297.28151840338194
+  yaw: -82.5657
+  pitch: 16.737326
+logoutlocation:
+  world: bwlobby
+  x: 247.29934669017246
+  y: 128.0
+  z: 255.42880890968374
+  yaw: 79.80097
+  pitch: 7.0235095

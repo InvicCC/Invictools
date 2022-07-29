@@ -1,0 +1,22 @@
+lastAccountName: SeniorMarigold
+timestamps:
+  login: 1644020228341
+  logout: 1644021221860
+  kits:
+    fw: 1644019824344
+  lastteleport: 1644021148056
+ipAddress: 51.161.99.32
+logoutlocation:
+  world: bwlobby
+  x: 220.26589432354163
+  y: 18.84236141008424
+  z: 261.73274904707296
+  yaw: -10.805481
+  pitch: -90.0
+lastlocation:
+  world: bwlobby
+  x: 209.44676472104328
+  y: 110.53418365732753
+  z: 301.5915743778357
+  yaw: -91.34901
+  pitch: -89.549995

@@ -1,0 +1,33 @@
+#test of different item types
+delay: 120
+text: §f§l§kAS §a§lSUPER op Spawner §f§l§kAS
+items:
+  0:
+    type: COBWEB
+    amount: 1
+  1:
+    type: COD
+    amount: 3
+  2:
+    type: DEAD_BUSH
+    amount: 6
+  3:
+    type: LEATHER_HELMET
+    amount: 1
+    data:
+      enchants:
+        - "protection"
+      levels:
+        - "1"
+      lore:
+        - §7§lratio
+      name: §a§lIdiot Helmet
+  4:
+    type: POTION
+    amount: 5
+  5:
+    type: NETHERITE_HOE
+    amount: 5
+    data:
+      lore:
+        - §7for that special someone...

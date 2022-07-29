@@ -1,0 +1,27 @@
+lastAccountName: Jaz2k
+timestamps:
+  login: 1646707787667
+  lastteleport: 1646707938668
+  logout: 1646707948182
+  kits:
+    fw: 1646707856319
+    elytra: 1646707937034
+    boots: 1646701214889
+    dragon: 1646508063471
+    fireworks: 1646369916749
+ipAddress: 51.161.19.234
+lastlocation:
+  world: bwlobby
+  x: 235.31645660451767
+  y: 132.0
+  z: 323.6315913453332
+  yaw: 93.567505
+  pitch: -20.595036
+logoutlocation:
+  world: bwlobby
+  x: 232.0966637970898
+  y: 129.0
+  z: 261.94435687999635
+  yaw: 18.011753
+  pitch: 32.44198
+godmode: false

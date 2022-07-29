@@ -1,0 +1,25 @@
+lastAccountName: Hariator
+timestamps:
+  login: 1648028948107
+  lastteleport: 1646731421674
+  kits:
+    elytra: 1648029027799
+    boots: 1648022422168
+    dragon: 1648029302605
+    fireworks: 1648029111746
+  logout: 1648029553081
+ipAddress: 51.161.99.93
+lastlocation:
+  world: bwlobby
+  x: 221.5623037803493
+  y: 120.41564586078748
+  z: 261.4373190224492
+  yaw: 29.184374
+  pitch: 7.58729
+logoutlocation:
+  world: bwlobby
+  x: 255.26873778698393
+  y: 128.0
+  z: 258.7483270850352
+  yaw: -114.15602
+  pitch: -10.180774

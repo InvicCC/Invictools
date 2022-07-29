@@ -1,0 +1,165 @@
+panels:
+  pass:
+    perm: default
+    rows: 3
+    command: npcpanel
+    title: '&8&lCOSMETICS'
+    empty: BLACK_STAINED_GLASS_PANE
+    item:
+      '0':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '1':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '2':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '3':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '4':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '5':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '6':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '7':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '8':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '9':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '13':
+        material: GLASS
+        stack: 1
+        name: '&f&lBedfight Cages'
+        lore:
+        - '&7Cages appear in Bedfight pregame' 
+        - '&7Click to view' 
+        commands:
+        - left= invictools panel cage
+        - right= invictools panel cage
+        - invictools tracker
+      '12':
+        material: TOTEM_OF_UNDYING
+        stack: 1
+        name: '&f&lVictory Dances'
+        lore:
+        - '&7Effects that play when the game has been won' 
+        - '&7Click to view' 
+        commands:
+        - left= invictools panel victory
+        - right= invictools panel victory
+        - invictools tracker
+      '14':
+        material: RED_DYE
+        stack: 1
+        name: '&f&lFinal Kill Effects'
+        lore:
+        - '&7Effects that play when an enemy is eliminated'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel final
+        - right= invictools panel final
+        - invictools tracker
+      '11':
+        material: ARROW
+        stack: 1
+        name: '&f&lProjectile Trails'
+        lore:
+        - '&7Effects that play when a projectile is thrown'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel proj
+        - right= invictools panel proj
+        - invictools tracker
+      '10':
+        material: RED_BED
+        stack: 1
+        name: '&f&lBed Breaks'
+        lore:
+        - '&7Effects that play when an enemies bed is broken'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel bed
+        - right= invictools panel bed
+        - invictools tracker
+      '15':
+        material: WHITE_DYE
+        stack: 1
+        name: '&f&lKill Effects'
+        lore:
+        - '&7Effects that play when an enemy dies with a bed'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel kill
+        - right= invictools panel kill
+        - invictools tracker
+      '16':
+        material: DARK_OAK_DOOR
+        stack: 1
+        name: '&f&lLobby Effects'
+        lore:
+        - '&7Ambient Effects that play in the lobby'
+        - '&7Click to view'
+        commands:
+        - left= invictools panel lobby1
+        - right= invictools panel lobby1
+        - invictools tracker
+      '17':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '18':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '19':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '20':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '21':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '22':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '23':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '24':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '25':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '26':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '

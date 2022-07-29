@@ -1,0 +1,11 @@
+name: vip
+permissions:
+- displayname.vip
+- invic.firestick
+- tag.vip
+- weight.65
+parents:
+- default
+prefixes:
+- '&f[&5&lVIP&f] ':
+    priority: 65

@@ -1,0 +1,20 @@
+lastAccountName: BigERich
+timestamps:
+  login: 1636823751020
+  lastteleport: 1636824069512
+  logout: 1636824784641
+ipAddress: 172.75.133.185
+lastlocation:
+  world: OasisbScen
+  x: 499.7913448789202
+  y: 100.0
+  z: 498.56248571342536
+  yaw: 3.5497887
+  pitch: 90.0
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: 68.431076
+  pitch: -8.276491

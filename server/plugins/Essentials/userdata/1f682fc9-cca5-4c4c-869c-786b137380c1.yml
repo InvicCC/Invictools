@@ -1,0 +1,22 @@
+lastAccountName: Rilly
+timestamps:
+  login: 1654113662003
+  lastteleport: 1654114423085
+  logout: 1654121679851
+  kits:
+    fw: 1654114069736
+ipAddress: 51.161.19.233
+lastlocation:
+  world: bwlobby
+  x: 237.59691075657952
+  y: 128.0
+  z: 241.07969557266247
+  yaw: -261.26404
+  pitch: 2.2873073
+logoutlocation:
+  world: bwlobby
+  x: 265.0671999188754
+  y: 128.0
+  z: 260.3597966248027
+  yaw: 88.754944
+  pitch: 6.459321

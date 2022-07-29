@@ -1,0 +1,133 @@
+panels:
+  npcpanel:
+    perm: default
+    rows: 3
+    command: npcpanel
+    title: '&8&lGOOD LUCK!'
+    title: ' '
+    empty: BLACK_STAINED_GLASS_PANE
+    item:
+      '0':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '1':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '2':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '3':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '4':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '5':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '6':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '7':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '8':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '9':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '11':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '10':
+        material: STONE_SWORD
+        stack: 1
+        name: '&f&lQUEUE BEDFIGHT'
+        lore:
+        - '&7Queues you into a random bedfight match'
+        - '&7Your party will be warped with you'
+        commands:
+        - queue bf
+      '12':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '13':
+        material: NETHER_STAR
+        stack: 1
+        name: '&f&lHOSTED GAMES'
+        lore:
+        - '&7Joins the currently hosted Bedwars Game'
+        commands:
+        - invictools gamejoiner
+      '14':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '16':
+        material: RED_BED
+        stack: 1
+        name: '&f&lQUEUE BEDWARS'
+        lore:
+        - '&7Queues you into a random bedwars match'
+        - '&7Right click for map selector (rank required)'
+        - '&7Your party will be warped with you'
+        commands:
+        - left= queue bw
+        - right= queue selector
+      '17':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '18':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '19':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '20':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '21':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '22':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '23':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '24':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '25':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '15':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '
+      '26':
+        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        stack: 1
+        name: ' '

@@ -1,0 +1,32 @@
+World: map2
+Conversion: Olympuss-1b6c-48c6-8c25-6dfc0ad886c6
+WorldBorder: 280;50;240;0
+Lobby:
+  name: Olympus
+  effect: strike
+Spawner:
+  island:
+    x: 37.5
+    y: 79
+    z: 115
+  mid:
+    x: 2.5
+    y: 88
+    z: -1.5
+LuckySpawners:
+  0:
+    x: 5.5
+    y: 87
+    z: 46.5
+  1:
+    x: 47.5
+    y: 87
+    z: 5.5
+  2:
+    x: -3.5
+    y: 87
+    z: -46.5
+  3:
+    x: -45.5
+    y: 86
+    z: -5.5

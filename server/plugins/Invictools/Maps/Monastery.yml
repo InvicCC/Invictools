@@ -1,0 +1,28 @@
+World: Monastery
+Conversion: monaster-solo-4d62-9c36-57c2dcb45904
+WorldBorder: 250;50;240;0
+Lobby:
+  name: default
+  effect: strike
+Spawner:
+  mid:
+    x: 0.5
+    y: 70
+    z: 0.5
+LuckySpawners:
+  0:
+    x: 20
+    y: 68.5
+    z: 0
+  1:
+    x: -20
+    y: 68.5
+    z: 0
+  2:
+    x: 0
+    y: 68.5
+    z: 20
+  3:
+    x: 0
+    y: 68.5
+    z: -20

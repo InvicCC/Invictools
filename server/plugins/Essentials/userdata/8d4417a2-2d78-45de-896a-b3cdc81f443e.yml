@@ -1,0 +1,22 @@
+lastAccountName: sherae
+timestamps:
+  login: 1641591161472
+  logout: 1641592573565
+  lastteleport: 1641591385094
+  kits:
+    fw: 1641592560700
+ipAddress: 178.208.173.229
+logoutlocation:
+  world: bwlobby
+  x: 256.9777021512294
+  y: 127.5
+  z: 250.89232724581723
+  yaw: 270.9616
+  pitch: 5.979316
+lastlocation:
+  world: bwlobby
+  x: 256.555227833202
+  y: 128.0
+  z: 261.1693428598569
+  yaw: -156.13866
+  pitch: -35.39516

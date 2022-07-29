@@ -1,0 +1,27 @@
+World: OasisBscen
+Conversion: oasisSCE-solo-a3f8-mg84-2d9kgh84hdja
+Lobby:
+  name: Oasis1
+  effect: strike
+Spawner:
+  island:
+    x: 45.5
+    y: 79.5
+    z: 109.5
+  mid:
+    x: 0.5
+    y: 102
+    z: 0.5
+LuckySpawners:
+  0:
+    x: 0.5
+    y: 98.5
+    z: 0.5
+  1:
+    x: -21
+    y: 84.5
+    z: 24
+  2:
+    x: 21
+    y: 84.5
+    z: -24

@@ -1,0 +1,23 @@
+lastAccountName: REDRATH
+timestamps:
+  login: 1636829562915
+  kits:
+    fw: 1636828155285
+    fireworks: 1636827745707
+  lastteleport: 1636831994205
+  logout: 1636833469493
+ipAddress: 104.182.53.32
+lastlocation:
+  world: FusionScen
+  x: -9.856358086597464
+  y: 65.68749956314029
+  z: 5.714642174274492
+  yaw: -94.11453
+  pitch: 66.08511
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: -68.16101
+  pitch: -8.276491
