@@ -1,0 +1,22 @@
+lastAccountName: JthaloTime
+timestamps:
+  login: 1654122602243
+  lastteleport: 1654108336221
+  kits:
+    fw: 1654108331735
+  logout: 1654124815010
+ipAddress: 51.161.19.249
+lastlocation:
+  world: bwlobby
+  x: 252.82775168258055
+  y: 127.0
+  z: 250.33010116106163
+  yaw: 7.0700893
+  pitch: -2.7006402
+logoutlocation:
+  world: bwlobby
+  x: 251.97748267700555
+  y: 128.0
+  z: 257.3599323869744
+  yaw: 15.945444
+  pitch: 14.470409

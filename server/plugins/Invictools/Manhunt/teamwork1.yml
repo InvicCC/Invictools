@@ -1,0 +1,28 @@
+fake: true
+Hunted:
+  effect:
+    0:
+      name: "it killitems WOOL 1 item "
+    1:
+      name: "it preventdrop item WOOL "
+    2:
+      name: "it giveitem single WOOL item "
+  items:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DIAMOND_LEGGINGS
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: DIAMOND_BOOTS
+    amount: 1
+Hunter:
+  effect:
+    0:
+      name: "it giveitem single MODBOW item "
+    1:
+      name: "it deathitems MODBOW 1 item "
+    2:
+      name: "it preventdrop item MODBOW "
+  items:
+    

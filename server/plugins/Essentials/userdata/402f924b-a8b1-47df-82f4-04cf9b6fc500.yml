@@ -1,0 +1,26 @@
+lastAccountName: Godswordmaster2
+timestamps:
+  login: 1638319356564
+  lastteleport: 1638315066285
+  kits:
+    fw: 1638314717555
+    elytra: 1638314869765
+    boots: 1638314906272
+    dragon: 1638314914283
+    fireworks: 1638314926665
+  logout: 1638319621128
+ipAddress: 174.59.97.46
+lastlocation:
+  world: bwlobby
+  x: 260.6760514730739
+  y: 128.0
+  z: 248.73152282174726
+  yaw: 270.0
+  pitch: 0.0
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: -13.713586
+  pitch: -8.276491

@@ -1,0 +1,32 @@
+World: Tree
+Conversion: xmastree-solo-42cd-a617-65e2945ad667
+WorldBorder: 300;66;240;0
+Lobby:
+  name: snow
+  effect: strike
+Spawner:
+  island:
+    x: 50.5
+    y: 120
+    z: 0.5
+  mid:
+    x: 50.5
+    y: 120
+    z: 0.5
+LuckySpawners:
+  0:
+    x: 6.5
+    y: 53.5
+    z: -2.5
+  1:
+    x: 3.5
+    y: 53.5
+    z: 6.5
+  2:
+    x: -6.5
+    y: 53.5
+    z: 1.5
+  3:
+    x: -3.5
+    y: 53.5
+    z: -6.5

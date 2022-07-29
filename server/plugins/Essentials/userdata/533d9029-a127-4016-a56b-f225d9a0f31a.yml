@@ -1,0 +1,27 @@
+lastAccountName: Lovelicot
+timestamps:
+  login: 1645313934548
+  lastteleport: 1642202494647
+  kits:
+    fw: 1638071104575
+    elytra: 1638323284516
+    boots: 1638323094347
+    dragon: 1638067390376
+    fireworks: 1645313781209
+    tools: 1628021690718
+  logout: 1645314416159
+ipAddress: 51.161.99.81
+lastlocation:
+  world: bwlobby
+  x: 250.65432703150503
+  y: 127.0
+  z: 250.48614289105498
+  yaw: -90.45609
+  pitch: -11.980772
+logoutlocation:
+  world: bwlobby
+  x: 255.49568931637873
+  y: 132.0
+  z: 245.01808789112962
+  yaw: 3.7910311
+  pitch: 24.452473

@@ -1,0 +1,32 @@
+Hunter:
+  effect:
+  items:
+  special:
+Hunted:
+  effect:
+    0:
+      name: "it repeateditem ENCHANTED_GOLDEN_APPLE 1 360 normal "
+    1:
+      name: "it repeateditem ENDER_PEARL 2 120 normal "
+    2:
+      name: "it repeateditem BOUNCE 1 210 specificItem "
+    3:
+      name: "it repeateditem MOBS 1 190 specificItem "
+    4:
+      name: "it repeateditem ANVIL 1 150 specificItem "
+  items:
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: ENDER_PEARL
+    amount: 1
+  - ==: org.bukkit.inventory.ItemStack
+    v: 2586
+    type: obsidian
+    amount: 8
+  special:
+    0:
+      name: item
+      type: wool
+      amount: 1
+    
+    

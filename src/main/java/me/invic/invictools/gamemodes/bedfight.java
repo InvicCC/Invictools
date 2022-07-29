@@ -30,7 +30,9 @@ import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
 import org.screamingsandals.bedwars.api.game.Game;
 import org.screamingsandals.bedwars.api.game.GameStatus;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -219,7 +221,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
     }
 
     @EventHandler
-    public void killed(BedwarsPlayerKilledEvent e)
+    public void killed(BedwarsPlayerKilledEvent e) throws IOException
     {
         if (!disableStats.getGameType(e.getGame()).equalsIgnoreCase(bedfight))
             return;
@@ -234,9 +236,21 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             }
         }.runTaskLater(Commands.Invictools, 20 * 3+1);
 
+        File bedfightLog = new File(Commands.Invictools.getDataFolder(), "bedfight.log");
+        BufferedWriter br = new BufferedWriter(new FileWriter(bedfightLog.getAbsolutePath()));
+
         if(e.getKiller() != null)
         {
+            br.write("[" + Calendar.DATE + "][DEATH] " + e.getPlayer() + " killed by " + e.getKiller());
+            br.newLine();
+            br.close();
             e.getKiller().getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
+        }
+        else
+        {
+            br.write("[" + Calendar.DATE + "][DEATH] " + e.getPlayer() + " killed by natural causes");
+            br.newLine();
+            br.close();
         }
     }
 

@@ -1,0 +1,9 @@
+fake: true
+Hunted:
+  effect:
+    0:
+      name: "bweffects single WEAKNESS constant 100 "
+Hunter:
+  effect:
+    0:
+      name: "it disableshop single "
