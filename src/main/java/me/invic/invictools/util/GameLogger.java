@@ -39,33 +39,32 @@ public class GameLogger implements Listener
         Date date = new Date();
         new disableStats();
         String gameType = disableStats.getGameType(e.getGame());
-        br.write("[" + dateFormat.format(date) + "] Game started");
+        br.write("[" + dateFormat.format(date) + "] Game started:");
         br.newLine();
-        br.write("-----");
+        br.write("  GameType: " + gameType);
         br.newLine();
-        br.write("- Game type: " + gameType);
+        br.write("  Map: " + e.getGame().getName());
         br.newLine();
-        br.write("- Game map: " + e.getGame().getName());
+        br.write("  StatsTrack: " + "unknown");
         br.newLine();
-        br.write("- Player count: " + e.getGame().getConnectedPlayers().size());
+        br.write("  Players: " + e.getGame().getConnectedPlayers().size());
         br.newLine();
-        br.write("- Teams: ");
+        br.write("  Teams: ");
         br.newLine();
         for (RunningTeam r : e.getGame().getRunningTeams())
         {
-            br.write("-- " + r.getColor().toString() + ":");
+            br.write("    " + r.getName() + ":");
             br.newLine();
             for (Player p : r.getConnectedPlayers())
             {
-                br.write("--- " + p.getName());
+                br.write("      " + p.getName());
                 br.newLine();
             }
         }
-        br.write("-----");
+      //  br.write("-----");
         br.newLine();
         br.close();
     }
-
 
     @EventHandler
     public void gameEnd(BedwarsGameEndEvent e) throws IOException
@@ -76,54 +75,51 @@ public class GameLogger implements Listener
         Date date = new Date();
         new disableStats();
         String gameType = disableStats.getGameType(e.getGame());
-        br.write("[" + dateFormat.format(date) + "] Game finished\n-----");
+        br.write("[" + dateFormat.format(date) + "] Game finished:");
         br.newLine();
-        br.write("- Game type: " + gameType);
+        br.write("  GameType: " + gameType);
         br.newLine();
-        br.write("- Game map: " + e.getGame().getName());
+        br.write("  Map: " + e.getGame().getName());
         br.newLine();
-        br.write("- Player count: " + e.getGame().getConnectedPlayers().size());
+        br.write("  Players: " + e.getGame().getConnectedPlayers().size());
         br.newLine();
-        br.write("- Winners: " + teamWon.get(e.getGame()).getColor().toString());
+        br.write("  Winners: " + teamWon.get(e.getGame()).getName());
         br.newLine();
         for (Player p : teamWon.get(e.getGame()).getConnectedPlayers())
         {
-            br.write("-- " + p.getName() + ":");
+            br.write("    " + p.getName() + ":");
             br.newLine();
             if (playerDeaths.containsKey(p))
             {
-                br.write("--- Player Deaths:" + playerDeaths.get(p));
+                br.write("      Deaths:" + playerDeaths.get(p));
                 br.newLine();
             }
             if (playerKills.containsKey(p))
             {
-                br.write("--- Player Kills:" + playerKills.get(p));
+                br.write("      Kills:" + playerKills.get(p));
                 br.newLine();
             }
         }
-        br.write("- Losers: ");
+        br.write("  Losers: ");
         br.newLine();
         for (Player p : e.getGame().getConnectedPlayers())
         {
-
-            if (e.getGame().getTeamOfPlayer(p) != teamWon)
+            if (e.getGame().getTeamOfPlayer(p) != teamWon.get(e.getGame()))
             {
-                br.write("-- " + p.getName() + ":");
+                br.write("    " + p.getName() + ":");
                 br.newLine();
                 if (playerDeaths.containsKey(p))
                 {
-                    br.write("--- Player Deaths:" + playerDeaths.get(p));
+                    br.write("      Deaths:" + playerDeaths.get(p));
                     br.newLine();
                 }
                 if (playerKills.containsKey(p))
                 {
-                    br.write("--- Player Kills:" + playerKills.get(p));
+                    br.write("      Kills:" + playerKills.get(p));
                     br.newLine();
                 }
             }
         }
-        br.write("-----");
-        br.newLine();
         br.newLine();
         br.close();
     }
