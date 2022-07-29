@@ -15,17 +15,11 @@ public class InvicSpecCommand implements CommandExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
     {
-        if (sender instanceof Player && !((Player) sender).getWorld().getName().equals("bwlobby"))
-        {
-            Location location = new Location(sender.getServer().getWorld("bwlobby"), 0, 60, 0);
-            ((Player) sender).teleport(location);
-            ((Player) sender).setGameMode(GameMode.SURVIVAL);
-        }
-        if (sender instanceof Player && ((Player) sender).getWorld().getName().equals("bwlobby"))
+        if (sender instanceof Player && ((Player) sender).getWorld().getName().equals("bwlobby") && sender.getServer().getPlayer("Invictable") != null)
         {
             if (sender.getServer().getPlayer("Invictable") != null)
             {
-                if (!sender.getServer().getPlayer("Invictable").getWorld().getName().equals("bwlobby"))
+                if (sender.getServer().getPlayer("Invictable").getWorld().getName().equals("bwlobby"))
                 {
                     sender.sendMessage(ChatColor.AQUA + "Invic is in the lobby");
                 }
