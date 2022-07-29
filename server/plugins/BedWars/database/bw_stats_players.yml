@@ -936,12 +936,12 @@ data:
     destroyedBeds: 35
     deaths: 211
   8fd1ea99-dff7-4398-ab21-903da7a085f4:
-    kills: 82
-    wins: 13
-    score: 4570
+    kills: 86
+    wins: 14
+    score: 4805
     loses: 40
     name: NebulaBC
-    destroyedBeds: 17
+    destroyedBeds: 18
     deaths: 134
   72bb6f92-b354-4f52-9c6c-5b289488558c:
     kills: 19
@@ -2182,4 +2182,12 @@ data:
     loses: 4
     name: TigerG2017
     destroyedBeds: 3
+    deaths: 4
+  fc65d83d-eaba-4487-a857-c6e523eff5df:
+    kills: 0
+    wins: 0
+    score: 15
+    loses: 1
+    name: SuperLunar
+    destroyedBeds: 0
     deaths: 4

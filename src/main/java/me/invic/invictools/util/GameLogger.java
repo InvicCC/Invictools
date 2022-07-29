@@ -9,55 +9,123 @@ import org.screamingsandals.bedwars.api.TeamColor;
 import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsGameStartEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
+import org.screamingsandals.bedwars.api.game.Game;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class GameLogger implements Listener
 {
 
     // [time] [bedwars / bedfight] [map] [playercount] Winners: [name] [kills]K [deaths]D Losers: [name] [kills]K [deaths]D
+    HashMap<Game, RunningTeam> livingTeam = new HashMap<>();
+    HashMap<Game, RunningTeam> teamWon = new HashMap<>();
 
-    public static void sendLog(boolean action, String gameType, String map, int playerCount, String winner, int winnerKills, int winnerDeaths, Player loser, int loserKills, int loserDeaths) throws IOException
+    HashMap<Player, Integer> playerDeaths = new HashMap<>();
+    HashMap<Player, Integer> playerKills = new HashMap<>();
+
+    @EventHandler
+    public void gameStart(BedwarsGameStartEvent e) throws IOException
     {
-        File bedfightLog = new File(Commands.Invictools.getDataFolder(), "bedfight.log");
-        BufferedWriter br = new BufferedWriter(new FileWriter(bedfightLog.getAbsolutePath()));
-        if (gameEnd)
+        File bedfightLog = new File(Commands.Invictools.getDataFolder(), "game.log");
+        BufferedWriter br = new BufferedWriter(new FileWriter(bedfightLog.getAbsolutePath(), true));
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        new disableStats();
+        String gameType = disableStats.getGameType(e.getGame());
+        br.write("[" + dateFormat.format(date) + "] Game started\n-----");
+        br.newLine();
+        br.write("- Game type: " + gameType);
+        br.newLine();
+        br.write("- Game map: " + e.getGame().getName());
+        br.newLine();
+        br.write("- Player count: " + e.getGame().getConnectedPlayers().size());
+        br.newLine();
+        br.write("- Teams: ");
+        br.newLine();
+        for (RunningTeam r : e.getGame().getRunningTeams())
         {
-            br.write("[" + Calendar.DATE + "][" + gameType + "][" + map + "]" + "][" + playerCount + "]");
+            br.write("-- " + r.getColor().toString() + ":");
+            br.newLine();
+            for (Player p : r.getConnectedPlayers())
+            {
+                br.write("--- " + p.getName());
+                br.newLine();
+            }
         }
-        else
-        {
-            br.write("");
-        }
+        br.write("-----");
         br.newLine();
         br.close();
     }
 
-    RunningTeam livingTeam = null;
-    RunningTeam teamWon = null;
-
-    HashMap<TeamColor, Integer> teamDeaths = new HashMap<>();
-    HashMap<TeamColor, Integer> teamKills = new HashMap<>();
+    // [time] [bedwars / bedfight] [map] [playercount] Winners: [name] [kills]K [deaths]D Losers: [name] [kills]K [deaths]D
 
     @EventHandler
-    public void gameStart(BedwarsGameStartEvent e)
+    public void gameEnd(BedwarsGameEndEvent e) throws IOException
     {
-        new disableStats();
-        disableStats.getGameType(e.getGame());
-        sendLog();
-    }
-
-    @EventHandler
-    public void gameEnd(BedwarsGameEndEvent e)
-    {
+        File bedfightLog = new File(Commands.Invictools.getDataFolder(), "game.log");
+        BufferedWriter br = new BufferedWriter(new FileWriter(bedfightLog.getAbsolutePath(), true));
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
         new disableStats();
         String gameType = disableStats.getGameType(e.getGame());
-        sendLog(true, gameType, e.getGame().getGameWorld().getName(), e.getGame().getConnectedPlayers().size(), teamWon.getColor().toString(), teamKills.get(teamWon.getColor()), teamDeaths.get(teamWon.getColor()), );
+        br.write("[" + dateFormat.format(date) + "] Game finished\n-----");
+        br.newLine();
+        br.write("- Game type: " + gameType);
+        br.newLine();
+        br.write("- Game map: " + e.getGame().getName());
+        br.newLine();
+        br.write("- Player count: " + e.getGame().getConnectedPlayers().size());
+        br.newLine();
+        br.write("- Winners: " + teamWon.get(e.getGame()).getColor().toString());
+        br.newLine();
+        for (Player p : teamWon.get(e.getGame()).getConnectedPlayers())
+        {
+            br.write("-- " + p.getName() + ":");
+            br.newLine();
+            if (playerDeaths.containsKey(p))
+            {
+                br.write("--- Player Deaths:" + playerDeaths.get(p));
+                br.newLine();
+            }
+            if (playerKills.containsKey(p))
+            {
+                br.write("--- Player Kills:" + playerKills.get(p));
+                br.newLine();
+            }
+        }
+        br.write("- Losers: ");
+        br.newLine();
+        for (Player p : e.getGame().getConnectedPlayers())
+        {
+
+            if (e.getGame().getTeamOfPlayer(p) != teamWon)
+            {
+                br.write("-- " + p.getName() + ":");
+                br.newLine();
+                if (playerDeaths.containsKey(p))
+                {
+                    br.write("--- Player Deaths:" + playerDeaths.get(p));
+                    br.newLine();
+                }
+                if (playerKills.containsKey(p))
+                {
+                    br.write("--- Player Kills:" + playerKills.get(p));
+                    br.newLine();
+                }
+            }
+        }
+        br.write("-----");
+        br.newLine();
+        br.newLine();
+        br.close();
     }
 
     @EventHandler
@@ -65,22 +133,25 @@ public class GameLogger implements Listener
     {
         int AliveTeams = e.getGame().getRunningTeams().size();
 
-        if (teamDeaths.containsKey(e.getGame().getTeamOfPlayer(e.getPlayer()).getColor()))
+        if (playerDeaths.containsKey(e.getPlayer()))
         {
-            teamDeaths.put(e.getGame().getTeamOfPlayer(e.getPlayer()).getColor(), teamDeaths.get(e.getGame().getTeamOfPlayer(e.getPlayer()).getColor()) + 1);
+            playerDeaths.put(e.getPlayer(), playerDeaths.get(e.getPlayer()) + 1);
         }
         else
         {
-            teamDeaths.put(e.getGame().getTeamOfPlayer(e.getPlayer()).getColor(), 1);
+            playerDeaths.put(e.getPlayer(), 1);
         }
 
-        if (teamKills.containsKey(e.getGame().getTeamOfPlayer(e.getKiller().getPlayer()).getColor()))
+        if (e.getKiller() != null)
         {
-            teamKills.put(e.getGame().getTeamOfPlayer(e.getKiller().getPlayer()).getColor(), teamDeaths.get(e.getGame().getTeamOfPlayer(e.getKiller().getPlayer()).getColor()) + 1);
-        }
-        else
-        {
-            teamDeaths.put(e.getGame().getTeamOfPlayer(e.getKiller().getPlayer()).getColor(), 1);
+            if (playerKills.containsKey(e.getKiller().getPlayer()))
+            {
+                playerKills.put(e.getKiller().getPlayer(), playerKills.get(e.getKiller().getPlayer()) + 1);
+            }
+            else
+            {
+                playerKills.put(e.getKiller().getPlayer(), 1);
+            }
         }
 
         for (RunningTeam team : e.getGame().getRunningTeams())
@@ -88,12 +159,12 @@ public class GameLogger implements Listener
             if (team.isDead())
                 AliveTeams--;
             else
-                livingTeam = team;
+                livingTeam.put(e.getGame(), team);
         }
 
         if (AliveTeams == 1)
         {
-            teamWon = livingTeam;
+            teamWon.put(e.getGame(), livingTeam.get(e.getGame()));
         }
     }
 }

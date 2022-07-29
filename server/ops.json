@@ -12,6 +12,18 @@
     "bypassesPlayerLimit": false
   },
   {
+    "uuid": "fc65d83d-eaba-4487-a857-c6e523eff5df",
+    "name": "SuperLunar",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "8fd1ea99-dff7-4398-ab21-903da7a085f4",
+    "name": "NebulaBC",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
     "uuid": "120a6ace-db7e-4774-9738-a76469f5f0a7",
     "name": "Invictable",
     "level": 4,
