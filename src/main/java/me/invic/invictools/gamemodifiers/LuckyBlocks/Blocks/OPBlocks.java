@@ -32,7 +32,7 @@ public class OPBlocks
         switch (choice)
         {
             case 0:
-                new LuckyBlockSpawner(player.getLocation(), "§b§lLucky Block Spawner", "random", 45);
+                new LuckyBlockSpawner(player.getLocation(), "§b§lLucky Block Spawner", "random", 45,player);
             case 8:
                 ItemStack item = new createItems().getRandomItem();
                 if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))

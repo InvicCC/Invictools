@@ -1,4 +1,5 @@
 me\invic\invictools\util\deathListener$4.class
+me\invic\invictools\util\safeSizeChange$1$1.class
 me\invic\invictools\commands\Commands$18.class
 me\invic\invictools\gamemodes\bedfight$1$3.class
 me\invic\invictools\commands\Commands$25.class
@@ -26,6 +27,7 @@ me\invic\invictools\util\fixes\Protocol47Fix$2.class
 me\invic\invictools\gamemodes\bedfight$1$1.class
 me\invic\invictools\gamemodes\bedfight$1$3$1.class
 me\invic\invictools\commands\utilityCommands$1.class
+me\invic\invictools\commands\InvicSpecCommand.class
 me\invic\invictools\commands\Commands$13.class
 me\invic\invictools\commands\Commands$12.class
 me\invic\invictools\util\Leaderboards\leaderboard.class

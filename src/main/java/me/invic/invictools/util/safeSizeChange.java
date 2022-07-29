@@ -31,61 +31,57 @@ public class safeSizeChange implements Listener
     public boolean safeSizeEdit(String modify, CommandSender p, int size)
     {
         // if(!isAnyGameRunning())
-        {
+
             if (!(size > 0 && size < 11))
             {
                 p.sendMessage(ChatColor.RED + "Invalid Team Size");
                 return false;
             }
 
-            List<Player> inLobby = api.getGameByName(modify).getConnectedPlayers();
+            if(BedwarsAPI.getInstance().isGameWithNameExists(modify))
+                leaveRejoinGame(BedwarsAPI.getInstance().getGameByName(modify));
+            else
+                p.sendMessage(ChatColor.RED+"invalid game");
 
-            try
+            return true;
+    }
+
+    public void leaveRejoinGame(Game game)
+    {
+        if(!game.getStatus().equals(GameStatus.WAITING))
+            return;
+
+        List<Player> players = new ArrayList<>();
+        for (Player player : game.getConnectedPlayers())
+        {
+            players.add(player);
+            game.leaveFromGame(player);
+        }
+
+        beingModified.add(game);
+        returnSize.put(game, ChangeTeamSize.getTeamSize(game));
+
+        new BukkitRunnable()
+        {
+            @Override
+            public void run()
             {
-                beingModified.add(api.getGameByName(modify));
-
-                for (Player player : inLobby)
-                {
-//                    api.getGameByName(modify).leaveFromGame(player);
-                    player.chat("/spawn");
-                }
-
-                returnSize.put(api.getGameByName(modify), ChangeTeamSize.getTeamSize(api.getGameByName(modify)));
-                ChangeTeamSize.ChangeSingleArenaTeamSize(modify, size);
-                //  Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(modify)+".yml");
-/*
-                if(p instanceof Player)
-                {
-                    new joinCommands().safeInventorySave();
-                    if(!api.isPlayerPlayingAnyGame((Player) p))
-                        api.getGameByName(modify).joinToGame((Player) p);
-                }
-
- */
-
                 new BukkitRunnable()
                 {
                     @Override
                     public void run()
                     {
-                        for (Player player : inLobby)
+                        for (Player player : players)
                         {
                             new LobbyInventoryFix().saveInventory(player);
                             if (!api.isPlayerPlayingAnyGame(player))
-                                api.getGameByName(modify).joinToGame(player);
+                                game.joinToGame(player);
                         }
-                        beingModified.remove(api.getGameByName(modify));
+                        beingModified.remove(game);
                     }
                 }.runTaskLater(Commands.Invictools, 10L);
-
             }
-            catch (Throwable e)
-            {
-                p.sendMessage(ChatColor.RED + "Unknown Error");
-                return false;
-            }
-            return true;
-        }
+        }.runTaskLater(Commands.Invictools, 10L);
     }
 
     public boolean isAnyGameRunning()

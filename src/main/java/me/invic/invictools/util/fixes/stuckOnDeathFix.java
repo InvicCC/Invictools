@@ -1,6 +1,9 @@
 package me.invic.invictools.util.fixes;
 
 import me.invic.invictools.commands.Commands;
+import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceHandler;
+import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -39,10 +42,13 @@ public class stuckOnDeathFix implements Listener
                     @Override
                     public void run()
                     {
-                        e.getEntity().damage(e.getEntity().getHealth()+999);
-                        System.out.println("killed potentially glitched player");
+                        if(e.getEntity().getKiller() != null && !VictoryDanceHandler.isVictoryDancing.containsKey(e.getEntity().getName()) && !e.getEntity().getWorld().getName().equalsIgnoreCase("bwlobby"))
+                        {
+                            Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"minecraft:kill "+e.getEntity().getName());
+                            System.out.println("killed potentially glitched player");
+                        }
                     }
-                }.runTaskLater(Commands.Invictools, 20L);
+                }.runTaskLater(Commands.Invictools, 20*6L);
             }
         }
     }

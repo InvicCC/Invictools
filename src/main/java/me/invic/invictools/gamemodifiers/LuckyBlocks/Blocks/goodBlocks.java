@@ -433,7 +433,7 @@ public class goodBlocks
             if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(p)).equalsIgnoreCase("bedfight"))
             {
                 ItemStack arrow = new ItemStack(Material.ARROW);
-                arrow.setAmount(new Random().nextInt(3)+1);
+                arrow.setAmount(new Random().nextInt(5)+1);
                 p.getWorld().dropItemNaturally(p.getLocation(),arrow);
             }
         }

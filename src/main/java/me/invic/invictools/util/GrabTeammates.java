@@ -65,11 +65,11 @@ public class GrabTeammates
     public static List<Player> getTeammates(Player p1)
     {
         BedwarsAPI api = BedwarsAPI.getInstance();
+        List<Player> l = new ArrayList<>();
 
         if (!api.isPlayerPlayingAnyGame(p1))
-            return null;
+            return l;
 
-        List<Player> l = new ArrayList<>();
         Game game = api.getGameOfPlayer(p1);
 
         for (Player p2 : Bukkit.getOnlinePlayers())

@@ -118,9 +118,9 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
                     int delay = rand.nextInt(30) + 40;
                     Location spawnerloc = new Location(p.getWorld(), config.getDouble("LuckySpawners." + a + ".x"), config.getDouble("LuckySpawners." + a + ".y"), config.getDouble("LuckySpawners." + a + ".z"));
                     if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(p)).equalsIgnoreCase("BedFight"))
-                        new LuckyBlockSpawner(spawnerloc, "§b§lLucky Block Spawner", "random", delay/3);
+                        new LuckyBlockSpawner(spawnerloc, "§b§lLucky Block Spawner", "random", delay/3,p);
                     else
-                        new LuckyBlockSpawner(spawnerloc, "§b§lLucky Block Spawner", "random", delay);
+                        new LuckyBlockSpawner(spawnerloc, "§b§lLucky Block Spawner", "random", delay,p);
                 }
             }
 

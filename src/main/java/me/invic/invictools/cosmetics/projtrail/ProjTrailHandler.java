@@ -424,7 +424,7 @@ public class ProjTrailHandler
         else if (intlvl >= 90 && intlvl <= 99)
             return Color.PURPLE;
         else
-            return Color.AQUA;
+            return Color.TEAL;
     }
 
     public Material PrestigeMaterial(Player p)
@@ -459,6 +459,6 @@ public class ProjTrailHandler
         else if (intlvl >= 90 && intlvl <= 99)
             return Material.PURPLE_STAINED_GLASS;
         else
-            return Material.LIGHT_BLUE_STAINED_GLASS;
+            return Material.CYAN_STAINED_GLASS;
     }
 }

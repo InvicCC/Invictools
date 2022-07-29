@@ -67,7 +67,7 @@ public class joinCommands implements CommandExecutor, TabExecutor
             {
                 tabComplete.add(p.getName());
             }
-        } else if (args.length == 3 && args[0].equalsIgnoreCase("alljoin") && perms)
+        } else if (args.length == 2 && args[0].equalsIgnoreCase("alljoin") && perms)
         {
             for (Game game : BedwarsAPI.getInstance().getGames())
             {
@@ -78,7 +78,10 @@ public class joinCommands implements CommandExecutor, TabExecutor
             for (Player p : Bukkit.getOnlinePlayers())
             {
                 if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
-                    tabComplete.add(p.getName());
+                {
+                    if(BedwarsAPI.getInstance().getGameOfPlayer(p).getStatus().equals(GameStatus.RUNNING))
+                        tabComplete.add(p.getName());
+                }
             }
         }
 
@@ -114,7 +117,6 @@ public class joinCommands implements CommandExecutor, TabExecutor
                         @Override
                         public void run()
                         {
-                            System.out.println(p.getWorld().getName());
                             if (p.getWorld().equals(Bukkit.getWorld("bwlobby")))
                             {
                                 queue.activeBedfightGame = new queue().getRandomGame("bedfight");
@@ -221,11 +223,11 @@ public class joinCommands implements CommandExecutor, TabExecutor
                 sender.sendMessage(ChatColor.RED + "invalid game");
         } else if (args.length == 2 && args[0].equalsIgnoreCase("spec") && sender instanceof Player)
         {
-            if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(Bukkit.getPlayer(args[1])) && !BedwarsAPI.getInstance().isPlayerPlayingAnyGame((Player) sender))
+            if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(Bukkit.getPlayer(args[1])) && BedwarsAPI.getInstance().getGameOfPlayer(Bukkit.getPlayer(args[1])).getStatus().equals(GameStatus.RUNNING)&& !BedwarsAPI.getInstance().isPlayerPlayingAnyGame((Player) sender))
             {
                 safeInventorySave();
-                BedwarsAPI.getInstance().getGameOfPlayer(Bukkit.getPlayer(args[1])).joinToGame((Player) sender);
                 sender.sendMessage(ChatColor.AQUA + "Sending you to " + ChatColor.WHITE + args[1]);
+                BedwarsAPI.getInstance().getGameOfPlayer(Bukkit.getPlayer(args[1])).joinToGame((Player) sender);
                 safeSpec((Player) sender, BedwarsAPI.getInstance().getGameOfPlayer(Bukkit.getPlayer(args[1])));
             } else
                 sender.sendMessage(ChatColor.RED + "Player is not ingame");
@@ -250,6 +252,8 @@ public class joinCommands implements CommandExecutor, TabExecutor
                 sender.sendMessage(ChatColor.RED + "Invalid Game: " + args[1]);
             }
         }
+        else
+            sender.sendMessage(ChatColor.RED+"invalid syntax");
         return true;
     }
 

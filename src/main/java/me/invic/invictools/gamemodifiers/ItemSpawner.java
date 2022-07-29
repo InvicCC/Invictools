@@ -1,6 +1,8 @@
 package me.invic.invictools.gamemodifiers;
 
+import me.invic.invictools.commands.Commands;
 import me.invic.invictools.util.LobbyLogic;
+import me.invic.invictools.util.disableStats;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -32,7 +34,13 @@ public class ItemSpawner // changes spawner logic to trigger every second and co
         final FileConfiguration spawner = YamlConfiguration.loadConfiguration(pFile);
         final FileConfiguration pluginConfig = new LobbyLogic().getMapConfiguration(BedwarsAPI.getInstance().getGameOfPlayer(player).getName());
 
+
         int delay = spawner.getInt("delay");
+
+        if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+            if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                delay = delay/2;
+
         final int[] itemSize = {0};
         final int[] EnchantSize = {0};
 
@@ -64,31 +72,33 @@ public class ItemSpawner // changes spawner logic to trigger every second and co
                 {
                     this.cancel();
                 }
-
-                int randnum = rand.nextInt(finalItemSize);
-
-                String nextItem = spawner.getString("items." + randnum + ".type");
-                List<String> enchants = spawner.getStringList("items." + randnum + ".data.enchants"); // get item enchant names
-                List<String> enchantsLevels = spawner.getStringList("items." + randnum + ".data.levels"); // get item enchant levels
-                int nextItemAmount = spawner.getInt("items." + randnum + ".amount");
-
-                EnchantSize[0] = enchants.size();
-                ItemStack drop = new ItemStack(Material.valueOf(nextItem), nextItemAmount);
-
-                while (true) // add another one of these for potion data AND CUSTOM NAMES / LORE / NBT FOR OTHER INTERACTIONS, however the fuck that works
+                else
                 {
-                    if (i[0] < EnchantSize[0] && EnchantSize[0] != 0)
+                    int randnum = rand.nextInt(finalItemSize);
+
+                    String nextItem = spawner.getString("items." + randnum + ".type");
+                    List<String> enchants = spawner.getStringList("items." + randnum + ".data.enchants"); // get item enchant names
+                    List<String> enchantsLevels = spawner.getStringList("items." + randnum + ".data.levels"); // get item enchant levels
+                    int nextItemAmount = spawner.getInt("items." + randnum + ".amount");
+
+                    EnchantSize[0] = enchants.size();
+                    ItemStack drop = new ItemStack(Material.valueOf(nextItem), nextItemAmount);
+
+                    while (true) // add another one of these for potion data AND CUSTOM NAMES / LORE / NBT FOR OTHER INTERACTIONS, however the fuck that works
                     {
-                        drop.addUnsafeEnchantment(Objects.requireNonNull(Enchantment.getByKey(NamespacedKey.minecraft(enchants.get(i[0])))), Integer.parseInt(enchantsLevels.get(i[0])));
-                        i[0]++;
+                        if (i[0] < EnchantSize[0] && EnchantSize[0] != 0)
+                        {
+                            drop.addUnsafeEnchantment(Objects.requireNonNull(Enchantment.getByKey(NamespacedKey.minecraft(enchants.get(i[0])))), Integer.parseInt(enchantsLevels.get(i[0])));
+                            i[0]++;
+                        }
+                        else
+                        {
+                            i[0] = 0;
+                            break;
+                        }
                     }
-                    else
-                    {
-                        i[0] = 0;
-                        break;
-                    }
+                    player.getWorld().dropItemNaturally(loc, drop);
                 }
-                player.getWorld().dropItemNaturally(loc, drop);
             }
         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), delayL, delayL); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn
 
@@ -108,6 +118,7 @@ public class ItemSpawner // changes spawner logic to trigger every second and co
         as2.setVisible(false);
 
         final int[] resettableDelay = {delay - 1};
+        int finalDelay = delay;
         new BukkitRunnable()
         {
             @Override
@@ -122,12 +133,12 @@ public class ItemSpawner // changes spawner logic to trigger every second and co
                 }
 
                 if (resettableDelay[0] == -1)
-                    resettableDelay[0] = delay - 1;
+                    resettableDelay[0] = finalDelay - 1;
 
                 as2.setCustomName(ChatColor.YELLOW + "Spawns in " + ChatColor.RED + resettableDelay[0] + ChatColor.YELLOW + " seconds");
                 resettableDelay[0]--;
             }
-        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 20L, 20L); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn
+        }.runTaskTimer(Commands.Invictools, 20L, 20L); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn
 
     }
 }
