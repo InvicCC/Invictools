@@ -225,6 +225,9 @@ public final class Invictools extends JavaPlugin
         // HAS LOTS OF GAME ENDING RESETS
         Bukkit.getPluginManager().registerEvents(new deathListener(), this); // bw death, lucky blocks on death, clear data on bedwars games end, falling blocks lb grabber, bounce fall damage cancel
 
+        // Game start and end logger
+        Bukkit.getPluginManager().registerEvents(new GameLogger(), this);
+
         // commands
         this.getCommand("invictools").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
         this.getCommand("it").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
