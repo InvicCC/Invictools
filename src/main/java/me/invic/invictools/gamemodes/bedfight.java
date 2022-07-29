@@ -236,21 +236,9 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             }
         }.runTaskLater(Commands.Invictools, 20 * 3+1);
 
-        File bedfightLog = new File(Commands.Invictools.getDataFolder(), "bedfight.log");
-        BufferedWriter br = new BufferedWriter(new FileWriter(bedfightLog.getAbsolutePath()));
-
         if(e.getKiller() != null)
         {
-            br.write("[" + Calendar.DATE + "][DEATH] " + e.getPlayer() + " killed by " + e.getKiller());
-            br.newLine();
-            br.close();
             e.getKiller().getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
-        }
-        else
-        {
-            br.write("[" + Calendar.DATE + "][DEATH] " + e.getPlayer() + " killed by natural causes");
-            br.newLine();
-            br.close();
         }
     }
 
