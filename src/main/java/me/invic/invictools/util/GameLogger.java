@@ -24,7 +24,6 @@ import java.util.HashMap;
 public class GameLogger implements Listener
 {
 
-    // [time] [bedwars / bedfight] [map] [playercount] Winners: [name] [kills]K [deaths]D Losers: [name] [kills]K [deaths]D
     HashMap<Game, RunningTeam> livingTeam = new HashMap<>();
     HashMap<Game, RunningTeam> teamWon = new HashMap<>();
 
@@ -40,7 +39,9 @@ public class GameLogger implements Listener
         Date date = new Date();
         new disableStats();
         String gameType = disableStats.getGameType(e.getGame());
-        br.write("[" + dateFormat.format(date) + "] Game started\n-----");
+        br.write("[" + dateFormat.format(date) + "] Game started");
+        br.newLine();
+        br.write("-----");
         br.newLine();
         br.write("- Game type: " + gameType);
         br.newLine();
@@ -65,7 +66,6 @@ public class GameLogger implements Listener
         br.close();
     }
 
-    // [time] [bedwars / bedfight] [map] [playercount] Winners: [name] [kills]K [deaths]D Losers: [name] [kills]K [deaths]D
 
     @EventHandler
     public void gameEnd(BedwarsGameEndEvent e) throws IOException
