@@ -23,17 +23,18 @@ import java.util.List;
 
 public class safeSizeChange implements Listener
 {
-    static HashMap<Game,Integer> returnSize = new HashMap<>();
+    static HashMap<Game, Integer> returnSize = new HashMap<>();
     static List<Game> beingModified = new ArrayList<>();
 
     BedwarsAPI api = BedwarsAPI.getInstance();
+
     public boolean safeSizeEdit(String modify, CommandSender p, int size)
     {
-       // if(!isAnyGameRunning())
+        // if(!isAnyGameRunning())
         {
-            if(!(size>0 && size<11))
+            if (!(size > 0 && size < 11))
             {
-                p.sendMessage(ChatColor.RED +"Invalid Team Size");
+                p.sendMessage(ChatColor.RED + "Invalid Team Size");
                 return false;
             }
 
@@ -43,14 +44,15 @@ public class safeSizeChange implements Listener
             {
                 beingModified.add(api.getGameByName(modify));
 
-                for (Player player:inLobby)
+                for (Player player : inLobby)
                 {
-                    api.getGameByName(modify).leaveFromGame(player);
+//                    api.getGameByName(modify).leaveFromGame(player);
+                    player.chat("/spawn");
                 }
 
-                returnSize.put(api.getGameByName(modify),ChangeTeamSize.getTeamSize(api.getGameByName(modify)));
-                ChangeTeamSize.ChangeSingleArenaTeamSize(modify,size);
-              //  Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(modify)+".yml");
+                returnSize.put(api.getGameByName(modify), ChangeTeamSize.getTeamSize(api.getGameByName(modify)));
+                ChangeTeamSize.ChangeSingleArenaTeamSize(modify, size);
+                //  Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(modify)+".yml");
 /*
                 if(p instanceof Player)
                 {
@@ -66,10 +68,10 @@ public class safeSizeChange implements Listener
                     @Override
                     public void run()
                     {
-                        for (Player player:inLobby)
+                        for (Player player : inLobby)
                         {
                             new LobbyInventoryFix().saveInventory(player);
-                            if(!api.isPlayerPlayingAnyGame(player))
+                            if (!api.isPlayerPlayingAnyGame(player))
                                 api.getGameByName(modify).joinToGame(player);
                         }
                         beingModified.remove(api.getGameByName(modify));
@@ -79,7 +81,7 @@ public class safeSizeChange implements Listener
             }
             catch (Throwable e)
             {
-                p.sendMessage(ChatColor.RED +"Unknown Error");
+                p.sendMessage(ChatColor.RED + "Unknown Error");
                 return false;
             }
             return true;
@@ -88,9 +90,9 @@ public class safeSizeChange implements Listener
 
     public boolean isAnyGameRunning()
     {
-        for (Game game:api.getGames())
+        for (Game game : api.getGames())
         {
-            if(!game.getStatus().equals(GameStatus.WAITING) && !game.getStatus().equals(GameStatus.DISABLED))
+            if (!game.getStatus().equals(GameStatus.WAITING) && !game.getStatus().equals(GameStatus.DISABLED))
             {
                 return true;
             }
@@ -101,10 +103,10 @@ public class safeSizeChange implements Listener
     @EventHandler
     public void bwend(BedwarsGameEndEvent e)
     {
-        if(returnSize.containsKey(e.getGame()))
+        if (returnSize.containsKey(e.getGame()))
         {
-            ChangeTeamSize.ChangeSingleArenaTeamSize(e.getGame().getName(),returnSize.get(e.getGame()));
-           // Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(e.getGame().getName())+".yml");
+            ChangeTeamSize.ChangeSingleArenaTeamSize(e.getGame().getName(), returnSize.get(e.getGame()));
+            // Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(e.getGame().getName())+".yml");
             returnSize.remove(e.getGame());
         }
     }
