@@ -1,0 +1,22 @@
+lastAccountName: enchantedwaffle
+timestamps:
+  login: 1643334648954
+  lastteleport: 1643334410449
+  kits:
+    fw: 1643333206549
+  logout: 1643336984466
+ipAddress: 23.233.148.20
+lastlocation:
+  world: bwlobby
+  x: 252.26356782640306
+  y: 127.0
+  z: 248.01059441425716
+  yaw: -119.485016
+  pitch: 9.75119
+logoutlocation:
+  world: bwlobby
+  x: 244.30230818184154
+  y: 128.0
+  z: 244.2453711862122
+  yaw: -56.262207
+  pitch: 8.796061

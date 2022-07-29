@@ -1,0 +1,22 @@
+lastAccountName: _CammyB
+timestamps:
+  login: 1631126280850
+  logout: 1631129238432
+  lastteleport: 1631129161611
+  kits:
+    tools: 1631126746078
+ipAddress: 146.90.129.40
+logoutlocation:
+  world: bwlobby
+  x: 172.43085331353913
+  y: 122.0
+  z: 300.99734522031645
+  yaw: -147.76328
+  pitch: -20.44356
+lastlocation:
+  world: bwlobby
+  x: 197.98937517338362
+  y: 117.98916736586489
+  z: 273.50266433310094
+  yaw: -179.39278
+  pitch: 53.51032

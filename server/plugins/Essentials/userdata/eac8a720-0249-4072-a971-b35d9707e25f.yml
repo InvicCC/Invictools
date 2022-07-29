@@ -1,0 +1,22 @@
+lastAccountName: SavageTaiga
+timestamps:
+  login: 1647711650853
+  logout: 1647713716246
+  kits:
+    fw: 1647711700854
+  lastteleport: 1647711725350
+ipAddress: 51.222.93.8
+logoutlocation:
+  world: bwlobby
+  x: 250.35824791828554
+  y: 127.0
+  z: 250.4324502472729
+  yaw: -18.01022
+  pitch: -8.276491
+lastlocation:
+  world: bwlobby
+  x: 253.54239639027958
+  y: 128.24918707874468
+  z: 251.34337125797023
+  yaw: -199.54312
+  pitch: 13.901812

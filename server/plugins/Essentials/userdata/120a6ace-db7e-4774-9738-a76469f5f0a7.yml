@@ -1,0 +1,60 @@
+timestamps:
+  lastteleport: 1658930350536
+  login: 1658933568321
+  logout: 1658933613015
+  kits:
+    fw: 1654639806611
+    firework: 1627246577369
+    color: 1655928223945
+    elytra: 1654930296133
+    boots: 1654069787724
+    arrows: 1654638845281
+    dragon: 1648364719481
+    fireworks: 1654935289505
+    tools: 1632280441918
+    fight: 1655684184788
+lastlocation:
+  world: bwlobby
+  x: 257.12521793975344
+  y: 128.0
+  z: 247.5356253842456
+  yaw: -98.87459
+  pitch: 1.3991997
+lastAccountName: Invictable
+ipAddress: 127.0.0.1
+logoutlocation:
+  world: bwlobby
+  x: 236.9951754733836
+  y: 128.0
+  z: 248.91273587515468
+  yaw: 161.30185
+  pitch: 14.663015
+homes:
+  ball:
+    world: '100'
+    x: -254.30000001192093
+    y: 80.0
+    z: -9.699999988079075
+    yaw: -121.078735
+    pitch: 8.5802765
+  home:
+    world: World
+    x: -72.84990180897923
+    y: 126.0
+    z: 76.48697126774618
+    yaw: -75.381836
+    pitch: 2.4977252
+  ratio:
+    world: Large
+    x: -346.5
+    y: 69.0
+    z: 298.5
+    yaw: -128.38965
+    pitch: 2.100237
+godmode: false
+afk: false
+powertools:
+  bamboo:
+  - fireball
+money: '1385.0'
+last-message-reply-recipient: true

@@ -1,0 +1,28 @@
+dWorld: map3
+Conversion: paradise-0f5d-4a3b-8cf5-0ce38f7c2a5f
+WorldBorder: 275;38;240;0
+Lobby:
+  name: default
+  effect: strike
+Spawner:
+  mid:
+    x: 8.5
+    y: 60
+    z: 0.5
+LuckySpawners:
+  0:
+    x: 0.5
+    y: 60
+    z: -59.5
+  1:
+    x: -59
+    y: 60
+    z: 0.5
+  2:
+    x: 0.5
+    y: 60
+    z: 59.5
+  3:
+    x: 59.5
+    y: 60
+    z: 0.5
