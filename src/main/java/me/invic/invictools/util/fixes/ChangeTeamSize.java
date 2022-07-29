@@ -3,6 +3,7 @@ package me.invic.invictools.util.fixes;
 import me.invic.invictools.commands.Commands;
 import me.invic.invictools.util.LobbyLogic;
 import me.invic.invictools.util.disableStats;
+import me.invic.invictools.util.safeSizeChange;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -140,7 +141,10 @@ public class ChangeTeamSize
             boolean fuckOFF = CheckValidity(s);
             if (fuckOFF)
             {
-                EditEveryTeamSize(s, teamSize);
+                if(BedwarsAPI.getInstance().getGameByName(s).getConnectedPlayers().size() == 0)
+                    EditEveryTeamSize(s, teamSize);
+                else
+                    System.out.println("Skipping "+ s+ " because a game is running in this arena");
             }
         }
 
@@ -150,7 +154,12 @@ public class ChangeTeamSize
     public static void ChangeSingleArenaTeamSize(String config, int teamSize)
     {
         if (CheckValidity(config))
-            EditEveryTeamSize((config), teamSize);
+        {
+            if(BedwarsAPI.getInstance().getGameByName(config).getConnectedPlayers().size() == 0)
+                EditEveryTeamSize((config), teamSize);
+            else
+                System.out.println("Skipping "+ config+ " because a game is running in this arena");
+        }
 
       //  Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
     }
@@ -158,7 +167,12 @@ public class ChangeTeamSize
     public static void ChangeSingleTeamSize(String config, int teamSize, String teamColor)
     {
         if (CheckValidity(config))
-            EditSingleTeamSize((config), teamSize, teamColor);
+        {
+            if(BedwarsAPI.getInstance().getGameByName(config).getConnectedPlayers().size() == 0)
+                EditSingleTeamSize((config), teamSize, teamColor);
+            else
+                System.out.println("Skipping "+ config+ " because a game is running in this arena");
+        }
 
      //   Commands.MasterPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
     }
@@ -212,7 +226,7 @@ public class ChangeTeamSize
         }
         catch (NullPointerException e)
         {
-            Commands.MasterPlayer.sendMessage(ChatColor.RED + "Skipping " + config);
+           // Commands.MasterPlayer.sendMessage(ChatColor.RED + "Skipping " + config);
             return;
         }
 
@@ -229,6 +243,7 @@ public class ChangeTeamSize
         try
         {
             data.save(pFile);
+            new safeSizeChange().leaveRejoinGame(BedwarsAPI.getInstance().getGameByName(config));
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(config)+".yml");
            // Commands.MasterPlayer.sendMessage(ChatColor.YELLOW + data.getString("name") + ChatColor.AQUA + " can now hold " + ChatColor.YELLOW + teamSize + ChatColor.AQUA + " players per team.");
         }
@@ -256,6 +271,7 @@ public class ChangeTeamSize
         try
         {
             data.save(pFile);
+            new safeSizeChange().leaveRejoinGame(BedwarsAPI.getInstance().getGameByName(config));
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ConfigConversion(config)+".yml");
            // Commands.MasterPlayer.sendMessage(ChatColor.YELLOW + data.getString("name") + " " + teamColor + ChatColor.AQUA + " can now hold " + ChatColor.YELLOW + teamSize + ChatColor.AQUA + " players.");
         }

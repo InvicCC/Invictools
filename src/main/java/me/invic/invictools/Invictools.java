@@ -231,11 +231,11 @@ public final class Invictools extends JavaPlugin
 
         this.getCommand("toggle").setExecutor(new toggleCommands());
         this.getCommand("lb").setExecutor(new leaderboardCommands());
-//        this.getCommand("invictp").setExecutor(new InvicSpecCommand());
         this.getCommand("teamsize").setExecutor(new teamSizeCommands());
         this.getCommand("utility").setExecutor(new utilityCommands());
         this.getCommand("queue").setExecutor(new joinCommands());
         this.getCommand("scen").setExecutor(new scenarioCommands());
+        this.getCommand("invictaview").setExecutor(new InvicSpecCommand());
 
         if(Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI"))
         {

@@ -46,6 +46,9 @@ public class PAPIexpansion extends PlaceholderExpansion
     File pFile2 = new File(Folder2, "bw_stats_players.yml");
     final FileConfiguration data2 = YamlConfiguration.loadConfiguration(pFile2);
 
+    File Folder3 = Bukkit.getServer().getPluginManager().getPlugin("SBA").getDataFolder();
+    final FileConfiguration sba = YamlConfiguration.loadConfiguration(new File(Folder3,"sbaconfig.yml"));
+
     @Override
     public String onPlaceholderRequest(Player player, String identifier)
     {
@@ -54,7 +57,7 @@ public class PAPIexpansion extends PlaceholderExpansion
 
         //bw
         int defaultlvl = data2.getInt("data."+player.getUniqueId()+".score");
-        int bwlvl = defaultlvl/500+1;
+        int bwlvl = (defaultlvl/(sba.getInt("player-statistics.xp-to-level-up",(500)))+1);
         String strlvl = String.valueOf(bwlvl);
 
         if(identifier.equalsIgnoreCase("bfpres"))
@@ -115,6 +118,10 @@ public class PAPIexpansion extends PlaceholderExpansion
         {
             return "山";
         }
+        else if(identifier.equalsIgnoreCase("bws"))
+        {
+            return "✰";
+        }
         else if(identifier.equalsIgnoreCase("bflvl"))
         {
             return String.valueOf(intlvl);
@@ -172,6 +179,41 @@ public class PAPIexpansion extends PlaceholderExpansion
                 return ChatColor.translateAlternateColorCodes('&',"&5");
             else if(bwlvl >=100)
                 return ChatColor.translateAlternateColorCodes('&',"&8&l");
+        }
+        else if(identifier.equalsIgnoreCase("3"))
+        {
+            if(bwlvl >= 0 && bwlvl <= 9)
+                return ChatColor.translateAlternateColorCodes('&',"&7");
+            else if(bwlvl >= 10 && bwlvl <= 19)
+                return ChatColor.translateAlternateColorCodes('&',"&f");
+            else if(bwlvl >= 20 && bwlvl <= 29)
+                return ChatColor.translateAlternateColorCodes('&',"&6");
+            else if(bwlvl >= 30 && bwlvl <= 39)
+                return ChatColor.translateAlternateColorCodes('&',"&e");
+            else if(bwlvl >= 40 && bwlvl <= 49)
+                return ChatColor.translateAlternateColorCodes('&',"&2");
+            else if(bwlvl >= 50 && bwlvl <= 59)
+                return ChatColor.translateAlternateColorCodes('&',"&3");
+            else if(bwlvl >= 60 && bwlvl <= 69)
+                return ChatColor.translateAlternateColorCodes('&',"&c");
+            else if(bwlvl >= 70 && bwlvl <= 79)
+                return ChatColor.translateAlternateColorCodes('&',"&d");
+            else if(bwlvl >= 80 && bwlvl <= 89)
+                return ChatColor.translateAlternateColorCodes('&',"&9");
+            else if(bwlvl >= 90 && bwlvl <= 99)
+                return ChatColor.translateAlternateColorCodes('&',"&5");
+            else if(bwlvl >=100)
+                return ChatColor.translateAlternateColorCodes('&',"&b&l");
+        }
+        else if(identifier.equalsIgnoreCase("pro1"))
+        {
+            double decimal = (defaultlvl/sba.getDouble("player-statistics.xp-to-level-up",(500))) -(bwlvl-1);
+            double finalDouble = Math.round(decimal*sba.getDouble("player-statistics.xp-to-level-up",(500)));
+            return String.valueOf((int)finalDouble);
+        }
+        else if(identifier.equalsIgnoreCase("pro2"))
+        {
+            return sba.getString("player-statistics.xp-to-level-up",String.valueOf(500));
         }
         else if(identifier.equalsIgnoreCase("bfw"))
         {

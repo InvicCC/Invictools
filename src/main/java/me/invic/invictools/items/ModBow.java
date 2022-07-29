@@ -67,78 +67,77 @@ public class ModBow implements Listener
             }
             else if (ItemListener.ModBow.get((Player) e.getEntity()).equals(0)) // BRIDGE
             {
-                /*
-                if (e.getForce() <= 0.35)
+                if(api.isPlayerPlayingAnyGame((Player) e.getEntity()))
                 {
-                    e.getEntity().sendMessage(ChatColor.RED + "Your Shot was too weak, so it did nothing.");
-                    e.setCancelled(true);
-                    ((Player) e.getEntity()).updateInventory();
-                    return;
-                }
-*/
-                new BukkitRunnable()
-                {
-                    final Player player = (Player) e.getEntity();
-                    final String wooltype = api.getGameOfPlayer(player).getTeamOfPlayer((Player) e.getEntity()).getColor().name().toUpperCase(Locale.ROOT) + "_WOOL";
-                    final int[] runs = {0};
 
-                    @Override
-                    public void run()
+                    new BukkitRunnable()
                     {
-                        if (api.getGameOfPlayer(player).isLocationInArena(e.getProjectile().getLocation()))
-                        {
-                            if (e.getProjectile().getLocation().getBlock().getType().equals(Material.AIR) || e.getProjectile().getLocation().getY() > 20) /*|| e.getProjectile().getLocation().getBlock().getType().equals(Material.WATER)*/
-                            {
-                                // System.out.println(e.getProjectile().getLocation());
-                                Location loc = e.getProjectile().getLocation();
-                                BukkitRunnable runnable = new BukkitRunnable()
-                                {
-                                    @Override
-                                    public void run()
-                                    {
-                                        if (loc.getBlock().getType().equals(Material.AIR))
-                                            player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
-                                        loc.getBlock().setType(Material.getMaterial(wooltype));
-                                        Block b2 = loc.clone().subtract(1.0D, 0.0D, 0.0D).getBlock();
-                                        Block b4 = loc.clone().subtract(0.0D, 0.0D, 1.0D).getBlock();
-                                        Block b3 = loc.clone().subtract(-1.0D, 0.0D, 0.0D).getBlock();
-                                        Block b5 = loc.clone().subtract(0.0D, 0.0D, -1.0D).getBlock();
-                                        if (b2.getType().equals(Material.AIR))
-                                        {
-                                            b2.setType(Material.getMaterial(wooltype));
-                                            addLater(b2, player);
-                                        }
-                                        if (b3.getType().equals(Material.AIR))
-                                        {
-                                            b3.setType(Material.getMaterial(wooltype));
-                                            addLater(b3, player);
-                                        }
-                                        if (b4.getType().equals(Material.AIR))
-                                        {
-                                            b4.setType(Material.getMaterial(wooltype));
-                                            addLater(b4, player);
-                                        }
-                                        if (b5.getType().equals(Material.AIR))
-                                        {
-                                            b5.setType(Material.getMaterial(wooltype));
-                                            addLater(b5, player);
-                                        }
-                                        addLater(loc.getBlock(), player);
-                                    }
-                                };
-                                runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 2);
+                        final Player player = (Player) e.getEntity();
+                        final String wooltype = api.getGameOfPlayer(player).getTeamOfPlayer((Player) e.getEntity()).getColor().name().toUpperCase(Locale.ROOT) + "_WOOL";
+                        final int[] runs = {0};
 
-                                runs[0]++;
-                                if (runs[0] == 20 * 3) //5 seconds
+                        @Override
+                        public void run()
+                        {
+                            if (api.getGameOfPlayer(player).isLocationInArena(e.getProjectile().getLocation()))
+                            {
+                                if (e.getProjectile().getLocation().getBlock().getType().equals(Material.AIR) || e.getProjectile().getLocation().getY() > 20) /*|| e.getProjectile().getLocation().getBlock().getType().equals(Material.WATER)*/
+                                {
+                                    // System.out.println(e.getProjectile().getLocation());
+                                    Location loc = e.getProjectile().getLocation();
+                                    BukkitRunnable runnable = new BukkitRunnable()
+                                    {
+                                        @Override
+                                        public void run()
+                                        {
+                                            if (loc.getBlock().getType().equals(Material.AIR))
+                                                player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
+                                            loc.getBlock().setType(Material.getMaterial(wooltype));
+                                            Block b2 = loc.clone().subtract(1.0D, 0.0D, 0.0D).getBlock();
+                                            Block b4 = loc.clone().subtract(0.0D, 0.0D, 1.0D).getBlock();
+                                            Block b3 = loc.clone().subtract(-1.0D, 0.0D, 0.0D).getBlock();
+                                            Block b5 = loc.clone().subtract(0.0D, 0.0D, -1.0D).getBlock();
+                                            if (b2.getType().equals(Material.AIR))
+                                            {
+                                                b2.setType(Material.getMaterial(wooltype));
+                                                addLater(b2, player);
+                                            }
+                                            if (b3.getType().equals(Material.AIR))
+                                            {
+                                                b3.setType(Material.getMaterial(wooltype));
+                                                addLater(b3, player);
+                                            }
+                                            if (b4.getType().equals(Material.AIR))
+                                            {
+                                                b4.setType(Material.getMaterial(wooltype));
+                                                addLater(b4, player);
+                                            }
+                                            if (b5.getType().equals(Material.AIR))
+                                            {
+                                                b5.setType(Material.getMaterial(wooltype));
+                                                addLater(b5, player);
+                                            }
+                                            addLater(loc.getBlock(), player);
+                                        }
+                                    };
+                                    runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 2);
+
+                                    runs[0]++;
+                                    if (runs[0] == 20 * 3) //5 seconds
+                                        this.cancel();
+                                } else
                                     this.cancel();
-                            }
-                            else
+                            } else
                                 this.cancel();
                         }
-                        else
-                            this.cancel();
-                    }
-                }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 2L, 1L);
+                    }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 2L, 0L);
+                }
+                else
+                {
+                    e.setCancelled(true);
+                    ((Player)e.getEntity()).updateInventory();
+                    (e.getEntity()).sendMessage(ChatColor.RED +"This module only works in game");
+                }
             }
             else if (ItemListener.ModBow.get((Player) e.getEntity()).equals(2)) // HEAL
             {

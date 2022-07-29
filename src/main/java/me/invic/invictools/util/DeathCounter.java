@@ -43,7 +43,7 @@ public class DeathCounter implements Listener
     @EventHandler
     private void ResetOnGameEnd(BedwarsGameEndingEvent e)
     {
-        resetCounter();
+       // resetCounter();
         AbtributesOnDeath.resetAttributes();
     }
 }

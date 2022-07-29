@@ -155,7 +155,7 @@ public class leaderboard
                 }
                 else if (Sort.equalsIgnoreCase("star"))
                 {
-                    String s = ChatColor.translateAlternateColorCodes('&', " &b&l" + (i + 1) + ". &f" + playername + "&b - " + presColor((int) Math.round(leaderboard.get(player))) + (int) Math.round(leaderboard.get(player)) + "✰ ");
+                    String s = ChatColor.translateAlternateColorCodes('&', " &b&l" + (i + 1) + ". &f" + playername + "&b - " + presColor((int) Math.round(leaderboard.get(player))) + (int) Math.round(leaderboard.get(player)) + presColor2((int) Math.round(leaderboard.get(player)))+"✰ ");
                     formattedLeaderboard.add(s);
                 }
                 else if (Sort.equalsIgnoreCase("fkdr") || Sort.equalsIgnoreCase("wl") || Sort.equalsIgnoreCase("kdr"))
@@ -253,12 +253,40 @@ public class leaderboard
         else if (intlvl >= 90 && intlvl <= 99)
             return ChatColor.DARK_PURPLE;
         else if (intlvl >= 100)
-            return ChatColor.AQUA;
+            return ChatColor.DARK_AQUA;
 
         return ChatColor.GRAY;
     }
 
     public ChatColor presColor(int intlvl)
+    {
+        if (intlvl >= 0 && intlvl <= 9)
+            return ChatColor.GRAY;
+        else if (intlvl >= 10 && intlvl <= 19)
+            return ChatColor.WHITE;
+        else if (intlvl >= 20 && intlvl <= 29)
+            return ChatColor.GOLD;
+        else if (intlvl >= 30 && intlvl <= 39)
+            return ChatColor.YELLOW;
+        else if (intlvl >= 40 && intlvl <= 49)
+            return ChatColor.DARK_GREEN;
+        else if (intlvl >= 50 && intlvl <= 59)
+            return ChatColor.DARK_AQUA;
+        else if (intlvl >= 60 && intlvl <= 69)
+            return ChatColor.RED;
+        else if (intlvl >= 70 && intlvl <= 79)
+            return ChatColor.LIGHT_PURPLE;
+        else if (intlvl >= 80 && intlvl <= 89)
+            return ChatColor.BLUE;
+        else if (intlvl >= 90 && intlvl <= 99)
+            return ChatColor.DARK_PURPLE;
+        else if (intlvl >= 100)
+            return ChatColor.DARK_AQUA;
+
+        return ChatColor.GRAY;
+    }
+
+    public ChatColor presColor2(int intlvl)
     {
         if (intlvl >= 0 && intlvl <= 9)
             return ChatColor.GRAY;

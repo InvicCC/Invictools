@@ -1,5 +1,6 @@
 package me.invic.invictools.gamemodifiers.LuckyBlocks;
 
+import me.invic.invictools.util.disableStats;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -11,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
 
 import java.io.File;
 import java.util.List;
@@ -28,7 +30,12 @@ public class dynamicSpawner
         File pFile = new File(Folder, config + ".yml");
         final FileConfiguration spawner = YamlConfiguration.loadConfiguration(pFile);
 
-        int delay = spawner.getInt("delay");
+        int delay = spawner.getInt("delay",60);
+
+        if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+            if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                delay = delay/2;
+
         String spawnerText = spawner.getString("text");
 
         final int[] itemSize = {0};
@@ -57,43 +64,45 @@ public class dynamicSpawner
             {
                 if (!player.getLocation().getWorld().getName().equalsIgnoreCase(world) || cancel[0])
                     this.cancel();
-
-                int randnum = rand.nextInt(finalItemSize);
-
-                String nextItem = spawner.getString("items." + randnum + ".type");
-                List<String> enchants = spawner.getStringList("items." + randnum + ".data.enchants"); // get item enchant names
-                List<String> enchantsLevels = spawner.getStringList("items." + randnum + ".data.levels"); // get item enchant levels
-                int nextItemAmount = spawner.getInt("items." + randnum + ".amount");
-
-                List<String> Lore = spawner.getStringList("items." + randnum + ".data.lore"); // get item lore
-                String name = spawner.getString("items." + randnum + ".data.name"); // get item name
-
-                EnchantSize[0] = enchants.size();
-                ItemStack drop = new ItemStack(Material.valueOf(nextItem), nextItemAmount);
-                ItemMeta meta = drop.getItemMeta();
-
-                if (Lore.size() != 0)
-                    meta.setLore(Lore);
-                if (name != null)
-                    meta.setDisplayName(name);
-
-                drop.setItemMeta(meta);
-
-                while (true) // add another one of these for potion data AND CUSTOM NAMES / LORE / NBT FOR OTHER INTERACTIONS, however the fuck that works
+                else
                 {
-                    if (i[0] < EnchantSize[0] && EnchantSize[0] != 0)
-                    {
-                        drop.addUnsafeEnchantment(Objects.requireNonNull(Enchantment.getByKey(NamespacedKey.minecraft(enchants.get(i[0])))), Integer.parseInt(enchantsLevels.get(i[0])));
-                        i[0]++;
-                    }
-                    else
-                    {
-                        i[0] = 0;
-                        break;
-                    }
-                }
+                    int randnum = rand.nextInt(finalItemSize);
 
-                player.getWorld().dropItemNaturally(loc, drop);
+                    String nextItem = spawner.getString("items." + randnum + ".type");
+                    List<String> enchants = spawner.getStringList("items." + randnum + ".data.enchants"); // get item enchant names
+                    List<String> enchantsLevels = spawner.getStringList("items." + randnum + ".data.levels"); // get item enchant levels
+                    int nextItemAmount = spawner.getInt("items." + randnum + ".amount");
+
+                    List<String> Lore = spawner.getStringList("items." + randnum + ".data.lore"); // get item lore
+                    String name = spawner.getString("items." + randnum + ".data.name"); // get item name
+
+                    EnchantSize[0] = enchants.size();
+                    ItemStack drop = new ItemStack(Material.valueOf(nextItem), nextItemAmount);
+                    ItemMeta meta = drop.getItemMeta();
+
+                    if (Lore.size() != 0)
+                        meta.setLore(Lore);
+                    if (name != null)
+                        meta.setDisplayName(name);
+
+                    drop.setItemMeta(meta);
+
+                    while (true) // add another one of these for potion data AND CUSTOM NAMES / LORE / NBT FOR OTHER INTERACTIONS, however the fuck that works
+                    {
+                        if (i[0] < EnchantSize[0] && EnchantSize[0] != 0)
+                        {
+                            drop.addUnsafeEnchantment(Objects.requireNonNull(Enchantment.getByKey(NamespacedKey.minecraft(enchants.get(i[0])))), Integer.parseInt(enchantsLevels.get(i[0])));
+                            i[0]++;
+                        }
+                        else
+                        {
+                            i[0] = 0;
+                            break;
+                        }
+                    }
+
+                    player.getWorld().dropItemNaturally(loc, drop);
+                }
             }
         }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), delayL, delayL); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn
 
@@ -112,6 +121,7 @@ public class dynamicSpawner
         as2.setVisible(false);
 
         final int[] resettableDelay = {delay - 1};
+        int finalDelay = delay;
         new BukkitRunnable()
         {
             @Override
@@ -126,7 +136,7 @@ public class dynamicSpawner
                 }
 
                 if (resettableDelay[0] == -1)
-                    resettableDelay[0] = delay - 1;
+                    resettableDelay[0] = finalDelay - 1;
 
                 as2.setCustomName(ChatColor.YELLOW + "Spawns in " + ChatColor.RED + resettableDelay[0] + ChatColor.YELLOW + " seconds");
                 resettableDelay[0]--;
