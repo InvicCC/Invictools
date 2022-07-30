@@ -13,6 +13,7 @@ import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.inventory.InventoryEvent;
 import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
@@ -168,6 +169,15 @@ public class LobbyInventoryFix implements Listener
             }.runTaskLater(Commands.Invictools, 1L);
 
  */
+        }
+    }
+
+    @EventHandler
+    public void onRightClick(PlayerInteractEntityEvent e)
+    {
+        if (e.getRightClicked().getType() == EntityType.ALLAY)
+        {
+            e.setCancelled(true);
         }
     }
 
