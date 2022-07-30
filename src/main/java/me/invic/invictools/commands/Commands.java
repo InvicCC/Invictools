@@ -49,6 +49,7 @@ import org.bukkit.loot.LootTables;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.StringUtil;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.game.Game;
 import org.screamingsandals.bedwars.api.game.GameStatus;
@@ -661,9 +662,13 @@ public class Commands implements CommandExecutor, TabExecutor
         }
 
         if (sender.hasPermission("invic.invictools"))
-            return tabComplete;
+        {
+            return StringUtil.copyPartialMatches(args[0], tabComplete, new ArrayList<>());
+        }
         else
+        {
             return null;
+        }
     }
 
     @Override
