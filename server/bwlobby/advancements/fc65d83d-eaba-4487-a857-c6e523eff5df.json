@@ -55,6 +55,7 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
+      "minecraft:snowy_plains": "2022-07-30 15:49:16 +0000",
       "minecraft:cold_ocean": "2022-07-29 22:17:14 +0000",
       "minecraft:frozen_ocean": "2022-07-29 22:16:54 +0000",
       "minecraft:deep_frozen_ocean": "2022-07-29 22:16:51 +0000",

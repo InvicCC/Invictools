@@ -43,10 +43,10 @@ record:
     - Zeltraks
     - 2athevoid
   Fusion:
-    time: 53
-    team: §9Blue
+    time: 42
+    team: §7Gray
     winners:
-    - NebulaBC
+    - SuperLunar
   Monastery:
     time: 14
     team: §9Blue
@@ -83,3 +83,8 @@ record:
     team: §cRed
     winners:
     - Invictable
+  Slipslide:
+    time: 25
+    team: §9Blue
+    winners:
+    - NebulaBC
