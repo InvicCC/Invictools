@@ -30,44 +30,41 @@ public class GameLogger implements Listener
     HashMap<Player, Integer> playerDeaths = new HashMap<>();
     HashMap<Player, Integer> playerKills = new HashMap<>();
 
-    @EventHandler
-    public void gameStart(BedwarsGameStartEvent e) throws IOException
-    {
-        if(false)
-            return;
-
-        File bedfightLog = new File(Commands.Invictools.getDataFolder(), "game.log");
-        BufferedWriter br = new BufferedWriter(new FileWriter(bedfightLog.getAbsolutePath(), true));
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        new disableStats();
-        String gameType = disableStats.getGameType(e.getGame());
-        br.write("[" + dateFormat.format(date) + "] Game started:");
-        br.newLine();
-        br.write("  GameType: " + gameType);
-        br.newLine();
-        br.write("  Map: " + e.getGame().getName());
-        br.newLine();
-        br.write("  StatsTrack: " + "unknown");
-        br.newLine();
-        br.write("  Players: " + e.getGame().getConnectedPlayers().size());
-        br.newLine();
-        br.write("  Teams: ");
-        br.newLine();
-        for (RunningTeam r : e.getGame().getRunningTeams())
-        {
-            br.write("    " + r.getName() + ":");
-            br.newLine();
-            for (Player p : r.getConnectedPlayers())
-            {
-                br.write("      " + p.getName());
-                br.newLine();
-            }
-        }
-      //  br.write("-----");
-        br.newLine();
-        br.close();
-    }
+//    @EventHandler
+//    public void gameStart(BedwarsGameStartEvent e) throws IOException
+//    {
+//        File bedfightLog = new File(Commands.Invictools.getDataFolder(), "game.log");
+//        BufferedWriter br = new BufferedWriter(new FileWriter(bedfightLog.getAbsolutePath(), true));
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//        Date date = new Date();
+//        new disableStats();
+//        String gameType = disableStats.getGameType(e.getGame());
+//        br.write("[" + dateFormat.format(date) + "] Game started:");
+//        br.newLine();
+//        br.write("  GameType: " + gameType);
+//        br.newLine();
+//        br.write("  Map: " + e.getGame().getName());
+//        br.newLine();
+//        br.write("  StatsTrack: " + "unknown");
+//        br.newLine();
+//        br.write("  Players: " + e.getGame().getConnectedPlayers().size());
+//        br.newLine();
+//        br.write("  Teams: ");
+//        br.newLine();
+//        for (RunningTeam r : e.getGame().getRunningTeams())
+//        {
+//            br.write("    " + r.getName() + ":");
+//            br.newLine();
+//            for (Player p : r.getConnectedPlayers())
+//            {
+//                br.write("      " + p.getName());
+//                br.newLine();
+//            }
+//        }
+//      //  br.write("-----");
+//        br.newLine();
+//        br.close();
+//    }
 
     @EventHandler
     public void gameEnd(BedwarsGameEndEvent e) throws IOException
