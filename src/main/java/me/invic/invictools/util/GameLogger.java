@@ -33,6 +33,9 @@ public class GameLogger implements Listener
     @EventHandler
     public void gameStart(BedwarsGameStartEvent e) throws IOException
     {
+        if(false)
+            return;
+
         File bedfightLog = new File(Commands.Invictools.getDataFolder(), "game.log");
         BufferedWriter br = new BufferedWriter(new FileWriter(bedfightLog.getAbsolutePath(), true));
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -77,36 +80,38 @@ public class GameLogger implements Listener
         String gameType = disableStats.getGameType(e.getGame());
         br.write("[" + dateFormat.format(date) + "] Game finished:");
         br.newLine();
-        br.write("  GameType: " + gameType);
+        br.write("  - GameType: " + gameType);
         br.newLine();
-        br.write("  Map: " + e.getGame().getName());
+        br.write("  - Map: " + e.getGame().getName());
         br.newLine();
-        br.write("  Players: " + e.getGame().getConnectedPlayers().size());
         br.newLine();
-        br.write("  Winners: " + teamWon.get(e.getGame()).getName());
+        br.write("  - StatsTrack: " + "unknown");
+        br.write("  - Players: " + e.getGame().getConnectedPlayers().size());
+        br.newLine();
+        br.write("  Winners: ");/* + teamWon.get(e.getGame()).getName());*/
         br.newLine();
         for (Player p : teamWon.get(e.getGame()).getConnectedPlayers())
         {
-            br.write("    " + p.getName() + ":");
+            br.write("    - " + p.getName() + ":");
             br.newLine();
             if (playerDeaths.containsKey(p))
             {
-                br.write("      Deaths:" + playerDeaths.get(p));
+                br.write("      Deaths: " + playerDeaths.get(p));
                 br.newLine();
             }
             if (playerKills.containsKey(p))
             {
-                br.write("      Kills:" + playerKills.get(p));
+                br.write("      Kills: " + playerKills.get(p));
                 br.newLine();
             }
         }
-        br.write("  Losers: ");
+        br.write("  - Losers: ");
         br.newLine();
         for (Player p : e.getGame().getConnectedPlayers())
         {
             if (e.getGame().getTeamOfPlayer(p) != teamWon.get(e.getGame()))
             {
-                br.write("    " + p.getName() + ":");
+                br.write("    - " + p.getName() + ":");
                 br.newLine();
                 if (playerDeaths.containsKey(p))
                 {
@@ -120,7 +125,7 @@ public class GameLogger implements Listener
                 }
             }
         }
-        br.newLine();
+     //   br.newLine();
         br.close();
     }
 
