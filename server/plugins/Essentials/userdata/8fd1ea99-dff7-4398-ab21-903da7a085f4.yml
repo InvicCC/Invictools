@@ -1,8 +1,8 @@
 lastAccountName: NebulaBC
 timestamps:
-  login: 1659133887331
-  logout: 1659133907276
-  lastteleport: 1659133046119
+  login: 1659141549603
+  logout: 1659142013151
+  lastteleport: 1659141212523
   kits:
     fw: 1643674980494
     elytra: 1643249412222
@@ -13,16 +13,16 @@ timestamps:
 ipAddress: 127.0.0.1
 logoutlocation:
   world: bwlobby
-  x: 250.35824791828554
-  y: 127.0
-  z: 250.4324502472729
-  yaw: 196.79861
-  pitch: -8.276491
+  x: 225.59145004401347
+  y: 117.83079687609191
+  z: 196.83138917829143
+  yaw: -94.93344
+  pitch: 89.90329
 lastlocation:
   world: bwlobby
-  x: 250.35824791828554
-  y: 127.0
-  z: 250.4324502472729
-  yaw: -89.39903
-  pitch: -8.276491
+  x: 237.60297071637447
+  y: 128.0
+  z: 234.5215418777424
+  yaw: 144.18436
+  pitch: 90.0
 godmode: false

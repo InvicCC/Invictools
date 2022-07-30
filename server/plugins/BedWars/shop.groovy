@@ -181,7 +181,7 @@ inventory {
             stack.lore ([
                     "Get informed if an enemy steps on your trap",
                     "and your enemy won't be able to move properly."
-            ]);
+            ])
 
             property 'Trap', [
                     data: [

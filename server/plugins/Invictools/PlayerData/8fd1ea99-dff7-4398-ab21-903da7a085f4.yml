@@ -72,17 +72,11 @@ lobby:
     internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDRFFvJLzE1lYMsEcuONGQAhzt+ALwAAAA==
 - ==: org.bukkit.inventory.ItemStack
   v: 3105
-  type: YELLOW_STAINED_GLASS_PANE
+  type: STRUCTURE_VOID
   meta:
     ==: ItemMeta
     meta-type: UNSPECIFIC
-    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Oasis"}],"text":""}'
-    lore:
-    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Left
-      click to queue Oasis arena"}],"text":""}'
-    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Right
-      click to queue Oasis Scenario arena"}],"text":""}'
-    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYLREFvJLzE1lYMsEcuNNGACE4yOwLwAAAA==
+    display-name: '{"extra":[{"text":"6"}],"text":""}'
 - ==: org.bukkit.inventory.ItemStack
   v: 3105
   type: BLAZE_ROD
@@ -412,3 +406,4 @@ lobby:
     meta-type: UNSPECIFIC
     display-name: '{"extra":[{"text":"40"}],"text":""}'
 FinalKill: Lightning
+Displayname: §f[§6§lSubscriber§f] NebulaBC§r

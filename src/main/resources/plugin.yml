@@ -1,6 +1,6 @@
 name: Invictools
 version: ${project.version}
-main: me.invic.invictools.Invictools
+main: cc.invic.invictools.Invictools
 api-version: 1.19
 authors: [ Invic ]
 description: Gamemodes, Bedwars Bug Fixes, and hosting Utilities for Invic Bedwars

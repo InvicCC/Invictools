@@ -1,0 +1,92 @@
+        new BukkitRunnable()
+        {
+            @Override
+            public void run()
+            {
+
+            }
+        }.runTaskTimer(Commands.Invictools, 20L, 20L);
+
+        new BukkitRunnable()
+        {
+            @Override
+            public void run()
+            {
+
+            }
+        }.runTaskLater(Commands.Invictools, 20L);
+
+public class scenarioCommands implements TabExecutor, CommandExecutor
+{
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args)
+    {
+        List<String> tabComplete = new ArrayList<>();
+        if (sender instanceof Player)
+        {
+            if (!sender.hasPermission("invic.invictools"))
+            {
+                sender.sendMessage(Commands.permissionsError);
+                return tabComplete;
+            }
+        }
+
+        if(args.length == 1)
+        {
+
+        }
+
+        return tabComplete;
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
+    {
+        if (sender instanceof Player)
+        {
+            if (!sender.hasPermission("invic.invictools"))
+            {
+                sender.sendMessage(Commands.permissionsError);
+                return true;
+            }
+        }
+
+        if(args.length==1 && args[0].equalsIgnoreCase(""))
+        {
+
+        }
+
+        return true;
+    }
+}
+
+
+
+        FileConfiguration config = Commands.Invictools.getConfig();
+
+        1.8 protocal = 47
+
+DEV LOG
+2/15/2022
+Added Haunt, Instant Haunt, Attempted AlwaysBridge Smoothness, Attempted to add fail safes to stop spawner, dynamic spawner, and give-repeated-item logic
+3/22/2022
+Added ProximityElytra, PreventElytraClick, SafeOpCommand method, better teammate grabbing methods via API (in GrabTeammates)
+3/25/2022
+Added Dynamic per arena lobbies, prevented concrete from solidifying, updated logic to disableSpectatorTeleport (slightly scuffed) small changes to various other logics, reformatted twinkle to physics
+4/12/2022
+Added LootBox item using luckyBlockBreak, LootBoc, and TableToList. Refined itemrain logic to convert materials to bedwars materials in TableToList so more usable elsewhere
+5/20/2022
+Revamped giveitem to work per manhunt team, bedwars team, specific player, all player. updated safeop, added different effect per teammate, revamped fireballs,
+added repeateditem global toggle
+5/27/2022
+added Olympusfires control, added CloseElytra null check, fixed DisableShop, updated DamageTeammates to new geabteammates, added modbow name switch
+started final kill attempts, tried to fix luckyblock teleporting and creative
+6/2/2022
+made firestick launch real fireball, updated wool detonator, added new final kills, made bedbreak/kill check not use api, added projectile trails
+6/8/2022
+added final kill tracking, reorganized classes, added more cosmetics.
+6/19/2022
+Fixed new lobby inventory bug, fixed spectator mode using whether lobby exists, adjusted boss lucky blocks, added DareDevil + dd items
+made inventory save when moved around automatically. added leaderboard for every stat. prevented lobby mob despawning. previously added command panels in plugin
+7/15/2022
+changelog now implmented via github

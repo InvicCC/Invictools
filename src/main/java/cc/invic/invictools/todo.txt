@@ -1,0 +1,3 @@
+TODO:
+   rewrite every command to be grouped by what they are or just individual if used by normal players a lot. ex /lbpos instead of /it leaderboard position
+   do not replace commands just write new ones that utilize the same code so manhunt configuration files and related still work but typing is cleaner

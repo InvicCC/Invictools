@@ -1,0 +1,139 @@
+package cc.invic.invictools.util.npc;
+
+/*
+public class SpawnNPC implements Listener
+{
+    public static EntityPlayer npc2;
+
+    public SpawnNPC()
+    {
+        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
+        final FileConfiguration pluginConfig = plugin.getConfig();
+        String skinname = pluginConfig.getString("npc.skin");
+        String npctitle = pluginConfig.getString("npc.title");
+
+        MinecraftServer nmsServer = ((CraftServer) Bukkit.getServer()).getServer();
+        WorldServer nmsWorld = ((CraftWorld) Objects.requireNonNull(Bukkit.getWorld("bwlobby"))).getHandle(); // Change "world" to the world the NPC should be spawned in.
+        GameProfile gameProfile = new GameProfile(UUID.randomUUID(), npctitle); // Change "playername" to the name the NPC should have, max 16 characters.
+        EntityPlayer npc = new EntityPlayer(nmsServer, nmsWorld, gameProfile, new PlayerInteractManager(nmsWorld)); // This will be the EntityPlayer (NPC) we send with the sendNPCPacket method.
+
+        npc.setLocation(pluginConfig.getDouble("npc.x"), pluginConfig.getDouble("npc.y"), pluginConfig.getDouble("npc.z"), (float) pluginConfig.getDouble("npc.yaw"), (float) pluginConfig.getDouble("npc.pitch"));
+        try
+        {
+            HttpsURLConnection connection = (HttpsURLConnection) new URL(String.format("https://api.ashcon.app/mojang/v2/user/%s", skinname)).openConnection();
+            if (connection.getResponseCode() == HttpsURLConnection.HTTP_OK)
+            {
+                ArrayList<String> lines = new ArrayList<>();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                reader.lines().forEach(lines::add);
+
+                String reply = String.join(" ", lines);
+                int indexOfValue = reply.indexOf("\"value\": \"");
+                int indexOfSignature = reply.indexOf("\"signature\": \"");
+                String skin = reply.substring(indexOfValue + 10, reply.indexOf("\"", indexOfValue + 10));
+                String signature = reply.substring(indexOfSignature + 14, reply.indexOf("\"", indexOfSignature + 14));
+
+                npc.getProfile().getProperties().put("textures", new Property("textures", skin, signature));
+            } else
+            {
+                Bukkit.getConsoleSender().sendMessage("Connection could not be opened when fetching player skin (Response code " + connection.getResponseCode() + ", " + connection.getResponseMessage() + ")");
+            }
+
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        npc2 = npc;
+
+        pluginConfig.set("npc.ID", npc.getId());
+        plugin.saveConfig();
+
+
+        Location ArmorStand1Loc = new Location(Bukkit.getWorld("bwlobby"), pluginConfig.getDouble("npc.x"), pluginConfig.getDouble("npc.y")+.15, pluginConfig.getDouble("npc.z"));
+        ArmorStand as1 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(ArmorStand1Loc, EntityType.ARMOR_STAND);
+
+        as1.setGravity(false);
+        as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&bPlayers in game:"));
+        as1.setCustomNameVisible(true);
+        as1.setVisible(false);
+
+        int maxp = Bukkit.getMaxPlayers();
+
+
+        new BukkitRunnable()
+        {
+            @Override
+            public void run()
+            {
+                int ingame = 0;
+
+                for (Player player: Bukkit.getOnlinePlayers())
+                {
+                    if(!player.getWorld().getName().equals("bwlobby"))
+                    {
+                        ingame++;
+                    }
+                }
+                as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&bPlayers in game: &f" +ingame+ " / "+ maxp));
+            }
+        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1L, 1L);
+
+    }
+
+    @EventHandler
+    public void RenderNPC(PlayerChangedWorldEvent e)
+    {
+        Player player = e.getPlayer();
+        if(player.getWorld().getName().equalsIgnoreCase("bwlobby"))
+        {
+            PlayerConnection connection = ((CraftPlayer) player).getHandle().playerConnection;
+            connection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, npc2)); // "Adds the player data for the client to use when spawning a player" - https://wiki.vg/Protocol#Spawn_Player
+            connection.sendPacket(new PacketPlayOutNamedEntitySpawn(npc2)); // Spawns the NPC for the player client.
+            connection.sendPacket(new PacketPlayOutEntityHeadRotation(npc2, (byte) (npc2.yaw * 256 / 360))); // Correct head rotation when spawned in player look direction.
+
+            DataWatcher watcher = npc2.getDataWatcher();
+            watcher.set(new DataWatcherObject<>(16, DataWatcherRegistry.a), (byte) 127);
+            PacketPlayOutEntityMetadata packet = new PacketPlayOutEntityMetadata(npc2.getId(), watcher, true);
+            ((CraftPlayer) player).getHandle().playerConnection.sendPacket(packet);
+
+            BukkitRunnable runnable = new BukkitRunnable() {
+                @Override
+                public void run()
+                {
+                    connection.sendPacket(new PacketPlayOutPlayerInfo(REMOVE_PLAYER, npc2));
+                }
+            };
+            runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 60);
+        }
+    }
+
+    @EventHandler
+    public void RenderNPConJoin(PlayerJoinEvent e)
+    {
+        Player player = e.getPlayer();
+        if(player.getWorld().getName().equalsIgnoreCase("bwlobby"))
+        {
+            PlayerConnection connection = ((CraftPlayer) player).getHandle().playerConnection;
+            connection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER, npc2)); // "Adds the player data for the client to use when spawning a player" - https://wiki.vg/Protocol#Spawn_Player
+            connection.sendPacket(new PacketPlayOutNamedEntitySpawn(npc2)); // Spawns the NPC for the player client.
+            connection.sendPacket(new PacketPlayOutEntityHeadRotation(npc2, (byte) (npc2.yaw * 256 / 360))); // Correct head rotation when spawned in player look direction.
+
+            DataWatcher watcher = npc2.getDataWatcher();
+            watcher.set(new DataWatcherObject<>(16, DataWatcherRegistry.a), (byte) 127);
+            PacketPlayOutEntityMetadata packet = new PacketPlayOutEntityMetadata(npc2.getId(), watcher, true);
+            ((CraftPlayer) player).getHandle().playerConnection.sendPacket(packet);
+
+            BukkitRunnable runnable = new BukkitRunnable()
+            {
+                @Override
+                public void run()
+                {
+                    connection.sendPacket(new PacketPlayOutPlayerInfo(REMOVE_PLAYER, npc2));
+                }
+            };
+            runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 60);
+        }
+    }
+}
+*/
