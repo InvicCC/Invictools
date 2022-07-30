@@ -62,7 +62,7 @@ public class GameLogger implements Listener
         br.newLine();
         br.write("  Players: " + e.getGame().getConnectedPlayers().size());
         br.newLine();
-        br.write("  Final time: " + minutes + "m " + (seconds - minutes * 60) + "s");
+        br.write("  FinalTime: " + minutes + "m " + (seconds - minutes * 60) + "s");
         br.newLine();
         br.write("  Winners: ");
         br.newLine();
