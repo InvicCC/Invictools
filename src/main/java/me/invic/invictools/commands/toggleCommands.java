@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-import static me.invic.invictools.commands.Commands.*;
+import static me.invic.invictools.commands.OldCommands.*;
 
 public class toggleCommands implements TabExecutor, CommandExecutor
 {
@@ -30,7 +30,7 @@ public class toggleCommands implements TabExecutor, CommandExecutor
         {
             if(!sender.hasPermission("invic.invictools"))
             {
-                sender.sendMessage(Commands.permissionsError);
+                sender.sendMessage(OldCommands.permissionsError);
                 return tabComplete;
             }
         }
@@ -57,7 +57,7 @@ public class toggleCommands implements TabExecutor, CommandExecutor
         {
             if(!sender.hasPermission("invic.invictools"))
             {
-                sender.sendMessage(Commands.permissionsError);
+                sender.sendMessage(OldCommands.permissionsError);
                 return true;
             }
         }

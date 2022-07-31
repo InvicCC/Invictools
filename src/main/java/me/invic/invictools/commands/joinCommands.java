@@ -127,7 +127,7 @@ public class joinCommands implements CommandExecutor, TabExecutor
                             sender.sendMessage(ChatColor.AQUA + "Sending you to " + ChatColor.WHITE + queue.activeBedfightGame.getName());
                             announceJoin("Bedfight");
                         }
-                    }.runTaskLater(Commands.Invictools, 20L);
+                    }.runTaskLater(OldCommands.Invictools, 20L);
                 } else
                 {
                     sender.sendMessage("Must be a player to execute this");
@@ -158,7 +158,7 @@ public class joinCommands implements CommandExecutor, TabExecutor
                             sender.sendMessage(ChatColor.AQUA + "Sending you to " + ChatColor.WHITE + queue.activeBedwarsGame.getName());
                             announceJoin("Bedwars");
                         }
-                    }.runTaskLater(Commands.Invictools, 20L);
+                    }.runTaskLater(OldCommands.Invictools, 20L);
                 } else
                 {
                     sender.sendMessage("Must be a player to execute this");
@@ -195,7 +195,7 @@ public class joinCommands implements CommandExecutor, TabExecutor
         else if (args.length == 1 && args[0].equalsIgnoreCase("host"))
         {
             Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
-            final FileConfiguration Config = Commands.Invictools.getConfig();
+            final FileConfiguration Config = OldCommands.Invictools.getConfig();
 
             Config.set("loadedgame", "none");
             plugin.saveConfig();
@@ -280,7 +280,7 @@ public class joinCommands implements CommandExecutor, TabExecutor
                     if (player.getWorld().equals(BedwarsAPI.getInstance().getGameByName(game.getName()).getGameWorld()))
                         player.setGameMode(GameMode.SPECTATOR);
             }
-        }.runTaskLater(Commands.Invictools, 5L);
+        }.runTaskLater(OldCommands.Invictools, 5L);
     }
 
 

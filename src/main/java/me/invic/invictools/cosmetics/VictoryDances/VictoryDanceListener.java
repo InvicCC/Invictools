@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics.VictoryDances;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.Lobby1Handler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -38,7 +38,7 @@ public class VictoryDanceListener implements Listener
                     {
                         new Lobby1Handler().FireFeet(p);
                     }
-                }.runTaskLater(Commands.Invictools, (VictoryDanceHandler.effectDuration * 20) + 60);
+                }.runTaskLater(OldCommands.Invictools, (VictoryDanceHandler.effectDuration * 20) + 60);
             }
         }
     }

@@ -1,41 +1,37 @@
 package me.invic.invictools.impl;
 
-import me.invic.invictools.Invictools;
 import me.invic.invictools.commandManagerLib.SubCommand;
-import me.invic.invictools.items.FireStick;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import java.util.List;
 
-import static me.invic.invictools.commands.OldCommands.FireStickEnabled;
+import static me.invic.invictools.commands.OldCommands.StatsTrack;
 
-public class FirestickCommand implements SubCommand
+public class StatsCommand implements SubCommand
 {
     @Override
     public String getName()
     {
-        return "firestick";
+        return "stats";
     }
 
     @Override
     public String getDescription()
     {
-        return "Shoots a fireball";
+        return "Disables and enables stats";
     }
 
     @Override
     public String getSyntax()
     {
-        return "/it firestick";
+        return "/it stats";
     }
 
     @Override
     public String getPermission()
     {
-        return "invic.firestick";
+        return "invic.all";
     }
 
     @Override
@@ -47,13 +43,15 @@ public class FirestickCommand implements SubCommand
     @Override
     public void perform(CommandSender sender, String[] args)
     {
-        if (Bukkit.getPlayer(sender.getName()).getWorld().getName().equals("bwlobby"))
+        if (StatsTrack)
         {
-            new FireStick((Player) sender);
+            StatsTrack = false;
+            sender.sendMessage(ChatColor.AQUA + "Stats should no longer track");
         }
-        if (!FireStickEnabled)
+        else
         {
-            sender.sendMessage(ChatColor.GOLD + "FireSticks " + ChatColor.RED + "are currently disabled.");
+            StatsTrack = true;
+            sender.sendMessage(ChatColor.AQUA + "Stats should now track");
         }
     }
 }

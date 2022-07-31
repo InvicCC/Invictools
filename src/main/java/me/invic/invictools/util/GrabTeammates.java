@@ -1,6 +1,6 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -34,7 +34,7 @@ public class GrabTeammates
             }
             */
             if (team.get(0) != null)
-                Commands.teammates.put(player, team.get(0));
+                OldCommands.teammates.put(player, team.get(0));
         }
         p.sendMessage(ChatColor.AQUA + "Teammates assigned");
     }

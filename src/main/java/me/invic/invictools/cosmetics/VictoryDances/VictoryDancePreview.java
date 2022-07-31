@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics.VictoryDances;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.util.fixes.LobbyInventoryFix;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -13,7 +13,7 @@ import java.util.Objects;
 
 public class VictoryDancePreview
 {
-    static FileConfiguration config = Commands.Invictools.getConfig();
+    static FileConfiguration config = OldCommands.Invictools.getConfig();
     public static boolean VictoryPreviewEnabled = config.getBoolean("VictoryDance.enabled", true);
 
     public void handle(String string, Player p)

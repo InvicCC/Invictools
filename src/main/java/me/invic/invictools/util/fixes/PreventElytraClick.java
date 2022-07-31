@@ -1,6 +1,6 @@
 package me.invic.invictools.util.fixes;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,8 +12,8 @@ public class PreventElytraClick implements Listener
     final void ClickListener(InventoryClickEvent e)
     {
         Player p = (Player) e.getWhoClicked();
-        if (Commands.ProximityElytra.get(p) != null)
-            if (Commands.ProximityElytra.get(p))
+        if (OldCommands.ProximityElytra.get(p) != null)
+            if (OldCommands.ProximityElytra.get(p))
                 if (e.getSlot() == 38)
                     e.setCancelled(true);
     }

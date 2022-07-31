@@ -179,7 +179,7 @@ public final class Invictools extends JavaPlugin
 
         this.saveDefaultConfig();
         FileConfiguration fileConfiguration = this.getConfig();
-        File Folder = new File(Commands.Invictools.getDataFolder(), "Maps");
+        File Folder = new File(OldCommands.Invictools.getDataFolder(), "Maps");
         File[] yamlFiles = Folder.listFiles();
         for (File file : yamlFiles)
         {
@@ -197,6 +197,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().addPermission(new Permission("nospectp.allowteleport"));
         Bukkit.getPluginManager().addPermission(new Permission("invic.invictools"));
         Bukkit.getPluginManager().addPermission(new Permission("invic.firestick"));
+        Bukkit.getPluginManager().addPermission(new Permission("invic.all"));
 
         // proper
         Bukkit.getPluginManager().registerEvents(new disableSpectatorTeleport(), this); // teleport event
@@ -259,7 +260,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new GameLogger(), this);
 
         // commands
-        this.getCommand("invictools").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
+        this.getCommand("invictools").setExecutor(new OldCommands(worlds, y, blackListedWorlds, games));
 //        this.getCommand("it").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
 
         this.getCommand("toggle").setExecutor(new toggleCommands());
@@ -300,9 +301,9 @@ public final class Invictools extends JavaPlugin
                 queue.activeBedfightGame = new queue().getRandomGame("Bedfight");
                 queue.activeBedwarsGame = new queue().getRandomGame("normal");
 
-                final FileConfiguration config = Commands.Invictools.getConfig();
+                final FileConfiguration config = OldCommands.Invictools.getConfig();
                 String masterplayer = config.getString("masterplayer","Invictable");
-                Commands.MasterPlayer = Bukkit.getPlayer(masterplayer);
+                OldCommands.MasterPlayer = Bukkit.getPlayer(masterplayer);
 
             }
         };

@@ -1,6 +1,6 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -13,7 +13,7 @@ public class disableParkour
 {
     public static boolean parkour = true;
     World world = Bukkit.getWorld("bwlobby");
-    FileConfiguration fileConfiguration = Commands.Invictools.getConfig();
+    FileConfiguration fileConfiguration = OldCommands.Invictools.getConfig();
     List<String> fences = fileConfiguration.getStringList("fenceloc");
 
     public disableParkour()

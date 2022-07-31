@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics.finalkills;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.NormalKillHandler;
 import me.invic.invictools.util.GrabTeammates;
 import me.invic.invictools.util.disableStats;
@@ -67,7 +67,7 @@ public class FinalKillListener implements Listener
 
     private void addFinalKill(Player k)
     {
-        if (!Commands.StatsTrack || !disableStats.shouldTrack(k))
+        if (!OldCommands.StatsTrack || !disableStats.shouldTrack(k))
             return;
 
         File pFile = new File(Folder, k.getUniqueId() + ".yml");
@@ -92,7 +92,7 @@ public class FinalKillListener implements Listener
 
     private void addFinalDeath(Player p)
     {
-        if (!Commands.StatsTrack || !disableStats.shouldTrack(p))
+        if (!OldCommands.StatsTrack || !disableStats.shouldTrack(p))
             return;
 
         File pFile2 = new File(Folder, p.getUniqueId() + ".yml");

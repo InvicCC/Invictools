@@ -1,6 +1,6 @@
 package me.invic.invictools.gamemodifiers;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -22,13 +22,13 @@ public class Totem implements Listener
         {
             Player player = (Player) e.getEntity();
 
-            if (Commands.InfiniteTotems.get(player) == null)
+            if (OldCommands.InfiniteTotems.get(player) == null)
                 return;
 
             if (e.isCancelled())
                 return;
 
-            if (Commands.InfiniteTotems.get(player))
+            if (OldCommands.InfiniteTotems.get(player))
             {
                 double Health = player.getHealth();
                 double Damage = e.getFinalDamage();

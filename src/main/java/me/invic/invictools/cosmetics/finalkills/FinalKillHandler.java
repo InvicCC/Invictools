@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
-import me.invic.invictools.commands.Commands;
 import me.invic.invictools.cosmetics.bedbreaks.TornadoBedBreak;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import org.bukkit.*;

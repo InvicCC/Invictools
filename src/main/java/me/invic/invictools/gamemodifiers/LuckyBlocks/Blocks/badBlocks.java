@@ -1,6 +1,6 @@
 package me.invic.invictools.gamemodifiers.LuckyBlocks.Blocks;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.CustomHealth;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.dynamicSpawner;
 import me.invic.invictools.util.GrabTeammates;
@@ -105,7 +105,7 @@ public class badBlocks
 
                         i++;
                     }
-                }.runTaskTimer(Commands.Invictools, 0, 4); // 20 TICKS IS 1 SECOND NOT 1 TICK
+                }.runTaskTimer(OldCommands.Invictools, 0, 4); // 20 TICKS IS 1 SECOND NOT 1 TICK
                 break;
             case 5:
                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&lYou will swap locations with a random player in 2 seconds..."));
@@ -242,7 +242,7 @@ public class badBlocks
                                             wither.remove();
                                         }
                                     }
-                                }.runTaskLater(Commands.Invictools, withertime*20);
+                                }.runTaskLater(OldCommands.Invictools, withertime*20);
                                 break;
                             }
                         }

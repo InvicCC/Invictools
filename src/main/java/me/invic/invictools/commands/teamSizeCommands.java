@@ -1,6 +1,5 @@
 package me.invic.invictools.commands;
 
-import com.mojang.authlib.minecraft.TelemetrySession;
 import me.invic.invictools.util.fixes.ChangeTeamSize;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -8,7 +7,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
-import org.screamingsandals.bedwars.api.RunningTeam;
 import org.screamingsandals.bedwars.api.Team;
 import org.screamingsandals.bedwars.api.game.Game;
 
@@ -25,7 +23,7 @@ public class teamSizeCommands implements CommandExecutor, TabExecutor
         {
             if(!sender.hasPermission("invic.invictools"))
             {
-                sender.sendMessage(Commands.permissionsError);
+                sender.sendMessage(OldCommands.permissionsError);
                 return tabComplete;
             }
         }
@@ -97,7 +95,7 @@ public class teamSizeCommands implements CommandExecutor, TabExecutor
         {
             if(!sender.hasPermission("invic.invictools"))
             {
-                sender.sendMessage(Commands.permissionsError);
+                sender.sendMessage(OldCommands.permissionsError);
                 return true;
             }
         }

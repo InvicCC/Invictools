@@ -1,6 +1,6 @@
 package me.invic.invictools.util.fixes;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.util.LobbyLogic;
 import me.invic.invictools.util.disableStats;
 import me.invic.invictools.util.safeSizeChange;
@@ -9,7 +9,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.game.Game;
@@ -30,7 +29,7 @@ public class ChangeTeamSize
     {
         shortArena.clear();
         longArena.clear();
-        File Folder = new File(Commands.Invictools.getDataFolder(), "Maps");
+        File Folder = new File(OldCommands.Invictools.getDataFolder(), "Maps");
         File[] yamlFiles = Folder.listFiles();
         for (File file : yamlFiles)
         {
@@ -185,12 +184,12 @@ public class ChangeTeamSize
         final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
         if (data.getString("name") == null)
         {
-            Commands.MasterPlayer.sendMessage(ChatColor.RED + "It looks like this arena config isn't loading properly. Mismatched ID or not setup?: " + ChatColor.WHITE + config);
+            OldCommands.MasterPlayer.sendMessage(ChatColor.RED + "It looks like this arena config isn't loading properly. Mismatched ID or not setup?: " + ChatColor.WHITE + config);
             return false;
         }
         else if (!data.getString("name").toLowerCase(Locale.ROOT).equals(config.toLowerCase(Locale.ROOT)))
         {
-            Commands.MasterPlayer.sendMessage(ChatColor.RED + "It looks like this arena's name does not match the config it's corresponding to: " + ChatColor.WHITE + config);
+            OldCommands.MasterPlayer.sendMessage(ChatColor.RED + "It looks like this arena's name does not match the config it's corresponding to: " + ChatColor.WHITE + config);
             return false;
         }
 
@@ -264,7 +263,7 @@ public class ChangeTeamSize
             data.set("teams." + teamColor + ".maxPlayers", teamSize);
         else
         {
-            Commands.MasterPlayer.sendMessage(ChatColor.RED + "Invalid Team Color");
+            OldCommands.MasterPlayer.sendMessage(ChatColor.RED + "Invalid Team Color");
             return;
         }
 

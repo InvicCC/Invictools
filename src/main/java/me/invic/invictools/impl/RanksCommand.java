@@ -1,41 +1,38 @@
 package me.invic.invictools.impl;
 
-import me.invic.invictools.Invictools;
 import me.invic.invictools.commandManagerLib.SubCommand;
-import me.invic.invictools.items.FireStick;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.Plugin;
 
 import java.util.List;
 
-import static me.invic.invictools.commands.OldCommands.FireStickEnabled;
-
-public class FirestickCommand implements SubCommand
+public class RanksCommand implements SubCommand
 {
     @Override
     public String getName()
     {
-        return "firestick";
+        return "ranks";
     }
 
     @Override
     public String getDescription()
     {
-        return "Shoots a fireball";
+        return "Shows obtainable ranks";
     }
 
     @Override
     public String getSyntax()
     {
-        return "/it firestick";
+        return "/it ranks";
     }
 
     @Override
     public String getPermission()
     {
-        return "invic.firestick";
+        return "invic.all";
     }
 
     @Override
@@ -47,13 +44,12 @@ public class FirestickCommand implements SubCommand
     @Override
     public void perform(CommandSender sender, String[] args)
     {
-        if (Bukkit.getPlayer(sender.getName()).getWorld().getName().equals("bwlobby"))
+        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
+        final FileConfiguration Config = plugin.getConfig();
+        List<String> messages = Config.getStringList("RankMessages");
+        for (String message : messages)
         {
-            new FireStick((Player) sender);
-        }
-        if (!FireStickEnabled)
-        {
-            sender.sendMessage(ChatColor.GOLD + "FireSticks " + ChatColor.RED + "are currently disabled.");
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
         }
     }
 }

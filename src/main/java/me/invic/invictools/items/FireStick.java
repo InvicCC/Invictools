@@ -1,6 +1,6 @@
 package me.invic.invictools.items;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Sound;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
@@ -11,9 +11,9 @@ public class FireStick
 
     public FireStick(Player p)
     {
-        if (Commands.FireStickCooldown.containsKey(p))
+        if (OldCommands.FireStickCooldown.containsKey(p))
         {
-            long secondsLeft = ((Commands.FireStickCooldown.get(p) / 1000) + cooldown) - (System.currentTimeMillis() / 1000);
+            long secondsLeft = ((OldCommands.FireStickCooldown.get(p) / 1000) + cooldown) - (System.currentTimeMillis() / 1000);
             if (secondsLeft <= 0)
                 doFireStick(p);
         }
@@ -29,6 +29,6 @@ public class FireStick
         ball.setShooter(p);
         ball.setYield(3);
         ball.setVelocity((p.getLocation().getDirection().multiply(1.5)));
-        Commands.FireStickCooldown.put(p, System.currentTimeMillis());
+        OldCommands.FireStickCooldown.put(p, System.currentTimeMillis());
     }
 }

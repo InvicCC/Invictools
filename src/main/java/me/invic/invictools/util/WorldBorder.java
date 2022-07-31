@@ -1,13 +1,12 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
 
@@ -18,11 +17,11 @@ public class WorldBorder
 {
     public WorldBorder(int InitialSize, int reductionSize, int reductionTime, int center, World world, boolean useConfig, Player player)
     {
-        FileConfiguration fileConfiguration = Commands.Invictools.getConfig();
+        FileConfiguration fileConfiguration = OldCommands.Invictools.getConfig();
         List<String> blackListedWorlds = fileConfiguration.getStringList("blacklistedWorlds");
         if (blackListedWorlds.contains(world.getName()))
         {
-            Commands.MasterPlayer.sendMessage(ChatColor.RED + "World Border cannot be activated in a blacklisted world");
+            OldCommands.MasterPlayer.sendMessage(ChatColor.RED + "World Border cannot be activated in a blacklisted world");
             return;
         }
 

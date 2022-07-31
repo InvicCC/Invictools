@@ -1,6 +1,6 @@
 package me.invic.invictools.items;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.PotionEffects.DamageTeammates;
 import me.invic.invictools.util.GrabTeammates;
 import org.bukkit.*;
@@ -173,7 +173,7 @@ public class ModBow implements Listener
             e.setCancelled(true);
             p.updateInventory();
 
-            if (e.getEntity().getWorld().getName().equalsIgnoreCase("bwlobby") && !Commands.FireStickEnabled)
+            if (e.getEntity().getWorld().getName().equalsIgnoreCase("bwlobby") && !OldCommands.FireStickEnabled)
             {
                 e.getEntity().sendMessage(ChatColor.RED + "The " + ChatColor.GOLD + " Fireball Bow " + ChatColor.RED + " is currently disabled");
                 return;

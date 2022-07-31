@@ -1,6 +1,6 @@
 package me.invic.invictools.util.fixes;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -9,9 +9,6 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityPickupItemEvent;
-import org.bukkit.event.inventory.InventoryEvent;
-import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -25,11 +22,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 public class LobbyInventoryFix implements Listener
 {
-    File Folder = new File(Commands.Invictools.getDataFolder(), "PlayerData");
+    File Folder = new File(OldCommands.Invictools.getDataFolder(), "PlayerData");
     public static HashMap<Player, Long> InventorySaveCooldown = new HashMap<>();
     int cooldown = 60; // seconds before file can save again
 

@@ -1,6 +1,6 @@
 package me.invic.invictools.util.fixes;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -54,7 +54,7 @@ public class TeamSelection implements Listener
             {
                 makeSelector(e.getPlayer());
             }
-        }.runTaskLater(Commands.Invictools, 20L);
+        }.runTaskLater(OldCommands.Invictools, 20L);
         // openInventory(e.getPlayer(),e.getGame(),false);
     }
 
@@ -216,7 +216,7 @@ public class TeamSelection implements Listener
                 {
                     p.openInventory(TeamSelector.get(game));
                 }
-            }.runTaskLater(Commands.Invictools, 20L);
+            }.runTaskLater(OldCommands.Invictools, 20L);
         }
     }
 

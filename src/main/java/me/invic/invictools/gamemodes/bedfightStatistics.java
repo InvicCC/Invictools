@@ -1,6 +1,6 @@
 package me.invic.invictools.gamemodes;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.finalkills.FinalKillListener;
 import me.invic.invictools.util.GrabTeammates;
 import me.invic.invictools.util.disableStats;
@@ -27,7 +27,7 @@ import java.util.UUID;
 
 public class bedfightStatistics implements Listener
 {
-    File Folder = new File(Commands.Invictools.getDataFolder(), "Bedfight");
+    File Folder = new File(OldCommands.Invictools.getDataFolder(), "Bedfight");
 
     static HashMap<UUID,Integer> finalDeath = new HashMap<>();
     static HashMap<UUID,Integer> finalKill = new HashMap<>();
@@ -38,7 +38,7 @@ public class bedfightStatistics implements Listener
     static HashMap<UUID,Integer> BedBreak = new HashMap<>();
     static HashMap<UUID,Game> Game = new HashMap<>();
 
-    FileConfiguration config = Commands.Invictools.getConfig();
+    FileConfiguration config = OldCommands.Invictools.getConfig();
     int BedBreakScore = config.getInt("BedfightScore.BedBreak",50);
     int FinalKillScore = config.getInt("BedfightScore.FinalKill",15);
     int NormalKillScore = config.getInt("BedfightScore.NormalKill",3);
@@ -94,7 +94,7 @@ public class bedfightStatistics implements Listener
     @EventHandler
     public void bwdeath(BedwarsPlayerKilledEvent e)
     {
-        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !Commands.StatsTrack)
+        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack)
             return;
 
         if ((e.getKiller() != null))
@@ -148,7 +148,7 @@ public class bedfightStatistics implements Listener
     @EventHandler
     public void bedbreak(BedwarsTargetBlockDestroyedEvent e)
     {
-        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !Commands.StatsTrack)
+        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack)
             return;
 
         bedfightBedBreak(e.getPlayer());
@@ -157,7 +157,7 @@ public class bedfightStatistics implements Listener
     @EventHandler
     public void start(BedwarsGameStartEvent e)
     {
-        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !Commands.StatsTrack)
+        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack)
             return;
 
         File file = new File(Folder,"bedfightstats.yml");
@@ -178,7 +178,7 @@ public class bedfightStatistics implements Listener
     @EventHandler
     public void saveStats(BedwarsGameEndingEvent e)
     {
-        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !Commands.StatsTrack)
+        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack)
             return;
 
         File file = new File(Folder,"bedfightstats.yml");

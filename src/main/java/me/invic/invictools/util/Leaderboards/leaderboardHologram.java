@@ -1,6 +1,6 @@
 package me.invic.invictools.util.Leaderboards;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.WardenSpawner;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -14,7 +14,7 @@ import java.util.*;
 
 public class leaderboardHologram
 {
-    FileConfiguration config = Commands.Invictools.getConfig();
+    FileConfiguration config = OldCommands.Invictools.getConfig();
     Location loc = new WardenSpawner().locationFromConfig(config.getString("Leaderboard.Holo"));
     public static List<ArmorStand> Holos = new ArrayList<>();
 
@@ -65,7 +65,7 @@ public class leaderboardHologram
         as.setVisible(false);
         as.setCustomName(title);
         as.setCustomNameVisible(true);
-        as.setMetadata("holo", new FixedMetadataValue(Commands.Invictools, true));
+        as.setMetadata("holo", new FixedMetadataValue(OldCommands.Invictools, true));
         Holos.add(as);
     }
 

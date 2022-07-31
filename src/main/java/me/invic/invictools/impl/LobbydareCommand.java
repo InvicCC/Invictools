@@ -1,8 +1,8 @@
 package me.invic.invictools.impl;
 
-import me.invic.invictools.Invictools;
 import me.invic.invictools.commandManagerLib.SubCommand;
 import me.invic.invictools.items.FireStick;
+import me.invic.invictools.items.dareListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -12,24 +12,24 @@ import java.util.List;
 
 import static me.invic.invictools.commands.OldCommands.FireStickEnabled;
 
-public class FirestickCommand implements SubCommand
+public class LobbydareCommand implements SubCommand
 {
     @Override
     public String getName()
     {
-        return "firestick";
+        return "lobbydare";
     }
 
     @Override
     public String getDescription()
     {
-        return "Shoots a fireball";
+        return "Spawns a dare";
     }
 
     @Override
     public String getSyntax()
     {
-        return "/it firestick";
+        return "/it lobbydare";
     }
 
     @Override
@@ -47,13 +47,15 @@ public class FirestickCommand implements SubCommand
     @Override
     public void perform(CommandSender sender, String[] args)
     {
-        if (Bukkit.getPlayer(sender.getName()).getWorld().getName().equals("bwlobby"))
+        if (FireStickEnabled)
         {
-            new FireStick((Player) sender);
+            Player p = (Player) sender;
+            if (Bukkit.getPlayer(sender.getName()).getWorld().getName().equals("bwlobby"))
+                new dareListener().handleItem(p.getLocation(), p, true, true);
         }
-        if (!FireStickEnabled)
+        else
         {
-            sender.sendMessage(ChatColor.GOLD + "FireSticks " + ChatColor.RED + "are currently disabled.");
+            sender.sendMessage(ChatColor.GOLD + "Lobby Dare " + ChatColor.RED + "is currently disabled.");
         }
     }
 }

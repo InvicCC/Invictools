@@ -14,7 +14,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 public class ConfigHandler implements Listener
 {
-    private Invictools main;
+    private final Invictools main;
 
     public ConfigHandler(Invictools main)
     {

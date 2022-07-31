@@ -1,6 +1,6 @@
 package me.invic.invictools.util.Leaderboards;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.WardenSpawner;
 import org.bukkit.Location;
 import org.bukkit.Sound;
@@ -24,7 +24,7 @@ public class leaderboardCycle implements Listener
     public static HashMap<Player, Long> HoloSwapCooldown = new HashMap<>();
     int cooldown = 1; // seconds
 
-    FileConfiguration config = Commands.Invictools.getConfig();
+    FileConfiguration config = OldCommands.Invictools.getConfig();
     Location locBW = new WardenSpawner().locationFromConfig(config.getString("Leaderboard.Holo"));
     Location locBF = new WardenSpawner().locationFromConfig(config.getString("BedfightLeaderboard.Holo"));
 
@@ -69,7 +69,7 @@ public class leaderboardCycle implements Listener
 
     public void saveDisplayName(Player p)
     {
-        File Folder = new File(Commands.Invictools.getDataFolder(), "PlayerData");
+        File Folder = new File(OldCommands.Invictools.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, p.getUniqueId() + ".yml");
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
         playerData.set("Displayname", p.getDisplayName());

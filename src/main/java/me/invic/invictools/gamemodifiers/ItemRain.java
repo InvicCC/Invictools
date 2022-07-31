@@ -44,10 +44,10 @@ public class ItemRain
         new BukkitRunnable()
         {
             final World gameWorld = player.getWorld();
-            Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
-            File Folder = new File(plugin.getDataFolder(), "LootTables");
-            File pFile = new File(Folder, tableConfig + ".yml");
-            FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
+            final Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
+            final File Folder = new File(plugin.getDataFolder(), "LootTables");
+            final File pFile = new File(Folder, tableConfig + ".yml");
+            final FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
             List<ItemStack> table;
 
             @Override

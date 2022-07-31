@@ -1,12 +1,11 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.events.BedwarsGameChangedStatusEvent;
-import org.screamingsandals.bedwars.api.events.BedwarsGameStartEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerJoinEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerLeaveEvent;
 import org.screamingsandals.bedwars.api.game.Game;
@@ -67,7 +66,7 @@ public class queue implements Listener
                     activeBedwarsGame = getRandomGame("Normal");
                 }
             }
-        }.runTaskLater(Commands.Invictools, 1L);
+        }.runTaskLater(OldCommands.Invictools, 1L);
     }
 
     @EventHandler

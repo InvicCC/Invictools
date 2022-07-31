@@ -29,5 +29,11 @@ public class ITMainCommand extends MainCommand
         subCommands.add(new TrackerCommand());
         subCommands.add(new FinalKillTestCommand());
         subCommands.add(new NormalKillCommand());
+        subCommands.add(new BedBreakTestCommand());
+        subCommands.add(new RanksCommand());
+        subCommands.add(new StatsCommand());
+        subCommands.add(new PortalsCommand());
+        subCommands.add(new ReloadnpcCommand());
+        subCommands.add(new LobbydareCommand());
     }
 }

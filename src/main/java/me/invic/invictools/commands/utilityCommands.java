@@ -28,7 +28,7 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         {
             if(!sender.hasPermission("invic.invictools"))
             {
-                sender.sendMessage(Commands.permissionsError);
+                sender.sendMessage(OldCommands.permissionsError);
                 return tabComplete;
             }
         }
@@ -96,7 +96,7 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
                             sender.sendMessage(ChatColor.AQUA+"Map load failure, Sending you to "+ChatColor.WHITE + queue.activeBedfightGame.getName());
                         }
                     }
-                }.runTaskLater(Commands.Invictools, 5L);
+                }.runTaskLater(OldCommands.Invictools, 5L);
             }
             else
             {
@@ -124,7 +124,7 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
                             sender.sendMessage(ChatColor.AQUA+"Map load failure, Sending you to "+ChatColor.WHITE + queue.activeBedwarsGame.getName());
                         }
                     }
-                }.runTaskLater(Commands.Invictools, 5L);
+                }.runTaskLater(OldCommands.Invictools, 5L);
             }
             else
             {
@@ -133,7 +133,7 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         }
         else if(args[0].equalsIgnoreCase("debug"))
         {
-            Commands.debug(sender);
+            OldCommands.debug(sender);
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("endgame"))
         {
@@ -152,9 +152,9 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         List<Player> players = game.getConnectedPlayers();
 
         boolean swapTrack = false;
-        if(Commands.StatsTrack)
+        if(OldCommands.StatsTrack)
         {
-            Commands.StatsTrack = false;
+            OldCommands.StatsTrack = false;
             swapTrack = true;
         }
 
@@ -170,8 +170,8 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
             public void run()
             {
                 if(finalSwapTrack)
-                    Commands.StatsTrack = true;
+                    OldCommands.StatsTrack = true;
             }
-        }.runTaskLater(Commands.Invictools, 20L);
+        }.runTaskLater(OldCommands.Invictools, 20L);
     }
 }

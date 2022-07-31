@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class gamemodeData
 {
-    private static HashMap<Game,String> luckyBlockMode = new HashMap<>();
+    private static final HashMap<Game,String> luckyBlockMode = new HashMap<>();
 
     public String getLuckyBlockMode(Game game)
     {

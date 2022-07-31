@@ -1,9 +1,8 @@
 package me.invic.invictools.impl;
 
 import me.invic.invictools.commandManagerLib.SubCommand;
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.NormalKillHandler;
-import me.invic.invictools.cosmetics.finalkills.FinalKillHandler;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -68,7 +67,7 @@ public class NormalKillPreview implements SubCommand
                 {
                     new NormalKillHandler().effectSwitch(player, player, loc, effect);
                 }
-            }.runTaskLater(Commands.Invictools, 20L);
+            }.runTaskLater(OldCommands.Invictools, 20L);
 
             player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.BOLD + "Hold crouch to cancel"));
             BukkitRunnable runnable2 = new BukkitRunnable()

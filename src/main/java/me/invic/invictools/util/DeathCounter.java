@@ -1,6 +1,6 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.AbtributesOnDeath;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -19,7 +19,7 @@ public class DeathCounter implements Listener
     public static void InitializeDeathCounter(List<Player> players)
     {
         if (deaths.containsKey(players.get(0)))
-            Commands.MasterPlayer.sendMessage(ChatColor.RED + "Death counter is being reinitialized");
+            OldCommands.MasterPlayer.sendMessage(ChatColor.RED + "Death counter is being reinitialized");
 
         for (Player player : players)
         {

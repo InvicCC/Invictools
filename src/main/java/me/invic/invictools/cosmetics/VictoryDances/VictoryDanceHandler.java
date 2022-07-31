@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics.VictoryDances;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.finalkills.FinalKillHandler;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailConfig;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
@@ -31,7 +31,7 @@ public class VictoryDanceHandler implements Listener
 
     public void grabEffect(Player effectOwner)
     {
-        File Folder = new File(Commands.Invictools.getDataFolder(), "PlayerData");
+        File Folder = new File(OldCommands.Invictools.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, effectOwner.getUniqueId() + ".yml");
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
         String effect = balls.getString("VictoryDance","Firework");
@@ -90,7 +90,7 @@ public class VictoryDanceHandler implements Listener
             {
                 isVictoryDancing.remove(player.getName());
             }
-        }.runTaskLater(Commands.Invictools, effectDuration * 20);
+        }.runTaskLater(OldCommands.Invictools, effectDuration * 20);
     }
 
     private void Storm(Player p)
@@ -125,7 +125,7 @@ public class VictoryDanceHandler implements Listener
                                 {
                                     p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(), p.getLocation().getX() + rand.nextInt(50) - 25, p.getLocation().getY(), p.getLocation().getZ() + rand.nextInt(50) - 25));
                                 }
-                            }.runTaskLater(Commands.Invictools, 3L);
+                            }.runTaskLater(OldCommands.Invictools, 3L);
                         }
 
                         if (rand.nextInt(3) == 1)
@@ -137,7 +137,7 @@ public class VictoryDanceHandler implements Listener
                                 {
                                     p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(), p.getLocation().getX() + rand.nextInt(50) - 25, p.getLocation().getY(), p.getLocation().getZ() + rand.nextInt(50) - 25));
                                 }
-                            }.runTaskLater(Commands.Invictools, 6L);
+                            }.runTaskLater(OldCommands.Invictools, 6L);
                         }
 
                         if (rand.nextInt(3) == 1)
@@ -149,7 +149,7 @@ public class VictoryDanceHandler implements Listener
                                 {
                                     p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(), p.getLocation().getX() + rand.nextInt(50) - 25, p.getLocation().getY(), p.getLocation().getZ() + rand.nextInt(50) - 25));
                                 }
-                            }.runTaskLater(Commands.Invictools, 6L);
+                            }.runTaskLater(OldCommands.Invictools, 6L);
                         }
 
                         if (rand.nextInt(3) == 1)
@@ -161,7 +161,7 @@ public class VictoryDanceHandler implements Listener
                                 {
                                     p.getLocation().getWorld().strikeLightningEffect(new Location(p.getWorld(), p.getLocation().getX() + rand.nextInt(50) - 25, p.getLocation().getY(), p.getLocation().getZ() + rand.nextInt(50) - 25));
                                 }
-                            }.runTaskLater(Commands.Invictools, 9L);
+                            }.runTaskLater(OldCommands.Invictools, 9L);
                         }
                         if (rand.nextInt(4) == 1)
                         {
@@ -171,7 +171,7 @@ public class VictoryDanceHandler implements Listener
                         if (cancel)
                             this.cancel();
                     }
-                }.runTaskTimer(Commands.Invictools, 40L, 13L);
+                }.runTaskTimer(OldCommands.Invictools, 40L, 13L);
 
                 new BukkitRunnable()
                 {
@@ -185,9 +185,9 @@ public class VictoryDanceHandler implements Listener
                             cancel = true;
                         }
                     }
-                }.runTaskLater(Commands.Invictools, (effectDuration * 18));
+                }.runTaskLater(OldCommands.Invictools, (effectDuration * 18));
             }
-        }.runTaskLater(Commands.Invictools, 40);
+        }.runTaskLater(OldCommands.Invictools, 40);
     }
 
     private void Bow(Player p)
@@ -205,7 +205,7 @@ public class VictoryDanceHandler implements Listener
 
     private void Snowball(Player p)
     {
-        File Folder = new File(Commands.Invictools.getDataFolder(), "PlayerData");
+        File Folder = new File(OldCommands.Invictools.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, p.getUniqueId() + ".yml");
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
         String effect = balls.getString("ProjTrail");
@@ -229,7 +229,7 @@ public class VictoryDanceHandler implements Listener
             {
                 new ProjTrailConfig(p, effect, false);
             }
-        }.runTaskLater(Commands.Invictools, (effectDuration * 20));
+        }.runTaskLater(OldCommands.Invictools, (effectDuration * 20));
     }
 
     private void Firework(Player player)
@@ -279,12 +279,12 @@ public class VictoryDanceHandler implements Listener
                         if (i == 8)
                             this.cancel();
                     }
-                }.runTaskTimer(Commands.Invictools, 0L, 5L);
+                }.runTaskTimer(OldCommands.Invictools, 0L, 5L);
                 stop += 70;
                 if (effectDuration * 20 < stop)
                     this.cancel();
             }
-        }.runTaskTimer(Commands.Invictools, 0L, 70L);
+        }.runTaskTimer(OldCommands.Invictools, 0L, 70L);
     }
 
     private void creation(Location loc, Player player)
@@ -344,7 +344,7 @@ public class VictoryDanceHandler implements Listener
                 ExplosionsListener.xzmultiplier = xz;
                 ExplosionsListener.ymultiplier = y;
             }
-        }.runTaskLater(Commands.Invictools, (effectDuration * 20));
+        }.runTaskLater(OldCommands.Invictools, (effectDuration * 20));
     }
 
     private void Dragon(Player p)
@@ -390,7 +390,7 @@ public class VictoryDanceHandler implements Listener
                         else
                             this.cancel();
                     }
-                }.runTaskTimer(Commands.Invictools, 0L, 1L);
+                }.runTaskTimer(OldCommands.Invictools, 0L, 1L);
                 new BukkitRunnable()
                 {
                     @Override
@@ -407,7 +407,7 @@ public class VictoryDanceHandler implements Listener
                         else
                             this.cancel();
                     }
-                }.runTaskTimer(Commands.Invictools, 2L, 5L);
+                }.runTaskTimer(OldCommands.Invictools, 2L, 5L);
                 new BukkitRunnable()
                 {
                     @Override
@@ -422,9 +422,9 @@ public class VictoryDanceHandler implements Listener
                         //       bat.remove();
 
                     }
-                }.runTaskLater(Commands.Invictools, effectDuration * 20);
+                }.runTaskLater(OldCommands.Invictools, effectDuration * 20);
             }
-        }.runTaskLater(Commands.Invictools, 20);
+        }.runTaskLater(OldCommands.Invictools, 20);
     }
 
     private void Dare(Player p)
@@ -443,8 +443,8 @@ public class VictoryDanceHandler implements Listener
                         if (!horse.isDead())
                             horse.damage(horse.getHealth() * 99999);
                     }
-                }.runTaskLater(Commands.Invictools, (effectDuration * 20));
+                }.runTaskLater(OldCommands.Invictools, (effectDuration * 20));
             }
-        }.runTaskLater(Commands.Invictools, 20);
+        }.runTaskLater(OldCommands.Invictools, 20);
     }
 }

@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
@@ -27,6 +27,6 @@ public class LobbyListener implements Listener
                 if (e.getPlayer().getWorld().getName().equalsIgnoreCase("bwlobby"))
                     Lobby1Handler.FullHandle(e.getPlayer());
             }
-        }.runTaskLater(Commands.Invictools, 20L);
+        }.runTaskLater(OldCommands.Invictools, 20L);
     }
 }

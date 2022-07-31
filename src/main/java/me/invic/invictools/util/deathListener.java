@@ -1,6 +1,6 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.Haunt;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import me.invic.invictools.gamemodifiers.giveItemRepeated;
@@ -33,7 +33,7 @@ public class deathListener implements Listener
     @EventHandler
     public void deathEvent(BedwarsPlayerKilledEvent e)
     {
-        if (Commands.LuckyBlocksEnabled)
+        if (OldCommands.LuckyBlocksEnabled)
         {
             Player player = e.getPlayer();
             Location loc = player.getLocation();
@@ -43,7 +43,7 @@ public class deathListener implements Listener
             player.getWorld().dropItemNaturally(loc, lb);
         }
 
-        if (Commands.Hauntable.containsKey(e.getPlayer()))
+        if (OldCommands.Hauntable.containsKey(e.getPlayer()))
         {
             BukkitRunnable runnable = new BukkitRunnable()
             {
@@ -51,7 +51,7 @@ public class deathListener implements Listener
                 public void run()
                 {
                     if (e.getPlayer().getGameMode().equals(GameMode.SPECTATOR))
-                        new Haunt(e.getPlayer(), Commands.HauntConfig);
+                        new Haunt(e.getPlayer(), OldCommands.HauntConfig);
                 }
             };
             runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10L * 20L);
@@ -77,7 +77,7 @@ public class deathListener implements Listener
                 }
             }
         };
-        runnable.runTaskLater(Commands.Invictools, 10L);
+        runnable.runTaskLater(OldCommands.Invictools, 10L);
     }
 
     @EventHandler
@@ -92,7 +92,7 @@ public class deathListener implements Listener
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "nte reload");
             }
         };
-        runnable.runTaskLater(Commands.Invictools, 20L);
+        runnable.runTaskLater(OldCommands.Invictools, 20L);
     }
 
     public static void clearEverything(World world)
@@ -110,13 +110,13 @@ public class deathListener implements Listener
         addedNormalBlocks.clear();
 
         ItemListener.Falling.clear();
-        Commands.killEffects.clear();
+        OldCommands.killEffects.clear();
         OlympusFires.resetFires();
         //   SculkFires.resetFires(); handled in class
-        Commands.killItems.clear();
-        Commands.Hauntable.clear();
-        Commands.ProximityElytra.clear();
-        Commands.noShop.clear();
+        OldCommands.killItems.clear();
+        OldCommands.Hauntable.clear();
+        OldCommands.ProximityElytra.clear();
+        OldCommands.noShop.clear();
         giveItemRepeated.repeatedCancel = false;
 
         for (Entity e : world.getEntitiesByClass(Warden.class))

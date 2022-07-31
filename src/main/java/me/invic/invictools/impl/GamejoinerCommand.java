@@ -1,8 +1,7 @@
 package me.invic.invictools.impl;
 
 import me.invic.invictools.commandManagerLib.SubCommand;
-import me.invic.invictools.commands.Commands;
-import me.invic.invictools.gamemodes.bedfight;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.util.fixes.LobbyInventoryFix;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -84,7 +83,7 @@ public class GamejoinerCommand implements SubCommand
                             player.setGameMode(GameMode.SPECTATOR);
                     player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 2, 1);
                 }
-            }.runTaskLater(Commands.Invictools, 5L);
+            }.runTaskLater(OldCommands.Invictools, 5L);
         }
     }
 }

@@ -2,7 +2,7 @@ package me.invic.invictools.util.fixes;
 
 import com.viaversion.viaversion.api.Via;
 import com.viaversion.viaversion.api.ViaAPI;
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.EntityType;
@@ -11,10 +11,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPotionEffectEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.game.Game;
 
 import static me.invic.invictools.items.ItemListener.Falling;
@@ -40,7 +38,7 @@ public class Protocol47Fix implements Listener
                 {
                     Falling.remove(e.getEntity());
                 }
-            }.runTaskLater(Commands.Invictools, e.getNewEffect().getDuration()* 20L);
+            }.runTaskLater(OldCommands.Invictools, e.getNewEffect().getDuration()* 20L);
         }
     }
 
@@ -61,7 +59,7 @@ public class Protocol47Fix implements Listener
                     p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1F);
                 }
             }
-        }.runTaskLater(Commands.Invictools, 300L);
+        }.runTaskLater(OldCommands.Invictools, 300L);
     }
 
     public boolean isAnyPlayer47(Game game)

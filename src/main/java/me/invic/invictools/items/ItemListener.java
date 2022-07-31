@@ -1,6 +1,6 @@
 package me.invic.invictools.items;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import me.invic.invictools.util.fixes.Protocol47Fix;
 import me.invic.invictools.util.physics.grabSandstone;
@@ -334,7 +334,7 @@ public class ItemListener implements Listener
                                 }
                             }
                         }
-                    }.runTaskLater(Commands.Invictools, new Random().nextInt(40));
+                    }.runTaskLater(OldCommands.Invictools, new Random().nextInt(40));
                 }
 
                 wool.clear();
@@ -435,9 +435,9 @@ public class ItemListener implements Listener
                         ball.setInvulnerable(false);
                     }
                 };
-                runnable.runTaskLater(Commands.Invictools, 15);
+                runnable.runTaskLater(OldCommands.Invictools, 15);
             }
-        }.runTaskLater(Commands.Invictools, 5L); // corrects directional errors
+        }.runTaskLater(OldCommands.Invictools, 5L); // corrects directional errors
     }
 
     void incChange(List<Block> blocks, boolean type, Location loc, boolean sound)
@@ -508,7 +508,7 @@ public class ItemListener implements Listener
                     this.cancel();
                 }
             }
-        }.runTaskTimer(Commands.Invictools, 2L, 1L);
+        }.runTaskTimer(OldCommands.Invictools, 2L, 1L);
     }
 
     public static HashMap<Player, Long> FireballCooldown = new HashMap<>();

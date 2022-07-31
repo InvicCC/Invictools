@@ -8,7 +8,7 @@ import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.wrappers.EnumWrappers;
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -58,9 +58,9 @@ public class DetectClickOnNPC
                         }
                     }.runTask(plugin);
                 }
-                else if (Commands.noShop.get(e.getPlayer()) != null)
+                else if (OldCommands.noShop.get(e.getPlayer()) != null)
                 {
-                    if (Commands.noShop.get(e.getPlayer()))
+                    if (OldCommands.noShop.get(e.getPlayer()))
                     {
                         if (packet.getEntityUseActions().read(0) == EnumWrappers.EntityUseAction.ATTACK)
                             return;

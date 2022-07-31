@@ -1,7 +1,7 @@
 package me.invic.invictools.impl;
 
 import me.invic.invictools.commandManagerLib.SubCommand;
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.finalkills.FinalKillHandler;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -9,14 +9,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -72,7 +67,7 @@ public class FinalKillTestCommand implements SubCommand
                 {
                     new FinalKillHandler().effectSwitch(effect, player, player, loc);
                 }
-            }.runTaskLater(Commands.Invictools, 20L);
+            }.runTaskLater(OldCommands.Invictools, 20L);
 
             player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.BOLD + "Hold crouch to cancel"));
             BukkitRunnable runnable2 = new BukkitRunnable()

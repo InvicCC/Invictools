@@ -1,6 +1,6 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -30,7 +30,7 @@ public class disableStats implements Listener
             e.setCancelled(true);
          //   System.out.println("missing "+Bukkit.getPlayer(e.getPlayerStatistic().getName()).getName());
         }
-        else if (!shouldTrack(Bukkit.getPlayer(e.getPlayerStatistic().getName())) || !Commands.StatsTrack)
+        else if (!shouldTrack(Bukkit.getPlayer(e.getPlayerStatistic().getName())) || !OldCommands.StatsTrack)
         {
             e.setCancelled(true);
         }
@@ -46,7 +46,7 @@ public class disableStats implements Listener
             recentGame.put(p.getName(), e.getGame().getName());
         }
 
-        if (!Commands.StatsTrack)
+        if (!OldCommands.StatsTrack)
         {
             for (Player p : e.getGame().getConnectedPlayers())
             {
@@ -76,7 +76,7 @@ public class disableStats implements Listener
         return startingSize.get(recentGame.get(p.getName())) >= 4 && !getGameType(BedwarsAPI.getInstance().getGameByName(recentGame.get(p.getName()))).equalsIgnoreCase("bedfight");
     }
 
-    final static File Folder = new File(Commands.Invictools.getDataFolder(), "Maps");
+    final static File Folder = new File(OldCommands.Invictools.getDataFolder(), "Maps");
 
     public static String getGameType(Game game)
     {

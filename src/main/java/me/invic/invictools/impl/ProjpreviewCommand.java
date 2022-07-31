@@ -1,8 +1,8 @@
 package me.invic.invictools.impl;
 
-import me.invic.invictools.Invictools;
 import me.invic.invictools.commandManagerLib.SubCommand;
-import me.invic.invictools.items.FireStick;
+import me.invic.invictools.cosmetics.projtrail.ProjTrailPreview;
+import me.invic.invictools.items.dareListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -12,30 +12,30 @@ import java.util.List;
 
 import static me.invic.invictools.commands.OldCommands.FireStickEnabled;
 
-public class FirestickCommand implements SubCommand
+public class ProjpreviewCommand implements SubCommand
 {
     @Override
     public String getName()
     {
-        return "firestick";
+        return "projpreview";
     }
 
     @Override
     public String getDescription()
     {
-        return "Shoots a fireball";
+        return "Previews projectile trails";
     }
 
     @Override
     public String getSyntax()
     {
-        return "/it firestick";
+        return "/it projpreview";
     }
 
     @Override
     public String getPermission()
     {
-        return "invic.firestick";
+        return "invic.all";
     }
 
     @Override
@@ -47,13 +47,10 @@ public class FirestickCommand implements SubCommand
     @Override
     public void perform(CommandSender sender, String[] args)
     {
-        if (Bukkit.getPlayer(sender.getName()).getWorld().getName().equals("bwlobby"))
+        Player p = (Player) sender;
+        if (p.getWorld().getName().equalsIgnoreCase("bwlobby"))
         {
-            new FireStick((Player) sender);
-        }
-        if (!FireStickEnabled)
-        {
-            sender.sendMessage(ChatColor.GOLD + "FireSticks " + ChatColor.RED + "are currently disabled.");
+            new ProjTrailPreview().handle(args[1], p);
         }
     }
 }

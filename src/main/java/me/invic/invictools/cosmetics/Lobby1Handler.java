@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.util.Leaderboards.leaderboard;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -42,7 +42,7 @@ public class Lobby1Handler
         if (!effectOwner.getWorld().getName().equalsIgnoreCase("bwlobby"))
             return;
 
-        File Folder = new File(Commands.Invictools.getDataFolder(), "PlayerData");
+        File Folder = new File(OldCommands.Invictools.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, effectOwner.getUniqueId() + ".yml");
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
         String effect = balls.getString("Lobby1");
@@ -87,7 +87,7 @@ public class Lobby1Handler
 
     public static void configHandler(Player player, String effect, boolean bypass)
     {
-        Plugin plugin = Commands.Invictools;
+        Plugin plugin = OldCommands.Invictools;
         File Folder = new File(plugin.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, player.getUniqueId() + ".yml");
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
@@ -125,10 +125,10 @@ public class Lobby1Handler
                             {
                                 Lobby1Handler.FullHandle(player);
                             }
-                        }.runTaskLater(Commands.Invictools, 5L);
+                        }.runTaskLater(OldCommands.Invictools, 5L);
                         cancelLobbyCosmetic.remove(player);
                     }
-                }.runTaskLater(Commands.Invictools, 5L);
+                }.runTaskLater(OldCommands.Invictools, 5L);
             }
             else if (Lobby1Effects().get(effect) == -1 && player.hasPermission("invic.firestick"))
             {
@@ -147,10 +147,10 @@ public class Lobby1Handler
                             {
                                 Lobby1Handler.FullHandle(player);
                             }
-                        }.runTaskLater(Commands.Invictools, 5L);
+                        }.runTaskLater(OldCommands.Invictools, 5L);
                         cancelLobbyCosmetic.remove(player);
                     }
-                }.runTaskLater(Commands.Invictools, 5L);
+                }.runTaskLater(OldCommands.Invictools, 5L);
             }
             else
             {
@@ -194,7 +194,7 @@ public class Lobby1Handler
                     cancelLobbyCosmetic.remove(p);
                 }
             }
-        }.runTaskTimer(Commands.Invictools, 0L, 1L);
+        }.runTaskTimer(OldCommands.Invictools, 0L, 1L);
     }
 
     private static void WaterCrown(Player p)
@@ -255,7 +255,7 @@ public class Lobby1Handler
 
                 loc = p.getLocation();
             }
-        }.runTaskTimer(Commands.Invictools, 0L, 5L);
+        }.runTaskTimer(OldCommands.Invictools, 0L, 5L);
     }
 
     private static void LavaCrown(Player p)
@@ -316,12 +316,12 @@ public class Lobby1Handler
 
                 loc = p.getLocation();
             }
-        }.runTaskTimer(Commands.Invictools, 0L, 5L);
+        }.runTaskTimer(OldCommands.Invictools, 0L, 5L);
     }
 
     private static void Rank(Player p)
     {
-        File Folder2 = new File(Commands.Invictools.getDataFolder(), "PlayerData");
+        File Folder2 = new File(OldCommands.Invictools.getDataFolder(), "PlayerData");
         File pFile = new File(Folder2, p.getUniqueId() + ".yml");
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
 
@@ -339,7 +339,7 @@ public class Lobby1Handler
         new BukkitRunnable()
         {
             Location loc = p.getLocation();
-            int i = 0;
+            final int i = 0;
 
             @Override
             public void run()
@@ -361,7 +361,7 @@ public class Lobby1Handler
                 }
                 loc = p.getLocation();
             }
-        }.runTaskTimer(Commands.Invictools, 0L, 5L);
+        }.runTaskTimer(OldCommands.Invictools, 0L, 5L);
     }
 
     private static void Error(Player p)
@@ -386,7 +386,7 @@ public class Lobby1Handler
                         bat.teleport(f);
                         f.addPassenger(bat);
                     }
-                }.runTaskLater(Commands.Invictools, 1L);
+                }.runTaskLater(OldCommands.Invictools, 1L);
                 bat.setInvisible(true);
                 bat.setCustomName(color + ChatColor.translateAlternateColorCodes('&', "&k&l[O]"));
                 bat.setCustomNameVisible(true);
@@ -399,7 +399,7 @@ public class Lobby1Handler
                         bat.remove();
                         f.remove();
                     }
-                }.runTaskLater(Commands.Invictools, 25L);
+                }.runTaskLater(OldCommands.Invictools, 25L);
 
                 if (!p.isOnline() || !p.getWorld().equals(world))
                     this.cancel();
@@ -410,7 +410,7 @@ public class Lobby1Handler
                     cancelLobbyCosmetic.remove(p);
                 }
             }
-        }.runTaskTimer(Commands.Invictools, 0L, 5L);
+        }.runTaskTimer(OldCommands.Invictools, 0L, 5L);
     }
 
     public static Color ChatColorToColor(char c)

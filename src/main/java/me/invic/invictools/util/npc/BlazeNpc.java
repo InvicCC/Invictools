@@ -1,6 +1,6 @@
 package me.invic.invictools.util.npc;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -39,9 +39,9 @@ public class BlazeNpc implements Listener
                 e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', message));
             }
         }
-        else if (!e.getPlayer().getWorld().getName().equals("bwlobby") && Commands.noShop.get(e.getPlayer()) != null)
+        else if (!e.getPlayer().getWorld().getName().equals("bwlobby") && OldCommands.noShop.get(e.getPlayer()) != null)
         {
-            if (Commands.noShop.get(e.getPlayer()))
+            if (OldCommands.noShop.get(e.getPlayer()))
                 e.setCancelled(true);
         }
     }

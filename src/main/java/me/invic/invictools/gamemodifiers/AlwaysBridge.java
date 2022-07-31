@@ -86,7 +86,7 @@ public class AlwaysBridge
 
     public boolean isMaterialWool(Material item)
     {
-        if (item.equals(Material.BLUE_WOOL) ||
+        return item.equals(Material.BLUE_WOOL) ||
                 item.equals(Material.GRAY_WOOL) ||
                 item.equals(Material.RED_WOOL) ||
                 item.equals(Material.WHITE_WOOL) ||
@@ -95,10 +95,7 @@ public class AlwaysBridge
                 item.equals(Material.ORANGE_WOOL) ||
                 item.equals(Material.LIME_WOOL) ||
                 item.equals(Material.LIGHT_GRAY_WOOL) ||
-                item.equals(Material.LIGHT_BLUE_WOOL))
-            return true;
-        else
-            return false;
+                item.equals(Material.LIGHT_BLUE_WOOL);
     }
 
     public boolean isItemWool(ItemStack item)

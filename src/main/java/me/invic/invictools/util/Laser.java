@@ -54,9 +54,9 @@ public abstract class Laser
     protected BukkitTask endMove;
 
     protected Set<Player> show = ConcurrentHashMap.newKeySet();
-    private Set<Player> seen = new HashSet<>();
+    private final Set<Player> seen = new HashSet<>();
 
-    private List<Runnable> executeEnd = new ArrayList<>(1);
+    private final List<Runnable> executeEnd = new ArrayList<>(1);
 
     protected Laser(Location start, Location end, int duration, int distance)
     {
@@ -264,9 +264,9 @@ public abstract class Laser
         if (oldTask != null && !oldTask.isCancelled()) oldTask.cancel();
         return new BukkitRunnable()
         {
-            double xPerTick = (location.getX() - locationSupplier.get().getX()) / ticks;
-            double yPerTick = (location.getY() - locationSupplier.get().getY()) / ticks;
-            double zPerTick = (location.getZ() - locationSupplier.get().getZ()) / ticks;
+            final double xPerTick = (location.getX() - locationSupplier.get().getX()) / ticks;
+            final double yPerTick = (location.getY() - locationSupplier.get().getY()) / ticks;
+            final double zPerTick = (location.getZ() - locationSupplier.get().getZ()) / ticks;
             int elapsed = 0;
 
             @Override
@@ -326,7 +326,7 @@ public abstract class Laser
 
     public static class GuardianLaser extends Laser
     {
-        private static AtomicInteger teamID = new AtomicInteger(ThreadLocalRandom.current().nextInt(0, Integer.MAX_VALUE));
+        private static final AtomicInteger teamID = new AtomicInteger(ThreadLocalRandom.current().nextInt(0, Integer.MAX_VALUE));
 
         private Object createGuardianPacket;
         private Object createSquidPacket;
@@ -623,8 +623,8 @@ public abstract class Laser
 
         private Object createCrystalPacket;
         private Object metadataPacketCrystal;
-        private Object[] destroyPackets;
-        private Object fakeCrystalDataWatcher;
+        private final Object[] destroyPackets;
+        private final Object fakeCrystalDataWatcher;
 
         private final Object crystal;
         private final int crystalID = Packets.generateEID();
@@ -764,7 +764,7 @@ public abstract class Laser
 
     private static class Packets
     {
-        private static AtomicInteger lastIssuedEID = new AtomicInteger(2000000000);
+        private static final AtomicInteger lastIssuedEID = new AtomicInteger(2000000000);
 
         static int generateEID()
         {
@@ -774,11 +774,11 @@ public abstract class Laser
         private static Logger logger;
         private static int version;
         private static int versionMinor;
-        private static String npack = "net.minecraft.server." + Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
-        private static String cpack = Bukkit.getServer().getClass().getPackage().getName() + ".";
+        private static final String npack = "net.minecraft.server." + Bukkit.getServer().getClass().getPackage().getName().replace(".", ",").split(",")[3];
+        private static final String cpack = Bukkit.getServer().getClass().getPackage().getName() + ".";
         private static ProtocolMappings mappings;
 
-        private static int crystalID = 51; // pre-1.13
+        private static final int crystalID = 51; // pre-1.13
 
         private static Object crystalType;
         private static Object squidType;
@@ -1221,19 +1221,19 @@ public abstract class Laser
             private final String teamSetCollision;
             private final String teamGetPlayers;
 
-            private ProtocolMappings(int major, ProtocolMappings parent)
+            ProtocolMappings(int major, ProtocolMappings parent)
             {
                 this(major, parent.watcherFlags, parent.watcherSpikes, parent.watcherTargetEntity, parent.watcherTargetLocation, parent.watcherBasePlate, parent.squidID, parent.guardianID, parent.guardianTypeName, parent.squidTypeName, parent.crystalTypeName, parent.teamSetCollision, parent.teamGetPlayers);
             }
 
-            private ProtocolMappings(int major,
+            ProtocolMappings(int major,
                                      String watcherFlags, String watcherSpikes, String watcherTargetEntity, String watcherTargetLocation, String watcherBasePlate,
                                      int squidID, int guardianID)
             {
                 this(major, watcherFlags, watcherSpikes, watcherTargetEntity, watcherTargetLocation, watcherBasePlate, squidID, guardianID, null, "SQUID", "END_CRYSTAL", null, null);
             }
 
-            private ProtocolMappings(int major,
+            ProtocolMappings(int major,
                                      String watcherFlags, String watcherSpikes, String watcherTargetEntity, String watcherTargetLocation, String watcherBasePlate,
                                      int squidID, int guardianID,
                                      String guardianTypeName, String squidTypeName, String crystalTypeName, String teamSetCollision, String teamGetPlayers)
@@ -1330,9 +1330,9 @@ public abstract class Laser
     }
 
     @FunctionalInterface
-    public static interface ReflectiveConsumer<T>
+    public interface ReflectiveConsumer<T>
     {
-        abstract void accept(T t) throws ReflectiveOperationException;
+        void accept(T t) throws ReflectiveOperationException;
     }
 
 }

@@ -15,7 +15,7 @@ import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.regions.Region;
 import com.sk89q.worldedit.session.ClipboardHolder;
 import com.sk89q.worldedit.world.block.BlockTypes;
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -73,7 +73,7 @@ public class cageHandler
 
     public String getCage(Player p)
     {
-        File Folder = new File(Commands.Invictools.getDataFolder(), "PlayerData");
+        File Folder = new File(OldCommands.Invictools.getDataFolder(), "PlayerData");
         File file = new File(Folder, p.getUniqueId() + ".yml");
         FileConfiguration config = YamlConfiguration.loadConfiguration(file);
         return config.getString("cage","glass");
@@ -81,7 +81,7 @@ public class cageHandler
 
     public Clipboard loadSchem(String schem)
     {
-        File Folder = new File(Commands.Invictools.getDataFolder(), "Schems");
+        File Folder = new File(OldCommands.Invictools.getDataFolder(), "Schems");
         File file = new File(Folder, schem + "_cage.schem");
 
         ClipboardFormat format = ClipboardFormats.findByFile(file);

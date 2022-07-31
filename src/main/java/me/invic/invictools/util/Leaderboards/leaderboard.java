@@ -1,6 +1,6 @@
 package me.invic.invictools.util.Leaderboards;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -27,8 +27,8 @@ public class leaderboard
     public static String Sort;
 
     private static final DecimalFormat df = new DecimalFormat("0.00");
-    public static int lbsize = Commands.Invictools.getConfig().getInt("Leaderboard.Size", 10);;
-    public static int gamesBeforeLeaderboard = Commands.Invictools.getConfig().getInt("Leaderboard.MinGames", 5);
+    public static int lbsize = OldCommands.Invictools.getConfig().getInt("Leaderboard.Size", 10);
+    public static int gamesBeforeLeaderboard = OldCommands.Invictools.getConfig().getInt("Leaderboard.MinGames", 5);
 
     public void loadLeaderboard(String sort)
     {
@@ -37,7 +37,7 @@ public class leaderboard
         leaderboardTotal = 0;
         Placement.clear();
         leaderboard.clear();
-        File Folder2 = new File(Commands.Invictools.getDataFolder(), "PlayerData");
+        File Folder2 = new File(OldCommands.Invictools.getDataFolder(), "PlayerData");
         File[] yamlFiles = Folder2.listFiles();
         for (File file : yamlFiles)
         {
@@ -198,7 +198,7 @@ public class leaderboard
 
     public String safeDisplayName(OfflinePlayer p)
     {
-        File Folder2 = new File(Commands.Invictools.getDataFolder(), "PlayerData");
+        File Folder2 = new File(OldCommands.Invictools.getDataFolder(), "PlayerData");
         File pFile = new File(Folder2, p.getUniqueId() + ".yml");
         //   System.out.println(p.getUniqueId() + ".yml");
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);

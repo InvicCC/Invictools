@@ -1,6 +1,6 @@
 package me.invic.invictools.gamemodifiers;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.PotionEffects.DamageTeammates;
 import me.invic.invictools.util.GrabTeammates;
 import org.bukkit.Bukkit;
@@ -71,7 +71,7 @@ public class CloseElytra
                 }
                 else
                 {
-                    Commands.ProximityElytra.clear();
+                    OldCommands.ProximityElytra.clear();
                     this.cancel();
                 }
             }

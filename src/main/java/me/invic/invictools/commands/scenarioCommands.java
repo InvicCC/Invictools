@@ -33,7 +33,7 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         {
             if (!sender.hasPermission("invic.invictools"))
             {
-                sender.sendMessage(Commands.permissionsError);
+                sender.sendMessage(OldCommands.permissionsError);
                 return tabComplete;
             }
         }
@@ -66,7 +66,7 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         {
             if (!sender.hasPermission("invic.invictools"))
             {
-                sender.sendMessage(Commands.permissionsError);
+                sender.sendMessage(OldCommands.permissionsError);
                 return true;
             }
         }
@@ -91,7 +91,7 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
         {
             int spawnerSize = 0;
-            Commands.LuckyBlocksEnabled = true;
+            OldCommands.LuckyBlocksEnabled = true;
             new gamemodeData().setLuckyBlockMode(BedwarsAPI.getInstance().getGameOfPlayer(p),mode);
 
             String game = BedwarsAPI.getInstance().getGameOfPlayer(p).getName();
@@ -131,7 +131,7 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
                 {
                     if (!BedwarsAPI.getInstance().getGameByName(game).getStatus().equals(GameStatus.RUNNING))
                     {
-                        Commands.LuckyBlocksEnabled = false;
+                        OldCommands.LuckyBlocksEnabled = false;
                         new gamemodeData().setLuckyBlockMode(BedwarsAPI.getInstance().getGameByName(game),"none");
                         this.cancel();
                     }

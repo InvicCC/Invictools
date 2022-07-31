@@ -1,11 +1,10 @@
 package me.invic.invictools.util.physics;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.commands.toggleCommands;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,7 +12,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class MasterPlayerJoin implements Listener
@@ -23,7 +21,7 @@ public class MasterPlayerJoin implements Listener
     {
         probe();
 
-        if (Commands.MasterPlayer instanceof Player && e.getPlayer().getName().equalsIgnoreCase(Commands.MasterPlayer.getName()))
+        if (OldCommands.MasterPlayer instanceof Player && e.getPlayer().getName().equalsIgnoreCase(OldCommands.MasterPlayer.getName()))
         {
             if (e.getPlayer().getWorld().getName().equalsIgnoreCase("Tree"))
                 new grabSandstone(e.getPlayer());
@@ -52,7 +50,7 @@ public class MasterPlayerJoin implements Listener
             {
                 probe();
             }
-        }.runTaskLater(Commands.Invictools, 20L);
+        }.runTaskLater(OldCommands.Invictools, 20L);
     }
 
     public void probe()
@@ -61,32 +59,32 @@ public class MasterPlayerJoin implements Listener
 
         try
         {
-            Commands.MasterPlayer.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(" "));
+            OldCommands.MasterPlayer.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(" "));
         }
         catch (NullPointerException e)
         {
             if(!toggleCommands.isHosting && Bukkit.getOnlinePlayers().size() > 0)
             {
                 Player next = Bukkit.getOnlinePlayers().iterator().next();
-                FileConfiguration config = Commands.Invictools.getConfig();
-                Commands.MasterPlayer = next;
+                FileConfiguration config = OldCommands.Invictools.getConfig();
+                OldCommands.MasterPlayer = next;
                 config.set("masterplayer", next.getName());
-                Commands.Invictools.saveConfig();
+                OldCommands.Invictools.saveConfig();
               //  System.out.println("swapping null");
             }
         }
 
         {
-            Player p = Commands.MasterPlayer;
+            Player p = OldCommands.MasterPlayer;
             if(!p.isOnline())
             {
                 if(!toggleCommands.isHosting && Bukkit.getOnlinePlayers().size() > 0)
                 {
                     Player next = Bukkit.getOnlinePlayers().iterator().next();
-                    FileConfiguration config = Commands.Invictools.getConfig();
-                    Commands.MasterPlayer = next;
+                    FileConfiguration config = OldCommands.Invictools.getConfig();
+                    OldCommands.MasterPlayer = next;
                     config.set("masterplayer", next.getName());
-                    Commands.Invictools.saveConfig();
+                    OldCommands.Invictools.saveConfig();
                  //   System.out.println("swapping !isonline");
                 }
             }

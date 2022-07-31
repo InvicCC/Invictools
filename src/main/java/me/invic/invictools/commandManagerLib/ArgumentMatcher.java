@@ -10,5 +10,5 @@ public interface ArgumentMatcher
      * @param argument The argument string.
      * @return The filtered tabCompletions.
      */
-    public List<String> filter (List<String> tabCompletions, String argument);
+    List<String> filter (List<String> tabCompletions, String argument);
 }

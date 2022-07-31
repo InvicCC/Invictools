@@ -1,6 +1,6 @@
 package me.invic.invictools.gamemodifiers;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.util.DeathCounter;
 import org.bukkit.Bukkit;
 import org.bukkit.attribute.Attribute;
@@ -14,7 +14,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 public class AbtributesOnDeath implements Listener
 {
@@ -59,7 +58,7 @@ public class AbtributesOnDeath implements Listener
                     deaths = DeathCounter.deaths.get(player);
                 }
             }
-        }.runTaskTimer(Commands.Invictools, 20L, 20L);
+        }.runTaskTimer(OldCommands.Invictools, 20L, 20L);
     }
 
     public static List<Player> getPlayersInSameWorld(Player player)

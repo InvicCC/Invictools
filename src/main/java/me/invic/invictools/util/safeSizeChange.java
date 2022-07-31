@@ -1,10 +1,8 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.commands.Commands;
-import me.invic.invictools.commands.joinCommands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.util.fixes.ChangeTeamSize;
 import me.invic.invictools.util.fixes.LobbyInventoryFix;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -13,7 +11,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
-import org.screamingsandals.bedwars.api.events.BedwarsGameEndingEvent;
 import org.screamingsandals.bedwars.api.game.Game;
 import org.screamingsandals.bedwars.api.game.GameStatus;
 
@@ -79,9 +76,9 @@ public class safeSizeChange implements Listener
                         }
                         beingModified.remove(game);
                     }
-                }.runTaskLater(Commands.Invictools, 10L);
+                }.runTaskLater(OldCommands.Invictools, 10L);
             }
-        }.runTaskLater(Commands.Invictools, 10L);
+        }.runTaskLater(OldCommands.Invictools, 10L);
     }
 
     public boolean isAnyGameRunning()

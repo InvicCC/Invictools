@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import me.invic.invictools.util.Leaderboards.leaderboard;
 import org.bukkit.*;
@@ -95,7 +95,7 @@ public class NormalKillHandler
             {
                 loc.getWorld().playEffect(loc, Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
             }
-        }.runTaskLater(Commands.Invictools, 1L);
+        }.runTaskLater(OldCommands.Invictools, 1L);
         loc.getWorld().playEffect(loc.clone().add(0, .6, 0), Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
     }
 
@@ -124,7 +124,7 @@ public class NormalKillHandler
     public void configHandler(Player player, String effect, boolean bypass)
     {
         effect = effect.toLowerCase(Locale.ROOT);
-        Plugin plugin = Commands.Invictools;
+        Plugin plugin = OldCommands.Invictools;
         File Folder = new File(plugin.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, player.getUniqueId() + ".yml");
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);

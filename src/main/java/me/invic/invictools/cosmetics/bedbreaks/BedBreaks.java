@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics.bedbreaks;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -43,7 +43,7 @@ public class BedBreaks implements Listener
                 {
                     if (loc.getBlock().getType() == Material.AIR)
                     {
-                        if (Commands.LuckyBlocksEnabled)
+                        if (OldCommands.LuckyBlocksEnabled)
                         {
                             new BukkitRunnable()
                             {

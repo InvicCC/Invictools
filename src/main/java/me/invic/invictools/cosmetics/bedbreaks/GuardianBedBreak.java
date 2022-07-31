@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics.bedbreaks;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import me.invic.invictools.util.Laser;
 import org.bukkit.*;
@@ -39,7 +39,7 @@ public class GuardianBedBreak
 
                 i++;
             }
-        }.runTaskTimer(Commands.Invictools, 0L, 1L);
+        }.runTaskTimer(OldCommands.Invictools, 0L, 1L);
     }
 
     private void createLaser(Location start, ArmorStand end, Location bed, int ticks)
@@ -51,7 +51,7 @@ public class GuardianBedBreak
         try
         {
             Laser laser = new Laser.GuardianLaser(bed, start, (ticks / 30), 50);
-            laser.start(Commands.Invictools);
+            laser.start(OldCommands.Invictools);
             laser.moveEnd(end.getLocation(), 20, null);
         }
         catch (ReflectiveOperationException e)
@@ -96,9 +96,9 @@ public class GuardianBedBreak
                         if (!g2.isDead())
                             g2.remove();
                     }
-                }.runTaskLater(Commands.Invictools, 35L);
+                }.runTaskLater(OldCommands.Invictools, 35L);
 
             }
-        }.runTaskLater(Commands.Invictools, 22L);
+        }.runTaskLater(OldCommands.Invictools, 22L);
     }
 }

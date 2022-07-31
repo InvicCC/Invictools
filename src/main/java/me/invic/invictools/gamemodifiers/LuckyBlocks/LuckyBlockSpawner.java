@@ -1,6 +1,5 @@
 package me.invic.invictools.gamemodifiers.LuckyBlocks;
 
-import me.invic.invictools.commands.Commands;
 import me.invic.invictools.gamemodifiers.gamemodeData;
 import org.bukkit.*;
 import org.bukkit.entity.ArmorStand;

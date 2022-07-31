@@ -1,6 +1,6 @@
 package me.invic.invictools.util.Leaderboards;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodes.bedfightStatistics;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -18,7 +18,7 @@ import static me.invic.invictools.util.Leaderboards.leaderboard.lbsize;
 
 public class BedfightLeaderboard
 {
-    File Folder = new File(Commands.Invictools.getDataFolder(), "Bedfight");
+    File Folder = new File(OldCommands.Invictools.getDataFolder(), "Bedfight");
     File pFile = new File(Folder, "bedfightstats.yml");
     final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
 

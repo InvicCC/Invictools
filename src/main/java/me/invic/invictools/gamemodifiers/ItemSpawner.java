@@ -1,6 +1,6 @@
 package me.invic.invictools.gamemodifiers;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.util.LobbyLogic;
 import me.invic.invictools.util.disableStats;
 import org.bukkit.*;
@@ -138,7 +138,7 @@ public class ItemSpawner // changes spawner logic to trigger every second and co
                 as2.setCustomName(ChatColor.YELLOW + "Spawns in " + ChatColor.RED + resettableDelay[0] + ChatColor.YELLOW + " seconds");
                 resettableDelay[0]--;
             }
-        }.runTaskTimer(Commands.Invictools, 20L, 20L); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn
+        }.runTaskTimer(OldCommands.Invictools, 20L, 20L); // repeat every second so you can have a floating timer with named invis armor stand and just add variable that checks if its at delay to do item spawn
 
     }
 }

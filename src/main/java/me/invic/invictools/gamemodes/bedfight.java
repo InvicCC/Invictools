@@ -1,7 +1,7 @@
 package me.invic.invictools.gamemodes;
 
 import com.viaversion.viaversion.api.Via;
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.items.ModBow;
 import me.invic.invictools.util.LobbyLogic;
 import me.invic.invictools.util.cageHandler;
@@ -30,16 +30,14 @@ import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
 import org.screamingsandals.bedwars.api.game.Game;
 import org.screamingsandals.bedwars.api.game.GameStatus;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
 public class bedfight implements Listener //map file optional bedfight.layers, optional bedfight.loadout. bedfioght folder holds loadout.yml
 {
     String bedfight = "bedfight";
-    static String loadout = Commands.Invictools.getConfig().getString("defaultBedfightLoadout", "default");
+    static String loadout = OldCommands.Invictools.getConfig().getString("defaultBedfightLoadout", "default");
     BedwarsAPI api = BedwarsAPI.getInstance();
     HashMap<Player,String> spawnPoints = new HashMap<>();
     static HashMap<Game,String> customLoadout = new HashMap<>(); // for gamemode selector
@@ -73,7 +71,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                             loadBedfightInventory(loadout, p, false);
                         }
                     }
-                }.runTaskLater(Commands.Invictools, 30L);
+                }.runTaskLater(OldCommands.Invictools, 30L);
 
                 String[] layers = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.layers", "END_STONE;MANGROVE_PLANKS;STAINED_GLASS").split(";");
                 for (int i = 0; i < layers.length; i++)
@@ -109,7 +107,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                                 p.teleport(e.getGame().getTeamOfPlayer(p).getTeamSpawn().clone().add(0,8,0));
                             }
                         }
-                    }.runTaskLater(Commands.Invictools, 10L);
+                    }.runTaskLater(OldCommands.Invictools, 10L);
                     p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.BOLD +" "+ChatColor.RED + "Sort your hotbar before the game starts!"));
                     p.sendTitle(ChatColor.translateAlternateColorCodes('&', "&eStarting in 10 Seconds"), ChatColor.translateAlternateColorCodes('&', "&r&fSneak to start early!"), 40, 5 * 20, 30);
                 }
@@ -145,7 +143,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                                             {
                                                 p.setInvulnerable(false);
                                             }
-                                        }.runTaskLater(Commands.Invictools, 50L);
+                                        }.runTaskLater(OldCommands.Invictools, 50L);
 
                                         spawnPoints.remove(p);
                                         saveBedfightInventory(loadout, p, false);
@@ -177,9 +175,9 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                             p.playSound(p.getLocation(),Sound.BLOCK_NOTE_BLOCK_HAT,1,1);
                         }
                     }
-                }.runTaskTimer(Commands.Invictools, 0L, 20L);
+                }.runTaskTimer(OldCommands.Invictools, 0L, 20L);
             }
-        }.runTaskLater(Commands.Invictools, 1L);
+        }.runTaskLater(OldCommands.Invictools, 1L);
     }
 
     @EventHandler
@@ -234,7 +232,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                 if(e.getGame().getStatus().equals(GameStatus.RUNNING))
                     loadBedfightInventory(loadout, e.getPlayer(), false);
             }
-        }.runTaskLater(Commands.Invictools, 20 * 3+1);
+        }.runTaskLater(OldCommands.Invictools, 20 * 3+1);
 
         if(e.getKiller() != null)
         {
@@ -305,7 +303,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                         block.getWorld().playSound(block.getLocation(), Sound.BLOCK_AMETHYST_BLOCK_PLACE, 3, 1);
                     }
             }
-        }.runTaskLater(Commands.Invictools, spacing * 15L + new Random().nextInt(10));
+        }.runTaskLater(OldCommands.Invictools, spacing * 15L + new Random().nextInt(10));
     }
 
     private void placeDiagonal(Location cardinal, BlockFace face, BlockFace direction, int spacing, String blocktype, String game)
@@ -326,7 +324,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                     new ModBow().addLater(placement.getBlock(), api.getGameByName(game));
                     placement.getWorld().playSound(placement, Sound.BLOCK_AMETHYST_BLOCK_PLACE, 3, 1);
                 }
-            }.runTaskLater(Commands.Invictools, new Random().nextInt(25));
+            }.runTaskLater(OldCommands.Invictools, new Random().nextInt(25));
         }
 
         placeDiagonal(placement,face,direction,spacing-1,blocktype,game);
@@ -383,9 +381,9 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             if (s[1].equalsIgnoreCase(type.toUpperCase(Locale.ROOT)))
                 return true;
 
+        // handles LIGHT_ colors
         if (s.length >= 3)
-            if (s[2].equalsIgnoreCase(type.toUpperCase(Locale.ROOT)))// handles LIGHT_ colors
-                return true;
+            return s[2].equalsIgnoreCase(type.toUpperCase(Locale.ROOT));
 
         return false;
     }
@@ -399,9 +397,9 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             if (s[1].equalsIgnoreCase("BED"))
                 return true;
 
+        // handles LIGHT_ colors
         if (s.length == 3)
-            if (s[2].equalsIgnoreCase("BED"))// handles LIGHT_ colors
-                return true;
+            return s[2].equalsIgnoreCase("BED");
 
         return false;
     }
@@ -415,11 +413,11 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
     {
         int items = 0;
         int indendedItems = 0;
-        File Folder = new File(Commands.Invictools.getDataFolder(), "PlayerData");
+        File Folder = new File(OldCommands.Invictools.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, p.getUniqueId() + ".yml");
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
 
-        File bffolder = new File(Commands.Invictools.getDataFolder(), "Bedfight");
+        File bffolder = new File(OldCommands.Invictools.getDataFolder(), "Bedfight");
         File bfFile = new File(bffolder, loadout + ".yml");
         FileConfiguration bf = YamlConfiguration.loadConfiguration(bfFile);
 
@@ -531,10 +529,10 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
 
     public void saveBedfightInventory(String loadout, Player p, boolean bedfight)
     {
-        File Folder = new File(Commands.Invictools.getDataFolder(), "PlayerData");
+        File Folder = new File(OldCommands.Invictools.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, p.getUniqueId() + ".yml");
 
-        File bffolder = new File(Commands.Invictools.getDataFolder(), "Bedfight");
+        File bffolder = new File(OldCommands.Invictools.getDataFolder(), "Bedfight");
         File bfFile = new File(bffolder, loadout + ".yml");
 
         FileConfiguration balls;

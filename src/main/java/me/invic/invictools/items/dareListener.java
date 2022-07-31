@@ -1,6 +1,6 @@
 package me.invic.invictools.items;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceHandler;
 import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
@@ -26,7 +26,7 @@ import java.util.List;
 
 public class dareListener implements Listener
 {
-    FileConfiguration config = Commands.Invictools.getConfig();
+    FileConfiguration config = OldCommands.Invictools.getConfig();
     public String dareName = ChatColor.translateAlternateColorCodes('§', "§f§lDare Devil");
     public int dareTimeout = config.getInt("dareTimeout") * 20;
     public static List<Entity> dareAir = new ArrayList<>();
@@ -77,7 +77,7 @@ public class dareListener implements Listener
                     if (!horse.isDead())
                         horse.damage(horse.getHealth() * 99999);
                 }
-            }.runTaskLater(Commands.Invictools, dareTimeout);
+            }.runTaskLater(OldCommands.Invictools, dareTimeout);
         }
         else if (timed) // short timer for lobby / victory dance
         {
@@ -92,7 +92,7 @@ public class dareListener implements Listener
                     if (!horse.isDead())
                         horse.damage(horse.getHealth() * 99999);
                 }
-            }.runTaskLater(Commands.Invictools, 60 * 20);
+            }.runTaskLater(OldCommands.Invictools, 60 * 20);
         }
 
         heightWatcher(horse);
@@ -129,7 +129,7 @@ public class dareListener implements Listener
                 if (dare.isDead())
                     this.cancel();
             }
-        }.runTaskTimer(Commands.Invictools, 0L, 2L);
+        }.runTaskTimer(OldCommands.Invictools, 0L, 2L);
     }
 
     // creates explosion when dare lands from big jump
@@ -150,7 +150,7 @@ public class dareListener implements Listener
                 if (dare.isDead())
                     this.cancel();
             }
-        }.runTaskTimer(Commands.Invictools, 0L, 1L);
+        }.runTaskTimer(OldCommands.Invictools, 0L, 1L);
     }
 
     // creates message so player knows when the dare will die, called multiple times on spawn
@@ -167,7 +167,7 @@ public class dareListener implements Listener
                     p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, delay ^ 2);
                 }
             }
-        }.runTaskLater(Commands.Invictools, delay);
+        }.runTaskLater(OldCommands.Invictools, delay);
     }
 
     // creates super jump
@@ -191,7 +191,7 @@ public class dareListener implements Listener
                         if (!dareAir.contains(e.getEntity()))
                             dareAir.add(e.getEntity());
                     }
-                }.runTaskLater(Commands.Invictools, 3L);
+                }.runTaskLater(OldCommands.Invictools, 3L);
             }
         }
     }
@@ -207,8 +207,7 @@ public class dareListener implements Listener
             dareAir.remove(e.getEntity());
             e.getDrops().clear();
             if (e.getEntity().getPassengers().size() != 0)
-                if (ItemListener.Falling.contains(e.getEntity().getPassengers().get(0)))
-                    ItemListener.Falling.remove(e.getEntity().getPassengers().get(0));
+                ItemListener.Falling.remove(e.getEntity().getPassengers().get(0));
         }
     }
 
@@ -227,7 +226,7 @@ public class dareListener implements Listener
                         e.remove();
                 }
             }
-        }.runTaskTimer(Commands.Invictools, 500L, 120L);
+        }.runTaskTimer(OldCommands.Invictools, 500L, 120L);
     }
 
     @EventHandler
@@ -252,8 +251,7 @@ public class dareListener implements Listener
 
         if (e.getDismounted().getName().equalsIgnoreCase(dareName) && e.getDismounted() instanceof SkeletonHorse)
         {
-            if (ItemListener.Falling.contains(e.getEntity()))
-                ItemListener.Falling.remove(e.getEntity());
+            ItemListener.Falling.remove(e.getEntity());
 
             if (!e.getDismounted().isOnGround())
             {
@@ -273,7 +271,7 @@ public class dareListener implements Listener
                         }
                         e.getDismounted().getLocation().getWorld().spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, e.getDismounted().getLocation().clone(), 2, 1, .3, 1, 0);
                     }
-                }.runTaskTimer(Commands.Invictools, 0, 1);
+                }.runTaskTimer(OldCommands.Invictools, 0, 1);
             }
         }
     }

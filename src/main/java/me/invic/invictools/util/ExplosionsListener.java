@@ -1,6 +1,6 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -97,7 +97,7 @@ public class ExplosionsListener implements Listener
                             e.getEntity().setVelocity(new Vector(x[0] / 5, finalYsubtracter1 / 2, z[0] / 5));
                     }
                 };
-                runnable.runTaskLater(Commands.Invictools, 1);
+                runnable.runTaskLater(OldCommands.Invictools, 1);
             }
         }
         else if (e.getCause().equals(EntityDamageEvent.DamageCause.ENTITY_EXPLOSION) && e.getDamager().getName().equalsIgnoreCase("primed tnt"))
@@ -149,7 +149,7 @@ public class ExplosionsListener implements Listener
                             e.getEntity().setVelocity(new Vector(x[0] / 5, finalYsubtracter1 / 2, z[0] / 5));
                     }
                 };
-                runnable.runTaskLater(Commands.Invictools, 1);
+                runnable.runTaskLater(OldCommands.Invictools, 1);
             }
         }
     }

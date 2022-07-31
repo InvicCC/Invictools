@@ -1,6 +1,6 @@
 package me.invic.invictools.cosmetics.projtrail;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class ProjTrailPreview
 {
-    FileConfiguration config = Commands.Invictools.getConfig();
+    FileConfiguration config = OldCommands.Invictools.getConfig();
 
     public void handle(String effect, Player p)
     {

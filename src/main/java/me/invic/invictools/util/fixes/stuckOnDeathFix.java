@@ -1,14 +1,10 @@
 package me.invic.invictools.util.fixes;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceHandler;
 import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
-import org.bukkit.block.data.type.Bed;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
@@ -49,7 +45,7 @@ public class stuckOnDeathFix implements Listener
                             System.out.println("killed potentially glitched player");
                         }
                     }
-                }.runTaskLater(Commands.Invictools, 20*6L);
+                }.runTaskLater(OldCommands.Invictools, 20*6L);
             }
         }
     }

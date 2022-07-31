@@ -1,12 +1,10 @@
 package me.invic.invictools.util;
 
-import me.invic.invictools.commands.Commands;
-import org.bukkit.ChatColor;
+import me.invic.invictools.commands.OldCommands;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.screamingsandals.bedwars.api.RunningTeam;
-import org.screamingsandals.bedwars.api.TeamColor;
 import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsGameStartEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
@@ -19,7 +17,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -42,7 +39,7 @@ public class GameLogger implements Listener
     @EventHandler
     public void gameEnd(BedwarsGameEndEvent e) throws IOException
     {
-        File bedfightLog = new File(Commands.Invictools.getDataFolder(), "game.log");
+        File bedfightLog = new File(OldCommands.Invictools.getDataFolder(), "game.log");
         BufferedWriter br = new BufferedWriter(new FileWriter(bedfightLog.getAbsolutePath(), true));
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();

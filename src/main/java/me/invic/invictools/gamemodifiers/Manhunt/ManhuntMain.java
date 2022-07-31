@@ -1,6 +1,6 @@
 package me.invic.invictools.gamemodifiers.Manhunt;
 
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.items.createItems;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import me.invic.invictools.util.fixes.SafeOpCommand;
@@ -119,10 +119,7 @@ public class ManhuntMain
         File pFile = new File(Folder, loadout + ".yml");
         //  System.out.println(plugin.getDataFolder() +loadout + ".yml");
         final FileConfiguration loadoutConfig = YamlConfiguration.loadConfiguration(pFile);
-        if (loadoutConfig.getBoolean("fake"))
-            return false;
-        else
-            return true;
+        return !loadoutConfig.getBoolean("fake");
     }
 
     private void grabLoadout(String loadout) //t
@@ -325,9 +322,9 @@ public class ManhuntMain
 
     private void setTeams(Player hunted)
     {
-        if (Commands.teammates.get(hunted) != null)
+        if (OldCommands.teammates.get(hunted) != null)
         {
-            ManhuntTeam.put(Commands.teammates.get(hunted), Hunted);
+            ManhuntTeam.put(OldCommands.teammates.get(hunted), Hunted);
             // Commands.teammates.get(hunted).sendMessage(ChatColor.AQUA + "You are about to be " + ChatColor.YELLOW + Hunted);
         }
         ManhuntTeam.put(hunted, Hunted);

@@ -1,38 +1,24 @@
 package me.invic.invictools.commands;
 
 import me.invic.invictools.cosmetics.Lobby1Handler;
-import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceConfig;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceHandler;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDancePreview;
-import me.invic.invictools.cosmetics.bedbreaks.BedBreakConfig;
-import me.invic.invictools.cosmetics.bedbreaks.BedBreaks;
-import me.invic.invictools.cosmetics.finalkills.FinalKillConfig;
-import me.invic.invictools.cosmetics.finalkills.FinalKillHandler;
 import me.invic.invictools.cosmetics.NormalKillHandler;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailPreview;
-import me.invic.invictools.gamemodes.bedfight;
 import me.invic.invictools.gamemodifiers.*;
-import me.invic.invictools.gamemodifiers.LuckyBlocks.LuckyBlockSpawner;
 import me.invic.invictools.items.createItems;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import me.invic.invictools.items.dareListener;
-import me.invic.invictools.util.Leaderboards.leaderboard;
-import me.invic.invictools.util.Leaderboards.leaderboardHologram;
 import me.invic.invictools.util.deathListener;
 import me.invic.invictools.gamemodifiers.Manhunt.ManhuntMain;
 import me.invic.invictools.gamemodifiers.PotionEffects.*;
-import me.invic.invictools.items.FireStick;
 import me.invic.invictools.items.giveitem;
-import me.invic.invictools.cosmetics.projtrail.ProjTrailConfig;
 import me.invic.invictools.util.*;
 import me.invic.invictools.util.WorldBorder;
 import me.invic.invictools.util.fixes.ChangeTeamSize;
 import me.invic.invictools.util.fixes.LobbyInventoryFix;
-import me.invic.invictools.util.fixes.TeamSelection;
 import me.invic.invictools.util.npc.BlazeNpc;
-import net.md_5.bungee.api.ChatMessageType;
-import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.block.Block;
@@ -52,10 +38,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.StringUtil;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.game.Game;
-import org.screamingsandals.bedwars.api.game.GameStatus;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 import static me.invic.invictools.util.deathListener.addedNormalBlocks;
@@ -64,7 +48,7 @@ import static org.bukkit.Bukkit.*;
 
 // firestick for game, item boxes, tnt rain,
 
-public class Commands implements CommandExecutor, TabExecutor
+public class OldCommands implements CommandExecutor, TabExecutor
 {
     //plugins
     public static Plugin BWeffects = getServer().getPluginManager().getPlugin("Bweffects");
@@ -236,13 +220,21 @@ public class Commands implements CommandExecutor, TabExecutor
         else if (args.length == 3 && args[0].equalsIgnoreCase("jumping"))
         {
             if (args[1].equalsIgnoreCase("range"))
+            {
                 tabComplete.add(String.valueOf(ExplosionsListener.range));
+            }
             else if (args[1].equalsIgnoreCase("x"))
+            {
                 tabComplete.add(String.valueOf(ExplosionsListener.xzmultiplier));
+            }
             else if (args[1].equalsIgnoreCase("y"))
+            {
                 tabComplete.add(String.valueOf(ExplosionsListener.ymultiplier));
+            }
             else if (args[1].equalsIgnoreCase("op"))
+            {
                 tabComplete.add(String.valueOf(ExplosionsListener.op));
+            }
         }
         else if (args.length == 3 && args[0].equalsIgnoreCase("ProximityElytraSingle"))
         {
@@ -274,7 +266,7 @@ public class Commands implements CommandExecutor, TabExecutor
         }
         else if (args.length == 4 && args[0].equalsIgnoreCase("SetTeamSize") && args[1].equalsIgnoreCase("SingleArena"))
         {
-            FileConfiguration cfg = Commands.Invictools.getConfig();
+            FileConfiguration cfg = OldCommands.Invictools.getConfig();
             List<String> configs = cfg.getStringList("ArenaConversion");
             for (String s : configs)
             {
@@ -969,163 +961,166 @@ public class Commands implements CommandExecutor, TabExecutor
 //            };
 //            runnable2.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10, 1);
 //        }
-        if (args.length >= 2 && args[0].equalsIgnoreCase("BedBreakTest") && args[2].equalsIgnoreCase("cp"))
-        {
-            Player player = (Player) sender;
-            Location oldloc = player.getLocation();
-            Location tp = new Location(player.getLocation().getWorld(), 250.5, 128, 283.5, 180, 0);
-            String effect = args[1];
-
-            final int[] wait = new int[1];
-
-            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.BOLD + "Hold crouch to cancel"));
-            player.teleport(tp);
-            Location loc = new Location(player.getLocation().getWorld(), 250.5, 128.5, 278.5);
-
-            new BukkitRunnable()
-            {
-                @Override
-                public void run()
-                {
-                    new BedBreaks().handle(loc, player, loc.getBlock().getType().toString(), false, effect);
-                }
-            }.runTaskLater(Commands.Invictools, 20L);
-
-            BukkitRunnable runnable = new BukkitRunnable()
-            {
-                @Override
-                public void run()
-                {
-                    switch (effect)
-                    {
-                        case "Lightning":
-                            wait[0] = 50; // 2.5 sec
-                            break;
-                        case "Fireworks":
-                            wait[0] = 80;
-                            break;
-                        case "Ranked":
-                            wait[0] = 70;
-                            break;
-                        case "Tornado":
-                            wait[0] = 40;
-                            break;
-                        case "Holo":
-                            wait[0] = 60;
-                            break;
-                        default:
-                            wait[0] = 50;
-                    }
-
-                    BukkitRunnable runnable2 = new BukkitRunnable()
-                    {
-                        final int cancelAt = wait[0];
-                        int i = 0;
-
-                        @Override
-                        public void run()
-                        {
-                            i++;
-                            if ((player.getLocation().getWorld() == oldloc.getWorld() && i == cancelAt) || player.isSneaking())
-                            {
-                                player.teleport(oldloc);
-                                this.cancel();
-                            }
-
-                            if (i == cancelAt)
-                                this.cancel();
-                        }
-                    };
-                    runnable2.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 30, 1);
-                }
-            };
-            runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10L);
-        }
-        else if (args.length >= 1 && args[0].equalsIgnoreCase("ranks"))
-        {
-            Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
-            final FileConfiguration Config = plugin.getConfig();
-            List<String> messages = Config.getStringList("RankMessages");
-            for (String message : messages)
-            {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
-            }
-        }
-        else if (args.length >= 1 && args[0].equalsIgnoreCase("stats"))
-        {
-            if (StatsTrack)
-            {
-                StatsTrack = false;
-                sender.sendMessage(ChatColor.AQUA + "Stats should no longer track");
-            }
-            else
-            {
-                StatsTrack = true;
-                sender.sendMessage(ChatColor.AQUA + "Stats should now track");
-            }
-        }
-        else if (args.length >= 1 && args[0].equalsIgnoreCase("portals"))
-        {
-            if (worldswap)
-            {
-                worldswap = false;
-                sender.sendMessage(ChatColor.AQUA + "Portals Disabled");
-            }
-            else
-            {
-                worldswap = true;
-                sender.sendMessage(ChatColor.AQUA + "Portals Enabled");
-            }
-        }
-        else if (args.length >= 1 && args[0].equalsIgnoreCase("reloadnpc"))
-        {
-            for (Entity e : Bukkit.getWorld("bwlobby").getEntitiesByClass(ArmorStand.class))
-            {
-                if (!e.hasMetadata("holo"))
-                    e.remove();
-            }
-            for (Entity e : Bukkit.getWorld("bwlobby").getEntitiesByClass(Illusioner.class))
-            {
-                e.remove();
-            }
-            for (Entity e : Bukkit.getWorld("bwlobby").getEntitiesByClass(Allay.class))
-            {
-                e.remove();
-            }
-            new BlazeNpc().spawnNPC("npc", true);
-            new BlazeNpc().spawnNPC("npc2", false);
-        }
-        // Moved to a subcommand! - neb
+//        if (args.length >= 2 && args[0].equalsIgnoreCase("BedBreakTest") && args[2].equalsIgnoreCase("cp"))
+//        {
+//            Player player = (Player) sender;
+//            Location oldloc = player.getLocation();
+//            Location tp = new Location(player.getLocation().getWorld(), 250.5, 128, 283.5, 180, 0);
+//            String effect = args[1];
+//
+//            final int[] wait = new int[1];
+//
+//            player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.BOLD + "Hold crouch to cancel"));
+//            player.teleport(tp);
+//            Location loc = new Location(player.getLocation().getWorld(), 250.5, 128.5, 278.5);
+//
+//            new BukkitRunnable()
+//            {
+//                @Override
+//                public void run()
+//                {
+//                    new BedBreaks().handle(loc, player, loc.getBlock().getType().toString(), false, effect);
+//                }
+//            }.runTaskLater(Commands.Invictools, 20L);
+//
+//            BukkitRunnable runnable = new BukkitRunnable()
+//            {
+//                @Override
+//                public void run()
+//                {
+//                    switch (effect)
+//                    {
+//                        case "Lightning":
+//                            wait[0] = 50; // 2.5 sec
+//                            break;
+//                        case "Fireworks":
+//                            wait[0] = 80;
+//                            break;
+//                        case "Ranked":
+//                            wait[0] = 70;
+//                            break;
+//                        case "Tornado":
+//                            wait[0] = 40;
+//                            break;
+//                        case "Holo":
+//                            wait[0] = 60;
+//                            break;
+//                        default:
+//                            wait[0] = 50;
+//                    }
+//
+//                    BukkitRunnable runnable2 = new BukkitRunnable()
+//                    {
+//                        final int cancelAt = wait[0];
+//                        int i = 0;
+//
+//                        @Override
+//                        public void run()
+//                        {
+//                            i++;
+//                            if ((player.getLocation().getWorld() == oldloc.getWorld() && i == cancelAt) || player.isSneaking())
+//                            {
+//                                player.teleport(oldloc);
+//                                this.cancel();
+//                            }
+//
+//                            if (i == cancelAt)
+//                                this.cancel();
+//                        }
+//                    };
+//                    runnable2.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 30, 1);
+//                }
+//            };
+//            runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10L);
+//        }
+//        else if (args.length >= 1 && args[0].equalsIgnoreCase("ranks"))
+//        {
+//            Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
+//            final FileConfiguration Config = plugin.getConfig();
+//            List<String> messages = Config.getStringList("RankMessages");
+//            for (String message : messages)
+//            {
+//                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+//            }
+//        }
+//        else if (args.length >= 1 && args[0].equalsIgnoreCase("stats"))
+//        {
+//            if (StatsTrack)
+//            {
+//                StatsTrack = false;
+//                sender.sendMessage(ChatColor.AQUA + "Stats should no longer track");
+//            }
+//            else
+//            {
+//                StatsTrack = true;
+//                sender.sendMessage(ChatColor.AQUA + "Stats should now track");
+//            }
+//        }
+//        else if (args.length >= 1 && args[0].equalsIgnoreCase("portals"))
+//        {
+//            if (worldswap)
+//            {
+//                worldswap = false;
+//                sender.sendMessage(ChatColor.AQUA + "Portals Disabled");
+//            }
+//            else
+//            {
+//                worldswap = true;
+//                sender.sendMessage(ChatColor.AQUA + "Portals Enabled");
+//            }
+//        }
+//        else if (args.length >= 1 && args[0].equalsIgnoreCase("reloadnpc"))
+//        {
+//            for (Entity e : Bukkit.getWorld("bwlobby").getEntitiesByClass(ArmorStand.class))
+//            {
+//                if (!e.hasMetadata("holo"))
+//                    e.remove();
+//            }
+//            for (Entity e : Bukkit.getWorld("bwlobby").getEntitiesByClass(Illusioner.class))
+//            {
+//                e.remove();
+//            }
+//            for (Entity e : Bukkit.getWorld("bwlobby").getEntitiesByClass(Allay.class))
+//            {
+//                e.remove();
+//            }
+//            new BlazeNpc().spawnNPC("npc", true);
+//            new BlazeNpc().spawnNPC("npc2", false);
+//        }
 //        else if (sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("firestick") && FireStickEnabled)
 //        {
 //            if (Bukkit.getPlayer(sender.getName()).getWorld().getName().equals("bwlobby"))
 //                new FireStick((Player) sender);
 //        }
-        else if (sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("lobbydare") && FireStickEnabled)
-        {
-            Player p = (Player) sender;
-            if (Bukkit.getPlayer(sender.getName()).getWorld().getName().equals("bwlobby"))
-                new dareListener().handleItem(p.getLocation(), p, true, true);
-        }
-        else if (sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("lobbydare") && !FireStickEnabled)
-        {
-            sender.sendMessage(ChatColor.GOLD + "Lobby Dare " + ChatColor.RED + "is currently disabled.");
-        }
-        else if (sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("firestick") && !FireStickEnabled)
-        {
-            sender.sendMessage(ChatColor.GOLD + "FireSticks " + ChatColor.RED + "are currently disabled.");
-        }
-        else if (args.length > 0 && args[0].equalsIgnoreCase("projpreview"))
+//        else if (sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("lobbydare") && FireStickEnabled)
+//        {
+//            Player p = (Player) sender;
+//            if (Bukkit.getPlayer(sender.getName()).getWorld().getName().equals("bwlobby"))
+//                new dareListener().handleItem(p.getLocation(), p, true, true);
+//        }
+//        else if (sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("lobbydare") && !FireStickEnabled)
+//        {
+//            sender.sendMessage(ChatColor.GOLD + "Lobby Dare " + ChatColor.RED + "is currently disabled.");
+//        }
+//        else if (sender.hasPermission("invic.firestick") && args[0].equalsIgnoreCase("firestick") && !FireStickEnabled)
+//        {
+//            sender.sendMessage(ChatColor.GOLD + "FireSticks " + ChatColor.RED + "are currently disabled.");
+//        }
+         if (args.length > 0 && args[0].equalsIgnoreCase("projpreview"))
         {
             Player p = (Player) sender;
             if (p.getWorld().getName().equalsIgnoreCase("bwlobby"))
+            {
                 new ProjTrailPreview().handle(args[1], p);
+            }
         }
         else if (args.length > 0 && args[0].equalsIgnoreCase("VictoryDancePreview"))
         {
             Player p = (Player) sender;
             if (p.getWorld().getName().equalsIgnoreCase("bwlobby"))
+            {
                 new VictoryDancePreview().handle(args[1], p);
+            }
         }
         else if (sender.hasPermission("invic.invictools"))
         {
@@ -1135,7 +1130,9 @@ public class Commands implements CommandExecutor, TabExecutor
                 for (Entity e : p.getWorld().getEntitiesByClass(ArmorStand.class))
                 {
                     if (!e.hasMetadata("holo"))
+                    {
                         e.remove();
+                    }
                 }
                 //  Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "minecraft:kill @e[type=minecraft:armor_stand]");
                 sender.sendMessage(ChatColor.AQUA + "All non scoreboard holographic displays have been deleted!");
@@ -1186,7 +1183,9 @@ public class Commands implements CommandExecutor, TabExecutor
                     new WardenSpawner().ShriekerFromWorld(Bukkit.getPlayer(args[3]).getWorld(), Boolean.parseBoolean(args[1]));
                 }
                 else
+                {
                     new WardenSpawner().ShriekerFromWorld(Bukkit.getWorld(args[3]), Boolean.parseBoolean(args[1]));
+                }
 
                 // sender.sendMessage(ChatColor.AQUA + "Default world border closing on 0,0...");
             }
@@ -1214,13 +1213,17 @@ public class Commands implements CommandExecutor, TabExecutor
             {
                 Player p = (Player) sender;
                 if (args[1].equalsIgnoreCase("single"))
+                {
                     noShop.put(Bukkit.getPlayer(args[2]), true);
+                }
                 else if (args[1].equalsIgnoreCase("all"))
                 {
                     for (Player o : Bukkit.getOnlinePlayers())
                     {
                         if (o.getWorld().equals(p.getWorld()) && o.getGameMode().equals(GameMode.SURVIVAL))
+                        {
                             noShop.put(o, true);
+                        }
                     }
                 }
             }
@@ -1232,7 +1235,9 @@ public class Commands implements CommandExecutor, TabExecutor
                     deathListener.clearEverything(p.getWorld());
                 }
                 else
+                {
                     deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
+                }
 
                 sender.sendMessage(ChatColor.AQUA + "Scenarios mostly reset.");
             }
@@ -1341,37 +1346,39 @@ public class Commands implements CommandExecutor, TabExecutor
             }
             else if (args.length == 1 && args[0].equalsIgnoreCase("ToggleFireStick"))
             {
-                if (FireStickEnabled)
-                    FireStickEnabled = false;
-                else
-                    FireStickEnabled = true;
+                FireStickEnabled = !FireStickEnabled;
 
                 sender.sendMessage(ChatColor.AQUA + "Firestick Enabled is now " + ChatColor.YELLOW + FireStickEnabled);
             }
             else if (args.length == 1 && args[0].equalsIgnoreCase("ToggleVictory"))
             {
-                if (VictoryDancePreview.VictoryPreviewEnabled)
-                    VictoryDancePreview.VictoryPreviewEnabled = false;
-                else
-                    VictoryDancePreview.VictoryPreviewEnabled = true;
+                VictoryDancePreview.VictoryPreviewEnabled = !VictoryDancePreview.VictoryPreviewEnabled;
 
                 sender.sendMessage(ChatColor.AQUA + "Victory Dance Preview Enabled is now " + ChatColor.YELLOW + VictoryDancePreview.VictoryPreviewEnabled);
             }
             else if (args.length >= 1 && args[0].equalsIgnoreCase("itemrain"))
             {
                 if (args[1].equalsIgnoreCase("loottable"))
+                {
                     ItemRain.ItemRainLootTable(args[2], Integer.parseInt(args[3]), (Player) sender);
+                }
                 else if (args[1].equalsIgnoreCase("config"))
+                {
                     ItemRain.ItemRainConfig(args[2], Integer.parseInt(args[3]), (Player) sender);
+                }
                 ItemRain.IsEnabled = true;
                 sender.sendMessage(ChatColor.AQUA + "Raining items in the sky using LootTable " + ChatColor.YELLOW + args[2]);
             }
             else if (args.length >= 1 && args[0].equalsIgnoreCase("DeathAttribute"))
             {
                 if (args[1].equalsIgnoreCase("all")) // it DeathAttribute all Attribute interval basevalue
+                {
                     new AbtributesOnDeath().AbtributesOnDeathAll((Player) sender, args[2], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
+                }
                 else if (args[1].equalsIgnoreCase("single")) // it DeathAttribute single Attribute interval basevalue player
+                {
                     new AbtributesOnDeath().AttributesOnDeathSingular(getPlayer(args[5]), args[2], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
+                }
             }
             else if (args.length >= 1 && args[0].equalsIgnoreCase("totems"))
             {
@@ -1388,7 +1395,9 @@ public class Commands implements CommandExecutor, TabExecutor
                             public void run()
                             {
                                 if (player == null)
+                                {
                                     this.cancel();
+                                }
 
                                 if (player.getWorld() != world)
                                 {
@@ -1412,7 +1421,9 @@ public class Commands implements CommandExecutor, TabExecutor
                         public void run()
                         {
                             if (player == null)
+                            {
                                 this.cancel();
+                            }
 
                             if (player.getWorld() != world)
                             {
@@ -1443,7 +1454,9 @@ public class Commands implements CommandExecutor, TabExecutor
                                 public void run()
                                 {
                                     if (player == null)
+                                    {
                                         this.cancel();
+                                    }
 
                                     if (player.getWorld() != world)
                                     {
@@ -1470,7 +1483,9 @@ public class Commands implements CommandExecutor, TabExecutor
                             public void run()
                             {
                                 if (player == null)
+                                {
                                     this.cancel();
+                                }
 
                                 if (player.getWorld() != world)
                                 {
@@ -1895,25 +1910,35 @@ public class Commands implements CommandExecutor, TabExecutor
                 for (PotionEffectType p : PotionEffectType.values())
                 {
                     if (e1.equalsIgnoreCase(p.getName()))
+                    {
                         check = true;
+                    }
                 }
                 if (!check)
+                {
                     e1 = "LUCK";
+                }
                 check = false;
 
                 for (PotionEffectType p : PotionEffectType.values())
                 {
                     if (e2.equalsIgnoreCase(p.getName()))
+                    {
                         check = true;
+                    }
                 }
                 if (!check)
+                {
                     e2 = "LUCK";
+                }
 
                 Game game = BedwarsAPI.getInstance().getGameOfPlayer((Player) sender);
                 new TeamworkEffect().createEffect(e1, e2, game, a1, a2);
                 sender.sendMessage(ChatColor.AQUA + "Teammate Based Effect Enabled");
                 if (!check)
+                {
                     sender.sendMessage(ChatColor.RED + "incorrectly spelled effect has been replaced.");
+                }
 
                 new BukkitRunnable()
                 {
@@ -1959,7 +1984,9 @@ public class Commands implements CommandExecutor, TabExecutor
                 for (Player p : Bukkit.getOnlinePlayers())
                 {
                     if (player.getWorld().equals(p.getWorld()))
+                    {
                         new AlwaysBridge(p);
+                    }
                 }
             }
             else if (args.length >= 1 && args[0].equalsIgnoreCase("alwaysbridgesingle"))
@@ -1975,7 +2002,9 @@ public class Commands implements CommandExecutor, TabExecutor
                 for (Player p : Bukkit.getOnlinePlayers())
                 {
                     if (player.getWorld().equals(p.getWorld()))
+                    {
                         new CloseEffectSpecific(p, p.getWorld().getName(), args[1], Integer.parseInt(args[2]));
+                    }
                 }
             }
             else if (args.length >= 1 && args[0].equalsIgnoreCase("closeTeammateEffectSingle"))
@@ -2008,13 +2037,21 @@ public class Commands implements CommandExecutor, TabExecutor
                 }
 
                 if (args[1].equalsIgnoreCase("range"))
+                {
                     ExplosionsListener.range = Double.parseDouble(args[2]);
+                }
                 else if (args[1].equalsIgnoreCase("x"))
+                {
                     ExplosionsListener.xzmultiplier = Double.parseDouble(args[2]);
+                }
                 else if (args[1].equalsIgnoreCase("y"))
+                {
                     ExplosionsListener.ymultiplier = Double.parseDouble(args[2]);
+                }
                 else if (args[1].equalsIgnoreCase("op"))
+                {
                     ExplosionsListener.op = Boolean.parseBoolean(args[2]);
+                }
 
                 sender.sendMessage(ChatColor.YELLOW + args[1] + ChatColor.AQUA + " set to " + ChatColor.YELLOW + args[2]);
             }
@@ -2068,7 +2105,9 @@ public class Commands implements CommandExecutor, TabExecutor
                     sender.sendMessage(ChatColor.AQUA + "Arena " + ChatColor.YELLOW + arena + ChatColor.AQUA + " has been loaded into the npc");
                 }
                 else
+                {
                     sender.sendMessage(ChatColor.RED + "Arena name is not valid");
+                }
             }
             else if (args.length == 1 && args[0].equalsIgnoreCase("setarena"))
             {
@@ -2149,7 +2188,9 @@ public class Commands implements CommandExecutor, TabExecutor
                     sender.sendMessage(ChatColor.AQUA + "Custom spawner active in world " + ChatColor.YELLOW + player.getLocation().getWorld().getName() + ChatColor.AQUA + " using config " + ChatColor.YELLOW + config);
                 }
                 else
+                {
                     sender.sendMessage(ChatColor.RED + "Requires a valid config.yml and valid spawner location in this world");
+                }
             }
             else if (args.length == 1 && args[0].equalsIgnoreCase("spawner"))
             {
@@ -2291,7 +2332,7 @@ public class Commands implements CommandExecutor, TabExecutor
         return true;
     }
 
-    public Commands(List<String> worlds, double sety, List<String> blacklist, List<String> games)
+    public OldCommands(List<String> worlds, double sety, List<String> blacklist, List<String> games)
     {
         worldstemp = worlds;
         ytemp = sety;

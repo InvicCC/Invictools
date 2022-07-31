@@ -1,7 +1,6 @@
 package me.invic.invictools.gamemodifiers.LuckyBlocks.Blocks;
 
-import com.viaversion.viaversion.api.ViaAPI;
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.CustomHealth;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import me.invic.invictools.gamemodifiers.PotionEffects.DamageTeammates;
@@ -36,10 +35,7 @@ public class goodBlocks
         boolean isBedfight = false;
         if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
         {
-            if (disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
-                isBedfight = true;
-            else
-                isBedfight = false;
+            isBedfight = disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight");
         }
         else
         {
@@ -400,7 +396,7 @@ public class goodBlocks
                         }
                     }
                 };
-                runnable3.runTaskLater(Commands.Invictools, flytime * 20);
+                runnable3.runTaskLater(OldCommands.Invictools, flytime * 20);
                 break;
             case 16:
                 ItemStack item2 = new createItems().getRandomItem();

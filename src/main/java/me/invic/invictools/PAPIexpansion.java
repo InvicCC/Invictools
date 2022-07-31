@@ -1,10 +1,8 @@
 package me.invic.invictools;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import me.clip.placeholderapi.external.EZPlaceholderHook;
-import me.invic.invictools.commands.Commands;
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodes.bedfightStatistics;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -37,7 +35,7 @@ public class PAPIexpansion extends PlaceholderExpansion
         return "1.0";
     }
 
-    File Folder = new File(Commands.Invictools.getDataFolder(), "Bedfight");
+    File Folder = new File(OldCommands.Invictools.getDataFolder(), "Bedfight");
     File pFile = new File(Folder, "bedfightstats.yml");
     final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
 
@@ -112,7 +110,7 @@ public class PAPIexpansion extends PlaceholderExpansion
         }
         else if(identifier.equalsIgnoreCase("bflvls"))
         {
-            return String.valueOf(intlvl)+"山";
+            return intlvl +"山";
         }
         else if(identifier.equalsIgnoreCase("bfs"))
         {
