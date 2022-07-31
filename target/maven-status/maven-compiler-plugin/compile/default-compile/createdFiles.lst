@@ -12,6 +12,7 @@ me/invic/invictools/commands/Commands$10.class
 me/invic/invictools/gamemodifiers/AlwaysBridge$2.class
 me/invic/invictools/util/Laser$3.class
 me/invic/invictools/gamemodifiers/PotionEffects/KillEffectListener$1.class
+me/invic/invictools/commandManagerLib/argumentMatchers/ContainingStringArgumentMatcher.class
 me/invic/invictools/gamemodifiers/LuckyBlocks/luckyBlockBreakDetection$2.class
 me/invic/invictools/cosmetics/bedbreaks/GuardianBedBreak$2.class
 me/invic/invictools/commands/Commands$9.class
@@ -22,7 +23,9 @@ me/invic/invictools/util/GrabTeammates.class
 me/invic/invictools/cosmetics/VictoryDances/VictoryDanceHandler$4.class
 me/invic/invictools/util/fixes/Protocol47Fix$2.class
 me/invic/invictools/cosmetics/Lobby1Handler$7$2.class
+me/invic/invictools/impl/VictoryDanceCommand.class
 me/invic/invictools/gamemodifiers/LuckyBlocks/Blocks/badBlocks$1.class
+me/invic/invictools/impl/NormalKillCommand.class
 me/invic/invictools/util/fixes/stuckOnDeathFix$1.class
 me/invic/invictools/gamemodifiers/AlwaysBridge.class
 me/invic/invictools/cosmetics/bedbreaks/LightningBedBreak.class
@@ -32,6 +35,7 @@ me/invic/invictools/commands/Commands$15.class
 me/invic/invictools/cosmetics/VictoryDances/VictoryDanceHandler$2$1$4.class
 me/invic/invictools/commands/Commands$2.class
 me/invic/invictools/commands/scenarioCommands$1.class
+me/invic/invictools/impl/HelpCommand.class
 me/invic/invictools/util/TableToList.class
 me/invic/invictools/util/Laser$1.class
 me/invic/invictools/cosmetics/VictoryDances/VictoryDanceHandler$6$1.class
@@ -66,6 +70,7 @@ me/invic/invictools/util/Leaderboards/leaderboard.class
 me/invic/invictools/util/WorldBorder.class
 me/invic/invictools/Invictools.class
 me/invic/invictools/commands/toggleCommands.class
+me/invic/invictools/impl/TsCommand.class
 me/invic/invictools/gamemodifiers/tnt$1.class
 me/invic/invictools/cosmetics/bedbreaks/HoloBedBreak$1.class
 me/invic/invictools/commands/Commands$23.class
@@ -82,6 +87,7 @@ me/invic/invictools/commands/joinCommands.class
 me/invic/invictools/util/SculkFires.class
 me/invic/invictools/util/LobbyLogic$1.class
 me/invic/invictools/items/FireStick.class
+me/invic/invictools/impl/ITMainCommand.class
 me/invic/invictools/util/fixes/SafeOpCommand.class
 me/invic/invictools/gamemodifiers/giveItemRepeated.class
 me/invic/invictools/items/ItemListener$2.class
@@ -112,7 +118,9 @@ me/invic/invictools/items/ItemListener$1.class
 me/invic/invictools/gamemodifiers/CustomHealth.class
 me/invic/invictools/cosmetics/finalkills/FinalKillListener.class
 me/invic/invictools/cosmetics/projtrail/ProjTrailHandler$5.class
+me/invic/invictools/impl/FinalKillCommand.class
 me/invic/invictools/gamemodes/bedfight$4.class
+me/invic/invictools/impl/ProjTrailCommand.class
 me/invic/invictools/gamemodifiers/ItemRain.class
 me/invic/invictools/cosmetics/finalkills/FinalKillHandler$3.class
 me/invic/invictools/cosmetics/Lobby1Handler$7$1.class
@@ -121,6 +129,8 @@ me/invic/invictools/gamemodifiers/gamemodeData.class
 me/invic/invictools/cosmetics/projtrail/ProjTrailPreview$2.class
 me/invic/invictools/gamemodifiers/LuckyBlocks/luckyBlockBreakDetection$1.class
 me/invic/invictools/gamemodifiers/PotionEffects/TeamworkEffect$1.class
+me/invic/invictools/impl/BedBreakCommand.class
+me/invic/invictools/commandManagerLib/MainCommand.class
 me/invic/invictools/commands/Commands$20.class
 me/invic/invictools/cosmetics/bedbreaks/BedBreaks$1.class
 me/invic/invictools/cosmetics/VictoryDances/VictoryDancePreview.class
@@ -151,6 +161,7 @@ me/invic/invictools/cosmetics/Lobby1Handler$2$1.class
 me/invic/invictools/util/physics/doLighting$1.class
 me/invic/invictools/items/ItemListener$4.class
 me/invic/invictools/gamemodifiers/CloseElytra$1.class
+me/invic/invictools/impl/Lobby1Command.class
 me/invic/invictools/items/ItemListener$5.class
 me/invic/invictools/cosmetics/projtrail/ProjTrailHandler.class
 me/invic/invictools/cosmetics/bedbreaks/BedBreaks.class
@@ -184,12 +195,14 @@ me/invic/invictools/gamemodifiers/PotionEffects/DamageTeammates.class
 me/invic/invictools/gamemodifiers/giveItemRepeated$1.class
 me/invic/invictools/cosmetics/Lobby1Handler$6.class
 me/invic/invictools/util/fixes/WorldChangeFix.class
+me/invic/invictools/impl/PanelCommand.class
 me/invic/invictools/util/npc/DetectClickOnNPC$1$1.class
 me/invic/invictools/util/Laser$Packets$ProtocolMappings.class
 me/invic/invictools/util/fixes/TeamSelection$1.class
 me/invic/invictools/util/Laser$GuardianLaser.class
 me/invic/invictools/commands/Commands$16.class
 me/invic/invictools/util/deathListener.class
+me/invic/invictools/commandManagerLib/SubCommand.class
 me/invic/invictools/util/Leaderboards/leaderboardCycle.class
 me/invic/invictools/gamemodifiers/LuckyBlocks/Blocks/goodBlocks$1.class
 me/invic/invictools/util/LobbyLogic.class
@@ -260,6 +273,7 @@ me/invic/invictools/gamemodifiers/CustomHealth$1.class
 me/invic/invictools/util/WorldBorder$1.class
 me/invic/invictools/cosmetics/VictoryDances/VictoryDanceHandler$6$3.class
 me/invic/invictools/items/dareListener$2.class
+me/invic/invictools/commandManagerLib/ArgumentMatcher.class
 me/invic/invictools/util/Laser$Packets.class
 me/invic/invictools/util/fixes/Protocol47Fix.class
 me/invic/invictools/gamemodifiers/Totem.class
@@ -289,6 +303,7 @@ me/invic/invictools/cosmetics/VictoryDances/VictoryDanceHandler$5.class
 me/invic/invictools/util/DeathCounter.class
 me/invic/invictools/commands/Commands$4.class
 me/invic/invictools/util/Laser$Packets$1.class
+me/invic/invictools/impl/FirestickCommand.class
 me/invic/invictools/gamemodifiers/LuckyBlocks/dynamicSpawner$2.class
 me/invic/invictools/items/dareListener$1.class
 me/invic/invictools/util/ExplosionsListener.class
@@ -298,6 +313,7 @@ me/invic/invictools/util/physics/CancelLampUpdates.class
 me/invic/invictools/gamemodifiers/AlwaysBridge$1.class
 me/invic/invictools/PAPIexpansion.class
 me/invic/invictools/util/Laser$LaserType.class
+me/invic/invictools/commandManagerLib/argumentMatchers/ContainingAllCharsOfStringArgumentMatcher.class
 me/invic/invictools/gamemodifiers/LuckyBlocks/Blocks/goodBlocks$4.class
 me/invic/invictools/gamemodifiers/LuckyBlocks/Blocks/badBlocks$3.class
 me/invic/invictools/cosmetics/LobbyListener$1.class
@@ -332,6 +348,7 @@ me/invic/invictools/gamemodifiers/LuckyBlocks/LuckyBlockSpawner.class
 me/invic/invictools/items/ModBow.class
 me/invic/invictools/gamemodifiers/AbtributesOnDeath$1.class
 me/invic/invictools/util/fixes/InvisFix.class
+me/invic/invictools/commandManagerLib/argumentMatchers/StartingWithStringArgumentMatcher.class
 me/invic/invictools/commands/Commands$5.class
 me/invic/invictools/gamemodifiers/LuckyBlocks/Blocks/badBlocks$5.class
 me/invic/invictools/cosmetics/VictoryDances/VictoryDanceHandler$2$1$1.class

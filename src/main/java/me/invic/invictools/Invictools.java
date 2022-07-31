@@ -1,5 +1,6 @@
 package me.invic.invictools;
 
+import me.invic.invictools.commandManagerLib.MainCommand;
 import me.invic.invictools.commands.*;
 import me.invic.invictools.cosmetics.LobbyListener;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceListener;
@@ -9,6 +10,7 @@ import me.invic.invictools.cosmetics.finalkills.FinalKillListener;
 import me.invic.invictools.gamemodes.bedfight;
 import me.invic.invictools.gamemodes.bedfightStatistics;
 import me.invic.invictools.gamemodifiers.*;
+import me.invic.invictools.impl.ITMainCommand;
 import me.invic.invictools.items.ItemListener;
 import me.invic.invictools.items.ModBow;
 import me.invic.invictools.items.dareListener;
@@ -144,9 +146,37 @@ public final class Invictools extends JavaPlugin
     List<String> games = new ArrayList<>();
     List<String> Configs = new ArrayList<>();
 
+
+    private static Invictools instance;
+    private static MainCommand mainCommand;
+
+    public Invictools()
+    {
+        instance = this;
+    }
+
+    private void registerCommandsAndEvents ()
+    {
+        mainCommand = new ITMainCommand();
+        mainCommand.registerMainCommand(this, "it");
+    }
+
+    public static MainCommand getMainCommand ()
+    {
+        return mainCommand;
+    }
+
+    public static Invictools getInstance ()
+    {
+        return instance;
+    }
+
     @Override
     public void onEnable()
     {
+
+        registerCommandsAndEvents();
+
         this.saveDefaultConfig();
         FileConfiguration fileConfiguration = this.getConfig();
         File Folder = new File(Commands.Invictools.getDataFolder(), "Maps");
@@ -230,7 +260,7 @@ public final class Invictools extends JavaPlugin
 
         // commands
         this.getCommand("invictools").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
-        this.getCommand("it").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
+//        this.getCommand("it").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
 
         this.getCommand("toggle").setExecutor(new toggleCommands());
         this.getCommand("lb").setExecutor(new leaderboardCommands());

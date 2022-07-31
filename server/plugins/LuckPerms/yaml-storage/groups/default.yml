@@ -14,6 +14,7 @@ permissions:
 - essentials.signs.use.kit
 - essentials.signs.use.warp
 - essentials.spawn
+- invic.all
 - tag.player
 - weight.25
 prefixes:

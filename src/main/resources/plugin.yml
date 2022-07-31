@@ -16,6 +16,8 @@ commands:
   it:
     usage: /invictools help for list of commands
     description: Use '/invictools help' for list of commands
+  newit:
+    usage: /newit <command>
   lb:
     usage: /lb (bw/bf) (playername)
     description: check leaderboard positions of players

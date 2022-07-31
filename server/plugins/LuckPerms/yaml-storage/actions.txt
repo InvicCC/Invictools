@@ -243,3 +243,4 @@
 {"timestamp":1654554773,"source":{"uniqueId":"120a6ace-db7e-4774-9738-a76469f5f0a7","name":"Invictable"},"target":{"type":"USER","uniqueId":"f1674c3d-12aa-47e4-861b-49f17fc5c4b3","name":"IFoundXan"},"description":"parent set sub"}
 {"timestamp":1654820008,"source":{"uniqueId":"120a6ace-db7e-4774-9738-a76469f5f0a7","name":"Invictable"},"target":{"type":"GROUP","name":"default"},"description":"webeditor add essentials.rtoggle true"}
 {"timestamp":1654820008,"source":{"uniqueId":"120a6ace-db7e-4774-9738-a76469f5f0a7","name":"Invictable"},"target":{"type":"GROUP","name":"default"},"description":"webeditor add essentials.msg.* true"}
+{"timestamp":1659243356,"source":{"uniqueId":"8fd1ea99-dff7-4398-ab21-903da7a085f4","name":"NebulaBC"},"target":{"type":"GROUP","name":"default"},"description":"permission set invic.all true"}
