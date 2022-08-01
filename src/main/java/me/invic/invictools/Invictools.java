@@ -10,7 +10,7 @@ import me.invic.invictools.cosmetics.finalkills.FinalKillListener;
 import me.invic.invictools.gamemodes.bedfight;
 import me.invic.invictools.gamemodes.bedfightStatistics;
 import me.invic.invictools.gamemodifiers.*;
-import me.invic.invictools.impl.ITMainCommand;
+import me.invic.invictools.impl.commandmanagers.ITMainCommand;
 import me.invic.invictools.items.ItemListener;
 import me.invic.invictools.items.ModBow;
 import me.invic.invictools.items.dareListener;
@@ -157,8 +157,8 @@ public final class Invictools extends JavaPlugin
 
     private void registerCommandsAndEvents ()
     {
-        mainCommand = new ITMainCommand();
-        mainCommand.registerMainCommand(this, "it");
+        // Register top level commands here, with the class you made in impl.commandmanagers
+        new ITMainCommand().registerMainCommand(this, "it");
     }
 
     public static MainCommand getMainCommand ()

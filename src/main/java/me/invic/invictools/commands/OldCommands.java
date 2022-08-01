@@ -1106,176 +1106,176 @@ public class OldCommands implements CommandExecutor, TabExecutor
 //        {
 //            sender.sendMessage(ChatColor.GOLD + "FireSticks " + ChatColor.RED + "are currently disabled.");
 //        }
-         if (args.length > 0 && args[0].equalsIgnoreCase("projpreview"))
-        {
-            Player p = (Player) sender;
-            if (p.getWorld().getName().equalsIgnoreCase("bwlobby"))
-            {
-                new ProjTrailPreview().handle(args[1], p);
-            }
-        }
-        else if (args.length > 0 && args[0].equalsIgnoreCase("VictoryDancePreview"))
-        {
-            Player p = (Player) sender;
-            if (p.getWorld().getName().equalsIgnoreCase("bwlobby"))
-            {
-                new VictoryDancePreview().handle(args[1], p);
-            }
-        }
-        else if (sender.hasPermission("invic.invictools"))
-        {
-            if (args.length > 0 && args[0].equalsIgnoreCase("destroyholos"))
-            {
-                Player p = (Player) sender;
-                for (Entity e : p.getWorld().getEntitiesByClass(ArmorStand.class))
-                {
-                    if (!e.hasMetadata("holo"))
-                    {
-                        e.remove();
-                    }
-                }
-                //  Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "minecraft:kill @e[type=minecraft:armor_stand]");
-                sender.sendMessage(ChatColor.AQUA + "All non scoreboard holographic displays have been deleted!");
-            }
-            else if (args.length >= 1 && args[0].equalsIgnoreCase("debug"))
-            {
-                debug(sender);
-            }
-            else if (args.length >= 1 && args[0].equalsIgnoreCase("forceManhuntTeam"))
-            {
-                ManhuntMain.ManhuntTeam.put(Bukkit.getPlayer(args[1]), "Hunted");
-                sender.sendMessage(ChatColor.YELLOW + " " + Bukkit.getPlayer(args[1]).getName() + ChatColor.AQUA + " will be hunted.");
-            }
-            else if (args.length >= 1 && args[0].equalsIgnoreCase("loadInventory"))
-            {
-                new LobbyInventoryFix().loadInventory(Bukkit.getPlayer(args[1]), Bukkit.getPlayer(args[2]));
-                sender.sendMessage(ChatColor.YELLOW + " " + Bukkit.getPlayer(args[1]).getName() + ChatColor.AQUA + "'s Inventory has been loaded");
-            }
-            else if (args.length >= 1 && args[0].equalsIgnoreCase("Parkour"))
-            {
-                new disableParkour();
-                sender.sendMessage(ChatColor.AQUA + "Toggling Parkour");
-            }
-            else if (args.length >= 1 && args[0].equalsIgnoreCase("clearManhuntTeam"))
-            {
-                ManhuntMain.ManhuntTeam.clear();
-                ManhuntMain.HuntedItems.clear();
-                ManhuntMain.HuntedEffects.clear();
-
-                ManhuntMain.HunterItems.clear();
-                ManhuntMain.HunterEffects.clear();
-                sender.sendMessage(ChatColor.AQUA + "Manhunt team pre-assignments and data has been cleared");
-            }
-            else if (args.length >= 1 && args[0].equalsIgnoreCase("ResetAttributes"))
-            {
-                AbtributesOnDeath.resetAttributes();
-                sender.sendMessage(ChatColor.AQUA + "All players active attributes modifiers have been reset");
-            }
-            else if (args.length >= 1 && args[0].equalsIgnoreCase("ResetDeathCounter"))
-            {
-                DeathCounter.resetCounter();
-                sender.sendMessage(ChatColor.AQUA + "Death counter reset");
-            }
-            else if (args.length >= 3 && args[0].equalsIgnoreCase("shrieker"))
-            {
-                if (args[2].equalsIgnoreCase("player") || args[2].equalsIgnoreCase("p"))
-                {
-                    new WardenSpawner().ShriekerFromWorld(Bukkit.getPlayer(args[3]).getWorld(), Boolean.parseBoolean(args[1]));
-                }
-                else
-                {
-                    new WardenSpawner().ShriekerFromWorld(Bukkit.getWorld(args[3]), Boolean.parseBoolean(args[1]));
-                }
-
-                // sender.sendMessage(ChatColor.AQUA + "Default world border closing on 0,0...");
-            }
-            else if (args.length == 1 && args[0].equalsIgnoreCase("worldborder"))
-            {
-                new WorldBorder(250, 50, 240, 0, ((Player) sender).getWorld(), true, (Player) sender);
-                sender.sendMessage(ChatColor.AQUA + "world border closing");
-            }
-            else if (args.length > 1 && args[0].equalsIgnoreCase("worldborder"))
-            {
-                new WorldBorder(Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4]), ((Player) sender).getWorld(), false, (Player) sender);
-                sender.sendMessage(ChatColor.AQUA + "World border closing on x/z" + Integer.parseInt(args[4]));
-            }
-            else if (args.length == 1 && args[0].equalsIgnoreCase("grabteammates"))
-            {
-                new GrabTeammates((Player) sender);
-                //   sender.sendMessage(ChatColor.AQUA + "Grabbing teammates...");
-            }
-            else if (args.length == 1 && args[0].equalsIgnoreCase("clearteammates"))
-            {
-                teammates.clear();
-                sender.sendMessage(ChatColor.AQUA + "Teammates cleared...");
-            }
-            else if (args.length >= 1 && args[0].equalsIgnoreCase("disableshop"))
-            {
-                Player p = (Player) sender;
-                if (args[1].equalsIgnoreCase("single"))
-                {
-                    noShop.put(Bukkit.getPlayer(args[2]), true);
-                }
-                else if (args[1].equalsIgnoreCase("all"))
-                {
-                    for (Player o : Bukkit.getOnlinePlayers())
-                    {
-                        if (o.getWorld().equals(p.getWorld()) && o.getGameMode().equals(GameMode.SURVIVAL))
-                        {
-                            noShop.put(o, true);
-                        }
-                    }
-                }
-            }
-            else if (args.length >= 1 && args[0].equalsIgnoreCase("reset"))
-            {
-                if (sender instanceof Player)
-                {
-                    Player p = (Player) sender;
-                    deathListener.clearEverything(p.getWorld());
-                }
-                else
-                {
-                    deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
-                }
-
-                sender.sendMessage(ChatColor.AQUA + "Scenarios mostly reset.");
-            }
-            else if (args.length >= 1 && args[0].equalsIgnoreCase("ProximityElytra"))
-            {
-                ItemStack item = new ItemStack(Material.ELYTRA);
-                ItemMeta meta = item.getItemMeta();
-                meta.setDisplayName(ChatColor.YELLOW + "Proximity Elytra");
-                List<String> lore = new ArrayList<>();
-                lore.add(ChatColor.translateAlternateColorCodes('&', "&cStay near your teammates or you'll lose it!"));
-                meta.setLore(lore);
-                item.setItemMeta(meta);
-
-                BedwarsAPI api = BedwarsAPI.getInstance();
-                for (Player p : api.getGameOfPlayer((Player) sender).getConnectedPlayers())
-                {
-                    System.out.println("stating elytra for " + p.getName());
-                    new CloseElytra(Double.parseDouble(args[1]), p, item);
-                    p.sendMessage(ChatColor.AQUA + "You will now receive an Elytra when near your teammates");
-                    ProximityElytra.put(p, true);
-                }
-            }
-            else if (args.length >= 1 && args[0].equalsIgnoreCase("ProximityElytraSingle"))
-            {
-                Player p = Bukkit.getPlayer(args[2]);
-
-                ItemStack item = new ItemStack(Material.ELYTRA);
-                ItemMeta meta = item.getItemMeta();
-                meta.setDisplayName(ChatColor.YELLOW + "Proximity Elytra");
-                List<String> lore = new ArrayList<>();
-                lore.add(ChatColor.translateAlternateColorCodes('&', "&cStay near your teammates or you'll lose it!"));
-                meta.setLore(lore);
-                item.setItemMeta(meta);
-
-                new CloseElytra(Double.parseDouble(args[1]), p, item);
-                p.sendMessage(ChatColor.AQUA + "You will now receive an Elytra when near your teammates");
-                ProximityElytra.put(p, true);
-            }
+//         if (args.length > 0 && args[0].equalsIgnoreCase("projpreview"))
+//        {
+//            Player p = (Player) sender;
+//            if (p.getWorld().getName().equalsIgnoreCase("bwlobby"))
+//            {
+//                new ProjTrailPreview().handle(args[1], p);
+//            }
+//        }
+//        else if (args.length > 0 && args[0].equalsIgnoreCase("VictoryDancePreview"))
+//        {
+//            Player p = (Player) sender;
+//            if (p.getWorld().getName().equalsIgnoreCase("bwlobby"))
+//            {
+//                new VictoryDancePreview().handle(args[1], p);
+//            }
+//        }
+//        else if (sender.hasPermission("invic.invictools"))
+//        {
+//            if (args.length > 0 && args[0].equalsIgnoreCase("destroyholos"))
+//            {
+//                Player p = (Player) sender;
+//                for (Entity e : p.getWorld().getEntitiesByClass(ArmorStand.class))
+//                {
+//                    if (!e.hasMetadata("holo"))
+//                    {
+//                        e.remove();
+//                    }
+//                }
+//                //  Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "minecraft:kill @e[type=minecraft:armor_stand]");
+//                sender.sendMessage(ChatColor.AQUA + "All non scoreboard holographic displays have been deleted!");
+//            }
+//            else if (args.length >= 1 && args[0].equalsIgnoreCase("debug"))
+//            {
+//                debug(sender);
+//            }
+//            else if (args.length >= 1 && args[0].equalsIgnoreCase("forceManhuntTeam"))
+//            {
+//                ManhuntMain.ManhuntTeam.put(Bukkit.getPlayer(args[1]), "Hunted");
+//                sender.sendMessage(ChatColor.YELLOW + " " + Bukkit.getPlayer(args[1]).getName() + ChatColor.AQUA + " will be hunted.");
+//            }
+//            else if (args.length >= 1 && args[0].equalsIgnoreCase("loadInventory"))
+//            {
+//                new LobbyInventoryFix().loadInventory(Bukkit.getPlayer(args[1]), Bukkit.getPlayer(args[2]));
+//                sender.sendMessage(ChatColor.YELLOW + " " + Bukkit.getPlayer(args[1]).getName() + ChatColor.AQUA + "'s Inventory has been loaded");
+//            }
+//            else if (args.length >= 1 && args[0].equalsIgnoreCase("Parkour"))
+//            {
+//                new disableParkour();
+//                sender.sendMessage(ChatColor.AQUA + "Toggling Parkour");
+//            }
+//            else if (args.length >= 1 && args[0].equalsIgnoreCase("clearManhuntTeam"))
+//            {
+//                ManhuntMain.ManhuntTeam.clear();
+//                ManhuntMain.HuntedItems.clear();
+//                ManhuntMain.HuntedEffects.clear();
+//
+//                ManhuntMain.HunterItems.clear();
+//                ManhuntMain.HunterEffects.clear();
+//                sender.sendMessage(ChatColor.AQUA + "Manhunt team pre-assignments and data has been cleared");
+//            }
+//            else if (args.length >= 1 && args[0].equalsIgnoreCase("ResetAttributes"))
+//            {
+//                AbtributesOnDeath.resetAttributes();
+//                sender.sendMessage(ChatColor.AQUA + "All players active attributes modifiers have been reset");
+//            }
+//            else if (args.length >= 1 && args[0].equalsIgnoreCase("ResetDeathCounter"))
+//            {
+//                DeathCounter.resetCounter();
+//                sender.sendMessage(ChatColor.AQUA + "Death counter reset");
+//            }
+//            else if (args.length >= 3 && args[0].equalsIgnoreCase("shrieker"))
+//            {
+//                if (args[2].equalsIgnoreCase("player") || args[2].equalsIgnoreCase("p"))
+//                {
+//                    new WardenSpawner().ShriekerFromWorld(Bukkit.getPlayer(args[3]).getWorld(), Boolean.parseBoolean(args[1]));
+//                }
+//                else
+//                {
+//                    new WardenSpawner().ShriekerFromWorld(Bukkit.getWorld(args[3]), Boolean.parseBoolean(args[1]));
+//                }
+//
+//                // sender.sendMessage(ChatColor.AQUA + "Default world border closing on 0,0...");
+//            }
+//            else if (args.length == 1 && args[0].equalsIgnoreCase("worldborder"))
+//            {
+//                new WorldBorder(250, 50, 240, 0, ((Player) sender).getWorld(), true, (Player) sender);
+//                sender.sendMessage(ChatColor.AQUA + "world border closing");
+//            }
+//            else if (args.length > 1 && args[0].equalsIgnoreCase("worldborder"))
+//            {
+//                new WorldBorder(Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]), Integer.parseInt(args[4]), ((Player) sender).getWorld(), false, (Player) sender);
+//                sender.sendMessage(ChatColor.AQUA + "World border closing on x/z" + Integer.parseInt(args[4]));
+//            }
+//            else if (args.length == 1 && args[0].equalsIgnoreCase("grabteammates"))
+//            {
+//                new GrabTeammates((Player) sender);
+//                //   sender.sendMessage(ChatColor.AQUA + "Grabbing teammates...");
+//            }
+//            else if (args.length == 1 && args[0].equalsIgnoreCase("clearteammates"))
+//            {
+//                teammates.clear();
+//                sender.sendMessage(ChatColor.AQUA + "Teammates cleared...");
+//            }
+//            else if (args.length >= 1 && args[0].equalsIgnoreCase("disableshop"))
+//            {
+//                Player p = (Player) sender;
+//                if (args[1].equalsIgnoreCase("single"))
+//                {
+//                    noShop.put(Bukkit.getPlayer(args[2]), true);
+//                }
+//                else if (args[1].equalsIgnoreCase("all"))
+//                {
+//                    for (Player o : Bukkit.getOnlinePlayers())
+//                    {
+//                        if (o.getWorld().equals(p.getWorld()) && o.getGameMode().equals(GameMode.SURVIVAL))
+//                        {
+//                            noShop.put(o, true);
+//                        }
+//                    }
+//                }
+//            }
+//            else if (args.length >= 1 && args[0].equalsIgnoreCase("reset"))
+//            {
+//                if (sender instanceof Player)
+//                {
+//                    Player p = (Player) sender;
+//                    deathListener.clearEverything(p.getWorld());
+//                }
+//                else
+//                {
+//                    deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
+//                }
+//
+//                sender.sendMessage(ChatColor.AQUA + "Scenarios mostly reset.");
+//            }
+//            else if (args.length >= 1 && args[0].equalsIgnoreCase("ProximityElytra"))
+//            {
+//                ItemStack item = new ItemStack(Material.ELYTRA);
+//                ItemMeta meta = item.getItemMeta();
+//                meta.setDisplayName(ChatColor.YELLOW + "Proximity Elytra");
+//                List<String> lore = new ArrayList<>();
+//                lore.add(ChatColor.translateAlternateColorCodes('&', "&cStay near your teammates or you'll lose it!"));
+//                meta.setLore(lore);
+//                item.setItemMeta(meta);
+//
+//                BedwarsAPI api = BedwarsAPI.getInstance();
+//                for (Player p : api.getGameOfPlayer((Player) sender).getConnectedPlayers())
+//                {
+//                    System.out.println("stating elytra for " + p.getName());
+//                    new CloseElytra(Double.parseDouble(args[1]), p, item);
+//                    p.sendMessage(ChatColor.AQUA + "You will now receive an Elytra when near your teammates");
+//                    ProximityElytra.put(p, true);
+//                }
+//            }
+//            else if (args.length >= 1 && args[0].equalsIgnoreCase("ProximityElytraSingle"))
+//            {
+//                Player p = Bukkit.getPlayer(args[2]);
+//
+//                ItemStack item = new ItemStack(Material.ELYTRA);
+//                ItemMeta meta = item.getItemMeta();
+//                meta.setDisplayName(ChatColor.YELLOW + "Proximity Elytra");
+//                List<String> lore = new ArrayList<>();
+//                lore.add(ChatColor.translateAlternateColorCodes('&', "&cStay near your teammates or you'll lose it!"));
+//                meta.setLore(lore);
+//                item.setItemMeta(meta);
+//
+//                new CloseElytra(Double.parseDouble(args[1]), p, item);
+//                p.sendMessage(ChatColor.AQUA + "You will now receive an Elytra when near your teammates");
+//                ProximityElytra.put(p, true);
+//            }
             else if (args.length > 1 && args[0].equalsIgnoreCase("SetTeamSize"))
             {
                 if (args[1].equalsIgnoreCase("EveryArena"))
