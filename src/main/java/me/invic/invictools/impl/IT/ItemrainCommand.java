@@ -1,26 +1,21 @@
 package me.invic.invictools.impl.IT;
 
 import me.invic.invictools.commandManagerLib.SubCommand;
+import me.invic.invictools.gamemodifiers.ItemRain;
 import me.invic.invictools.gamemodifiers.Manhunt.ManhuntMain;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.screamingsandals.bedwars.api.BedwarsAPI;
 
 import java.util.List;
-import java.util.Objects;
 
-import static me.invic.invictools.commands.OldCommands.Hauntable;
-
-public class ForceManhuntTeamCommand implements SubCommand
+public class ItemrainCommand implements SubCommand
 {
     @Override
     public String getName()
     {
-        return "forceManhuntTeam";
+        return "itemrain";
     }
 
     @Override
@@ -32,7 +27,7 @@ public class ForceManhuntTeamCommand implements SubCommand
     @Override
     public String getSyntax()
     {
-        return "/it forceManhuntTeam";
+        return "/it itemrain";
     }
 
     @Override
@@ -50,7 +45,15 @@ public class ForceManhuntTeamCommand implements SubCommand
     @Override
     public void perform(CommandSender sender, String[] args)
     {
-        ManhuntMain.ManhuntTeam.put(Bukkit.getPlayer(args[1]), "Hunted");
-        sender.sendMessage(ChatColor.YELLOW + " " + Bukkit.getPlayer(args[1]).getName() + ChatColor.AQUA + " will be hunted.");
+        if (args[1].equalsIgnoreCase("loottable"))
+        {
+            ItemRain.ItemRainLootTable(args[2], Integer.parseInt(args[3]), (Player) sender);
+        }
+        else if (args[1].equalsIgnoreCase("config"))
+        {
+            ItemRain.ItemRainConfig(args[2], Integer.parseInt(args[3]), (Player) sender);
+        }
+        ItemRain.IsEnabled = true;
+        sender.sendMessage(ChatColor.AQUA + "Raining items in the sky using LootTable " + ChatColor.YELLOW + args[2]);
     }
 }

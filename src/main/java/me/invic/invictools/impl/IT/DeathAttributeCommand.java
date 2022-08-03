@@ -1,26 +1,23 @@
 package me.invic.invictools.impl.IT;
 
 import me.invic.invictools.commandManagerLib.SubCommand;
+import me.invic.invictools.gamemodifiers.AbtributesOnDeath;
 import me.invic.invictools.gamemodifiers.Manhunt.ManhuntMain;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.screamingsandals.bedwars.api.BedwarsAPI;
 
 import java.util.List;
-import java.util.Objects;
 
-import static me.invic.invictools.commands.OldCommands.Hauntable;
+import static org.bukkit.Bukkit.getPlayer;
 
-public class ForceManhuntTeamCommand implements SubCommand
+public class DeathAttributeCommand implements SubCommand
 {
     @Override
     public String getName()
     {
-        return "forceManhuntTeam";
+        return "DeathAttribute";
     }
 
     @Override
@@ -32,7 +29,7 @@ public class ForceManhuntTeamCommand implements SubCommand
     @Override
     public String getSyntax()
     {
-        return "/it forceManhuntTeam";
+        return "/it DeathAttribute";
     }
 
     @Override
@@ -50,7 +47,13 @@ public class ForceManhuntTeamCommand implements SubCommand
     @Override
     public void perform(CommandSender sender, String[] args)
     {
-        ManhuntMain.ManhuntTeam.put(Bukkit.getPlayer(args[1]), "Hunted");
-        sender.sendMessage(ChatColor.YELLOW + " " + Bukkit.getPlayer(args[1]).getName() + ChatColor.AQUA + " will be hunted.");
+        if (args[1].equalsIgnoreCase("all")) // it DeathAttribute all Attribute interval basevalue
+        {
+            new AbtributesOnDeath().AbtributesOnDeathAll((Player) sender, args[2], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
+        }
+        else if (args[1].equalsIgnoreCase("single")) // it DeathAttribute single Attribute interval basevalue player
+        {
+            new AbtributesOnDeath().AttributesOnDeathSingular(getPlayer(args[5]), args[2], Double.parseDouble(args[3]), Double.parseDouble(args[4]));
+        }
     }
 }

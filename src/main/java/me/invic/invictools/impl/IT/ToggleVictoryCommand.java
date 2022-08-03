@@ -1,26 +1,20 @@
 package me.invic.invictools.impl.IT;
 
 import me.invic.invictools.commandManagerLib.SubCommand;
+import me.invic.invictools.cosmetics.VictoryDances.VictoryDancePreview;
 import me.invic.invictools.gamemodifiers.Manhunt.ManhuntMain;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.World;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.screamingsandals.bedwars.api.BedwarsAPI;
 
 import java.util.List;
-import java.util.Objects;
 
-import static me.invic.invictools.commands.OldCommands.Hauntable;
-
-public class ForceManhuntTeamCommand implements SubCommand
+public class ToggleVictoryCommand implements SubCommand
 {
     @Override
     public String getName()
     {
-        return "forceManhuntTeam";
+        return "ToggleVictory";
     }
 
     @Override
@@ -32,7 +26,7 @@ public class ForceManhuntTeamCommand implements SubCommand
     @Override
     public String getSyntax()
     {
-        return "/it forceManhuntTeam";
+        return "/it ToggleVictory";
     }
 
     @Override
@@ -50,7 +44,8 @@ public class ForceManhuntTeamCommand implements SubCommand
     @Override
     public void perform(CommandSender sender, String[] args)
     {
-        ManhuntMain.ManhuntTeam.put(Bukkit.getPlayer(args[1]), "Hunted");
-        sender.sendMessage(ChatColor.YELLOW + " " + Bukkit.getPlayer(args[1]).getName() + ChatColor.AQUA + " will be hunted.");
+        VictoryDancePreview.VictoryPreviewEnabled = !VictoryDancePreview.VictoryPreviewEnabled;
+
+        sender.sendMessage(ChatColor.AQUA + "Victory Dance Preview Enabled is now " + ChatColor.YELLOW + VictoryDancePreview.VictoryPreviewEnabled);
     }
 }

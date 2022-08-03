@@ -1,7 +1,8 @@
 package me.invic.invictools.impl.IT;
 
 import me.invic.invictools.commandManagerLib.SubCommand;
-import me.invic.invictools.gamemodifiers.Manhunt.ManhuntMain;
+import me.invic.invictools.commands.OldCommands;
+import me.invic.invictools.commands.scenarioCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
@@ -15,12 +16,12 @@ import java.util.Objects;
 
 import static me.invic.invictools.commands.OldCommands.Hauntable;
 
-public class ForceManhuntTeamCommand implements SubCommand
+public class LuckyblocksCommand implements SubCommand
 {
     @Override
     public String getName()
     {
-        return "forceManhuntTeam";
+        return "luckyblocks";
     }
 
     @Override
@@ -32,7 +33,7 @@ public class ForceManhuntTeamCommand implements SubCommand
     @Override
     public String getSyntax()
     {
-        return "/it forceManhuntTeam";
+        return "/it luckyblocks";
     }
 
     @Override
@@ -50,7 +51,6 @@ public class ForceManhuntTeamCommand implements SubCommand
     @Override
     public void perform(CommandSender sender, String[] args)
     {
-        ManhuntMain.ManhuntTeam.put(Bukkit.getPlayer(args[1]), "Hunted");
-        sender.sendMessage(ChatColor.YELLOW + " " + Bukkit.getPlayer(args[1]).getName() + ChatColor.AQUA + " will be hunted.");
+        new scenarioCommands().luckyblockEnable((Player) sender, "normal");
     }
 }

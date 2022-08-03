@@ -1,7 +1,7 @@
 package me.invic.invictools.impl.IT;
 
 import me.invic.invictools.commandManagerLib.SubCommand;
-import me.invic.invictools.gamemodifiers.Manhunt.ManhuntMain;
+import me.invic.invictools.gamemodifiers.Haunt;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
@@ -15,12 +15,12 @@ import java.util.Objects;
 
 import static me.invic.invictools.commands.OldCommands.Hauntable;
 
-public class ForceManhuntTeamCommand implements SubCommand
+public class InstantHauntCommand implements SubCommand
 {
     @Override
     public String getName()
     {
-        return "forceManhuntTeam";
+        return "InstantHaunt";
     }
 
     @Override
@@ -32,7 +32,7 @@ public class ForceManhuntTeamCommand implements SubCommand
     @Override
     public String getSyntax()
     {
-        return "/it forceManhuntTeam";
+        return "/it InstantHaunt";
     }
 
     @Override
@@ -50,7 +50,8 @@ public class ForceManhuntTeamCommand implements SubCommand
     @Override
     public void perform(CommandSender sender, String[] args)
     {
-        ManhuntMain.ManhuntTeam.put(Bukkit.getPlayer(args[1]), "Hunted");
-        sender.sendMessage(ChatColor.YELLOW + " " + Bukkit.getPlayer(args[1]).getName() + ChatColor.AQUA + " will be hunted.");
+        Player player = Bukkit.getPlayer(args[1]);
+        player.sendMessage(ChatColor.AQUA + "You can now haunt living players.");
+        new Haunt(player, args[2]);
     }
 }

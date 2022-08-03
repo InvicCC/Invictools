@@ -55,5 +55,19 @@ public class ITMainCommand extends MainCommand
         subCommands.add(new ResetCommand());
         subCommands.add(new ProximityElytraCommand());
         subCommands.add(new ProximityElytraSingleCommand());
+        subCommands.add(new SetTeamSizeCommand());
+        subCommands.add(new EffectSometimesCommand());
+        subCommands.add(new PrintitemdataCommand());
+        subCommands.add(new PidCommand());
+        subCommands.add(new GivePIDCommand());
+        subCommands.add(new ToggleFireStickCommand());
+        subCommands.add(new ToggleVictoryCommand());
+        subCommands.add(new ItemrainCommand());
+        subCommands.add(new DeathAttributeCommand());
+        subCommands.add(new TotemsCommand());
+        subCommands.add(new HauntCommand());
+        subCommands.add(new InstantHauntCommand());
+        subCommands.add(new LuckyblocksCommand());
+        subCommands.add(new RepeatedItemCommand());
     }
 }
