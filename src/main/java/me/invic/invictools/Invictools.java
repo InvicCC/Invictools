@@ -158,7 +158,7 @@ public final class Invictools extends JavaPlugin
     private void registerCommandsAndEvents ()
     {
         // Register top level commands here, with the class you made in impl.commandmanagers
-        new ITMainCommand().registerMainCommand(this, "it");
+//        new ITMainCommand().registerMainCommand(this, "it");
     }
 
     public static MainCommand getMainCommand ()
@@ -261,7 +261,7 @@ public final class Invictools extends JavaPlugin
 
         // commands
         this.getCommand("invictools").setExecutor(new OldCommands(worlds, y, blackListedWorlds, games));
-//        this.getCommand("it").setExecutor(new Commands(worlds, y, blackListedWorlds, games));
+        this.getCommand("it").setExecutor(new OldCommands(worlds, y, blackListedWorlds, games));
 
         this.getCommand("toggle").setExecutor(new toggleCommands());
         this.getCommand("lb").setExecutor(new leaderboardCommands());
