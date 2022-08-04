@@ -666,6 +666,8 @@ public class OldCommands implements CommandExecutor, TabExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
     {
+        if(false)
+        {}
 //        if (args.length >= 2 && args[0].equalsIgnoreCase("BedBreak"))
 //        {
 //            if (args.length > 2 && sender.hasPermission("invic.invictools"))
@@ -2324,11 +2326,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
                  */
                 sender.sendMessage(ChatColor.AQUA + "refer to google docs for updated list. most commands tab complete");
             }
-        }
-        else
-        {
-            sender.sendMessage(ChatColor.RED + "You don't have permission to do this.");
-        }
+
         return true;
     }
 
