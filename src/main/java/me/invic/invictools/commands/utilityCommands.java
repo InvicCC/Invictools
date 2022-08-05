@@ -54,6 +54,7 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         else if(args.length==3 && args[0].equalsIgnoreCase("resetbf"))
         {
             tabComplete.add("default");
+            tabComplete.add("kb");
         }
         else if(args.length==2 && args[0].equalsIgnoreCase("endgame"))
         {

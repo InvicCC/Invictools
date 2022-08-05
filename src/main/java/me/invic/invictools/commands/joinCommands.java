@@ -51,7 +51,7 @@ public class joinCommands implements CommandExecutor, TabExecutor
                 tabComplete.add("bw");
                 tabComplete.add("selector");
                 tabComplete.add("join");
-                tabComplete.add("joinall");
+                tabComplete.add("alljoin");
                 tabComplete.add("host");
             }
             tabComplete.add("spec");
@@ -170,14 +170,28 @@ public class joinCommands implements CommandExecutor, TabExecutor
                     ((Player) sender).playSound(((Player) sender).getLocation(), Sound.ENTITY_VILLAGER_NO, 1, 1);
             }
 
-        } else if (args[0].equalsIgnoreCase("selector"))
+        } else if (args[0].equalsIgnoreCase("selector") && sender instanceof Player)
         {
-            if (toggleCommands.bedwarsSelector && false)
+            if(sender.hasPermission("invic.firestick"))
             {
-                sender.sendMessage(ChatColor.RED + "coming soon");
-                // new playerMapSelector()
+                if (toggleCommands.bedwarsSelector)
+                {
+                    if (((Player) sender).getWorld().getName().equalsIgnoreCase("bwlobby") && !BedwarsAPI.getInstance().isPlayerPlayingAnyGame((Player) sender))
+                    {
+                        if (BedwarsAPI.getInstance().getGameByName(args[1]).getStatus().equals(GameStatus.WAITING))
+                        {
+                            safeInventorySave();
+                            BedwarsAPI.getInstance().getGameByName(args[1]).joinToGame((Player) sender);
+                            //safeSpec((Player) sender, BedwarsAPI.getInstance().getGameByName(args[1]));
+                            sender.sendMessage(ChatColor.AQUA + "Sending you to " + ChatColor.WHITE + args[1]);
+                        } else
+                            sender.sendMessage(ChatColor.RED + "A game is running on this map");
+                    } else
+                        sender.sendMessage(ChatColor.RED + "invalid game");
+                } else
+                    sender.sendMessage(ChatColor.RED + "The map selector is currently disabled");
             } else
-                sender.sendMessage(ChatColor.RED + "The map selector is currently disabled");
+                sender.sendMessage(ChatColor.RED +" You need a rank to use this. /ranks to learn more");
         }
         else if (args.length == 2 && args[0].equalsIgnoreCase("host"))
         {

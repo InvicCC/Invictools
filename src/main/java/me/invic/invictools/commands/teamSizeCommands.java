@@ -1,6 +1,8 @@
 package me.invic.invictools.commands;
 
 import me.invic.invictools.util.fixes.ChangeTeamSize;
+import me.invic.invictools.util.safeSizeChange;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -9,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.Team;
 import org.screamingsandals.bedwars.api.game.Game;
+import org.screamingsandals.bedwars.api.game.GameStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +94,16 @@ public class teamSizeCommands implements CommandExecutor, TabExecutor
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
     {
+        if(args[0].equalsIgnoreCase("dyn"))
+        {
+            if(BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getStatus().equals(GameStatus.WAITING))
+            {
+                new safeSizeChange().safeSizeEdit(BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getName(),sender,Integer.parseInt(args[1]));
+            }
+            else
+                sender.sendMessage(ChatColor.RED +"Game is running or does not exist.");
+        }
+
         if(sender instanceof Player)
         {
             if(!sender.hasPermission("invic.invictools"))

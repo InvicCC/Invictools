@@ -20,6 +20,7 @@ public class toggleCommands implements TabExecutor, CommandExecutor
     public static boolean bedfightQueue = true;
     public static boolean bedwarsQueue = true;
     public static boolean bedwarsSelector = true;
+    public static boolean startButton = true;
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args)
@@ -39,6 +40,7 @@ public class toggleCommands implements TabExecutor, CommandExecutor
         {
             tabComplete.add("toys");
             tabComplete.add("victory");
+            tabComplete.add("start");
             tabComplete.add("hosting");
             tabComplete.add("stats");
             tabComplete.add("portal");
@@ -100,6 +102,19 @@ public class toggleCommands implements TabExecutor, CommandExecutor
                 isHosting = true;
                 sender.sendMessage(ChatColor.AQUA + "Games are now being hosted");
                 new joinCommands().announceHost();
+            }
+        }
+        else if (args.length == 1 && args[0].equalsIgnoreCase("start"))
+        {
+            if (startButton)
+            {
+                startButton = false;
+                sender.sendMessage(ChatColor.AQUA + "Start button disabled");
+            }
+            else
+            {
+                startButton = true;
+                sender.sendMessage(ChatColor.AQUA + "Start button enabled");
             }
         }
         else if (args.length == 1 && args[0].equalsIgnoreCase("stats"))

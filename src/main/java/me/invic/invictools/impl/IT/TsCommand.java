@@ -1,9 +1,7 @@
 package me.invic.invictools.impl.IT;
 
 import me.invic.invictools.commandManagerLib.SubCommand;
-import me.invic.invictools.cosmetics.projtrail.ProjTrailConfig;
-import me.invic.invictools.util.fixes.TeamSelection;
-import org.bukkit.Bukkit;
+import me.invic.invictools.util.gui.TeamSelection;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.screamingsandals.bedwars.api.BedwarsAPI;

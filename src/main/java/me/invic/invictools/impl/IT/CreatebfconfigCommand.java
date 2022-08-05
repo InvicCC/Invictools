@@ -2,8 +2,6 @@ package me.invic.invictools.impl.IT;
 
 import me.invic.invictools.commandManagerLib.SubCommand;
 import me.invic.invictools.gamemodes.bedfight;
-import me.invic.invictools.util.panels;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

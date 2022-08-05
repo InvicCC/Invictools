@@ -1,13 +1,11 @@
 package me.invic.invictools.impl.IT;
 
 import me.invic.invictools.commandManagerLib.SubCommand;
-import me.invic.invictools.util.fixes.TeamSelection;
-import me.invic.invictools.util.panels;
+import me.invic.invictools.util.gui.panels;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.screamingsandals.bedwars.api.BedwarsAPI;
 
 import java.util.List;
 

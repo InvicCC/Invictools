@@ -10,7 +10,6 @@ import me.invic.invictools.cosmetics.finalkills.FinalKillListener;
 import me.invic.invictools.gamemodes.bedfight;
 import me.invic.invictools.gamemodes.bedfightStatistics;
 import me.invic.invictools.gamemodifiers.*;
-import me.invic.invictools.impl.commandmanagers.ITMainCommand;
 import me.invic.invictools.items.ItemListener;
 import me.invic.invictools.items.ModBow;
 import me.invic.invictools.items.dareListener;
@@ -25,6 +24,9 @@ import me.invic.invictools.cosmetics.projtrail.ProjTrailListener;
 //import me.invic.invictools.util.npc.SpawnNPC;
 //import me.invic.invictools.util.npc.SpawnPlugNPC;
 import me.invic.invictools.util.fixes.*;
+import me.invic.invictools.util.gui.TeamSelection;
+import me.invic.invictools.util.gui.gameLobbyItems;
+import me.invic.invictools.util.gui.panels;
 import me.invic.invictools.util.npc.BlazeNpc;
 import me.invic.invictools.util.physics.CancelConcreteChange;
 import me.invic.invictools.util.physics.CancelLampUpdates;
@@ -240,6 +242,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new Protocol47Fix(), this); //new potion effect aka slow falling 1.8 fix, version reminder, sound fix
         Bukkit.getPluginManager().registerEvents(new stuckOnDeathFix(), this); //glitched death fix
         Bukkit.getPluginManager().registerEvents(new perGameJumpingListener(), this); //create fireball jumping info per game
+        Bukkit.getPluginManager().registerEvents(new gameLobbyItems(), this); //game lobby items clicks
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection
