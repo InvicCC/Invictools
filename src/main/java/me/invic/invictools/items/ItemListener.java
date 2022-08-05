@@ -429,7 +429,7 @@ public class ItemListener implements Listener
                 ball.setShooter(p);
                 //new ProjTrailHandler().grabEffect(p, ball);
                 p.playSound(p.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 1, 1);
-                ball.teleport(spawnloc);
+                ball.teleport(spawnloc.add(0,1,0));
                 ball.setVelocity((facing.multiply(1.1)));
 
                 BukkitRunnable runnable = new BukkitRunnable()

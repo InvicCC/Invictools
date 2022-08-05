@@ -4,6 +4,8 @@ import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.finalkills.FinalKillHandler;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailConfig;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
+import me.invic.invictools.gamemodifiers.perGameJumpingHandler;
+import me.invic.invictools.gamemodifiers.perGameJumpingListener;
 import me.invic.invictools.items.ItemListener;
 import me.invic.invictools.items.createItems;
 import me.invic.invictools.items.dareListener;
@@ -319,6 +321,14 @@ public class VictoryDanceHandler implements Listener
 
     private void Firestick(Player p)
     {
+        if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+        {
+            perGameJumpingHandler jumpInfo = new perGameJumpingHandler();
+            jumpInfo.setOP(true);
+            jumpInfo.setY(5);
+            jumpInfo.setX(3);
+            perGameJumpingListener.jumpInfo.put(BedwarsAPI.getInstance().getGameOfPlayer(p),jumpInfo);
+        }
         ItemStack firestick = new createItems().FIRESTICK();
         for (int i = 0; i <= 8; i++)
         {

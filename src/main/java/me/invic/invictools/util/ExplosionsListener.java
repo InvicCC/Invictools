@@ -23,7 +23,9 @@ public class ExplosionsListener implements Listener
     @EventHandler
     public void boom(EntityDamageByEntityEvent e)
     {
-        perGameJumpingHandler jumpInfo = perGameJumpingListener.jumpInfo.getOrDefault(BedwarsAPI.getInstance().getGameOfPlayer((Player) e.getEntity()),new perGameJumpingHandler());
+        perGameJumpingHandler jumpInfo = new perGameJumpingHandler();
+        if(e.getEntity() instanceof Player)
+            jumpInfo = perGameJumpingListener.jumpInfo.getOrDefault(BedwarsAPI.getInstance().getGameOfPlayer((Player) e.getEntity()),new perGameJumpingHandler());
         double xzmultiplier = jumpInfo.getX();
         double ymultiplier = jumpInfo.getY();
         double range = jumpInfo.getRange();

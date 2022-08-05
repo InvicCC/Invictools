@@ -226,7 +226,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
             tabComplete.add("player");
             tabComplete.add("world");
         }
-        else if (args.length == 2 && args[0].equalsIgnoreCase("jumping"))
+        else if (args[0].equalsIgnoreCase("jumping"))
         {
             tabComplete.add("x y op range (game)");
         }
@@ -2060,22 +2060,22 @@ public class OldCommands implements CommandExecutor, TabExecutor
                 if(sender instanceof Player && BedwarsAPI.getInstance().isPlayerPlayingAnyGame((Player) sender))
                 {
                     perGameJumpingHandler jump = perGameJumpingListener.jumpInfo.get(BedwarsAPI.getInstance().getGameOfPlayer((Player) sender));
-                    jump.setX(Double.parseDouble(args[0]));
-                    jump.setY(Double.parseDouble(args[1]));
-                    jump.setRange(Double.parseDouble(args[2]));
-                    jump.setOP(Boolean.parseBoolean(args[3]));
+                    jump.setX(Double.parseDouble(args[1]));
+                    jump.setY(Double.parseDouble(args[2]));
+                    jump.setRange(Double.parseDouble(args[3]));
+                    jump.setOP(Boolean.parseBoolean(args[4]));
                     perGameJumpingListener.jumpInfo.put(BedwarsAPI.getInstance().getGameOfPlayer((Player)sender),jump);
-                    sender.sendMessage(ChatColor.AQUA+"Jumping info updated for "+BedwarsAPI.getInstance().getGameOfPlayer((Player) sender));
+                    sender.sendMessage(ChatColor.AQUA+"Jumping info updated for "+ChatColor.WHITE+BedwarsAPI.getInstance().getGameOfPlayer((Player) sender).getName());
                 }
                 else
                 {
-                    perGameJumpingHandler jump = perGameJumpingListener.jumpInfo.get(BedwarsAPI.getInstance().getGameByName(args[4]));
-                    jump.setX(Double.parseDouble(args[0]));
-                    jump.setY(Double.parseDouble(args[1]));
-                    jump.setRange(Double.parseDouble(args[2]));
-                    jump.setOP(Boolean.parseBoolean(args[3]));
-                    perGameJumpingListener.jumpInfo.put(BedwarsAPI.getInstance().getGameByName(args[4]),jump);
-                    sender.sendMessage(ChatColor.AQUA+"Jumping updated for "+BedwarsAPI.getInstance().getGameByName(args[4]));
+                    perGameJumpingHandler jump = perGameJumpingListener.jumpInfo.get(BedwarsAPI.getInstance().getGameByName(args[5]));
+                    jump.setX(Double.parseDouble(args[1]));
+                    jump.setY(Double.parseDouble(args[2]));
+                    jump.setRange(Double.parseDouble(args[3]));
+                    jump.setOP(Boolean.parseBoolean(args[4]));
+                    perGameJumpingListener.jumpInfo.put(BedwarsAPI.getInstance().getGameByName(args[5]),jump);
+                    sender.sendMessage(ChatColor.AQUA+"Jumping updated for "+ChatColor.WHITE+BedwarsAPI.getInstance().getGameByName(args[5]).getName());
                 }
             }
             else if (args.length == 4 && args[0].equalsIgnoreCase("giveitem"))
@@ -2328,8 +2328,8 @@ public class OldCommands implements CommandExecutor, TabExecutor
             }
             else
             {
-                sender.sendMessage(" ");
-                sender.sendMessage(ChatColor.AQUA + "Invic's tools. Activate modifiers in game world");
+             //   sender.sendMessage(" ");
+            //    sender.sendMessage(ChatColor.AQUA + "Invic's tools. Activate modifiers in game world");
                 /*
                 sender.sendMessage(ChatColor.AQUA + "Creative: " + ChatColor.YELLOW + "/invictools creative [seconds in creative] [seconds before start] [player]");
                 sender.sendMessage(ChatColor.AQUA + "Random effects: " + ChatColor.YELLOW + "/invictools randomeffect [intensity randomizer limit]");
@@ -2345,7 +2345,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
                 sender.sendMessage(ChatColor.AQUA + "Constant or procedural effects: " + ChatColor.YELLOW + "/bweffects help");
 
                  */
-                sender.sendMessage(ChatColor.AQUA + "refer to google docs for updated list. most commands tab complete");
+               // sender.sendMessage(ChatColor.AQUA + "refer to google docs for updated list. most commands tab complete");
             }
         }
         else
