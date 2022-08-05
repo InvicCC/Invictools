@@ -322,4 +322,15 @@ public class createItems
         items.add("fireball");
         return items;
     }
+
+    public static HashMap<String,Double> getFireballTypes()
+    {
+        HashMap<String,Double> items = new HashMap<>();
+        items.put("small",.5);
+        items.put("normal",1.0);
+        items.put("large",2.0);
+        items.put("insane",5.0);
+        items.put("stupid",10.0);
+        return items;
+    }
 }

@@ -201,7 +201,7 @@ public final class Invictools extends JavaPlugin
 
         // proper
         Bukkit.getPluginManager().registerEvents(new disableSpectatorTeleport(), this); // teleport event
-        Bukkit.getPluginManager().registerEvents(new BedBreaks(), this); // bed break cosmetics and lucky block on bedbreaks; block destroy
+        Bukkit.getPluginManager().registerEvents(new BedBreaks(), this); // bed break cosm and lucky block on bedbreaks; block destroy
         Bukkit.getPluginManager().registerEvents(new ExplosionsListener(), this); // explosion event
         Bukkit.getPluginManager().registerEvents(new ItemListener(), this); // right click event
         Bukkit.getPluginManager().registerEvents(new Totem(), this); //on player damage
@@ -237,8 +237,9 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new bedfightStatistics(), this); //does waht it says
         Bukkit.getPluginManager().registerEvents(new safeSizeChange(), this); //teamsize panel handle
         Bukkit.getPluginManager().registerEvents(new queue(), this); //bedwars yeah u know what it is come on man
-        Bukkit.getPluginManager().registerEvents(new Protocol47Fix(), this); //new potion effect aka slow falling 1.8 fix, version reminder,
-        Bukkit.getPluginManager().registerEvents(new stuckOnDeathFix(), this); //new potion effect aka slow falling 1.8 fix, version reminder,
+        Bukkit.getPluginManager().registerEvents(new Protocol47Fix(), this); //new potion effect aka slow falling 1.8 fix, version reminder, sound fix
+        Bukkit.getPluginManager().registerEvents(new stuckOnDeathFix(), this); //glitched death fix
+        Bukkit.getPluginManager().registerEvents(new perGameJumpingListener(), this); //create fireball jumping info per game
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection

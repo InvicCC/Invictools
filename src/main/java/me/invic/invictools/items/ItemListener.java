@@ -1,6 +1,7 @@
 package me.invic.invictools.items;
 
 import me.invic.invictools.commands.OldCommands;
+import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceHandler;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import me.invic.invictools.util.fixes.Protocol47Fix;
 import me.invic.invictools.util.physics.grabSandstone;
@@ -418,6 +419,10 @@ public class ItemListener implements Listener
             public void run()
             {
                 Fireball ball = p.launchProjectile(Fireball.class);
+                if(VictoryDanceHandler.isVictoryDancing.containsKey(p))
+                    ball.setMetadata("type", new FixedMetadataValue(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), "stupid"));
+                else
+                    ball.setMetadata("type", new FixedMetadataValue(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), "normal"));
                 ball.setMetadata("sender", new FixedMetadataValue(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), p.getName()));
                 ball.setInvulnerable(true);
                 ball.setYield(3);

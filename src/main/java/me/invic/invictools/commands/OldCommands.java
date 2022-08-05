@@ -34,6 +34,7 @@ import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.*;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.block.Bed;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -227,29 +228,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
         }
         else if (args.length == 2 && args[0].equalsIgnoreCase("jumping"))
         {
-            tabComplete.add("x");
-            tabComplete.add("y");
-            tabComplete.add("op");
-            tabComplete.add("range");
-        }
-        else if (args.length == 3 && args[0].equalsIgnoreCase("jumping"))
-        {
-            if (args[1].equalsIgnoreCase("range"))
-            {
-                tabComplete.add(String.valueOf(ExplosionsListener.range));
-            }
-            else if (args[1].equalsIgnoreCase("x"))
-            {
-                tabComplete.add(String.valueOf(ExplosionsListener.xzmultiplier));
-            }
-            else if (args[1].equalsIgnoreCase("y"))
-            {
-                tabComplete.add(String.valueOf(ExplosionsListener.ymultiplier));
-            }
-            else if (args[1].equalsIgnoreCase("op"))
-            {
-                tabComplete.add(String.valueOf(ExplosionsListener.op));
-            }
+            tabComplete.add("x y op range (game)");
         }
         else if (args.length == 3 && args[0].equalsIgnoreCase("ProximityElytraSingle"))
         {
@@ -2078,33 +2057,26 @@ public class OldCommands implements CommandExecutor, TabExecutor
             }
             else if (args.length >= 1 && args[0].equalsIgnoreCase("jumping"))
             {
-                if (args.length == 1)
+                if(sender instanceof Player && BedwarsAPI.getInstance().isPlayerPlayingAnyGame((Player) sender))
                 {
-                    sender.sendMessage(ChatColor.AQUA + "Fireball and TnT jumping: ");
-                    sender.sendMessage(ChatColor.AQUA + "range: " + ChatColor.YELLOW + ExplosionsListener.range);
-                    sender.sendMessage(ChatColor.AQUA + "x: " + ChatColor.YELLOW + ExplosionsListener.xzmultiplier);
-                    sender.sendMessage(ChatColor.AQUA + "y: " + ChatColor.YELLOW + ExplosionsListener.ymultiplier);
-                    sender.sendMessage(ChatColor.AQUA + "op: " + ChatColor.YELLOW + ExplosionsListener.op);
+                    perGameJumpingHandler jump = perGameJumpingListener.jumpInfo.get(BedwarsAPI.getInstance().getGameOfPlayer((Player) sender));
+                    jump.setX(Double.parseDouble(args[0]));
+                    jump.setY(Double.parseDouble(args[1]));
+                    jump.setRange(Double.parseDouble(args[2]));
+                    jump.setOP(Boolean.parseBoolean(args[3]));
+                    perGameJumpingListener.jumpInfo.put(BedwarsAPI.getInstance().getGameOfPlayer((Player)sender),jump);
+                    sender.sendMessage(ChatColor.AQUA+"Jumping info updated for "+BedwarsAPI.getInstance().getGameOfPlayer((Player) sender));
                 }
-
-                if (args[1].equalsIgnoreCase("range"))
+                else
                 {
-                    ExplosionsListener.range = Double.parseDouble(args[2]);
+                    perGameJumpingHandler jump = perGameJumpingListener.jumpInfo.get(BedwarsAPI.getInstance().getGameByName(args[4]));
+                    jump.setX(Double.parseDouble(args[0]));
+                    jump.setY(Double.parseDouble(args[1]));
+                    jump.setRange(Double.parseDouble(args[2]));
+                    jump.setOP(Boolean.parseBoolean(args[3]));
+                    perGameJumpingListener.jumpInfo.put(BedwarsAPI.getInstance().getGameByName(args[4]),jump);
+                    sender.sendMessage(ChatColor.AQUA+"Jumping updated for "+BedwarsAPI.getInstance().getGameByName(args[4]));
                 }
-                else if (args[1].equalsIgnoreCase("x"))
-                {
-                    ExplosionsListener.xzmultiplier = Double.parseDouble(args[2]);
-                }
-                else if (args[1].equalsIgnoreCase("y"))
-                {
-                    ExplosionsListener.ymultiplier = Double.parseDouble(args[2]);
-                }
-                else if (args[1].equalsIgnoreCase("op"))
-                {
-                    ExplosionsListener.op = Boolean.parseBoolean(args[2]);
-                }
-
-                sender.sendMessage(ChatColor.YELLOW + args[1] + ChatColor.AQUA + " set to " + ChatColor.YELLOW + args[2]);
             }
             else if (args.length == 4 && args[0].equalsIgnoreCase("giveitem"))
             {

@@ -320,13 +320,6 @@ public class VictoryDanceHandler implements Listener
     private void Firestick(Player p)
     {
         ItemStack firestick = new createItems().FIRESTICK();
-        boolean op = false;
-        double xz = .3;
-        double y = .4;
-
-        ExplosionsListener.op = true;
-        ExplosionsListener.xzmultiplier = 5;
-        ExplosionsListener.ymultiplier = 5;
         for (int i = 0; i <= 8; i++)
         {
             p.getInventory().setItem(i, firestick);
@@ -340,9 +333,6 @@ public class VictoryDanceHandler implements Listener
             {
                 p.setInvulnerable(false);
                 ItemListener.Falling.remove(p);
-                ExplosionsListener.op = op;
-                ExplosionsListener.xzmultiplier = xz;
-                ExplosionsListener.ymultiplier = y;
             }
         }.runTaskLater(OldCommands.Invictools, (effectDuration * 20));
     }
