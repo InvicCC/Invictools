@@ -39,7 +39,11 @@ public class stuckOnDeathFix implements Listener
                     @Override
                     public void run()
                     {
-                        if(e.getEntity().getKiller() != null && api.getGameOfPlayer(e.getEntity()).getTeamOfPlayer(e.getEntity().getKiller()) == null && !VictoryDanceHandler.isVictoryDancing.containsKey(e.getEntity().getName()) && !e.getEntity().getWorld().getName().equalsIgnoreCase("bwlobby"))
+                        if(e.getEntity().getKiller() != null
+                                && api.getGameOfPlayer(e.getEntity()).getTeamOfPlayer(e.getEntity().getKiller()) == null
+                                && !VictoryDanceHandler.isVictoryDancing.containsKey(e.getEntity().getName())
+                                && !e.getEntity().getWorld().getName().equalsIgnoreCase("bwlobby")
+                                && !e.getEntity().equals(e.getEntity().getKiller()))
                         {
                             Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"minecraft:kill "+e.getEntity().getName());
                             System.out.println("killed potentially glitched player");
