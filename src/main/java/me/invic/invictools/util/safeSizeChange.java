@@ -3,6 +3,8 @@ package me.invic.invictools.util;
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.util.fixes.ChangeTeamSize;
 import me.invic.invictools.util.fixes.LobbyInventoryFix;
+import me.invic.invictools.util.fixes.SafeOpCommand;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -35,15 +37,19 @@ public class safeSizeChange implements Listener
                 return false;
             }
 
-            if(BedwarsAPI.getInstance().isGameWithNameExists(modify))
-                leaveRejoinGame(BedwarsAPI.getInstance().getGameByName(modify));
+            if(BedwarsAPI.getInstance().isGameWithNameExists(modify) && !modify.equalsIgnoreCase("Multiverse"))
+            {
+                p.sendMessage(ChatColor.AQUA+"executing...");
+                System.out.println("executing leave rejoin");
+                leaveRejoinGame(BedwarsAPI.getInstance().getGameByName(modify),size);
+            }
             else
                 p.sendMessage(ChatColor.RED+"invalid game");
 
             return true;
     }
 
-    public void leaveRejoinGame(Game game)
+    public void leaveRejoinGame(Game game,int size)
     {
         if(!game.getStatus().equals(GameStatus.WAITING))
             return;
@@ -52,7 +58,8 @@ public class safeSizeChange implements Listener
         for (Player player : game.getConnectedPlayers())
         {
             players.add(player);
-            game.leaveFromGame(player);
+            Bukkit.dispatchCommand(player,"spawn");
+            //game.leaveFromGame(player);
         }
 
         beingModified.add(game);
@@ -63,6 +70,11 @@ public class safeSizeChange implements Listener
             @Override
             public void run()
             {
+                if(size != 0)
+                    ChangeTeamSize.ChangeSingleArenaTeamSize(game.getName(),size);
+
+              //  Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(game.getName())+".yml");
+
                 new BukkitRunnable()
                 {
                     @Override
@@ -72,13 +84,16 @@ public class safeSizeChange implements Listener
                         {
                             new LobbyInventoryFix().saveInventory(player);
                             if (!api.isPlayerPlayingAnyGame(player))
-                                game.joinToGame(player);
+                            {
+                                new SafeOpCommand(player,"queue selector "+game.getName());
+                            }
                         }
                         beingModified.remove(game);
                     }
                 }.runTaskLater(OldCommands.Invictools, 10L);
             }
         }.runTaskLater(OldCommands.Invictools, 10L);
+
     }
 
     public boolean isAnyGameRunning()
@@ -99,6 +114,9 @@ public class safeSizeChange implements Listener
         if (returnSize.containsKey(e.getGame()))
         {
             ChangeTeamSize.ChangeSingleArenaTeamSize(e.getGame().getName(), returnSize.get(e.getGame()));
+            System.out.println("game end singlereload");
+            e.getGame().stop();
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(e.getGame().getName())+".yml");
             returnSize.remove(e.getGame());
         }
     }

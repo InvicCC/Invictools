@@ -42,8 +42,10 @@ public class ChangeTeamSize
     public static void createLists(String config) // creates the lists to pull the short and long arena names when server loads
     {
         String[] cutconfig = config.split("_");
-        shortArena.add(cutconfig[0]);
-        longArena.add(cutconfig[1]);
+        if(!shortArena.contains(cutconfig[0]))
+            shortArena.add(cutconfig[0]);
+        if(!longArena.contains(cutconfig[1]))
+            longArena.add(cutconfig[1]);
     }
 
     public static int getTeamSize(Game game)
@@ -241,8 +243,9 @@ public class ChangeTeamSize
 
         try
         {
+            BedwarsAPI.getInstance().getGameByName(config).stop();
             data.save(pFile);
-            new safeSizeChange().leaveRejoinGame(BedwarsAPI.getInstance().getGameByName(config));
+            //new safeSizeChange().leaveRejoinGame(BedwarsAPI.getInstance().getGameByName(config),0);
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ChangeTeamSize.ConfigConversion(config)+".yml");
            // Commands.MasterPlayer.sendMessage(ChatColor.YELLOW + data.getString("name") + ChatColor.AQUA + " can now hold " + ChatColor.YELLOW + teamSize + ChatColor.AQUA + " players per team.");
         }
@@ -269,8 +272,9 @@ public class ChangeTeamSize
 
         try
         {
+            BedwarsAPI.getInstance().getGameByName(config).stop();
             data.save(pFile);
-            new safeSizeChange().leaveRejoinGame(BedwarsAPI.getInstance().getGameByName(config));
+         //   new safeSizeChange().leaveRejoinGame(BedwarsAPI.getInstance().getGameByName(config),0);
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"bw singlereload "+ConfigConversion(config)+".yml");
            // Commands.MasterPlayer.sendMessage(ChatColor.YELLOW + data.getString("name") + " " + teamColor + ChatColor.AQUA + " can now hold " + ChatColor.YELLOW + teamSize + ChatColor.AQUA + " players.");
         }

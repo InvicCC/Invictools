@@ -99,13 +99,12 @@ public class TeamSelection implements Listener
         if (e.getGame().getGameWorld().getPlayers().size() == 1)
         {
             TeamSelector.remove(e.getGame());
-          //  teamSize.clear();
         }
         else if(TeamSelector.get(e.getGame()) != null)
         {
             for (int i = 0; i < TeamSelector.get(e.getGame()).getSize(); i++)
             {
-                if(TeamSelector.get(e.getGame()).getItem(i).getItemMeta() != null)
+                if(TeamSelector.get(e.getGame()).getItem(i) != null && TeamSelector.get(e.getGame()).getItem(i).getItemMeta() != null)
                 {
                     ItemStack other = TeamSelector.get(e.getGame()).getItem(i);
                     int a = loreContains(other.getItemMeta().getLore(), e.getPlayer().getDisplayName());

@@ -4,6 +4,7 @@ import me.invic.invictools.commands.toggleCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -22,9 +23,10 @@ import java.util.List;
 public class gameLobbyItems implements Listener
 {
     final static String selectorMsg = ChatColor.translateAlternateColorCodes('&', "&r&7Right click to select your team!");
-    final static String scenMsg = ChatColor.translateAlternateColorCodes('&', "&r&fRight Click to enable scenarios!");
-    final static String startMsg = ChatColor.translateAlternateColorCodes('&', "&r&fRight Click to vote to start!");
-    final static String sizeMsg = ChatColor.translateAlternateColorCodes('&', "&r&fRight Click to change team sizes!");
+    final static String scenMsg = ChatColor.translateAlternateColorCodes('&', "&r&7Right Click to enable scenarios!");
+    final static String startMsg = ChatColor.translateAlternateColorCodes('&', "&r&7Right Click to vote to start!");
+    final static String sizeMsg = ChatColor.translateAlternateColorCodes('&', "&r&7Right Click to change team sizes!");
+    final static int sunflower = 2;
     BedwarsAPI api = BedwarsAPI.getInstance();
 
     public void giveItems(Player p)
@@ -54,7 +56,7 @@ public class gameLobbyItems implements Listener
         meta.setLore(lore);
         block.setItemMeta(meta);
 
-        p.getInventory().setItem(3, block);
+        p.getInventory().setItem(6, block);
 
         block = new ItemStack(Material.ANVIL);
         meta = block.getItemMeta();
@@ -66,11 +68,11 @@ public class gameLobbyItems implements Listener
         meta.setLore(lore);
         block.setItemMeta(meta);
 
-        p.getInventory().setItem(5, block);
+        p.getInventory().setItem(7, block);
 
-        if(toggleCommands.startButton)
+      //  if(toggleCommands.startButton)
         {
-            block = new ItemStack(Material.LIME_DYE);
+            block = new ItemStack(Material.SUNFLOWER);
             meta = block.getItemMeta();
 
             lore = new ArrayList<>();
@@ -80,7 +82,7 @@ public class gameLobbyItems implements Listener
             meta.setLore(lore);
             block.setItemMeta(meta);
 
-            p.getInventory().setItem(4, block);
+            p.getInventory().setItem(sunflower, block);
         }
     }
 
@@ -109,10 +111,10 @@ public class gameLobbyItems implements Listener
             if (("§r" + lore.get(0)).equals(scenMsg))
                 e.getPlayer().sendMessage(ChatColor.RED + "Coming soon!");
 
-            if (("§r" + lore.get(0)).equals(sizeMsg) && !toggleCommands.startButton)
+            if (("§r" + lore.get(0)).equals(sizeMsg) && toggleCommands.startButton && !BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()).getName().equalsIgnoreCase("Multiverse"))
                 Bukkit.dispatchCommand(e.getPlayer(),"invictools panel size");
 
-            if (("§r" + lore.get(0)).equals(startMsg))
+            if (("§r" + lore.get(0)).equals(startMsg) && toggleCommands.startButton)
                 vote(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),e.getPlayer());
         }
     }
@@ -157,17 +159,34 @@ public class gameLobbyItems implements Listener
     {
         if(!voted.containsKey(p))
         {
+            p.getWorld().playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL,1,1);
             voted.put(p,game);
             current.put(game,current.get(game)+1);
+            game.getConnectedPlayers().forEach((pl)->pl.sendMessage(ChatColor.WHITE+p.getDisplayName()+ ChatColor.AQUA+"Voted to start the game "+ChatColor.WHITE+"("+current.get(game)+"/"+vote.get(game)+")"));
             checkVote(game);
+        }
+        else
+        {
+            p.playSound(p, Sound.ENTITY_WANDERING_TRADER_NO,1,1);
+            p.sendMessage(ChatColor.RED+"You already voted to start!");
         }
     }
 
     private void checkVote(Game game)
     {
+       // System.out.println(vote.get(game)+" vote/current "+current.get(game));
         if(vote.get(game).equals(current.get(game)))
         {
-            game.start();
+            ItemStack dye = new ItemStack(Material.LIME_DYE);
+            ItemMeta meta = dye.getItemMeta();
+            meta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&f&lPress to Start!"));
+            dye.setItemMeta(meta);
+
+            for (Player p:game.getConnectedPlayers())
+            {
+                p.getInventory().setItem(sunflower,dye);
+            }
+
             vote.remove(game);
             current.remove(game);
             for (Player p:voted.keySet())
