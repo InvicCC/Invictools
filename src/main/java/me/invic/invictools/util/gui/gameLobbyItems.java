@@ -1,10 +1,10 @@
 package me.invic.invictools.util.gui;
 
+import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.commands.toggleCommands;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import org.bukkit.*;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,6 +16,7 @@ import org.screamingsandals.bedwars.api.events.BedwarsPlayerJoinEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerLeaveEvent;
 import org.screamingsandals.bedwars.api.game.Game;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,7 @@ public class gameLobbyItems implements Listener
     final static String selectorMsg = ChatColor.translateAlternateColorCodes('&', "&r&7Right click to select your team!");
     final static String scenMsg = ChatColor.translateAlternateColorCodes('&', "&r&7Right Click to enable scenarios!");
     final static String startMsg = ChatColor.translateAlternateColorCodes('&', "&r&7Right Click to vote to start!");
+    final static String fastMsg = ChatColor.translateAlternateColorCodes('&', "&r&7Right Click to start the game!");
     final static String sizeMsg = ChatColor.translateAlternateColorCodes('&', "&r&7Right Click to change team sizes!");
     final static int sunflower = 2;
     BedwarsAPI api = BedwarsAPI.getInstance();
@@ -70,8 +72,6 @@ public class gameLobbyItems implements Listener
 
         p.getInventory().setItem(7, block);
 
-      //  if(toggleCommands.startButton)
-        {
             block = new ItemStack(Material.SUNFLOWER);
             meta = block.getItemMeta();
 
@@ -83,6 +83,21 @@ public class gameLobbyItems implements Listener
             block.setItemMeta(meta);
 
             p.getInventory().setItem(sunflower, block);
+
+
+        if(toggleCommands.isHosting && (p.getDisplayName().charAt(1) == 'b' || p.getDisplayName().charAt(1) == 'a' || p.isOp()))
+        {
+            block = new ItemStack(Material.LIME_DYE);
+            meta = block.getItemMeta();
+
+            lore = new ArrayList<>();
+            lore.add(startMsg);
+
+            meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&a&lStart Game"));
+            meta.setLore(lore);
+            block.setItemMeta(meta);
+
+            p.getInventory().addItem(block);
         }
     }
 
