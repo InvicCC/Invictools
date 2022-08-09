@@ -137,23 +137,12 @@ public class panels implements Listener
             openSound.put(inventory, Sound.valueOf(panelFile.getString("panels." + panel + ".sound-on-open")));
 
         activeInventory.put(panel, inventory);
-/*
-            leftClick.forEach((attribute, value) ->
-                   System.out.println( attribute.toString() + " LEFT " + value));
-            rightClick.forEach((attribute, value) ->
-                   System.out.println(ChatColor.WHITE + attribute.toString() + " RIGHT " + value));
-            anyClick.forEach((attribute, value) ->
-                    System.out.println(ChatColor.WHITE + attribute.toString() + " ANY " + value));
-
- */
 
         return inventory;
     }
 
     public void openInventory(String panel, Player p)
     {
-        //    p.openInventory(createPanel(panel));
-        //   p.playSound(p.getLocation(),openSound.get(activeInventory.get(panel)),1,1);
         if (activeInventory.containsKey(panel))
         {
             p.openInventory(activeInventory.get(panel));
@@ -190,7 +179,7 @@ public class panels implements Listener
             if (anyClick.containsKey(e.getCurrentItem()))
                 Bukkit.dispatchCommand(e.getWhoClicked(), anyClick.get(e.getCurrentItem()));
 
-            if (close.containsValue(e.getCurrentItem()))
+            if (close.containsKey(e.getCurrentItem()))
                 p.closeInventory();
         }
     }

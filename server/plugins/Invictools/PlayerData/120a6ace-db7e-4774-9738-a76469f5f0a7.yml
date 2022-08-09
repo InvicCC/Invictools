@@ -24,20 +24,14 @@ lobby:
     LodestoneTracked: false
 - ==: org.bukkit.inventory.ItemStack
   v: 3105
-  type: LIGHT_WEIGHTED_PRESSURE_PLATE
-  meta:
-    ==: ItemMeta
-    meta-type: UNSPECIFIC
-    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Parkour
-      Teleporter "},{"bold":false,"italic":false,"color":"gray","text":"(Right Click)"}],"text":""}'
-    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDREFvJLzE1lYMsEcuMNGQB9On2YLwAAAA==
-- ==: org.bukkit.inventory.ItemStack
-  v: 3105
   type: STRUCTURE_VOID
   meta:
     ==: ItemMeta
     meta-type: UNSPECIFIC
-    display-name: '{"extra":[{"text":"2"}],"text":""}'
+    display-name: '{"extra":[{"text":"1"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: CHEST
 - ==: org.bukkit.inventory.ItemStack
   v: 3105
   type: STRUCTURE_VOID

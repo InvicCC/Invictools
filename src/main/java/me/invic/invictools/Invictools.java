@@ -32,6 +32,7 @@ import me.invic.invictools.util.physics.CancelConcreteChange;
 import me.invic.invictools.util.physics.CancelLampUpdates;
 import me.invic.invictools.util.physics.MasterPlayerJoin;
 import me.invic.invictools.util.physics.RiptideDamage;
+import me.invic.invictools.util.scenSelector.perGameScenSelHolder;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -243,6 +244,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new stuckOnDeathFix(), this); //glitched death fix
         Bukkit.getPluginManager().registerEvents(new perGameJumpingListener(), this); //create fireball jumping info per game
         Bukkit.getPluginManager().registerEvents(new gameLobbyItems(), this); //game lobby items clicks
+        Bukkit.getPluginManager().registerEvents(new perGameScenSelHolder(), this); //bw join leave start for scen selector execution
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection

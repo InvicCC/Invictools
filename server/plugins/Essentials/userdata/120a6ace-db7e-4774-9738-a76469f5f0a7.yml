@@ -1,7 +1,7 @@
 timestamps:
-  lastteleport: 1658930350536
-  login: 1658933568321
-  logout: 1658933613015
+  lastteleport: 1660015745758
+  login: 1660015704586
+  logout: 1660016937068
   kits:
     fw: 1654639806611
     firework: 1627246577369
@@ -15,20 +15,20 @@ timestamps:
     fight: 1655684184788
 lastlocation:
   world: bwlobby
-  x: 257.12521793975344
-  y: 128.0
-  z: 247.5356253842456
-  yaw: -98.87459
-  pitch: 1.3991997
+  x: 224.35504002797663
+  y: 110.97730118109448
+  z: 267.0296085242715
+  yaw: 12.563047
+  pitch: 45.17399
 lastAccountName: Invictable
 ipAddress: 127.0.0.1
 logoutlocation:
-  world: bwlobby
-  x: 236.9951754733836
-  y: 128.0
-  z: 248.91273587515468
-  yaw: 161.30185
-  pitch: 14.663015
+  world: World
+  x: -201.2068850940277
+  y: 53.0
+  z: 183.09576894605382
+  yaw: -177.83342
+  pitch: 21.019442
 homes:
   ball:
     world: '100'

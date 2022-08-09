@@ -175,7 +175,7 @@ public class TeamSelection implements Listener
         TeamSelector.put(game, inventory);
     }
 
-    private int nearest(int v)
+    public int nearest(int v)
     {
         for (int i = 1; i < 54; i++)
         {
