@@ -124,6 +124,17 @@ public class PAPIexpansion extends PlaceholderExpansion
         {
             return String.valueOf(intlvl);
         }
+        else if(identifier.equalsIgnoreCase("bflvlc"))
+        {
+            StringBuilder sb = new StringBuilder(String.valueOf(intlvl));
+            if(sb.length()>=4)
+            {
+                sb.insert(sb.length() - 3, '.');
+                sb.deleteCharAt(sb.length());
+                sb.deleteCharAt(sb.length()-1);
+            }
+            return sb.toString();
+        }
         else if(identifier.equalsIgnoreCase("bwlvl"))
             return strlvl;
         else if(identifier.equalsIgnoreCase("bwlvls"))
