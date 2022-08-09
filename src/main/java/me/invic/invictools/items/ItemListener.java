@@ -4,7 +4,7 @@ import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceHandler;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import me.invic.invictools.util.fixes.Protocol47Fix;
-import me.invic.invictools.util.physics.grabSandstone;
+import me.invic.invictools.util.ingame.physics.grabSandstone;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.*;
@@ -23,8 +23,8 @@ import org.screamingsandals.bedwars.api.BedwarsAPI;
 
 import java.util.*;
 
-import static me.invic.invictools.util.physics.grabSandstone.getNearbyBlocks;
-import static me.invic.invictools.util.physics.grabSandstone.taggedBlocks;
+import static me.invic.invictools.util.ingame.physics.grabSandstone.getNearbyBlocks;
+import static me.invic.invictools.util.ingame.physics.grabSandstone.taggedBlocks;
 
 public class ItemListener implements Listener
 {

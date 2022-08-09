@@ -1,15 +1,18 @@
 package me.invic.invictools;
 
-import me.invic.invictools.commandManagerLib.MainCommand;
+import me.invic.invictools.commands.commandManagerLib.MainCommand;
 import me.invic.invictools.commands.*;
 import me.invic.invictools.cosmetics.LobbyListener;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceListener;
 import me.invic.invictools.cosmetics.bedbreaks.BedBreaks;
 import me.invic.invictools.cosmetics.ConfigHandler;
 import me.invic.invictools.cosmetics.finalkills.FinalKillListener;
+import me.invic.invictools.econ.givePoints;
 import me.invic.invictools.gamemodes.bedfight;
 import me.invic.invictools.gamemodes.bedfightStatistics;
 import me.invic.invictools.gamemodifiers.*;
+import me.invic.invictools.util.ingame.LobbyLogic;
+import me.invic.invictools.util.ingame.OlympusFires;
 import me.invic.invictools.items.ItemListener;
 import me.invic.invictools.items.ModBow;
 import me.invic.invictools.items.dareListener;
@@ -27,12 +30,13 @@ import me.invic.invictools.util.fixes.*;
 import me.invic.invictools.util.gui.TeamSelection;
 import me.invic.invictools.util.gui.gameLobbyItems;
 import me.invic.invictools.util.gui.panels;
+import me.invic.invictools.util.ingame.SculkFires;
 import me.invic.invictools.util.npc.BlazeNpc;
-import me.invic.invictools.util.physics.CancelConcreteChange;
-import me.invic.invictools.util.physics.CancelLampUpdates;
-import me.invic.invictools.util.physics.MasterPlayerJoin;
-import me.invic.invictools.util.physics.RiptideDamage;
-import me.invic.invictools.util.scenSelector.perGameScenSelHolder;
+import me.invic.invictools.util.ingame.physics.CancelConcreteChange;
+import me.invic.invictools.util.ingame.physics.CancelLampUpdates;
+import me.invic.invictools.util.ingame.physics.MasterPlayerJoin;
+import me.invic.invictools.util.ingame.physics.RiptideDamage;
+import me.invic.invictools.util.gui.scenSelector.perGameScenSelHolder;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -245,6 +249,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new perGameJumpingListener(), this); //create fireball jumping info per game
         Bukkit.getPluginManager().registerEvents(new gameLobbyItems(), this); //game lobby items clicks
         Bukkit.getPluginManager().registerEvents(new perGameScenSelHolder(), this); //bw join leave start for scen selector execution
+        Bukkit.getPluginManager().registerEvents(new givePoints(), this); //bw start economy setup
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection
@@ -310,6 +315,9 @@ public final class Invictools extends JavaPlugin
                 final FileConfiguration config = OldCommands.Invictools.getConfig();
                 String masterplayer = config.getString("masterplayer","Invictable");
                 OldCommands.MasterPlayer = Bukkit.getPlayer(masterplayer);
+
+                new perGameScenSelHolder();
+                new givePoints();
 
             }
         };

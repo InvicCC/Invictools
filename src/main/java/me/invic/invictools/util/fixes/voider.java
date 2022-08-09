@@ -1,12 +1,11 @@
 package me.invic.invictools.util.fixes;
 
-import me.invic.invictools.util.LobbyLogic;
+import me.invic.invictools.util.ingame.LobbyLogic;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsGameStartEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerLeaveEvent;

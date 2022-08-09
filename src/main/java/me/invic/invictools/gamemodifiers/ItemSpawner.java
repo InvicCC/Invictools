@@ -1,7 +1,7 @@
 package me.invic.invictools.gamemodifiers;
 
 import me.invic.invictools.commands.OldCommands;
-import me.invic.invictools.util.LobbyLogic;
+import me.invic.invictools.util.ingame.LobbyLogic;
 import me.invic.invictools.util.disableStats;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;

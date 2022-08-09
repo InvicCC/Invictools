@@ -94,7 +94,7 @@ public class bedfightStatistics implements Listener
     @EventHandler
     public void bwdeath(BedwarsPlayerKilledEvent e)
     {
-        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack)
+        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack|| disableStats.singleDisable.contains(e.getGame()))
             return;
 
         if ((e.getKiller() != null))
@@ -148,7 +148,7 @@ public class bedfightStatistics implements Listener
     @EventHandler
     public void bedbreak(BedwarsTargetBlockDestroyedEvent e)
     {
-        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack)
+        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack|| disableStats.singleDisable.contains(e.getGame()))
             return;
 
         bedfightBedBreak(e.getPlayer());
@@ -157,7 +157,7 @@ public class bedfightStatistics implements Listener
     @EventHandler
     public void start(BedwarsGameStartEvent e)
     {
-        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack)
+        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack || disableStats.singleDisable.contains(e.getGame()))
             return;
 
         File file = new File(Folder,"bedfightstats.yml");
@@ -178,7 +178,7 @@ public class bedfightStatistics implements Listener
     @EventHandler
     public void saveStats(BedwarsGameEndingEvent e)
     {
-        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack)
+        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack|| disableStats.singleDisable.contains(e.getGame()))
             return;
 
         File file = new File(Folder,"bedfightstats.yml");

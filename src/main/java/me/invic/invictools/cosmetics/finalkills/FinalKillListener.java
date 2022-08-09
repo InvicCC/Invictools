@@ -67,7 +67,7 @@ public class FinalKillListener implements Listener
 
     private void addFinalKill(Player k)
     {
-        if (!OldCommands.StatsTrack || !disableStats.shouldTrack(k))
+        if (!OldCommands.StatsTrack || !disableStats.shouldTrack(k) || disableStats.singleDisable.contains(api.getGameOfPlayer(k)))
             return;
 
         File pFile = new File(Folder, k.getUniqueId() + ".yml");
@@ -92,7 +92,7 @@ public class FinalKillListener implements Listener
 
     private void addFinalDeath(Player p)
     {
-        if (!OldCommands.StatsTrack || !disableStats.shouldTrack(p))
+        if (!OldCommands.StatsTrack || !disableStats.shouldTrack(p) || disableStats.singleDisable.contains(api.getGameOfPlayer(p)))
             return;
 
         File pFile2 = new File(Folder, p.getUniqueId() + ".yml");

@@ -2,6 +2,7 @@ package me.invic.invictools.cosmetics.bedbreaks;
 
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
+import me.invic.invictools.gamemodifiers.gamemodeData;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -12,6 +13,8 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
+import org.screamingsandals.bedwars.api.events.BedwarsTargetBlockDestroyedEvent;
 
 import java.io.File;
 import java.util.Objects;
@@ -19,10 +22,10 @@ import java.util.Objects;
 public class BedBreaks implements Listener
 {
     @EventHandler
-    public void onDestroy(BlockBreakEvent e)
+    public void onDestroy(BedwarsTargetBlockDestroyedEvent e)
     {
-        String bed = e.getBlock().getType().toString();
-
+        String bed = e.getTeam().getTargetBlock().getBlock().getType().toString();
+/*
         if (e.getBlock().getType().equals(Material.BLUE_BED)
                 || e.getBlock().getType().equals(Material.GRAY_BED)
                 || e.getBlock().getType().equals(Material.RED_BED)
@@ -33,8 +36,9 @@ public class BedBreaks implements Listener
                 || e.getBlock().getType().equals(Material.LIME_BED)
                 || e.getBlock().getType().equals(Material.ORANGE_BED))
         {
+ */
             Player player = e.getPlayer();
-            Location loc = e.getBlock().getLocation();
+            Location loc = e.getTeam().getTargetBlock();
 
             BukkitRunnable runnable = new BukkitRunnable()
             {
@@ -43,7 +47,7 @@ public class BedBreaks implements Listener
                 {
                     if (loc.getBlock().getType() == Material.AIR)
                     {
-                        if (OldCommands.LuckyBlocksEnabled)
+                        if (!new gamemodeData().getLuckyBlockMode(e.getGame()).equals("none"))
                         {
                             new BukkitRunnable()
                             {
@@ -69,13 +73,11 @@ public class BedBreaks implements Listener
                 }
             };
             runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1);
-        }
     }
 
     public void handle(Location loc, Player player, String bed, boolean real, String override)
     {
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("Invictools");
-        //  File pFile = new File(plugin.getDataFolder().getPath() + "\\PlayerData" + File.separator + player.getUniqueId() + ".yml");
         File Folder = new File(plugin.getDataFolder(), "PlayerData");
         File pFile = new File(Folder, player.getUniqueId() + ".yml");
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);

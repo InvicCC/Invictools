@@ -10,6 +10,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +20,10 @@ public class AbtributesOnDeath implements Listener
 {
     public void AbtributesOnDeathAll(Player player, String attribute, double attributeInterval, double baseValue)
     {
-        List<Player> players = getPlayersInSameWorld(player);
+        if(!BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+            return;
+
+        List<Player> players = BedwarsAPI.getInstance().getGameOfPlayer(player).getConnectedPlayers();
         DeathCounter.InitializeDeathCounter(players);
 
         for (Player p : players)
@@ -59,17 +63,6 @@ public class AbtributesOnDeath implements Listener
                 }
             }
         }.runTaskTimer(OldCommands.Invictools, 20L, 20L);
-    }
-
-    public static List<Player> getPlayersInSameWorld(Player player)
-    {
-        List<Player> playersInWorld = new ArrayList<>();
-        for (Player p : Bukkit.getOnlinePlayers())
-        {
-            if (p.getWorld().equals(player.getWorld()))
-                playersInWorld.add(p);
-        }
-        return playersInWorld;
     }
 
     public static void resetAttributes()

@@ -2,7 +2,7 @@ package me.invic.invictools.commands;
 
 import me.invic.invictools.gamemodifiers.LuckyBlocks.LuckyBlockSpawner;
 import me.invic.invictools.gamemodifiers.gamemodeData;
-import me.invic.invictools.util.LobbyLogic;
+import me.invic.invictools.util.ingame.LobbyLogic;
 import me.invic.invictools.util.disableStats;
 import me.invic.invictools.util.fixes.Protocol47Fix;
 import org.bukkit.Bukkit;
@@ -73,7 +73,7 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
 
         if(args.length==1 && args[0].equalsIgnoreCase("lucky") && sender instanceof Player)
         {
-            if(new Protocol47Fix().isEveryPlayer47(BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender))))
+            if(new Protocol47Fix().isAnyPlayer47(BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender))))
                 luckyblockEnable((Player)sender,"47");
             else
                 luckyblockEnable((Player)sender,"normal");
@@ -91,7 +91,6 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
         {
             int spawnerSize = 0;
-            OldCommands.LuckyBlocksEnabled = true;
             new gamemodeData().setLuckyBlockMode(BedwarsAPI.getInstance().getGameOfPlayer(p),mode);
 
             String game = BedwarsAPI.getInstance().getGameOfPlayer(p).getName();
@@ -131,7 +130,6 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
                 {
                     if (!BedwarsAPI.getInstance().getGameByName(game).getStatus().equals(GameStatus.RUNNING))
                     {
-                        OldCommands.LuckyBlocksEnabled = false;
                         new gamemodeData().setLuckyBlockMode(BedwarsAPI.getInstance().getGameByName(game),"none");
                         this.cancel();
                     }

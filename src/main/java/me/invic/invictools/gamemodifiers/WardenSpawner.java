@@ -1,6 +1,6 @@
 package me.invic.invictools.gamemodifiers;
 
-import me.invic.invictools.util.LobbyLogic;
+import me.invic.invictools.util.ingame.LobbyLogic;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

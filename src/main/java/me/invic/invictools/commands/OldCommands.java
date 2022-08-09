@@ -30,6 +30,7 @@ import me.invic.invictools.util.fixes.ChangeTeamSize;
 import me.invic.invictools.util.fixes.LobbyInventoryFix;
 import me.invic.invictools.util.gui.TeamSelection;
 import me.invic.invictools.util.gui.panels;
+import me.invic.invictools.util.ingame.LobbyLogic;
 import me.invic.invictools.util.npc.BlazeNpc;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -62,8 +63,6 @@ import static me.invic.invictools.util.deathListener.addedNormalBlocks;
 import static me.invic.invictools.util.deathListener.coalBlocks;
 import static org.bukkit.Bukkit.*;
 
-// firestick for game, item boxes, tnt rain,
-
 public class OldCommands implements CommandExecutor, TabExecutor
 {
     //plugins
@@ -75,7 +74,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
     //global controls
     public static Player MasterPlayer = Bukkit.getPlayer("Invictable");
     public static HashMap<Player, Player> teammates = new HashMap<>();
-    public static boolean LuckyBlocksEnabled = false;
+  //  public static boolean LuckyBlocksEnabled = false;
     public static boolean FireStickEnabled = true;
     public static boolean StatsTrack = true;
     public static String HauntConfig = "normal";
@@ -299,7 +298,6 @@ public class OldCommands implements CommandExecutor, TabExecutor
         }
         else if (args.length >= 1 && args[0].equalsIgnoreCase("Totems"))
         {
-            tabComplete.add("<all/player name>");
             for (Player player : getOnlinePlayers())
             {
                 tabComplete.add(player.getName());
@@ -2368,7 +2366,6 @@ public class OldCommands implements CommandExecutor, TabExecutor
         sender.sendMessage(" ");
         sender.sendMessage(ChatColor.WHITE + "Status:");
         sender.sendMessage(ChatColor.YELLOW + "- Master Player: " + ChatColor.WHITE + MasterPlayer.getName());
-        sender.sendMessage(ChatColor.YELLOW + "- Lucky Blocks Enabled: " + ChatColor.WHITE + LuckyBlocksEnabled);
         sender.sendMessage(ChatColor.YELLOW + "- FireStick Enabled: " + ChatColor.WHITE + FireStickEnabled);
         sender.sendMessage(ChatColor.YELLOW + "- Teammates Assignment: ");
         sender.sendMessage(ChatColor.YELLOW + "- Lobby: ");

@@ -15,12 +15,15 @@ import org.screamingsandals.bedwars.api.events.BedwarsSavePlayerStatisticEvent;
 import org.screamingsandals.bedwars.api.game.Game;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class disableStats implements Listener
 {
     public static HashMap<String, Integer> startingSize = new HashMap<>();
     public static HashMap<String, String> recentGame = new HashMap<>(); //name, game
+    public static List<Game> singleDisable = new ArrayList<>();
 
     @EventHandler
     public void saveEvent(BedwarsSavePlayerStatisticEvent e)
@@ -30,7 +33,9 @@ public class disableStats implements Listener
             e.setCancelled(true);
          //   System.out.println("missing "+Bukkit.getPlayer(e.getPlayerStatistic().getName()).getName());
         }
-        else if (!shouldTrack(Bukkit.getPlayer(e.getPlayerStatistic().getName())) || !OldCommands.StatsTrack)
+        else if (!shouldTrack(Bukkit.getPlayer(e.getPlayerStatistic().getName()))
+                || !OldCommands.StatsTrack
+                || singleDisable.contains(BedwarsAPI.getInstance().getGameOfPlayer(Bukkit.getPlayer(recentGame.get(e.getPlayerStatistic().getName())))))
         {
             e.setCancelled(true);
         }
@@ -46,12 +51,12 @@ public class disableStats implements Listener
             recentGame.put(p.getName(), e.getGame().getName());
         }
 
-        if (!OldCommands.StatsTrack)
+        if (!OldCommands.StatsTrack || singleDisable.contains(e.getGame()))
         {
             for (Player p : e.getGame().getConnectedPlayers())
             {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&l(!) &r&fStats will not track this match"));
-                p.playSound(p.getLocation(), Sound.ENTITY_VILLAGER_NO, 3, 90);
+                p.playSound(p.getLocation(), Sound.ENTITY_VILLAGER_NO, 1, 1);
             }
         }
         else if(!shouldTrack(e.getGame().getConnectedPlayers().get(0)) && !getGameType(e.getGame()).equalsIgnoreCase("bedfight"))
@@ -59,18 +64,11 @@ public class disableStats implements Listener
             for (Player p : e.getGame().getConnectedPlayers())
             {
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&l(!) &r&fStats will not track this match"));
-                p.playSound(p.getLocation(), Sound.ENTITY_VILLAGER_NO, 3, 90);
+                p.playSound(p.getLocation(), Sound.ENTITY_VILLAGER_NO, 1, 1);
             }
         }
     }
 
-    /*
-        @EventHandler
-        public void gameEnd(BedwarsGameEndEvent e)
-        {
-            startingSize.remove(e.getGame().getName());
-        }
-     */
     public static boolean shouldTrack(Player p) // tracks if game has at least 4 players and isnt a bedfight game
     {
         return startingSize.get(recentGame.get(p.getName())) >= 4 && !getGameType(BedwarsAPI.getInstance().getGameByName(recentGame.get(p.getName()))).equalsIgnoreCase("bedfight");

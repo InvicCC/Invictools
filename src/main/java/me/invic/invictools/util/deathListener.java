@@ -3,7 +3,9 @@ package me.invic.invictools.util;
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.Haunt;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
+import me.invic.invictools.gamemodifiers.gamemodeData;
 import me.invic.invictools.gamemodifiers.giveItemRepeated;
+import me.invic.invictools.util.ingame.OlympusFires;
 import me.invic.invictools.items.ItemListener;
 import me.invic.invictools.util.Leaderboards.BedfightLeaderboard;
 import me.invic.invictools.util.Leaderboards.BedfightLeaderboardHologram;
@@ -11,6 +13,7 @@ import me.invic.invictools.util.Leaderboards.leaderboard;
 import me.invic.invictools.util.Leaderboards.leaderboardHologram;
 import me.invic.invictools.util.fixes.ChangeTeamSize;
 import me.invic.invictools.util.npc.BlazeNpc;
+import me.invic.invictools.util.gui.scenSelector.perGameScenSelHolder;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.*;
@@ -20,7 +23,7 @@ import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.screamingsandals.bedwars.api.events.BedwarsGameEndingEvent;
+import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
 
 import java.util.ArrayList;
@@ -33,7 +36,7 @@ public class deathListener implements Listener
     @EventHandler
     public void deathEvent(BedwarsPlayerKilledEvent e)
     {
-        if (OldCommands.LuckyBlocksEnabled)
+        if (!new gamemodeData().getLuckyBlockMode(e.getGame()).equals("none"))
         {
             Player player = e.getPlayer();
             Location loc = player.getLocation();
@@ -81,7 +84,7 @@ public class deathListener implements Listener
     }
 
     @EventHandler
-    public void destroyAddedBlocks(BedwarsGameEndingEvent e)
+    public void destroyAddedBlocks(BedwarsGameEndEvent e)
     {
        // clearEverything(e.getGame().getGameWorld());
         BukkitRunnable runnable = new BukkitRunnable()
@@ -156,6 +159,7 @@ public class deathListener implements Listener
         new leaderboardHologram().createLeaderboard();
         new BedfightLeaderboard().loadBFLeaderboard("score");
         new BedfightLeaderboardHologram().createBFLeaderboard();
+        new perGameScenSelHolder();
 
         BukkitRunnable runnable = new BukkitRunnable()
         {

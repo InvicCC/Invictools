@@ -1,9 +1,8 @@
 package me.invic.invictools.util.fixes;
 
 import me.invic.invictools.commands.OldCommands;
-import me.invic.invictools.util.LobbyLogic;
+import me.invic.invictools.util.ingame.LobbyLogic;
 import me.invic.invictools.util.disableStats;
-import me.invic.invictools.util.safeSizeChange;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
