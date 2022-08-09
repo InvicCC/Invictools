@@ -130,8 +130,9 @@ public class PAPIexpansion extends PlaceholderExpansion
             if(sb.length()>=4)
             {
                 sb.insert(sb.length() - 3, '.');
-                sb.deleteCharAt(sb.length());
+                sb.deleteCharAt(sb.length()-2);
                 sb.deleteCharAt(sb.length()-1);
+                sb.append('k');
             }
             return sb.toString();
         }
