@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.screamingsandals.bedwars.api.events.BedwarsGameEndingEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
+import org.screamingsandals.bedwars.api.events.BedwarsPlayerLeaveEvent;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +20,7 @@ public class DeathCounter implements Listener
     public static void InitializeDeathCounter(List<Player> players)
     {
         if (deaths.containsKey(players.get(0)))
-            OldCommands.MasterPlayer.sendMessage(ChatColor.RED + "Death counter is being reinitialized");
+            System.out.println("Death counter is being reinitialized");
 
         for (Player player : players)
         {
@@ -36,14 +37,15 @@ public class DeathCounter implements Listener
     @EventHandler
     private void DeathWatcher(BedwarsPlayerKilledEvent e)
     {
-        if (deaths.containsKey(e.getPlayer()))
+        if (deaths.containsKey(e.getPlayer()) && e.getKiller() != null && !e.getKiller().equals(e.getPlayer()))
             deaths.put(e.getPlayer(), deaths.get(e.getPlayer()) + 1);
     }
 
     @EventHandler
-    private void ResetOnGameEnd(BedwarsGameEndingEvent e)
+    private void ResetOnLeave(BedwarsPlayerLeaveEvent e)
     {
        // resetCounter();
-        AbtributesOnDeath.resetAttributes();
+        AbtributesOnDeath.resetSingularPlayerAttributes(e.getPlayer());
+        deaths.remove(e.getPlayer());
     }
 }

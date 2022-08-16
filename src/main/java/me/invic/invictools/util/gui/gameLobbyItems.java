@@ -2,6 +2,7 @@ package me.invic.invictools.util.gui;
 
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.commands.toggleCommands;
+import me.invic.invictools.util.gui.scenSelector.perGameScenSelHolder;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -124,7 +125,7 @@ public class gameLobbyItems implements Listener
                 new TeamSelection().openInventory(e.getPlayer(), api.getGameOfPlayer(e.getPlayer()), true);
 
             if (("§r" + lore.get(0)).equals(scenMsg))
-                e.getPlayer().sendMessage(ChatColor.RED + "Coming soon!");
+                e.getPlayer().openInventory(perGameScenSelHolder.mainSelector.get(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer())));
 
             if (("§r" + lore.get(0)).equals(sizeMsg) && toggleCommands.startButton && !BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()).getName().equalsIgnoreCase("Multiverse"))
                 Bukkit.dispatchCommand(e.getPlayer(),"invictools panel size");
@@ -148,7 +149,7 @@ public class gameLobbyItems implements Listener
             vote.put(e.getGame(),2);
             current.put(e.getGame(),0);
         }
-        else if(e.getGame().getConnectedPlayers().size() >= 1)
+        else if(e.getGame().getConnectedPlayers().size() > 1)
             vote.put(e.getGame(),e.getGame().getConnectedPlayers().size()/2+1);
     }
 
@@ -158,6 +159,7 @@ public class gameLobbyItems implements Listener
         voted.remove(e.getPlayer());
         if(toggleCommands.isHosting && e.getGame().getConnectedPlayers().contains(Bukkit.getPlayer("Invictable")))
             return;
+
         else if(e.getGame().getConnectedPlayers().size() == 1)
         {
             vote.remove(e.getGame());
@@ -177,7 +179,7 @@ public class gameLobbyItems implements Listener
             p.getWorld().playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_BELL,1,1);
             voted.put(p,game);
             current.put(game,current.get(game)+1);
-            game.getConnectedPlayers().forEach((pl)->pl.sendMessage(ChatColor.WHITE+p.getDisplayName()+ ChatColor.AQUA+"Voted to start the game "+ChatColor.WHITE+"("+current.get(game)+"/"+vote.get(game)+")"));
+            game.getConnectedPlayers().forEach((pl)->pl.sendMessage(ChatColor.WHITE+p.getDisplayName()+ ChatColor.AQUA+" voted to start the game "+ChatColor.WHITE+"("+current.get(game)+"/"+vote.get(game)+")"));
             checkVote(game);
         }
         else

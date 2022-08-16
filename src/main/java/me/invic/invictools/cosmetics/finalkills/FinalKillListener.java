@@ -2,6 +2,7 @@ package me.invic.invictools.cosmetics.finalkills;
 
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.NormalKillHandler;
+import me.invic.invictools.econ.givePoints;
 import me.invic.invictools.util.GrabTeammates;
 import me.invic.invictools.util.disableStats;
 import org.bukkit.Bukkit;
@@ -34,14 +35,20 @@ public class FinalKillListener implements Listener
         if ((e.getKiller() != null))
         {
             if (api.getGameOfPlayer(e.getPlayer()).getTeamOfPlayer(e.getPlayer()) == null) // team eliminated
+            {
                 logic(e.getKiller(), e.getPlayer());
+            }
             else if (sizes.get(e.getGame().getName()+"_"+e.getGame().getTeamOfPlayer(e.getPlayer()).getName()) != GrabTeammates.getTeamSize(e.getPlayer())) // team size decreased
             {
                 sizes.put(e.getGame().getName()+"_"+e.getGame().getTeamOfPlayer(e.getPlayer()).getName(), GrabTeammates.getTeamSize(e.getPlayer()));
                 logic(e.getKiller(), e.getPlayer());
             }
             else // regular kill with valid killer, hopefully
+            {
                 new NormalKillHandler().grabEffect(e.getKiller(), e.getPlayer(), e.getPlayer().getLocation());
+                if (!OldCommands.StatsTrack || !disableStats.shouldTrack(e.getKiller()) || disableStats.singleDisable.contains(api.getGameOfPlayer(e.getKiller())))
+                    new givePoints(e.getKiller(),"BedwarsKill");
+            }
         }
         else
         {
@@ -70,6 +77,8 @@ public class FinalKillListener implements Listener
         if (!OldCommands.StatsTrack || !disableStats.shouldTrack(k) || disableStats.singleDisable.contains(api.getGameOfPlayer(k)))
             return;
 
+        new givePoints(k,"BedwarsFinalKill");
+
         File pFile = new File(Folder, k.getUniqueId() + ".yml");
         final FileConfiguration playerData = YamlConfiguration.loadConfiguration(pFile);
         if (!playerData.contains("FinalKills"))
@@ -94,6 +103,8 @@ public class FinalKillListener implements Listener
     {
         if (!OldCommands.StatsTrack || !disableStats.shouldTrack(p) || disableStats.singleDisable.contains(api.getGameOfPlayer(p)))
             return;
+
+        new givePoints(p,"BedwarsLoss");
 
         File pFile2 = new File(Folder, p.getUniqueId() + ".yml");
         final FileConfiguration playerData2 = YamlConfiguration.loadConfiguration(pFile2);

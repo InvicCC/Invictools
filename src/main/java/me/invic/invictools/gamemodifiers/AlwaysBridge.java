@@ -1,5 +1,6 @@
 package me.invic.invictools.gamemodifiers;
 
+import me.invic.invictools.util.disableStats;
 import org.bukkit.*;
 import org.bukkit.block.BlockFace;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -52,7 +53,8 @@ public class AlwaysBridge
                             if (player.getLocation().getBlock().getRelative(BlockFace.DOWN).getType().equals(Material.AIR))
                             {
                                 player.getLocation().getBlock().getRelative(BlockFace.DOWN).setType(player.getInventory().getItem(size).getType());
-                                player.getInventory().getItem(size).setAmount(player.getInventory().getItem(size).getAmount() - 1);
+                                if(!disableStats.getGameType(api.getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                                    player.getInventory().getItem(size).setAmount(player.getInventory().getItem(size).getAmount() - 1);
                                 if (api.isPlayerPlayingAnyGame(player))
                                     api.getGameOfPlayer(player).getRegion().addBuiltDuringGame(player.getLocation().getBlock().getRelative(BlockFace.DOWN).getLocation());
                             }
@@ -63,7 +65,8 @@ public class AlwaysBridge
                                 if (loc2.getBlock().getType().equals(Material.AIR))
                                 {
                                     loc2.getBlock().setType(player.getInventory().getItem(size).getType());
-                                    player.getInventory().getItem(size).setAmount(player.getInventory().getItem(size).getAmount() - 1);
+                                    if(!disableStats.getGameType(api.getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+                                        player.getInventory().getItem(size).setAmount(player.getInventory().getItem(size).getAmount() - 1);
                                     BukkitRunnable runnable = new BukkitRunnable()
                                     {
                                         @Override

@@ -20,9 +20,10 @@ import java.util.Locale;
 
 public class scenSelInventoryHandle
 {
-    static HashMap<String,String> allLore = new HashMap<>();
+    static HashMap<Integer,String> commands = new HashMap<>();
+    static HashMap<Integer,String> antimode = new HashMap<>();
 
-    Inventory loadInventory(String panel)
+    Inventory loadInventory(String panel,boolean main)
     {
         File Folder = new File(OldCommands.Invictools.getDataFolder(), "Panels");
         File pFile = new File(Folder, panel + ".yml");
@@ -51,7 +52,12 @@ public class scenSelInventoryHandle
                 meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', panelFile.getString("panels." + panel + ".item." + s + ".name","&c"+item.getType().toString().toLowerCase(Locale.ROOT))));
                 item.setItemMeta(meta);
                 inventory.setItem(s, item);
-                allLore.put(item.getType().toString().toUpperCase(Locale.ROOT), mlore.get(0));
+
+                if(panelFile.getString("panels."+panel+".item."+s+".cmd") != null)
+                    commands.put(s, panelFile.getString("panels."+panel+".item."+s+".cmd"));
+
+                if(panelFile.getString("panels."+panel+".item."+s+".antimode",null) != null)
+                    antimode.put(s,panelFile.getString("panels."+panel+".item."+s+".antimode"));
             }
         }
         return inventory;

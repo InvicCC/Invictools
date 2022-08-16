@@ -1,8 +1,11 @@
 package me.invic.invictools.util.gui.scenSelector;
 
+import me.invic.invictools.commands.OldCommands;
+import me.invic.invictools.gamemodes.Manhunt.ManhuntMain;
 import me.invic.invictools.util.fixes.SafeOpCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,12 +19,28 @@ public class scenarioQueue
 
     }
 
-    void print()
+    void debugPrint()
     {
         for(String s:commands)
         {
             System.out.println(s);
         }
+    }
+
+    void print(List<Player> p)
+    {
+        new BukkitRunnable()
+        {
+            @Override
+            public void run()
+            {
+                for(String s:ManhuntMain.cleanSyntax(commands))
+                {
+                    p.forEach((pl) -> pl.sendMessage(s));
+                }
+            }
+        }.runTaskLater(OldCommands.Invictools, 20L);
+
     }
 
     void addCommand(String s)
@@ -48,14 +67,16 @@ public class scenarioQueue
     {
         for(String s:commands)
         {
-            try
+            if(!s.equalsIgnoreCase("null"))
             {
-                System.out.println("executing "+s);
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(),s);
-            }
-            catch(Throwable e)
-            {
-                System.out.println(s+ " skipped");
+                try
+                {
+                    System.out.println("executing " + s);
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), s);
+                } catch (Throwable e)
+                {
+                    System.out.println(s + " skipped");
+                }
             }
         }
     }
@@ -64,14 +85,16 @@ public class scenarioQueue
     {
         for(String s:commands)
         {
-            try
+            if(!s.equalsIgnoreCase("null"))
             {
-                System.out.println("executing "+s);
-                Bukkit.dispatchCommand(p,s);
-            }
-            catch(Throwable e)
-            {
-                System.out.println(s+ " skipped");
+                try
+                {
+                    System.out.println("executing " + s);
+                    Bukkit.dispatchCommand(p, s);
+                } catch (Throwable e)
+                {
+                    System.out.println(s + " skipped");
+                }
             }
         }
     }
@@ -80,16 +103,17 @@ public class scenarioQueue
     {
         for(String s:commands)
         {
-            try
+            if(!s.equalsIgnoreCase("null"))
             {
-                System.out.println("executing "+s);
-                new SafeOpCommand(p,s);
-            }
-            catch(Throwable e)
-            {
-                System.out.println(s+ " skipped");
+                try
+                {
+                    System.out.println("executing " + s);
+                    new SafeOpCommand(p, s);
+                } catch (Throwable e)
+                {
+                    System.out.println(s + " skipped");
+                }
             }
         }
     }
-
 }

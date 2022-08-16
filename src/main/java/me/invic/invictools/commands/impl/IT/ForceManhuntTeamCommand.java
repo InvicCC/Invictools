@@ -1,7 +1,7 @@
 package me.invic.invictools.commands.impl.IT;
 
 import me.invic.invictools.commands.commandManagerLib.SubCommand;
-import me.invic.invictools.gamemodifiers.Manhunt.ManhuntMain;
+import me.invic.invictools.gamemodes.Manhunt.ManhuntMain;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

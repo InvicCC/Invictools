@@ -7,7 +7,10 @@ import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
+import org.screamingsandals.bedwars.api.game.Game;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
@@ -19,14 +22,23 @@ public class CustomHealth
 
     public CustomHealth(String allorone, Player player, int HealthValue, int interval, String worldName)
     {
+        if(!BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
+            return;
+
+        Game game = BedwarsAPI.getInstance().getGameOfPlayer(player);
+        List<Player> players = BedwarsAPI.getInstance().getGameOfPlayer(player).getConnectedPlayers();
+
         if (allorone.equalsIgnoreCase("all"))
         {
-            for (Player p : Bukkit.getOnlinePlayers())
+            for (Player p : players)
             {
-                AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
-                assert attribute != null;
-                attribute.setBaseValue(HealthValue);
-                p.setHealth(HealthValue);
+                if(p.isOnline() && BedwarsAPI.getInstance().getGameOfPlayer(p).equals(game))
+                {
+                    AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+                    assert attribute != null;
+                    attribute.setBaseValue(HealthValue);
+                    p.setHealth(HealthValue);
+                }
             }
         }
         else if (allorone.equalsIgnoreCase("one"))
@@ -38,12 +50,15 @@ public class CustomHealth
         }
         else if (allorone.equalsIgnoreCase("reset"))
         {
-            for (Player p : Bukkit.getOnlinePlayers())
+            for (Player p : players)
             {
-                AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
-                assert attribute != null;
-                attribute.setBaseValue(20);
-                p.setHealth(20);
+                if(p.isOnline())
+                {
+                    AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+                    assert attribute != null;
+                    attribute.setBaseValue(20);
+                    p.setHealth(20);
+                }
             }
         }
         else if (allorone.equalsIgnoreCase("randomall"))
@@ -54,26 +69,24 @@ public class CustomHealth
                 @Override
                 public void run()
                 {
-                    DynamicWorldName = player.getLocation().getWorld().getName();
+                        DynamicWorldName = player.getLocation().getWorld().getName();
 
-                    if (DynamicWorldName.equals(worldName))
-                    {
                         DynamicHealth = rand.nextInt(HV) + 2;
 
-                        for (Player p : Bukkit.getOnlinePlayers())
+                        for (Player p : players)
                         {
-                            AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
-                            assert attribute != null;
+                            if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+                            {
+                                AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+                                assert attribute != null;
 
-                            double healthpercent = p.getHealth() / attribute.getValue();
-                            double convert = DynamicHealth * healthpercent;
+                                double healthpercent = p.getHealth() / attribute.getValue();
+                                double convert = DynamicHealth * healthpercent;
 
-                            attribute.setBaseValue(DynamicHealth);
-                            p.setHealth(convert);
+                                attribute.setBaseValue(DynamicHealth);
+                                p.setHealth(convert);
+                            }
                         }
-                    }
-                    else
-                        this.cancel();
                 }
             }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, interval * 20L);
         }
@@ -87,27 +100,25 @@ public class CustomHealth
                 {
                     DynamicWorldName = player.getLocation().getWorld().getName();
 
-                    if (DynamicWorldName.equals(worldName))
-                    {
-                        for (Player p : Bukkit.getOnlinePlayers())
+                        for (Player p : players)
                         {
-                            AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
-                            assert attribute != null;
+                            if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+                            {
+                                AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+                                assert attribute != null;
 
-                            double healthpercent = p.getHealth() / attribute.getValue();
-                            double convert = HV[0] * healthpercent;
+                                double healthpercent = p.getHealth() / attribute.getValue();
+                                double convert = HV[0] * healthpercent;
 
-                            attribute.setBaseValue(HV[0]);
-                            p.setHealth(convert);
+                                attribute.setBaseValue(HV[0]);
+                                p.setHealth(convert);
+                            }
                         }
 
                         if (HV[0] > 2)
                             HV[0] -= 2;
                         else
                             this.cancel();
-                    }
-                    else
-                        this.cancel();
                 }
             }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, interval * 20L);
         }

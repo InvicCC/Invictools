@@ -33,7 +33,7 @@ public class Totem implements Listener
                 double Health = player.getHealth();
                 double Damage = e.getFinalDamage();
 
-                if (Damage >= Health)
+                if (Damage >= Health && player.getLocation().getY() >0)
                 {
                     if (player.getInventory().getItem(40) != null)
                     {

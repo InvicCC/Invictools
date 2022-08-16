@@ -2,6 +2,8 @@ package me.invic.invictools.cosmetics.VictoryDances;
 
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.Lobby1Handler;
+import me.invic.invictools.econ.givePoints;
+import me.invic.invictools.util.disableStats;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -31,12 +33,14 @@ public class VictoryDanceListener implements Listener
             for (Player p : livingTeam.getConnectedPlayers())
             {
                 new VictoryDanceHandler().grabEffect(p);
+                if ((!OldCommands.StatsTrack || !disableStats.shouldTrack(p) || disableStats.singleDisable.contains(e.getGame()))&& !disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight"))
+                    new givePoints(p,"BedwarsWin");
                 new BukkitRunnable()
                 {
                     @Override
                     public void run()
                     {
-                        new Lobby1Handler().FireFeet(p);
+                        Lobby1Handler.FireFeet(p);
                     }
                 }.runTaskLater(OldCommands.Invictools, (VictoryDanceHandler.effectDuration * 20) + 60);
             }

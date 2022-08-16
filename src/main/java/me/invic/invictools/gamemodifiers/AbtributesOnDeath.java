@@ -96,6 +96,7 @@ public class AbtributesOnDeath implements Listener
                 continue;
             }
         }
+        AbtributesOnDeath.ActiveAttributes.remove(p.getName());
     }
 
     @EventHandler

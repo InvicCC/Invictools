@@ -2,6 +2,7 @@ package me.invic.invictools.gamemodes;
 
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.finalkills.FinalKillListener;
+import me.invic.invictools.econ.givePoints;
 import me.invic.invictools.util.GrabTeammates;
 import me.invic.invictools.util.disableStats;
 import org.bukkit.Bukkit;
@@ -240,6 +241,7 @@ public class bedfightStatistics implements Listener
     private void bedfightFinalKill(Player p)
     {
         finalKill.put(p.getUniqueId(),finalKill.get(p.getUniqueId())+1);
+        new givePoints(p,"BedfightFinalKill");
     }
 
     private void bedfightFinalDeath(Player p)
@@ -250,25 +252,30 @@ public class bedfightStatistics implements Listener
     private void bedfightNormalKill(Player p)
     {
         normalKill.put(p.getUniqueId(),normalKill.get(p.getUniqueId())+1);
+        new givePoints(p,"BedfightKill");
     }
 
     private void bedfightNormalDeath(Player p)
     {
         normalDeath.put(p.getUniqueId(),normalDeath.get(p.getUniqueId())+1);
+        new givePoints(p,"BedfightDeath");
     }
 
     private void bedfightWin(Player p)
     {
         Win.put(p.getUniqueId(),Win.get(p.getUniqueId())+1);
+        new givePoints(p,"BedfightWin");
     }
 
     private void bedfightLoss(Player p)
     {
         Loss.put(p.getUniqueId(),Loss.get(p.getUniqueId())+1);
+       // new givePoints(p,"BedfightLoss");
     }
 
     private void bedfightBedBreak(Player p)
     {
         BedBreak.put(p.getUniqueId(),BedBreak.get(p.getUniqueId())+1);
+        new givePoints(p,"BedfightBedBreak");
     }
 }

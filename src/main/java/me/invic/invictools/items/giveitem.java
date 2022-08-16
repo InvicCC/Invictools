@@ -1,7 +1,7 @@
 package me.invic.invictools.items;
 
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
-import me.invic.invictools.gamemodifiers.Manhunt.ManhuntMain;
+import me.invic.invictools.gamemodes.Manhunt.ManhuntMain;
 import me.invic.invictools.util.GrabTeammates;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;

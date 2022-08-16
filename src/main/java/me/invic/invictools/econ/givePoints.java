@@ -31,7 +31,7 @@ public class givePoints implements Listener
     @EventHandler
     public void end(BedwarsPlayerLeaveEvent e)
     {
-        if(e.getGame().getStatus().equals(GameStatus.WAITING))
+        if(totals.getOrDefault(e.getPlayer(),0)==0)
             return;
 
         Player p = e.getPlayer();
@@ -49,6 +49,7 @@ public class givePoints implements Listener
         types.put("BedwarsFinalKill",config.getInt("points.BedwarsFinalKill",75));
         types.put("BedwarsBedBreak",config.getInt("points.BedwarsBedBreak",120));
         types.put("BedwarsWin",config.getInt("points.BedwarsWin",250));
+        types.put("BedwarsLoss",config.getInt("points.BedwarsLoss",50));
 
         types.put("BedfightKill",config.getInt("points.BedfightKill",5));
         types.put("BedfightFinalKill",config.getInt("points.BedfightFinalKill",15));

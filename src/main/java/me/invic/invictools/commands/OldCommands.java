@@ -19,7 +19,7 @@ import me.invic.invictools.items.dareListener;
 import me.invic.invictools.util.Leaderboards.leaderboard;
 import me.invic.invictools.util.Leaderboards.leaderboardHologram;
 import me.invic.invictools.util.deathListener;
-import me.invic.invictools.gamemodifiers.Manhunt.ManhuntMain;
+import me.invic.invictools.gamemodes.Manhunt.ManhuntMain;
 import me.invic.invictools.gamemodifiers.PotionEffects.*;
 import me.invic.invictools.items.FireStick;
 import me.invic.invictools.items.giveitem;
@@ -77,7 +77,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
   //  public static boolean LuckyBlocksEnabled = false;
     public static boolean FireStickEnabled = true;
     public static boolean StatsTrack = true;
-    public static String HauntConfig = "normal";
+    public static String HauntConfig = "vid";
     public static HashMap<Player, String> killEffects = new HashMap<>();
     public static HashMap<Player, Boolean> InfiniteTotems = new HashMap<>();
     public static HashMap<Player, ItemStack> killItems = new HashMap<>();
@@ -2008,10 +2008,14 @@ public class OldCommands implements CommandExecutor, TabExecutor
             else if (args.length == 1 && args[0].equalsIgnoreCase("alwaysbridge"))
             {
                 Player player = (Player) sender;
-                sender.sendMessage(ChatColor.AQUA + "Always bridging active in world " + ChatColor.YELLOW + player.getWorld().getName());
-                for (Player p : Bukkit.getOnlinePlayers())
+                if(!BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
                 {
-                    if (player.getWorld().equals(p.getWorld()))
+                    player.sendMessage(ChatColor.RED+"Only usable ingame!");
+                }
+                else
+                {
+                    sender.sendMessage(ChatColor.AQUA + "Scaffold active in game " + ChatColor.WHITE + BedwarsAPI.getInstance().getGameOfPlayer(player).getName());
+                    for (Player p : BedwarsAPI.getInstance().getGameOfPlayer(player).getConnectedPlayers())
                     {
                         new AlwaysBridge(p);
                     }

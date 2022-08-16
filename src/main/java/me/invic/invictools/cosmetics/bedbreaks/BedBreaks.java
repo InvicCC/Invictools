@@ -1,8 +1,10 @@
 package me.invic.invictools.cosmetics.bedbreaks;
 
 import me.invic.invictools.commands.OldCommands;
+import me.invic.invictools.econ.givePoints;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import me.invic.invictools.gamemodifiers.gamemodeData;
+import me.invic.invictools.util.disableStats;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -25,54 +27,46 @@ public class BedBreaks implements Listener
     public void onDestroy(BedwarsTargetBlockDestroyedEvent e)
     {
         String bed = e.getTeam().getTargetBlock().getBlock().getType().toString();
-/*
-        if (e.getBlock().getType().equals(Material.BLUE_BED)
-                || e.getBlock().getType().equals(Material.GRAY_BED)
-                || e.getBlock().getType().equals(Material.RED_BED)
-                || e.getBlock().getType().equals(Material.LIGHT_BLUE_BED)
-                || e.getBlock().getType().equals(Material.WHITE_BED)
-                || e.getBlock().getType().equals(Material.YELLOW_BED)
-                || e.getBlock().getType().equals(Material.PINK_BED)
-                || e.getBlock().getType().equals(Material.LIME_BED)
-                || e.getBlock().getType().equals(Material.ORANGE_BED))
+
+        Player player = e.getPlayer();
+        Location loc = e.getTeam().getTargetBlock();
+
+        if ((!OldCommands.StatsTrack || !disableStats.shouldTrack(e.getPlayer()) || disableStats.singleDisable.contains(e.getGame())) && !disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight"))
+            new givePoints(e.getPlayer(),"BedwarsBedBreak");
+
+        BukkitRunnable runnable = new BukkitRunnable()
         {
- */
-            Player player = e.getPlayer();
-            Location loc = e.getTeam().getTargetBlock();
-
-            BukkitRunnable runnable = new BukkitRunnable()
+            @Override
+            public void run()
             {
-                @Override
-                public void run()
+                if (loc.getBlock().getType() == Material.AIR)
                 {
-                    if (loc.getBlock().getType() == Material.AIR)
+                    if (!new gamemodeData().getLuckyBlockMode(e.getGame()).equals("none"))
                     {
-                        if (!new gamemodeData().getLuckyBlockMode(e.getGame()).equals("none"))
+                        new BukkitRunnable()
                         {
-                            new BukkitRunnable()
+                            int i = 0;
+
+                            @Override
+                            public void run()
                             {
-                                int i = 0;
+                                ItemStack lb = new createLuckyBlocks().getRandomBlockWeighted();
+                                player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
+                                player.getWorld().dropItemNaturally(loc, lb);
 
-                                @Override
-                                public void run()
-                                {
-                                    ItemStack lb = new createLuckyBlocks().getRandomBlockWeighted();
-                                    player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
-                                    player.getWorld().dropItemNaturally(loc, lb);
+                                i++;
 
-                                    i++;
-
-                                    if (i >= 2)
-                                        this.cancel();
-                                }
-                            }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 1L);
-                        }
-                        handle(loc, player, bed, true, "ingame");
+                                if (i >= 2)
+                                    this.cancel();
+                            }
+                        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, 1L);
                     }
-                    this.cancel();
+                    handle(loc, player, bed, true, "ingame");
                 }
-            };
-            runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1);
+                this.cancel();
+            }
+        };
+        runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1);
     }
 
     public void handle(Location loc, Player player, String bed, boolean real, String override)
