@@ -10,6 +10,7 @@ import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
 
 import java.util.List;
 import java.util.Locale;
@@ -62,7 +63,7 @@ public class RepeatedItemCommand implements SubCommand
                     item.setAmount(Integer.parseInt(args[2]));
                     type = "normal";
 
-                    new giveItemRepeated(delay, item, player, type);
+                    new giveItemRepeated(delay, item, player, type, BedwarsAPI.getInstance().getGameOfPlayer((Player) sender));
                     player.sendMessage((ChatColor.AQUA + "You will receive luckyblocks,  " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
 
                 }
@@ -72,7 +73,7 @@ public class RepeatedItemCommand implements SubCommand
                     item.setAmount(Integer.parseInt(args[2]));
                     type = "normal";
 
-                    new giveItemRepeated(delay, item, player, type);
+                    new giveItemRepeated(delay, item, player, type, BedwarsAPI.getInstance().getGameOfPlayer((Player) sender));
                     player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
                 }
                 else
@@ -80,7 +81,7 @@ public class RepeatedItemCommand implements SubCommand
                     ItemStack item = new ItemStack(Objects.requireNonNull(Material.getMaterial(args[1])));
                     item.setAmount(Integer.parseInt(args[2]));
 
-                    new giveItemRepeated(delay, item, player, type);
+                    new giveItemRepeated(delay, item, player, type, BedwarsAPI.getInstance().getGameOfPlayer((Player) sender));
                     player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + item.getType().toString().toLowerCase(Locale.ROOT) + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
                 }
             }

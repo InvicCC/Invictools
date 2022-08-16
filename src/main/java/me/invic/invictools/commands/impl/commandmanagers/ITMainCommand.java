@@ -68,6 +68,6 @@ public class ITMainCommand extends MainCommand
         subCommands.add(new HauntCommand());
         subCommands.add(new InstantHauntCommand());
         subCommands.add(new LuckyblocksCommand());
-        subCommands.add(new RepeatedItemCommand());
+       // subCommands.add(new RepeatedItemCommand());
     }
 }
