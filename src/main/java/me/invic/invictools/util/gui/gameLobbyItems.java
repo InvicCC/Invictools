@@ -92,7 +92,7 @@ public class gameLobbyItems implements Listener
             meta = block.getItemMeta();
 
             lore = new ArrayList<>();
-            lore.add(startMsg);
+            lore.add(ChatColor.GRAY+"Click to start the game!");
 
             meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&a&lStart Game"));
             meta.setLore(lore);

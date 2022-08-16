@@ -75,7 +75,6 @@ public class BlazeNpc implements Listener
         if (entity)
         {
             ArmorStand as1 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, .3, 0), EntityType.ARMOR_STAND);
-
             as1.setGravity(false);
             as1.setCustomName(ChatColor.translateAlternateColorCodes('&', " "));
             as1.setCustomNameVisible(true);
@@ -101,8 +100,10 @@ public class BlazeNpc implements Listener
         }
         else
         {
-            ArmorStand as1 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(.7, .15, -.7), EntityType.ARMOR_STAND);
+            if(OldCommands.Invictools.getConfig().getBoolean("ShowTut",true))
+                tutorial();
 
+            ArmorStand as1 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(.7, .15, -.7), EntityType.ARMOR_STAND);
             as1.setGravity(false);
             as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&bPlayers in game:"));
             as1.setCustomNameVisible(true);
@@ -146,8 +147,40 @@ public class BlazeNpc implements Listener
                         ticker = 0;
                     }
                 }
-            }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1L, 20L);
+            }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1L, 60L);
         }
     }
 
+    private void tutorial()
+    {
+        Location loc = new Location(Bukkit.getWorld("bwlobby"),254.5,127.5,254.5);
+        ArmorStand as1 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, .3, 0), EntityType.ARMOR_STAND);
+        ArmorStand as2 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, .6, 0), EntityType.ARMOR_STAND);
+        ArmorStand as3 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, .9, 0), EntityType.ARMOR_STAND);
+        ArmorStand as4 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, .12, 0), EntityType.ARMOR_STAND);
+        ArmorStand as5 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, .15, 0), EntityType.ARMOR_STAND);
+
+        as1.setGravity(false);
+        as1.setCustomNameVisible(true);
+        as1.setVisible(false);
+        as2.setGravity(false);
+        as2.setCustomNameVisible(true);
+        as2.setVisible(false);
+        as3.setGravity(false);
+        as3.setCustomNameVisible(true);
+        as3.setVisible(false);
+        as4.setGravity(false);
+        as4.setCustomNameVisible(true);
+        as4.setVisible(false);
+        as5.setGravity(false);
+        as5.setCustomNameVisible(true);
+        as5.setVisible(false);
+
+        as5.setCustomName(ChatColor.translateAlternateColorCodes('&', "&b&lHow to Play:"));
+        as4.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fCreate a party: &b(/party invite <name> /party accept)"));
+        as3.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fChose a mode with the compass."));
+        as2.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fChange team size with the anvil"));
+        as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fUse /party warp to rejoin your party to the game"));
+
+    }
 }
