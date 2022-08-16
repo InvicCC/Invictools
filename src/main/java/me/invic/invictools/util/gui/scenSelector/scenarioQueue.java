@@ -29,12 +29,14 @@ public class scenarioQueue
 
     void print(List<Player> p)
     {
+        List<String> cleaned = ManhuntMain.cleanSyntax(commands);
+        if(cleaned.size() > 27)
         new BukkitRunnable()
         {
             @Override
             public void run()
             {
-                for(String s:ManhuntMain.cleanSyntax(commands))
+                for(String s:cleaned)
                 {
                     p.forEach((pl) -> pl.sendMessage(s));
                 }
@@ -50,7 +52,7 @@ public class scenarioQueue
 
     void removeCommand(String s)
     {
-        commands.add(s);
+        commands.remove(s);
     }
 
     int loadedCommands()

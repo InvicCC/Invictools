@@ -8,16 +8,16 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
+import org.screamingsandals.bedwars.api.game.Game;
 
 import java.util.Map;
 import java.util.Objects;
 
 public class giveItemRepeated // specific item handled in commands.java
 {
-    public giveItemRepeated(int delay, ItemStack item, Player player, String type) // delay in seconds, type random / normal, give paper for random item, give sea lantern for random lucky block
+    public giveItemRepeated(int delay, ItemStack item, Player player, String type, Game game) // delay in seconds, type random / normal, give paper for random item, give sea lantern for random lucky block
     {
-        String worldname = player.getWorld().getName();
-
         new BukkitRunnable()
         {
             @Override
@@ -26,7 +26,7 @@ public class giveItemRepeated // specific item handled in commands.java
                 if (!repeatedCancel)
                 {
                     // System.out.println(player.getWorld().getName() + " "+worldname);
-                    if (player.getWorld().getName().equalsIgnoreCase(worldname))
+                    if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player) && BedwarsAPI.getInstance().getGameOfPlayer(player).equals(game))
                     {
                         if (type.equalsIgnoreCase("normal"))
                         {

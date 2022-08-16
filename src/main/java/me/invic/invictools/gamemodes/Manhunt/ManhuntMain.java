@@ -51,7 +51,7 @@ public class ManhuntMain
         List<String> HuntedModifiers = cleanSyntax(HuntedEffects);
         if (realmanhunt)
         {
-            HunterModifiers.add(ChatColor.AQUA + "You are hunting the team of " + ChatColor.YELLOW + hunted.getName());
+            HunterModifiers.add(ChatColor.AQUA + "You are hunting the team of " + ChatColor.WHITE + hunted.getName());
             HunterModifiers.add(" ");
             HuntedModifiers.add(ChatColor.AQUA + "You are being hunted");
             HuntedModifiers.add(" ");
@@ -325,10 +325,10 @@ public class ManhuntMain
         if (OldCommands.teammates.get(hunted) != null)
         {
             ManhuntTeam.put(OldCommands.teammates.get(hunted), Hunted);
-            // Commands.teammates.get(hunted).sendMessage(ChatColor.AQUA + "You are about to be " + ChatColor.YELLOW + Hunted);
+            // Commands.teammates.get(hunted).sendMessage(ChatColor.AQUA + "You are about to be " + ChatColor.WHITE + Hunted);
         }
         ManhuntTeam.put(hunted, Hunted);
-        //   hunted.sendMessage(ChatColor.AQUA + "You are about to be " + ChatColor.YELLOW + Hunted);
+        //   hunted.sendMessage(ChatColor.AQUA + "You are about to be " + ChatColor.WHITE + Hunted);
 
         for (Player player : Bukkit.getOnlinePlayers())
         {
@@ -348,7 +348,7 @@ public class ManhuntMain
             list.add(" ");
         }
 
-        list.add(ChatColor.GOLD + "Your modifiers for this round:");
+        list.add(ChatColor.WHITE + "Your modifiers for this round:");
         list.add(" ");
 
         for (String command : effects)
@@ -358,6 +358,7 @@ public class ManhuntMain
             commandSplit[1] = commandSplit[1].toLowerCase(Locale.ROOT);
             switch (commandSplit[1])
             {
+                case "alwaysbridge":
                 case "alwaysbridgesingle":
                     currentEffect = ChatColor.AQUA + "  - Automatically bridge with wool in your hotbar (Hold sneak to disable)";
                     list.add(currentEffect);
@@ -369,13 +370,13 @@ public class ManhuntMain
                 case "deathitems":
                     if (commandSplit[4].equalsIgnoreCase("normal"))
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " + removeUnderscores(commandSplit[2]).toLowerCase(Locale.ROOT) + "(s) " + ChatColor.AQUA + "after dying ";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.WHITE + commandSplit[3] + " " + removeUnderscores(commandSplit[2]).toLowerCase(Locale.ROOT) + "(s) " + ChatColor.AQUA + "after dying ";
                         list.add(currentEffect);
                         break;
                     }
                     else
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " + TranslateCustomItem(commandSplit[2]) + ChatColor.AQUA + "(s) after dying ";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.WHITE + commandSplit[3] + " " + TranslateCustomItem(commandSplit[2]) + ChatColor.AQUA + "(s) after dying ";
                         list.add(currentEffect);
                         break;
                     }
@@ -388,66 +389,83 @@ public class ManhuntMain
                     list.add(currentEffect);
                     break;
                 case "closeteammateeffectsingle":
-                    currentEffect = ChatColor.AQUA + "  - When near your teammate, receive " + ChatColor.YELLOW + translatePotion(commandSplit[2]) + " " + commandSplit[3];
+                    currentEffect = ChatColor.AQUA + "  - When near your teammate, receive " + ChatColor.WHITE + translatePotion(commandSplit[2]) + " " + commandSplit[3];
                     list.add(currentEffect);
                     break;
                 case "creative":
-                    currentEffect = ChatColor.AQUA + "  - Enter creative every " + ChatColor.YELLOW + commandSplit[2] + ChatColor.AQUA + " seconds";
+                    currentEffect = ChatColor.AQUA + "  - Enter creative every " + ChatColor.WHITE + commandSplit[2] + ChatColor.AQUA + " seconds";
+                    list.add(currentEffect);
+                    break;
+                case "creativeall":
+                    currentEffect = ChatColor.AQUA + "  - Enter creative randomly ";
                     list.add(currentEffect);
                     break;
                 case "single": // bw effects
                     if (commandSplit[3].equalsIgnoreCase("c") || commandSplit[3].equalsIgnoreCase("constant"))
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + translatePotion(commandSplit[2]) + " " + commandSplit[4];
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.WHITE + translatePotion(commandSplit[2]) + " " + commandSplit[4];
                         list.add(currentEffect);
                     }
                     else if (commandSplit[3].equalsIgnoreCase("p") || commandSplit[3].equalsIgnoreCase("procedural"))
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + translatePotion(commandSplit[2]) + ChatColor.AQUA + " at an increasing level";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.WHITE + translatePotion(commandSplit[2]) + ChatColor.AQUA + " at an increasing level";
                         list.add(currentEffect);
                     }
                     break;
                 case "randomeffectsingle":
-                    currentEffect = ChatColor.AQUA + "  - Receive random effects every " + ChatColor.YELLOW + commandSplit[3] + ChatColor.AQUA + " seconds ";
+                    currentEffect = ChatColor.AQUA + "  - Receive random effects every " + ChatColor.WHITE + commandSplit[3] + ChatColor.AQUA + " seconds ";
                     list.add(currentEffect);
                     break;
                 case "sethealth":
-                    currentEffect = ChatColor.AQUA + "  - You have " + ChatColor.YELLOW + commandSplit[3] + ChatColor.AQUA + " health ";
+                    currentEffect = ChatColor.AQUA + "  - You have " + ChatColor.WHITE + commandSplit[3] + ChatColor.AQUA + " health ";
                     list.add(currentEffect);
                     break;
+                case "tnt":
                 case "tntsingle":
-                    currentEffect = ChatColor.RED + "  - Tnt spawns on you every " + ChatColor.YELLOW + commandSplit[2] + ChatColor.AQUA + " seconds ";
+                    currentEffect = ChatColor.RED + "  - Tnt spawns on you every " + ChatColor.WHITE + commandSplit[2] + ChatColor.AQUA + " seconds ";
                     list.add(currentEffect);
                     break;
                 case "repeateditem":
                     if (commandSplit[5].equalsIgnoreCase("normal"))
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " + removeUnderscores(commandSplit[2]).toLowerCase(Locale.ROOT) + "(s) " + ChatColor.AQUA + "every " + ChatColor.YELLOW + commandSplit[4] + ChatColor.AQUA + " seconds ";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.WHITE + commandSplit[3] + " " + removeUnderscores(commandSplit[2]).toLowerCase(Locale.ROOT) + "(s) " + ChatColor.AQUA + "every " + ChatColor.WHITE + commandSplit[4] + ChatColor.AQUA + " seconds ";
                         list.add(currentEffect);
                     }
                     else
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " + TranslateCustomItem(commandSplit[2]) + "(s) " + ChatColor.AQUA + "every " + ChatColor.YELLOW + commandSplit[4] + ChatColor.AQUA + " seconds ";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.WHITE + commandSplit[3] + " " + TranslateCustomItem(commandSplit[2]) + "(s) " + ChatColor.AQUA + "every " + ChatColor.WHITE + commandSplit[4] + ChatColor.AQUA + " seconds ";
                         list.add(currentEffect);
                     }
                     break;
                 case "killeffects":
-                    currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + translatePotion(commandSplit[2]) + ChatColor.AQUA + " after killing a player";
+                    currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.WHITE + translatePotion(commandSplit[2]) + ChatColor.AQUA + " after killing a player";
                     list.add(currentEffect);
                     break;
                 case "killitems":
                     if (commandSplit[4].equalsIgnoreCase("normal"))
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " + removeUnderscores(commandSplit[2]).toLowerCase(Locale.ROOT) + "(s) " + ChatColor.AQUA + "after killing a player ";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.WHITE + commandSplit[3] + " " + removeUnderscores(commandSplit[2]).toLowerCase(Locale.ROOT) + "(s) " + ChatColor.AQUA + "after killing a player ";
                         list.add(currentEffect);
                         break;
                     }
                     else
                     {
-                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.YELLOW + commandSplit[3] + " " + TranslateCustomItem(commandSplit[2]) + ChatColor.AQUA + "(s) after killing a player ";
+                        currentEffect = ChatColor.AQUA + "  - Receive " + ChatColor.WHITE + commandSplit[3] + " " + TranslateCustomItem(commandSplit[2]) + ChatColor.AQUA + "(s) after killing a player ";
                         list.add(currentEffect);
                         break;
                     }
+                case "totems":
+                    currentEffect = ChatColor.AQUA + "  - Instead of dying, you will activate a totem ";
+                    list.add(currentEffect);
+                    break;
+                case "lucky":
+                    currentEffect = ChatColor.AQUA + "  - Lucky Blocks will spawn from spawners, drop from players, and drop from beds ";
+                    list.add(currentEffect);
+                    break;
+                case "nostats":
+                    currentEffect = ChatColor.AQUA + "  - Stats will not track";
+                    list.add(currentEffect);
+                    break;
                 default:
                     currentEffect = command;
                     list.add(currentEffect);

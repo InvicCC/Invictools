@@ -1,6 +1,7 @@
 package me.invic.invictools.gamemodifiers;
 
 import me.invic.invictools.util.TableToList;
+import me.invic.invictools.util.disableStats;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -64,25 +65,27 @@ public class ItemRain
 
     public ItemRain(List<ItemStack> table, Player player)
     {
-        int shift;
-        switch (api.getGameOfPlayer(player).getName())
-        {
-            case "MonasteryV2":
-                shift = 500;
-                break;
-            default:
-                shift = 0;
-        }
+        Location center = BedwarsAPI.getInstance().getGameOfPlayer(player).getLobbySpawn();
 
         final Random rand = new Random();
-        int x;
-        int z;
+        int x = (int) center.getX();
+        int z = (int) center.getZ();;
+        int range;
+
+        if(disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
+        {
+            range = 50;
+        }
+        else
+        {
+            range = 100;
+        }
 
         for (ItemStack item : table)
         {
             int amount = item.getAmount();
-            x = (rand.nextInt(200) - 100) + shift;
-            z = (rand.nextInt(200) - 100) + shift;
+            x += (rand.nextInt(range*2) - range);
+            z += (rand.nextInt(range*2) - range);
             Location loc = new Location(player.getWorld(), x, 150, z);
             switch (item.getType().toString())
             {

@@ -18,7 +18,10 @@ public class Haunt
 {
     public Haunt(Player player, String config)
     {
-        player.setGameMode(GameMode.CREATIVE);
+        player.setGameMode(GameMode.SURVIVAL);
+        player.setAllowFlight(true);
+        player.setFlying(true);
+        player.setInvulnerable(true);
         player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 999999999, 0, false, false));
         player.getInventory().setItem(39, new ItemStack(Material.DRAGON_EGG));
 

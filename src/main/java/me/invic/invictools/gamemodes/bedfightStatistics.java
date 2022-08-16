@@ -37,6 +37,7 @@ public class bedfightStatistics implements Listener
     static HashMap<UUID,Integer> Win = new HashMap<>();
     static HashMap<UUID,Integer> Loss = new HashMap<>();
     static HashMap<UUID,Integer> BedBreak = new HashMap<>();
+    static HashMap<UUID,Integer> WinStreak = new HashMap<>();
     static HashMap<UUID,Game> Game = new HashMap<>();
 
     FileConfiguration config = OldCommands.Invictools.getConfig();
@@ -61,6 +62,7 @@ public class bedfightStatistics implements Listener
         score += file.getInt("data."+uuid+".BedBreaks")*BedBreakScore;
         score += file.getInt("data."+uuid+".Wins")*WinScore;
         score += file.getInt("data."+uuid+".Losses")*LossScore;
+        score += file.getInt("data."+uuid+".BestWinStreak")^2*2;
         return score;
     }
 
@@ -172,6 +174,7 @@ public class bedfightStatistics implements Listener
             BedBreak.put(p.getUniqueId(),stats.getInt("data."+p.getUniqueId()+".BedBreaks"));
             Win.put(p.getUniqueId(),stats.getInt("data."+p.getUniqueId()+".Wins"));
             Loss.put(p.getUniqueId(),stats.getInt("data."+p.getUniqueId()+".Losses"));
+            WinStreak.put(p.getUniqueId(),stats.getInt("data."+p.getUniqueId()+".WinStreak"));
             Game.put(p.getUniqueId(),e.getGame());
         }
     }
@@ -199,6 +202,9 @@ public class bedfightStatistics implements Listener
                 stats.set("data."+uuid+".Losses",Loss.get(uuid));
                 stats.set("data."+uuid+".BedBreaks",BedBreak.get(uuid));
                 stats.set("data."+uuid+".Username",Bukkit.getOfflinePlayer(uuid).getName());
+                stats.set("data."+uuid+".WinStreak",WinStreak.get(uuid));
+                if(WinStreak.get(uuid) > stats.getInt("data."+uuid+".BestWinStreak"))
+                    stats.set("data."+uuid+".BestWinStreak",WinStreak.get(uuid));
                 finalKill.remove(uuid);
                 finalDeath.remove(uuid);
                 normalKill.remove(uuid);
@@ -230,6 +236,12 @@ public class bedfightStatistics implements Listener
         bedfightFinalDeath(p);
         bedfightFinalKill(k);
         bedfightLoss(p);
+        resetWinStreak(p);
+    }
+
+    private void resetWinStreak(Player p)
+    {
+        WinStreak.put(p.getUniqueId(),0);
     }
 
     private void normalLogic(Player k, Player p)
@@ -264,6 +276,7 @@ public class bedfightStatistics implements Listener
     private void bedfightWin(Player p)
     {
         Win.put(p.getUniqueId(),Win.get(p.getUniqueId())+1);
+        WinStreak.put(p.getUniqueId(),Win.getOrDefault(p.getUniqueId(),0)+1);
         new givePoints(p,"BedfightWin");
     }
 

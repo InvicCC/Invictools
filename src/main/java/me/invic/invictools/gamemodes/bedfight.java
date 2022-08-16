@@ -143,8 +143,14 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                                                 p.setInvulnerable(false);
                                             }
                                         }.runTaskLater(OldCommands.Invictools, 50L);
-
-                                        spawnPoints.remove(p);
+                                        new BukkitRunnable()
+                                        {
+                                            @Override
+                                            public void run()
+                                            {
+                                                spawnPoints.remove(p);
+                                            }
+                                        }.runTaskLater(OldCommands.Invictools, 1L);
                                         saveBedfightInventory(loadout, p, false);
                                         p.playSound(p.getLocation(),Sound.ENTITY_ENDER_DRAGON_GROWL,1,1);
                                         p.sendTitle(ChatColor.translateAlternateColorCodes('&', "&eGame Started!"), ChatColor.translateAlternateColorCodes('&', "&fGood Luck"), 20, 50, 15);
@@ -209,9 +215,8 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
     @EventHandler
     public void drops(EntityPickupItemEvent e)
     {
-        if(e.getEntity() instanceof Player)
+        if(e.getEntity() instanceof Player p)
         {
-            Player p = (Player) e.getEntity();
             if(spawnPoints.containsKey(p))
                 e.setCancelled(true);
         }
@@ -228,7 +233,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
             @Override
             public void run()
             {
-                if(e.getGame().getStatus().equals(GameStatus.RUNNING))
+                if(e.getGame().getStatus().equals(GameStatus.RUNNING) && e.getGame().getTeamOfPlayer(e.getPlayer()) != null)
                     loadBedfightInventory(loadout, e.getPlayer(), false);
             }
         }.runTaskLater(OldCommands.Invictools, 20 * 3+1);
@@ -277,7 +282,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
 
                             if (face.getOppositeFace().equals(findBedFace(loc)) && spacing > 0) // true if opposite other half of bed
                             {
-                                System.out.println("entering for " + finalLayer);
+                               // System.out.println("entering for " + finalLayer);
                                 List<BlockFace> directions = new ArrayList<>(d); // block face list of left and right from opposite bed face
                                 directions.remove(face);
                                 directions.remove(BlockFace.UP);

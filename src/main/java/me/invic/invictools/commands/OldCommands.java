@@ -1232,7 +1232,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
                 }
                 else if (args[1].equalsIgnoreCase("all"))
                 {
-                    for (Player o : Bukkit.getOnlinePlayers())
+                    for (Player o : BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getConnectedPlayers())
                     {
                         if (o.getWorld().equals(p.getWorld()) && o.getGameMode().equals(GameMode.SURVIVAL))
                         {
@@ -1412,7 +1412,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
             {
                 if (args[1].equalsIgnoreCase("all"))
                 {
-                    for (Player player : Bukkit.getOnlinePlayers())
+                    for (Player player : BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getConnectedPlayers())
                     {
                         InfiniteTotems.put(player, true);
                         player.sendMessage(ChatColor.AQUA + "You are now nearly immortal");
@@ -1539,7 +1539,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
             {
                 if (args[5].equalsIgnoreCase("all"))
                 {
-                    for (Player player : Bukkit.getOnlinePlayers())
+                    for (Player player : BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getConnectedPlayers())
                     {
                         int delay = Integer.parseInt(args[3]);
                         String type = args[4];
@@ -1549,7 +1549,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
                             item.setAmount(Integer.parseInt(args[2]));
                             type = "normal";
 
-                            new giveItemRepeated(delay, item, player, type);
+                            new giveItemRepeated(delay, item, player, type, BedwarsAPI.getInstance().getGameOfPlayer((Player)sender));
                             player.sendMessage((ChatColor.AQUA + "You will receive luckyblocks,  " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
 
                         }
@@ -1559,7 +1559,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
                             item.setAmount(Integer.parseInt(args[2]));
                             type = "normal";
 
-                            new giveItemRepeated(delay, item, player, type);
+                            new giveItemRepeated(delay, item, player, type, BedwarsAPI.getInstance().getGameOfPlayer((Player)sender));
                             player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
                         }
                         else
@@ -1567,7 +1567,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
                             ItemStack item = new ItemStack(Objects.requireNonNull(Material.getMaterial(args[1])));
                             item.setAmount(Integer.parseInt(args[2]));
 
-                            new giveItemRepeated(delay, item, player, type);
+                            new giveItemRepeated(delay, item, player, type, BedwarsAPI.getInstance().getGameOfPlayer((Player)sender));
                             player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + item.getType().toString().toLowerCase(Locale.ROOT) + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
                         }
                     }
@@ -1583,7 +1583,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
                         item.setAmount(Integer.parseInt(args[2]));
                         type = "normal";
 
-                        new giveItemRepeated(delay, item, player, type);
+                        new giveItemRepeated(delay, item, player, type, BedwarsAPI.getInstance().getGameOfPlayer((Player)sender));
                         player.sendMessage((ChatColor.AQUA + "You will receive luckyblocks,  " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
 
                     }
@@ -1593,7 +1593,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
                         item.setAmount(Integer.parseInt(args[2]));
                         type = "normal";
 
-                        new giveItemRepeated(delay, item, player, type);
+                        new giveItemRepeated(delay, item, player, type, BedwarsAPI.getInstance().getGameOfPlayer((Player)sender));
                         player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + args[1] + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
                     }
                     else
@@ -1601,7 +1601,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
                         ItemStack item = new ItemStack(Objects.requireNonNull(Material.getMaterial(args[1])));
                         item.setAmount(Integer.parseInt(args[2]));
 
-                        new giveItemRepeated(delay, item, player, type);
+                        new giveItemRepeated(delay, item, player, type, BedwarsAPI.getInstance().getGameOfPlayer((Player)sender));
                         player.sendMessage((ChatColor.AQUA + "You will receive " + ChatColor.YELLOW + item.getAmount() + " " + item.getType().toString().toLowerCase(Locale.ROOT) + ChatColor.AQUA + " every " + ChatColor.YELLOW + delay + ChatColor.AQUA + " seconds."));
                     }
                 }
@@ -1610,7 +1610,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
             {
                 if (args[4].equals("all"))
                 {
-                    for (Player player : Bukkit.getOnlinePlayers())
+                    for (Player player : BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getConnectedPlayers())
                     {
                         killEffects.put(player, args[1] + "-" + args[2] + "-" + args[3]); // pot type, levles, duartion
                         World world = player.getWorld();
@@ -1650,7 +1650,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
             {
                 if (args[4].equals("all"))
                 {
-                    for (Player player : Bukkit.getOnlinePlayers())
+                    for (Player player : BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getConnectedPlayers())
                     {
                         if (args[3].equalsIgnoreCase("normal"))
                         {
@@ -1785,7 +1785,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
             {
                 if (args[4].equals("all"))
                 {
-                    for (Player player : Bukkit.getOnlinePlayers())
+                    for (Player player : BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getConnectedPlayers())
                     {
                         if (args[3].equalsIgnoreCase("normal"))
                         {
@@ -2031,7 +2031,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
             {
                 Player player = (Player) sender;
                 sender.sendMessage(ChatColor.AQUA + "giving effects when you're near your teammate");
-                for (Player p : Bukkit.getOnlinePlayers())
+                for (Player p : BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getConnectedPlayers())
                 {
                     if (player.getWorld().equals(p.getWorld()))
                     {
@@ -2049,7 +2049,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
             {
                 if (args[2].equalsIgnoreCase("random"))
                 {
-                    Player player = Bukkit.getOnlinePlayers().stream().skip((int) (Bukkit.getOnlinePlayers().size() * Math.random())).findFirst().orElse(null);
+                    Player player = BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getConnectedPlayers().stream().skip((int) (Bukkit.getOnlinePlayers().size() * Math.random())).findFirst().orElse(null);
                     new ManhuntMain(args[1], player);
                 }
                 else
@@ -2265,14 +2265,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
             }
             else if (args.length >= 1 && args[0].equalsIgnoreCase("creative"))
             {
-                Player player = (Player) sender;
-                worldName = player.getLocation().getWorld().getName();
-
-                name = args[3];
-                int intervalBetween = Integer.parseInt(args[1]);
-                int timeIn = Integer.parseInt(args[2]);
-                new creative(intervalBetween, timeIn, name);
-                sender.sendMessage(ChatColor.AQUA + "Entering creative mode for " + ChatColor.YELLOW + timeIn + ChatColor.AQUA + " seconds every " + ChatColor.YELLOW + intervalBetween + ChatColor.AQUA + " seconds in world " + ChatColor.YELLOW + worldName + ChatColor.AQUA + " for player " + ChatColor.YELLOW + name);
+                sender.sendMessage(ChatColor.AQUA + "Deprecated command");
             }
             else if (args.length == 3 && args[0].equalsIgnoreCase("tnt"))
             {

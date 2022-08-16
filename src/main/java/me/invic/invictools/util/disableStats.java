@@ -9,10 +9,13 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
+import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsGameStartedEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsSavePlayerStatisticEvent;
 import org.screamingsandals.bedwars.api.game.Game;
+import org.screamingsandals.bedwars.api.game.GameStatus;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -39,6 +42,19 @@ public class disableStats implements Listener
         {
             e.setCancelled(true);
         }
+
+        if(singleDisable.contains(BedwarsAPI.getInstance().getGameOfPlayer(Bukkit.getPlayer(recentGame.get(e.getPlayerStatistic().getName())))))
+        {
+            new BukkitRunnable()
+            {
+                @Override
+                public void run()
+                {
+                    if(BedwarsAPI.getInstance().getGameOfPlayer(Bukkit.getPlayer(recentGame.get(e.getPlayerStatistic().getName()))).getStatus().equals(GameStatus.WAITING))
+                        singleDisable.remove(BedwarsAPI.getInstance().getGameOfPlayer(Bukkit.getPlayer(recentGame.get(e.getPlayerStatistic().getName()))));
+                }
+            }.runTaskLater(OldCommands.Invictools, 50L);
+        }
     }
 
     @EventHandler
@@ -55,16 +71,30 @@ public class disableStats implements Listener
         {
             for (Player p : e.getGame().getConnectedPlayers())
             {
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&l(!) &r&fStats will not track this match"));
-                p.playSound(p.getLocation(), Sound.ENTITY_VILLAGER_NO, 1, 1);
+                new BukkitRunnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&l(!) &r&fStats will not track this match"));
+                        p.playSound(p.getLocation(), Sound.ENTITY_VILLAGER_NO, 1, 1);
+                    }
+                }.runTaskLater(OldCommands.Invictools, 25L);
             }
         }
         else if(!shouldTrack(e.getGame().getConnectedPlayers().get(0)) && !getGameType(e.getGame()).equalsIgnoreCase("bedfight"))
         {
             for (Player p : e.getGame().getConnectedPlayers())
             {
-                p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&l(!) &r&fStats will not track this match"));
-                p.playSound(p.getLocation(), Sound.ENTITY_VILLAGER_NO, 1, 1);
+                new BukkitRunnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&b&l(!) &r&fStats will not track this match"));
+                        p.playSound(p.getLocation(), Sound.ENTITY_VILLAGER_NO, 1, 1);
+                    }
+                }.runTaskLater(OldCommands.Invictools, 25L);
             }
         }
     }

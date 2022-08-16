@@ -58,7 +58,7 @@ public class LuckyBlockSpawner
             @Override
             public void run()
             {
-                if (!new gamemodeData().getLuckyBlockMode(BedwarsAPI.getInstance().getGameOfPlayer(p)).equalsIgnoreCase("none"))
+                if (new gamemodeData().getLuckyBlockMode(BedwarsAPI.getInstance().getGameOfPlayer(p)).equalsIgnoreCase("none"))
                 {
                     as1.remove();
                     as2.remove();

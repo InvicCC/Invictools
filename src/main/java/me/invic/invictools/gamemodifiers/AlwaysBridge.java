@@ -64,7 +64,8 @@ public class AlwaysBridge
                                 Location loc2 = SecondBlockLocation(player, player.getLocation().getBlock().getRelative(BlockFace.DOWN).getLocation());
                                 if (loc2.getBlock().getType().equals(Material.AIR))
                                 {
-                                    loc2.getBlock().setType(player.getInventory().getItem(size).getType());
+                                    if(player.getInventory().getItem(size) != null)
+                                        loc2.getBlock().setType(player.getInventory().getItem(size).getType());
                                     if(!disableStats.getGameType(api.getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
                                         player.getInventory().getItem(size).setAmount(player.getInventory().getItem(size).getAmount() - 1);
                                     BukkitRunnable runnable = new BukkitRunnable()

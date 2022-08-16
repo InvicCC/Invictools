@@ -1,6 +1,7 @@
 package me.invic.invictools.commands;
 
 import me.invic.invictools.gamemodifiers.LuckyBlocks.LuckyBlockSpawner;
+import me.invic.invictools.gamemodifiers.creative;
 import me.invic.invictools.gamemodifiers.gamemodeData;
 import me.invic.invictools.util.ingame.LobbyLogic;
 import me.invic.invictools.util.disableStats;
@@ -8,6 +9,7 @@ import me.invic.invictools.util.fixes.Protocol47Fix;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.block.data.type.Bed;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -41,6 +43,9 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         if(args.length == 1)
         {
             tabComplete.add("lucky");
+            tabComplete.add("creative");
+            tabComplete.add("creativeall");
+            tabComplete.add("nostats");
         }
         else if(args.length == 2 && args[0].equalsIgnoreCase("lucky"))
         {
@@ -81,6 +86,38 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         else if(args.length==3 && args[0].equalsIgnoreCase("lucky"))
         {
             luckyblockEnable(Bukkit.getPlayer(args[2]),args[1]);
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("nostats") && sender instanceof Player)
+        {
+            disableStats.singleDisable.add(BedwarsAPI.getInstance().getGameOfPlayer((Player) sender));
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("creativeall") && sender instanceof Player)
+        {
+            if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame((Player) sender))
+                sender.sendMessage(ChatColor.RED+"Must be activated in game!");
+
+            boolean isBedfight = disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender))).equalsIgnoreCase("bedfight");
+
+            for(Player p: BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender)).getConnectedPlayers())
+            {
+                if(isBedfight)
+                    new creative(60,10,p,BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender)));
+                else
+                    new creative(180,20,p,BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender)));
+            }
+        }
+        else if(args.length == 2 && args[0].equalsIgnoreCase("creative") && sender instanceof Player)
+        {
+            Player p = Bukkit.getPlayer(args[1]);
+            if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+                sender.sendMessage(ChatColor.RED+"Must be activated in game!");
+
+            boolean isBedfight = disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(p)).equalsIgnoreCase("bedfight");
+
+                if(isBedfight)
+                    new creative(60,10,p,BedwarsAPI.getInstance().getGameOfPlayer(p));
+                else
+                    new creative(180,20,p,BedwarsAPI.getInstance().getGameOfPlayer((p)));
         }
 
         return true;

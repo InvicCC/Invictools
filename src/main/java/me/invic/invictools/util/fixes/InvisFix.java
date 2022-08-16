@@ -1,5 +1,6 @@
 package me.invic.invictools.util.fixes;
 
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,7 +12,7 @@ public class InvisFix implements Listener
     @EventHandler
     public void InvisWatcher(EntityDamageEvent e)
     {
-        if (e.getEntity() instanceof Player)
+        if (e.getEntity() instanceof Player && ((Player)e.getEntity()).hasPotionEffect(PotionEffectType.INVISIBILITY))
         {
             if (!e.getCause().equals(EntityDamageEvent.DamageCause.DROWNING)
                     && !e.getCause().equals(EntityDamageEvent.DamageCause.FALL)
@@ -23,8 +24,8 @@ public class InvisFix implements Listener
                     && !e.getCause().equals(EntityDamageEvent.DamageCause.WITHER))
             {
                 Player p = (Player) e.getEntity();
-                if (p.hasPotionEffect(PotionEffectType.INVISIBILITY))
-                    p.removePotionEffect(PotionEffectType.INVISIBILITY);
+                p.removePotionEffect(PotionEffectType.INVISIBILITY);
+                p.sendMessage(ChatColor.RED+"You have lost your invisiblity!");
             }
         }
     }

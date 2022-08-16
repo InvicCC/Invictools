@@ -1,6 +1,7 @@
 package me.invic.invictools.commands;
 
 import me.invic.invictools.gamemodes.bedfight;
+import me.invic.invictools.util.disableStats;
 import me.invic.invictools.util.queue;
 import me.invic.invictools.util.safeSizeChange;
 import org.bukkit.Bukkit;
@@ -76,62 +77,6 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
             new bedfight().loadBedfightInventory(args[2], Bukkit.getPlayer(args[1]), true);
             sender.sendMessage(ChatColor.AQUA + "reset bedfight inventory " + args[2] +" for " + args[1]);
         }
-        else if(args[0].equalsIgnoreCase("test") && args[1].equalsIgnoreCase("bfq"))
-        {
-            if(sender instanceof Player)
-            {
-                Player p = (Player)sender;
-                new joinCommands().safeInventorySave();
-                queue.activeBedfightGame.joinToGame(p);
-                sender.sendMessage(ChatColor.AQUA+"Sending you to "+ChatColor.WHITE + queue.activeBedfightGame.getName());
-                new BukkitRunnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        System.out.println(p.getWorld().getName());
-                        if(p.getWorld().equals(Bukkit.getWorld("bwlobby")))
-                        {
-                            queue.activeBedfightGame = new queue().getRandomGame("bedfight");
-                            queue.activeBedfightGame.joinToGame(p);
-                            sender.sendMessage(ChatColor.AQUA+"Map load failure, Sending you to "+ChatColor.WHITE + queue.activeBedfightGame.getName());
-                        }
-                    }
-                }.runTaskLater(OldCommands.Invictools, 5L);
-            }
-            else
-            {
-                sender.sendMessage("Must be a player to execute this");
-            }
-        }
-        else if(args[0].equalsIgnoreCase("test") && args[1].equalsIgnoreCase("bwq"))
-        {
-            if(sender instanceof Player)
-            {
-                Player p = (Player)sender;
-                new joinCommands().safeInventorySave();
-                queue.activeBedwarsGame.joinToGame(p);
-                sender.sendMessage(ChatColor.AQUA+"Sending you to "+ChatColor.WHITE + queue.activeBedwarsGame.getName());
-                new BukkitRunnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        System.out.println(p.getWorld().getName());
-                        if(p.getWorld().equals(Bukkit.getWorld("bwlobby")))
-                        {
-                            queue.activeBedwarsGame = new queue().getRandomGame("normal");
-                            queue.activeBedwarsGame.joinToGame(p);
-                            sender.sendMessage(ChatColor.AQUA+"Map load failure, Sending you to "+ChatColor.WHITE + queue.activeBedwarsGame.getName());
-                        }
-                    }
-                }.runTaskLater(OldCommands.Invictools, 5L);
-            }
-            else
-            {
-                sender.sendMessage("Must be a player to execute this");
-            }
-        }
         else if(args[0].equalsIgnoreCase("debug"))
         {
             OldCommands.debug(sender);
@@ -152,27 +97,19 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
     {
         List<Player> players = game.getConnectedPlayers();
 
-        boolean swapTrack = false;
-        if(OldCommands.StatsTrack)
-        {
-            OldCommands.StatsTrack = false;
-            swapTrack = true;
-        }
-
+        disableStats.singleDisable.add(game);
         for (Player p:players)
         {
             game.leaveFromGame(p);
         }
 
-        boolean finalSwapTrack = swapTrack;
         new BukkitRunnable()
         {
             @Override
             public void run()
             {
-                if(finalSwapTrack)
-                    OldCommands.StatsTrack = true;
+                disableStats.singleDisable.remove(game);
             }
-        }.runTaskLater(OldCommands.Invictools, 20L);
+        }.runTaskLater(OldCommands.Invictools, 40L);
     }
 }

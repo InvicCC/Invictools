@@ -1,5 +1,6 @@
 package me.invic.invictools.util.gui.scenSelector;
 
+import com.mojang.authlib.minecraft.TelemetrySession;
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.util.disableStats;
 import me.invic.invictools.util.ingame.LobbyLogic;
@@ -90,12 +91,26 @@ public class perGameScenSelHolder implements Listener
             if(checkMapPermit(game,e.getCurrentItem().getItemMeta().getLore().get(0)) && checkModePermit(game,e.getCurrentItem(), e.getCurrentItem().getItemMeta().getLore().get(0)))
             {
                 if (e.getCurrentItem().getEnchantments().isEmpty())
-                    queue.get(BedwarsAPI.getInstance().getGameOfPlayer((Player) e.getWhoClicked())).addCommand(scenSelInventoryHandle.commands.getOrDefault(slotFromItem(e.getCurrentItem(),game),"broadcast error"));
+                {
+                    if(queue.get(BedwarsAPI.getInstance().getGameOfPlayer((Player) e.getWhoClicked())).loadedCommands() <= 5 || e.getWhoClicked().getName().equalsIgnoreCase("Invictable"))
+                    {
+                        queue.get(BedwarsAPI.getInstance().getGameOfPlayer((Player) e.getWhoClicked())).addCommand(scenSelInventoryHandle.commands.getOrDefault(slotFromItem(e.getCurrentItem(), game), "broadcast error"));
+                        ((Player) e.getWhoClicked()).playSound(e.getWhoClicked().getLocation(), Sound.BLOCK_CONDUIT_ACTIVATE,1,1);
+                        scenSelInventoryHandle.flipItem(e.getCurrentItem());
+                    }
+                    else
+                    {
+                        e.getWhoClicked().sendMessage(ChatColor.RED +"Too many Scenarios are already active.");
+                        ((Player) e.getWhoClicked()).playSound(e.getWhoClicked().getLocation(), Sound.ENTITY_VILLAGER_NO,1,1);
+                    }
+                }
                 else
+                {
                     queue.get(BedwarsAPI.getInstance().getGameOfPlayer((Player) e.getWhoClicked())).removeCommand(scenSelInventoryHandle.commands.getOrDefault(slotFromItem(e.getCurrentItem(),game),"broadcast error"));
+                    scenSelInventoryHandle.flipItem(e.getCurrentItem());
+                    ((Player) e.getWhoClicked()).playSound(e.getWhoClicked().getLocation(), Sound.BLOCK_CONDUIT_DEACTIVATE,1,1);
+                }
 
-                scenSelInventoryHandle.flipItem(e.getCurrentItem());
-                ((Player) e.getWhoClicked()).playSound(e.getWhoClicked().getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING,1,1);
             }
             else
             {
