@@ -257,6 +257,10 @@ public class PAPIexpansion extends PlaceholderExpansion
         {
             return data.getString("data."+player.getUniqueId()+".BestWinStreak",String.valueOf(0));
         }
+        else if(identifier.equalsIgnoreCase("coins"))
+        {
+            return String.valueOf(Invictools.econ.getBalance(player));
+        }
         return null;
     }
 }

@@ -1,7 +1,9 @@
 package me.invic.invictools.econ;
 
+import me.invic.invictools.Invictools;
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.util.disableStats;
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -61,7 +63,6 @@ public class givePoints implements Listener
     {
         int points = types.getOrDefault(type,5);
         totals.put(p,totals.getOrDefault(p,0)+points);
-        //todo: vault api integration
-        //Vaultapi.giveCoins(p,points)l
+        Invictools.econ.depositPlayer(p,points);
     }
 }

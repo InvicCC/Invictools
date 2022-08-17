@@ -153,12 +153,12 @@ public class BlazeNpc implements Listener
 
     private void tutorial()
     {
-        Location loc = new Location(Bukkit.getWorld("bwlobby"),254.5,127.5,254.5);
+        Location loc = new Location(Bukkit.getWorld("bwlobby"),254.5,126.5,254.5);
         ArmorStand as1 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, .3, 0), EntityType.ARMOR_STAND);
         ArmorStand as2 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, .6, 0), EntityType.ARMOR_STAND);
         ArmorStand as3 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, .9, 0), EntityType.ARMOR_STAND);
-        ArmorStand as4 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, .12, 0), EntityType.ARMOR_STAND);
-        ArmorStand as5 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, .15, 0), EntityType.ARMOR_STAND);
+        ArmorStand as4 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, 1.2, 0), EntityType.ARMOR_STAND);
+        ArmorStand as5 = (ArmorStand) Objects.requireNonNull(Bukkit.getWorld("bwlobby")).spawnEntity(loc.clone().add(0, 1.5, 0), EntityType.ARMOR_STAND);
 
         as1.setGravity(false);
         as1.setCustomNameVisible(true);
@@ -177,7 +177,7 @@ public class BlazeNpc implements Listener
         as5.setVisible(false);
 
         as5.setCustomName(ChatColor.translateAlternateColorCodes('&', "&b&lHow to Play:"));
-        as4.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fCreate a party: &b(/party invite <name> /party accept)"));
+        as4.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fCreate a party: (/party invite <name> /party accept)"));
         as3.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fChose a mode with the compass."));
         as2.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fChange team size with the anvil"));
         as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fUse /party warp to rejoin your party to the game"));

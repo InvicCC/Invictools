@@ -37,16 +37,19 @@ import me.invic.invictools.util.ingame.physics.CancelLampUpdates;
 import me.invic.invictools.util.ingame.physics.MasterPlayerJoin;
 import me.invic.invictools.util.ingame.physics.RiptideDamage;
 import me.invic.invictools.util.gui.scenSelector.perGameScenSelHolder;
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.permissions.Permission;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 
 /*
@@ -178,9 +181,29 @@ public final class Invictools extends JavaPlugin
         return instance;
     }
 
+    public static Economy econ = null;
+
+    private boolean setupEconomy() {
+        if (getServer().getPluginManager().getPlugin("Vault") == null) {
+            return false;
+        }
+
+        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+        if (rsp == null) {
+            return false;
+        }
+        econ = rsp.getProvider();
+        return econ != null;
+    }
+
     @Override
     public void onEnable()
     {
+        if (!setupEconomy() ) {
+            Logger.getLogger("Minecraft").severe(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
 
         registerCommandsAndEvents();
 
@@ -281,6 +304,7 @@ public final class Invictools extends JavaPlugin
         this.getCommand("queue").setExecutor(new joinCommands());
         this.getCommand("scen").setExecutor(new scenarioCommands());
         this.getCommand("invictaview").setExecutor(new InvicSpecCommand());
+        this.getCommand("coins").setExecutor(new econCommands());
 
         if(Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI"))
         {

@@ -39,6 +39,9 @@ commands:
   invictaview:
     usage: /invictaview
     description: spectates invic if he is not ingame
+  coins:
+    usage: /coins <player>
+    description: Shows how many Invictcoins you have
 permissions:
   invictools.*:
     description: Gives access the entire plugin
