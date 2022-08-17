@@ -16,6 +16,7 @@ import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerJoinEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerLeaveEvent;
 import org.screamingsandals.bedwars.api.game.Game;
+import org.screamingsandals.bedwars.api.game.GameStatus;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class gameLobbyItems implements Listener
 
     public void giveItems(Player p)
     {
-        if (!api.isPlayerPlayingAnyGame(p))
+        if (!api.isPlayerPlayingAnyGame(p) || !api.getGameOfPlayer(p).getStatus().equals(GameStatus.RUNNING))
             return;
 
         ItemStack block = new ItemStack(Material.RECOVERY_COMPASS);
@@ -92,7 +93,7 @@ public class gameLobbyItems implements Listener
             meta = block.getItemMeta();
 
             lore = new ArrayList<>();
-            lore.add(ChatColor.GRAY+"Click to start the game!");
+            lore.add(fastMsg);
 
             meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&a&lStart Game"));
             meta.setLore(lore);

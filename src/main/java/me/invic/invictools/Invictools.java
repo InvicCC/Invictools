@@ -6,6 +6,7 @@ import me.invic.invictools.cosmetics.LobbyListener;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceListener;
 import me.invic.invictools.cosmetics.bedbreaks.BedBreaks;
 import me.invic.invictools.cosmetics.ConfigHandler;
+import me.invic.invictools.cosmetics.cage;
 import me.invic.invictools.cosmetics.finalkills.FinalKillListener;
 import me.invic.invictools.econ.givePoints;
 import me.invic.invictools.gamemodes.bf.bedfight;
@@ -342,6 +343,7 @@ public final class Invictools extends JavaPlugin
 
                 new perGameScenSelHolder();
                 new givePoints();
+                cage.makeReqs();
 
             }
         };

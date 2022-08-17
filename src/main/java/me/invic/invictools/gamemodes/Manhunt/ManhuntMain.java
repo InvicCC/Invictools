@@ -412,6 +412,7 @@ public class ManhuntMain
                         list.add(currentEffect);
                     }
                     break;
+                case "randomeffect":
                 case "randomeffectsingle":
                     currentEffect = ChatColor.AQUA + "  - Receive random effects every " + ChatColor.WHITE + commandSplit[3] + ChatColor.AQUA + " seconds ";
                     list.add(currentEffect);

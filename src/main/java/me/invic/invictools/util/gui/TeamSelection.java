@@ -52,7 +52,7 @@ public class TeamSelection implements Listener
             {
                 new gameLobbyItems().giveItems(e.getPlayer());
             }
-        }.runTaskLater(OldCommands.Invictools, 20L);
+        }.runTaskLater(OldCommands.Invictools, 10L);
         // openInventory(e.getPlayer(),e.getGame(),false);
     }
 
