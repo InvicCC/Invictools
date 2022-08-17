@@ -75,7 +75,7 @@ public class CustomHealth
 
                         for (Player p : players)
                         {
-                            if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+                            if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p) && BedwarsAPI.getInstance().getGameOfPlayer(p).equals(game))
                             {
                                 AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
                                 assert attribute != null;
@@ -86,6 +86,8 @@ public class CustomHealth
                                 attribute.setBaseValue(DynamicHealth);
                                 p.setHealth(convert);
                             }
+                            else
+                                this.cancel();
                         }
                 }
             }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0, interval * 20L);
@@ -102,7 +104,7 @@ public class CustomHealth
 
                         for (Player p : players)
                         {
-                            if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+                            if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p) && BedwarsAPI.getInstance().getGameOfPlayer(p).equals(game))
                             {
                                 AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
                                 assert attribute != null;
@@ -113,6 +115,8 @@ public class CustomHealth
                                 attribute.setBaseValue(HV[0]);
                                 p.setHealth(convert);
                             }
+                            else
+                                this.cancel();
                         }
 
                         if (HV[0] > 2)

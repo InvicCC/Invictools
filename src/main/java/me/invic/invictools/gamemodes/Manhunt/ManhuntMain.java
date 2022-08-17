@@ -466,6 +466,10 @@ public class ManhuntMain
                     currentEffect = ChatColor.AQUA + "  - Stats will not track";
                     list.add(currentEffect);
                     break;
+                case "nofall":
+                    currentEffect = ChatColor.AQUA + "  - Fall damage is disabled";
+                    list.add(currentEffect);
+                    break;
                 default:
                     currentEffect = command;
                     list.add(currentEffect);

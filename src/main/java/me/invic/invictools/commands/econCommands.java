@@ -31,12 +31,12 @@ public class econCommands implements CommandExecutor, TabExecutor
 
         if (args.length == 0 && sender instanceof Player)
         {
-            sender.sendMessage(ChatColor.AQUA+"You have" +ChatColor.WHITE+ Invictools.econ.getBalance((Player)sender)+sender+ChatColor.AQUA+" Invictacoins");
+            sender.sendMessage(ChatColor.AQUA+"You have" +ChatColor.WHITE+ (int)Invictools.econ.getBalance((Player)sender)+ChatColor.AQUA+" Invictacoins");
         }
         else if(args.length == 1)
         {
             if(Bukkit.getOfflinePlayer(args[0]) != null)
-                sender.sendMessage(ChatColor.WHITE+ args[0]+ChatColor.AQUA+" has "+ChatColor.WHITE+ Invictools.econ.getBalance(Bukkit.getOfflinePlayer(args[0]))+sender+ChatColor.AQUA+" Invictacoins");
+                sender.sendMessage(ChatColor.WHITE+ args[0]+ChatColor.AQUA+" has "+ChatColor.WHITE+ (int)Invictools.econ.getBalance(Bukkit.getOfflinePlayer(args[0]))+ChatColor.AQUA+" Invictacoins");
             else
                 sender.sendMessage(ChatColor.RED+"Invalid Player");
         }

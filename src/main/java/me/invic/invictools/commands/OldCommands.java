@@ -11,7 +11,7 @@ import me.invic.invictools.cosmetics.finalkills.FinalKillHandler;
 import me.invic.invictools.cosmetics.NormalKillHandler;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailPreview;
-import me.invic.invictools.gamemodes.bedfight;
+import me.invic.invictools.gamemodes.bf.bedfight;
 import me.invic.invictools.gamemodifiers.*;
 import me.invic.invictools.items.createItems;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
@@ -647,7 +647,7 @@ public class OldCommands implements CommandExecutor, TabExecutor
 
         if (sender.hasPermission("invic.invictools"))
         {
-            return StringUtil.copyPartialMatches(args[0], tabComplete, new ArrayList<>());
+            return tabComplete;
         }
         else
         {

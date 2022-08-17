@@ -1,8 +1,7 @@
 package me.invic.invictools.commands;
 
-import me.invic.invictools.gamemodes.bedfight;
+import me.invic.invictools.gamemodes.bf.bedfight;
 import me.invic.invictools.util.disableStats;
-import me.invic.invictools.util.queue;
 import me.invic.invictools.util.safeSizeChange;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

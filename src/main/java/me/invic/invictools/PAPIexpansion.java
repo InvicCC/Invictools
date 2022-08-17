@@ -2,7 +2,7 @@ package me.invic.invictools;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import me.invic.invictools.commands.OldCommands;
-import me.invic.invictools.gamemodes.bedfightStatistics;
+import me.invic.invictools.gamemodes.bf.bedfightStatistics;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -259,7 +259,7 @@ public class PAPIexpansion extends PlaceholderExpansion
         }
         else if(identifier.equalsIgnoreCase("coins"))
         {
-            return String.valueOf(Invictools.econ.getBalance(player));
+            return String.valueOf((int)Invictools.econ.getBalance(player));
         }
         return null;
     }

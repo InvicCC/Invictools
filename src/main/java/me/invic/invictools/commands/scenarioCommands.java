@@ -15,6 +15,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
@@ -27,6 +28,8 @@ import java.util.Random;
 
 public class scenarioCommands implements TabExecutor, CommandExecutor
 {
+    public static List<Entity> nofall = new ArrayList<>();
+
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args)
     {
@@ -94,7 +97,10 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         else if(args.length == 1 && args[0].equalsIgnoreCase("creativeall") && sender instanceof Player)
         {
             if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame((Player) sender))
-                sender.sendMessage(ChatColor.RED+"Must be activated in game!");
+            {
+                sender.sendMessage(ChatColor.RED + "Must be activated in game!");
+                return true;
+            }
 
             boolean isBedfight = disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender))).equalsIgnoreCase("bedfight");
 
@@ -110,7 +116,10 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         {
             Player p = Bukkit.getPlayer(args[1]);
             if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
-                sender.sendMessage(ChatColor.RED+"Must be activated in game!");
+            {
+                sender.sendMessage(ChatColor.RED + "Must be activated in game!");
+                return true;
+            }
 
             boolean isBedfight = disableStats.getGameType(BedwarsAPI.getInstance().getGameOfPlayer(p)).equalsIgnoreCase("bedfight");
 
@@ -118,6 +127,17 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
                     new creative(60,10,p,BedwarsAPI.getInstance().getGameOfPlayer(p));
                 else
                     new creative(180,20,p,BedwarsAPI.getInstance().getGameOfPlayer((p)));
+        }
+        else if(args.length == 2 && args[0].equalsIgnoreCase("nofall") && sender instanceof Player p)
+        {
+            if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+            {
+                sender.sendMessage(ChatColor.RED + "Must be activated in game!");
+                return true;
+            }
+
+            nofall.addAll(BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender)).getConnectedPlayers());
+            // removal and check handled in deathlistener
         }
 
         return true;

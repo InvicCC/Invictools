@@ -1,6 +1,7 @@
 package me.invic.invictools.util;
 
 import me.invic.invictools.commands.OldCommands;
+import me.invic.invictools.commands.scenarioCommands;
 import me.invic.invictools.gamemodifiers.Haunt;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.createLuckyBlocks;
 import me.invic.invictools.gamemodifiers.gamemodeData;
@@ -25,6 +26,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
+import org.screamingsandals.bedwars.api.events.BedwarsPlayerLeaveEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +98,12 @@ public class deathListener implements Listener
             }
         };
         runnable.runTaskLater(OldCommands.Invictools, 20L);
+    }
+
+    @EventHandler
+    public void leave(BedwarsPlayerLeaveEvent e)
+    {
+        scenarioCommands.nofall.remove(e.getPlayer());
     }
 
     public static void clearEverything(World world)
@@ -176,7 +184,7 @@ public class deathListener implements Listener
     public void CancelFallDamage(EntityDamageEvent e)
     {
         if (e.getCause() == EntityDamageEvent.DamageCause.FALL)
-            if (ItemListener.Falling.contains(e.getEntity()))
+            if (ItemListener.Falling.contains(e.getEntity()) || scenarioCommands.nofall.contains(e.getEntity()))
                 e.setCancelled(true);
     }
 
