@@ -39,8 +39,11 @@ commands:
   invictaview:
     usage: /invictaview
     description: spectates invic if he is not ingame
+  cage:
+    usage: /cage preview (cage)
+    description: previews bedfight cages
   coins:
-    usage: /coins <player>
+    usage: /coins (player)
     description: Shows how many Invictcoins you have
 permissions:
   invictools.*:

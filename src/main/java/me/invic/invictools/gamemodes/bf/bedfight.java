@@ -2,6 +2,7 @@ package me.invic.invictools.gamemodes.bf;
 
 import com.viaversion.viaversion.api.Via;
 import me.invic.invictools.commands.OldCommands;
+import me.invic.invictools.cosmetics.cageHandler;
 import me.invic.invictools.items.ModBow;
 import me.invic.invictools.util.ingame.LobbyLogic;
 import me.invic.invictools.util.disableStats;

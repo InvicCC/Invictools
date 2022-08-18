@@ -18,7 +18,6 @@ import org.screamingsandals.bedwars.api.events.BedwarsPlayerLeaveEvent;
 import org.screamingsandals.bedwars.api.game.Game;
 import org.screamingsandals.bedwars.api.game.GameStatus;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,7 +34,7 @@ public class gameLobbyItems implements Listener
 
     public void giveItems(Player p)
     {
-        if (!api.isPlayerPlayingAnyGame(p) || !api.getGameOfPlayer(p).getStatus().equals(GameStatus.RUNNING))
+        if (!api.isPlayerPlayingAnyGame(p) || api.getGameOfPlayer(p).getStatus().equals(GameStatus.RUNNING))
             return;
 
         ItemStack block = new ItemStack(Material.RECOVERY_COMPASS);

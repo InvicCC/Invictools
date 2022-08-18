@@ -31,7 +31,7 @@ public class econCommands implements CommandExecutor, TabExecutor
 
         if (args.length == 0 && sender instanceof Player)
         {
-            sender.sendMessage(ChatColor.AQUA+"You have" +ChatColor.WHITE+ (int)Invictools.econ.getBalance((Player)sender)+ChatColor.AQUA+" Invictacoins");
+            sender.sendMessage(ChatColor.AQUA+"You have " +ChatColor.WHITE+ (int)Invictools.econ.getBalance((Player)sender)+ChatColor.AQUA+" Invictacoins");
         }
         else if(args.length == 1)
         {

@@ -1,6 +1,7 @@
 package me.invic.invictools.util.Leaderboards;
 
 import me.invic.invictools.commands.OldCommands;
+import me.invic.invictools.cosmetics.statisticRequirments;
 import me.invic.invictools.gamemodes.bf.bedfightStatistics;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -105,6 +106,15 @@ public class BedfightLeaderboard
         }
 
         leaderboard = temp;
+        if(sort.equals("score"))
+        {
+            statisticRequirments.bedfightPointsLeaderboard.clear();
+            statisticRequirments.bedfightPointsLeaderboard.add(Bukkit.getOfflinePlayer("00000"));
+            for (OfflinePlayer p:leaderboard.keySet())
+            {
+                statisticRequirments.bedfightPointsLeaderboard.add(p);
+            }
+        }
         makeLeaderboardText(lbsize);
     }
 

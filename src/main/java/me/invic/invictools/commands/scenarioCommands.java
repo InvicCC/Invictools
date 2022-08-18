@@ -128,7 +128,7 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
                 else
                     new creative(180,20,p,BedwarsAPI.getInstance().getGameOfPlayer((p)));
         }
-        else if(args.length == 2 && args[0].equalsIgnoreCase("nofall") && sender instanceof Player p)
+        else if(args.length >= 1 && args[0].equalsIgnoreCase("nofall") && sender instanceof Player p)
         {
             if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
             {

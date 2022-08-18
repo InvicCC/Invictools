@@ -1,4 +1,4 @@
-package me.invic.invictools.gamemodes.bf;
+package me.invic.invictools.cosmetics;
 
 import com.sk89q.worldedit.EditSession;
 import com.sk89q.worldedit.MaxChangedBlocksException;
@@ -54,6 +54,29 @@ public class cageHandler
         }
     }
 
+    public void buildCage(Player p, Location loc, cage cage)
+    {
+        Clipboard lobby = loadSchem(cage.getName());
+        try (EditSession editSession = WorldEdit.getInstance().newEditSession((new BukkitWorld(loc.getWorld()))))
+        {
+            Operation operation = new ClipboardHolder(lobby)
+                    .createPaste(editSession)
+                    .to(BlockVector3.at(loc.getX(), loc.getY(), loc.getZ()))
+                    .build();
+            Operations.complete(operation);
+            Region region = lobby.getRegion();
+            double xchange = lobby.getOrigin().getX() - loc.getX();
+            double ychange = lobby.getOrigin().getY() - loc.getY();
+            double zchange = lobby.getOrigin().getZ() - loc.getZ();
+            region.shift(BlockVector3.at(-xchange, -ychange, -zchange));
+            activeCage.put(p.getName(), region);
+        }
+        catch (WorldEditException worldEditException)
+        {
+            worldEditException.printStackTrace();
+        }
+    }
+
     public void destroyCage(OfflinePlayer p, Location loc)
     {
         if (activeCage.get(p.getName()) != null)
@@ -76,7 +99,11 @@ public class cageHandler
         File Folder = new File(OldCommands.Invictools.getDataFolder(), "PlayerData");
         File file = new File(Folder, p.getUniqueId() + ".yml");
         FileConfiguration config = YamlConfiguration.loadConfiguration(file);
-        return config.getString("cage","glass");
+        cage cage = statisticRequirments.loadedCages.get(config.getString("cage","glass"));
+        if(cage.checkReq(p))
+            return cage.getName();
+        else
+            return "glass";
     }
 
     public Clipboard loadSchem(String schem)
@@ -91,7 +118,7 @@ public class cageHandler
         }
         catch (Throwable e)
         {
-            try (ClipboardReader reader = format.getReader(new FileInputStream(new File(Folder, "default.schem"))))
+            try (ClipboardReader reader = format.getReader(new FileInputStream(new File(Folder, "glass_cage.schem"))))
             {
                 return reader.read();
             }

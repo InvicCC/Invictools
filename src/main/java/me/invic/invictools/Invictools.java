@@ -8,6 +8,7 @@ import me.invic.invictools.cosmetics.bedbreaks.BedBreaks;
 import me.invic.invictools.cosmetics.ConfigHandler;
 import me.invic.invictools.cosmetics.cage;
 import me.invic.invictools.cosmetics.finalkills.FinalKillListener;
+import me.invic.invictools.cosmetics.statisticRequirments;
 import me.invic.invictools.econ.givePoints;
 import me.invic.invictools.gamemodes.bf.bedfight;
 import me.invic.invictools.gamemodes.bf.bedfightStatistics;
@@ -306,6 +307,7 @@ public final class Invictools extends JavaPlugin
         this.getCommand("scen").setExecutor(new scenarioCommands());
         this.getCommand("invictaview").setExecutor(new InvicSpecCommand());
         this.getCommand("coins").setExecutor(new econCommands());
+        this.getCommand("cage").setExecutor(new cageCommands());
 
         if(Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI"))
         {
@@ -343,7 +345,7 @@ public final class Invictools extends JavaPlugin
 
                 new perGameScenSelHolder();
                 new givePoints();
-                cage.makeReqs();
+                new statisticRequirments();
 
             }
         };

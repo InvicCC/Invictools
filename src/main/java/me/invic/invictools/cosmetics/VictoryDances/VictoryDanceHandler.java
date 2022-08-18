@@ -398,7 +398,7 @@ public class VictoryDanceHandler implements Listener
                     {
                         if (!dragon.isDead())
                         {
-                            p.getWorld().playSound(dragon.getLocation(), Sound.ENTITY_ALLAY_HURT, 3, 1);
+                            p.getWorld().playSound(dragon.getLocation(), Sound.ENTITY_ALLAY_HURT, 1, 1);
                             LargeFireball ball = dragon.launchProjectile(LargeFireball.class);
                             new ProjTrailHandler().Hearts(ball);
                             ball.setVelocity((p.getLocation().getDirection()).multiply(5));
