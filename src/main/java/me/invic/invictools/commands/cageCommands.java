@@ -127,6 +127,12 @@ public class cageCommands implements CommandExecutor, TabExecutor
 
     void previewCage(Player p, cage cage)
     {
+        if(cageHandler.activeCage.containsKey(p))
+        {
+            p.sendMessage(ChatColor.RED+"You're already previewing a cage");
+            return;
+        }
+
         Location old = p.getLocation();
         Location cageloc = new WardenSpawner().locationFromConfig(OldCommands.Invictools.getConfig().getString("CagePreview.Cage","bwlobby;291.5;140;288.5;180;0"));
         OfflinePlayer pl = p;
