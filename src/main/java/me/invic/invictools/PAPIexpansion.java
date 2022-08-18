@@ -36,20 +36,18 @@ public class PAPIexpansion extends PlaceholderExpansion
     }
 
     File Folder = new File(OldCommands.Invictools.getDataFolder(), "Bedfight");
-    File pFile = new File(Folder, "bedfightstats.yml");
-    final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
-
     Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("BedWars");
     File Folder2 = new File(plugin.getDataFolder(), "database");
-    File pFile2 = new File(Folder2, "bw_stats_players.yml");
-    final FileConfiguration data2 = YamlConfiguration.loadConfiguration(pFile2);
-
     File Folder3 = Bukkit.getServer().getPluginManager().getPlugin("SBA").getDataFolder();
-    final FileConfiguration sba = YamlConfiguration.loadConfiguration(new File(Folder3,"sbaconfig.yml"));
 
     @Override
     public String onPlaceholderRequest(Player player, String identifier)
     {
+        File pFile = new File(Folder, "bedfightstats.yml");
+        final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
+        File pFile2 = new File(Folder2, "bw_stats_players.yml");
+        final FileConfiguration data2 = YamlConfiguration.loadConfiguration(pFile2);
+        final FileConfiguration sba = YamlConfiguration.loadConfiguration(new File(Folder3,"sbaconfig.yml"));
         // bf
         int intlvl = new bedfightStatistics().calculateScore(data,player.getUniqueId().toString());
 
