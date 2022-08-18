@@ -18,9 +18,7 @@ import org.screamingsandals.bedwars.api.events.BedwarsPlayerLeaveEvent;
 import org.screamingsandals.bedwars.api.game.Game;
 import org.screamingsandals.bedwars.api.game.GameStatus;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class gameLobbyItems implements Listener
 {
@@ -206,10 +204,24 @@ public class gameLobbyItems implements Listener
 
             vote.remove(game);
             current.remove(game);
-            for (Player p:voted.keySet())
-            {
-                if(voted.get(p).equals(game))
-                    voted.remove(p);
+
+            Iterator<Map.Entry<Player, Game> >
+                    iterator = voted.entrySet().iterator();
+
+            // Iterate over the HashMap
+            while (iterator.hasNext()) {
+
+                // Get the entry at this iteration
+                Map.Entry<Player,Game>
+                        entry
+                        = iterator.next();
+
+                // Check if this key is the required key
+                if (entry.getValue().equals(game)) {
+
+                    // Remove this entry from HashMap
+                    iterator.remove();
+                }
             }
         }
     }

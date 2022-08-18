@@ -1,5 +1,6 @@
 me\invic\invictools\items\ModBow$2.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\Blocks\goodBlocks$9.class
+me\invic\invictools\cosmetics\statisticRequirments.class
 me\invic\invictools\cosmetics\finalkills\FinalKillHandler$4.class
 me\invic\invictools\commands\impl\IT\ParkourCommand.class
 me\invic\invictools\cosmetics\bedbreaks\TornadoBedBreak.class
@@ -97,6 +98,7 @@ me\invic\invictools\commands\impl\IT\BedBreakCommand.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailHandler$1.class
 me\invic\invictools\util\fixes\PreventElytraClick.class
 me\invic\invictools\commands\impl\IT\FinalKillTestCommand$2.class
+me\invic\invictools\commands\cageCommands$1.class
 me\invic\invictools\commands\OldCommands$2.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailHandler$4.class
 me\invic\invictools\cosmetics\finalkills\FinalKillHandler$1$1.class
@@ -121,6 +123,7 @@ me\invic\invictools\gamemodifiers\LuckyBlocks\Blocks\goodBlocks$1.class
 me\invic\invictools\gamemodes\bf\bedfight$1$1.class
 me\invic\invictools\commands\impl\IT\NormalKillPreview$2.class
 me\invic\invictools\gamemodifiers\AlwaysBridge$1$1.class
+me\invic\invictools\commands\cageCommands.class
 me\invic\invictools\cosmetics\Lobby1Handler$7$1.class
 me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$6.class
 me\invic\invictools\items\dareListener$8.class
@@ -299,6 +302,7 @@ me\invic\invictools\commands\impl\IT\BedBreakTestCommand.class
 me\invic\invictools\commands\impl\IT\LoadInventoryCommand.class
 me\invic\invictools\util\Laser$1.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailListener.class
+me\invic\invictools\cosmetics\cageHandler.class
 me\invic\invictools\commands\OldCommands$18.class
 me\invic\invictools\items\ModBow$3.class
 me\invic\invictools\items\createItems.class
@@ -319,7 +323,6 @@ me\invic\invictools\util\npc\DetectClickOnPlugNPC$1.class
 me\invic\invictools\commands\OldCommands$16.class
 me\invic\invictools\gamemodes\Manhunt\ManhuntMain$1.class
 me\invic\invictools\commands\utilityCommands$1.class
-me\invic\invictools\gamemodes\bf\cageHandler.class
 me\invic\invictools\commands\InvicSpecCommand.class
 me\invic\invictools\cosmetics\Lobby1Handler$4.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailHandler$2.class
@@ -354,6 +357,7 @@ me\invic\invictools\commands\commandManagerLib\MainCommand.class
 me\invic\invictools\commands\impl\IT\PidCommand.class
 me\invic\invictools\util\fixes\FireworkDamageFix.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailHandler.class
+me\invic\invictools\gamemodifiers\tempCombatSwap.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\Blocks\badBlocks.class
 me\invic\invictools\util\npc\DetectClickOnNPC$1.class
 me\invic\invictools\gamemodes\bf\bedfight.class

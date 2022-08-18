@@ -275,6 +275,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new gameLobbyItems(), this); //game lobby items clicks
         Bukkit.getPluginManager().registerEvents(new perGameScenSelHolder(), this); //bw join leave start for scen selector execution
         Bukkit.getPluginManager().registerEvents(new givePoints(), this); //bw start economy setup
+        Bukkit.getPluginManager().registerEvents(new tempCombatSwap(), this); //entity damage by entity
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection

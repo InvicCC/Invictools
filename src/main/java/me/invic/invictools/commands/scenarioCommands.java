@@ -3,6 +3,7 @@ package me.invic.invictools.commands;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.LuckyBlockSpawner;
 import me.invic.invictools.gamemodifiers.creative;
 import me.invic.invictools.gamemodifiers.gamemodeData;
+import me.invic.invictools.gamemodifiers.tempCombatSwap;
 import me.invic.invictools.util.ingame.LobbyLogic;
 import me.invic.invictools.util.disableStats;
 import me.invic.invictools.util.fixes.Protocol47Fix;
@@ -49,6 +50,8 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
             tabComplete.add("creative");
             tabComplete.add("creativeall");
             tabComplete.add("nostats");
+            tabComplete.add("nofall");
+            tabComplete.add("nocmbat");
         }
         else if(args.length == 2 && args[0].equalsIgnoreCase("lucky"))
         {
@@ -130,7 +133,7 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         }
         else if(args.length >= 1 && args[0].equalsIgnoreCase("nofall") && sender instanceof Player p)
         {
-            if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+            if(!BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
             {
                 sender.sendMessage(ChatColor.RED + "Must be activated in game!");
                 return true;
@@ -138,6 +141,13 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
 
             nofall.addAll(BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender)).getConnectedPlayers());
             // removal and check handled in deathlistener
+        }
+        else if(args.length >= 1 && args[0].equalsIgnoreCase("newcombat") && sender instanceof Player p)
+        {
+            for (Player pl:BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender)).getConnectedPlayers())
+            {
+                tempCombatSwap.swap(pl);
+            }
         }
 
         return true;
