@@ -289,6 +289,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new ConfigHandler(this), this); // join event
         Bukkit.getPluginManager().registerEvents(new AbtributesOnDeath(), this); // join event
         Bukkit.getPluginManager().registerEvents(new MasterPlayerJoin(), this); // changed world event
+        Bukkit.getPluginManager().registerEvents(new shopCommands(), this); // changed world event
 
         // HAS LOTS OF GAME ENDING RESETS
         Bukkit.getPluginManager().registerEvents(new deathListener(), this); // bw death, lucky blocks on death, clear data on bedwars games end, falling blocks lb grabber, bounce fall damage cancel
@@ -309,6 +310,7 @@ public final class Invictools extends JavaPlugin
         this.getCommand("invictaview").setExecutor(new InvicSpecCommand());
         this.getCommand("coins").setExecutor(new econCommands());
         this.getCommand("cage").setExecutor(new cageCommands());
+        this.getCommand("shop").setExecutor(new shopCommands());
 
         if(Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI"))
         {
@@ -347,6 +349,7 @@ public final class Invictools extends JavaPlugin
                 new perGameScenSelHolder();
                 new givePoints();
                 new statisticRequirments();
+                new shopCommands().loadShop();
 
             }
         };

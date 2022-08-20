@@ -205,7 +205,7 @@ public class gameLobbyItems implements Listener
             vote.remove(game);
             current.remove(game);
 
-            Iterator<Map.Entry<Player, Game> >
+            /*Iterator<Map.Entry<Player, Game> >
                     iterator = voted.entrySet().iterator();
 
             // Iterate over the HashMap
@@ -222,7 +222,8 @@ public class gameLobbyItems implements Listener
                     // Remove this entry from HashMap
                     iterator.remove();
                 }
-            }
+            }*/
+            voted.entrySet().removeIf(entry -> entry.getValue().equals(game));
         }
     }
 

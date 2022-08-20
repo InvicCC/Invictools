@@ -78,11 +78,11 @@ public class statisticRequirments
         loadedCages.put(prismarine.getName(),prismarine);
 
         cage deepslate = new cage("dark"); // 50000 coins
-        deepslate.addReq("purchased",1);
+        deepslate.addReq("purchased_dark",1);
         loadedCages.put(deepslate.getName(),deepslate);
 
         cage king = new cage("one"); // 100000 coins
-        king.addReq("purchased",1);
+        king.addReq("purchased_one",1);
         loadedCages.put(king.getName(),king);
     }
 
