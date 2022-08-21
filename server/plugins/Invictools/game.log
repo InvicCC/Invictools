@@ -1,18 +1,1342 @@
+[2022/07/29 23:25:50] Game started:
+  GameType: bedfight
+  Map: FusionBF
+  StatsTrack: unknown
+  Players: 3
+  Teams: 
+    Blue:
+      Invictable
+      xB0b
+    Red:
+      swaggings
 
-[2022/07/30 15:55:10] Game finished:
+[2022/07/29 23:27:09] Game finished:
+  GameType: bedfight
+  Map: FusionBF
+  Players: 3
+  Winners: Blue
+    Invictable:
+      Deaths:1
+      Kills:2
+    xB0b:
+      Deaths:1
+  Losers: 
+    swaggings:
+      Deaths:2
+
+[2022/07/29 23:27:26] Game started:
+  GameType: bedfight
+  Map: FortressBF
+  StatsTrack: unknown
+  Players: 3
+  Teams: 
+    Gray:
+      swaggings
+      Invictable
+    Red:
+      xB0b
+
+[2022/07/29 23:28:16] Game finished:
+  GameType: bedfight
+  Map: FortressBF
+  Players: 3
+  Winners: Gray
+    swaggings:
+      Deaths:2
+      Kills:1
+    Invictable:
+      Deaths:1
+      Kills:3
+  Losers: 
+    xB0b:
+      Deaths:4
+
+[2022/07/29 23:28:41] Game started:
+  GameType: bedfight
+  Map: OlympusBedfight
+  StatsTrack: unknown
+  Players: 3
+  Teams: 
+    Yellow:
+      xB0b
+      Invictable
+    Pink:
+      swaggings
+
+[2022/07/29 23:31:18] Game finished:
+  GameType: bedfight
+  Map: OlympusBedfight
+  Players: 3
+  Winners: Yellow
+    xB0b:
+      Deaths:8
+      Kills:3
+    Invictable:
+      Deaths:7
+      Kills:4
+  Losers: 
+    swaggings:
+      Deaths:6
+      Kills:8
+
+[2022/07/29 23:31:33] Game started:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: unknown
+  Players: 4
+  Teams: 
+    Blue:
+      Invictable
+      xB0b
+    White:
+      swaggings
+      pvpUS
+
+[2022/07/29 23:32:59] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  Players: 4
+  Winners: White
+    swaggings:
+      Deaths:8
+      Kills:11
+    pvpUS:
+      Deaths:1
+      Kills:3
+  Losers: 
+    Invictable:
+      Deaths:11
+      Kills:5
+    xB0b:
+      Deaths:10
+      Kills:5
+
+[2022/07/29 23:33:08] Game started:
+  GameType: bedfight
+  Map: OlympusBedfight
+  StatsTrack: unknown
+  Players: 4
+  Teams: 
+    Yellow:
+      xB0b
+      Invictable
+    Pink:
+      swaggings
+      pvpUS
+
+[2022/07/29 23:34:46] Game finished:
+  GameType: bedfight
+  Map: OlympusBedfight
+  Players: 5
+  Winners: Pink
+    swaggings:
+      Deaths:9
+      Kills:13
+    pvpUS:
+      Deaths:2
+      Kills:6
+  Losers: 
+    xB0b:
+      Deaths:13
+      Kills:5
+    Invictable:
+      Deaths:14
+      Kills:6
+    IFoundXan:
+
+[2022/07/29 23:34:58] Game started:
+  GameType: bedfight
+  Map: FusionBF
+  StatsTrack: unknown
+  Players: 4
+  Teams: 
+    Red:
+      Invictable
+      IFoundXan
+    Blue:
+      xB0b
+      pvpUS
+
+[2022/07/29 23:38:12] Game finished:
+  GameType: bedfight
+  Map: FusionBF
+  Players: 4
+  Winners: Blue
+    xB0b:
+      Deaths:20
+      Kills:15
+    pvpUS:
+      Deaths:7
+      Kills:15
+  Losers: 
+    Invictable:
+      Deaths:26
+      Kills:10
+    IFoundXan:
+      Deaths:10
+      Kills:5
+
+[2022/07/29 23:38:27] Game started:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: unknown
+  Players: 4
+  Teams: 
+    White:
+      swaggings
+      xB0b
+    Blue:
+      Invictable
+      pvpUS
+
+[2022/07/29 23:41:19] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  Players: 5
+  Winners: White
+    swaggings:
+      Deaths:13
+      Kills:20
+    xB0b:
+      Deaths:28
+      Kills:17
+  Losers: 
+    Invictable:
+      Deaths:31
+      Kills:14
+    pvpUS:
+      Deaths:11
+      Kills:18
+    IFoundXan:
+      Deaths:10
+      Kills:5
+
+[2022/07/29 23:42:09] Game started:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: unknown
+  Players: 4
+  Teams: 
+    Blue:
+      pvpUS
+      Invictable
+    White:
+      swaggings
+      xB0b
+
+[2022/07/29 23:45:14] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  Players: 5
+  Winners: Blue
+    Invictable:
+      Deaths:37
+      Kills:17
+  Losers: 
+    pvpUS:
+      Deaths:14
+      Kills:22
+    swaggings:
+      Deaths:16
+      Kills:26
+    xB0b:
+      Deaths:34
+      Kills:18
+    IFoundXan:
+      Deaths:10
+      Kills:5
+
+[2022/07/29 23:45:26] Game started:
+  GameType: bedfight
+  Map: FusionBF
+  StatsTrack: unknown
+  Players: 4
+  Teams: 
+    Red:
+      swaggings
+      xB0b
+    Blue:
+      Invictable
+      pvpUS
+
+[2022/07/29 23:46:45] Game finished:
+  GameType: bedfight
+  Map: FusionBF
+  Players: 4
+  Winners: Red
+    swaggings:
+      Deaths:16
+      Kills:30
+    xB0b:
+      Deaths:36
+      Kills:22
+  Losers: 
+    Invictable:
+      Deaths:42
+      Kills:17
+    pvpUS:
+      Deaths:19
+      Kills:23
+
+[2022/07/29 23:47:23] Game started:
+  GameType: bedfight
+  Map: gardenBF
+  StatsTrack: unknown
+  Players: 6
+  Teams: 
+    Red:
+      Invictable
+      IFoundXan
+      pvpUS
+    Yellow:
+      swaggings
+      xB0b
+      Bruno__Gamer
+
+[2022/07/29 23:49:45] Game finished:
+  GameType: bedfight
+  Map: gardenBF
+  Players: 6
+  Winners: Red
+    Invictable:
+      Deaths:48
+      Kills:23
+    IFoundXan:
+      Deaths:17
+      Kills:10
+    pvpUS:
+      Deaths:24
+      Kills:32
+  Losers: 
+    swaggings:
+      Deaths:25
+      Kills:34
+    xB0b:
+      Deaths:41
+      Kills:27
+    Bruno__Gamer:
+      Deaths:7
+      Kills:4
+
+[2022/07/29 23:50:08] Game started:
+  GameType: bedfight
+  Map: FortressBF
+  StatsTrack: unknown
+  Players: 6
+  Teams: 
+    Red:
+      swaggings
+      Bruno__Gamer
+      pvpUS
+    Gray:
+      xB0b
+      IFoundXan
+      Invictable
+
+[2022/07/29 23:52:05] Game finished:
+  GameType: bedfight
+  Map: FortressBF
+  Players: 5
+  Winners: Gray
+    xB0b:
+      Deaths:44
+      Kills:30
+    IFoundXan:
+      Deaths:20
+      Kills:15
+    Invictable:
+      Deaths:53
+      Kills:26
+  Losers: 
+    swaggings:
+      Deaths:28
+      Kills:41
+    pvpUS:
+      Deaths:29
+      Kills:33
+
+[2022/07/29 23:52:40] Game started:
+  GameType: bedfight
+  Map: QubeBF
+  StatsTrack: unknown
+  Players: 5
+  Teams: 
+    Blue:
+      Invictable
+      xB0b
+      pvpUS
+    Red:
+      swaggings
+      IFoundXan
+
+[2022/07/29 23:55:49] Game finished:
+  GameType: bedfight
+  Map: QubeBF
+  Players: 5
+  Winners: Blue
+    Invictable:
+      Deaths:58
+      Kills:31
+    xB0b:
+      Deaths:48
+      Kills:32
+    pvpUS:
+      Deaths:35
+      Kills:37
+  Losers: 
+    swaggings:
+      Deaths:33
+      Kills:51
+    IFoundXan:
+      Deaths:27
+      Kills:18
+
+[2022/07/29 23:56:17] Game started:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: unknown
+  Players: 6
+  Teams: 
+    Blue:
+      xB0b
+      swaggings
+      pvpUS
+    White:
+      Invictable
+      Bruno__Gamer
+      IFoundXan
+
+[2022/07/29 23:59:08] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  Players: 5
+  Winners: White
+    Invictable:
+      Deaths:63
+      Kills:36
+    Bruno__Gamer:
+      Deaths:5
+      Kills:4
+    IFoundXan:
+      Deaths:28
+      Kills:23
+  Losers: 
+    xB0b:
+      Deaths:53
+      Kills:35
+    swaggings:
+      Deaths:39
+      Kills:54
+
+[2022/07/30 00:01:34] Game started:
+  GameType: bedfight
+  Map: QubeBF
+  StatsTrack: unknown
+  Players: 5
+  Teams: 
+    Blue:
+      Invictable
+      IFoundXan
+      xB0b
+    Red:
+      Bruno__Gamer
+      swaggings
+
+[2022/07/30 00:03:25] Game finished:
+  GameType: bedfight
+  Map: QubeBF
+  Players: 5
+  Winners: Blue
+    Invictable:
+      Deaths:68
+      Kills:38
+    xB0b:
+      Deaths:54
+      Kills:36
+  Losers: 
+    Bruno__Gamer:
+      Deaths:8
+      Kills:9
+    IFoundXan:
+      Deaths:33
+      Kills:23
+    swaggings:
+      Deaths:42
+      Kills:57
+
+[2022/07/30 00:03:48] Game started:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: unknown
+  Players: 5
+  Teams: 
+    Blue:
+      Bruno__Gamer
+      swaggings
+      xB0b
+    White:
+      Invictable
+      IFoundXan
+
+[2022/07/30 00:04:50] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  Players: 5
+  Winners: Blue
+    Bruno__Gamer:
+      Deaths:9
+      Kills:10
+    swaggings:
+      Deaths:42
+      Kills:59
+    xB0b:
+      Deaths:55
+      Kills:37
+  Losers: 
+    Invictable:
+      Deaths:71
+      Kills:38
+    IFoundXan:
+      Deaths:37
+      Kills:23
+
+[2022/07/31 03:15:14] Game finished:
+  - GameType: bedfight
+  - Map: QubeBF
+
+  - StatsTrack: unknown  - Players: 2
+  Winners: 
+    - IFoundXan:
+      Deaths: 6
+      Kills: 3
+  - Losers: 
+    - NebulaBC:
+      Deaths:3
+      Kills:5
+[2022/07/31 03:18:42] Game finished:
+  - GameType: bedfight
+  - Map: FortressBF
+
+  - StatsTrack: unknown  - Players: 2
+  Winners: 
+    - NebulaBC:
+      Deaths: 7
+      Kills: 8
+  - Losers: 
+    - IFoundXan:
+      Deaths:12
+      Kills:5
+[2022/08/04 06:18:37] Game finished:
+  - GameType: bedfight
+  - Map: FusionBF
+
+  - StatsTrack: unknown  - Players: 1
+  Winners: 
+    - _Phoenic:
+      Deaths: 1
+      Kills: 1
+  - Losers: 
+    - IFoundXan:
+      Deaths:3
+      Kills:1
+[2022/08/05 01:49:44] Game finished:
   GameType: normal
-  Map: Slipslide
+  Map: MonasteryV2
   StatsTrack: unknown
   Players: 2
-  Final time: 0m 42s
+  FinalTime: 3m 37s
   Winners: 
     Blue:
-     NebulaBC:
+     Invictable:
       Deaths: 1
       Kills: 1
   Losers: 
     Gray:
-     SuperLunar:
+     unchargeableness:
+      Deaths: 1
+
+[2022/08/05 05:19:48] Game finished:
+  GameType: bedfight
+  Map: OlympusBedfight
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 1m 20s
+  Winners: 
+    Yellow:
+     Invictable:
+      Deaths: 2
+      Kills: 3
+  Losers: 
+    Pink:
+     IFoundXan:
+      Deaths: 3
+      Kills: 1
+
+[2022/08/13 13:36:22] Game finished:
+  GameType: mega
+  Map: Multiverse
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 4m 54s
+  Winners: 
+    Blue:
+     Jonnyzistic:
+      Deaths: 1
+      Kills: 8
+  Losers: 
+    Orange:
+     FidgetBaddie:
+      Deaths: 9
+
+[2022/08/16 02:27:38] Game finished:
+  GameType: bedfight
+  Map: OlympusBedfight
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 3m 39s
+  Winners: 
+    Pink:
+     IFoundXan:
+      Deaths: 2
+  Losers: 
+    Yellow:
+     Invictable:
+      Deaths: 1
+      Kills: 1
+
+[2022/08/16 03:32:28] Game finished:
+  GameType: normal
+  Map: Oasis
+  StatsTrack: unknown
+  Players: 3
+  FinalTime: 2m 45s
+  Winners: 
+    Blue:
+     Invictable:
+    Blue:
+     _DarkWarrior_:
+      Deaths: 1
+  Losers: 
+    Gray:
+     IFoundXan:
+      Deaths: 1
+
+[2022/08/16 03:50:28] Game finished:
+  GameType: bedfight
+  Map: gardenBF
+  StatsTrack: unknown
+  Players: 3
+  FinalTime: 1m 7s
+  Winners: 
+    Red:
+     _DarkWarrior_:
+  Losers: 
+    Yellow:
+     Invictable:
+      Deaths: 1
+     IFoundXan:
+      Deaths: 1
+
+[2022/08/16 03:53:08] Game finished:
+  GameType: bedfight
+  Map: FortressBF
+  StatsTrack: unknown
+  Players: 3
+  FinalTime: 1m 11s
+  Winners: 
+    Gray:
+     Invictable:
+      Kills: 2
+    Gray:
+     IFoundXan:
+      Deaths: 1
+  Losers: 
+    Red:
+     _DarkWarrior_:
+      Deaths: 2
+
+[2022/08/16 04:22:45] Game finished:
+  GameType: bedfight
+  Map: OlympusBedfight
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 1m 47s
+  Winners: 
+    Pink:
+     Invictable:
+      Kills: 1
+  Losers: 
+    Yellow:
+     _DarkWarrior_:
+      Deaths: 1
+
+[2022/08/16 04:34:31] Game finished:
+  GameType: bedfight
+  Map: gardenBF
+  StatsTrack: unknown
+  Players: 3
+  FinalTime: 3m 18s
+  Winners: 
+    Yellow:
+     Invictable:
+      Deaths: 7
+      Kills: 3
+  Losers: 
+    Red:
+     _DarkWarrior_:
+      Deaths: 4
+      Kills: 1
+     IFoundXan:
+      Deaths: 4
+      Kills: 2
+
+[2022/08/16 04:37:50] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: unknown
+  Players: 3
+  FinalTime: 2m 5s
+  Winners: 
+    White:
+     Invictable:
+      Deaths: 4
+      Kills: 6
+  Losers: 
+    Blue:
+     _DarkWarrior_:
+      Deaths: 4
+      Kills: 2
+     IFoundXan:
+      Deaths: 2
+
+[2022/08/16 04:42:18] Game finished:
+  GameType: bedfight
+  Map: OlympusBedfight
+  StatsTrack: unknown
+  Players: 3
+  FinalTime: 1m 25s
+  Winners: 
+    Yellow:
+     _DarkWarrior_:
+      Deaths: 1
+    Yellow:
+     Invictable:
+      Deaths: 1
+  Losers: 
+    Pink:
+     IFoundXan:
+      Deaths: 2
+
+[2022/08/16 04:48:52] Game finished:
+  GameType: bedfight
+  Map: gardenBF
+  StatsTrack: unknown
+  Players: 3
+  FinalTime: 0m 58s
+  Winners: 
+    Red:
+     _DarkWarrior_:
+      Deaths: 1
+    Red:
+     Invictable:
+  Losers: 
+    Yellow:
+     IFoundXan:
+      Deaths: 2
+
+[2022/08/16 05:12:08] Game finished:
+  GameType: bedfight
+  Map: FortressBF
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 21m 29s
+  Winners: 
+    Red:
+     _DarkWarrior_:
+      Deaths: 5
+      Kills: 2
+  Losers: 
+    Gray:
+     IFoundXan:
+      Deaths: 9
+      Kills: 1
+
+[2022/08/16 05:22:47] Game finished:
+  GameType: normal
+  Map: Monastery
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 9m 8s
+  Winners: 
+    Blue:
+     _DarkWarrior_:
+      Kills: 1
+  Losers: 
+    Gray:
+     IFoundXan:
+      Deaths: 2
+
+[2022/08/16 21:50:02] Game finished:
+  GameType: bedfight
+  Map: QubeBF
+  StatsTrack: unknown
+  Players: 1
+  FinalTime: 4m 6s
+  Winners: 
+    Blue:
+     Jonnyzistic:
+      Deaths: 5
+      Kills: 7
+  Losers: 
+    Red:
+     FidgetBaddie:
+      Deaths: 14
+      Kills: 2
+
+[2022/08/16 22:14:19] Game finished:
+  GameType: normal
+  Map: Paradise
+  StatsTrack: unknown
+  Players: 1
+  FinalTime: 19m 18s
+  Winners: 
+    Red:
+     Jonnyzistic:
+      Deaths: 7
+      Kills: 11
+  Losers: 
+    White:
+     IFoundXan:
+      Deaths: 17
+
+[2022/08/16 23:49:48] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: unknown
+  Players: 1
+  FinalTime: 3m 13s
+  Winners: 
+    White:
+     MrQT:
+      Deaths: 6
+      Kills: 5
+  Losers: 
+    Blue:
+
+[2022/08/17 00:14:19] Game finished:
+  GameType: bedfight
+  Map: QubeBF
+  StatsTrack: unknown
+  Players: 3
+  FinalTime: 1m 25s
+  Winners: 
+    Red:
+     pulsy:
+      Deaths: 1
+      Kills: 4
+  Losers: 
+    Blue:
+     lifeistoxic:
+      Deaths: 4
+      Kills: 1
+     Invictable:
+
+[2022/08/17 01:30:36] Game finished:
+  GameType: bedfight
+  Map: gardenBF
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 0m 48s
+  Winners: 
+    Yellow:
+     Jonnyzistic:
       Deaths: 2
       Kills: 1
+  Losers: 
+    Red:
+     _DarkWarrior_:
+      Deaths: 34
+      Kills: 17
+
+[2022/08/17 01:45:44] Game finished:
+  GameType: bedfight
+  Map: FusionBF
+  StatsTrack: unknown
+  Players: 3
+  FinalTime: 14m 32s
+  Winners: 
+    Red:
+     _DarkWarrior_:
+      Deaths: 12
+      Kills: 9
+  Losers: 
+    Blue:
+     Jonnyzistic:
+      Deaths: 24
+      Kills: 20
+     Invictable:
+
+[2022/08/17 05:46:22] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: unknown
+  Players: 4
+  FinalTime: 3m 49s
+  Winners: 
+    Blue:
+     Invictable:
+      Deaths: 12
+      Kills: 8
+    Blue:
+     pvpUS:
+      Deaths: 7
+      Kills: 13
+  Losers: 
+    White:
+     Maxuh:
+      Deaths: 12
+      Kills: 5
+     yellow_hugeQuag:
+      Deaths: 11
+      Kills: 12
+
+[2022/08/17 05:48:33] Game finished:
+  GameType: bedfight
+  Map: FortressBF
+  StatsTrack: unknown
+  Players: 4
+  FinalTime: 1m 49s
+  Winners: 
+    Red:
+     yellow_hugeQuag:
+      Deaths: 3
+      Kills: 4
+    Red:
+     pvpUS:
+      Deaths: 3
+      Kills: 7
+  Losers: 
+    Gray:
+     Invictable:
+      Deaths: 6
+      Kills: 2
+     Maxuh:
+      Deaths: 5
+      Kills: 3
+
+[2022/08/17 05:51:04] Game finished:
+  GameType: bedfight
+  Map: gardenBF
+  StatsTrack: unknown
+  Players: 4
+  FinalTime: 2m 11s
+  Winners: 
+    Red:
+     Invictable:
+      Deaths: 2
+      Kills: 5
+    Red:
+     Maxuh:
+      Deaths: 7
+      Kills: 2
+  Losers: 
+    Yellow:
+     yellow_hugeQuag:
+      Deaths: 3
+      Kills: 2
+     pvpUS:
+      Deaths: 4
+      Kills: 5
+
+[2022/08/17 05:53:46] Game finished:
+  GameType: bedfight
+  Map: QubeBF
+  StatsTrack: unknown
+  Players: 4
+  FinalTime: 2m 25s
+  Winners: 
+    Blue:
+     Invictable:
+      Deaths: 5
+      Kills: 1
+    Blue:
+     Maxuh:
+      Deaths: 6
+  Losers: 
+    Red:
+     yellow_hugeQuag:
+      Deaths: 3
+      Kills: 5
+     pvpUS:
+      Deaths: 2
+      Kills: 2
+
+[2022/08/17 05:57:31] Game finished:
+  GameType: bedfight
+  Map: OlympusBedfight
+  StatsTrack: unknown
+  Players: 4
+  FinalTime: 2m 23s
+  Winners: 
+    Pink:
+     yellow_hugeQuag:
+      Deaths: 3
+    Pink:
+     pvpUS:
+      Deaths: 3
+      Kills: 2
+  Losers: 
+    Yellow:
+     Invictable:
+      Deaths: 3
+      Kills: 3
+     Maxuh:
+      Deaths: 3
+
+[2022/08/17 06:00:43] Game finished:
+  GameType: bedfight
+  Map: FortressBF
+  StatsTrack: unknown
+  Players: 4
+  FinalTime: 1m 27s
+  Winners: 
+    Gray:
+     Invictable:
+      Deaths: 3
+      Kills: 4
+    Gray:
+     yellow_hugeQuag:
+      Deaths: 4
+      Kills: 6
+  Losers: 
+    Red:
+     Maxuh:
+      Deaths: 3
+      Kills: 3
+     pvpUS:
+      Deaths: 5
+
+[2022/08/17 06:11:48] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: unknown
+  Players: 4
+  FinalTime: 10m 54s
+  Winners: 
+    Blue:
+     Invictable:
+      Deaths: 32
+      Kills: 24
+    Blue:
+     yellow_hugeQuag:
+      Deaths: 41
+      Kills: 38
+  Losers: 
+    White:
+     Maxuh:
+      Deaths: 18
+      Kills: 20
+     pvpUS:
+      Deaths: 43
+      Kills: 40
+
+[2022/08/17 06:13:25] Game finished:
+  GameType: bedfight
+  Map: gardenBF
+  StatsTrack: unknown
+  Players: 4
+  FinalTime: 1m 3s
+  Winners: 
+    Yellow:
+     Maxuh:
+      Deaths: 3
+    Yellow:
+     pvpUS:
+      Deaths: 2
+      Kills: 2
+  Losers: 
+    Red:
+     Invictable:
+      Deaths: 2
+      Kills: 1
+     yellow_hugeQuag:
+      Deaths: 2
+
+[2022/08/17 06:16:14] Game finished:
+  GameType: bedfight
+  Map: QubeBF
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 2m 42s
+  Winners: 
+    Blue:
+     Invictable:
+      Deaths: 5
+      Kills: 6
+    Blue:
+     yellow_hugeQuag:
+      Deaths: 4
+      Kills: 4
+  Losers: 
+    Red:
+     pvpUS:
+      Deaths: 8
+      Kills: 5
+
+[2022/08/17 06:18:48] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: unknown
+  Players: 3
+  FinalTime: 1m 50s
+  Winners: 
+    Blue:
+     Invictable:
+      Deaths: 4
+      Kills: 3
+    Blue:
+     Maxuh:
+      Deaths: 2
+  Losers: 
+    White:
+     pvpUS:
+      Deaths: 4
+      Kills: 3
+
+[2022/08/17 06:57:03] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 0m 38s
+  Winners: 
+    Blue:
+     Tower:
+      Kills: 1
+  Losers: 
+    White:
+     unchargeableness:
+      Deaths: 1
+
+[2022/08/17 06:58:49] Game finished:
+  GameType: bedfight
+  Map: FusionBF
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 0m 44s
+  Winners: 
+    Red:
+     unchargeableness:
+  Losers: 
+    Blue:
+     Tower:
+      Deaths: 1
+
+[2022/08/17 07:03:35] Game finished:
+  GameType: bedfight
+  Map: OlympusBedfight
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 0m 41s
+  Winners: 
+    Yellow:
+     Tower:
+      Kills: 1
+  Losers: 
+    Pink:
+     unchargeableness:
+      Deaths: 1
+
+[2022/08/17 07:05:16] Game finished:
+  GameType: bedfight
+  Map: gardenBF
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 1m 1s
+  Winners: 
+    Yellow:
+     unchargeableness:
+      Kills: 1
+  Losers: 
+    Red:
+     Tower:
+      Deaths: 1
+
+[2022/08/18 05:18:16] Game finished:
+  GameType: bedfight
+  Map: OlympusBedfight
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 5m 33s
+  Winners: 
+    Pink:
+     Invictable:
+      Deaths: 13
+      Kills: 10
+  Losers: 
+    Yellow:
+     IFoundXan:
+      Deaths: 12
+      Kills: 13
+
+[2022/08/18 05:27:20] Game finished:
+  GameType: bedfight
+  Map: FortressBF
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 7m 4s
+  Winners: 
+    Gray:
+     Invictable:
+      Deaths: 9
+      Kills: 7
+  Losers: 
+    Red:
+     IFoundXan:
+      Deaths: 12
+      Kills: 6
+
+[2022/08/18 06:39:02] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 2m 3s
+  Winners: 
+    Blue:
+     Invictable:
+      Deaths: 8
+      Kills: 7
+  Losers: 
+    White:
+     IFoundXan:
+      Deaths: 9
+      Kills: 2
+
+[2022/08/18 06:45:30] Game finished:
+  GameType: bedfight
+  Map: OlympusBedfight
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 2m 35s
+  Winners: 
+    Pink:
+     IFoundXan:
+      Deaths: 3
+      Kills: 1
+  Losers: 
+    Yellow:
+     Invictable:
+      Deaths: 2
+      Kills: 3
+
+[2022/08/18 06:49:07] Game finished:
+  GameType: bedfight
+  Map: gardenBF
+  StatsTrack: unknown
+  Players: 2
+  FinalTime: 0m 50s
+  Winners: 
+    Lime:
+     Invictable:
+      Deaths: 2
+      Kills: 2
+  Losers: 
+    Yellow:
+     IFoundXan:
+      Deaths: 2
+
+[2022/08/20 13:06:35] Game finished:
+  GameType: normal
+  Map: Monastery
+  StatsTrack: Possibly Tracked
+  Players: 2
+  FinalTime: 14m 42s
+  Winners: 
+    Blue:
+     Jonnyzistic:
+      Deaths: 4
+      Kills: 4
+  Losers: 
+    Gray:
+     FidgetBaddie:
+      Deaths: 4
+
+[2022/08/20 13:09:01] Game finished:
+  GameType: normal
+  Map: castle
+  StatsTrack: Possibly Tracked
+  Players: 2
+  FinalTime: 1m 36s
+  Winners: 
+    Orange:
+     Jonnyzistic:
+      Deaths: 1
+      Kills: 2
+  Losers: 
+    Lime:
+     FidgetBaddie:
+      Deaths: 2
+
+[2022/08/20 13:12:07] Game finished:
+  GameType: bedfight
+  Map: SkylantisBF
+  StatsTrack: Manual Disable
+  Players: 2
+  FinalTime: 1m 30s
+  Winners: 
+    Blue:
+     Jonnyzistic:
+      Deaths: 3
+      Kills: 2
+  Losers: 
+    White:
+     FidgetBaddie:
+      Deaths: 3
+
+[2022/08/20 13:14:07] Game finished:
+  GameType: bedfight
+  Map: gardenBF
+  StatsTrack: Manual Disable
+  Players: 2
+  FinalTime: 0m 56s
+  Winners: 
+    Lime:
+     Jonnyzistic:
+      Deaths: 1
+      Kills: 3
+  Losers: 
+    Yellow:
+     FidgetBaddie:
+      Deaths: 3
+
+[2022/08/20 13:17:39] Game finished:
+  GameType: bedfight
+  Map: OlympusBedfight
+  StatsTrack: Manual Disable
+  Players: 2
+  FinalTime: 2m 46s
+  Winners: 
+    Yellow:
+     Jonnyzistic:
+      Kills: 3
+  Losers: 
+    Pink:
+     FidgetBaddie:
+      Deaths: 8
+
+[2022/08/21 18:35:19] Game finished:
+  GameType: normal
+  Map: castle
+  StatsTrack: PossiblyTracked
+  Players: 2
+  FinalTime: 1m 50s
+  Winners: 
+    Orange:
+     Invictable:
+      Kills: 1
+  Losers: 
+    Lime:
+     unchargeableness:
+      Deaths: 1
 

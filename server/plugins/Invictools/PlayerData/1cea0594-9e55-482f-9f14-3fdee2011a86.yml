@@ -1,0 +1,358 @@
+Username: ATOMIk_678
+Displayname: §8[§7Player§8]§7 ATOMIk_678§r
+BedBreak: Fireworks
+ProjTrail: Crit
+FinalKill: Lightning
+VictoryDance: Firestick
+tracker: 0
+lobby:
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: COMPASS
+  meta:
+    ==: ItemMeta
+    meta-type: COMPASS
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"white","text":"Play
+      Bedwars "},{"bold":false,"italic":false,"color":"gray","text":"(Right Click)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Joins
+      the Active Bedwars Game"}],"text":""}'
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Allows
+      you to spectate as well"}],"text":""}'
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDRAFvJLzE1lYM8EcuMNzRgAQQHFDDAAAAA=
+    LodestoneTracked: false
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: LIGHT_WEIGHTED_PRESSURE_PLATE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Parkour
+      Teleporter "},{"bold":false,"italic":false,"color":"gray","text":"(Right Click)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Teleports
+      you to the Parkour Start"}],"text":""}'
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDREFvJLzE1lYMsEcuMNGQB9On2YLwAAAA==
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"2"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"3"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"aqua","text":"Statistics
+      "},{"bold":false,"italic":false,"color":"gray","text":"(Left/Right Click)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Left
+      Click to view personal stats"}],"text":""}'
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Right
+      Click to view the loaded leaderboard"}],"text":""}'
+    Damage: 3
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDRBFvJLzE1l4Ckoyk/LzEnVzQQKMwAAG/W5DDUAAAA=
+    skull-owner:
+      ==: PlayerProfile
+      uniqueId: 1cea0594-9e55-482f-9f14-3fdee2011a86
+      name: ATOMIk_678
+      properties:
+      - name: textures
+        value: ewogICJ0aW1lc3RhbXAiIDogMTY1NTcyNDYzMTk0NSwKICAicHJvZmlsZUlkIiA6ICIxY2VhMDU5NDllNTU0ODJmOWYxNDNmZGVlMjAxMWE4NiIsCiAgInByb2ZpbGVOYW1lIiA6ICJBVE9NSWtfNjc4IiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzdmNzUzYWU3NTQwYTkzYzFkMTY2MzlhMjY3M2MxNWFmNWYwNmU3MmM2MDJhYTI3ODc2OTkwNDA4ZDEwNjJjOCIKICAgIH0KICB9Cn0=
+        signature: v+4TH21VYDWfqpt+RQzM/ANJv5rdNVhEif/wyKgt/v+Wq8wxxQtE/1LeVt0oAgOG8fFsH7hWECVO4ECECAjgIgLq34f9Zcm3jLETP+4oBuTFdQWUxTS0hUhamwFTLl6AvpKeq7Z3RqDGjPxVn+W7KnYNmNLmfWGfbGZmW+Joc0KFO21uwOledgrFx4k9yc1xC7K/TZjN/SzYOrSb1gpE2neQnjBpBX9Ev5Gejo/bfaMrjBwknq7WHlMD/m+Aa05LH2bygLwmg9utNtxHqvbsDob5c7BT6xnABjFpKpc7dNeXSZyCDPXNDkgAWXziNpYKd6fb0FWNSPibcUS/WzMn+2dSIACczRaeSYbyfiSVaQJIEANkmyfzdS0UyRzRSNJyosDBoOwL4FXS8sYM86sQH6FTMU1Qz4fq+k9dXs7+c5lf5Jd2Q/1/pcQitnDIC1pHq5gYL5Of5Ouxbl5BGzoK06M1D5BRkyxA6gOdQHp8VhbZNHeWJzHLuXPyH34t06rBoUykFGlJUqmbWcjoS3wab7+IBr6wnK+M2LWVSUTjCdlLxZgEFKsX1SzSgDjk9PXUlKoXsu5uHcyF1baAeXTLmd5Pa8C4AnTZgudVGRZtP2xkA8RGj1AodYY5DAFHhn8FSSOCpT0RHl2CSPXcFFpvra4lGSQf44Hm3HvCVWwjYhI=
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"5"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"6"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: BLAZE_ROD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Fire
+      Stick "},{"bold":false,"italic":false,"color":"gray","text":"(Requires Rank)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Right
+      click to boing."}],"text":""}'
+    enchants:
+      Glowing: 1
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDRHFvJLzE1lYM8EcuMNjRkAgrNnozAAAAA=
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: EMERALD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":"Cosmetics
+      "},{"bold":false,"italic":false,"color":"gray","text":"(Right Click)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Click
+      to change your active cosmetics"}],"text":""}'
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYLRAFvJLzE1lYMsEcuMtGQBeO5DiLwAAAA==
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: BLACK_STAINED_GLASS_PANE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Game
+      Loader"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"(Requires
+      Game Mod)"}],"text":""}'
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYLREFvJLzE1lYM8EcuMNzRkAy/3QuTAAAAA=
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"10"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"11"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"12"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"13"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"14"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"15"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"16"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"17"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"18"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"19"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"20"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"21"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"22"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"23"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"24"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: BOW
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gold","text":"Rideable
+      Fireball Bow "},{"bold":false,"italic":false,"color":"gray","text":"(Requires
+      Rank)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Does
+      what it says, somehow."}],"text":""}'
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"(Requires
+      Arrows)"}],"text":""}'
+    enchants:
+      Glowing: 1
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDIyRRbzS8xNZWDPBHLjDU0YAJNj7nkxAAAA
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"26"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"27"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"28"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"29"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"30"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"31"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"32"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"33"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: BONE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"white","text":"Dare
+      Devil "},{"bold":false,"italic":false,"color":"gray","text":"(Requires Rank)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Right
+      click to dash around."}],"text":""}'
+    enchants:
+      Glowing: 1
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDI2QRbzS8xNZWDPBHLjDU0ZAI60zA8xAAAA
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"35"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"36"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"37"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"38"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"39"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"40"}],"text":""}'

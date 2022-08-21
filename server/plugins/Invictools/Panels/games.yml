@@ -26,7 +26,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Oasis
-        - right= bw alljoin Oasis
+        - right= queue alljoin Oasis
       '2':
         material: PURPLE_STAINED_GLASS_PANE
         stack: 1
@@ -36,7 +36,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Fusion
-        - right= bw alljoin Fusion
+        - right= queue alljoin Fusion
       '3':
         material: LIME_STAINED_GLASS_PANE
         stack: 1
@@ -46,7 +46,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Monastery
-        - right= bw alljoin Monastery
+        - right= queue alljoin Monastery
       '4':
         material: LIME_STAINED_GLASS_PANE
         stack: 1
@@ -56,7 +56,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena MonasteryV2
-        - right= bw alljoin MonasteryV2
+        - right= queue alljoin MonasteryV2
       '5':
         material: RED_STAINED_GLASS_PANE
         stack: 1
@@ -66,7 +66,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Mars
-        - right= bw alljoin Mars
+        - right= queue alljoin Mars
       '6':
         material: RED_STAINED_GLASS_PANE
         stack: 1
@@ -76,7 +76,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena MarsFours
-        - right= bw alljoin MarsFours
+        - right= queue alljoin MarsFours
       '7':
         material: GRAY_STAINED_GLASS_PANE
         stack: 1
@@ -86,7 +86,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena castle
-        - right= bw alljoin castle
+        - right= queue alljoin castle
       '8':
         material: WHITE_STAINED_GLASS_PANE
         stack: 1
@@ -96,7 +96,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Snowstorm
-        - right= bw alljoin Snowstorm
+        - right= queue alljoin Snowstorm
       '9':
         material: WHITE_STAINED_GLASS_PANE
         stack: 1
@@ -105,8 +105,8 @@ panels:
         - '&fLeft Click to load npc'
         - '&fRight Click to send all players'
         commands:
-        - left= invictools setarena SnowstormThrees
-        - right= bw alljoin SnowstormThrees
+        - left= invictools setarena SnowstormThree
+        - right= queue alljoin SnowstormThree
       '10':
         material: LIGHT_GRAY_STAINED_GLASS_PANE
         stack: 1
@@ -116,7 +116,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Olympus
-        - right= bw alljoin Olympus
+        - right= queue alljoin Olympus
       '11':
         material: YELLOW_STAINED_GLASS_PANE
         stack: 1
@@ -126,7 +126,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Paradise
-        - right= bw alljoin Paradise
+        - right= queue alljoin Paradise
       '12':
         material: ORANGE_STAINED_GLASS_PANE
         stack: 1
@@ -136,7 +136,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Sculk
-        - right= bw alljoin Sculk
+        - right= queue alljoin Sculk
       '13':
         material: LIGHT_BLUE_STAINED_GLASS_PANE
         stack: 1
@@ -146,7 +146,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Atlantis
-        - right= bw alljoin Atlantis
+        - right= queue alljoin Atlantis
       '14':
         material: WHITE_STAINED_GLASS_PANE
         stack: 1
@@ -156,7 +156,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Skylantis
-        - right= bw alljoin Skylantis
+        - right= queue alljoin Skylantis
       '15':
         material: ORANGE_STAINED_GLASS_PANE
         stack: 1
@@ -166,7 +166,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Multiverse
-        - right= bw alljoin Multiverse
+        - right= queue alljoin Multiverse
       '16':
         material: YELLOW_STAINED_GLASS_PANE
         stack: 1
@@ -176,7 +176,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena OasisScenario
-        - right= bw alljoin OasisScenario
+        - right= queue alljoin OasisScenario
       '17':
         material: WHITE_STAINED_GLASS_PANE
         stack: 1
@@ -186,7 +186,7 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Slipslide
-        - right= bw alljoin Slipslide
+        - right= queue alljoin Slipslide
       '18':
         material: GREEN_STAINED_GLASS_PANE
         stack: 1
@@ -196,4 +196,4 @@ panels:
         - '&fRight Click to send all players'
         commands:
         - left= invictools setarena Tree
-        - right= bw alljoin Tree
+        - right= queue alljoin Tree

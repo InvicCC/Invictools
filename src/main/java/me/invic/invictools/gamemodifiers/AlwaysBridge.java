@@ -1,6 +1,7 @@
 package me.invic.invictools.gamemodifiers;
 
 import me.invic.invictools.util.disableStats;
+import me.invic.invictools.util.ingame.blockDecay;
 import org.bukkit.*;
 import org.bukkit.block.BlockFace;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -41,6 +42,9 @@ public class AlwaysBridge
                             if (player.getGameMode() != GameMode.SURVIVAL)
                                 return;
 
+                            if(player.isBlocking())
+                                return;
+
                             if (player.isSneaking())
                                 return;
 
@@ -53,6 +57,8 @@ public class AlwaysBridge
                             if (player.getLocation().getBlock().getRelative(BlockFace.DOWN).getType().equals(Material.AIR))
                             {
                                 player.getLocation().getBlock().getRelative(BlockFace.DOWN).setType(player.getInventory().getItem(size).getType());
+                                if(blockDecay.decayGamemode.contains(api.getGameOfPlayer(player)))
+                                    new blockDecay(player.getLocation().getBlock().getRelative(BlockFace.DOWN).getLocation(),api.getGameOfPlayer(player),5);
                                 if(!disableStats.getGameType(api.getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
                                     player.getInventory().getItem(size).setAmount(player.getInventory().getItem(size).getAmount() - 1);
                                 if (api.isPlayerPlayingAnyGame(player))
@@ -64,6 +70,8 @@ public class AlwaysBridge
                                 Location loc2 = SecondBlockLocation(player, player.getLocation().getBlock().getRelative(BlockFace.DOWN).getLocation());
                                 if (loc2.getBlock().getType().equals(Material.AIR))
                                 {
+                                    if(blockDecay.decayGamemode.contains(api.getGameOfPlayer(player)))
+                                        new blockDecay(loc2,api.getGameOfPlayer(player),5);
                                     if(player.getInventory().getItem(size) != null)
                                         loc2.getBlock().setType(player.getInventory().getItem(size).getType());
                                     if(!disableStats.getGameType(api.getGameOfPlayer(player)).equalsIgnoreCase("bedfight"))
@@ -90,7 +98,7 @@ public class AlwaysBridge
 
     public boolean isMaterialWool(Material item)
     {
-        return item.equals(Material.BLUE_WOOL) ||
+         return item.equals(Material.BLUE_WOOL) ||
                 item.equals(Material.GRAY_WOOL) ||
                 item.equals(Material.RED_WOOL) ||
                 item.equals(Material.WHITE_WOOL) ||

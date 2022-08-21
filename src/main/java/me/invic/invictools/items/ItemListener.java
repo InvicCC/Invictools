@@ -4,6 +4,7 @@ import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceHandler;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import me.invic.invictools.util.fixes.Protocol47Fix;
+import me.invic.invictools.util.ingame.blockDecay;
 import me.invic.invictools.util.ingame.physics.grabSandstone;
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -230,13 +231,6 @@ public class ItemListener implements Listener
 
                 wool.removeAll(taggedBlocks);
                 grabSandstone.taggedBlocks.addAll(wool);
-/*
-                if(!api.getGameOfPlayer(e.getPlayer()).getName().equalsIgnoreCase("SnowThree"))
-                    wool.removeIf(b -> !api.getGameOfPlayer(e.getPlayer()).getRegion().isBlockAddedDuringGame(b.getLocation()));
-
-                if(!api.getGameOfPlayer(e.getPlayer()).getName().equalsIgnoreCase("MarsFours"))
-                    wool.removeIf(b -> !api.getGameOfPlayer(e.getPlayer()).getRegion().isBlockAddedDuringGame(b.getLocation()));
-*/
                 Collections.shuffle(wool);
 
                 List<Block> wool2 = new ArrayList<>();
@@ -332,6 +326,11 @@ public class ItemListener implements Listener
                                         }
                                     default:
                                         block.setType(Material.PACKED_ICE);
+                                }
+
+                                if(blockDecay.decayGamemode.contains(api.getGameOfPlayer(e.getPlayer())))
+                                {
+                                    new blockDecay(block.getLocation(),api.getGameOfPlayer(e.getPlayer()),new Random().nextInt(2)+44);
                                 }
                             }
                         }
@@ -480,8 +479,8 @@ public class ItemListener implements Listener
                         i += 3;
                     else
                         i++;
-
-                    if (i > 20 * 3)
+/*
+                    if (i > 20 * 3) // makes wool ignite for only 3 seconds before exploding
                     {
                         i = blocks.size() + 1;
                         for (Block block : blocks)
@@ -489,7 +488,9 @@ public class ItemListener implements Listener
                             block.setType(Material.BLACK_WOOL);
                         }
                     }
-                    else if (type && i > blocks.size() - 3)
+
+ */
+                    if (type && i > blocks.size() - 3) // catch for iterating over large stacks. not really sure why
                     {
                         i = blocks.size() + 1;
                         for (Block block : blocks)

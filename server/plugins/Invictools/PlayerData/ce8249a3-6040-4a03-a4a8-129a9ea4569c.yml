@@ -1,9 +1,491 @@
-Username: DarkWarrior53
+Username: _DarkWarrior_
 BedBreak: Enderman
-ProjTrail: Pres
+ProjTrail: Sculk
 KillEffect: deprecated
 VictoryDance: 'null'
-tracker: 145
-FinalKill: Head
+tracker: 198
+FinalKill: Sonic
 deaths: 8
 finals: 7
+FinalDeaths: 21
+FinalKills: 13
+lobby:
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: COMPASS
+  meta:
+    ==: ItemMeta
+    meta-type: COMPASS
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"white","text":"Play
+      Bedwars "},{"bold":false,"italic":false,"color":"gray","text":"(Right Click)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Joins
+      the Active Bedwars Game"}],"text":""}'
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Allows
+      you to spectate as well"}],"text":""}'
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDRAFvJLzE1lYM8EcuMNzRgAQQHFDDAAAAA=
+    LodestoneTracked: false
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: LIGHT_WEIGHTED_PRESSURE_PLATE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Parkour
+      Teleporter "},{"bold":false,"italic":false,"color":"gray","text":"(Right Click)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Teleports
+      you to the Parkour Start"}],"text":""}'
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDREFvJLzE1lYMsEcuMNGQB9On2YLwAAAA==
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: BLAZE_ROD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Fire
+      Stick "},{"bold":false,"italic":false,"color":"gray","text":"(Requires Rank)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Right
+      click to boing."}],"text":""}'
+    enchants:
+      Glowing: 1
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDRHFvJLzE1lYM8EcuMNjRkAgrNnozAAAAA=
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"3"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: BONE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"white","text":"Dare
+      Devil "},{"bold":false,"italic":false,"color":"gray","text":"(Requires Rank)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Right
+      click to dash around."}],"text":""}'
+    enchants:
+      Glowing: 1
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDI2QRbzS8xNZWDPBHLjDU0ZAI60zA8xAAAA
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: BOW
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Rideable
+      Bow"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Fires
+      Rideable Arrows"}],"text":""}'
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"(Requires
+      Arrows)"}],"text":""}'
+    enchants:
+      Glowing: 1
+    Damage: 8
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDIyRRbzS8xNZWDPBHLjDU0YAJNj7nkxAAAA
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: PLAYER_HEAD
+  meta:
+    ==: ItemMeta
+    meta-type: SKULL
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"aqua","text":"Statistics
+      "},{"bold":false,"italic":false,"color":"gray","text":"(Left/Right Click)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Left
+      Click to view personal stats"}],"text":""}'
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Right
+      Click to view the loaded leaderboard"}],"text":""}'
+    Damage: 3
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDRBFvJLzE1l4Ckoyk/LzEnVzQQKMwAAG/W5DDUAAAA=
+    skull-owner:
+      ==: PlayerProfile
+      uniqueId: ce8249a3-6040-4a03-a4a8-129a9ea4569c
+      name: _DarkWarrior_
+      properties:
+      - name: textures
+        value: ewogICJ0aW1lc3RhbXAiIDogMTY2MDYyMTQwODMzNiwKICAicHJvZmlsZUlkIiA6ICJjZTgyNDlhMzYwNDA0YTAzYTRhODEyOWE5ZWE0NTY5YyIsCiAgInByb2ZpbGVOYW1lIiA6ICJfRGFya1dhcnJpb3JfIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2NkNGYxM2Q1OTcxODk4NTg3Y2JmN2RmNjViNTFmZTE4ZjIxYzNkNzc1YTc5ZjdjMjEzM2NhODMxYjdmZTU4MWYiCiAgICB9LAogICAgIkNBUEUiIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzIzNDBjMGUwM2RkMjRhMTFiMTVhOGIzM2MyYTdlOWUzMmFiYjIwNTFiMjQ4MWQwYmE3ZGVmZDYzNWNhN2E5MzMiCiAgICB9CiAgfQp9
+        signature: FnxauexQhLafK8Lq5VYNbICeBC2/X27LsRndhqSE12ZYFXnV86p4aXbsw1ukXrn7LL3JydY3OHZcA4TK3VdBIpsG01PrKplqtNCFh25lotAdF3gJ40n5VL5IH3zQEUB7LHXdcJhFLN44ACu6vdhnONivljq3J4H0TeLYZftFEjuXBTFxGxBNRxFml8i7qnXD31VSrAFaX2rPsL8M4rJ1VU17xxOO9Nqc+NWLjmamHcz/p1TrEXZsS5MAjlt/Z14sF5A8cjLYj55NRzf20TxDLLw5jJZCA2DFm5PVqO8XdFPYN2C74w/Dq8krP2s62G9MBSY5BNAW6wgGg6WuuuZIbN5ePk/CXeYt2QIsBk81azVSrfP/78OEbtj1e8wX0hg+645EUYDMKd00v0mJn2Fjj006PHsFrJ50iaFR8rnsA5QJZft/AHCr4vKCEjYv0RYJEZMh5Mg4GxZ+8mQc44Y9E+A1xdy6yDeTcM9zxAW+KDVcveOWEjpAAlsT0Jh58dyaGtt9snKsam+jjyGr7zvQn//odlkwDvOZBtcpRemp8ajSGTNI9RKge8/QP5edgnqVMQz8v3P13Un3ANk6LA7kwrCoR2TmRGNXqcbRcei7hgPZP6VpWoqgltTJasD8hfHdz+4vkaXkDtakiNCBGsllsEL/raOsRqCbgd8/NEzhr5Q=
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"7"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: EMERALD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"green","text":"Cosmetics
+      "},{"bold":false,"italic":false,"color":"gray","text":"(Right Click)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Click
+      to change your active cosmetics"}],"text":""}'
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYLRAFvJLzE1lYMsEcuMtGQBeO5DiLwAAAA==
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: BLACK_STAINED_GLASS_PANE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Game
+      Loader"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"(Requires
+      Game Mod)"}],"text":""}'
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYLREFvJLzE1lYM8EcuMNzRkAy/3QuTAAAAA=
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: ARROW
+  amount: 64
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: ARROW
+  amount: 64
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: ARROW
+  amount: 64
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: ARROW
+  amount: 64
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: ARROW
+  amount: 64
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: ARROW
+  amount: 64
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: ARROW
+  amount: 64
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: ARROW
+  amount: 36
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: FIREWORK_ROCKET
+  amount: 64
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: FIREWORK_ROCKET
+  amount: 64
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: ELYTRA
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: ELYTRA
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: ELYTRA
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"23"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"24"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: BOW
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Rideable
+      Bow"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Fires
+      Rideable Arrows"}],"text":""}'
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"(Requires
+      Arrows)"}],"text":""}'
+    enchants:
+      Glowing: 1
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDIyRRbzS8xNZWDPBHLjDU0YAJNj7nkxAAAA
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"26"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"27"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"28"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"29"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"30"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"31"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"32"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"33"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: BONE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"white","text":"Dare
+      Devil "},{"bold":false,"italic":false,"color":"gray","text":"(Requires Rank)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Right
+      click to dash around."}],"text":""}'
+    enchants:
+      Glowing: 1
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDI2QRbzS8xNZWDPBHLjDU0ZAI60zA8xAAAA
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"35"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"36"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"37"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: ELYTRA
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    Damage: 288
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"39"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: BLAZE_ROD
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Fire
+      Stick "},{"bold":false,"italic":false,"color":"gray","text":"(Requires Rank)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Right
+      click to boing."}],"text":""}'
+    enchants:
+      Glowing: 1
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDRHFvJLzE1lYM8EcuMNjRkAgrNnozAAAAA=
+Displayname: §f[§6§lSubscriber§f] _DarkWarrior_§r
+NormalKill: xp
+Lobby1: Rank
+default:
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: WOODEN_SWORD
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STONE_AXE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    enchants:
+      DIG_SPEED: 2
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STONE_PICKAXE
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    enchants:
+      DIG_SPEED: 2
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: SHEARS
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"4"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"5"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"6"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"7"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"8"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"9"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: WHITE_WOOL
+  amount: 64
+kb:
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STICK
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    enchants:
+      KNOCKBACK: 2
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"1"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"2"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"3"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"4"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"5"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"6"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"7"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"8"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"9"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: WHITE_WOOL
+  amount: 64

@@ -31,6 +31,7 @@ me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$3.class
 me\invic\invictools\commands\OldCommands$25.class
 me\invic\invictools\util\Leaderboards\BedfightLeaderboard.class
 me\invic\invictools\commands\OldCommands$4.class
+me\invic\invictools\util\ingame\blockDecay$1.class
 me\invic\invictools\gamemodifiers\CloseElytra$1.class
 me\invic\invictools\commands\impl\IT\DisableshopCommand.class
 me\invic\invictools\gamemodifiers\PotionEffects\DamageTeammates.class
@@ -252,6 +253,7 @@ me\invic\invictools\util\Laser$Packets$ProtocolMappings$2.class
 me\invic\invictools\util\ingame\physics\grabSandstone.class
 me\invic\invictools\gamemodifiers\PotionEffects\CloseEffectSpecific.class
 me\invic\invictools\cosmetics\bedbreaks\BedBreaks$1$1.class
+me\invic\invictools\commands\shopCommands.class
 me\invic\invictools\items\ModBow$1$1.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\Blocks\goodBlocks$11.class
 me\invic\invictools\cosmetics\VictoryDances\VictoryDanceConfig.class
@@ -396,6 +398,7 @@ me\invic\invictools\gamemodifiers\creative$1.class
 me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler.class
 me\invic\invictools\util\ingame\physics\doLighting.class
 me\invic\invictools\commands\impl\IT\ForceManhuntTeamCommand.class
+me\invic\invictools\util\ingame\blockDecay.class
 me\invic\invictools\util\ingame\physics\MasterPlayerJoin.class
 me\invic\invictools\util\gui\scenSelector\scenSelInventoryHandle.class
 me\invic\invictools\commands\leaderboardCommands.class

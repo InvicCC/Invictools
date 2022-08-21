@@ -100,7 +100,7 @@ public class bedfightStatistics implements Listener
     @EventHandler
     public void bwdeath(BedwarsPlayerKilledEvent e)
     {
-        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack|| disableStats.singleDisable.contains(e.getGame()))
+        if(!disableStats.getGameType(e.getGame()).equalsIgnoreCase("bedfight") || !OldCommands.StatsTrack || disableStats.singleDisable.contains(e.getGame()))
             return;
 
         if ((e.getKiller() != null))

@@ -23,9 +23,16 @@ panels:
         stack: 1
         name: ' '
       '4':
-        material: LIGHT_BLUE_STAINED_GLASS_PANE
+        material: EMERALD
         stack: 1
-        name: ' '
+        name: '&a&lShop'
+        lore:
+        - '&7Purchase cosmetics with Invictacoins' 
+        - '&7Click to view' 
+        commands:
+        - left= invictools panel shop
+        - right= invictools panel shop
+        - invictools tracker
       '5':
         material: LIGHT_BLUE_STAINED_GLASS_PANE
         stack: 1

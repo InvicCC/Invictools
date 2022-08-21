@@ -31,6 +31,9 @@ public class disableStats implements Listener
     @EventHandler
     public void saveEvent(BedwarsSavePlayerStatisticEvent e)
     {
+        if(e.getPlayerStatistic().getName() == null)
+            return;
+
         if(!recentGame.containsKey((e.getPlayerStatistic().getName())))
         {
             e.setCancelled(true);

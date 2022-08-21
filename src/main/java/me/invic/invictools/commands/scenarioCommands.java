@@ -7,6 +7,7 @@ import me.invic.invictools.gamemodifiers.tempCombatSwap;
 import me.invic.invictools.util.ingame.LobbyLogic;
 import me.invic.invictools.util.disableStats;
 import me.invic.invictools.util.fixes.Protocol47Fix;
+import me.invic.invictools.util.ingame.blockDecay;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -51,7 +52,8 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
             tabComplete.add("creativeall");
             tabComplete.add("nostats");
             tabComplete.add("nofall");
-            tabComplete.add("nocmbat");
+            tabComplete.add("newcombat");
+            tabComplete.add("decay");
         }
         else if(args.length == 2 && args[0].equalsIgnoreCase("lucky"))
         {
@@ -96,6 +98,10 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         else if(args.length == 1 && args[0].equalsIgnoreCase("nostats") && sender instanceof Player)
         {
             disableStats.singleDisable.add(BedwarsAPI.getInstance().getGameOfPlayer((Player) sender));
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("decay") && sender instanceof Player)
+        {
+            blockDecay.decayGamemode.add(BedwarsAPI.getInstance().getGameOfPlayer((Player) sender));
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("creativeall") && sender instanceof Player)
         {

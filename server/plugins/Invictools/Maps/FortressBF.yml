@@ -1,0 +1,26 @@
+World: bedfight
+GameType: bedfight
+Conversion: BFnether-88d1-411e-ae28-3b23e66b4a8d
+WorldBorder: 260;50;270;0;DISABLED
+Void: 53
+Lobby:
+  name: default
+  effect: strike
+Bedfight:
+  loadout: default
+  layers: END_STONE;CRIMSON_PLANKS;STAINED_GLASS
+  #layers: SNOW_BLOCK;WOOL;STAINED_GLASS
+Spawner:
+  island:
+    x: 1
+    y: 66
+    z: -246
+  mid:
+    x: 1
+    y: 66
+    z: -246
+LuckySpawners:
+  0:
+    x: 1
+    y: 70
+    z: -246

@@ -1,10 +1,8 @@
 Username: mayberry15
 BedBreak: Fireworks
-VictoryDance: Dragon
 ProjTrail: 'null'
-KillEffect: deprecated
+KillEffect: 'null'
 items: []
-tracker: 5
 lobby:
 - ==: org.bukkit.inventory.ItemStack
   v: 3105
@@ -29,6 +27,9 @@ lobby:
     meta-type: UNSPECIFIC
     display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Parkour
       Teleporter "},{"bold":false,"italic":false,"color":"gray","text":"(Right Click)"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Teleports
+      you to the Parkour Start"}],"text":""}'
     internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDREFvJLzE1lYMsEcuMNGQB9On2YLwAAAA==
 - ==: org.bukkit.inventory.ItemStack
   v: 3105
@@ -50,11 +51,13 @@ lobby:
   meta:
     ==: ItemMeta
     meta-type: SKULL
-    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"yellow","text":"Player
-      Info "},{"bold":false,"italic":false,"color":"gray","text":"(Right Click)"}],"text":""}'
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"aqua","text":"Statistics
+      "},{"bold":false,"italic":false,"color":"gray","text":"(Left/Right Click)"}],"text":""}'
     lore:
-    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Click
-      to view your statistics"}],"text":""}'
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Left
+      Click to view personal stats"}],"text":""}'
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Right
+      Click to view the loaded leaderboard"}],"text":""}'
     Damage: 3
     internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDRBFvJLzE1l4Ckoyk/LzEnVzQQKMwAAG/W5DDUAAAA=
     skull-owner:
@@ -63,8 +66,8 @@ lobby:
       name: mayberry15
       properties:
       - name: textures
-        value: ewogICJ0aW1lc3RhbXAiIDogMTY1NjM1OTQzMDUzNywKICAicHJvZmlsZUlkIiA6ICIxY2FkNDNiY2MwZjQ0MWE1OTg3MjM2YjhlMjlhN2E4MyIsCiAgInByb2ZpbGVOYW1lIiA6ICJtYXliZXJyeTE1IiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzFhNGFmNzE4NDU1ZDRhYWI1MjhlN2E2MWY4NmZhMjVlNmEzNjlkMTc2OGRjYjEzZjdkZjMxOWE3MTNlYjgxMGIiCiAgICB9CiAgfQp9
-        signature: ge5c8ri5Yf1gLE2Tmwsgamp9edDyd1gO0BtGns7nxYXCqT7+TnlwFOpw5cUQST3h0aQhlAG2HEGogeVTWPwMSsRSYvtXt0Ll1iRdvrKQo5d4Qin9/dDembNt4jKhuOShzln0CuPtF4ivUCDzEppS2GE9WsTHJt0fX9JFZmiPxyFYB37xdK//zjXNmlfZJVYX0pn34Fws/t/Qi81JiA5WMJjZXJ+O/XksP+3JXoesgKjcCOoUK61I+z0Aef1PV5NIBGwxavl+Dd5EIMzcE6RwfQtETNCo3QSf/Yba8MMA2o9TnvxZYJ1iH5Yc3OA/8RweBCXZd5ags0AvauVPKtjpGxiYmwAXyYryAY3GZgtH1yDxQc++SnZbF8jXlqln9gDLdQLKGs/JuJwwELwcNeh8FAW5KX6edcrMrRtiU/TgWhO9GWibyQv+slcEZpSNmKS9VerpU+nAmYcUAXQqb8WvaVpfRn1lD3LjWcMdfAW1mCjYNB6EtkN2ynRN/iivgbE13ghG6XzoWSymDty/a3c3sngZXAnwSerFYXOTMJY84plOs6hln1OLf7LB5MdNXyhDiUSf0dsOATlLllCUvud52aZo31jlktTWR6lKhitig4JDaMjkepvzYHloR5k2nA+vinTKmJqgQG4IhxU7eWcVnNAiUJW3nda2bq4Q6KsgcHQ=
+        value: ewogICJ0aW1lc3RhbXAiIDogMTY1NTg0Njc5MDc5NywKICAicHJvZmlsZUlkIiA6ICIxY2FkNDNiY2MwZjQ0MWE1OTg3MjM2YjhlMjlhN2E4MyIsCiAgInByb2ZpbGVOYW1lIiA6ICJtYXliZXJyeTE1IiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzFhNGFmNzE4NDU1ZDRhYWI1MjhlN2E2MWY4NmZhMjVlNmEzNjlkMTc2OGRjYjEzZjdkZjMxOWE3MTNlYjgxMGIiCiAgICB9CiAgfQp9
+        signature: LW3YMEzvV2ZIsQnf6nU/fJ6/p1oNTm7IY+Rwk1U9zz2cLIIiGEt0V0LKkPYciQu5Apel2aZP2rrQqOfN2QWF6V2C61Hcei1r/Fbz9/IjayMdoiRARHnXXeQp67ejaBWfmI6R1UZA+IvfhPZEbW27PBMRZE0MbKIuqCrgS4tH8tdiDWTT+tGUu4Us1mmvKBxYLnUiaDrH6gh1q1Bd60yK2AxBdaINEs6VINokICSBPxePU6TSJKl+tqz7L3/Id7flDk9gpDTVY259Bd9VmLz4lHH2dn9Oj2UvN4HSFJVMdfw+tYE62wTgHLptJ2UTin7te+StZTlvazKLUg8zV8MaHBni5dM/zpeO92i1qeRTVW4KjhGEm7/AtG0wJV1pmOA7klZiLloqOAPyixixFpHf+52neYZ7fBhiZXpILiSzyX1Wc7QStT04XzbOUBG92thpLn635j52YdSb04/uhM9QBoEFXiNCebq2BMjp3LkTLZhbdeyfgWta1QHdncoBNba1oKoN1J2pIe9ORYi8C0qikOLIzT9UzAlQSX1r20Y+YQVvTt8VRmC8rYkS+iacJW+QQzMHnGfNogUOFMutKVVSbucGdcKjbeW9uaLeIHGymisfX4cSZo8WtGGPcPIs4p6769A89kIUZ9Kfx8IV0ncjMrPKfTDT0e1LDVq3IG/TmL4=
 - ==: org.bukkit.inventory.ItemStack
   v: 3105
   type: STRUCTURE_VOID
@@ -224,11 +227,20 @@ lobby:
     display-name: '{"extra":[{"text":"24"}],"text":""}'
 - ==: org.bukkit.inventory.ItemStack
   v: 3105
-  type: STRUCTURE_VOID
+  type: BOW
   meta:
     ==: ItemMeta
     meta-type: UNSPECIFIC
-    display-name: '{"extra":[{"text":"25"}],"text":""}'
+    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Rideable
+      Bow"}],"text":""}'
+    lore:
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Fires
+      Rideable Arrows"}],"text":""}'
+    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"(Requires
+      Arrows)"}],"text":""}'
+    enchants:
+      Glowing: 1
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDIyRRbzS8xNZWDPBHLjDU0YAJNj7nkxAAAA
 - ==: org.bukkit.inventory.ItemStack
   v: 3105
   type: STRUCTURE_VOID
@@ -259,6 +271,34 @@ lobby:
     display-name: '{"extra":[{"text":"29"}],"text":""}'
 - ==: org.bukkit.inventory.ItemStack
   v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"30"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"31"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"32"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
+  type: STRUCTURE_VOID
+  meta:
+    ==: ItemMeta
+    meta-type: UNSPECIFIC
+    display-name: '{"extra":[{"text":"33"}],"text":""}'
+- ==: org.bukkit.inventory.ItemStack
+  v: 3105
   type: BONE
   meta:
     ==: ItemMeta
@@ -270,45 +310,7 @@ lobby:
       click to dash around."}],"text":""}'
     enchants:
       Glowing: 1
-    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDI2QBbzS8xNZWDPBHLjDU0ZAMvfjW4xAAAA
-- ==: org.bukkit.inventory.ItemStack
-  v: 3105
-  type: STRUCTURE_VOID
-  meta:
-    ==: ItemMeta
-    meta-type: UNSPECIFIC
-    display-name: '{"extra":[{"text":"31"}],"text":""}'
-- ==: org.bukkit.inventory.ItemStack
-  v: 3105
-  type: BOW
-  meta:
-    ==: ItemMeta
-    meta-type: UNSPECIFIC
-    display-name: '{"extra":[{"bold":true,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gold","text":"Rideable
-      Fireball Bow "},{"bold":false,"italic":false,"color":"gray","text":"(Requires
-      Rank)"}],"text":""}'
-    lore:
-    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Does
-      what it says, somehow."}],"text":""}'
-    - '{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"(Requires
-      Arrows)"}],"text":""}'
-    enchants:
-      Glowing: 1
-    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDI2QhbzS8xNZWDPBHLjDU0YAAjYjqoxAAAA
-- ==: org.bukkit.inventory.ItemStack
-  v: 3105
-  type: STRUCTURE_VOID
-  meta:
-    ==: ItemMeta
-    meta-type: UNSPECIFIC
-    display-name: '{"extra":[{"text":"33"}],"text":""}'
-- ==: org.bukkit.inventory.ItemStack
-  v: 3105
-  type: STRUCTURE_VOID
-  meta:
-    ==: ItemMeta
-    meta-type: UNSPECIFIC
-    display-name: '{"extra":[{"text":"34"}],"text":""}'
+    internal: H4sIAAAAAAAA/+NiYOBg4PUsSc31ys/MUwjOyS9hYDI2QRbzS8xNZWDPBHLjDU0ZAI60zA8xAAAA
 - ==: org.bukkit.inventory.ItemStack
   v: 3105
   type: STRUCTURE_VOID
@@ -351,7 +353,6 @@ lobby:
     ==: ItemMeta
     meta-type: UNSPECIFIC
     display-name: '{"extra":[{"text":"40"}],"text":""}'
-FinalDeaths: 18
-FinalKill: Lightning
+FinalDeaths: 1
+tracker: 1
 Displayname: §8[§7Player§8]§7 mayberry15§r
-FinalKills: 4

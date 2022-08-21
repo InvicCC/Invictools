@@ -239,6 +239,7 @@ public class ChangeTeamSize
         {
             data.set("teams." + team + ".maxPlayers", teamSize);
         }
+        data.set("pauseCountdown",6000);
 
         try
         {

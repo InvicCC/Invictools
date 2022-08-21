@@ -3,6 +3,7 @@ package me.invic.invictools.items;
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.PotionEffects.DamageTeammates;
 import me.invic.invictools.util.GrabTeammates;
+import me.invic.invictools.util.ingame.blockDecay;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.EntityType;
@@ -69,7 +70,6 @@ public class ModBow implements Listener
             {
                 if(api.isPlayerPlayingAnyGame((Player) e.getEntity()))
                 {
-
                     new BukkitRunnable()
                     {
                         final Player player = (Player) e.getEntity();
@@ -242,6 +242,10 @@ public class ModBow implements Listener
             public void run()
             {
                 BedwarsAPI.getInstance().getGameOfPlayer(player).getRegion().addBuiltDuringGame(block.getLocation());
+                if(blockDecay.decayGamemode.contains(BedwarsAPI.getInstance().getGameOfPlayer(player)))
+                {
+                    new blockDecay(block.getLocation(),BedwarsAPI.getInstance().getGameOfPlayer(player),new Random().nextInt(2)+14);
+                }
             }
         };
         runnable.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 1);

@@ -1,0 +1,234 @@
+panels:
+  sel:
+    perm: default
+    rows: 3
+    command: cosmetics
+    title: '&7&lMAP SELECTOR'
+    sound-on-open: BLOCK_CHEST_OPEN
+    empty: AIR
+    item:
+      '0':
+        material: RED_BED
+        stack: 1
+        name: '&8&lStream Map'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector stream
+        - right= queue alljoin stream
+      '1':
+        material: SANDSTONE
+        stack: 1
+        name: '&e&lOasis'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector Oasis
+        - right= queue alljoin Oasis
+      '2':
+        material: PURPLE_STAINED_GLASS
+        stack: 1
+        name: '&9&lFusion'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector Fusion
+        - right= queue alljoin Fusion
+      '3':
+        material: LILAC
+        stack: 1
+        name: '&a&lMonastery V1'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector Monastery
+        - right= queue alljoin Monastery
+      '4':
+        material: LILAC
+        stack: 2
+        name: '&a&lMonastery V2'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector MonasteryV2
+        - right= queue alljoin MonasteryV2
+      '5':
+        material: RED_SAND
+        stack: 1
+        name: '&c&lMars'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector Mars
+        - right= queue alljoin Mars
+      '6':
+        material: RED_SAND
+        stack: 4
+        name: '&c&lMars Fours'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector MarsFours
+        - right= queue alljoin MarsFours
+      '7':
+        material: STONE_BRICKS
+        stack: 1
+        name: '&7&lCastle'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector castle
+        - right= queue alljoin castle
+      '8':
+        material: SNOW_BLOCK
+        stack: 1
+        name: '&f&lSnowstorm'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector Snowstorm
+        - right= queue alljoin Snowstorm
+      '9':
+        material: SNOW_BLOCK
+        stack: 3
+        name: '&f&lSnowstorm Threes'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector SnowstormThrees
+        - right= queue alljoin SnowstormThrees
+      '10':
+        material: QUARTZ_PILLAR
+        stack: 1
+        name: '&7&lOlympus'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector Olympus
+        - right= queue alljoin Olympus
+      '11':
+        material: SKELETON_SKULL
+        stack: 1
+        name: '&e&lParadise'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector Paradise
+        - right= queue alljoin Paradise
+      '12':
+        material: SCULK_SENSOR
+        stack: 1
+        name: '&5&lSculk'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector Sculk
+        - right= queue alljoin Sculk
+      '13':
+        material: PRISMARINE
+        stack: 1
+        name: '&b&lAtlantis'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector Atlantis
+        - right= queue alljoin Atlantis
+      '14':
+        material: WHITE_STAINED_GLASS
+        stack: 1
+        name: '&f&lSkylantis'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector Skylantis
+        - right= queue alljoin Skylantis
+      '15':
+        material: ENDER_EYE
+        stack: 4
+        name: '&6&lMultiverse'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector Multiverse
+        - right= queue alljoin Multiverse
+      '16':
+        material: SANDSTONE
+        stack: 1
+        name: '&e&lOasis Scenario'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector OasisScenario
+        - right= queue alljoin OasisScenario
+      '17':
+        material: ICE
+        stack: 1
+        name: '&f&lSlipslide'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector Slipslide
+        - right= queue alljoin Slipslide
+      '18':
+        material: NETHER_BRICKS
+        stack: 1
+        name: '&c&lFortress Bedfight'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector FortressBF
+        - right= queue alljoin FortressBF
+      '19':
+        material: NETHER_BRICKS
+        stack: 2
+        name: '&c&lFortress Bedfight'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector FortressBF
+        - right= queue alljoin FortressBF
+      '20':
+        material: QUARTZ_PILLAR
+        stack: 2
+        name: '&f&lOlympus Bedfight'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector OlympusBedfight
+        - right= queue alljoin OlympusBedfight
+      '21':
+        material: WHITE_STAINED_GLASS
+        stack: 2
+        name: '&f&lSkylantis Bedfight'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector SkylantisBF
+        - right= queue alljoin SkylantisBF
+      '22':
+        material: FLOWERING_AZALEA_LEAVES
+        stack: 2
+        name: '&a&lGarden Bedfight'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector gardenBF
+        - right= queue alljoin gardenBF
+      '23':
+        material: WHITE_CONCRETE
+        stack: 2
+        name: '&F&lQube Bedfight'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector QubeBF
+        - right= queue alljoin QubeBF
+      '24':
+        material: PURPLE_STAINED_GLASS
+        stack: 2
+        name: '&9&lFusion Bedfight'
+        lore:
+        - '&fLeft Click to join'
+        commands:
+        - left= queue selector FusionBF
+        - right= queue alljoin FusionBF

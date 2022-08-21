@@ -1,0 +1,30 @@
+World: bedfight
+GameType: bedfight
+Conversion: BFfusion-1d07-40b9-925d-8a6b328ea55d
+WorldBorder: 260;50;270;0;DISABLED
+Void: 54
+Lobby:
+  name: default
+  effect: strike
+Bedfight:
+  loadout: default
+  layers: END_STONE;WARPED_HYPHAE;STAINED_GLASS
+  #layers: SNOW_BLOCK;WOOL;STAINED_GLASS
+Spawner:
+  island:
+    x: 0.5
+    y: 69
+    z: 250.5
+  mid:
+    x: 0.5
+    y: 69
+    z: 250.5
+LuckySpawners:
+  0:
+    x: 16.5
+    y: 69
+    z: 265.5
+  1:
+    x: -16.5
+    y: 69
+    z: 230.5

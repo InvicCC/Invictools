@@ -1,0 +1,288 @@
+panels:
+  scensel:
+    perm: default
+    rows: 6
+    title: '&7&lSCENARIOS'
+    item:
+      '0':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ''
+      '1':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ''
+      '2':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ''
+      '3':
+        material: DIAMOND_SWORD
+        cmd: scen newcombat
+        stack: 1
+        name: '&3&l1.9 Combat'
+        lore:
+        - '&7Enables 1.9 Combat'
+      '4':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ''
+      '5':
+        material: COMPARATOR
+        cmd: scen nostats
+        stack: 1
+        name: '&c&lDisable Stats'
+        lore:
+        - '&7Disables stats for this match'
+        - '&7Bedwars with less than 5 players will never track'
+        - '&7By default, all Bedfight matches track'
+        - '&cIf you want to mess around, you must disable stats'
+      '6':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ''
+      '7':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ''
+      '8':
+        material: WHITE_STAINED_GLASS_PANE
+        stack: 1
+        name: ''
+      '9':
+        material: SEA_LANTERN
+        cmd: scen lucky
+        stack: 1
+        name: '&e&lLucky Blocks'
+        lore:
+        - '&7Enables spawners, Enemies and Beds drop Lucky blocks'
+      '10':
+        material: GOLDEN_APPLE
+        cmd: it DeathAttribute all GENERIC_MAX_HEALTH 1 2
+        stack: 1
+        name: '&8&lNecromancing'
+        lore:
+        - '&7Start at one heart, gain 1 heart when killed'
+      '11':
+        material: TOTEM_OF_UNDYING
+        stack: 1
+        cmd: it totems all
+        name: '&e&lImortality'
+        lore:
+        - '&7Instead of dying, a totem will activate'
+      '12':
+        material: WATER_BUCKET
+        stack: 1
+        cmd: it itemrain table END_CITY_LOOT 100
+        name: '&b&lItem Rain'
+        lore:
+        - '&7Powerful items will fall from the sky'
+      '13':
+        material: TNT
+        stack: 1
+        cmd: it tnt 10 6
+        name: '&c&lClassic TNT'
+        lore:
+        - '&7TNT spawns on you every 10 seconds'
+      '14':
+        material: NETHERITE_INGOT
+        stack: 1
+        cmd: it spawner netherite mid
+        name: '&f&lOP Spawner'
+        lore:
+        - '&7Creates a netherite item spawner at mid'
+      '15':
+        material: HEART_OF_THE_SEA
+        stack: 1
+        cmd: it SetHealth randomall 40 30
+        name: '&c&lRandom Health'
+        lore:
+        - '&7Randomizes everyones health every 30 seconds'
+      '16':
+        material: DEAD_BUSH
+        stack: 1
+        cmd: it SetHealth decrease 40 30
+        name: '&7&lWithering Health'
+        lore:
+        - '&7Start with double health, lose health overtime'
+      '17':
+        material: WHITE_WOOL
+        stack: 1
+        cmd: it alwaysbridge
+        name: '&f&lScaffold'
+        lore:
+        - '&7Blocks in your hotbar will be placed under you automatically'
+        - '&7Sneak or put blocks in your offhand or inventory to disable'
+      '18':
+        material: SCULK_SHRIEKER
+        stack: 1
+        name: '&d&lShriekers'
+        lore:
+        - '&7Enable Warden Spawners'
+        - '&cComing soon'
+      '19':
+        material: DIAMOND_BLOCK
+        stack: 1
+        cmd: scen creativeall
+        name: '&b&lCreative Mode'
+        lore:
+        - '&7Players randomly enter creative mode'
+      '20':
+        material: WITHER_ROSE
+        stack: 1
+        req: 2
+        cmd: it DamageTeammates 7.5 20 5
+        name: '&8&lLong Distance Relationship'
+        lore:
+        - '&7Take damage when near your teammates'
+      '21':
+        material: ELYTRA
+        stack: 1
+        req: 2
+        cmd: it ProximityElytra 15
+        name: '&6&lProximity Elytra'
+        lore:
+        - '&7Gain an Elytra when near your teammates'
+      '22':
+        material: DRAGON_EGG
+        stack: 1
+        cmd: it haunt all normal
+        name: '&9&lHaunting'
+        lore:
+        - '&7Haunt living players after final death'
+      '23':
+        material: POTION
+        stack: 1
+        cmd: it randomeffect 10 15
+        name: '&f&lRandom Effects'
+        lore:
+        - '&7Recieve a random potion effect every 15 seconds'
+      '24':
+        material: TNT
+        stack: 1
+        cmd: it killitems WOOL 1 item all
+        name: '&c&lDemolition'
+        lore:
+        - '&7Recieve a wool detonator on every kill'
+      '25':
+        material: BOW
+        stack: 1
+        name: '&a&lSpecialist'
+        cmd: it deathitems MODBOW 1 item all
+        lore:
+        - '&7Recieve a Modular Bow on every respawn'
+      '26':
+        material: CLOCK
+        stack: 1
+        cmd: it repeateditem PAPER 1 15 random all
+        name: '&4&lInsanity'
+        lore:
+        - '&7Recieve a random special item every 15 seconds'
+      '27':
+        material: APPLE
+        stack: 1
+        cmd: it sethealth all 40
+        name: '&f&lDouble Health'
+        lore:
+        - '&7Have 40 hearts throughout the match'
+      '28':
+        material: APPLE
+        stack: 1
+        name: '&f&lHalf a Heart'
+        cmd: it sethealth all 1
+        lore:
+        - '&7Have half a heart throughout the match'
+      '29':
+        material: CHEST
+        stack: 1
+        cmd: it killitems LOOTBOX 3 item all
+        name: '&f&lGamble'
+        lore:
+        - '&7Recieve 3 loot boxes after every kill'
+      '30':
+        material: BLAZE_ROD
+        stack: 1
+        name: '&6&lFirestick'
+        cmd: it deathitems FIRESTICK 1 item all
+        lore:
+        - '&7Recieve a Firestick on respawn'
+      '31':
+        material: FIRE_CHARGE
+        stack: 1
+        cmd: it jumping 5 5 3.5 true
+        name: '&c&lOP Fireballs'
+        lore:
+        - '&7Makes fireballs 10x stronger'
+      '32':
+        material: CHEST
+        antimode: bedfight
+        stack: 1
+        name: '&f&lSecret Shop'
+        lore:
+        - '&7Select a special shop to spawn at mid'
+        - '&cComing soon!'
+      '33':
+        material: SPAWNER
+        stack: 1
+        name: '&f&lInfestation'
+        lore:
+        - '&7Random mobs spawn everytime you hit a player'
+        - '&cComing soon!'
+      '34':
+        material: WARDEN_SPAWN_EGG
+        stack: 1
+        name: '&9&lWarden Attack'
+        lore:
+        - '&7Wardens spawn on every player every minute'
+        - '&cComing soon!'
+      '35':
+        material: DRAGON_HEAD
+        antimode: bedfight
+        stack: 1
+        name: '&d&lThe Albi Family'
+        lore:
+        - '&7Spawns a few Dragons'
+        - '&cComing soon!'
+      '36':
+        material: ANVIL
+        stack: 1
+        cmd: it KillEffects INCREASE_DAMAGE 1 100 all
+        name: '&4&lBulldozer'
+        lore:
+        - '&7Recieve Strength on Kill'
+      '37':
+        material: FIRE_CHARGE
+        stack: 1
+        cmd: it killitems FIREBALL 5 item all
+        name: '&f&lStratosphere'
+        lore:
+        - '&7Recieve 5 fireballs on every kill'
+      '38':
+        material: TNT
+        stack: 1
+        cmd: it tnt 1 1
+        name: '&c&lInstaboom'
+        lore:
+        - '&7Instantly exploding tnt spawns on you every second'
+        - '&7good luck.'
+      '39':
+        material: GLASS
+        stack: 1
+        cmd: it EffectSometimes all 10 30 15 1 INVISIBILITY all
+        name: '&7&lGhostly'
+        lore:
+        - '&7Players randomly turn invisible'
+      '40':
+        material: FEATHER
+        stack: 1
+        cmd: scen nofall
+        name: '&f&lLightweight'
+        lore:
+        - '&7Disables Fall Damage'
+      '41':
+        material: FISHING_ROD
+        stack: 1
+        cmd: it deathitems FISHING_ROD 1 normal all
+        name: '&4&lSweatfest'
+        lore:
+        - '&7Recieve a fishing rod on respawn'

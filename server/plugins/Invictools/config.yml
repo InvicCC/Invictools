@@ -1,5 +1,5 @@
 npccounter: 291
-masterplayer: Invictable
+masterplayer: unchargeableness
 UsePlugNPC: true
 dareTimeout: 165
 ScaffoldInventoryCheckSize: 9
@@ -15,6 +15,9 @@ VictoryDance:
 ProjPreview:
   Player: bwlobby;241.5;156;134.5;180;0
   Projectile: bwlobby;231;157;125;272;0
+CagePreview:
+  Player: bwlobby;302.5;133;288.5;90;-24
+  Cage: bwlobby;291.5;140;288.5;180;0
 worlds:
 - OasisB
 - OasisBscen

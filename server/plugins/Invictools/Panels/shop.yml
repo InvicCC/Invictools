@@ -1,0 +1,126 @@
+panels:
+  shop:
+    perm: default
+    rows: 6
+    title: '&8&lCOSMETIC SHOP'
+    item:
+      '0':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '1':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '2':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '3':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '4':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '5':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '6':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '7':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '8':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '45':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '46':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '47':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '48':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '49':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '50':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '51':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '52':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '53':
+        material: LIME_STAINED_GLASS_PANE
+        stack: 1
+        name: '&a&lMerchandise:'
+      '9':
+        material: REINFORCED_DEEPSLATE
+        stack: 1
+        name: '&7&lTommorrows Cage'
+        lore:
+        - '&b100000 &fInvictacoins'
+        - '&7Bedfight Cage'
+        commands:
+        - left= shop cage dark
+      '10':
+        material: RAW_GOLD_BLOCK
+        stack: 1
+        name: '&e&lKing Cage'
+        lore:
+        - '&b50000 &fInvictacoins'
+        - '&7Bedfight Cage'
+        commands:
+        - left= shop cage one
+      '11':
+        material: POTION
+        stack: 1
+        name: '&d&lPotion Trail'
+        lore:
+        - '&b75000 &fInvictacoins'
+        - '&7Projectile Trail'
+        - '&cComing Soon!'
+        #commands:
+        #- left= shop trail potionTrail
+      '12':
+        material: WARPED_ROOTS
+        stack: 1
+        name: '&b&lBubble Trail'
+        lore:
+        - '&b25000 &fInvictacoins'
+        - '&7Projectile Trail'
+        - '&cComing Soon!'
+        #commands:
+        #- left= shop trail bubbleTrail
+      '13':
+        material: PURPLE_DYE
+        stack: 1
+        name: '&5&lMagic Trail'
+        lore:
+        - '&b150000 &fInvictacoins'
+        - '&7Projectile Trail'
+        - '&cComing Soon!'
+        #commands:
+        #- left= shop trail potionTrail

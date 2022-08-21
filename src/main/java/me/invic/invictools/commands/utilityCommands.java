@@ -2,6 +2,7 @@ package me.invic.invictools.commands;
 
 import me.invic.invictools.gamemodes.bf.bedfight;
 import me.invic.invictools.util.disableStats;
+import me.invic.invictools.util.ingame.blockDecay;
 import me.invic.invictools.util.safeSizeChange;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -12,6 +13,7 @@ import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
+import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.game.Game;
 
 import java.util.ArrayList;
@@ -71,7 +73,11 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         {
             new safeSizeChange().safeSizeEdit(args[2],sender,Integer.parseInt(args[3]));
         }
-        if(args[0].equalsIgnoreCase("resetbf"))
+        else if(args[0].equalsIgnoreCase("test") && args[1].equalsIgnoreCase("decay") && sender instanceof Player p)
+        {
+            new blockDecay(p.getTargetBlock(null,10).getLocation(),BedwarsAPI.getInstance().getGameOfPlayer(p),3);
+        }
+        else if(args[0].equalsIgnoreCase("resetbf"))
         {
             new bedfight().loadBedfightInventory(args[2], Bukkit.getPlayer(args[1]), true);
             sender.sendMessage(ChatColor.AQUA + "reset bedfight inventory " + args[2] +" for " + args[1]);
@@ -87,7 +93,12 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         }
         else if(args.length >= 2 && args[0].equalsIgnoreCase("endgame"))
         {
-            endgameNoStats(BedwarsAPI.getInstance().getGameByName(args[1]));
+            if(BedwarsAPI.getInstance().isGameWithNameExists(args[1]))
+                endgameNoStats(BedwarsAPI.getInstance().getGameByName(args[1]));
+            else if(BedwarsAPI.getInstance().isGameWithNameExists(args[0]))
+                endgameNoStats(BedwarsAPI.getInstance().getGameByName(args[0]));
+            else
+                sender.sendMessage(ChatColor.RED +"This game does not exist");
         }
         return true;
     }
@@ -101,6 +112,8 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         {
             game.leaveFromGame(p);
         }
+
+        new BedwarsGameEndEvent(game);
 
         new BukkitRunnable()
         {

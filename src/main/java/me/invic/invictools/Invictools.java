@@ -33,6 +33,7 @@ import me.invic.invictools.util.gui.TeamSelection;
 import me.invic.invictools.util.gui.gameLobbyItems;
 import me.invic.invictools.util.gui.panels;
 import me.invic.invictools.util.ingame.SculkFires;
+import me.invic.invictools.util.ingame.blockDecay;
 import me.invic.invictools.util.npc.BlazeNpc;
 import me.invic.invictools.util.ingame.physics.CancelConcreteChange;
 import me.invic.invictools.util.ingame.physics.CancelLampUpdates;
@@ -252,7 +253,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new ProjTrailListener(), this); //Toggle glide, arrow shot
         Bukkit.getPluginManager().registerEvents(new lobbyDestroyFix(), this); //block break
         Bukkit.getPluginManager().registerEvents(new WorldChangeFix(), this); //portal usage
-        Bukkit.getPluginManager().registerEvents(new FireworkDamageFix(), this); //entity damage by dentity
+        Bukkit.getPluginManager().registerEvents(new FireworkDamageFix(), this); //entity damage by entity
         Bukkit.getPluginManager().registerEvents(new ArmorStandFix(), this); //armor stand manipulate
         Bukkit.getPluginManager().registerEvents(new SculkGameStart(), this); //sculk warden spawner
         Bukkit.getPluginManager().registerEvents(new panels(), this); //inventory click
@@ -276,6 +277,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new perGameScenSelHolder(), this); //bw join leave start for scen selector execution
         Bukkit.getPluginManager().registerEvents(new givePoints(), this); //bw start economy setup
         Bukkit.getPluginManager().registerEvents(new tempCombatSwap(), this); //entity damage by entity
+        Bukkit.getPluginManager().registerEvents(new blockDecay(), this); //shut the fuck up
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection

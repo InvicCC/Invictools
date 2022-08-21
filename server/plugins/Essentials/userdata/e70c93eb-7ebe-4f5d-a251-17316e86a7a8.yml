@@ -1,18 +1,18 @@
 lastAccountName: unchargeableness
 timestamps:
-  login: 1658933169166
-  logout: 1658933263604
+  login: 1661120917372
+  logout: 1661121343567
   kits:
     fw: 1639159699025
-  lastteleport: 1655793468284
+  lastteleport: 1661121033813
 ipAddress: 127.0.0.1
 lastlocation:
   world: bwlobby
-  x: 250.1431355905357
+  x: 250.35824791828554
   y: 127.0
-  z: 250.64412937356468
-  yaw: -91.6011
-  pitch: 4.9358435
+  z: 250.4324502472729
+  yaw: -89.39903
+  pitch: -8.276491
 logoutlocation:
   world: bwlobby
   x: 250.35824791828554
@@ -21,3 +21,4 @@ logoutlocation:
   yaw: -89.39903
   pitch: -8.276491
 godmode: false
+money: '5.0'

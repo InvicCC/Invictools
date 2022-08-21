@@ -43,7 +43,6 @@ public class GameLogger implements Listener
         BufferedWriter br = new BufferedWriter(new FileWriter(bedfightLog.getAbsolutePath(), true));
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
-        new disableStats();
         String gameType = disableStats.getGameType(e.getGame());
         long t1 = startTime.get(e.getGame());
         long t2 = Instant.now().getEpochSecond();
@@ -55,7 +54,12 @@ public class GameLogger implements Listener
         br.newLine();
         br.write("  Map: " + e.getGame().getName());
         br.newLine();
-        br.write("  StatsTrack: " + "unknown");
+        if(disableStats.singleDisable.contains(e.getGame()))
+            br.write("  StatsTrack: " + "ManualDisable");
+        else if(!OldCommands.StatsTrack)
+            br.write("  StatsTrack: " + "GlobalDisable");
+        else
+            br.write("  StatsTrack: " + "PossiblyTracked");
         br.newLine();
         br.write("  Players: " + e.getGame().getConnectedPlayers().size());
         br.newLine();

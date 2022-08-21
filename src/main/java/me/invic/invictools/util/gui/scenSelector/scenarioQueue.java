@@ -30,19 +30,20 @@ public class scenarioQueue
     void print(List<Player> p)
     {
         List<String> cleaned = ManhuntMain.cleanSyntax(commands);
-        if(cleaned.size() > 27)
-        new BukkitRunnable()
+        if (cleaned.size() > 28)
         {
-            @Override
-            public void run()
+            new BukkitRunnable()
             {
-                for(String s:cleaned)
+                @Override
+                public void run()
                 {
-                    p.forEach((pl) -> pl.sendMessage(s));
+                    for (String s : cleaned)
+                    {
+                        p.forEach((pl) -> pl.sendMessage(s));
+                    }
                 }
-            }
-        }.runTaskLater(OldCommands.Invictools, 20L);
-
+            }.runTaskLater(OldCommands.Invictools, 20L);
+        }
     }
 
     void addCommand(String s)

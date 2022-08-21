@@ -1,0 +1,46 @@
+World: bedfight
+GameType: bedfight
+Conversion: BFskylan-3df8-433c-af9c-41e4591caf23
+WorldBorder: 260;50;270;0;DISABLED
+Void: 52
+Lobby:
+  name: Skylantis
+  effect: strike
+Bedfight:
+  loadout: default
+  layers: END_STONE;WARPED_PLANKS;STAINED_GLASS
+  #layers: SNOW_BLOCK;WOOL;STAINED_GLASS
+Spawner:
+  island:
+    x: -250.5
+    y: 70
+    z: .5
+  mid:
+    x: -250.5
+    y: 70
+    z: .5
+LuckySpawners:
+  0:
+    x: -270.5
+    y: 64
+    z: .5
+  1:
+    x: -230.5
+    y: 64
+    z: .5
+  2:
+    x: -256
+    y: 64
+    z: 34
+  #3:
+   # x: -243
+    #y: 64
+    #z: 34
+  3:
+    x: -256
+    y: 64
+    z: -33
+ # 5:
+  #  x: -243
+   # y: 64
+    #z: -33

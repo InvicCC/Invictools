@@ -45,6 +45,9 @@ commands:
   coins:
     usage: /coins (player)
     description: Shows how many Invictcoins you have
+  shop:
+    usage: /shop (type)
+    description: Shows how many Invictcoins you have
 permissions:
   invictools.*:
     description: Gives access the entire plugin

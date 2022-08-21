@@ -1,0 +1,30 @@
+World: bedfight
+GameType: bedfight
+Conversion: BFgarden-73bf-496b-80de-5c50d7e9e6c2
+WorldBorder: 260;50;270;0;DISABLED
+Void: 53
+Lobby:
+  name: default
+  effect: strike
+Bedfight:
+  loadout: default
+  layers: END_STONE;OAK_PLANKS;STAINED_GLASS
+  #layers: SNOW_BLOCK;WOOL;STAINED_GLASS
+Spawner:
+  island:
+    x: 0.5
+    y: 67
+    z: -527.5
+  mid:
+    x: 0.5
+    y: 67
+    z: -527.5
+LuckySpawners:
+  0:
+    x: 0.5
+    y: 64
+    z: -545.5
+  1:
+    x: 0.5
+    y: 64
+    z: -509.5

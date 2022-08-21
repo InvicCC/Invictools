@@ -29,6 +29,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/misc/magenta_dye_from_lilac": {
+    "criteria": {
+      "has_lilac": "2022-08-21 16:40:50 -0400"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/stone_bricks": {
     "criteria": {
       "has_stone": "2021-07-25 13:46:41 -0400"
@@ -524,6 +530,12 @@
   "minecraft:recipes/building_blocks/mud_brick_slab": {
     "criteria": {
       "has_mud_bricks": "2022-06-11 16:48:51 -0400"
+    },
+    "done": true
+  },
+  "minecraft:adventure/lightning_rod_with_villager_no_fire": {
+    "criteria": {
+      "lightning_rod_with_villager_no_fire": "2022-08-21 16:55:30 -0400"
     },
     "done": true
   },
@@ -2872,6 +2884,12 @@
   "minecraft:recipes/redstone/mangrove_button": {
     "criteria": {
       "has_planks": "2022-06-11 03:31:48 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/yellow_dye_from_sunflower": {
+    "criteria": {
+      "has_sunflower": "2022-08-21 16:31:44 -0400"
     },
     "done": true
   },
