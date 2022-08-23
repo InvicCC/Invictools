@@ -178,7 +178,7 @@ public class BlazeNpc implements Listener
 
         as5.setCustomName(ChatColor.translateAlternateColorCodes('&', "&b&lHow to Play:"));
         as4.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fCreate a party: (/party invite <name> /party accept)"));
-        as3.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fChose a mode with the compass."));
+        as3.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fChose a mode with the compass"));
         as2.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fChange team size with the anvil"));
         as1.setCustomName(ChatColor.translateAlternateColorCodes('&', "&fUse /party warp to rejoin your party to the game"));
 

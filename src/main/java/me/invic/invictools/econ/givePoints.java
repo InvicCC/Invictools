@@ -5,6 +5,7 @@ import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.util.disableStats;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,9 +20,9 @@ import java.util.HashMap;
 
 public class givePoints implements Listener
 {
-    static HashMap<Game,String> modeHolder = new HashMap();
-    static HashMap<String,Integer> types = new HashMap();
-    static HashMap<Player,Integer> totals = new HashMap();
+    static HashMap<Game,String> modeHolder = new HashMap<>();
+    static HashMap<String,Integer> types = new HashMap<>();
+    static HashMap<Player,Integer> totals = new HashMap<>();
 
     @EventHandler
     public void join(BedwarsGameStartEvent e)
@@ -37,9 +38,8 @@ public class givePoints implements Listener
             return;
 
         Player p = e.getPlayer();
-
-        p.sendMessage(" ");
-        p.sendMessage(ChatColor.AQUA+"You earned "+ChatColor.WHITE+totals.get(p)+ChatColor.AQUA+" Invictacoins that round.");
+        p.playSound(p, Sound.BLOCK_NOTE_BLOCK_BELL,1,1);
+        p.sendMessage(ChatColor.AQUA/*+" "+ChatColor.BOLD+"(!)"*/+"You earned "+ChatColor.WHITE+totals.get(p)+ChatColor.AQUA+" Invictacoins that round.");
 
         totals.remove(p);
     }

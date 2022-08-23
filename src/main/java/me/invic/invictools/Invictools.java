@@ -278,6 +278,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new givePoints(), this); //bw start economy setup
         Bukkit.getPluginManager().registerEvents(new tempCombatSwap(), this); //entity damage by entity
         Bukkit.getPluginManager().registerEvents(new blockDecay(), this); //shut the fuck up
+        Bukkit.getPluginManager().registerEvents(new statsHoloListener(), this); //bedwars end, player join and leave
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection
@@ -291,7 +292,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new ConfigHandler(this), this); // join event
         Bukkit.getPluginManager().registerEvents(new AbtributesOnDeath(), this); // join event
         Bukkit.getPluginManager().registerEvents(new MasterPlayerJoin(), this); // changed world event
-        Bukkit.getPluginManager().registerEvents(new shopCommands(), this); // changed world event
+        Bukkit.getPluginManager().registerEvents(new shopCommands(), this);
 
         // HAS LOTS OF GAME ENDING RESETS
         Bukkit.getPluginManager().registerEvents(new deathListener(), this); // bw death, lucky blocks on death, clear data on bedwars games end, falling blocks lb grabber, bounce fall damage cancel

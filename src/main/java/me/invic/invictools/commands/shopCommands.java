@@ -5,6 +5,7 @@ import me.invic.invictools.cosmetics.statisticRequirments;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,17 +17,18 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class shopCommands implements CommandExecutor, TabExecutor, Listener
 {
@@ -186,6 +188,25 @@ public class shopCommands implements CommandExecutor, TabExecutor, Listener
     public void world(PlayerChangedWorldEvent e)
     {
         attemptingPurchase.remove(e.getPlayer());
+    }
+
+    @EventHandler
+    public void antiratio(AsyncPlayerChatEvent e)
+    {
+        if(e.getMessage().toLowerCase(Locale.ROOT).contains("ratio")
+                && !BedwarsAPI.getInstance().isPlayerPlayingAnyGame(e.getPlayer())
+                && new Random().nextInt(5) == 1)
+        {
+            e.getPlayer().sendMessage(ChatColor.AQUA+" "+ChatColor.BOLD+"(!)"+ChatColor.WHITE+" Counter Ratio!");
+            e.getPlayer().playSound(e.getPlayer(), Sound.ENTITY_LIGHTNING_BOLT_IMPACT,1,1);
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"kill "+e.getPlayer().getName());
+                }
+            }.runTask(OldCommands.Invictools);
+
+        }
     }
 
     public void loadShop()

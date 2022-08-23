@@ -402,7 +402,16 @@ public class VictoryDanceHandler implements Listener
                             LargeFireball ball = dragon.launchProjectile(LargeFireball.class);
                             new ProjTrailHandler().Hearts(ball);
                             ball.setVelocity((p.getLocation().getDirection()).multiply(5));
-                            ball.setYield(5);
+                            ball.setYield(0);
+                            new BukkitRunnable()
+                            {
+                                @Override
+                                public void run()
+                                {
+                                    if(!ball.isDead())
+                                        ball.remove();
+                                }
+                            }.runTaskLater(OldCommands.Invictools, 120L);
                         }
                         else
                             this.cancel();

@@ -14,20 +14,20 @@ public class scenarioQueue
 {
     List<String> commands = new ArrayList<>();
 
-    scenarioQueue()
+    public scenarioQueue()
     {
 
     }
 
-    void debugPrint()
+    public void debugPrint(Player p)
     {
         for(String s:commands)
         {
-            System.out.println(s);
+            p.sendMessage(s);
         }
     }
 
-    void print(List<Player> p)
+    public void print(List<Player> p)
     {
         List<String> cleaned = ManhuntMain.cleanSyntax(commands);
         if (cleaned.size() > 28)
@@ -46,12 +46,12 @@ public class scenarioQueue
         }
     }
 
-    void addCommand(String s)
+    public void addCommand(String s)
     {
         commands.add(s);
     }
 
-    void removeCommand(String s)
+    public void removeCommand(String s)
     {
         commands.remove(s);
     }
@@ -102,7 +102,7 @@ public class scenarioQueue
         }
     }
 
-    void executeOP(Player p)
+    public void executeOP(Player p)
     {
         for(String s:commands)
         {

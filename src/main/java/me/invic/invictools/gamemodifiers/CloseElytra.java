@@ -9,6 +9,8 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
+import org.screamingsandals.bedwars.api.game.Game;
 
 import java.util.List;
 import java.util.Objects;
@@ -27,7 +29,7 @@ public class CloseElytra
         if (teammates.size() == 0)
             return;
 
-        World GameWorld = player.getWorld();
+        Game game = BedwarsAPI.getInstance().getGameOfPlayer(player);
 
         new BukkitRunnable()
         {
@@ -38,7 +40,7 @@ public class CloseElytra
             @Override
             public void run()
             {
-                if (player.getWorld() == GameWorld)
+                if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player) || BedwarsAPI.getInstance().getGameOfPlayer(player) != game)
                 {
                     for (Player p : teammates)
                     {
@@ -71,7 +73,7 @@ public class CloseElytra
                 }
                 else
                 {
-                    OldCommands.ProximityElytra.clear();
+                    OldCommands.ProximityElytra.remove(player);
                     this.cancel();
                 }
             }

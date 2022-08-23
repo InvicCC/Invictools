@@ -306,7 +306,7 @@ public class ItemListener implements Listener
                         @Override
                         public void run()
                         {
-                            Bukkit.getOnlinePlayers().forEach((player) -> player.playSound(block.getLocation(), Sound.BLOCK_GLASS_BREAK, 1, 1));
+                            Bukkit.getOnlinePlayers().forEach((player) -> player.playSound(block.getLocation(), Sound.BLOCK_GLASS_BREAK, 1, (float) (new Random().nextFloat()+.5)));
 
                             int type = new Random().nextInt(10);
                             if (api.getGameOfPlayer(e.getPlayer()).isBlockAddedDuringGame(block.getLocation()))

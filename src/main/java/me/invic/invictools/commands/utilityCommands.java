@@ -1,8 +1,13 @@
 package me.invic.invictools.commands;
 
 import me.invic.invictools.gamemodes.bf.bedfight;
+import me.invic.invictools.util.Leaderboards.statsHolo;
+import me.invic.invictools.util.Leaderboards.statsHoloListener;
 import me.invic.invictools.util.disableStats;
+import me.invic.invictools.util.gui.scenSelector.perGameScenSelHolder;
+import me.invic.invictools.util.gui.scenSelector.scenarioQueue;
 import me.invic.invictools.util.ingame.blockDecay;
+import me.invic.invictools.util.queue;
 import me.invic.invictools.util.safeSizeChange;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -39,12 +44,14 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         {
             tabComplete.add("test");
             tabComplete.add("debug");
+            tabComplete.add("scenq");
             tabComplete.add("endgame");
             tabComplete.add("resetbf");
         }
         else if(args.length==2 && args[0].equalsIgnoreCase("test"))
         {
             tabComplete.add("changeTeamSize game size");
+            tabComplete.add("decay");
         }
         else if(args.length==2 && args[0].equalsIgnoreCase("resetbf"))
         {
@@ -69,6 +76,15 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
     {
+        if(sender instanceof Player)
+        {
+            if(!sender.hasPermission("invic.invictools"))
+            {
+                sender.sendMessage(OldCommands.permissionsError);
+                return true;
+            }
+        }
+
         if(args[0].equalsIgnoreCase("test") && args[1].equalsIgnoreCase("changeteamsize"))
         {
             new safeSizeChange().safeSizeEdit(args[2],sender,Integer.parseInt(args[3]));
@@ -76,6 +92,11 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         else if(args[0].equalsIgnoreCase("test") && args[1].equalsIgnoreCase("decay") && sender instanceof Player p)
         {
             new blockDecay(p.getTargetBlock(null,10).getLocation(),BedwarsAPI.getInstance().getGameOfPlayer(p),3);
+        }
+        else if(args[0].equalsIgnoreCase("test") && args[1].equalsIgnoreCase("holo") && sender instanceof Player p)
+        {
+            p.sendMessage("destructing own stands via packet");
+            statsHolo.sendPacket(p, statsHoloListener.activeBedfightHolos.get(p).getStands());
         }
         else if(args[0].equalsIgnoreCase("resetbf"))
         {
@@ -85,6 +106,14 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         else if(args[0].equalsIgnoreCase("debug"))
         {
             OldCommands.debug(sender);
+        }
+        else if(args[0].equalsIgnoreCase("scenq") && args.length ==2 && sender instanceof Player p)
+        {
+           perGameScenSelHolder.queue.get(BedwarsAPI.getInstance().getGameOfPlayer(p)).addCommand(args[1]);
+        }
+        else if(args[0].equalsIgnoreCase("scenq") && args.length ==1 && sender instanceof Player p)
+        {
+           perGameScenSelHolder.queue.get(BedwarsAPI.getInstance().getGameOfPlayer(p)).debugPrint(p);
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("endgame"))
         {
@@ -100,6 +129,8 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
             else
                 sender.sendMessage(ChatColor.RED +"This game does not exist");
         }
+        else
+            sender.sendMessage(ChatColor.RED+"Incomplete command");
         return true;
     }
 

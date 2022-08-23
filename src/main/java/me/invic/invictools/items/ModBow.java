@@ -6,6 +6,7 @@ import me.invic.invictools.util.GrabTeammates;
 import me.invic.invictools.util.ingame.blockDecay;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.type.Bed;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
@@ -209,6 +210,7 @@ public class ModBow implements Listener
     {
         ModBowHealCooldown.put(p, System.currentTimeMillis());
         p.getLocation().getWorld().strikeLightningEffect(p.getLocation());
+        p.spawnParticle(Particle.HEART,p.getLocation(),5, 1,2,1);
         p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 100, 4, false, true));
         p.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 100, 0, false, true));
         p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 1, false, true));
@@ -216,6 +218,7 @@ public class ModBow implements Listener
         {
             if (DamageTeammates.withinDistance(p, team, 15) && team.getGameMode() != GameMode.SPECTATOR)
             {
+                team.spawnParticle(Particle.HEART,team.getLocation(),5, 1,2,1);
                 team.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 100, 4, false, true));
                 team.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 100, 0, false, true));
                 team.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 1, false, true));

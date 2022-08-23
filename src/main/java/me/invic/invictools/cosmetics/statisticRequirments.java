@@ -93,11 +93,21 @@ public class statisticRequirments
         reqTypes.add("bf_NormalKills");
         reqTypes.add("bf_NormalDeaths");
         reqTypes.add("bf_Wins");
+        reqTypes.add("bf_Games");
         reqTypes.add("bf_Points");
         reqTypes.add("bf_Losses");
         reqTypes.add("bf_BedBreaks");
         reqTypes.add("bf_WinStreak");
         reqTypes.add("bf_BestWinStreak");
+
+        reqTypes.add("bw_kills");
+        reqTypes.add("bw_wins");
+        reqTypes.add("bw_score");
+        reqTypes.add("bw_loses");
+        reqTypes.add("bw_destroyedBeds");
+        reqTypes.add("bw_deaths");
+        reqTypes.add("bw_games");
+
         reqTypes.add("purchased");
         reqTypes.add("rank"/*_1_c"*/); // char place 1, color c, creator
        // reqTypes.add("rank"/*_1_a"*/); // char place 1, color a, mod
@@ -106,7 +116,7 @@ public class statisticRequirments
         reqTypes.add("bfpos"/*_3"*/); // if position is equal number given
     }
 
-    static Integer getStatistic(String type, Player p)
+    public static Integer getStatistic(String type, Player p)
     {
         String[] split = type.split("_");
         if(!reqTypes.contains(type) && !reqTypes.contains(split[0]))
@@ -114,10 +124,15 @@ public class statisticRequirments
 
         if(split[0].equalsIgnoreCase("bw"))
         {
+            if(split[1].equalsIgnoreCase("games"))
+            {
+                return getStatistic("bw_wins",p)+getStatistic("bw_loses",p);
+            }
+
             File pFile2 = new File(Folder2, "bw_stats_players.yml");
             final FileConfiguration data2 = YamlConfiguration.loadConfiguration(pFile2);
 
-            return data2.getInt("data."+p.getUniqueId()+"."+type);
+            return data2.getInt("data."+p.getUniqueId()+"."+split[1]);
         }
         else if(split[0].equalsIgnoreCase("bf"))
         {
@@ -126,8 +141,12 @@ public class statisticRequirments
 
             if(split[1].equalsIgnoreCase("Points"))
                 return new bedfightStatistics().calculateScore(data,p.getUniqueId().toString());
+            else if(split[1].equalsIgnoreCase("Games"))
+            {
+                return getStatistic("bf_Wins",p)+getStatistic("bf_Losses",p);
+            }
             else
-                return data.getInt("data."+p.getUniqueId()+"."+type);
+                return data.getInt("data."+p.getUniqueId()+"."+split[1]);
         }
         else if(split[0].equalsIgnoreCase("rank"))
         {

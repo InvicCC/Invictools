@@ -87,7 +87,6 @@ public class ItemRain
             x += (rand.nextInt(range*2) - range);
             z += (rand.nextInt(range*2) - range);
             Location loc = new Location(player.getWorld(), x, 150, z);
-            System.out.println(loc);
             switch (item.getType().toString())
             {
                 case "EMERALD":

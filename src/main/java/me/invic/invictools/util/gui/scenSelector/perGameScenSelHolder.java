@@ -31,7 +31,7 @@ import static me.invic.invictools.util.gui.scenSelector.scenSelInventoryHandle.a
 
 public class perGameScenSelHolder implements Listener
 {
-    static HashMap<Game,scenarioQueue> queue = new HashMap<>();
+    public static HashMap<Game,scenarioQueue> queue = new HashMap<>();
     public static HashMap<Game, Inventory> mainSelector = new HashMap<>();
 
     @EventHandler

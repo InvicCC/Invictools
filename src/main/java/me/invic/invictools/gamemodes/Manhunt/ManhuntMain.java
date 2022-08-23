@@ -421,6 +421,14 @@ public class ManhuntMain
                     currentEffect = ChatColor.AQUA + "  - You have " + ChatColor.WHITE + commandSplit[3] + ChatColor.AQUA + " health ";
                     list.add(currentEffect);
                     break;
+                case "newcombat":
+                    currentEffect = ChatColor.AQUA + "  - Combat is 1.9 style";
+                    list.add(currentEffect);
+                    break;
+                case "jumping":
+                    currentEffect = ChatColor.AQUA + "  - Fireballs are "+ChatColor.WHITE+commandSplit[1]+"x "+ChatColor.AQUA+"stronger";
+                    list.add(currentEffect);
+                    break;
                 case "tnt":
                 case "tntsingle":
                     currentEffect = ChatColor.RED + "  - Tnt spawns on you every " + ChatColor.WHITE + commandSplit[2] + ChatColor.AQUA + " seconds ";
@@ -464,11 +472,41 @@ public class ManhuntMain
                     list.add(currentEffect);
                     break;
                 case "nostats":
-                    currentEffect = ChatColor.AQUA + "  - Stats will not track";
-                    list.add(currentEffect);
                     break;
                 case "nofall":
                     currentEffect = ChatColor.AQUA + "  - Fall damage is disabled";
+                    list.add(currentEffect);
+                    break;
+                case "decay":
+                    currentEffect = ChatColor.AQUA + "  - Most blocks will decay after being placed";
+                    list.add(currentEffect);
+                    break;
+                case "DeathAttribute":
+                    currentEffect = ChatColor.AQUA + "  - You will become stronger when killed";
+                    list.add(currentEffect);
+                    break;
+                case "itemrain":
+                    currentEffect = ChatColor.AQUA + "  - Powerful items will fall from the sky";
+                    list.add(currentEffect);
+                    break;
+                case "spawner":
+                    currentEffect = ChatColor.AQUA + "  - A special generator will spawn on the map";
+                    list.add(currentEffect);
+                    break;
+                case "EffectSometimes":
+                    currentEffect = ChatColor.AQUA + "  - You will randomly receive "+ChatColor.WHITE+translatePotion(commandSplit[7]);
+                    list.add(currentEffect);
+                    break;
+                case "DamageTeammates":
+                    currentEffect = ChatColor.AQUA + "  - You will take damage when near your teammate";
+                    list.add(currentEffect);
+                    break;
+                case "ProximityElytra":
+                    currentEffect = ChatColor.AQUA + "  - You will take receive an Elytra when near your teammates";
+                    list.add(currentEffect);
+                    break;
+                case "haunt":
+                    currentEffect = ChatColor.AQUA + "  - You will be able to haunt living players after final death";
                     list.add(currentEffect);
                     break;
                 default:

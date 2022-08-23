@@ -21,6 +21,7 @@ public class toggleCommands implements TabExecutor, CommandExecutor
     public static boolean bedwarsQueue = true;
     public static boolean bedwarsSelector = true;
     public static boolean startButton = true;
+    public static boolean holoLimit = false;
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args)
@@ -45,6 +46,7 @@ public class toggleCommands implements TabExecutor, CommandExecutor
             tabComplete.add("stats");
             tabComplete.add("portal");
             tabComplete.add("parkour");
+            tabComplete.add("hololimit");
             tabComplete.add("bedwarsQueue");
             tabComplete.add("bedfightQueue");
             tabComplete.add("bedfightSelector");
@@ -88,6 +90,19 @@ public class toggleCommands implements TabExecutor, CommandExecutor
             {
                 VictoryDancePreview.VictoryPreviewEnabled = true;
                 sender.sendMessage(ChatColor.AQUA + "Victory Dance previews are now enabled. ");
+            }
+        }
+        else if (args.length == 1 && args[0].equalsIgnoreCase("hololimit"))
+        {
+            if (holoLimit)
+            {
+                holoLimit = false;
+                sender.sendMessage(ChatColor.AQUA + "Stat Holos limit removed");
+            }
+            else
+            {
+                holoLimit = true;
+                sender.sendMessage(ChatColor.AQUA + "Stat Holos have been limited to 25 players");
             }
         }
         else if (args.length == 1 && args[0].equalsIgnoreCase("hosting"))
