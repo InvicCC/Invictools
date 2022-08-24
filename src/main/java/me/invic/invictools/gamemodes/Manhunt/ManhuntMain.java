@@ -418,8 +418,21 @@ public class ManhuntMain
                     list.add(currentEffect);
                     break;
                 case "sethealth":
-                    currentEffect = ChatColor.AQUA + "  - You have " + ChatColor.WHITE + commandSplit[3] + ChatColor.AQUA + " health ";
-                    list.add(currentEffect);
+                    if(commandSplit[2].equalsIgnoreCase("randomall"))
+                    {
+                        currentEffect = ChatColor.AQUA + "  - Your health will randomize";
+                        list.add(currentEffect);
+                    }
+                    else if(commandSplit[2].equalsIgnoreCase("decrease"))
+                    {
+                        currentEffect = ChatColor.RED + "  - Your health will decrease over time";
+                        list.add(currentEffect);
+                    }
+                    else
+                    {
+                        currentEffect = ChatColor.AQUA + "  - You have " + ChatColor.WHITE + commandSplit[3] + ChatColor.AQUA + " health ";
+                        list.add(currentEffect);
+                    }
                     break;
                 case "newcombat":
                     currentEffect = ChatColor.AQUA + "  - Combat is 1.9 style";
@@ -431,7 +444,7 @@ public class ManhuntMain
                     break;
                 case "tnt":
                 case "tntsingle":
-                    currentEffect = ChatColor.RED + "  - Tnt spawns on you every " + ChatColor.WHITE + commandSplit[2] + ChatColor.AQUA + " seconds ";
+                    currentEffect = ChatColor.RED + "  - Tnt spawns on you every " + ChatColor.WHITE + commandSplit[2] + ChatColor.RED + " seconds ";
                     list.add(currentEffect);
                     break;
                 case "repeateditem":
@@ -478,10 +491,10 @@ public class ManhuntMain
                     list.add(currentEffect);
                     break;
                 case "decay":
-                    currentEffect = ChatColor.AQUA + "  - Most blocks will decay after being placed";
+                    currentEffect = ChatColor.RED + "  - Most blocks will decay after being placed";
                     list.add(currentEffect);
                     break;
-                case "DeathAttribute":
+                case "DeathAttributes":
                     currentEffect = ChatColor.AQUA + "  - You will become stronger when killed";
                     list.add(currentEffect);
                     break;
@@ -498,7 +511,7 @@ public class ManhuntMain
                     list.add(currentEffect);
                     break;
                 case "DamageTeammates":
-                    currentEffect = ChatColor.AQUA + "  - You will take damage when near your teammate";
+                    currentEffect = ChatColor.RED + "  - You will take damage when near your teammate";
                     list.add(currentEffect);
                     break;
                 case "ProximityElytra":

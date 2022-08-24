@@ -69,7 +69,6 @@ public class CustomHealth
                 @Override
                 public void run()
                 {
-                        DynamicWorldName = player.getLocation().getWorld().getName();
 
                         DynamicHealth = rand.nextInt(HV) + 2;
 
@@ -100,7 +99,6 @@ public class CustomHealth
                 @Override
                 public void run()
                 {
-                    DynamicWorldName = player.getLocation().getWorld().getName();
 
                         for (Player p : players)
                         {

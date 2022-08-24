@@ -46,7 +46,7 @@ public class disableStats implements Listener
             e.setCancelled(true);
         }
 
-        if(singleDisable.contains(BedwarsAPI.getInstance().getGameOfPlayer(Bukkit.getPlayer(recentGame.get(e.getPlayerStatistic().getName())))))
+        if(e.getPlayerStatistic().getName() != null  && singleDisable.contains(BedwarsAPI.getInstance().getGameOfPlayer(Bukkit.getPlayer(recentGame.get(e.getPlayerStatistic().getName())))))
         {
             new BukkitRunnable()
             {

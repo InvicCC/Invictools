@@ -2,6 +2,7 @@ package me.invic.invictools.gamemodifiers.PotionEffects;
 
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.Blocks.goodBlocks;
+import me.invic.invictools.items.ModBow;
 import me.invic.invictools.util.disableStats;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -50,10 +51,10 @@ public class KillEffectListener implements Listener
             for (final ItemStack item : map.values())
             {
                 killer.getWorld().dropItemNaturally(killer.getLocation(), item);
-                if(isBedfight)
+                if(isBedfight && (item.getType().equals(Material.BOW) || item.getType().equals(Material.CROSSBOW)))
                 {
                     ItemStack arrow = new ItemStack(Material.ARROW);
-                    arrow.setAmount(new Random().nextInt(5) + 1);
+                    arrow.setAmount(new Random().nextInt(2) + 3);
                     killer.getWorld().dropItemNaturally(killer.getLocation(), arrow);
                 }
             }
@@ -62,17 +63,24 @@ public class KillEffectListener implements Listener
         if (OldCommands.deathItems.containsKey(e.getPlayer()))
         {
             boolean finalIsBedfight = isBedfight;
+            ItemStack arrow = new ItemStack(Material.ARROW);
+            arrow.setAmount(new Random().nextInt(4) + 2);
+            if(isBedfight && new ModBow().searchInventory(e.getKiller(),"BOW").getType().equals(Material.BOW))
+            {
+                killer.getWorld().dropItemNaturally(killer.getLocation(), arrow);
+            }
             BukkitRunnable runnable = new BukkitRunnable()
             {
                 @Override
                 public void run()
                 {
                     e.getPlayer().getInventory().addItem(OldCommands.deathItems.get(e.getPlayer()));
-                    if(finalIsBedfight)
+                    if(finalIsBedfight && (OldCommands.deathItems.get(e.getPlayer()).getType().equals(Material.BOW) || OldCommands.deathItems.get(e.getPlayer()).getType().equals(Material.CROSSBOW)))
                     {
-                        ItemStack arrow = new ItemStack(Material.ARROW);
-                        arrow.setAmount(new Random().nextInt(5) + 1);
-                        e.getPlayer().getInventory().addItem(arrow);
+                        if(e.getPlayer().getInventory().getItem(9) == null)
+                            e.getPlayer().getInventory().setItem(9,arrow);
+                        else
+                            e.getPlayer().getInventory().addItem(arrow);
                     }
                 }
             };

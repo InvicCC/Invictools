@@ -327,7 +327,6 @@ public final class Invictools extends JavaPlugin
             public void run()
             {
                 deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
-                new panels().loadPanels();
                 new BlazeNpc().spawnNPC("npc", true);
                 new leaderboard().loadLeaderboard("Star");
                 new leaderboardHologram().createLeaderboard();
@@ -352,11 +351,14 @@ public final class Invictools extends JavaPlugin
                 new perGameScenSelHolder();
                 new givePoints();
                 new statisticRequirments();
+                new panels().loadPanels();
                 new shopCommands().loadShop();
 
             }
         };
         runnable.runTaskLater(this, 1L);
+
+
     }
 
     @Override

@@ -32,6 +32,7 @@ public class queue implements Listener
         temp.add(api.getGameByName("test"));
         temp.add(api.getGameByName("SnowThree"));
         temp.add(api.getGameByName("MarsFours"));
+        temp.add(api.getGameByName("FortressBF"));
         return temp;
     }
 
@@ -41,7 +42,11 @@ public class queue implements Listener
         Collections.shuffle(games);
         for (Game game:games)
         {
-            if(disableStats.getGameType(game).equalsIgnoreCase(GameType) && game != activeBedfightGame && game != activeBedwarsGame && game.getStatus().equals(GameStatus.WAITING) && !randomBlacklist().contains(game))
+            if(disableStats.getGameType(game).equalsIgnoreCase(GameType)
+                    && game != activeBedfightGame
+                    && game != activeBedwarsGame
+                    && game.getStatus().equals(GameStatus.WAITING)
+                    && !randomBlacklist().contains(game))
             {
                 return game;
             }

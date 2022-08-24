@@ -71,7 +71,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                             loadBedfightInventory(loadout, p, false);
                         }
                     }
-                }.runTaskLater(OldCommands.Invictools, 30L);
+                }.runTaskLater(OldCommands.Invictools, 15L);
 
                 String[] layers = new LobbyLogic().getMapConfiguration(e.getGame().getName()).getString("Bedfight.layers", "END_STONE;MANGROVE_PLANKS;STAINED_GLASS").split(";");
                 for (int i = 0; i < layers.length; i++)
@@ -181,7 +181,7 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                             p.playSound(p.getLocation(),Sound.BLOCK_NOTE_BLOCK_HAT,1,1);
                         }
                     }
-                }.runTaskTimer(OldCommands.Invictools, 0L, 20L);
+                }.runTaskTimer(OldCommands.Invictools, 15L, 20L);
             }
         }.runTaskLater(OldCommands.Invictools, 1L);
     }

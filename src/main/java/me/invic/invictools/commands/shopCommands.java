@@ -121,11 +121,11 @@ public class shopCommands implements CommandExecutor, TabExecutor, Listener
 
     void loadPurchases()
     {
-        purchaseable.put(statisticRequirments.loadedCages.get("dark").getName(),100000);
-        purchaseable.put(statisticRequirments.loadedCages.get("one").getName(),50000);
-        purchaseable.put("magicTrail",150000);
-        purchaseable.put("bubbleTrail",25000);
-        purchaseable.put("potionTrail",75000);
+        purchaseable.put(statisticRequirments.loadedCages.get("dark").getName(),50000);
+        purchaseable.put(statisticRequirments.loadedCages.get("one").getName(),25000);
+        purchaseable.put("magicTrail",60000);
+        purchaseable.put("bubbleTrail",12000);
+        purchaseable.put("potionTrail",35000);
     }
 
     Material confirmMaterial = Material.LIME_CONCRETE;

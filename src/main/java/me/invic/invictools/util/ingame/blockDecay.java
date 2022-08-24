@@ -111,7 +111,7 @@ public class blockDecay implements Listener
                     this.cancel();
                 }
             }
-        }.runTaskTimer(OldCommands.Invictools, 5L, (seconds* 20L)/10);
+        }.runTaskTimer(OldCommands.Invictools, 5L, ((seconds* 20L)/10)+1);
     }
 
     private static int getBlockEntityId(Location block) {
@@ -131,18 +131,25 @@ public class blockDecay implements Listener
     {
         if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(e.getPlayer()))
         {
-            if(e.getBlock().getLocation().getY() == maxY.get(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer())))
+            if(e.getBlock().getLocation().getY() == maxY.get(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()))-2)
             {
                 new blockDecay(e.getBlock().getLocation(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),2);
             }
+            else if(e.getBlock().getLocation().getY() == maxY.get(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()))-1)
+            {
+                new blockDecay(e.getBlock().getLocation(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),1);
+            }
+            else if(e.getBlock().getLocation().getY() == maxY.get(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer())))
+            {
+                new blockDecay(e.getBlock().getLocation(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),0);
+            }
             else if(closeToSpawn(2.0,BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),e.getBlock().getLocation()))
             {
-                new blockDecay(e.getBlock().getLocation(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),3);
+                new blockDecay(e.getBlock().getLocation(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),4);
             }
             else if(decayGamemode.contains(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer())))
             {
-                System.out.println("decay mode");
-                new blockDecay(e.getBlock().getLocation(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),15);
+                new blockDecay(e.getBlock().getLocation(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()), (int) e.getBlock().getType().getHardness()+15);
             }
         }
     }

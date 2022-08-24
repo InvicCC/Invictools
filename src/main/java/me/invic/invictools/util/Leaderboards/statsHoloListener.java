@@ -10,9 +10,11 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerJoinEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerLeaveEvent;
 
@@ -48,6 +50,7 @@ public class statsHoloListener implements Listener
         }.runTaskLater(OldCommands.Invictools, 40L);
     }
 
+    /*
     @EventHandler
     public void bwleave(BedwarsPlayerLeaveEvent e)
     {
@@ -65,6 +68,29 @@ public class statsHoloListener implements Listener
 
          //   e.getPlayer().sendMessage("building new");
             buildGeneric(e.getPlayer());
+            }
+        }.runTaskLater(OldCommands.Invictools, 40L);
+    }
+
+     */
+
+    @EventHandler
+    public void swapworld(PlayerChangedWorldEvent e)
+    {
+        new BukkitRunnable()
+        {
+            @Override
+            public void run()
+            {
+                for (Player p:activeBedwarsHolos.keySet())
+                {
+                    //    e.getPlayer().sendMessage("destroying active");
+                    statsHolo.sendPacket(e.getPlayer(),activeBedwarsHolos.get(p).getStands());
+                    statsHolo.sendPacket(e.getPlayer(),activeBedfightHolos.get(p).getStands());
+                }
+
+                //   e.getPlayer().sendMessage("building new");
+                buildGeneric(e.getPlayer());
             }
         }.runTaskLater(OldCommands.Invictools, 40L);
     }

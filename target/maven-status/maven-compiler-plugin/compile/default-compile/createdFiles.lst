@@ -91,6 +91,7 @@ me\invic\invictools\commands\impl\IT\WorldborderCommand.class
 me\invic\invictools\util\WorldBorder.class
 me\invic\invictools\cosmetics\bedbreaks\GuardianBedBreak$2$1.class
 me\invic\invictools\commands\OldCommands$15.class
+me\invic\invictools\util\Leaderboards\statsHoloListener$1.class
 me\invic\invictools\cosmetics\Lobby1Handler$5.class
 me\invic\invictools\gamemodifiers\AlwaysBridge.class
 me\invic\invictools\commands\econCommands.class
@@ -157,11 +158,13 @@ me\invic\invictools\commands\impl\IT\GamejoinerCommand$1.class
 me\invic\invictools\commands\OldCommands$13.class
 me\invic\invictools\commands\impl\IT\GivePIDCommand.class
 me\invic\invictools\cosmetics\Lobby1Handler$7$2.class
+me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$6$2$1.class
 me\invic\invictools\items\dareListener$7.class
 me\invic\invictools\commands\scenarioCommands.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailPreview.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\luckyBlockBreakDetection$1.class
 me\invic\invictools\items\LootBoc.class
+me\invic\invictools\commands\shopCommands$1.class
 me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$2$1.class
 me\invic\invictools\cosmetics\finalkills\FinalKillHandler$1.class
 me\invic\invictools\cosmetics\bedbreaks\TornadoBedBreak$1.class
@@ -321,6 +324,7 @@ me\invic\invictools\commands\OldCommands$22.class
 me\invic\invictools\commands\impl\IT\ResetCommand.class
 me\invic\invictools\cosmetics\cage.class
 me\invic\invictools\gamemodes\bf\bedfight$1$3$2.class
+me\invic\invictools\util\Leaderboards\statsHoloListener$2.class
 me\invic\invictools\util\npc\DetectClickOnPlugNPC$1.class
 me\invic\invictools\commands\OldCommands$16.class
 me\invic\invictools\gamemodes\Manhunt\ManhuntMain$1.class
@@ -344,6 +348,7 @@ me\invic\invictools\items\dareListener$3.class
 me\invic\invictools\util\fixes\lobbyDestroyFix.class
 me\invic\invictools\util\Leaderboards\leaderboard.class
 me\invic\invictools\cosmetics\finalkills\FinalKillConfig.class
+me\invic\invictools\util\Leaderboards\statsHoloListener.class
 me\invic\invictools\commands\impl\IT\HelpCommand.class
 me\invic\invictools\gamemodes\Manhunt\ManhuntMain.class
 me\invic\invictools\gamemodifiers\CustomHealth$1.class
