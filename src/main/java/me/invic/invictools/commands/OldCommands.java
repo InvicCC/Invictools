@@ -73,13 +73,12 @@ public class OldCommands implements CommandExecutor, TabExecutor
     //global controls
     public static Player MasterPlayer = Bukkit.getPlayer("Invictable");
     public static HashMap<Player, Player> teammates = new HashMap<>();
-  //  public static boolean LuckyBlocksEnabled = false;
     public static boolean FireStickEnabled = true;
     public static boolean StatsTrack = true;
     public static String HauntConfig = "vid";
     public static HashMap<Player, String> killEffects = new HashMap<>();
     public static HashMap<Player, Boolean> InfiniteTotems = new HashMap<>();
-    public static HashMap<Player, ItemStack> killItems = new HashMap<>();
+    public static HashMap<Player, List<ItemStack>> killItems = new HashMap<>();
     public static HashMap<Player, ItemStack> deathItems = new HashMap<>();
     public static HashMap<Player, Boolean> Hauntable = new HashMap<>();
     public static HashMap<Player, Long> FireStickCooldown = new HashMap<>();
@@ -1611,38 +1610,16 @@ public class OldCommands implements CommandExecutor, TabExecutor
                 {
                     for (Player player : BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getConnectedPlayers())
                     {
-                        killEffects.put(player, args[1] + "-" + args[2] + "-" + args[3]); // pot type, levles, duartion
-                        World world = player.getWorld();
-                        new BukkitRunnable()
-                        {
-                            @Override
-                            public void run()
-                            {
-                                if (player.getWorld() != world)
-                                {
-                                    killEffects.remove(player); // pot type, levles, duartion
-                                    this.cancel();
-                                }
-                            }
-                        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
+                        gainItems items = gainItems.activeGains.getOrDefault(player, new gainItems(BedwarsAPI.getInstance().getGameOfPlayer(player)));
+                        items.addKillEffect(args[1] + "-" + args[2] + "-" + args[3]);
+                        items.complete(player);
                     }
                 }
                 else
                 {
-                    killEffects.put(Bukkit.getPlayer(args[4]), args[1] + "-" + args[2] + "-" + args[3]); // pot type, levles, duartion
-                    World world = Bukkit.getPlayer(args[4]).getWorld();
-                    new BukkitRunnable() // kills at max 1 minute after match ends or player dies and leaves
-                    {
-                        @Override
-                        public void run()
-                        {
-                            if (Bukkit.getPlayer(args[4]).getWorld() != world)
-                            {
-                                killEffects.remove(Bukkit.getPlayer(args[4])); // pot type, levles, duartion
-                                this.cancel();
-                            }
-                        }
-                    }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
+                    gainItems items = gainItems.activeGains.getOrDefault(Bukkit.getPlayer(args[4]), new gainItems(BedwarsAPI.getInstance().getGameOfPlayer(Bukkit.getPlayer(args[4]))));
+                    items.addKillEffect(args[1] + "-" + args[2] + "-" + args[3]);
+                    items.complete(Bukkit.getPlayer(args[4]));
                 }
             }
             else if (args.length > 1 && args[0].equalsIgnoreCase("KillItems")) // it killitems itemtype amount normal player
@@ -1651,133 +1628,47 @@ public class OldCommands implements CommandExecutor, TabExecutor
                 {
                     for (Player player : BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getConnectedPlayers())
                     {
+                        gainItems items = gainItems.activeGains.getOrDefault(player, new gainItems(BedwarsAPI.getInstance().getGameOfPlayer(player)));
                         if (args[3].equalsIgnoreCase("normal"))
                         {
                             ItemStack item = new ItemStack(Material.getMaterial(args[1]));
                             item.setAmount(Integer.parseInt(args[2]));
-                            killItems.put(player, item);
-
-                            World world = player.getWorld();
-                            new BukkitRunnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    if (player.getWorld() != world)
-                                    {
-                                        killItems.remove(player);
-                                        this.cancel();
-                                    }
-                                }
-                            }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
-                        }
-                        else if (args[3].equalsIgnoreCase("lb"))
+                            items.addKillItem(item);
+                        } else if (args[3].equalsIgnoreCase("lb"))
                         {
                             ItemStack item = new createLuckyBlocks().getByName(args[1]);
                             item.setAmount(Integer.parseInt(args[2]));
-                            killItems.put(player, item);
-
-                            World world = player.getWorld();
-                            new BukkitRunnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    if (player.getWorld() != world)
-                                    {
-                                        killItems.remove(player);
-                                        this.cancel();
-                                    }
-                                }
-                            }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
-                        }
-                        else if (args[3].equalsIgnoreCase("item"))
+                            items.addKillItem(item);
+                        } else if (args[3].equalsIgnoreCase("item"))
                         {
                             ItemStack item = new createItems().getByName(args[1]);
                             item.setAmount(Integer.parseInt(args[2]));
-                            killItems.put(player, item);
-
-                            World world = player.getWorld();
-                            new BukkitRunnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    if (player.getWorld() != world)
-                                    {
-                                        killItems.remove(player);
-                                        this.cancel();
-                                    }
-                                }
-                            }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
+                            items.addKillItem(item);
                         }
+                        items.complete(player);
                     }
                 }
                 else
                 {
+                    Player player = Bukkit.getPlayer(args[4]);
+                    gainItems items = gainItems.activeGains.getOrDefault(player, new gainItems(BedwarsAPI.getInstance().getGameOfPlayer(player)));
                     if (args[3].equalsIgnoreCase("normal"))
                     {
                         ItemStack item = new ItemStack(Material.getMaterial(args[1]));
                         item.setAmount(Integer.parseInt(args[2]));
-                        killItems.put(Bukkit.getPlayer(args[4]), item);
-                        //  System.out.println((Bukkit.getPlayer(args[4]);
-                        //   System.out.println(Bukkit.getPlayer(String.valueOf(item)));
-
-                        World world = Bukkit.getPlayer(args[4]).getWorld();
-                        sender.sendMessage(ChatColor.AQUA + Bukkit.getPlayer(args[4]).getName() + item.getType() + " after every kill");
-                        new BukkitRunnable()
-                        {
-                            @Override
-                            public void run()
-                            {
-                                if (Bukkit.getPlayer(args[4]).getWorld() != world)
-                                {
-                                    killItems.remove(Bukkit.getPlayer(args[4]));
-                                    this.cancel();
-                                }
-                            }
-                        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
-                    }
-                    else if (args[3].equalsIgnoreCase("lb"))
+                        items.addKillItem(item);
+                    } else if (args[3].equalsIgnoreCase("lb"))
                     {
                         ItemStack item = new createLuckyBlocks().getByName(args[1]);
                         item.setAmount(Integer.parseInt(args[2]));
-                        killItems.put(Bukkit.getPlayer(args[4]), item);
-
-                        World world = Bukkit.getPlayer(args[4]).getWorld();
-                        new BukkitRunnable()
-                        {
-                            @Override
-                            public void run()
-                            {
-                                if (Bukkit.getPlayer(args[4]).getWorld() != world)
-                                {
-                                    killItems.remove(Bukkit.getPlayer(args[4]));
-                                    this.cancel();
-                                }
-                            }
-                        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
-                    }
-                    else if (args[3].equalsIgnoreCase("item"))
+                        items.addKillItem(item);
+                    } else if (args[3].equalsIgnoreCase("item"))
                     {
                         ItemStack item = new createItems().getByName(args[1]);
                         item.setAmount(Integer.parseInt(args[2]));
-                        killItems.put(Bukkit.getPlayer(args[4]), item);
-
-                        World world = Bukkit.getPlayer(args[4]).getWorld();
-                        new BukkitRunnable()
-                        {
-                            @Override
-                            public void run()
-                            {
-                                if (Bukkit.getPlayer(args[4]).getWorld() != world)
-                                {
-                                    killItems.remove(Bukkit.getPlayer(args[4]));
-                                    this.cancel();
-                                }
-                            }
-                        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
+                        items.addKillItem(item);
                     }
+                    items.complete(player);
                 }
             }
             else if (args.length > 1 && args[0].equalsIgnoreCase("DeathItems")) // it deathitems itemtype amount normal player
@@ -1786,141 +1677,47 @@ public class OldCommands implements CommandExecutor, TabExecutor
                 {
                     for (Player player : BedwarsAPI.getInstance().getGameOfPlayer((Player)sender).getConnectedPlayers())
                     {
+                        gainItems items = gainItems.activeGains.getOrDefault(player, new gainItems(BedwarsAPI.getInstance().getGameOfPlayer(player)));
                         if (args[3].equalsIgnoreCase("normal"))
                         {
                             ItemStack item = new ItemStack(Material.getMaterial(args[1]));
                             item.setAmount(Integer.parseInt(args[2]));
-                            deathItems.put(player, item);
-
-                            World world = player.getWorld();
-                            new BukkitRunnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    if (player.getWorld() != world)
-                                    {
-                                        deathItems.remove(player);
-                                        this.cancel();
-                                    }
-                                }
-                            }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
-                        }
-                        else if (args[3].equalsIgnoreCase("lb"))
+                            items.addDeathItem(item);
+                        } else if (args[3].equalsIgnoreCase("lb"))
                         {
                             ItemStack item = new createLuckyBlocks().getByName(args[1]);
                             item.setAmount(Integer.parseInt(args[2]));
-                            deathItems.put(player, item);
-
-                            World world = player.getWorld();
-                            new BukkitRunnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    if (player.getWorld() != world)
-                                    {
-                                        deathItems.remove(player);
-                                        this.cancel();
-                                    }
-                                }
-                            }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
-                        }
-                        else if (args[3].equalsIgnoreCase("item"))
+                            items.addDeathItem(item);
+                        } else if (args[3].equalsIgnoreCase("item"))
                         {
                             ItemStack item = new createItems().getByName(args[1]);
                             item.setAmount(Integer.parseInt(args[2]));
-                            deathItems.put(player, item);
-
-                            World world = player.getWorld();
-                            new BukkitRunnable()
-                            {
-                                @Override
-                                public void run()
-                                {
-                                    if (player.getWorld() != world)
-                                    {
-                                        deathItems.remove(player);
-                                        this.cancel();
-                                    }
-                                }
-                            }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
+                            items.addDeathItem(item);
                         }
+                        items.complete(player);
                     }
                 }
                 else
                 {
+                    Player player = Bukkit.getPlayer(args[4]);
+                    gainItems items = gainItems.activeGains.getOrDefault(player, new gainItems(BedwarsAPI.getInstance().getGameOfPlayer(player)));
                     if (args[3].equalsIgnoreCase("normal"))
                     {
                         ItemStack item = new ItemStack(Material.getMaterial(args[1]));
                         item.setAmount(Integer.parseInt(args[2]));
-                        deathItems.put(Bukkit.getPlayer(args[4]), item);
-                        //  System.out.println((Bukkit.getPlayer(args[4]);
-                        //   System.out.println(Bukkit.getPlayer(String.valueOf(item)));
-
-                        World world = Bukkit.getPlayer(args[4]).getWorld();
-                        sender.sendMessage(ChatColor.AQUA + Bukkit.getPlayer(args[4]).getName() + item.getType() + " after every kill");
-                        new BukkitRunnable()
-                        {
-                            @Override
-                            public void run()
-                            {
-                                if (Bukkit.getPlayer(args[4]).getWorld() != world)
-                                {
-                                    deathItems.remove(Bukkit.getPlayer(args[4]));
-                                    this.cancel();
-                                }
-                            }
-                        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
-                    }
-                    else if (args[3].equalsIgnoreCase("lb"))
+                        items.addDeathItem(item);
+                    } else if (args[3].equalsIgnoreCase("lb"))
                     {
                         ItemStack item = new createLuckyBlocks().getByName(args[1]);
                         item.setAmount(Integer.parseInt(args[2]));
-                        deathItems.put(Bukkit.getPlayer(args[4]), item);
-
-                        World world = Bukkit.getPlayer(args[4]).getWorld();
-                        new BukkitRunnable()
-                        {
-                            @Override
-                            public void run()
-                            {
-                                if (Bukkit.getPlayer(args[4]).getWorld() != world)
-                                {
-                                    deathItems.remove(Bukkit.getPlayer(args[4]));
-                                    this.cancel();
-                                }
-                            }
-                        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
-                    }
-                    else if (args[3].equalsIgnoreCase("item"))
+                        items.addDeathItem(item);
+                    } else if (args[3].equalsIgnoreCase("item"))
                     {
                         ItemStack item = new createItems().getByName(args[1]);
                         item.setAmount(Integer.parseInt(args[2]));
-                        deathItems.put(Bukkit.getPlayer(args[4]), item);
-
-                        World world = Bukkit.getPlayer(args[4]).getWorld();
-                        new BukkitRunnable()
-                        {
-                            @Override
-                            public void run()
-                            {
-                                if (Bukkit.getPlayer(args[4]) != null)
-                                {
-                                    if (Bukkit.getPlayer(args[4]).getWorld() != world)
-                                    {
-                                        deathItems.remove(Bukkit.getPlayer(args[4]));
-                                        this.cancel();
-                                    }
-                                }
-                                else
-                                {
-                                    deathItems.remove(Bukkit.getPlayer(args[4]));
-                                    this.cancel();
-                                }
-                            }
-                        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 0L, 120L);
+                        items.addDeathItem(item);
                     }
+                    items.complete(player);
                 }
             }
             else if (args.length > 1 && args[0].equalsIgnoreCase("teamworkeffect"))
