@@ -439,7 +439,7 @@ public class ManhuntMain
                     list.add(currentEffect);
                     break;
                 case "jumping":
-                    currentEffect = ChatColor.AQUA + "  - Fireballs are "+ChatColor.WHITE+commandSplit[1]+"x "+ChatColor.AQUA+"stronger";
+                    currentEffect = ChatColor.AQUA + "  - Fireballs are "+ChatColor.WHITE+commandSplit[2]+"x "+ChatColor.AQUA+"stronger";
                     list.add(currentEffect);
                     break;
                 case "tnt":

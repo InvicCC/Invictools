@@ -1,10 +1,9 @@
-package me.invic.invictools.util.Leaderboards;
+package me.invic.invictools.Leaderboards;
 
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.commands.toggleCommands;
 import me.invic.invictools.cosmetics.statisticRequirments;
 import me.invic.invictools.gamemodifiers.WardenSpawner;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -14,9 +13,7 @@ import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerJoinEvent;
-import org.screamingsandals.bedwars.api.events.BedwarsPlayerLeaveEvent;
 
 import java.util.HashMap;
 
@@ -151,7 +148,7 @@ public class statsHoloListener implements Listener
         bedwars.add("Kills:",statisticRequirments.getStatistic("bw_kills",p));
         bedwars.add("Bed Breaks:",statisticRequirments.getStatistic("bw_destroyedBeds",p));
         bedwars.add("Losses:",statisticRequirments.getStatistic("bw_loses",p));
-        bedwars.add("Deaths:",statisticRequirments.getStatistic("bw_deaths",p));
+        //bedwars.add("Deaths:",statisticRequirments.getStatistic("bw_deaths",p));
         bedwars.add("bwfkdr",1);
         bedwars.add("bwwl",1);
         bedwars.add("Games Played:",statisticRequirments.getStatistic("bw_games",p));

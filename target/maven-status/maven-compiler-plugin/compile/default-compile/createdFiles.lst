@@ -29,7 +29,6 @@ me\invic\invictools\commands\OldCommands$12.class
 me\invic\invictools\commands\impl\IT\PrintitemdataCommand.class
 me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$3.class
 me\invic\invictools\commands\OldCommands$25.class
-me\invic\invictools\util\Leaderboards\BedfightLeaderboard.class
 me\invic\invictools\commands\OldCommands$4.class
 me\invic\invictools\util\ingame\blockDecay$1.class
 me\invic\invictools\gamemodifiers\CloseElytra$1.class
@@ -91,7 +90,6 @@ me\invic\invictools\commands\impl\IT\WorldborderCommand.class
 me\invic\invictools\util\WorldBorder.class
 me\invic\invictools\cosmetics\bedbreaks\GuardianBedBreak$2$1.class
 me\invic\invictools\commands\OldCommands$15.class
-me\invic\invictools\util\Leaderboards\statsHoloListener$1.class
 me\invic\invictools\cosmetics\Lobby1Handler$5.class
 me\invic\invictools\gamemodifiers\AlwaysBridge.class
 me\invic\invictools\commands\econCommands.class
@@ -100,6 +98,8 @@ me\invic\invictools\commands\impl\IT\BedBreakCommand.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailHandler$1.class
 me\invic\invictools\util\fixes\PreventElytraClick.class
 me\invic\invictools\commands\impl\IT\FinalKillTestCommand$2.class
+me\invic\invictools\Leaderboards\leaderboard.class
+me\invic\invictools\Leaderboards\statsHolo.class
 me\invic\invictools\commands\cageCommands$1.class
 me\invic\invictools\commands\OldCommands$2.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailHandler$4.class
@@ -118,13 +118,13 @@ me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$2$2.class
 me\invic\invictools\util\npc\BlazeNpc$2.class
 me\invic\invictools\items\ItemListener$7.class
 me\invic\invictools\util\ingame\SculkFires.class
-me\invic\invictools\util\Leaderboards\leaderboardCycle.class
 me\invic\invictools\util\ingame\physics\doLighting$1.class
 me\invic\invictools\util\Laser$Packets$1.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\Blocks\goodBlocks$1.class
 me\invic\invictools\gamemodes\bf\bedfight$1$1.class
 me\invic\invictools\commands\impl\IT\NormalKillPreview$2.class
 me\invic\invictools\gamemodifiers\AlwaysBridge$1$1.class
+me\invic\invictools\Leaderboards\statsHoloListener$1.class
 me\invic\invictools\commands\cageCommands.class
 me\invic\invictools\cosmetics\Lobby1Handler$7$1.class
 me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$6.class
@@ -134,7 +134,6 @@ me\invic\invictools\commands\OldCommands$14.class
 me\invic\invictools\gamemodifiers\AbtributesOnDeath$1.class
 me\invic\invictools\util\deathListener$1.class
 me\invic\invictools\util\deathListener.class
-me\invic\invictools\util\Leaderboards\leaderboardHologram.class
 me\invic\invictools\commands\impl\IT\Lobby1Command.class
 me\invic\invictools\commands\impl\IT\NormalKillPreview$1.class
 me\invic\invictools\gamemodes\bf\bedfight$1$2.class
@@ -173,6 +172,7 @@ me\invic\invictools\gamemodifiers\LuckyBlocks\luckyBlockBreakDetection$2.class
 me\invic\invictools\util\ingame\physics\CancelLampUpdates.class
 me\invic\invictools\items\ItemListener$3.class
 me\invic\invictools\commands\OldCommands$10.class
+me\invic\invictools\Leaderboards\statsHoloListener$2.class
 me\invic\invictools\util\gui\scenSelector\scenarioQueue$1.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailHandler$8.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\dynamicSpawner.class
@@ -228,6 +228,7 @@ me\invic\invictools\util\gui\TeamSelection$2.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailHandler$7.class
 me\invic\invictools\util\ExplosionsListener.class
 me\invic\invictools\commands\joinCommands$1.class
+me\invic\invictools\Leaderboards\BedfightLeaderboardHologram.class
 me\invic\invictools\util\disableStats$2.class
 me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$1.class
 me\invic\invictools\util\gui\gameLobbyItems.class
@@ -294,8 +295,8 @@ me\invic\invictools\gamemodifiers\LuckyBlocks\Blocks\badBlocks$5.class
 me\invic\invictools\util\ingame\lobbyEffects$1.class
 me\invic\invictools\items\ItemListener$6.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailHandler$3$1.class
-me\invic\invictools\util\Leaderboards\BedfightLeaderboardHologram.class
 me\invic\invictools\commands\OldCommands$7$1.class
+me\invic\invictools\Leaderboards\statsHoloListener.class
 me\invic\invictools\PAPIexpansion.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\Blocks\badBlocks$2.class
 me\invic\invictools\gamemodifiers\PotionEffects\KillEffectListener.class
@@ -324,7 +325,6 @@ me\invic\invictools\commands\OldCommands$22.class
 me\invic\invictools\commands\impl\IT\ResetCommand.class
 me\invic\invictools\cosmetics\cage.class
 me\invic\invictools\gamemodes\bf\bedfight$1$3$2.class
-me\invic\invictools\util\Leaderboards\statsHoloListener$2.class
 me\invic\invictools\util\npc\DetectClickOnPlugNPC$1.class
 me\invic\invictools\commands\OldCommands$16.class
 me\invic\invictools\gamemodes\Manhunt\ManhuntMain$1.class
@@ -334,6 +334,7 @@ me\invic\invictools\cosmetics\Lobby1Handler$4.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailHandler$2.class
 me\invic\invictools\util\Laser$ReflectiveConsumer.class
 me\invic\invictools\cosmetics\VictoryDances\VictoryDanceListener$1.class
+me\invic\invictools\Leaderboards\leaderboardCycle.class
 me\invic\invictools\cosmetics\Lobby1Handler$2$1.class
 me\invic\invictools\commands\OldCommands$8.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\Blocks\goodBlocks$3.class
@@ -346,11 +347,10 @@ me\invic\invictools\gamemodes\bf\bedfight$1$3$1.class
 me\invic\invictools\cosmetics\Lobby1Handler.class
 me\invic\invictools\items\dareListener$3.class
 me\invic\invictools\util\fixes\lobbyDestroyFix.class
-me\invic\invictools\util\Leaderboards\leaderboard.class
 me\invic\invictools\cosmetics\finalkills\FinalKillConfig.class
-me\invic\invictools\util\Leaderboards\statsHoloListener.class
 me\invic\invictools\commands\impl\IT\HelpCommand.class
 me\invic\invictools\gamemodes\Manhunt\ManhuntMain.class
+me\invic\invictools\Leaderboards\leaderboardHologram.class
 me\invic\invictools\gamemodifiers\CustomHealth$1.class
 me\invic\invictools\commands\impl\IT\ToggleVictoryCommand.class
 me\invic\invictools\gamemodifiers\PotionEffects\randomEffect.class
@@ -370,7 +370,6 @@ me\invic\invictools\util\npc\DetectClickOnNPC$1.class
 me\invic\invictools\gamemodes\bf\bedfight.class
 me\invic\invictools\commands\teamSizeCommands.class
 me\invic\invictools\gamemodifiers\CloseElytra.class
-me\invic\invictools\util\Leaderboards\statsHolo.class
 me\invic\invictools\items\dareListener$2.class
 me\invic\invictools\commands\toggleCommands.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailConfig.class
@@ -413,6 +412,7 @@ me\invic\invictools\util\Laser$CrystalLaser.class
 me\invic\invictools\commands\impl\IT\GrabteammatesCommand.class
 me\invic\invictools\commands\impl\IT\HauntCommand$1.class
 me\invic\invictools\commands\impl\IT\ClearManhuntTeamCommand.class
+me\invic\invictools\Leaderboards\BedfightLeaderboard.class
 me\invic\invictools\util\safeSizeChange.class
 me\invic\invictools\gamemodifiers\PotionEffects\TeamworkEffect$1.class
 me\invic\invictools\commands\commandManagerLib\ArgumentMatcher.class

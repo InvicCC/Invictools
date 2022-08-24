@@ -1,4 +1,4 @@
-package me.invic.invictools.util.Leaderboards;
+package me.invic.invictools.Leaderboards;
 
 import me.invic.invictools.commands.OldCommands;
 import org.bukkit.Bukkit;

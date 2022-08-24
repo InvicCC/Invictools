@@ -1,4 +1,4 @@
-package me.invic.invictools.util.Leaderboards;
+package me.invic.invictools.Leaderboards;
 
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.statisticRequirments;
@@ -14,8 +14,8 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.*;
 
-import static me.invic.invictools.util.Leaderboards.leaderboard.gamesBeforeLeaderboard;
-import static me.invic.invictools.util.Leaderboards.leaderboard.lbsize;
+import static me.invic.invictools.Leaderboards.leaderboard.gamesBeforeLeaderboard;
+import static me.invic.invictools.Leaderboards.leaderboard.lbsize;
 
 public class BedfightLeaderboard
 {

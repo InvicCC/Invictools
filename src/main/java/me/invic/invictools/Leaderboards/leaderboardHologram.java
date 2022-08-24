@@ -1,4 +1,4 @@
-package me.invic.invictools.util.Leaderboards;
+package me.invic.invictools.Leaderboards;
 
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.gamemodifiers.WardenSpawner;
@@ -23,8 +23,8 @@ public class leaderboardHologram
         destroyHolos();
         Location as = loc.clone().subtract(0, 1.5, 0);
         List<String> leaderboard = new ArrayList<>();
-        leaderboard.add(ChatColor.WHITE + " " + ChatColor.BOLD + modifySort(me.invic.invictools.util.Leaderboards.leaderboard.Sort) + ChatColor.AQUA + " " + ChatColor.BOLD + "Bedwars Leaderboard ");
-        leaderboard.addAll(me.invic.invictools.util.Leaderboards.leaderboard.formattedLeaderboard);
+        leaderboard.add(ChatColor.WHITE + " " + ChatColor.BOLD + modifySort(me.invic.invictools.Leaderboards.leaderboard.Sort) + ChatColor.AQUA + " " + ChatColor.BOLD + "Bedwars Leaderboard ");
+        leaderboard.addAll(me.invic.invictools.Leaderboards.leaderboard.formattedLeaderboard);
         leaderboard.add(ChatColor.AQUA + " " + ChatColor.BOLD + "Click to Toggle ");
         Collections.reverse(leaderboard);
         createStand(ChatColor.WHITE + " /lb bw <name> ", as.clone().add(-2, .3, 2));

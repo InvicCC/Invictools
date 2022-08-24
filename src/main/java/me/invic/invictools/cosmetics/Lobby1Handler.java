@@ -1,7 +1,7 @@
 package me.invic.invictools.cosmetics;
 
 import me.invic.invictools.commands.OldCommands;
-import me.invic.invictools.util.Leaderboards.leaderboard;
+import me.invic.invictools.Leaderboards.leaderboard;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

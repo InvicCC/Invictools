@@ -1,9 +1,9 @@
 package me.invic.invictools.commands;
 
-import me.invic.invictools.util.Leaderboards.BedfightLeaderboard;
-import me.invic.invictools.util.Leaderboards.BedfightLeaderboardHologram;
-import me.invic.invictools.util.Leaderboards.leaderboard;
-import me.invic.invictools.util.Leaderboards.leaderboardHologram;
+import me.invic.invictools.Leaderboards.BedfightLeaderboard;
+import me.invic.invictools.Leaderboards.BedfightLeaderboardHologram;
+import me.invic.invictools.Leaderboards.leaderboard;
+import me.invic.invictools.Leaderboards.leaderboardHologram;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
