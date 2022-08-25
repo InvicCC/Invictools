@@ -203,6 +203,40 @@ public class createItems
         return block;
     }
 
+    public ItemStack KBSLIME()
+    {
+        ItemStack block = new ItemStack(Material.SLIME_BALL);
+        ItemMeta meta = block.getItemMeta();
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.translateAlternateColorCodes('&', "&a&lThe Original")); //
+
+        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&7I miss it every day"));
+        meta.setLore(lore);
+        block.setItemMeta(meta);
+
+        block.addUnsafeEnchantment(Enchantment.KNOCKBACK,10);
+
+        return block;
+    }
+
+    public ItemStack KBSTICK()
+    {
+        ItemStack block = new ItemStack(Material.STICK);
+        ItemMeta meta = block.getItemMeta();
+
+        List<String> lore = new ArrayList<>();
+        lore.add(ChatColor.translateAlternateColorCodes('&', "&7A classic Knockback Stick")); //
+
+        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&7Knockback Stick"));
+        meta.setLore(lore);
+        block.setItemMeta(meta);
+
+        block.addUnsafeEnchantment(Enchantment.KNOCKBACK,2);
+
+        return block;
+    }
+
     public ItemStack LOOTBOX()
     {
         ItemStack block = new ItemStack(Material.CHEST);
@@ -257,9 +291,9 @@ public class createItems
 
         // exclusion from randomizer
         if (items.get(0).equalsIgnoreCase("infdarebone"))
-            return getByName(items.get(1));
-        else
-            return getByName(items.get(0));
+            return getRandomItem();
+
+        return getByName(items.get(0));
     }
 
     public ItemStack getByName(String item)
@@ -281,6 +315,10 @@ public class createItems
                 return WOOL();
             case "lootbox":
                 return LOOTBOX();
+            case "kbstick":
+                return KBSTICK();
+            case "kbslime":
+                return KBSLIME();
             case "snap":
                 return SNAP();
             case "firestick":
@@ -298,7 +336,7 @@ public class createItems
             case "darebone":
                 return DAREBONE();
             default:
-                return null;
+                return TNT();
         }
     }
 
@@ -314,6 +352,8 @@ public class createItems
         items.add("mobs");
         items.add("wool");
         items.add("ridebow");
+        items.add("kbstick");
+        items.add("kbslime");
         items.add("lootbox");
         items.add("snap");
         items.add("firestick");
