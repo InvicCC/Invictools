@@ -59,7 +59,8 @@ public class KillEffectListener implements Listener
                 {
                     killer.playSound(killer.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
                     final Map<Integer, ItemStack> map = killer.getInventory().addItem(item);
-                    killer.getWorld().dropItemNaturally(killer.getLocation(), map.get(0));
+                    if(map.get(0) != null)
+                        killer.getWorld().dropItemNaturally(killer.getLocation(), map.get(0));
                     if(isBedfight)
                         arrowCheck(item,killer);
                 }
@@ -81,7 +82,8 @@ public class KillEffectListener implements Listener
                         for (ItemStack item : gainItems.activeGains.get(e.getPlayer()).getDeathItems())
                         {
                             final Map<Integer, ItemStack> map = e.getPlayer().getInventory().addItem(item);
-                            e.getPlayer().getWorld().dropItemNaturally(e.getPlayer().getLocation(), map.get(0));
+                            if(map.get(0) != null)
+                                e.getPlayer().getWorld().dropItemNaturally(e.getPlayer().getLocation(), map.get(0));
                             if (finalIsBedfight)
                                 arrowCheck(item, e.getPlayer());
                         }

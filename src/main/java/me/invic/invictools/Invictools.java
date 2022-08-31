@@ -62,7 +62,7 @@ import java.util.logging.Logger;
             {
 
             }
-        }.runTaskTimer(Commands.Invictools, 20L, 20L);
+        }.runTaskTimer(OldCommands.Invictools, 20L, 20L);
 
         new BukkitRunnable()
         {
@@ -71,7 +71,7 @@ import java.util.logging.Logger;
             {
 
             }
-        }.runTaskLater(Commands.Invictools, 20L);
+        }.runTaskLater(OldCommands.Invictools, 20L);
 
 public class scenarioCommands implements TabExecutor, CommandExecutor
 {
@@ -278,6 +278,8 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new tempCombatSwap(), this); //entity damage by entity
         Bukkit.getPluginManager().registerEvents(new blockDecay(), this); //shut the fuck up
         Bukkit.getPluginManager().registerEvents(new statsHoloListener(), this); //bedwars end, player join and leave
+        Bukkit.getPluginManager().registerEvents(new infestation(), this); // bw game end, entity damage by entity, status changed
+        Bukkit.getPluginManager().registerEvents(new albi(), this); // bw game end
 
         // nearly proper
         Bukkit.getPluginManager().registerEvents(new luckyBlockBreakDetection(), this); // lucky block place and break detection

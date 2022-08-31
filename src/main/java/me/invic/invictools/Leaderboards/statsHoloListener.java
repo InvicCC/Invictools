@@ -34,12 +34,24 @@ public class statsHoloListener implements Listener
             @Override
             public void run()
             {
+                if(activeBedfightHolos.containsKey(e.getPlayer()))
+                {
+                    activeBedfightHolos.get(e.getPlayer()).destroy();
+                    activeBedfightHolos.remove(e.getPlayer());
+                }
+                if(activeBedwarsHolos.containsKey(e.getPlayer()))
+                {
+                    activeBedwarsHolos.get(e.getPlayer()).destroy();
+                    activeBedwarsHolos.remove(e.getPlayer());
+                }
+
                 for (Player p:activeBedwarsHolos.keySet())
                 {
                  //   e.getPlayer().sendMessage("destroying active");
                     statsHolo.sendPacket(e.getPlayer(),activeBedwarsHolos.get(p).getStands());
                     statsHolo.sendPacket(e.getPlayer(),activeBedfightHolos.get(p).getStands());
                 }
+
 
             //    e.getPlayer().sendMessage("building new");
                 buildGeneric(e.getPlayer());
@@ -79,6 +91,20 @@ public class statsHoloListener implements Listener
             @Override
             public void run()
             {
+
+
+                //   e.getPlayer().sendMessage("building new");
+                if(activeBedfightHolos.containsKey(e.getPlayer()))
+                {
+                    activeBedfightHolos.get(e.getPlayer()).destroy();
+                    activeBedfightHolos.remove(e.getPlayer());
+                }
+                if(activeBedwarsHolos.containsKey(e.getPlayer()))
+                {
+                    activeBedwarsHolos.get(e.getPlayer()).destroy();
+                    activeBedwarsHolos.remove(e.getPlayer());
+                }
+
                 for (Player p:activeBedwarsHolos.keySet())
                 {
                     //    e.getPlayer().sendMessage("destroying active");
@@ -86,7 +112,6 @@ public class statsHoloListener implements Listener
                     statsHolo.sendPacket(e.getPlayer(),activeBedfightHolos.get(p).getStands());
                 }
 
-                //   e.getPlayer().sendMessage("building new");
                 buildGeneric(e.getPlayer());
             }
         }.runTaskLater(OldCommands.Invictools, 40L);

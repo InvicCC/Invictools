@@ -23,10 +23,7 @@ public class cage
         return name;
     }
 
-    //char at 1 != 8
-    // on resest load hashmap of every cage
-    // when player logs in add their player and cage in config to hashmap after checking req
-    // check reqs before cage loading too
+    //char at 1 != 8 for having any rank
     public boolean checkReq(Player p)
     {
         if(requirements.isEmpty())

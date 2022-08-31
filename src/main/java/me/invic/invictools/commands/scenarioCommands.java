@@ -1,9 +1,7 @@
 package me.invic.invictools.commands;
 
+import me.invic.invictools.gamemodifiers.*;
 import me.invic.invictools.gamemodifiers.LuckyBlocks.LuckyBlockSpawner;
-import me.invic.invictools.gamemodifiers.creative;
-import me.invic.invictools.gamemodifiers.gamemodeData;
-import me.invic.invictools.gamemodifiers.tempCombatSwap;
 import me.invic.invictools.util.ingame.LobbyLogic;
 import me.invic.invictools.util.disableStats;
 import me.invic.invictools.util.fixes.Protocol47Fix;
@@ -18,9 +16,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
+import org.screamingsandals.bedwars.api.game.Game;
 import org.screamingsandals.bedwars.api.game.GameStatus;
 
 import java.util.ArrayList;
@@ -54,6 +54,24 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
             tabComplete.add("nofall");
             tabComplete.add("newcombat");
             tabComplete.add("decay");
+            tabComplete.add("infest");
+            tabComplete.add("minutemob");
+            tabComplete.add("albi");
+        }
+        else if(args.length == 2 && args[0].equalsIgnoreCase("minutemob"))
+        {
+            for (EntityType type:EntityType.values())
+            {
+                if(type.isSpawnable())
+                   tabComplete.add(type.toString());
+            }
+        }
+        else if(args.length == 3 && args[0].equalsIgnoreCase("minutemob"))
+        {
+            tabComplete.add("30");
+            tabComplete.add("60");
+            tabComplete.add("10");
+            tabComplete.add("1");
         }
         else if(args.length == 2 && args[0].equalsIgnoreCase("lucky"))
         {
@@ -95,6 +113,24 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         {
             luckyblockEnable(Bukkit.getPlayer(args[2]),args[1]);
         }
+        else if(args.length==1 && args[0].equalsIgnoreCase("infest") && sender instanceof Player p)
+        {
+            infestation.addGame(BedwarsAPI.getInstance().getGameOfPlayer(p));
+        }
+        else if(args.length==1 && args[0].equalsIgnoreCase("albi") && sender instanceof Player p)
+        {
+            Game game = BedwarsAPI.getInstance().getGameOfPlayer(p);
+            albi.spawnDragon(game);
+            if(!disableStats.getGameType(game).equalsIgnoreCase("bedfight"))
+            {
+                albi.spawnDragon(game);
+                albi.spawnDragon(game);
+            }
+            for (Player pl:game.getConnectedPlayers())
+            {
+                albi.spawnDragon(game,pl);
+            }
+        }
         else if(args.length == 1 && args[0].equalsIgnoreCase("nostats") && sender instanceof Player)
         {
             disableStats.singleDisable.add(BedwarsAPI.getInstance().getGameOfPlayer((Player) sender));
@@ -102,6 +138,10 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         else if(args.length == 1 && args[0].equalsIgnoreCase("decay") && sender instanceof Player)
         {
             blockDecay.decayGamemode.add(BedwarsAPI.getInstance().getGameOfPlayer((Player) sender));
+        }
+        else if(args.length == 3 && args[0].equalsIgnoreCase("minutemob") && sender instanceof Player)
+        {
+            new mobEveryMinute(EntityType.valueOf(args[1]),BedwarsAPI.getInstance().getGameOfPlayer((Player) sender),Integer.parseInt(args[2]));
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("creativeall") && sender instanceof Player)
         {
@@ -146,7 +186,6 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
             }
 
             nofall.addAll(BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender)).getConnectedPlayers());
-            // removal and check handled in deathlistener
         }
         else if(args.length >= 1 && args[0].equalsIgnoreCase("newcombat") && sender instanceof Player p)
         {
@@ -155,6 +194,8 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
                 tempCombatSwap.swap(pl);
             }
         }
+        else
+            sender.sendMessage(ChatColor.RED+"Incomplete syntax.");
 
         return true;
     }
