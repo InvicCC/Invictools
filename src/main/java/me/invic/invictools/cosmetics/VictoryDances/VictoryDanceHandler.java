@@ -366,7 +366,7 @@ public class VictoryDanceHandler implements Listener
                 //     bat.addPassenger(dragon);
                 p.setInvulnerable(true);
 
-                p.getInventory().setItem(40, new ItemStack(Material.SHIELD));
+               // p.getInventory().setItem(40, new ItemStack(Material.SHIELD));
 
                 new BukkitRunnable()
                 {
@@ -376,7 +376,7 @@ public class VictoryDanceHandler implements Listener
                         if (!dragon.isDead())
                         {
                             // System.out.println(p.getLocation().getDirection().multiply(new Vector(2,10,2)));
-                            if (!p.isBlocking())
+                            if (!p.isSneaking())
                             {
                                 dragon.getLocation().setDirection(p.getLocation().getDirection());
                                 dragon.setVelocity((p.getLocation().getDirection().multiply(new Vector(2, 2, 2))));

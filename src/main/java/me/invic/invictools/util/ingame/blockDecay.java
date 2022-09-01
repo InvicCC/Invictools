@@ -39,7 +39,7 @@ public class blockDecay implements Listener
 {
     static List<Location> decaying = new ArrayList<>();
     static HashMap<Game,List<Location>> spawnPoints = new HashMap<>();
-    static HashMap<Game,Integer> maxY = new HashMap<>();
+    public static HashMap<Game,Integer> maxY = new HashMap<>();
     public static List<Game> decayGamemode = new ArrayList<>();
 
     public blockDecay()

@@ -306,8 +306,16 @@ public class ProjTrailHandler
             @Override
             public void run()
             {
-                entity.getLocation().getWorld().spawnParticle(Particle.DRIP_LAVA, entity.getLocation(), 1);
-                entity.getLocation().getWorld().spawnParticle(Particle.LAVA, entity.getLocation(), 1);
+                if(entity.getType().equals(EntityType.ENDER_DRAGON))
+                {
+                    entity.getLocation().getWorld().spawnParticle(Particle.DRIP_LAVA, entity.getLocation().clone().add(0,2,0), 1);
+                    entity.getLocation().getWorld().spawnParticle(Particle.LAVA, entity.getLocation().clone().add(0,2,0), 1);
+                }
+                else
+                {
+                    entity.getLocation().getWorld().spawnParticle(Particle.DRIP_LAVA, entity.getLocation(), 1);
+                    entity.getLocation().getWorld().spawnParticle(Particle.LAVA, entity.getLocation(), 1);
+                }
                 //  System.out.println(entity.getLocation() + " "+entity.getWorld().getName());
 
                 if (entity.isDead())

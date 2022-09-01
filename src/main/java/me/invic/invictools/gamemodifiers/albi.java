@@ -2,7 +2,10 @@ package me.invic.invictools.gamemodifiers;
 
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
+import me.invic.invictools.util.disableStats;
+import me.invic.invictools.util.ingame.blockDecay;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
@@ -28,6 +31,7 @@ public class albi implements Listener
 
     public albi()
     {
+        dragonNames.clear();
         dragonNames.add(ChatColor.translateAlternateColorCodes('&',"&dAlbi"));
         dragonNames.add(ChatColor.translateAlternateColorCodes('&',"&dBrother of Albi"));
         dragonNames.add(ChatColor.translateAlternateColorCodes('&',"&dSister of Albi"));
@@ -47,17 +51,23 @@ public class albi implements Listener
 
     public static void spawnDragon(Game game)
     {
-        if(dragonNames.isEmpty())
+        if(dragonNames.isEmpty() || dragonNames.get(0) == null)
             new albi();
 
-        Collections.shuffle(dragonNames);
+        int y;
 
-        EnderDragon dragon = (EnderDragon) game.getGameWorld().spawnEntity(game.getLobbySpawn().clone().add(new Random().nextInt(50)-25,new Random().nextInt(10)-20,new Random().nextInt(30)-15), EntityType.ENDER_DRAGON);
+        if(disableStats.getGameType(game).equalsIgnoreCase("bedfight"))
+            y=20;
+        else
+            y=50;
+
+        Collections.shuffle(dragonNames);
+        EnderDragon dragon = (EnderDragon) game.getGameWorld().spawnEntity(game.getLobbySpawn().clone().add(new Random().nextInt(50)-25,-25,new Random().nextInt(50)-25), EntityType.ENDER_DRAGON);
         dragon.setCustomName(dragonNames.get(0));
         dragonNames.remove(dragonNames.get(0));
         dragon.setAware(true);
-        dragon.setPhase(EnderDragon.Phase.STRAFING);
         dragon.setTarget(game.getConnectedPlayers().get(new Random().nextInt(game.getConnectedPlayers().size()-1)));
+        dragon.setPhase(EnderDragon.Phase.CHARGE_PLAYER);
 
         List<Entity> ds = activeDragons.getOrDefault(game,new ArrayList<>());
         ds.add(dragon);
@@ -67,16 +77,23 @@ public class albi implements Listener
 
     public static void spawnDragon(Game game, Player p)
     {
-        if(dragonNames.isEmpty())
+        if(dragonNames.isEmpty() || dragonNames.get(0) == null)
             new albi();
 
+        int y;
+
+        if(disableStats.getGameType(game).equalsIgnoreCase("bedfight"))
+            y=20;
+        else
+            y=50;
+
         Collections.shuffle(dragonNames);
-        EnderDragon dragon = (EnderDragon) game.getGameWorld().spawnEntity(game.getLobbySpawn().clone().add(new Random().nextInt(30)-15,new Random().nextInt(10)-20,new Random().nextInt(30)-15), EntityType.ENDER_DRAGON);
-        dragon.setCustomName(dragonNames.get(0));
+        EnderDragon dragon = (EnderDragon) game.getGameWorld().spawnEntity(game.getLobbySpawn().clone().add(new Random().nextInt(50)-25,-25,new Random().nextInt(50)-25), EntityType.ENDER_DRAGON);
         dragonNames.remove(dragonNames.get(0));
         dragon.setAware(true);
-        dragon.setPhase(EnderDragon.Phase.STRAFING);
         dragon.setTarget(p);
+        dragon.setPhase(EnderDragon.Phase.CHARGE_PLAYER);
+
 
         List<Entity> ds = activeDragons.getOrDefault(game,new ArrayList<>());
         ds.add(dragon);
@@ -91,7 +108,7 @@ public class albi implements Listener
        // System.out.println(e.getDamager().getName());
         if(e.getDamager().getType().equals(EntityType.ENDER_DRAGON))
         {
-            e.setDamage(4.0);
+            e.setDamage(0.0);
         }
         else if(e.getDamager().getType().equals(EntityType.AREA_EFFECT_CLOUD))
         {
@@ -104,7 +121,7 @@ public class albi implements Listener
                     if(!e.getDamager().isDead())
                         e.getDamager().remove();
                 }
-            }.runTaskLater(OldCommands.Invictools, 40L);
+            }.runTaskLater(OldCommands.Invictools, 20L);
         }
     }
 
@@ -122,6 +139,14 @@ public class albi implements Listener
 
         if(currentGame == null)
             return;
+
+        if((disableStats.getGameType(currentGame).equalsIgnoreCase("bedfight") && e.getEntity().getLocation().distance(new Location(e.getEntity().getWorld(),0,100,0))<150)
+        || (!disableStats.getGameType(currentGame).equalsIgnoreCase("bedfight") && e.getEntity().getLocation().getY() >= blockDecay.maxY.get(currentGame)))
+        {
+            Location loc = currentGame.getLobbySpawn().clone();
+            loc.setY(blockDecay.maxY.get(currentGame)-25);
+            e.getEntity().teleport(loc);
+        }
 
         if(e.getNewPhase().equals(EnderDragon.Phase.FLY_TO_PORTAL))
         {
@@ -141,13 +166,16 @@ public class albi implements Listener
             }
             else
             {
-                if(new Random().nextInt(2)==1)
+                if(new Random().nextInt(3)!=1)
                 {
-                    e.setNewPhase(EnderDragon.Phase.STRAFING);
+                    if(new Random().nextInt(3)==1)
+                        e.setNewPhase(EnderDragon.Phase.STRAFING);
+                    else
+                        e.setNewPhase(EnderDragon.Phase.CIRCLING);
                 }
                 else
                 {
-                    e.getEntity().setTarget(currentGame.getConnectedPlayers().get(new Random().nextInt(currentGame.getConnectedPlayers().size() - 1)));
+                    e.getEntity().setTarget(currentGame.getConnectedPlayers().get(new Random().nextInt(currentGame.getConnectedPlayers().size())-1));
                     e.getEntity().setPhase(EnderDragon.Phase.CHARGE_PLAYER);
                 }
             }
