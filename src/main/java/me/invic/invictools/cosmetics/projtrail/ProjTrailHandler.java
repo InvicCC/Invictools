@@ -1,6 +1,7 @@
 package me.invic.invictools.cosmetics.projtrail;
 
 import me.invic.invictools.cosmetics.VictoryDances.VictoryDanceHandler;
+import me.invic.invictools.cosmetics.finalkills.FinalKillHandler;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -321,7 +322,7 @@ public class ProjTrailHandler
                     if (!p.isGliding())
                         this.cancel();
                 }
-                else if (i > 100)
+                else if (i > 100 && entity.getType() != EntityType.ENDER_DRAGON)
                     this.cancel();
 
                 i++;
@@ -374,7 +375,6 @@ public class ProjTrailHandler
                     }
                 }
 
-
                 if (entity.isOnGround())
                     this.cancel();
 
@@ -384,7 +384,72 @@ public class ProjTrailHandler
                     if (!p.isGliding())
                         this.cancel();
                 }
-                else if (i > 100)
+                else if (i > 100 && entity.getType() != EntityType.ENDER_DRAGON)
+                    this.cancel();
+
+                i++;
+            }
+        }.runTaskTimer(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 3L, 1L);
+    }
+
+    public void team(Entity entity, Player p)
+    {
+        Particle.DustOptions dust;
+        if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+            dust = new Particle.DustOptions(new FinalKillHandler().teamToColor(BedwarsAPI.getInstance().getGameOfPlayer(p).getTeamOfPlayer(p).getColor().toString()), 5);
+        else
+            dust = new Particle.DustOptions(Color.BLACK, 5);
+        //  Random random = new Random();
+        //  int i;
+        new BukkitRunnable()
+        {
+            int i = 0;
+
+            @Override
+            public void run()
+            {
+                /*
+                i = random.nextInt(8);
+                if(i==0)
+                    entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(0,0,.5), 0, 0, 0, 0, dust);
+                else if(i == 1)
+                    entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(.5,0,.5), 0, 0, 0, 0, dust);
+                else if(i == 2)
+                    entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(0,0,-.5), 0, 0, 0, 0, dust);
+                else if(i == 3)
+                    entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(-.5,0,-.5), 0, 0, 0, 0, dust);
+                else if(i == 4)
+                    entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(-.5,0,.5), 0, 0, 0, 0, dust);
+                else if(i == 5)
+                    entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(.5,0,-.5), 0, 0, 0, 0, dust);
+                else if(i == 6)
+                    entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(0,-.5,0), 0, 0, 0, 0, dust);
+                else
+                    entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(0,0,-.5), 0, 0, 0, 0, dust);
+*/
+                entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(0,2,0), 0, 0, 0, 0, dust);
+                entity.getLocation().getWorld().spawnParticle(Particle.PORTAL, entity.getLocation().clone().add(0,2,0), 3);
+
+                if (entity.isDead())
+                {
+                    this.cancel();
+                    if (VictoryDanceHandler.isVictoryDancing.get(p.getName()) != null && entity.getType().equals(EntityType.SNOWBALL))
+                    {
+                        TNTPrimed tnt = (TNTPrimed) entity.getLocation().getWorld().spawnEntity(entity.getLocation(), EntityType.PRIMED_TNT);
+                        tnt.setFuseTicks(1);
+                        tnt.setYield(3);
+                    }
+                }
+
+                if (entity.isOnGround())
+                    this.cancel();
+
+                if (entity.getType().equals(EntityType.PLAYER))
+                {
+                    Player p = (Player) entity;
+                    if (!p.isGliding())
+                        this.cancel();
+                } else if (i > 100 && entity.getType() != EntityType.ENDER_DRAGON)
                     this.cancel();
 
                 i++;

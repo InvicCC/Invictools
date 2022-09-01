@@ -6,6 +6,7 @@ me\invic\invictools\commands\impl\IT\ParkourCommand.class
 me\invic\invictools\cosmetics\bedbreaks\TornadoBedBreak.class
 me\invic\invictools\gamemodifiers\ItemRain$2.class
 me\invic\invictools\gamemodifiers\AlwaysBridge$2.class
+me\invic\invictools\gamemodifiers\albi$3$1.class
 me\invic\invictools\commands\impl\IT\RepeatedItemCommand.class
 me\invic\invictools\commands\impl\IT\DestroyholosCommand.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\Blocks\badBlocks$1.class
@@ -127,6 +128,7 @@ me\invic\invictools\commands\cageCommands.class
 me\invic\invictools\cosmetics\Lobby1Handler$7$1.class
 me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$6.class
 me\invic\invictools\items\dareListener$8.class
+me\invic\invictools\cosmetics\projtrail\ProjTrailHandler$9.class
 me\invic\invictools\commands\impl\IT\InstantHauntCommand.class
 me\invic\invictools\gamemodifiers\AbtributesOnDeath$1.class
 me\invic\invictools\util\deathListener$1.class
@@ -278,7 +280,6 @@ me\invic\invictools\cosmetics\bedbreaks\RankedBedBreak$1.class
 me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$4.class
 me\invic\invictools\util\npc\DetectClickOnPlugNPC$1$1.class
 me\invic\invictools\commands\impl\IT\ProjTrailCommand.class
-me\invic\invictools\gamemodifiers\albi$1$1.class
 me\invic\invictools\util\fixes\Protocol47Fix.class
 me\invic\invictools\items\ModBow$1.class
 me\invic\invictools\commands\scenarioCommands$1.class
@@ -353,6 +354,7 @@ me\invic\invictools\commands\impl\IT\ResetAttributesCommand.class
 me\invic\invictools\util\ingame\lobbyEffects.class
 me\invic\invictools\util\ingame\OlympusFires.class
 me\invic\invictools\commands\impl\IT\HauntCommand$2.class
+me\invic\invictools\gamemodifiers\albi$2.class
 me\invic\invictools\util\fixes\disableSpectatorTeleport.class
 me\invic\invictools\commands\commandManagerLib\MainCommand.class
 me\invic\invictools\commands\impl\IT\PidCommand.class
@@ -423,5 +425,6 @@ me\invic\invictools\commands\impl\IT\ProximityElytraSingleCommand.class
 me\invic\invictools\gamemodifiers\ItemSpawner.class
 me\invic\invictools\commands\utilityCommands.class
 me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$4$1.class
+me\invic\invictools\gamemodifiers\albi$3.class
 me\invic\invictools\gamemodifiers\infestation.class
 me\invic\invictools\gamemodifiers\giveItemRepeated.class

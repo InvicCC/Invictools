@@ -255,6 +255,9 @@ public class bedfight implements Listener //map file optional bedfight.layers, o
                 || layer.equalsIgnoreCase("CONCRETE_POWDER"))
             layer = color + "_" + layer;
 
+        if(loc == null)
+            return;
+
         Block block = loc.getBlock();
         List<BlockFace> d = new ArrayList<>();
         d.add(BlockFace.EAST); // +

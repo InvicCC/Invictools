@@ -1,15 +1,14 @@
 package me.invic.invictools.gamemodifiers;
 
 import me.invic.invictools.commands.OldCommands;
+import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
-import org.bukkit.entity.EnderDragon;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EnderDragonChangePhaseEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityTargetEvent;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -53,7 +52,7 @@ public class albi implements Listener
 
         Collections.shuffle(dragonNames);
 
-        EnderDragon dragon = (EnderDragon) game.getGameWorld().spawnEntity(game.getLobbySpawn().add(new Random().nextInt(50)-25,new Random().nextInt(10)-20,new Random().nextInt(30)-15), EntityType.ENDER_DRAGON);
+        EnderDragon dragon = (EnderDragon) game.getGameWorld().spawnEntity(game.getLobbySpawn().clone().add(new Random().nextInt(50)-25,new Random().nextInt(10)-20,new Random().nextInt(30)-15), EntityType.ENDER_DRAGON);
         dragon.setCustomName(dragonNames.get(0));
         dragonNames.remove(dragonNames.get(0));
         dragon.setAware(true);
@@ -63,6 +62,7 @@ public class albi implements Listener
         List<Entity> ds = activeDragons.getOrDefault(game,new ArrayList<>());
         ds.add(dragon);
         activeDragons.put(game,ds);
+        new ProjTrailHandler().Lava(dragon);
     }
 
     public static void spawnDragon(Game game, Player p)
@@ -71,7 +71,7 @@ public class albi implements Listener
             new albi();
 
         Collections.shuffle(dragonNames);
-        EnderDragon dragon = (EnderDragon) game.getGameWorld().spawnEntity(game.getLobbySpawn().add(new Random().nextInt(30)-15,new Random().nextInt(10)-20,new Random().nextInt(30)-15), EntityType.ENDER_DRAGON);
+        EnderDragon dragon = (EnderDragon) game.getGameWorld().spawnEntity(game.getLobbySpawn().clone().add(new Random().nextInt(30)-15,new Random().nextInt(10)-20,new Random().nextInt(30)-15), EntityType.ENDER_DRAGON);
         dragon.setCustomName(dragonNames.get(0));
         dragonNames.remove(dragonNames.get(0));
         dragon.setAware(true);
@@ -81,16 +81,30 @@ public class albi implements Listener
         List<Entity> ds = activeDragons.getOrDefault(game,new ArrayList<>());
         ds.add(dragon);
         activeDragons.put(game,ds);
+        new ProjTrailHandler().team(dragon,p);
     }
     static List<Game> gameDesignation = new ArrayList<>();
 
     @EventHandler
-    public void damage(EntityDamageEvent e)
+    public void damage(EntityDamageByEntityEvent e)
     {
-        if(e.getCause().equals(EntityDamageEvent.DamageCause.DRAGON_BREATH))
+       // System.out.println(e.getDamager().getName());
+        if(e.getDamager().getType().equals(EntityType.ENDER_DRAGON))
         {
-            System.out.println("reduction");
-            e.setDamage(1.0);
+            e.setDamage(4.0);
+        }
+        else if(e.getDamager().getType().equals(EntityType.AREA_EFFECT_CLOUD))
+        {
+            //e.setDamage(2.0)
+            new BukkitRunnable()
+            {
+                @Override
+                public void run()
+                {
+                    if(!e.getDamager().isDead())
+                        e.getDamager().remove();
+                }
+            }.runTaskLater(OldCommands.Invictools, 40L);
         }
     }
 
@@ -109,37 +123,41 @@ public class albi implements Listener
         if(currentGame == null)
             return;
 
-        if((e.getNewPhase().equals(EnderDragon.Phase.FLY_TO_PORTAL)/* && new Random().nextInt(5) >2) || e.getNewPhase().equals(EnderDragon.Phase.HOVER)*/))
+        if(e.getNewPhase().equals(EnderDragon.Phase.FLY_TO_PORTAL))
         {
-            if (new Random().nextInt(3)!=1)
+            if (new Random().nextInt(20)==1)
             {
-                e.getEntity().setTarget(currentGame.getConnectedPlayers().get(new Random().nextInt(currentGame.getConnectedPlayers().size() - 1)));
-                e.setNewPhase(EnderDragon.Phase.CHARGE_PLAYER);
-                e.getEntity().setTarget(currentGame.getConnectedPlayers().get(new Random().nextInt(currentGame.getConnectedPlayers().size() - 1)));
+                int wait = new Random().nextInt(3)+2;
+                e.setNewPhase(EnderDragon.Phase.HOVER);
+                new BukkitRunnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        if(!e.getEntity().isDead())
+                            e.getEntity().setPhase(EnderDragon.Phase.SEARCH_FOR_BREATH_ATTACK_TARGET);
+                    }
+                }.runTaskLater(OldCommands.Invictools, wait*20);
             }
             else
             {
-                e.setNewPhase(EnderDragon.Phase.STRAFING);
+                if(new Random().nextInt(2)==1)
+                {
+                    e.setNewPhase(EnderDragon.Phase.STRAFING);
+                }
+                else
+                {
+                    e.getEntity().setTarget(currentGame.getConnectedPlayers().get(new Random().nextInt(currentGame.getConnectedPlayers().size() - 1)));
+                    e.getEntity().setPhase(EnderDragon.Phase.CHARGE_PLAYER);
+                }
             }
         }
-        /*
-        else
+
+        if(e.getNewPhase().equals(EnderDragon.Phase.LAND_ON_PORTAL))
         {
-            System.out.println("temp hover");
-            e.setNewPhase(EnderDragon.Phase.ROAR_BEFORE_ATTACK);
-            e.setNewPhase(EnderDragon.Phase.HOVER);
-            new BukkitRunnable()
-            {
-                @Override
-                public void run()
-                {
-                    if(!e.getEntity().isDead())
-                        e.setNewPhase(EnderDragon.Phase.STRAFING);
-                }
-            }.runTaskLater(OldCommands.Invictools, 20*5L);
+            e.setNewPhase(EnderDragon.Phase.CIRCLING);
         }
 
-         */
     }
 
     @EventHandler
@@ -183,7 +201,7 @@ public class albi implements Listener
                             {
                                 for (RunningTeam team : e.getGame().getRunningTeams())
                                 {
-                                    spawnDragon(e.getGame());
+                                    spawnDragon(e.getGame(),team.getConnectedPlayers().get(0));
                                 }
                             }
                         }

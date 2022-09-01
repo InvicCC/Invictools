@@ -294,7 +294,7 @@ public class FinalKillHandler
         if (teamColor == null)
             return Color.BLACK;
 
-        switch (teamColor)
+        switch (teamColor.toUpperCase(Locale.ROOT))
         {
             case "LIGHT_BLUE":
                 return Color.AQUA;
