@@ -9,17 +9,18 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EnderDragonChangePhaseEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityTargetEvent;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.RunningTeam;
 import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsGameStartEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsGameTickEvent;
 import org.screamingsandals.bedwars.api.game.Game;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class albi implements Listener
 {
@@ -52,11 +53,12 @@ public class albi implements Listener
 
         Collections.shuffle(dragonNames);
 
-        EnderDragon dragon = (EnderDragon) game.getGameWorld().spawnEntity(game.getLobbySpawn(), EntityType.ENDER_DRAGON);
+        EnderDragon dragon = (EnderDragon) game.getGameWorld().spawnEntity(game.getLobbySpawn().add(new Random().nextInt(50)-25,new Random().nextInt(10)-20,new Random().nextInt(30)-15), EntityType.ENDER_DRAGON);
         dragon.setCustomName(dragonNames.get(0));
         dragonNames.remove(dragonNames.get(0));
         dragon.setAware(true);
-        dragon.setPhase(EnderDragon.Phase.SEARCH_FOR_BREATH_ATTACK_TARGET);
+        dragon.setPhase(EnderDragon.Phase.STRAFING);
+        dragon.setTarget(game.getConnectedPlayers().get(new Random().nextInt(game.getConnectedPlayers().size()-1)));
 
         List<Entity> ds = activeDragons.getOrDefault(game,new ArrayList<>());
         ds.add(dragon);
@@ -69,20 +71,77 @@ public class albi implements Listener
             new albi();
 
         Collections.shuffle(dragonNames);
-
-        EnderDragon dragon = (EnderDragon) game.getGameWorld().spawnEntity(game.getLobbySpawn(), EntityType.ENDER_DRAGON);
+        EnderDragon dragon = (EnderDragon) game.getGameWorld().spawnEntity(game.getLobbySpawn().add(new Random().nextInt(30)-15,new Random().nextInt(10)-20,new Random().nextInt(30)-15), EntityType.ENDER_DRAGON);
         dragon.setCustomName(dragonNames.get(0));
         dragonNames.remove(dragonNames.get(0));
         dragon.setAware(true);
-        dragon.attack(p);
         dragon.setPhase(EnderDragon.Phase.STRAFING);
-        dragon.attack(p);
+        dragon.setTarget(p);
 
         List<Entity> ds = activeDragons.getOrDefault(game,new ArrayList<>());
         ds.add(dragon);
         activeDragons.put(game,ds);
     }
     static List<Game> gameDesignation = new ArrayList<>();
+
+    @EventHandler
+    public void damage(EntityDamageEvent e)
+    {
+        if(e.getCause().equals(EntityDamageEvent.DamageCause.DRAGON_BREATH))
+        {
+            System.out.println("reduction");
+            e.setDamage(1.0);
+        }
+    }
+
+    @EventHandler
+    public void target(EnderDragonChangePhaseEvent e)
+    {
+        Game currentGame = null;
+        for (Game game:gameDesignation)
+        {
+            if(game.getGameWorld().equals(e.getEntity().getWorld()))
+            {
+                currentGame = game;
+            }
+        }
+
+        if(currentGame == null)
+            return;
+
+        if((e.getNewPhase().equals(EnderDragon.Phase.FLY_TO_PORTAL)/* && new Random().nextInt(5) >2) || e.getNewPhase().equals(EnderDragon.Phase.HOVER)*/))
+        {
+            if (new Random().nextInt(3)!=1)
+            {
+                e.getEntity().setTarget(currentGame.getConnectedPlayers().get(new Random().nextInt(currentGame.getConnectedPlayers().size() - 1)));
+                e.setNewPhase(EnderDragon.Phase.CHARGE_PLAYER);
+                e.getEntity().setTarget(currentGame.getConnectedPlayers().get(new Random().nextInt(currentGame.getConnectedPlayers().size() - 1)));
+            }
+            else
+            {
+                e.setNewPhase(EnderDragon.Phase.STRAFING);
+            }
+        }
+        /*
+        else
+        {
+            System.out.println("temp hover");
+            e.setNewPhase(EnderDragon.Phase.ROAR_BEFORE_ATTACK);
+            e.setNewPhase(EnderDragon.Phase.HOVER);
+            new BukkitRunnable()
+            {
+                @Override
+                public void run()
+                {
+                    if(!e.getEntity().isDead())
+                        e.setNewPhase(EnderDragon.Phase.STRAFING);
+                }
+            }.runTaskLater(OldCommands.Invictools, 20*5L);
+        }
+
+         */
+    }
+
     @EventHandler
     public void end(BedwarsGameEndEvent e)
     {

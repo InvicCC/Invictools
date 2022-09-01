@@ -120,16 +120,29 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         else if(args.length==1 && args[0].equalsIgnoreCase("albi") && sender instanceof Player p)
         {
             Game game = BedwarsAPI.getInstance().getGameOfPlayer(p);
-            albi.spawnDragon(game);
+            int delay;
             if(!disableStats.getGameType(game).equalsIgnoreCase("bedfight"))
+                delay = 2;
+            else
+                delay = 10;
+
+            new BukkitRunnable()
             {
-                albi.spawnDragon(game);
-                albi.spawnDragon(game);
-            }
-            for (Player pl:game.getConnectedPlayers())
-            {
-                albi.spawnDragon(game,pl);
-            }
+                @Override
+                public void run()
+                {
+                    if(!disableStats.getGameType(game).equalsIgnoreCase("bedfight"))
+                    {
+                        albi.spawnDragon(game);
+                        albi.spawnDragon(game);
+                    }
+
+                    for (Player pl:game.getConnectedPlayers())
+                    {
+                        albi.spawnDragon(game,pl);
+                    }
+                }
+            }.runTaskLater(OldCommands.Invictools, delay*20);
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("nostats") && sender instanceof Player)
         {

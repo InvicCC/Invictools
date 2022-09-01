@@ -38,7 +38,6 @@ public class givePoints implements Listener
             return;
 
         Player p = e.getPlayer();
-        p.playSound(p, Sound.BLOCK_NOTE_BLOCK_BELL,1,1);
         p.sendMessage(ChatColor.AQUA/*+" "+ChatColor.BOLD+"(!)"*/+"You earned "+ChatColor.WHITE+totals.get(p)+ChatColor.AQUA+" Invictacoins that round.");
 
         totals.remove(p);

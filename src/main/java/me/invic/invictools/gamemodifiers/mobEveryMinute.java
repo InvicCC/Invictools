@@ -2,6 +2,8 @@ package me.invic.invictools.gamemodifiers;
 
 import me.invic.invictools.commands.OldCommands;
 import org.bukkit.GameMode;
+import org.bukkit.entity.EnderDragon;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -27,7 +29,16 @@ public class mobEveryMinute
                     {
                         if(p.getGameMode().equals(GameMode.SURVIVAL))
                         {
-                            p.getWorld().spawnEntity(p.getLocation(),entity);
+
+                            if(entity.toString().equalsIgnoreCase(EntityType.ENDER_DRAGON.toString()))
+                            {
+                                EnderDragon e = (EnderDragon)p.getWorld().spawnEntity(p.getLocation(),entity);
+                                e.setAware(true);
+                                e.setPhase(EnderDragon.Phase.STRAFING);
+                                e.setTarget(p);
+                            }
+                            else
+                                p.getWorld().spawnEntity(p.getLocation(),entity);
                         }
                     }
                     i[0] = 0;
