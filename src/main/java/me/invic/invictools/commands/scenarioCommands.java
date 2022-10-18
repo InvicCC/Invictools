@@ -215,11 +215,17 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
                 tempCombatSwap.swappedGame = BedwarsAPI.getInstance().getGameOfPlayer(p);
                 tempCombatSwap.timedCombatConfig();
             }
-
-            for (Player pl:BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender)).getConnectedPlayers())
+            new BukkitRunnable()
             {
-                tempCombatSwap.swap(pl);
-            }
+                @Override
+                public void run()
+                {
+                    for (Player pl:BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender)).getConnectedPlayers())
+                    {
+                        tempCombatSwap.swap(pl);
+                    }
+                }
+            }.runTaskLater(OldCommands.Invictools, 60L);
         }
         else
             sender.sendMessage(ChatColor.RED+"Incomplete syntax.");

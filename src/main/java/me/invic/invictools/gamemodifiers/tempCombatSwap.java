@@ -79,6 +79,7 @@ public class tempCombatSwap implements Listener
         try
         {
             data.save(pFile);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"ocm reload");
         } catch (IOException e)
         {
             e.printStackTrace();
@@ -100,6 +101,7 @@ public class tempCombatSwap implements Listener
         try
         {
             data.save(pFile);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(),"ocm reload");
         } catch (IOException e)
         {
             e.printStackTrace();

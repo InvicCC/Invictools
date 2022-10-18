@@ -48,6 +48,7 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
             tabComplete.add("resetbf");
             tabComplete.add("timedCombat");
             tabComplete.add("quickCombat");
+            tabComplete.add("swapall");
         }
         else if(args.length==2 && args[0].equalsIgnoreCase("test"))
         {
@@ -132,11 +133,26 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("quickcombat"))
         {
+            for (Player p:Bukkit.getOnlinePlayers())
+            {
+                tempCombatSwap.swap(p);
+            }
             tempCombatSwap.quickCombatConfig();
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("timedcombat"))
         {
             tempCombatSwap.timedCombatConfig();
+            for (Player p:Bukkit.getOnlinePlayers())
+            {
+                tempCombatSwap.swap(p);
+            }
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("swapall"))
+        {
+            for (Player p:Bukkit.getOnlinePlayers())
+            {
+                tempCombatSwap.swap(p);
+            }
         }
         else
             sender.sendMessage(ChatColor.RED+"Incomplete command");
