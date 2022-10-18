@@ -3,10 +3,12 @@ package me.invic.invictools.gamemodifiers;
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import me.invic.invictools.util.disableStats;
+import me.invic.invictools.util.fixes.Protocol47Fix;
 import me.invic.invictools.util.ingame.blockDecay;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Sound;
+import org.bukkit.block.data.type.Bed;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -109,6 +111,14 @@ public class albi implements Listener
         if(e.getDamager().getType().equals(EntityType.ENDER_DRAGON))
         {
             e.setDamage(0.0);
+        }
+        else if(e.getDamager().getType().equals(EntityType.AREA_EFFECT_CLOUD) && e.getEntity() instanceof Player && BedwarsAPI.getInstance().isPlayerPlayingAnyGame((Player)e.getEntity()))
+        {
+            if(new Protocol47Fix().isAnyPlayer47(BedwarsAPI.getInstance().getGameOfPlayer((Player)e.getEntity())))
+            {
+                e.setCancelled(true);
+                e.getDamager().remove();
+            }
         }
         else if(e.getDamager().getType().equals(EntityType.AREA_EFFECT_CLOUD))
         {

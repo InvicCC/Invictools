@@ -3,6 +3,7 @@ package me.invic.invictools.commands;
 import me.invic.invictools.gamemodes.bf.bedfight;
 import me.invic.invictools.Leaderboards.statsHolo;
 import me.invic.invictools.Leaderboards.statsHoloListener;
+import me.invic.invictools.gamemodifiers.tempCombatSwap;
 import me.invic.invictools.util.disableStats;
 import me.invic.invictools.util.gui.scenSelector.perGameScenSelHolder;
 import me.invic.invictools.util.ingame.blockDecay;
@@ -45,6 +46,8 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
             tabComplete.add("scenq");
             tabComplete.add("endgame");
             tabComplete.add("resetbf");
+            tabComplete.add("timedCombat");
+            tabComplete.add("quickCombat");
         }
         else if(args.length==2 && args[0].equalsIgnoreCase("test"))
         {
@@ -126,6 +129,14 @@ public class utilityCommands implements CommandExecutor, TabExecutor // end game
                 endgameNoStats(BedwarsAPI.getInstance().getGameByName(args[0]));
             else
                 sender.sendMessage(ChatColor.RED +"This game does not exist");
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("quickcombat"))
+        {
+            tempCombatSwap.quickCombatConfig();
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("timedcombat"))
+        {
+            tempCombatSwap.timedCombatConfig();
         }
         else
             sender.sendMessage(ChatColor.RED+"Incomplete command");

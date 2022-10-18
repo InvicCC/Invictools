@@ -204,6 +204,18 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         }
         else if(args.length >= 1 && args[0].equalsIgnoreCase("newcombat") && sender instanceof Player p)
         {
+            if(!BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+            {
+                sender.sendMessage(ChatColor.RED + "Must be activated in game!");
+                return true;
+            }
+
+            if(tempCombatSwap.swappedGame == null && BedwarsAPI.getInstance().getFirstRunningGame() == null)
+            {
+                tempCombatSwap.swappedGame = BedwarsAPI.getInstance().getGameOfPlayer(p);
+                tempCombatSwap.timedCombatConfig();
+            }
+
             for (Player pl:BedwarsAPI.getInstance().getGameOfPlayer(((Player) sender)).getConnectedPlayers())
             {
                 tempCombatSwap.swap(pl);

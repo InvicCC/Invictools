@@ -494,7 +494,7 @@ public class ManhuntMain
                     currentEffect = ChatColor.RED + "  - Most blocks will decay after being placed";
                     list.add(currentEffect);
                     break;
-                case "DeathAttributes":
+                case "deathattributes":
                     currentEffect = ChatColor.AQUA + "  - You will become stronger when killed";
                     list.add(currentEffect);
                     break;
@@ -506,20 +506,32 @@ public class ManhuntMain
                     currentEffect = ChatColor.AQUA + "  - A special generator will spawn on the map";
                     list.add(currentEffect);
                     break;
-                case "EffectSometimes":
+                case "effectsometimes":
                     currentEffect = ChatColor.AQUA + "  - You will randomly receive "+ChatColor.WHITE+translatePotion(commandSplit[7]);
                     list.add(currentEffect);
                     break;
-                case "DamageTeammates":
+                case "damageteammates":
                     currentEffect = ChatColor.RED + "  - You will take damage when near your teammate";
                     list.add(currentEffect);
                     break;
-                case "ProximityElytra":
+                case "proximityelytra":
                     currentEffect = ChatColor.AQUA + "  - You will take receive an Elytra when near your teammates";
                     list.add(currentEffect);
                     break;
                 case "haunt":
                     currentEffect = ChatColor.AQUA + "  - You will be able to haunt living players after final death";
+                    list.add(currentEffect);
+                    break;
+                case "albi":
+                    currentEffect = ChatColor.RED + "  - Albi's family has arrived";
+                    list.add(currentEffect);
+                    break;
+                case "infest":
+                    currentEffect = ChatColor.AQUA + "  - Damaging players will spawn random entities";
+                    list.add(currentEffect);
+                    break;
+                case "minutemob":
+                    currentEffect = ChatColor.AQUA + "  - Mobs will spawn on you every minute";
                     list.add(currentEffect);
                     break;
                 default:
