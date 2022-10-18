@@ -158,6 +158,13 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
         {
             new mobEveryMinute(EntityType.valueOf(args[1]),BedwarsAPI.getInstance().getGameOfPlayer((Player) sender),Integer.parseInt(args[2]));
         }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("mcci") && sender instanceof Player)
+        {
+            Bukkit.dispatchCommand(sender,"it deathitems CREEPER_SPAWN_EGG 3 normal all");
+            Bukkit.dispatchCommand(sender,"it deathitems COBWEB 5 normal all");
+            Bukkit.dispatchCommand(sender,"it killitems CREEPER_SPAWN_EGG 1 normal all");
+            Bukkit.dispatchCommand(sender,"it killitems COBWEB 2 normal all");
+        }
         else if(args.length == 1 && args[0].equalsIgnoreCase("creativeall") && sender instanceof Player)
         {
             if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame((Player) sender))

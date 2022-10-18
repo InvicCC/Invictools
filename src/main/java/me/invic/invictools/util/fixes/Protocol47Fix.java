@@ -94,7 +94,7 @@ public class Protocol47Fix implements Listener
     {
         for (Player p:game.getConnectedPlayers())
         {
-            if(game.isPlayerInAnyTeam(p) &&api.getPlayerVersion(p) == 47)
+            if(game.isPlayerInAnyTeam(p) && api.getPlayerVersion(p) == 47)
                 return true;
         }
         return false;

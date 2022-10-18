@@ -299,6 +299,7 @@ me\invic\invictools\PAPIexpansion.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\Blocks\badBlocks$2.class
 me\invic\invictools\gamemodifiers\PotionEffects\KillEffectListener.class
 me\invic\invictools\gamemodifiers\tnt$1.class
+me\invic\invictools\commands\scenarioCommands$3.class
 me\invic\invictools\util\safeSizeChange$1.class
 me\invic\invictools\commands\impl\IT\FinalKillTestCommand.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\Blocks\goodBlocks$5.class
