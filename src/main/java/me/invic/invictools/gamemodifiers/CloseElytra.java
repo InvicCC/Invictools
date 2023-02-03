@@ -42,7 +42,7 @@ public class CloseElytra
             @Override
             public void run()
             {
-                if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player) || BedwarsAPI.getInstance().getGameOfPlayer(player) != game)
+                if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player) && BedwarsAPI.getInstance().getGameOfPlayer(player) == game)
                 {
                     for (Player p : teammates)
                     {

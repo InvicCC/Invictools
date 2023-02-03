@@ -1,5 +1,5 @@
 npccounter: 291
-masterplayer: unchargeableness
+masterplayer: Invictable
 UsePlugNPC: true
 dareTimeout: 165
 ScaffoldInventoryCheckSize: 9
@@ -109,6 +109,6 @@ npc2:
 loadedgame: none
 pid:
   ==: org.bukkit.inventory.ItemStack
-  v: 3105
+  v: 3120
   type: AIR
   amount: 0

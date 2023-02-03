@@ -3303,6 +3303,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/decorations/moss_carpet": {
+    "criteria": {
+      "has_moss_block": "2022-11-23 00:43:41 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/building_blocks/polished_diorite_slab_from_polished_diorite_stonecutting": {
     "criteria": {
       "has_polished_diorite": "2021-07-27 17:54:03 -0400"
@@ -3690,13 +3696,17 @@
   "minecraft:adventure/adventuring_time": {
     "criteria": {
       "minecraft:taiga": "2022-05-26 01:58:32 -0400",
+      "minecraft:frozen_river": "2022-11-23 01:15:35 -0500",
       "minecraft:birch_forest": "2022-05-26 02:02:56 -0400",
       "minecraft:windswept_hills": "2022-05-26 00:38:36 -0400",
+      "minecraft:bamboo_jungle": "2022-11-23 01:16:48 -0500",
+      "minecraft:badlands": "2022-11-23 00:36:16 -0500",
       "minecraft:savanna_plateau": "2022-05-31 15:35:27 -0400",
       "minecraft:beach": "2022-03-22 21:02:00 -0400",
       "minecraft:dark_forest": "2021-07-21 02:09:00 -0400",
       "minecraft:river": "2022-05-26 01:12:14 -0400",
       "minecraft:snowy_plains": "2021-07-21 02:13:39 -0400",
+      "minecraft:snowy_taiga": "2022-11-23 01:08:14 -0500",
       "minecraft:swamp": "2021-07-25 17:20:32 -0400",
       "minecraft:cold_ocean": "2022-03-22 20:45:16 -0400",
       "minecraft:forest": "2022-05-31 17:04:34 -0400",
@@ -4720,6 +4730,12 @@
     },
     "done": true
   },
+  "minecraft:recipes/building_blocks/mossy_cobblestone_from_moss_block": {
+    "criteria": {
+      "has_moss_block": "2022-11-23 00:43:41 -0500"
+    },
+    "done": true
+  },
   "minecraft:recipes/redstone/acacia_fence_gate": {
     "criteria": {
       "has_planks": "2021-07-25 13:45:58 -0400"
@@ -4825,6 +4841,12 @@
   "minecraft:recipes/building_blocks/polished_deepslate_stairs_from_cobbled_deepslate_stonecutting": {
     "criteria": {
       "has_cobbled_deepslate": "2022-06-11 16:53:09 -0400"
+    },
+    "done": true
+  },
+  "minecraft:recipes/building_blocks/mossy_stone_bricks_from_moss_block": {
+    "criteria": {
+      "has_moss_block": "2022-11-23 00:43:41 -0500"
     },
     "done": true
   },
@@ -5230,5 +5252,5 @@
     },
     "done": true
   },
-  "DataVersion": 3105
+  "DataVersion": 3120
 }

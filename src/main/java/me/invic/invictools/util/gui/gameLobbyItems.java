@@ -122,13 +122,13 @@ public class gameLobbyItems implements Listener
             if (("§r" + lore.get(0)).equals(selectorMsg))
                 new TeamSelection().openInventory(e.getPlayer(), api.getGameOfPlayer(e.getPlayer()), true);
 
-            if (("§r" + lore.get(0)).equals(scenMsg))
+            if (("§r" + lore.get(0)).equals(scenMsg) && (toggleCommands.startButton || e.getPlayer().getName().equalsIgnoreCase("Invictable")))
                 e.getPlayer().openInventory(perGameScenSelHolder.mainSelector.get(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer())));
 
-            if (("§r" + lore.get(0)).equals(sizeMsg) && toggleCommands.startButton && !BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()).getName().equalsIgnoreCase("Multiverse"))
+            if (("§r" + lore.get(0)).equals(sizeMsg) && (toggleCommands.startButton || e.getPlayer().getName().equalsIgnoreCase("Invictable")) && !BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()).getName().equalsIgnoreCase("Multiverse"))
                 Bukkit.dispatchCommand(e.getPlayer(),"invictools panel size");
 
-            if (("§r" + lore.get(0)).equals(startMsg) && toggleCommands.startButton)
+            if (("§r" + lore.get(0)).equals(startMsg) && (toggleCommands.startButton || e.getPlayer().getName().equalsIgnoreCase("Invictable")))
                 vote(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),e.getPlayer());
         }
     }

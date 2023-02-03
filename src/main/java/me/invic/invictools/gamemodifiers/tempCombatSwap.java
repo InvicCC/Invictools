@@ -21,25 +21,41 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+// Invictable's combat swapper using Old Combat Mechanics 1/9/2023
+
 public class tempCombatSwap implements Listener
 {
-    static List<Player> swapped = new ArrayList<>();
-    public static Game swappedGame = null;
+    // How this works for me is when the bedwars game starts, I call timedCombatConfig() to switch the server completely then i call swap() for every player.
+    // swap() sets the attack bar for individual players and handles the attack bar damage in preventDamage, timedCombatConfig() does kb, sounds, etc.
+    // When you need to swap back just called quickCombatConfig()
+    // When the game ends you need to remove players from being part of the swapped list or they wont be able to deal damage.
+    // To access this code from other files you can do tempCombatSwap.(function) so tempCombatSwap.swap(player) etc.
 
-    public static void swap(Player p)
+    static List<Player> swapped = new ArrayList<>();
+    public static Game swappedGame = null; // bedwars game, you dont need this.
+
+    public static void swap(Player p) //call this and give it the instance of the player you're swapping combat for
     {
-        new SafeOpCommand(p,"ocm toggle");
+        new SafeOpCommand(p,"ocm toggle"); // youll need to replace this with function that ops the player, executes "ocm toggle", then deops the player
         swapped.add(p);
     }
 
-    @EventHandler
-    public void preventDamage(EntityDamageByEntityEvent e)
+    public static void unswap(Player p)
     {
-        if(e.getDamager() instanceof Player p && swapped.contains(p) && p.getAttackCooldown() != 1.0)
+        swapped.remove(p);
+    }
+
+    @EventHandler
+    public void preventDamage(EntityDamageByEntityEvent e) // this prevents full damage if the player is swapped
+    {
+        if(e.getDamager() instanceof Player p && swapped.contains(p) && p.getAttackCooldown() <= .9)
         {
             e.setDamage(0.5);
         }
     }
+
+    // You'll need to detect when the player leaves the game where their combat is swapped and run unswap(player).
+    // I do this with the below code but you dont have these events because you dont have the bedwars plugin.
 
     @EventHandler
     public void bwleave(BedwarsPlayerLeaveEvent e)
@@ -57,14 +73,14 @@ public class tempCombatSwap implements Listener
         }
     }
 
-    @EventHandler
+    @EventHandler // removes players when they quit to avoid errors
     public void disconnect(PlayerQuitEvent e)
     {
         swapped.remove(e.getPlayer());
     }
 
     static Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("OldCombatMechanics");
-    public static void timedCombatConfig()
+    public static void timedCombatConfig() // call to change to 1.9 style
     {
         File pFile = new File(plugin.getDataFolder(), "config.yml");
         final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);
@@ -86,7 +102,7 @@ public class tempCombatSwap implements Listener
         }
     }
 
-    public static void quickCombatConfig()
+    public static void quickCombatConfig() // call to change to 1.8 style
     {
         File pFile = new File(plugin.getDataFolder(), "config.yml");
         final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);

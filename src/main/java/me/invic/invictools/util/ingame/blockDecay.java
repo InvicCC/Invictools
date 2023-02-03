@@ -78,7 +78,7 @@ public class blockDecay implements Listener
                 {
                     try
                     {
-                        manager.sendServerPacket(player,clear);
+                       // manager.sendServerPacket(player,clear);
                         manager.sendServerPacket(player,packet1);
                     } catch (InvocationTargetException e)
                     {
@@ -97,6 +97,7 @@ public class blockDecay implements Listener
                     }
 
                     decaying.remove(loc);
+                    /*
                     game.getConnectedPlayers().forEach(player ->
                     {
                         try
@@ -107,6 +108,8 @@ public class blockDecay implements Listener
                             e.printStackTrace();
                         }
                     });
+
+                     */
 
                     this.cancel();
                 }
@@ -131,25 +134,27 @@ public class blockDecay implements Listener
     {
         if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(e.getPlayer()))
         {
-            if(e.getBlock().getLocation().getY() == maxY.get(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()))-2)
+            Game game = BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer());
+            Location loc = e.getBlock().getLocation();
+            if(loc.getY() == maxY.get(game)-2)
             {
-                new blockDecay(e.getBlock().getLocation(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),2);
+                new blockDecay(loc, game,2);
             }
-            else if(e.getBlock().getLocation().getY() == maxY.get(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()))-1)
+            else if(loc.getY() == maxY.get(game)-1)
             {
-                new blockDecay(e.getBlock().getLocation(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),1);
+                new blockDecay(loc, game,1);
             }
-            else if(e.getBlock().getLocation().getY() == maxY.get(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer())))
+            else if(loc.getY() == maxY.get(game))
             {
-                new blockDecay(e.getBlock().getLocation(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),0);
+                new blockDecay(loc, game,0);
             }
-            else if(closeToSpawn(2.0,BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),e.getBlock().getLocation()))
+            else if(closeToSpawn(2.0,game,loc))
             {
-                new blockDecay(e.getBlock().getLocation(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()),4);
+                new blockDecay(loc, game,4);
             }
-            else if(decayGamemode.contains(BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer())))
+            else if(decayGamemode.contains(game))
             {
-                new blockDecay(e.getBlock().getLocation(), BedwarsAPI.getInstance().getGameOfPlayer(e.getPlayer()), (int) e.getBlock().getType().getHardness()+15);
+                new blockDecay(loc, game, (int) e.getBlock().getType().getHardness()+15);
             }
         }
     }
@@ -157,7 +162,7 @@ public class blockDecay implements Listener
     static final Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("BedWars");
     static final File Folder = new File(plugin.getDataFolder(), "arenas");
 
-    public static int arenaMaxY(String gameName)
+    public static int arenaMaxY(String gameName) // returns higher Y value of arena boundries
     {
         final File pFile = new File(Folder, ChangeTeamSize.ConfigConversion(gameName) + ".yml");
         final FileConfiguration data = YamlConfiguration.loadConfiguration(pFile);

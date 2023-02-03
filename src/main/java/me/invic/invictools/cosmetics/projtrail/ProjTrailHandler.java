@@ -64,6 +64,7 @@ public class ProjTrailHandler
                 break;
             case "sculk":
                 barrier(entity, true);
+                break;
             case "bubble":
                 bubble(entity);
                 break;

@@ -277,6 +277,7 @@ public final class Invictools extends JavaPlugin
         Bukkit.getPluginManager().registerEvents(new tempCombatSwap(), this); //entity damage by entity
         Bukkit.getPluginManager().registerEvents(new blockDecay(), this); //shut the fuck up
         Bukkit.getPluginManager().registerEvents(new statsHoloListener(), this); //bedwars end, player join and leave
+        Bukkit.getPluginManager().registerEvents(new ElytraTest(), this); //move event DISABLE FOR SERVER
         Bukkit.getPluginManager().registerEvents(new infestation(), this); // bw game end, entity damage by entity, status changed ENTITY REMOVE IF CLOSE
         // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         Bukkit.getPluginManager().registerEvents(new albi(), this); // bw game end

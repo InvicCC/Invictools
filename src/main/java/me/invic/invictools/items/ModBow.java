@@ -7,18 +7,32 @@ import me.invic.invictools.util.ingame.blockDecay;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.type.Bed;
+import org.bukkit.entity.Arrow;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityShootBowEvent;
+import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.BedwarsAPI;
 import org.screamingsandals.bedwars.api.game.Game;
+import org.bukkit.Bukkit;
+import org.bukkit.FireworkEffect;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Arrow;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Fireball;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.ProjectileLaunchEvent;
+import org.bukkit.inventory.meta.FireworkMeta;
 
 import java.util.*;
 
@@ -291,4 +305,24 @@ public class ModBow implements Listener
 
     public static HashMap<Player, Long> ModBowHealCooldown = new HashMap<>();
     public static HashMap<Player, Long> ModBowFireballCooldown = new HashMap<>();
+/*
+    @EventHandler
+    public void onProjectileLaunch(ProjectileLaunchEvent event) {
+        if (event.getEntity() instanceof Arrow) {
+            // create a fireball that falls straight down from the arrow
+            Arrow arrow = (Arrow) event.getEntity();
+            Bukkit.getScheduler().runTaskTimer(this, () -> {
+                Location arrowLoc = arrow.getLocation();
+                Block blockBelow = arrowLoc.getBlock().getRelative(0, -1, 0);
+
+                // only launch a fireball if the block below is not solid
+                if (blockBelow.getType() == Material.AIR) {
+                    Fireball fireball = (Fireball) arrow.getWorld().spawnEntity(arrowLoc, EntityType.FIREBALL);
+                    fireball.setDirection(arrow.getVelocity().multiply(-1));
+                }
+            }, 1, 1);
+        }
+    }
+
+ */
 }

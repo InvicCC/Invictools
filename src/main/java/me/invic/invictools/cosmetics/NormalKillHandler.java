@@ -25,6 +25,7 @@ public class NormalKillHandler
         File pFile = new File(Folder, p.getUniqueId() + ".yml");
         FileConfiguration balls = YamlConfiguration.loadConfiguration(pFile);
         String effect = balls.getString("NormalKill");
+
         if (effect == null)
             return;
 
@@ -56,6 +57,9 @@ public class NormalKillHandler
             case "prestige":
                 prestige(loc, player);
                 break;
+            case "reaper":
+                reaper(loc);
+                break;
         }
     }
 
@@ -68,6 +72,7 @@ public class NormalKillHandler
         e.put("sizzle", 50);
         e.put("portal", 30);
         e.put("prestige", 10);
+        e.put("reaper", 1000);
         return e;
     }
 
@@ -78,11 +83,21 @@ public class NormalKillHandler
         loc.getWorld().playEffect(loc, Effect.STEP_SOUND, Material.NETHER_PORTAL);
     }
 
+    private void reaper(Location loc)
+    {
+        loc.getWorld().spawnParticle(Particle.SCULK_SOUL, loc, 25, .2, .5, .2, .1);
+        Particle.DustOptions dust = new Particle.DustOptions(Color.BLACK, 1);
+        loc.getWorld().spawnParticle(Particle.REDSTONE, loc, 12, .3, 1.5, .3, dust);
+       // loc.getWorld().spawnParticle(Particle.CAMPFIRE_SIGNAL_SMOKE, loc, 4, 0, 1.85, 0,0);
+        loc.getWorld().playSound(loc, Sound.BLOCK_FIRE_EXTINGUISH, 10, 1);
+    }
+
     private void prestige(Location loc, Player p)
     {
         Particle.DustOptions dust = new Particle.DustOptions(ProjTrailHandler.presColor(p), 2);
-        loc.getWorld().spawnParticle(Particle.REDSTONE, loc, 7, .5, 1, .5, dust);
-        loc.getWorld().spawnParticle(Particle.CRIT_MAGIC, loc, 20, 0, 1.5, 0);
+        //loc.getWorld().spawnParticle(Particle.REDSTONE, loc, 7, .5, 1, .5, dust);
+       // loc.getWorld().spawnParticle(Particle.CRIT_MAGIC, loc, 20, 0, 1.5, 0);
+        loc.getWorld().spawnParticle(Particle.HEART, loc, 7, .3, 1.5, .3);
         loc.getWorld().playSound(loc, Sound.BLOCK_FIRE_EXTINGUISH, 5, 1);
     }
 
@@ -95,7 +110,7 @@ public class NormalKillHandler
             {
                 loc.getWorld().playEffect(loc, Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
             }
-        }.runTaskLater(OldCommands.Invictools, 1L);
+        }.runTaskLater(OldCommands.Invictools, 2L);
         loc.getWorld().playEffect(loc.clone().add(0, .6, 0), Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
     }
 
@@ -137,7 +152,7 @@ public class NormalKillHandler
         wins = new leaderboard().starLevel(wins);
 
 
-        // DOES NOT SET CORRECTLY.
+        // DOES NOT SET CORRECTLY. // bro what?
         //   System.out.println("setting");
         //   System.out.println(effect);
         if (effect.equals("none"))
@@ -159,12 +174,15 @@ public class NormalKillHandler
             }
             else
             {
-                player.sendMessage(ChatColor.RED + "You haven't unlocked this effect yet!");
-                player.sendMessage(ChatColor.RED + "You only have " + wins + " stars.");
-                if (NormalKillEffects().get(effect) == -1)
+                if (NormalKillEffects().get(effect) == 1000)
                 {
-                    player.sendMessage(ChatColor.RED + "This effect can also be unlocked with a rank.");
+                    player.sendMessage(ChatColor.RED + "This effect can only be unlocked with a rank.");
                     player.sendMessage(ChatColor.AQUA + "Type /ranks to learn how to get one");
+                }
+                else
+                {
+                    player.sendMessage(ChatColor.RED + "You haven't unlocked this effect yet!");
+                    player.sendMessage(ChatColor.RED + "You only have " + wins + " stars.");
                 }
             }
 

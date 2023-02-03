@@ -50,6 +50,7 @@ me\invic\invictools\items\ItemListener$5.class
 me\invic\invictools\util\gui\scenSelector\perGameScenSelHolder.class
 me\invic\invictools\cosmetics\bedbreaks\EndermanBedBreak$1.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\Blocks\goodBlocks$2.class
+me\invic\invictools\commands\utilityCommands$2.class
 me\invic\invictools\items\FireStick.class
 me\invic\invictools\commands\OldCommands$9.class
 me\invic\invictools\util\gui\scenSelector\scenarioQueue.class
@@ -130,6 +131,7 @@ me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$6.class
 me\invic\invictools\items\dareListener$8.class
 me\invic\invictools\cosmetics\projtrail\ProjTrailHandler$9.class
 me\invic\invictools\commands\impl\IT\InstantHauntCommand.class
+me\invic\invictools\ElytraTest$1.class
 me\invic\invictools\gamemodifiers\AbtributesOnDeath$1.class
 me\invic\invictools\util\deathListener$1.class
 me\invic\invictools\util\deathListener.class
@@ -166,6 +168,7 @@ me\invic\invictools\cosmetics\VictoryDances\VictoryDanceHandler$2$1.class
 me\invic\invictools\cosmetics\finalkills\FinalKillHandler$1.class
 me\invic\invictools\cosmetics\bedbreaks\TornadoBedBreak$1.class
 me\invic\invictools\util\disableParkour.class
+me\invic\invictools\ElytraTest$2.class
 me\invic\invictools\gamemodifiers\LuckyBlocks\luckyBlockBreakDetection$2.class
 me\invic\invictools\util\ingame\physics\CancelLampUpdates.class
 me\invic\invictools\items\ItemListener$3.class
@@ -284,6 +287,7 @@ me\invic\invictools\util\fixes\Protocol47Fix.class
 me\invic\invictools\items\ModBow$1.class
 me\invic\invictools\commands\scenarioCommands$1.class
 me\invic\invictools\items\ItemListener$6$1.class
+me\invic\invictools\commands\utilityCommands$3.class
 me\invic\invictools\cosmetics\Lobby1Handler$6.class
 me\invic\invictools\commands\impl\IT\FinalKillTestCommand$1.class
 me\invic\invictools\commands\impl\IT\VictoryDancePreviewCommand.class

@@ -112,17 +112,14 @@ public class albi implements Listener
         {
             e.setDamage(0.0);
         }
-        else if(e.getDamager().getType().equals(EntityType.AREA_EFFECT_CLOUD) && e.getEntity() instanceof Player && BedwarsAPI.getInstance().isPlayerPlayingAnyGame((Player)e.getEntity()))
+        else if(e.getDamager().getType().equals(EntityType.AREA_EFFECT_CLOUD) && e.getEntity() instanceof Player && BedwarsAPI.getInstance().isPlayerPlayingAnyGame((Player)e.getEntity()) && new Protocol47Fix().isAnyPlayer47(BedwarsAPI.getInstance().getGameOfPlayer((Player)e.getEntity())))
         {
-            if(new Protocol47Fix().isAnyPlayer47(BedwarsAPI.getInstance().getGameOfPlayer((Player)e.getEntity())))
-            {
-                e.setCancelled(true);
-                e.getDamager().remove();
-            }
+            e.setCancelled(true);
+            e.getDamager().remove();
         }
         else if(e.getDamager().getType().equals(EntityType.AREA_EFFECT_CLOUD))
         {
-            //e.setDamage(2.0)
+            e.setDamage(2.0);
             new BukkitRunnable()
             {
                 @Override
@@ -176,17 +173,18 @@ public class albi implements Listener
             }
             else
             {
-                if(new Random().nextInt(3)!=1)
+                if(new Random().nextInt(5)!=1)
                 {
-                    if(new Random().nextInt(3)==1)
-                        e.setNewPhase(EnderDragon.Phase.STRAFING);
-                    else
-                        e.setNewPhase(EnderDragon.Phase.CIRCLING);
+                    e.setNewPhase(EnderDragon.Phase.STRAFING);
+                }
+                else if(new Random().nextInt(5)!=1)
+                {
+                    e.getEntity().setTarget(currentGame.getConnectedPlayers().get(new Random().nextInt(currentGame.getConnectedPlayers().size())));
+                    e.getEntity().setPhase(EnderDragon.Phase.CHARGE_PLAYER);
                 }
                 else
                 {
-                    e.getEntity().setTarget(currentGame.getConnectedPlayers().get(new Random().nextInt(currentGame.getConnectedPlayers().size())-1));
-                    e.getEntity().setPhase(EnderDragon.Phase.CHARGE_PLAYER);
+                    e.setNewPhase(EnderDragon.Phase.CIRCLING);
                 }
             }
         }

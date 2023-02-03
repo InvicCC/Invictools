@@ -131,13 +131,13 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
                 @Override
                 public void run()
                 {
-                    albi.spawnDragon(game);
+                    //albi.spawnDragon(game);
 
-                    if(!disableStats.getGameType(game).equalsIgnoreCase("bedfight"))
-                    {
-                        albi.spawnDragon(game);
-                        albi.spawnDragon(game);
-                    }
+                   // if(!disableStats.getGameType(game).equalsIgnoreCase("bedfight"))
+                  //  {
+                     //   albi.spawnDragon(game);
+                     //   albi.spawnDragon(game);
+                  //  }
 
                     for (Player pl:game.getConnectedPlayers())
                     {
