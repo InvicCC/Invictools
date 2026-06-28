@@ -27,8 +27,8 @@ public class badBlocks
         switch (choice)
         {
             case 0:
-                String command = "execute at " + player.getName() + " run summon minecraft:tnt " + loc.getX() + " " + loc.getY() + " " + loc.getZ() + " {Fuse:" + 1 + "}";
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
+                TNTPrimed singleTnt = (TNTPrimed) loc.getWorld().spawnEntity(loc, EntityType.TNT);
+                singleTnt.setFuseTicks(80);
                 break;
             case 2:
                 new BukkitRunnable()
@@ -42,8 +42,8 @@ public class badBlocks
                             this.cancel();
 
                         Location ploc = player.getLocation();
-                        String command2 = "execute at " + player.getName() + " run summon minecraft:tnt " + ploc.getX() + " " + ploc.getY() + " " + ploc.getZ() + " {Fuse:" + 500 + "} ";
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command2);
+                        TNTPrimed rainTnt = (TNTPrimed) ploc.getWorld().spawnEntity(ploc, EntityType.TNT);
+                        rainTnt.setFuseTicks(80);
 
                         i++;
                     }
@@ -238,7 +238,7 @@ public class badBlocks
                                         if(!wither.isDead())
                                         {
                                             wither.getLocation().getWorld().playSound(wither.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 20, 1);
-                                            wither.getLocation().getWorld().spawnParticle(Particle.EXPLOSION_HUGE, wither.getLocation(), 1);
+                                            wither.getLocation().getWorld().spawnParticle(Particle.EXPLOSION, wither.getLocation(), 1);
                                             wither.remove();
                                         }
                                     }

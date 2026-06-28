@@ -8,7 +8,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -43,9 +45,9 @@ public class ExplosionsListener implements Listener
             }
         }
 
-        if (e.getCause().equals(EntityDamageEvent.DamageCause.ENTITY_EXPLOSION) && (e.getDamager().getName().equalsIgnoreCase("fireball") || e.getDamager().getName().equalsIgnoreCase("primed tnt")))
+        if (e.getCause().equals(EntityDamageEvent.DamageCause.ENTITY_EXPLOSION) && (e.getDamager() instanceof Fireball || e.getDamager() instanceof TNTPrimed))
         {
-            String cause = e.getDamager().getName();
+            String cause = (e.getDamager() instanceof TNTPrimed) ? "primed tnt" : e.getDamager().getName();
             e.setDamage(2);
 
             // Distance Calculations

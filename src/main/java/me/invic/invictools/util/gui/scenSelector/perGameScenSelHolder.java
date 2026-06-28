@@ -1,6 +1,6 @@
 package me.invic.invictools.util.gui.scenSelector;
 
-import com.mojang.authlib.minecraft.TelemetrySession;
+//import com.mojang.authlib.minecraft.TelemetrySession;
 import me.invic.invictools.commands.OldCommands;
 import me.invic.invictools.util.disableStats;
 import me.invic.invictools.util.ingame.LobbyLogic;

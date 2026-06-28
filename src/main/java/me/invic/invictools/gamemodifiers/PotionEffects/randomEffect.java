@@ -32,7 +32,8 @@ public class randomEffect
                 DynamicWorldName = Objects.requireNonNull(player.getLocation().getWorld()).getName();
                 if (DynamicWorldName.equals(Worldname))
                 {
-                    switch (a) // actual intelligent design of assigning effect, allowing code after to be altered easily
+                    switch (a) // actual intelligent design of assigning effect, allowing code after to be altered easily. 
+                    // ok so this is 2026 and i cant believe i would call that intelligent..
                     {
                         case 0:
                             player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60, b, false, false));
@@ -50,28 +51,28 @@ public class randomEffect
                             player.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 60, b, false, false));
                             break;
                         case 5:
-                            player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 60, b, false, false));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.HASTE, 60, b, false, false));
                             break;
                         case 6:
                             player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 60, b, false, false));
                             break;
                         case 7:
-                            player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 60, b, false, false));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP_BOOST, 60, b, false, false));
                             break;
                         case 8:
                             player.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 60, b, false, false));
                             break;
                         case 9:
-                            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 60, b, false, false));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.MINING_FATIGUE, 60, b, false, false));
                             break;
                         case 10:
-                            player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 60, b, false, false));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, 60, b, false, false));
                             break;
                         case 11:
                             player.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 60, b, false, false));
                             break;
                         case 12:
-                            player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 60, b, false, false));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 60, b, false, false));
                             break;
                         case 13:
                             player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 60, b, false, false));
@@ -80,10 +81,10 @@ public class randomEffect
                             player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 60, b, false, false));
                             break;
                         case 15:
-                            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 60, b, false, false));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 60, b, false, false));
                             break;
                         case 16:
-                            player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 60, b, false, false));
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, 60, b, false, false));
                             break;
                         case 17:
                             player.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 60, b, false, false));

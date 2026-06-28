@@ -55,7 +55,7 @@ public class FireworkBedBreak
                 loc.subtract(x, -4, z);
         }
 
-        Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
+        Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK_ROCKET);
         FireworkMeta fwm = fw.getFireworkMeta();
 
         fwm.setPower(0);

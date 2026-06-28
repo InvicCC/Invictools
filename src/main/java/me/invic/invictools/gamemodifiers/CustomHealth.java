@@ -34,7 +34,7 @@ public class CustomHealth
             {
                 if(p.isOnline() && BedwarsAPI.getInstance().getGameOfPlayer(p).equals(game))
                 {
-                    AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+                    AttributeInstance attribute = p.getAttribute(Attribute.MAX_HEALTH);
                     assert attribute != null;
                     attribute.setBaseValue(HealthValue);
                     p.setHealth(HealthValue);
@@ -43,7 +43,7 @@ public class CustomHealth
         }
         else if (allorone.equalsIgnoreCase("one"))
         {
-            AttributeInstance attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+            AttributeInstance attribute = player.getAttribute(Attribute.MAX_HEALTH);
             assert attribute != null;
             attribute.setBaseValue(HealthValue);
             player.setHealth(HealthValue);
@@ -54,7 +54,7 @@ public class CustomHealth
             {
                 if(p.isOnline())
                 {
-                    AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+                    AttributeInstance attribute = p.getAttribute(Attribute.MAX_HEALTH);
                     assert attribute != null;
                     attribute.setBaseValue(20);
                     p.setHealth(20);
@@ -76,7 +76,7 @@ public class CustomHealth
                         {
                             if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p) && BedwarsAPI.getInstance().getGameOfPlayer(p).equals(game))
                             {
-                                AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+                                AttributeInstance attribute = p.getAttribute(Attribute.MAX_HEALTH);
                                 assert attribute != null;
 
                                 double healthpercent = p.getHealth() / attribute.getValue();
@@ -104,7 +104,7 @@ public class CustomHealth
                         {
                             if(BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p) && BedwarsAPI.getInstance().getGameOfPlayer(p).equals(game))
                             {
-                                AttributeInstance attribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+                                AttributeInstance attribute = p.getAttribute(Attribute.MAX_HEALTH);
                                 assert attribute != null;
 
                                 double healthpercent = p.getHealth() / attribute.getValue();

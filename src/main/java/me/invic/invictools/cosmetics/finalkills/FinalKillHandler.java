@@ -2,8 +2,8 @@ package me.invic.invictools.cosmetics.finalkills;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.properties.Property;
+//import com.mojang.authlib.GameProfile;
+//import com.mojang.authlib.properties.Property;
 import me.invic.invictools.cosmetics.bedbreaks.TornadoBedBreak;
 import me.invic.invictools.cosmetics.projtrail.ProjTrailHandler;
 import org.bukkit.*;
@@ -129,7 +129,7 @@ public class FinalKillHandler
                     {
                         loc.getWorld().playSound(loc, Sound.ENTITY_WARDEN_DEATH, 20, 1);
                         loc.getWorld().playSound(loc, Sound.ENTITY_GENERIC_EXPLODE, 20, 1);
-                        arrow.getWorld().spawnParticle(Particle.EXPLOSION_HUGE, arrow.getLocation(), 1);
+                        arrow.getWorld().spawnParticle(Particle.EXPLOSION_EMITTER, arrow.getLocation(), 1);
                     }
                 }.runTaskLater(Objects.requireNonNull(Bukkit.getServer().getPluginManager().getPlugin("Invictools")), 10L);
             }
@@ -144,7 +144,7 @@ public class FinalKillHandler
     private void Firework(Location loc, Player player)
     {
         BedwarsAPI api = BedwarsAPI.getInstance();
-        Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
+        Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK_ROCKET);
         FireworkMeta fwm = fw.getFireworkMeta();
 
         fwm.setPower(0);
@@ -165,7 +165,7 @@ public class FinalKillHandler
     private void Ranked(Location loc)
     {
         loc.getWorld().spawnParticle(Particle.HEART, loc, 10, 2, 3, 2);
-        loc.getWorld().spawnParticle(Particle.VILLAGER_HAPPY, loc, 20, 2, 3, 2);
+        loc.getWorld().spawnParticle(Particle.HAPPY_VILLAGER, loc, 20, 2, 3, 2);
         loc.getWorld().spawnParticle(Particle.NOTE, loc, 30, 2, 3, 2);
         loc.getWorld().playSound(loc, Sound.BLOCK_CONDUIT_DEACTIVATE, 2.0F, 1.0F);
     }
@@ -210,7 +210,7 @@ public class FinalKillHandler
         // ArmorStand as1 = (ArmorStand) loc.getWorld().spawnEntity(new Location(loc.getWorld(),loc.getX(),loc.getY() +100,loc.getZ()), EntityType.ARMOR_STAND);
         ArmorStand as1 = (ArmorStand) loc.getWorld().spawnEntity(loc, EntityType.ARMOR_STAND);
         as1.setVisible(false);
-        as1.getEquipment().setHelmet(getCustomSkull(killed.getName()));
+        as1.getEquipment().setHelmet(getCustomSkull(killed));
 
         as1.setVelocity(v);
         p.playSound(as1.getLocation(), Sound.ENTITY_FIREWORK_ROCKET_LAUNCH, 1, 1);
@@ -236,7 +236,7 @@ public class FinalKillHandler
             public void run()
             {
                 as1.getLocation().clone().getWorld().playSound(as1.getLocation().clone(), Sound.ENTITY_GENERIC_EXPLODE, 20, 1);
-                as1.getWorld().spawnParticle(Particle.EXPLOSION_HUGE, as1.getLocation(), 1);
+                as1.getWorld().spawnParticle(Particle.EXPLOSION, as1.getLocation(), 1);
                 as1.remove();
                 cancel = true;
                 //  Firework(as1.getLocation().clone().add(0, 1, 0), p);
@@ -250,31 +250,38 @@ public class FinalKillHandler
 
     boolean cancel = false;
 
-    public ItemStack getCustomSkull(String base64)
+    public ItemStack getCustomSkull(Player killed)
     {
 
         ItemStack head = new ItemStack(Material.PLAYER_HEAD);
-        if (base64.isEmpty()) return head;
-
-        SkullMeta skullMeta = (SkullMeta) head.getItemMeta();
-        //   skullMeta.setOwningPlayer(Bukkit.getPlayer(base64));
-        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
-
-        profile.getProperties().put("textures", new Property("textures", getHeadValue(base64)));
-
-        try
+        if(head.getItemMeta() instanceof SkullMeta sm)
         {
-            Method mtd = skullMeta.getClass().getDeclaredMethod("setProfile", GameProfile.class);
-            mtd.setAccessible(true);
-            mtd.invoke(skullMeta, profile);
+            sm.setOwnerProfile(killed.getPlayerProfile());
+            head.setItemMeta(sm);
         }
-        catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException ex)
-        {
-            ex.printStackTrace();
-        }
-
-        head.setItemMeta(skullMeta);
         return head;
+
+
+
+      //  SkullMeta skullMeta = (SkullMeta) head.getItemMeta();
+        //   skullMeta.setOwningPlayer(Bukkit.getPlayer(base64));
+//        GameProfile profile = new GameProfile(UUID.randomUUID(), null);
+//
+//        profile.getProperties().put("textures", new Property("textures", getHeadValue(base64)));
+//
+//        try
+//        {
+//            Method mtd = skullMeta.getClass().getDeclaredMethod("setProfile", GameProfile.class);
+//            mtd.setAccessible(true);
+//            mtd.invoke(skullMeta, profile);
+//        }
+//        catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException ex)
+//        {
+//            ex.printStackTrace();
+//        }
+
+//        head.setItemMeta(skullMeta);
+//        return head;
     }
 
     /*
@@ -384,7 +391,7 @@ public class FinalKillHandler
         if (pos == 2)
             loc.add(0, 7, 0);
 
-        Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
+        Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK_ROCKET);
         FireworkMeta fwm = fw.getFireworkMeta();
 
         fwm.setPower(0);

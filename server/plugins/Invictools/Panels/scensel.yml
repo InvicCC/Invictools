@@ -286,3 +286,18 @@ panels:
         name: '&4&lSweatfest'
         lore:
         - '&7Recieve a fishing rod on respawn'
+      '42':
+        material: MACE
+        stack: 1
+        cmd: scen mace
+        name: '&6&lMace'
+        lore:
+        - '&7Everyone gets a Mace with Windburst I and 5 Wind Charges'
+        - '&7Gain 5 Wind Charges on kill'
+      '43':
+        material: IRON_SPEAR
+        stack: 1
+        cmd: scen spears
+        name: '&7&llUNGE Spears'
+        lore:
+        - '&7Recieve a Stone Spear with Lunge III on respawn'

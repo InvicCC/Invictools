@@ -9,7 +9,6 @@ import me.invic.invictools.util.ingame.blockDecay;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.block.data.type.Bed;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -164,6 +163,28 @@ public class scenarioCommands implements TabExecutor, CommandExecutor
             Bukkit.dispatchCommand(sender,"it deathitems COBWEB 5 normal all");
             Bukkit.dispatchCommand(sender,"it killitems CREEPER_SPAWN_EGG 1 normal all");
             Bukkit.dispatchCommand(sender,"it killitems COBWEB 2 normal all");
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("mace") && sender instanceof Player p)
+        {
+            if(!BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+            {
+                sender.sendMessage(ChatColor.RED + "Must be activated in game!");
+                return true;
+            }
+
+            Bukkit.dispatchCommand(sender, "it deathitems MACE 1 item all");
+            Bukkit.dispatchCommand(sender, "it deathitems WIND_CHARGE 5 normal all");
+            Bukkit.dispatchCommand(sender, "it killitems WIND_CHARGE 5 normal all");
+        }
+        else if(args.length == 1 && args[0].equalsIgnoreCase("spears") && sender instanceof Player p)
+        {
+            if(!BedwarsAPI.getInstance().isPlayerPlayingAnyGame(p))
+            {
+                sender.sendMessage(ChatColor.RED + "Must be activated in game!");
+                return true;
+            }
+
+            Bukkit.dispatchCommand(sender, "it deathitems STONE_SPEAR 1 item all");
         }
         else if(args.length == 1 && args[0].equalsIgnoreCase("creativeall") && sender instanceof Player)
         {

@@ -76,14 +76,15 @@ public class blockDecay implements Listener
                // ((CraftPlayer)Bukkit.getPlayer("Invictable")).getHandle().playerConnection.sendPacket(packet1);
                 game.getConnectedPlayers().forEach(player ->
                 {
-                    try
-                    {
-                       // manager.sendServerPacket(player,clear);
-                        manager.sendServerPacket(player,packet1);
-                    } catch (InvocationTargetException e)
-                    {
-                        e.printStackTrace();
-                    }
+                    manager.sendServerPacket(player,packet1);
+//                    try
+//                    {
+//                       // manager.sendServerPacket(player,clear);
+//
+//                    } catch (InvocationTargetException e)
+//                    {
+//                        e.printStackTrace();
+//                    }
                 });
 
                 i++;

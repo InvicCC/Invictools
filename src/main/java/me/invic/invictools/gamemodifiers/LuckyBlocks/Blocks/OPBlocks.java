@@ -28,7 +28,7 @@ public class OPBlocks
     {
         //  String worldName = player.getWorld().getName();
         Random rand = new Random();
-        int choice = rand.nextInt(12); //total case statements + 1
+        int choice = rand.nextInt(13); //total case statements + 1
         switch (choice)
         {
             case 0:
@@ -223,6 +223,14 @@ public class OPBlocks
                 player.getWorld().spawnEntity(loc, EntityType.ALLAY);
                 player.getWorld().spawnEntity(loc, EntityType.ALLAY);
                 player.getWorld().spawnEntity(loc, EntityType.ALLAY);
+                break;
+            case 12:
+                ItemStack mace = new ItemStack(Material.MACE);
+                mace.addUnsafeEnchantment(Enchantment.WIND_BURST, 1);
+                player.getWorld().dropItemNaturally(loc, mace);
+                player.getWorld().dropItemNaturally(loc, new ItemStack(Material.WIND_CHARGE, 5));
+                loc.getWorld().strikeLightningEffect(loc);
+                player.playSound(loc, Sound.ITEM_MACE_SMASH_GROUND, 1, 1);
                 break;
             default:
                 System.out.println("default");

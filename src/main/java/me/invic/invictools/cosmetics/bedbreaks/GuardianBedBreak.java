@@ -66,7 +66,7 @@ public class GuardianBedBreak
             @Override
             public void run()
             {
-                end.getWorld().spawnParticle(Particle.EXPLOSION_LARGE, end.getLocation(), 1);
+                end.getWorld().spawnParticle(Particle.EXPLOSION_EMITTER, end.getLocation(), 1);
                 end.getWorld().playSound(end.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1, 1);
                 end.getWorld().playSound(end.getLocation(), Sound.ENTITY_ELDER_GUARDIAN_DEATH, 1, 1);
                 Guardian g = (Guardian) end.getWorld().spawnEntity(end.getLocation(), EntityType.GUARDIAN);

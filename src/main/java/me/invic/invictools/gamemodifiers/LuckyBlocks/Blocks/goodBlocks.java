@@ -31,7 +31,7 @@ public class goodBlocks
     {
         String worldName = player.getWorld().getName();
         Random rand = new Random();
-        int choice = rand.nextInt(22); //total case statements + 1
+        int choice = rand.nextInt(23); //total case statements + 1
         boolean isBedfight = false;
         if (BedwarsAPI.getInstance().isPlayerPlayingAnyGame(player))
         {
@@ -150,7 +150,7 @@ public class goodBlocks
                 else
                     timehalfed = 60;
 
-                double health = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
+                double health = player.getAttribute(Attribute.MAX_HEALTH).getValue();
                 new CustomHealth("one", player, (int) health + 20, 0, player.getWorld().getName());
                 for (Player p : GrabTeammates.getTeammates(player))
                 {
@@ -207,7 +207,7 @@ public class goodBlocks
                 if (meta instanceof Damageable)
                     ((Damageable) meta).setDamage(Material.BOW.getMaxDurability() - 3);
                 bow.setItemMeta(meta);
-                bow.addUnsafeEnchantment(Enchantment.ARROW_KNOCKBACK, 5);
+                bow.addUnsafeEnchantment(Enchantment.PUNCH, 5);
                 player.getWorld().dropItemNaturally(loc, bow);
                 player.getWorld().dropItemNaturally(loc, arrows);
                 player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
@@ -231,8 +231,8 @@ public class goodBlocks
                                 {
                                     if (DamageTeammates.withinDistance(player, team, 10) && player.getGameMode() != GameMode.SPECTATOR && team.getGameMode() != GameMode.SPECTATOR)
                                     {
-                                        player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 25, 1, false, false));
-                                        team.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 25, 1, false, false));
+                                        player.addPotionEffect(new PotionEffect(PotionEffectType.HASTE, 25, 1, false, false));
+                                        team.addPotionEffect(new PotionEffect(PotionEffectType.HASTE, 25, 1, false, false));
                                     }
                                 }
                             }
@@ -415,6 +415,10 @@ public class goodBlocks
                 break;
             case 21:
                 player.getWorld().dropItemNaturally(loc, new ItemStack(Material.WARDEN_SPAWN_EGG));
+                player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
+                break;
+            case 22:
+                player.getWorld().dropItemNaturally(loc, new createItems().IRON_SPEAR());
                 player.playSound(loc, Sound.ENTITY_CHICKEN_EGG, 1, 1);
                 break;
             default:

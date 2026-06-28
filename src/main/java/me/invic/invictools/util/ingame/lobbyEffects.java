@@ -42,8 +42,8 @@ public class lobbyEffects
                 int cblocX = rand.nextInt(16) - 8;
                 int cblocZ = rand.nextInt(16) - 8;
                 Location temploc = new Location(loc.getWorld(), loc.getX() + cblocX, loc.getY(), loc.getZ() + cblocZ);
-                TNTPrimed tnt = (TNTPrimed) loc.getWorld().spawnEntity(temploc, EntityType.PRIMED_TNT);
-                TNTPrimed tnt2 = (TNTPrimed) loc.getWorld().spawnEntity(temploc, EntityType.PRIMED_TNT);
+                TNTPrimed tnt = (TNTPrimed) loc.getWorld().spawnEntity(temploc, EntityType.TNT);
+                TNTPrimed tnt2 = (TNTPrimed) loc.getWorld().spawnEntity(temploc, EntityType.TNT);
                 tnt.setFuseTicks(5);
                 tnt2.setFuseTicks(10);
 

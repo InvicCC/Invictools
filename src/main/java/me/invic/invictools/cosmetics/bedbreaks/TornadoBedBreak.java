@@ -50,7 +50,7 @@ public class TornadoBedBreak
                         double radius = y * radius_increasement;
                         double x = Math.cos(Math.toRadians(360 / lines * l + y * 25 - angle)) * radius;
                         double z = Math.sin(Math.toRadians(360 / lines * l + y * 25 - angle)) * radius;
-                        loc.getWorld().spawnParticle(Particle.CRIT_MAGIC, loc.clone().add(x, y, z), 5, .05, .05, .05);
+                        loc.getWorld().spawnParticle(Particle.ENCHANTED_HIT, loc.clone().add(x, y, z), 5, .05, .05, .05);
                         loc.getWorld().spawnParticle(Particle.CRIT, loc.clone().add(x, y, z), 5, .05, .05, .05);
                     }
                     angle++;

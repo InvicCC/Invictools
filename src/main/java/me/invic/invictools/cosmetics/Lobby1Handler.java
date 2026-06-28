@@ -215,28 +215,28 @@ public class Lobby1Handler
                     switch (i)
                     {
                         case 0:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(.4, 2, 0), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_WATER, p.getLocation().clone().add(.4, 2, 0), 1);
                             break;
                         case 1:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(.3, 2, .3), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_WATER, p.getLocation().clone().add(.3, 2, .3), 1);
                             break;
                         case 2:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(0, 2, .4), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_WATER, p.getLocation().clone().add(0, 2, .4), 1);
                             break;
                         case 3:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(-.3, 2, .3), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_WATER, p.getLocation().clone().add(-.3, 2, .3), 1);
                             break;
                         case 4:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(-.4, 2, 0), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_WATER, p.getLocation().clone().add(-.4, 2, 0), 1);
                             break;
                         case 5:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(-.3, 2, -.3), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_WATER, p.getLocation().clone().add(-.3, 2, -.3), 1);
                             break;
                         case 6:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(0, 2, -.4), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_WATER, p.getLocation().clone().add(0, 2, -.4), 1);
                             break;
                         case 7:
-                            p.getWorld().spawnParticle(Particle.DRIP_WATER, p.getLocation().clone().add(.3, 2, -.3), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_WATER, p.getLocation().clone().add(.3, 2, -.3), 1);
                             break;
                     }
                     i++;
@@ -276,28 +276,28 @@ public class Lobby1Handler
                     switch (i)
                     {
                         case 0:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(.4, 2, 0), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_LAVA, p.getLocation().clone().add(.4, 2, 0), 1);
                             break;
                         case 1:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(.3, 2, .3), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_LAVA, p.getLocation().clone().add(.3, 2, .3), 1);
                             break;
                         case 2:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(0, 2, .4), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_LAVA, p.getLocation().clone().add(0, 2, .4), 1);
                             break;
                         case 3:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(-.3, 2, .3), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_LAVA, p.getLocation().clone().add(-.3, 2, .3), 1);
                             break;
                         case 4:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(-.4, 2, 0), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_LAVA, p.getLocation().clone().add(-.4, 2, 0), 1);
                             break;
                         case 5:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(-.3, 2, -.3), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_LAVA, p.getLocation().clone().add(-.3, 2, -.3), 1);
                             break;
                         case 6:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(0, 2, -.4), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_LAVA, p.getLocation().clone().add(0, 2, -.4), 1);
                             break;
                         case 7:
-                            p.getWorld().spawnParticle(Particle.DRIP_LAVA, p.getLocation().clone().add(.3, 2, -.3), 1);
+                            p.getWorld().spawnParticle(Particle.DRIPPING_LAVA, p.getLocation().clone().add(.3, 2, -.3), 1);
                             break;
                     }
                     i++;
@@ -348,7 +348,7 @@ public class Lobby1Handler
                         && p.getLocation().getY() == loc.getY()
                         && p.getLocation().getZ() == loc.getZ())
                 {
-                    p.getWorld().spawnParticle(Particle.REDSTONE, p.getLocation().clone().add(0, 1, 0), 5, .5, 1, .5, dust);
+                    p.getWorld().spawnParticle(Particle.DUST, p.getLocation().clone().add(0, 1, 0), 5, .5, 1, .5, dust);
 
                     if (!p.isOnline() || !p.getWorld().equals(world))
                         this.cancel();

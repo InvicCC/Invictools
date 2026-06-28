@@ -12,13 +12,13 @@ import org.bukkit.entity.SkeletonHorse;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.EntityDismountEvent;
+import org.bukkit.event.entity.EntityMountEvent;
 import org.bukkit.event.entity.HorseJumpEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
-import org.spigotmc.event.entity.EntityDismountEvent;
-import org.spigotmc.event.entity.EntityMountEvent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,8 +46,8 @@ public class dareListener implements Listener
         SkeletonHorse horse = (SkeletonHorse) player.getWorld().spawnEntity(loc, EntityType.SKELETON_HORSE);
         horse.setCustomName(dareName);
         horse.setJumpStrength(1);
-        horse.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(.65);
-        horse.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(60);
+        horse.getAttribute(Attribute.MOVEMENT_SPEED).setBaseValue(.65);
+        horse.getAttribute(Attribute.MAX_HEALTH).setBaseValue(60);
         // horse.addPotionEffect(PotionEffectType.DAMAGE_RESISTANCE.createEffect(999999,0));
         horse.setHealth(60);
         horse.getInventory().setSaddle(new ItemStack(Material.SADDLE, 1));
@@ -144,7 +144,7 @@ public class dareListener implements Listener
                 {
                     dareAir.remove(dare);
                     dare.getWorld().playSound(dare.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1, 1);
-                    dare.getLocation().getWorld().spawnParticle(Particle.EXPLOSION_HUGE, dare.getLocation(), 1);
+                    dare.getLocation().getWorld().spawnParticle(Particle.EXPLOSION_EMITTER, dare.getLocation(), 1);
                 }
 
                 if (dare.isDead())
@@ -183,7 +183,7 @@ public class dareListener implements Listener
                     @Override
                     public void run()
                     {
-                        e.getEntity().getLocation().getWorld().spawnParticle(Particle.EXPLOSION_NORMAL, e.getEntity().getLocation().clone(), 25, 0, 0, 0, .15);
+                        e.getEntity().getLocation().getWorld().spawnParticle(Particle.POOF, e.getEntity().getLocation().clone(), 25, 0, 0, 0, .15);
                         // e.getEntity().setVelocity(e.getEntity().getFacing().getDirection().add(new Vector(0,1.75,0)));
                         e.getEntity().setVelocity((e.getEntity().getLocation().getDirection().add(new Vector(0, 2, 0))));
                         if (!ItemListener.Falling.contains(e.getEntity().getPassengers().get(0)) && !e.getEntity().isDead())

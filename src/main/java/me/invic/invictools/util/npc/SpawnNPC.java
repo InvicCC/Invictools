@@ -1,20 +1,20 @@
 package me.invic.invictools.util.npc;
 
-import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.properties.Property;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.level.EntityPlayer;
-import net.minecraft.server.level.PlayerInteractManager;
-import net.minecraft.server.level.WorldServer;
-import net.minecraft.server.network.PlayerConnection;
+//import com.mojang.authlib.GameProfile;
+//import com.mojang.authlib.properties.Property;
+//import net.minecraft.server.MinecraftServer;
+//import net.minecraft.server.level.EntityPlayer;
+//import net.minecraft.server.level.PlayerInteractManager;
+//import net.minecraft.server.level.WorldServer;
+//import net.minecraft.server.network.PlayerConnection;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import org.bukkit.craftbukkit.v1_19_R1.CraftServer;
-import org.bukkit.craftbukkit.v1_19_R1.CraftWorld;
-import org.bukkit.craftbukkit.v1_19_R1.entity.CraftPlayer;
+//import org.bukkit.craftbukkit.v1_19_R1.CraftServer;
+//import org.bukkit.craftbukkit.v1_19_R1.CraftWorld;
+//import org.bukkit.craftbukkit.v1_19_R1.entity.CraftPlayer;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;

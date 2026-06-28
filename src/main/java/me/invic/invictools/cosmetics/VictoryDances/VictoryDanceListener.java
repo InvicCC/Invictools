@@ -7,11 +7,12 @@ import me.invic.invictools.util.disableStats;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDismountEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.RunningTeam;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
-import org.spigotmc.event.entity.EntityDismountEvent;
+
 
 public class VictoryDanceListener implements Listener
 {

@@ -38,7 +38,7 @@ public class queue implements Listener
 
     public Game getRandomGame(String GameType)
     {
-        List<Game> games = api.getGames();
+        List<Game> games = new ArrayList<>(api.getGames());
         Collections.shuffle(games);
         for (Game game:games)
         {

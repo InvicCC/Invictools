@@ -87,7 +87,7 @@ public class NormalKillHandler
     {
         loc.getWorld().spawnParticle(Particle.SCULK_SOUL, loc, 25, .2, .5, .2, .1);
         Particle.DustOptions dust = new Particle.DustOptions(Color.BLACK, 1);
-        loc.getWorld().spawnParticle(Particle.REDSTONE, loc, 12, .3, 1.5, .3, dust);
+        loc.getWorld().spawnParticle(Particle.DUST, loc, 12, .3, 1.5, .3, dust);
        // loc.getWorld().spawnParticle(Particle.CAMPFIRE_SIGNAL_SMOKE, loc, 4, 0, 1.85, 0,0);
         loc.getWorld().playSound(loc, Sound.BLOCK_FIRE_EXTINGUISH, 10, 1);
     }
@@ -127,7 +127,7 @@ public class NormalKillHandler
     private void tnt(Location loc)
     {
         loc.getWorld().playSound(loc, Sound.ENTITY_GENERIC_EXPLODE, 1, 1);
-        loc.getWorld().spawnParticle(Particle.EXPLOSION_LARGE, loc, 1);
+        loc.getWorld().spawnParticle(Particle.EXPLOSION, loc, 1);
     }
 
     private void sizzle(Location loc)

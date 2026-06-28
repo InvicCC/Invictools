@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.*;
@@ -55,7 +56,7 @@ public class createItems
         meta.setLore(lore);
         block.setItemMeta(meta);
 
-        block.addUnsafeEnchantment(Enchantment.DURABILITY, 10);
+        block.addUnsafeEnchantment(Enchantment.UNBREAKING, 10);
 
         return block;
     }
@@ -72,7 +73,7 @@ public class createItems
         meta.setLore(lore);
         block.setItemMeta(meta);
 
-        block.addUnsafeEnchantment(Enchantment.ARROW_FIRE, 1);
+        block.addUnsafeEnchantment(Enchantment.FLAME, 1);
 
         return block;
     }
@@ -279,7 +280,32 @@ public class createItems
         meta.setLore(lore);
         block.setItemMeta(meta);
 
-        block.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 10);
+        block.addUnsafeEnchantment(Enchantment.POWER, 10);
+
+        return block;
+    }
+
+    public ItemStack STONE_SPEAR()
+    {
+        ItemStack block = new ItemStack(Material.STONE_SPEAR);
+        block.addUnsafeEnchantment(Enchantment.LUNGE, 3);
+
+        return block;
+    }
+
+    public ItemStack IRON_SPEAR()
+    {
+        ItemStack block = new ItemStack(Material.IRON_SPEAR);
+        block.addUnsafeEnchantment(Enchantment.LUNGE, 3);
+
+        return block;
+    }
+
+    public ItemStack MACE()
+    {
+        ItemStack block = new ItemStack(Material.MACE);
+
+        block.addUnsafeEnchantment(Enchantment.WIND_BURST, 1);
 
         return block;
     }
@@ -335,6 +361,12 @@ public class createItems
                 return INFDAREBONE();
             case "darebone":
                 return DAREBONE();
+            case "mace":
+                return MACE();
+            case "stone_spear":
+                return STONE_SPEAR();
+            case "iron_spear":
+                return IRON_SPEAR();
             default:
                 return TNT();
         }

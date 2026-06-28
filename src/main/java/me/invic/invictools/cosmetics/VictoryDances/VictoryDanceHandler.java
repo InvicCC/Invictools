@@ -292,7 +292,7 @@ public class VictoryDanceHandler implements Listener
     private void creation(Location loc, Player player)
     {
         BedwarsAPI api = BedwarsAPI.getInstance();
-        Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK);
+        Firework fw = (Firework) loc.getWorld().spawnEntity(loc, EntityType.FIREWORK_ROCKET);
         FireworkMeta fwm = fw.getFireworkMeta();
 
         if (new Random().nextInt(2) == 1)

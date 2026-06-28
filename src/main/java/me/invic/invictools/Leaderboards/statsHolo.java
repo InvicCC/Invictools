@@ -138,15 +138,15 @@ public class statsHolo
 
         packet1.getIntLists().write(0, entityIDList);
 
-        try
-        {
+        //try
+        //{
             manager.sendServerPacket(p, packet1);
          //   p.sendMessage("Destroyed a hologram for you "+entityIDList.size());
-        }
-        catch (InvocationTargetException e)
-        {
-            e.printStackTrace();
-        }
+        //}
+//        catch (InvocationTargetException e)
+//        {
+//            e.printStackTrace();
+//        }
     }
 
 }

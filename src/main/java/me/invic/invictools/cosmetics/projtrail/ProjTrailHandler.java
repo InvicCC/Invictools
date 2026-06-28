@@ -89,7 +89,7 @@ public class ProjTrailHandler
             @Override
             public void run()
             {
-                entity.getWorld().spawnParticle(Particle.WATER_BUBBLE, entity.getLocation(), 10, .8, .8, .8, .2);
+                entity.getWorld().spawnParticle(Particle.BUBBLE, entity.getLocation(), 10, .8, .8, .8, .2);
                 //  System.out.println(entity.getLocation() + " "+entity.getWorld().getName());
 
                 if (entity.isDead() || entity.isOnGround())
@@ -309,12 +309,12 @@ public class ProjTrailHandler
             {
                 if(entity.getType().equals(EntityType.ENDER_DRAGON))
                 {
-                    entity.getLocation().getWorld().spawnParticle(Particle.DRIP_LAVA, entity.getLocation().clone().add(0,2,0), 1);
+                    entity.getLocation().getWorld().spawnParticle(Particle.DRIPPING_LAVA, entity.getLocation().clone().add(0,2,0), 1);
                     entity.getLocation().getWorld().spawnParticle(Particle.LAVA, entity.getLocation().clone().add(0,2,0), 1);
                 }
                 else
                 {
-                    entity.getLocation().getWorld().spawnParticle(Particle.DRIP_LAVA, entity.getLocation(), 1);
+                    entity.getLocation().getWorld().spawnParticle(Particle.DRIPPING_LAVA, entity.getLocation(), 1);
                     entity.getLocation().getWorld().spawnParticle(Particle.LAVA, entity.getLocation(), 1);
                 }
                 //  System.out.println(entity.getLocation() + " "+entity.getWorld().getName());
@@ -370,7 +370,7 @@ public class ProjTrailHandler
                 else
                     entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(0,0,-.5), 0, 0, 0, 0, dust);
 */
-                entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation(), 0, 0, 0, 0, dust);
+                entity.getLocation().getWorld().spawnParticle(Particle.DUST, entity.getLocation(), 0, 0, 0, 0, dust);
                 entity.getLocation().getWorld().spawnParticle(Particle.CRIT, entity.getLocation(), 10);
 
                 if (entity.isDead())
@@ -378,7 +378,7 @@ public class ProjTrailHandler
                     this.cancel();
                     if (VictoryDanceHandler.isVictoryDancing.get(p.getName()) != null && entity.getType().equals(EntityType.SNOWBALL))
                     {
-                        TNTPrimed tnt = (TNTPrimed) entity.getLocation().getWorld().spawnEntity(entity.getLocation(), EntityType.PRIMED_TNT);
+                        TNTPrimed tnt = (TNTPrimed) entity.getLocation().getWorld().spawnEntity(entity.getLocation(), EntityType.TNT);
                         tnt.setFuseTicks(1);
                         tnt.setYield(3);
                     }
@@ -436,7 +436,7 @@ public class ProjTrailHandler
                 else
                     entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(0,0,-.5), 0, 0, 0, 0, dust);
 */
-                entity.getLocation().getWorld().spawnParticle(Particle.REDSTONE, entity.getLocation().clone().add(0,2,0), 0, 0, 0, 0, dust);
+                entity.getLocation().getWorld().spawnParticle(Particle.DUST, entity.getLocation().clone().add(0,2,0), 0, 0, 0, 0, dust);
                 entity.getLocation().getWorld().spawnParticle(Particle.PORTAL, entity.getLocation().clone().add(0,2,0), 3);
 
                 if (entity.isDead())
@@ -444,7 +444,7 @@ public class ProjTrailHandler
                     this.cancel();
                     if (VictoryDanceHandler.isVictoryDancing.get(p.getName()) != null && entity.getType().equals(EntityType.SNOWBALL))
                     {
-                        TNTPrimed tnt = (TNTPrimed) entity.getLocation().getWorld().spawnEntity(entity.getLocation(), EntityType.PRIMED_TNT);
+                        TNTPrimed tnt = (TNTPrimed) entity.getLocation().getWorld().spawnEntity(entity.getLocation(), EntityType.TNT);
                         tnt.setFuseTicks(1);
                         tnt.setYield(3);
                     }

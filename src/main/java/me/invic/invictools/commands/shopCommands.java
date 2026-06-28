@@ -145,7 +145,7 @@ public class shopCommands implements CommandExecutor, TabExecutor, Listener
         meta = mid.getItemMeta();
         meta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&f&lAre you sure you want to purchase this?"));
         mid.setItemMeta(meta);
-        mid.addUnsafeEnchantment(Enchantment.DURABILITY,1);
+        mid.addUnsafeEnchantment(Enchantment.UNBREAKING,1);
         inventory.addItem(mid);
         ItemStack deny = new ItemStack(denyMaterial);
         meta = deny.getItemMeta();

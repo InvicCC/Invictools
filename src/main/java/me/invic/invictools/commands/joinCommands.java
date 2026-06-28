@@ -110,6 +110,13 @@ public class joinCommands implements CommandExecutor, TabExecutor
                 if (sender instanceof Player)
                 {
                     Player p = (Player) sender;
+                    if (queue.activeBedfightGame == null)
+                        queue.activeBedfightGame = new queue().getRandomGame("Bedfight");
+                    if (queue.activeBedfightGame == null)
+                    {
+                        sender.sendMessage(ChatColor.RED + "No Bedfight games are available right now");
+                        return true;
+                    }
                     new joinCommands().safeInventorySave();
                     queue.activeBedfightGame.joinToGame(p);
                     new BukkitRunnable()
@@ -119,10 +126,12 @@ public class joinCommands implements CommandExecutor, TabExecutor
                         {
                             if (p.getWorld().equals(Bukkit.getWorld("bwlobby")))
                             {
-                                queue.activeBedfightGame = new queue().getRandomGame("bedfight");
+                                queue.activeBedfightGame = new queue().getRandomGame("Bedfight");
+                                if (queue.activeBedfightGame == null) return;
                                 queue.activeBedfightGame.joinToGame(p);
                             }
 
+                            if (queue.activeBedfightGame == null) return;
                             safeSpec(p, queue.activeBedfightGame);
                             sender.sendMessage(ChatColor.AQUA + "Sending you to " + ChatColor.WHITE + queue.activeBedfightGame.getName());
                             announceJoin("Bedfight");
@@ -140,6 +149,13 @@ public class joinCommands implements CommandExecutor, TabExecutor
                 if (sender instanceof Player)
                 {
                     Player p = (Player) sender;
+                    if (queue.activeBedwarsGame == null)
+                        queue.activeBedwarsGame = new queue().getRandomGame("normal");
+                    if (queue.activeBedwarsGame == null)
+                    {
+                        sender.sendMessage(ChatColor.RED + "No Bedwars games are available right now");
+                        return true;
+                    }
                     new joinCommands().safeInventorySave();
                     queue.activeBedwarsGame.joinToGame(p);
                     new BukkitRunnable()
@@ -151,9 +167,11 @@ public class joinCommands implements CommandExecutor, TabExecutor
                             if (p.getWorld().equals(Bukkit.getWorld("bwlobby")))
                             {
                                 queue.activeBedwarsGame = new queue().getRandomGame("normal");
+                                if (queue.activeBedwarsGame == null) return;
                                 queue.activeBedwarsGame.joinToGame(p);
                             }
 
+                            if (queue.activeBedwarsGame == null) return;
                             safeSpec(p, queue.activeBedwarsGame);
                             sender.sendMessage(ChatColor.AQUA + "Sending you to " + ChatColor.WHITE + queue.activeBedwarsGame.getName());
                             announceJoin("Bedwars");

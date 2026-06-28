@@ -42,16 +42,19 @@ public class leaderboard
         for (File file : yamlFiles)
         {
             String[] id = file.getName().split("\\.");
-            if (!Bukkit.getOfflinePlayer(UUID.fromString(id[0])).getName().equalsIgnoreCase("Tower")
-                    && !Bukkit.getOfflinePlayer(UUID.fromString(id[0])).getName().equalsIgnoreCase("Unchargeableness")
-                    && !Bukkit.getOfflinePlayer(UUID.fromString(id[0])).getName().equalsIgnoreCase("Chargeable")
-                    && !Bukkit.getOfflinePlayer(UUID.fromString(id[0])).getName().equalsIgnoreCase("mayberry15"))
+            OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(UUID.fromString(id[0]));
+            String playerName = offlinePlayer.getName();
+            if (playerName == null
+                    || (!playerName.equalsIgnoreCase("Tower")
+                    && !playerName.equalsIgnoreCase("Unchargeableness")
+                    && !playerName.equalsIgnoreCase("Chargeable")
+                    && !playerName.equalsIgnoreCase("mayberry15")))
             {
                 if (sort.equalsIgnoreCase("star"))
                 {
                     if (data.getInt("data." + id[0] + ".score") > 0)
                     {
-                        leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), data.getDouble("data." + id[0] + ".score"));
+                        leaderboard.put(offlinePlayer, data.getDouble("data." + id[0] + ".score"));
                     }
                 }
                 else if (sort.equalsIgnoreCase("kdr"))
@@ -59,9 +62,9 @@ public class leaderboard
                     if (data.getInt("data." + id[0] + ".loses") + data.getInt("data." + id[0] + ".wins") >= gamesBeforeLeaderboard)
                     {
                         if (data.getInt("data." + id[0] + ".deaths") > 0)
-                            leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), data.getDouble("data." + id[0] + ".kills") / data.getDouble("data." + id[0] + ".deaths"));
+                            leaderboard.put(offlinePlayer, data.getDouble("data." + id[0] + ".kills") / data.getDouble("data." + id[0] + ".deaths"));
                         else
-                            leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), data.getDouble("data." + id[0] + ".kills"));
+                            leaderboard.put(offlinePlayer, data.getDouble("data." + id[0] + ".kills"));
                     }
                 }
                 else if (sort.equalsIgnoreCase("wl"))
@@ -69,9 +72,9 @@ public class leaderboard
                     if (data.getInt("data." + id[0] + ".loses") + data.getInt("data." + id[0] + ".wins") >= gamesBeforeLeaderboard)
                     {
                         if (data.getInt("data." + id[0] + ".loses") > 0)
-                            leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), data.getDouble("data." + id[0] + ".wins") / data.getDouble("data." + id[0] + ".loses"));
+                            leaderboard.put(offlinePlayer, data.getDouble("data." + id[0] + ".wins") / data.getDouble("data." + id[0] + ".loses"));
                         else
-                            leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), data.getDouble("data." + id[0] + ".wins"));
+                            leaderboard.put(offlinePlayer, data.getDouble("data." + id[0] + ".wins"));
                     }
                 }
                 else if (sort.equalsIgnoreCase("fkdr"))
@@ -80,21 +83,21 @@ public class leaderboard
                     {
                         FileConfiguration temp = YamlConfiguration.loadConfiguration(file);
                         if (temp.getInt("FinalDeaths") > 0)
-                            leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), temp.getDouble("FinalKills") / temp.getDouble("FinalDeaths"));
+                            leaderboard.put(offlinePlayer, temp.getDouble("FinalKills") / temp.getDouble("FinalDeaths"));
                         else
-                            leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), temp.getDouble("FinalKills"));
+                            leaderboard.put(offlinePlayer, temp.getDouble("FinalKills"));
                     }
                 }
                 else if (sort.equalsIgnoreCase("finals"))
                 {
                     FileConfiguration temp = YamlConfiguration.loadConfiguration(file);
-                    leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), temp.getDouble("FinalKills"));
+                    leaderboard.put(offlinePlayer, temp.getDouble("FinalKills"));
                 }
                 else
                 {
                     if (data.getInt("data." + id[0] + "." + sort) > 0)
                     {
-                        leaderboard.put(Bukkit.getOfflinePlayer(UUID.fromString(id[0])), data.getDouble("data." + id[0] + "." + sort));
+                        leaderboard.put(offlinePlayer, data.getDouble("data." + id[0] + "." + sort));
                     }
                 }
                 leaderboardTotal++;

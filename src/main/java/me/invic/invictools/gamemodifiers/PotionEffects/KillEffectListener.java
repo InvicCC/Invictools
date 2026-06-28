@@ -17,6 +17,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.screamingsandals.bedwars.api.events.BedwarsGameEndEvent;
+import org.screamingsandals.bedwars.api.events.BedwarsGameStartEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerKilledEvent;
 import org.screamingsandals.bedwars.api.events.BedwarsPlayerLeaveEvent;
 
@@ -110,6 +111,32 @@ public class KillEffectListener implements Listener
     {
         if(gainItems.activeGains.containsKey(p))
             gainItems.activeGains.get(p).destroy(p);
+    }
+
+    @EventHandler
+    public void bwstart(BedwarsGameStartEvent e)
+    {
+        new BukkitRunnable()
+        {
+            @Override
+            public void run()
+            {
+                for (Player p : e.getGame().getConnectedPlayers())
+                {
+                    if (!gainItems.activeGains.containsKey(p))
+                        continue;
+                    if (!gainItems.activeGains.get(p).checkGame(e.getGame()))
+                        continue;
+
+                    for (ItemStack item : gainItems.activeGains.get(p).getDeathItems())
+                    {
+                        final Map<Integer, ItemStack> map = p.getInventory().addItem(item);
+                        if (map.get(0) != null)
+                            p.getWorld().dropItemNaturally(p.getLocation(), map.get(0));
+                    }
+                }
+            }
+        }.runTaskLater(OldCommands.Invictools, 40L);
     }
 
     @EventHandler

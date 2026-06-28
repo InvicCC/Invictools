@@ -71,10 +71,10 @@ public class AbtributesOnDeath implements Listener
         {
             for (Player p : Bukkit.getOnlinePlayers())
             {
-                if (!Attribute.valueOf(a).equals(Attribute.GENERIC_MOVEMENT_SPEED))
+                if (!Attribute.valueOf(a).equals(Attribute.MOVEMENT_SPEED))
                     p.getAttribute(Attribute.valueOf(a)).setBaseValue(p.getAttribute(Attribute.valueOf(a)).getDefaultValue());
                 else
-                    p.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(.1);
+                    p.getAttribute(Attribute.MOVEMENT_SPEED).setBaseValue(.1);
             }
         });
         AbtributesOnDeath.ActiveAttributes.clear();
@@ -86,10 +86,10 @@ public class AbtributesOnDeath implements Listener
         {
             try
             {
-                if (!a.equals(Attribute.GENERIC_MOVEMENT_SPEED))
+                if (!a.equals(Attribute.MOVEMENT_SPEED))
                     p.getAttribute(a).setBaseValue(p.getAttribute(a).getDefaultValue());
                 else
-                    p.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(.1);
+                    p.getAttribute(Attribute.MOVEMENT_SPEED).setBaseValue(.1);
             }
             catch (NullPointerException ex)
             {

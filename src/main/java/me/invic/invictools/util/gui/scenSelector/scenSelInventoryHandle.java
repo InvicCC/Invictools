@@ -67,14 +67,14 @@ public class scenSelInventoryHandle
     {
         if(itemStack.getEnchantments().isEmpty())
         {
-            itemStack.addUnsafeEnchantment(Enchantment.DURABILITY, 1);
+            itemStack.addUnsafeEnchantment(Enchantment.UNBREAKING, 1);
             final ItemMeta meta = itemStack.getItemMeta();
             meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             itemStack.setItemMeta(meta);
         }
         else
         {
-            itemStack.removeEnchantment(Enchantment.DURABILITY);
+            itemStack.removeEnchantment(Enchantment.UNBREAKING);
         }
         return itemStack;
     }

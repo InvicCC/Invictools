@@ -322,12 +322,17 @@ public final class Invictools extends JavaPlugin
             new PAPIexpansion().register();
         }
 
+        new panels().loadPanels();
+
         // to run after server loads
         BukkitRunnable runnable = new BukkitRunnable()
         {
             @Override
             public void run()
             {
+                new statisticRequirments();
+                new shopCommands().loadShop();
+
                 deathListener.clearEverything(Bukkit.getWorld("bwlobby"));
                 new BlazeNpc().spawnNPC("npc", true);
                 new leaderboard().loadLeaderboard("Star");
@@ -352,9 +357,6 @@ public final class Invictools extends JavaPlugin
 
                 new perGameScenSelHolder();
                 new givePoints();
-                new statisticRequirments();
-                new panels().loadPanels();
-                new shopCommands().loadShop();
 
             }
         };
